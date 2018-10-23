@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
+using CefSharp.Example;
 
 namespace WindowsFormsApp5
 {
@@ -48,6 +49,7 @@ namespace WindowsFormsApp5
             browser.Dock = DockStyle.Fill;
             browser.AddressChanged += Browser_AddressChanged;
             toolStripContainer1.ContentPanel.Controls.Add(browser);
+            browser.DownloadHandler = new DownloadHandler();
         }
 
         public void goToUrl(string url)
@@ -98,7 +100,7 @@ namespace WindowsFormsApp5
         int wndY = 0;
         int wndWidth = 0;
         int wndHeight = 0;
-        bool maximized = false;
+        public bool maximized = false;
 
         void maxiMini()
         {
@@ -116,9 +118,9 @@ namespace WindowsFormsApp5
                 wndWidth = this.Width;
                 wndHeight = this.Height;
                 maximized = true;
-                this.Location = new Point(0, 117);
+                this.Location = new Point(0, 106);
                 this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 121;
+                this.Height = Parent.Height - 110;
             }
         }
 

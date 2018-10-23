@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -73,12 +74,26 @@ namespace WindowsFormsApp5
             this.Close();
         }
 
-        private void maxBtn_Click(object sender, EventArgs e)
+        private void miniMax()
         {
             if (this.WindowState == FormWindowState.Maximized)
                 this.WindowState = FormWindowState.Normal;
             else
                 this.WindowState = FormWindowState.Maximized;
+
+            if (this.ActiveMdiChild is Browse)
+            {
+                if (((Browse)this.ActiveMdiChild).maximized)
+                {
+                    this.ActiveMdiChild.Width = this.Width - 4;
+                    this.ActiveMdiChild.Height = this.Height - 121;
+                }
+            }
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            miniMax();
         }
 
         private void miniBtn_Click(object sender, EventArgs e)
@@ -161,7 +176,7 @@ namespace WindowsFormsApp5
             this.Close();
         }
 
-        bool newWindow = true;
+        bool newWindow = false;
 
         private void Form1_MdiChildActivate(object sender, EventArgs e)
         {
@@ -180,12 +195,6 @@ namespace WindowsFormsApp5
                     old_url = addrBox.Text = ((Browse)this.ActiveMdiChild).url;
                 }
             }
-        }
-
-        private void addrBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (addrBox.Text.Length <= 0)
-                newWindow = true;
         }
 
         public void GoToURL()
@@ -207,10 +216,11 @@ namespace WindowsFormsApp5
 
         private void addrBox_KeyDown_1(object sender, KeyEventArgs e)
         {
+            if (addrBox.Text.Length <= 3)
+                newWindow = true;
+
             if (e.KeyCode == Keys.Enter)
-            {
                 GoToURL();
-            }
         }
 
         private void goBtn_Click(object sender, EventArgs e)
@@ -220,16 +230,19 @@ namespace WindowsFormsApp5
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
-            if (e.Column == 0)
-                e.Graphics.FillRectangle(Brushes.Navy, e.CellBounds);
-            if (e.Column == 1)
-                e.Graphics.FillRectangle(Brushes.ForestGreen, e.CellBounds);
-            if (e.Column == 2)
-                e.Graphics.FillRectangle(Brushes.MediumPurple, e.CellBounds);
-            if (e.Column == 3)
-                e.Graphics.FillRectangle(Brushes.MediumSeaGreen, e.CellBounds);
-            if (e.Column == 4)
-                e.Graphics.FillRectangle(Brushes.Purple, e.CellBounds);
+            SolidBrush brush1 = new SolidBrush(Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(102))))));
+            if (e.Column == 13)
+                e.Graphics.FillRectangle(brush1, e.CellBounds);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void addrBox_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }
@@ -267,10 +280,7 @@ namespace WindowsFormsApp5
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
+            miniMax();
         }
     }
 }
