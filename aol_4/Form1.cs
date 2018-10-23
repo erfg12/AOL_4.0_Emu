@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,9 @@ namespace WindowsFormsApp5
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
 
+        [DllImport("winmm.dll")]
+        private static extern uint mciSendString(string command, StringBuilder returnValue, int returnLength, IntPtr winHandle);
+
         private const int cGrip = 16;
         private const int cCaption = 32;
 
@@ -38,15 +43,6 @@ namespace WindowsFormsApp5
             HTBOTTOMLEFT = 16,
             HTBOTTOMRIGHT = 17;
 
-        public void InitBrowser()
-        {
-            /*Cef.Initialize(new CefSettings());
-            browser = new ChromiumWebBrowser("https://www.google.com");
-            browser.Dock = DockStyle.Fill;*/
-            //browser.AddressChanged += Browser_AddressChanged;
-            //toolStripContainer1.ContentPanel.Controls.Add(browser);
-        }
-
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +54,20 @@ namespace WindowsFormsApp5
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        public static int GetSoundLength(string fileName)
+        {
+            StringBuilder lengthBuf = new StringBuilder(32);
+
+            mciSendString(string.Format("open \"{0}\" type waveaudio alias wave", fileName), null, 0, IntPtr.Zero);
+            mciSendString("status wave length", lengthBuf, lengthBuf.Capacity, IntPtr.Zero);
+            mciSendString("close wave", null, 0, IntPtr.Zero);
+
+            int length = 0;
+            int.TryParse(lengthBuf.ToString(), out length);
+
+            return length;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -81,9 +91,15 @@ namespace WindowsFormsApp5
             else
                 this.WindowState = FormWindowState.Maximized;
 
-            if (this.ActiveMdiChild is Browse)
+            if (this.ActiveMdiChild != null)
             {
-                if (((Browse)this.ActiveMdiChild).maximized)
+                bool resize = false;
+                if (this.ActiveMdiChild is Browse && ((Browse)ActiveMdiChild).maximized)
+                    resize = true;
+                if (this.ActiveMdiChild is buddies_online && ((buddies_online)ActiveMdiChild).maximized)
+                    resize = true;
+
+                if (resize)
                 {
                     this.ActiveMdiChild.Width = this.Width - 4;
                     this.ActiveMdiChild.Height = this.Height - 121;
@@ -101,7 +117,7 @@ namespace WindowsFormsApp5
             this.WindowState = FormWindowState.Minimized;
         }
 
-        const int tenDigit = 10; // you can rename this variable if you like
+        const int tenDigit = 2; // you can rename this variable if you like
 
         Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, tenDigit); } }
         Rectangle Left { get { return new Rectangle(0, 0, tenDigit, this.ClientSize.Height); } }
@@ -119,13 +135,24 @@ namespace WindowsFormsApp5
             toolTip1.SetToolTip(this.forwardBtn, "Forward");
             toolTip1.SetToolTip(this.reloadBtn, "Refresh");
 
+            // open fake dial up window
             dial_up du = new dial_up();
+            du.Owner = (Form)this;
+            du.MdiParent = this;
             du.Show();
-            du.Left = (this.Width / 2);
-            du.Top = (this.Height / 2);
+
+            // open buddies online window
+            buddies_online bo = new buddies_online();
+            bo.Owner = (Form)this;
+            bo.MdiParent = this;
+            bo.Show();
+            bo.Left = this.Width - bo.Width - 8;
+            bo.Top += 100;
+
+            findDropDown.SelectedIndex = 0;
 
             // open initial browser window
-            openBrowser();
+            //openBrowser(); //dial up screen and other windows should come first
         }
 
         private void openBrowser()
@@ -161,11 +188,18 @@ namespace WindowsFormsApp5
             this.Close();
         }
 
-        bool newWindow = false;
+        bool newWindow = true;
 
         private void Form1_MdiChildActivate(object sender, EventArgs e)
         {
-
+            if (this.ActiveMdiChild is Browse)
+            {
+                stopBtn.Image = Properties.Resources.stop_btn_enabled;
+                forwardBtn.Image = Properties.Resources.forward_btn_enabled;
+                stopBtn.Image = Properties.Resources.stop_btn_enabled;
+                reloadBtn.Image = Properties.Resources.reload_btn_enabled;
+                backBtn.Image = Properties.Resources.back_btn_enabled;
+            }
         }
 
         string old_url = "";
@@ -184,18 +218,20 @@ namespace WindowsFormsApp5
 
         public void GoToURL()
         {
-            if (this.ActiveMdiChild is Browse)
+            if (!newWindow)
             {
-                if (!newWindow)
-                {
-                    if (this.ActiveMdiChild is Browse)
-                        ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
-                }
-                else
+                if (this.ActiveMdiChild is Browse)
+                    ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
+                else // we don't have a browser window selected, open a new one anyways
                 {
                     openBrowser();
                     newWindow = false;
                 }
+            }
+            else
+            {
+                openBrowser();
+                newWindow = false;
             }
         }
 
@@ -205,7 +241,9 @@ namespace WindowsFormsApp5
                 newWindow = true;
 
             if (e.KeyCode == Keys.Enter)
+            {
                 GoToURL();
+            }
         }
 
         private void goBtn_Click(object sender, EventArgs e)
@@ -258,6 +296,21 @@ namespace WindowsFormsApp5
         {
             if (this.ActiveMdiChild is Browse)
                 ((Browse)this.ActiveMdiChild).goToUrl("google.com");
+        }
+
+        private void addrBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (addrBox.Text == "Type Keyword or Web Address here and click Go")
+                addrBox.Text = "";
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.Stream = Properties.Resources.Goodbye;
+            player.Play();
+
+            System.Threading.Thread.Sleep(1000);
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }

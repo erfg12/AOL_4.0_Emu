@@ -127,38 +127,44 @@
   <data name="200px-America_Online_logo.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\200px-America_Online_logo.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="back_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_btn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="right_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\right_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="my_files_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\my_files_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="back_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="back_btn_enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimize_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stop_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stop_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="close_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_btn_enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop_btn_enabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="weather_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\weather_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nomail_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nomail_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="forward_btn_enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forward_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="forward_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\forward_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\forward_btn1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="aol-icon-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aol-icon-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="people_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\people_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dialup_pic3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dialup_pic3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="write_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\write_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,11 +175,11 @@
   <data name="channels_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\channels_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="home_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_btn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dialup_pic2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dialup_pic2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nomail_icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nomail_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="perks_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perks_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,13 +187,10 @@
   <data name="print_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nomail_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nomail_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="favorites_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\favorites_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="home_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="home_btn_enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maximize_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -208,7 +211,19 @@
   <data name="my_aol_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\my_aol_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dialup_pic3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dialup_pic3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stop_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop_btn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Goodbye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Goodbye.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nomail_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nomail_icon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reload_btn_enabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reload_btn_enabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Welcome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Welcome.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

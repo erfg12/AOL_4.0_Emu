@@ -8,13 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
-using CefSharp.Example;
 
 namespace WindowsFormsApp5
 {
-    public partial class Browse : Form
+    public partial class buddies_online : Form
     {
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
@@ -24,8 +21,6 @@ namespace WindowsFormsApp5
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
-
-        public ChromiumWebBrowser browser;
 
         private const int cGrip = 16;
         private const int cCaption = 32;
@@ -40,37 +35,6 @@ namespace WindowsFormsApp5
             HTBOTTOMLEFT = 16,
             HTBOTTOMRIGHT = 17;
 
-        public void InitBrowser(string url)
-        {
-            //Cef.Initialize(new CefSettings());
-            if (url == "")
-                url = "https://www.google.com";
-            browser = new ChromiumWebBrowser(url);
-            browser.Dock = DockStyle.Fill;
-            browser.AddressChanged += Browser_AddressChanged;
-            toolStripContainer1.ContentPanel.Controls.Add(browser);
-            browser.DownloadHandler = new DownloadHandler();
-        }
-
-        public void goToUrl(string url)
-        {
-            browser.Load(url);
-        }
-
-        public Browse(string url = "")
-        {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            InitBrowser(url);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -80,26 +44,16 @@ namespace WindowsFormsApp5
             }
         }
 
-        public string url = "";
-
-        private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
-        {
-            url = e.Address;
-            titleLabel.Invoke(new MethodInvoker(delegate
-            {
-                titleLabel.Text = url;
-            }));
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         int wndX = 0;
         int wndY = 0;
         int wndWidth = 0;
         int wndHeight = 0;
+
+        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            maxiMini();
+        }
+
         public bool maximized = false;
 
         void maxiMini()
@@ -124,14 +78,19 @@ namespace WindowsFormsApp5
             }
         }
 
+        private void miniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void maxBtn_Click(object sender, EventArgs e)
         {
             maxiMini();
         }
 
-        private void miniBtn_Click(object sender, EventArgs e)
+        private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            this.Close();
         }
 
         const int _ = 2;
@@ -141,22 +100,15 @@ namespace WindowsFormsApp5
         Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
-        private void forwardBtn_Click(object sender, EventArgs e)
+        public buddies_online()
         {
-            browser.Forward();
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
-        {
-            browser.Back();
-        }
-
-        private void reloadBtn_Click(object sender, EventArgs e)
-        {
-            browser.Reload();
-        }
-
-        private void Form1_Shown(object sender, EventArgs e)
+        private void buddies_online_Shown(object sender, EventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.closeBtn, "Close Window");
@@ -168,7 +120,6 @@ namespace WindowsFormsApp5
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
-
 
         protected override void WndProc(ref Message message)
         {
@@ -190,17 +141,17 @@ namespace WindowsFormsApp5
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e) // you can safely omit this method if you want
-            {
-                e.Graphics.FillRectangle(Brushes.Gray, Top);
-                e.Graphics.FillRectangle(Brushes.Gray, Left);
-                e.Graphics.FillRectangle(Brushes.Gray, Right);
-                e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-            }
-
-        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
-            maxiMini();
+            e.Graphics.FillRectangle(Brushes.Gray, Top);
+            e.Graphics.FillRectangle(Brushes.Gray, Left);
+            e.Graphics.FillRectangle(Brushes.Gray, Right);
+            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
+
+        private void buddies_online_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

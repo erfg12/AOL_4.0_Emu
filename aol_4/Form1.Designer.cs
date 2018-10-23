@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.findDropDown = new System.Windows.Forms.ComboBox();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
             this.goBtn = new System.Windows.Forms.Button();
@@ -105,6 +106,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(188)))), ((int)(((byte)(187)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.findDropDown);
             this.panel2.Controls.Add(this.homeBtn);
             this.panel2.Controls.Add(this.reloadBtn);
             this.panel2.Controls.Add(this.stopBtn);
@@ -118,24 +120,37 @@
             this.panel2.Size = new System.Drawing.Size(1250, 27);
             this.panel2.TabIndex = 8;
             // 
+            // findDropDown
+            // 
+            this.findDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.findDropDown.FormattingEnabled = true;
+            this.findDropDown.Items.AddRange(new object[] {
+            "Find"});
+            this.findDropDown.Location = new System.Drawing.Point(138, 3);
+            this.findDropDown.Name = "findDropDown";
+            this.findDropDown.Size = new System.Drawing.Size(57, 21);
+            this.findDropDown.TabIndex = 15;
+            // 
             // addrBox
             // 
             this.addrBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addrBox.FormattingEnabled = true;
-            this.addrBox.Location = new System.Drawing.Point(140, 3);
+            this.addrBox.Location = new System.Drawing.Point(201, 3);
             this.addrBox.Name = "addrBox";
-            this.addrBox.Size = new System.Drawing.Size(937, 21);
+            this.addrBox.Size = new System.Drawing.Size(872, 21);
             this.addrBox.TabIndex = 9;
+            this.addrBox.Text = "Type Keyword or Web Address here and click Go";
             this.addrBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyDown_1);
             this.addrBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyUp_1);
+            this.addrBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addrBox_MouseClick);
             // 
             // keywordBtn
             // 
             this.keywordBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.keywordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.keywordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.keywordBtn.Location = new System.Drawing.Point(1117, 3);
+            this.keywordBtn.Location = new System.Drawing.Point(1114, 3);
             this.keywordBtn.Name = "keywordBtn";
             this.keywordBtn.Size = new System.Drawing.Size(57, 21);
             this.keywordBtn.TabIndex = 8;
@@ -147,7 +162,7 @@
             this.goBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.goBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.goBtn.Location = new System.Drawing.Point(1081, 3);
+            this.goBtn.Location = new System.Drawing.Point(1077, 3);
             this.goBtn.Name = "goBtn";
             this.goBtn.Size = new System.Drawing.Size(33, 21);
             this.goBtn.TabIndex = 7;
@@ -326,7 +341,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::WindowsFormsApp5.Properties.Resources.nomail_icon2;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
@@ -446,7 +461,7 @@
             // homeBtn
             // 
             this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn;
+            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
             this.homeBtn.Location = new System.Drawing.Point(107, 4);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(27, 20);
@@ -467,8 +482,9 @@
             // 
             // stopBtn
             // 
+            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn;
+            this.stopBtn.Image = ((System.Drawing.Image)(resources.GetObject("stopBtn.Image")));
             this.stopBtn.Location = new System.Drawing.Point(52, 4);
             this.stopBtn.Name = "stopBtn";
             this.stopBtn.Size = new System.Drawing.Size(27, 20);
@@ -611,6 +627,7 @@
             this.IsMdiContainer = true;
             this.Name = "Form1";
             this.Text = "AOL 4.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
             this.Shown += new System.EventHandler(this.Form1_Shown);
@@ -689,6 +706,7 @@
         private System.Windows.Forms.PictureBox stopBtn;
         private System.Windows.Forms.PictureBox reloadBtn;
         private System.Windows.Forms.PictureBox homeBtn;
+        private System.Windows.Forms.ComboBox findDropDown;
     }
 }
 

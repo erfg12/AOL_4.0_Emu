@@ -67,6 +67,12 @@
     <Compile Include="browse.Designer.cs">
       <DependentUpon>browse.cs</DependentUpon>
     </Compile>
+    <Compile Include="buddies_online.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buddies_online.Designer.cs">
+      <DependentUpon>buddies_online.cs</DependentUpon>
+    </Compile>
     <Compile Include="dial_up.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="browse.resx">
       <DependentUpon>browse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="buddies_online.resx">
+      <DependentUpon>buddies_online.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dial_up.resx">
       <DependentUpon>dial_up.cs</DependentUpon>
@@ -209,7 +218,16 @@
     <None Include="Resources\dialup_pic3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\back_btn1.png" />
+    <None Include="Resources\forward_btn1.png" />
     <Content Include="Resources\Goodbye.wav" />
+    <None Include="Resources\stop_btn_enabled.png" />
+    <None Include="Resources\stop_btn1.png" />
+    <None Include="Resources\home_btn1.png" />
+    <None Include="Resources\home_btn2.png" />
+    <None Include="Resources\stop_btn2.png" />
+    <None Include="Resources\reload_btn_enabled.bmp" />
+    <None Include="Resources\reload_btn_enabled.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>

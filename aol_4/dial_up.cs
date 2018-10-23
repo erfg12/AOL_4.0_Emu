@@ -41,9 +41,9 @@ namespace WindowsFormsApp5
                     pictureBox3.Visible = Visible;
                     break;
                 case 4:
-                    /*System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                    player.SoundLocation = System.Reflection.Assembly.GetExecutingAssembly().Location + "\\..\\..\\Resources\\Welcome.wav";
-                    player.Play();*/
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                    player.Stream = Properties.Resources.Welcome;
+                    player.Play();
                     this.Close();
                     break;
                 default:
