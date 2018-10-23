@@ -103,6 +103,16 @@ namespace WindowsFormsApp5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap channels_background {
+            get {
+                object obj = ResourceManager.GetObject("channels_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap channels_icon {
             get {
                 object obj = ResourceManager.GetObject("channels_icon", resourceCulture);
@@ -215,6 +225,16 @@ namespace WindowsFormsApp5.Properties {
         internal static System.Drawing.Bitmap home_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("home_btn_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_menu {
+            get {
+                object obj = ResourceManager.GetObject("home_menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

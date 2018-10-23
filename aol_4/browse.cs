@@ -141,21 +141,6 @@ namespace WindowsFormsApp5
         Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
-        private void forwardBtn_Click(object sender, EventArgs e)
-        {
-            browser.Forward();
-        }
-
-        private void backBtn_Click(object sender, EventArgs e)
-        {
-            browser.Back();
-        }
-
-        private void reloadBtn_Click(object sender, EventArgs e)
-        {
-            browser.Reload();
-        }
-
         private void Form1_Shown(object sender, EventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
@@ -168,13 +153,12 @@ namespace WindowsFormsApp5
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
-
-
+        
         protected override void WndProc(ref Message message)
         {
             base.WndProc(ref message);
 
-            if (message.Msg == 0x84) // WM_NCHITTEST
+            if (message.Msg == 0x84)
             {
                 var cursor = this.PointToClient(Cursor.Position);
 
@@ -190,13 +174,13 @@ namespace WindowsFormsApp5
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e) // you can safely omit this method if you want
-            {
-                e.Graphics.FillRectangle(Brushes.Gray, Top);
-                e.Graphics.FillRectangle(Brushes.Gray, Left);
-                e.Graphics.FillRectangle(Brushes.Gray, Right);
-                e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-            }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Gray, Top);
+            e.Graphics.FillRectangle(Brushes.Gray, Left);
+            e.Graphics.FillRectangle(Brushes.Gray, Right);
+            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {

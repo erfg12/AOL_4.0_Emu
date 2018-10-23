@@ -35,6 +35,46 @@ namespace WindowsFormsApp5
             HTBOTTOMLEFT = 16,
             HTBOTTOMRIGHT = 17;
 
+        const int _ = 2;
+
+        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+
+        Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
+        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
+        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
+        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
+
+        protected override void WndProc(ref Message message)
+        {
+            base.WndProc(ref message);
+
+            if (message.Msg == 0x84)
+            {
+                var cursor = this.PointToClient(Cursor.Position);
+
+                if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
+                else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
+                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
+                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
+
+                else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
+                else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
+                else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
+                else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Gray, Top);
+            e.Graphics.FillRectangle(Brushes.Gray, Left);
+            e.Graphics.FillRectangle(Brushes.Gray, Right);
+            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -93,13 +133,6 @@ namespace WindowsFormsApp5
             this.Close();
         }
 
-        const int _ = 2;
-
-        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
-
         public buddies_online()
         {
             InitializeComponent();
@@ -114,39 +147,6 @@ namespace WindowsFormsApp5
             toolTip1.SetToolTip(this.closeBtn, "Close Window");
             toolTip1.SetToolTip(this.maxBtn, "Maximize Window");
             toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
-        }
-
-        Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
-        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
-        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
-        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
-
-        protected override void WndProc(ref Message message)
-        {
-            base.WndProc(ref message);
-
-            if (message.Msg == 0x84) // WM_NCHITTEST
-            {
-                var cursor = this.PointToClient(Cursor.Position);
-
-                if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
-                else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
-                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
-                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
-
-                else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
-                else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
-                else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
-            }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Gray, Top);
-            e.Graphics.FillRectangle(Brushes.Gray, Left);
-            e.Graphics.FillRectangle(Brushes.Gray, Right);
-            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
         private void buddies_online_Load(object sender, EventArgs e)

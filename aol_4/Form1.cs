@@ -149,10 +149,15 @@ namespace WindowsFormsApp5
             bo.Left = this.Width - bo.Width - 8;
             bo.Top += 100;
 
-            findDropDown.SelectedIndex = 0;
+            // open home menu
+            home_menu hm = new home_menu();
+            hm.Owner = (Form)this;
+            hm.MdiParent = this;
+            hm.Show();
+            hm.Left += 320;
+            hm.Top += 200;
 
-            // open initial browser window
-            //openBrowser(); //dial up screen and other windows should come first
+            findDropDown.SelectedIndex = 0; // default find text selected
         }
 
         private void openBrowser()
@@ -313,6 +318,16 @@ namespace WindowsFormsApp5
             System.Threading.Thread.Sleep(1000);
         }
 
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            channels ch = new channels();
+            ch.Owner = (Form)this;
+            ch.MdiParent = this;
+            ch.Show();
+            ch.Left += 320;
+            ch.Top += 200;
+        }
+
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - tenDigit, 0, tenDigit, tenDigit); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - tenDigit, tenDigit, tenDigit); } }
@@ -322,7 +337,7 @@ namespace WindowsFormsApp5
         {
             base.WndProc(ref message);
 
-            if (message.Msg == 0x84) // WM_NCHITTEST
+            if (message.Msg == 0x84)
             {
                 var cursor = this.PointToClient(Cursor.Position);
 
@@ -338,7 +353,7 @@ namespace WindowsFormsApp5
             }
         }
 
-    protected override void OnPaint(PaintEventArgs e) // you can safely omit this method if you want
+        protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(Brushes.Gray, Top);
             e.Graphics.FillRectangle(Brushes.Gray, Left);

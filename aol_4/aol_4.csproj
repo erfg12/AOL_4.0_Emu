@@ -73,6 +73,12 @@
     <Compile Include="buddies_online.Designer.cs">
       <DependentUpon>buddies_online.cs</DependentUpon>
     </Compile>
+    <Compile Include="channels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="channels.Designer.cs">
+      <DependentUpon>channels.cs</DependentUpon>
+    </Compile>
     <Compile Include="dial_up.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="home_menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="home_menu.Designer.cs">
+      <DependentUpon>home_menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="browse.resx">
@@ -94,11 +106,17 @@
     <EmbeddedResource Include="buddies_online.resx">
       <DependentUpon>buddies_online.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="channels.resx">
+      <DependentUpon>channels.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dial_up.resx">
       <DependentUpon>dial_up.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home_menu.resx">
+      <DependentUpon>home_menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -220,6 +238,7 @@
   <ItemGroup>
     <None Include="Resources\back_btn1.png" />
     <None Include="Resources\forward_btn1.png" />
+    <None Include="Resources\channels_background.png" />
     <Content Include="Resources\Goodbye.wav" />
     <None Include="Resources\stop_btn_enabled.png" />
     <None Include="Resources\stop_btn1.png" />
@@ -228,6 +247,7 @@
     <None Include="Resources\stop_btn2.png" />
     <None Include="Resources\reload_btn_enabled.bmp" />
     <None Include="Resources\reload_btn_enabled.png" />
+    <None Include="Resources\home_menu.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>
