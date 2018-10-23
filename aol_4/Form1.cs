@@ -109,26 +109,6 @@ namespace WindowsFormsApp5
 
         new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - tenDigit, 0, tenDigit, this.ClientSize.Height); } }
 
-        private void forwardBtn_Click(object sender, EventArgs e)
-        {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Forward();
-        }
-
-        private void backBtn_Click(object sender, EventArgs e)
-        {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Back();
-        }
-
-        private void reloadBtn_Click(object sender, EventArgs e)
-        {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Reload();
-        }
-
-        public static string address { get; set; }
-
         private void Form1_Shown(object sender, EventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
@@ -138,6 +118,11 @@ namespace WindowsFormsApp5
             toolTip1.SetToolTip(this.backBtn, "Back");
             toolTip1.SetToolTip(this.forwardBtn, "Forward");
             toolTip1.SetToolTip(this.reloadBtn, "Refresh");
+
+            dial_up du = new dial_up();
+            du.Show();
+            du.Left = (this.Width / 2);
+            du.Top = (this.Height / 2);
 
             // open initial browser window
             openBrowser();
@@ -243,6 +228,36 @@ namespace WindowsFormsApp5
         private void addrBox_KeyUp_1(object sender, KeyEventArgs e)
         {
             
+        }
+
+        private void backBtn_Click_1(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild is Browse)
+                ((Browse)this.ActiveMdiChild).browser.Back();
+        }
+
+        private void forwardBtn_Click_1(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild is Browse)
+                ((Browse)this.ActiveMdiChild).browser.Forward();
+        }
+
+        private void stopBtn_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild is Browse)
+                ((Browse)this.ActiveMdiChild).browser.Stop();
+        }
+
+        private void reloadBtn_Click_1(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild is Browse)
+                ((Browse)this.ActiveMdiChild).browser.Reload();
+        }
+
+        private void homeBtn_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild is Browse)
+                ((Browse)this.ActiveMdiChild).goToUrl("google.com");
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }

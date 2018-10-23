@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.reloadBtn = new System.Windows.Forms.Button();
-            this.forwardBtn = new System.Windows.Forms.Button();
-            this.backBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
@@ -62,6 +59,11 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.homeBtn = new System.Windows.Forms.PictureBox();
+            this.reloadBtn = new System.Windows.Forms.PictureBox();
+            this.stopBtn = new System.Windows.Forms.PictureBox();
+            this.forwardBtn = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -88,70 +90,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reloadBtn
-            // 
-            this.reloadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.FlatAppearance.BorderSize = 0;
-            this.reloadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reloadBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reloadBtn.Location = new System.Drawing.Point(57, 0);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(24, 26);
-            this.reloadBtn.TabIndex = 6;
-            this.reloadBtn.Text = "c";
-            this.reloadBtn.UseVisualStyleBackColor = true;
-            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click);
-            // 
-            // forwardBtn
-            // 
-            this.forwardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.FlatAppearance.BorderSize = 0;
-            this.forwardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.forwardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forwardBtn.Location = new System.Drawing.Point(27, 2);
-            this.forwardBtn.Name = "forwardBtn";
-            this.forwardBtn.Size = new System.Drawing.Size(24, 24);
-            this.forwardBtn.TabIndex = 5;
-            this.forwardBtn.Text = ">";
-            this.forwardBtn.UseVisualStyleBackColor = true;
-            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click);
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.Location = new System.Drawing.Point(3, 1);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(18, 26);
-            this.backBtn.TabIndex = 4;
-            this.backBtn.Text = "<";
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(188)))), ((int)(((byte)(187)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.homeBtn);
+            this.panel2.Controls.Add(this.reloadBtn);
+            this.panel2.Controls.Add(this.stopBtn);
+            this.panel2.Controls.Add(this.forwardBtn);
+            this.panel2.Controls.Add(this.backBtn);
             this.panel2.Controls.Add(this.addrBox);
             this.panel2.Controls.Add(this.keywordBtn);
             this.panel2.Controls.Add(this.goBtn);
-            this.panel2.Controls.Add(this.reloadBtn);
-            this.panel2.Controls.Add(this.backBtn);
-            this.panel2.Controls.Add(this.forwardBtn);
             this.panel2.Location = new System.Drawing.Point(3, 79);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1250, 29);
+            this.panel2.Size = new System.Drawing.Size(1250, 27);
             this.panel2.TabIndex = 8;
             // 
             // addrBox
@@ -159,9 +123,9 @@
             this.addrBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addrBox.FormattingEnabled = true;
-            this.addrBox.Location = new System.Drawing.Point(87, 3);
+            this.addrBox.Location = new System.Drawing.Point(140, 3);
             this.addrBox.Name = "addrBox";
-            this.addrBox.Size = new System.Drawing.Size(990, 21);
+            this.addrBox.Size = new System.Drawing.Size(937, 21);
             this.addrBox.TabIndex = 9;
             this.addrBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyDown_1);
             this.addrBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyUp_1);
@@ -171,9 +135,9 @@
             this.keywordBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.keywordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.keywordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.keywordBtn.Location = new System.Drawing.Point(1117, 2);
+            this.keywordBtn.Location = new System.Drawing.Point(1117, 3);
             this.keywordBtn.Name = "keywordBtn";
-            this.keywordBtn.Size = new System.Drawing.Size(57, 23);
+            this.keywordBtn.Size = new System.Drawing.Size(57, 21);
             this.keywordBtn.TabIndex = 8;
             this.keywordBtn.Text = "Keyword";
             this.keywordBtn.UseVisualStyleBackColor = true;
@@ -183,9 +147,9 @@
             this.goBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.goBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.goBtn.Location = new System.Drawing.Point(1081, 2);
+            this.goBtn.Location = new System.Drawing.Point(1081, 3);
             this.goBtn.Name = "goBtn";
-            this.goBtn.Size = new System.Drawing.Size(33, 23);
+            this.goBtn.Size = new System.Drawing.Size(33, 21);
             this.goBtn.TabIndex = 7;
             this.goBtn.Text = "Go";
             this.goBtn.UseVisualStyleBackColor = true;
@@ -227,7 +191,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(228, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(147, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // fileBtn
@@ -479,6 +443,61 @@
             this.pictureBox15.TabIndex = 13;
             this.pictureBox15.TabStop = false;
             // 
+            // homeBtn
+            // 
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn;
+            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(27, 20);
+            this.homeBtn.TabIndex = 14;
+            this.homeBtn.TabStop = false;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
+            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
+            this.reloadBtn.TabIndex = 13;
+            this.reloadBtn.TabStop = false;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn;
+            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(27, 20);
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.TabStop = false;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn;
+            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
+            this.forwardBtn.TabIndex = 11;
+            this.forwardBtn.TabStop = false;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn;
+            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(25, 20);
+            this.backBtn.TabIndex = 10;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -617,6 +636,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -629,9 +653,6 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button miniBtn;
-        private System.Windows.Forms.Button reloadBtn;
-        private System.Windows.Forms.Button forwardBtn;
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
@@ -663,6 +684,11 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox backBtn;
+        private System.Windows.Forms.PictureBox forwardBtn;
+        private System.Windows.Forms.PictureBox stopBtn;
+        private System.Windows.Forms.PictureBox reloadBtn;
+        private System.Windows.Forms.PictureBox homeBtn;
     }
 }
 

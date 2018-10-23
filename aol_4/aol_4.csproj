@@ -181,6 +181,40 @@
   <ItemGroup>
     <None Include="Resources\right_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dial_up1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialup_pic1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialup_pic2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dialup_pic3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Goodbye.wav" />
+    <Content Include="Resources\Welcome.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
