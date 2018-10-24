@@ -18,6 +18,8 @@ namespace WindowsFormsApp5
         public dial_up()
         {
             InitializeComponent();
+            this.TopLevel = true;
+            this.Focus();
         }
 
         int i = 0;

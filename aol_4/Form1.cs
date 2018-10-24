@@ -125,7 +125,7 @@ namespace WindowsFormsApp5
 
         new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - tenDigit, 0, tenDigit, this.ClientSize.Height); } }
 
-        private void Form1_Shown(object sender, EventArgs e)
+        private async void Form1_Shown(object sender, EventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.closeBtn, "Close Browser");
@@ -140,6 +140,8 @@ namespace WindowsFormsApp5
             du.Owner = (Form)this;
             du.MdiParent = this;
             du.Show();
+
+            await Task.Delay(TimeSpan.FromSeconds(1));
 
             // open buddies online window
             buddies_online bo = new buddies_online();
