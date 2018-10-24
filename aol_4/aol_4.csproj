@@ -263,6 +263,8 @@
     <None Include="Resources\buddiesonline_IM_btn.png" />
     <None Include="Resources\buddiesonline_setup_btn.png" />
     <None Include="Resources\buddiesonline_buddychat_btn.png" />
+    <None Include="Resources\back_btn2.png" />
+    <None Include="Resources\forward_btn2.png" />
     <Content Include="Resources\Goodbye.wav" />
     <None Include="Resources\stop_btn_enabled.png" />
     <None Include="Resources\stop_btn1.png" />
@@ -270,8 +272,9 @@
     <None Include="Resources\home_btn2.png" />
     <None Include="Resources\stop_btn2.png" />
     <None Include="Resources\reload_btn_enabled.bmp" />
-    <None Include="Resources\reload_btn_enabled.png" />
     <None Include="Resources\home_menu.png" />
+    <None Include="Resources\stop_btn3.png" />
+    <None Include="Resources\reload_btn_enabled.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>

@@ -103,6 +103,16 @@ namespace WindowsFormsApp5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_btn1 {
+            get {
+                object obj = ResourceManager.GetObject("back_btn1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buddiesonline_buddychat_btn {
             get {
                 object obj = ResourceManager.GetObject("buddiesonline_buddychat_btn", resourceCulture);
@@ -441,6 +451,16 @@ namespace WindowsFormsApp5.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forward_btn1 {
+            get {
+                object obj = ResourceManager.GetObject("forward_btn1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Goodbye {
@@ -635,6 +655,16 @@ namespace WindowsFormsApp5.Properties {
         internal static System.Drawing.Bitmap stop_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("stop_btn_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stop_btn1 {
+            get {
+                object obj = ResourceManager.GetObject("stop_btn1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,11 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
             this.findDropDown = new System.Windows.Forms.ComboBox();
-            this.homeBtn = new System.Windows.Forms.PictureBox();
-            this.reloadBtn = new System.Windows.Forms.PictureBox();
-            this.stopBtn = new System.Windows.Forms.PictureBox();
-            this.forwardBtn = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.PictureBox();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
             this.goBtn = new System.Windows.Forms.Button();
@@ -65,6 +60,11 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.homeBtn = new System.Windows.Forms.PictureBox();
+            this.reloadBtn = new System.Windows.Forms.PictureBox();
+            this.stopBtn = new System.Windows.Forms.PictureBox();
+            this.forwardBtn = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -72,11 +72,6 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -96,6 +91,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,62 +130,6 @@
             this.findDropDown.Name = "findDropDown";
             this.findDropDown.Size = new System.Drawing.Size(57, 21);
             this.findDropDown.TabIndex = 15;
-            // 
-            // homeBtn
-            // 
-            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
-            this.homeBtn.Location = new System.Drawing.Point(107, 4);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(27, 20);
-            this.homeBtn.TabIndex = 14;
-            this.homeBtn.TabStop = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
-            // 
-            // reloadBtn
-            // 
-            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
-            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
-            this.reloadBtn.TabIndex = 13;
-            this.reloadBtn.TabStop = false;
-            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
-            // 
-            // stopBtn
-            // 
-            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = ((System.Drawing.Image)(resources.GetObject("stopBtn.Image")));
-            this.stopBtn.Location = new System.Drawing.Point(52, 4);
-            this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(27, 20);
-            this.stopBtn.TabIndex = 12;
-            this.stopBtn.TabStop = false;
-            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
-            // 
-            // forwardBtn
-            // 
-            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn;
-            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
-            this.forwardBtn.Name = "forwardBtn";
-            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
-            this.forwardBtn.TabIndex = 11;
-            this.forwardBtn.TabStop = false;
-            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
-            // 
-            // backBtn
-            // 
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn;
-            this.backBtn.Location = new System.Drawing.Point(4, 4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(25, 20);
-            this.backBtn.TabIndex = 10;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
             // 
             // addrBox
             // 
@@ -516,6 +460,62 @@
             this.pictureBox15.TabIndex = 13;
             this.pictureBox15.TabStop = false;
             // 
+            // homeBtn
+            // 
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
+            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(27, 20);
+            this.homeBtn.TabIndex = 14;
+            this.homeBtn.TabStop = false;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
+            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
+            this.reloadBtn.TabIndex = 13;
+            this.reloadBtn.TabStop = false;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn1;
+            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(27, 20);
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.TabStop = false;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn1;
+            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
+            this.forwardBtn.TabIndex = 11;
+            this.forwardBtn.TabStop = false;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn1;
+            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(25, 20);
+            this.backBtn.TabIndex = 10;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -634,11 +634,6 @@
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -660,6 +655,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -117,17 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="stopBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB0AAAAVBAMAAABI7vhRAAAABGdBTUEAALGPC/xhBQAAACFQTFRFzMzM
-        v7+/s7Ozqampn5+jmJiYi4uLf39/d3d3bW1tZWVls8Q7GgAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0
-        RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAACPSURBVCjPY8AOBIAAicsaGhoaiMQP
-        BQFBFGmgApgOxtBQFAUwviGUzxQaugoI4RqEQ0OjVi0NDQ2G8oVCQQpCQ4OgfBGofDFCPVh/siBcHgxK
-        EPJgkAwzTxXMjYCZz6gC5rfBHQzW0FGqCPOQoGnGzJltwXAPMgq7pqeFGiJCRFDJxNlQEClABIEASDEw
-        AAAkti6fstFnnwAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -140,6 +129,7 @@
   <metadata name="getMdiChildURL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>289, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACkAAAAmCAYAAABZNrIjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
