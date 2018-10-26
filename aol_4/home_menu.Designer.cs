@@ -29,18 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(home_menu));
+            this.todayLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.todayLabel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // todayLabel
+            // 
+            this.todayLabel.AutoSize = true;
+            this.todayLabel.BackColor = System.Drawing.Color.Transparent;
+            this.todayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.todayLabel.Location = new System.Drawing.Point(253, 47);
+            this.todayLabel.Name = "todayLabel";
+            this.todayLabel.Size = new System.Drawing.Size(28, 12);
+            this.todayLabel.TabIndex = 4;
+            this.todayLabel.Text = "today";
             // 
             // pictureBox1
             // 
@@ -70,6 +81,19 @@
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox2.InitialImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // titleLabel
             // 
@@ -139,30 +163,6 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // todayLabel
-            // 
-            this.todayLabel.AutoSize = true;
-            this.todayLabel.BackColor = System.Drawing.Color.Transparent;
-            this.todayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todayLabel.Location = new System.Drawing.Point(253, 47);
-            this.todayLabel.Name = "todayLabel";
-            this.todayLabel.Size = new System.Drawing.Size(28, 12);
-            this.todayLabel.TabIndex = 4;
-            this.todayLabel.Text = "today";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox2.InitialImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(18, 18);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
             // home_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,9 +173,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(320, 200);
+            this.Location = new System.Drawing.Point(350, 240);
             this.Name = "home_menu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "home_menu";
             this.Shown += new System.EventHandler(this.home_menu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

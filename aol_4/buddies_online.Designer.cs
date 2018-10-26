@@ -61,6 +61,7 @@
             "Co-Workers (0/0)"});
             this.listBox1.Location = new System.Drawing.Point(5, 43);
             this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(136, 147);
             this.listBox1.TabIndex = 3;
             // 
@@ -261,9 +262,11 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(1100, 120);
             this.MinimumSize = new System.Drawing.Size(145, 280);
             this.Name = "buddies_online";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Load += new System.EventHandler(this.buddies_online_Load);
             this.Shown += new System.EventHandler(this.buddies_online_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

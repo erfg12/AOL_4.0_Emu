@@ -268,6 +268,8 @@
     <None Include="Resources\back_btn2.png" />
     <None Include="Resources\forward_btn2.png" />
     <None Include="Resources\channels_icon_enabled.png" />
+    <None Include="Resources\aol_loading_image.gif" />
+    <None Include="Resources\aol_loading_image1.gif" />
     <Content Include="Resources\Goodbye.wav" />
     <None Include="Resources\stop_btn_enabled.png" />
     <None Include="Resources\stop_btn1.png" />
@@ -284,6 +286,7 @@
     <None Include="Resources\perks_icon_enabled.png" />
     <None Include="Resources\quotes_icon_enabled.png" />
     <None Include="Resources\mie_badge.png" />
+    <None Include="Resources\right_icon1.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>

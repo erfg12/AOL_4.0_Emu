@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.mie_badge = new System.Windows.Forms.PictureBox();
             this.findDropDown = new System.Windows.Forms.ComboBox();
+            this.homeBtn = new System.Windows.Forms.PictureBox();
+            this.reloadBtn = new System.Windows.Forms.PictureBox();
+            this.stopBtn = new System.Windows.Forms.PictureBox();
+            this.forwardBtn = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
             this.goBtn = new System.Windows.Forms.Button();
@@ -59,13 +65,32 @@
             this.quotes_btn = new System.Windows.Forms.PictureBox();
             this.perks_btn = new System.Windows.Forms.PictureBox();
             this.weather_btn = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.mie_badge = new System.Windows.Forms.PictureBox();
-            this.homeBtn = new System.Windows.Forms.PictureBox();
-            this.reloadBtn = new System.Windows.Forms.PictureBox();
-            this.stopBtn = new System.Windows.Forms.PictureBox();
-            this.forwardBtn = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.PictureBox();
+            this.loadingIcon = new System.Windows.Forms.PictureBox();
+            this.channelsContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.aOLTodayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.influenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.travelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.internationalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.personalFinanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workPlaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.computingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.researchLearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.entertainmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lifestylesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.shoppingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.healthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.familiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kidsOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.localToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -73,6 +98,12 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -91,13 +122,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotes_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingIcon)).BeginInit();
+            this.channelsContextMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -123,6 +149,16 @@
             this.panel2.Size = new System.Drawing.Size(1250, 27);
             this.panel2.TabIndex = 8;
             // 
+            // mie_badge
+            // 
+            this.mie_badge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mie_badge.Location = new System.Drawing.Point(1188, 3);
+            this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
+            this.mie_badge.Name = "mie_badge";
+            this.mie_badge.Size = new System.Drawing.Size(59, 21);
+            this.mie_badge.TabIndex = 16;
+            this.mie_badge.TabStop = false;
+            // 
             // findDropDown
             // 
             this.findDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -133,6 +169,62 @@
             this.findDropDown.Name = "findDropDown";
             this.findDropDown.Size = new System.Drawing.Size(57, 21);
             this.findDropDown.TabIndex = 15;
+            // 
+            // homeBtn
+            // 
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
+            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(27, 20);
+            this.homeBtn.TabIndex = 14;
+            this.homeBtn.TabStop = false;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
+            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
+            this.reloadBtn.TabIndex = 13;
+            this.reloadBtn.TabStop = false;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn1;
+            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(27, 20);
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.TabStop = false;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn1;
+            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
+            this.forwardBtn.TabIndex = 11;
+            this.forwardBtn.TabStop = false;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn1;
+            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(25, 20);
+            this.backBtn.TabIndex = 10;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
             // 
             // addrBox
             // 
@@ -297,7 +389,7 @@
             this.tableLayoutPanel1.Controls.Add(this.quotes_btn, 10, 0);
             this.tableLayoutPanel1.Controls.Add(this.perks_btn, 11, 0);
             this.tableLayoutPanel1.Controls.Add(this.weather_btn, 12, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox15, 14, 0);
+            this.tableLayoutPanel1.Controls.Add(this.loadingIcon, 14, 0);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 41);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -453,80 +545,187 @@
             this.weather_btn.TabIndex = 12;
             this.weather_btn.TabStop = false;
             // 
-            // pictureBox15
+            // loadingIcon
             // 
-            this.pictureBox15.Image = global::WindowsFormsApp5.Properties.Resources.right_icon;
-            this.pictureBox15.Location = new System.Drawing.Point(1202, 0);
-            this.pictureBox15.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(46, 38);
-            this.pictureBox15.TabIndex = 13;
-            this.pictureBox15.TabStop = false;
+            this.loadingIcon.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Enabled = false;
+            this.loadingIcon.Image = global::WindowsFormsApp5.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Location = new System.Drawing.Point(1202, 0);
+            this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.loadingIcon.Name = "loadingIcon";
+            this.loadingIcon.Size = new System.Drawing.Size(46, 38);
+            this.loadingIcon.TabIndex = 13;
+            this.loadingIcon.TabStop = false;
             // 
-            // mie_badge
+            // channelsContextMenuStrip
             // 
-            this.mie_badge.Location = new System.Drawing.Point(1188, 3);
-            this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
-            this.mie_badge.Name = "mie_badge";
-            this.mie_badge.Size = new System.Drawing.Size(59, 21);
-            this.mie_badge.TabIndex = 16;
-            this.mie_badge.TabStop = false;
+            this.channelsContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aOLTodayToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.newsToolStripMenuItem,
+            this.sportsToolStripMenuItem,
+            this.influenceToolStripMenuItem,
+            this.travelToolStripMenuItem,
+            this.internationalToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.personalFinanceToolStripMenuItem,
+            this.workPlaceToolStripMenuItem,
+            this.computingToolStripMenuItem,
+            this.researchLearnToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.entertainmentToolStripMenuItem,
+            this.gamesToolStripMenuItem,
+            this.interestsToolStripMenuItem,
+            this.lifestylesToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.shoppingToolStripMenuItem,
+            this.healthToolStripMenuItem,
+            this.familiesToolStripMenuItem,
+            this.kidsOnlyToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.localToolStripMenuItem});
+            this.channelsContextMenuStrip.Name = "channelsContextMenuStrip";
+            this.channelsContextMenuStrip.Size = new System.Drawing.Size(167, 452);
             // 
-            // homeBtn
+            // aOLTodayToolStripMenuItem
             // 
-            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
-            this.homeBtn.Location = new System.Drawing.Point(107, 4);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(27, 20);
-            this.homeBtn.TabIndex = 14;
-            this.homeBtn.TabStop = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            this.aOLTodayToolStripMenuItem.Name = "aOLTodayToolStripMenuItem";
+            this.aOLTodayToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.aOLTodayToolStripMenuItem.Text = "AOL Today";
+            this.aOLTodayToolStripMenuItem.Click += new System.EventHandler(this.aOLTodayToolStripMenuItem_Click);
             // 
-            // reloadBtn
+            // toolStripSeparator1
             // 
-            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
-            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
-            this.reloadBtn.TabIndex = 13;
-            this.reloadBtn.TabStop = false;
-            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
             // 
-            // stopBtn
+            // newsToolStripMenuItem
             // 
-            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn1;
-            this.stopBtn.Location = new System.Drawing.Point(52, 4);
-            this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(27, 20);
-            this.stopBtn.TabIndex = 12;
-            this.stopBtn.TabStop = false;
-            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            this.newsToolStripMenuItem.Name = "newsToolStripMenuItem";
+            this.newsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.newsToolStripMenuItem.Text = "News";
             // 
-            // forwardBtn
+            // sportsToolStripMenuItem
             // 
-            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn1;
-            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
-            this.forwardBtn.Name = "forwardBtn";
-            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
-            this.forwardBtn.TabIndex = 11;
-            this.forwardBtn.TabStop = false;
-            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            this.sportsToolStripMenuItem.Name = "sportsToolStripMenuItem";
+            this.sportsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.sportsToolStripMenuItem.Text = "Sports";
             // 
-            // backBtn
+            // influenceToolStripMenuItem
             // 
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn1;
-            this.backBtn.Location = new System.Drawing.Point(4, 4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(25, 20);
-            this.backBtn.TabIndex = 10;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
+            this.influenceToolStripMenuItem.Name = "influenceToolStripMenuItem";
+            this.influenceToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.influenceToolStripMenuItem.Text = "Influence";
+            // 
+            // travelToolStripMenuItem
+            // 
+            this.travelToolStripMenuItem.Name = "travelToolStripMenuItem";
+            this.travelToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.travelToolStripMenuItem.Text = "Travel";
+            // 
+            // internationalToolStripMenuItem
+            // 
+            this.internationalToolStripMenuItem.Name = "internationalToolStripMenuItem";
+            this.internationalToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.internationalToolStripMenuItem.Text = "International";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(163, 6);
+            // 
+            // personalFinanceToolStripMenuItem
+            // 
+            this.personalFinanceToolStripMenuItem.Name = "personalFinanceToolStripMenuItem";
+            this.personalFinanceToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.personalFinanceToolStripMenuItem.Text = "Personal Finance";
+            // 
+            // workPlaceToolStripMenuItem
+            // 
+            this.workPlaceToolStripMenuItem.Name = "workPlaceToolStripMenuItem";
+            this.workPlaceToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.workPlaceToolStripMenuItem.Text = "WorkPlace";
+            // 
+            // computingToolStripMenuItem
+            // 
+            this.computingToolStripMenuItem.Name = "computingToolStripMenuItem";
+            this.computingToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.computingToolStripMenuItem.Text = "Computing";
+            // 
+            // researchLearnToolStripMenuItem
+            // 
+            this.researchLearnToolStripMenuItem.Name = "researchLearnToolStripMenuItem";
+            this.researchLearnToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.researchLearnToolStripMenuItem.Text = "Research && Learn";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(163, 6);
+            // 
+            // entertainmentToolStripMenuItem
+            // 
+            this.entertainmentToolStripMenuItem.Name = "entertainmentToolStripMenuItem";
+            this.entertainmentToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.entertainmentToolStripMenuItem.Text = "Entertainment";
+            // 
+            // gamesToolStripMenuItem
+            // 
+            this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
+            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.gamesToolStripMenuItem.Text = "Games";
+            // 
+            // interestsToolStripMenuItem
+            // 
+            this.interestsToolStripMenuItem.Name = "interestsToolStripMenuItem";
+            this.interestsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.interestsToolStripMenuItem.Text = "Interests";
+            // 
+            // lifestylesToolStripMenuItem
+            // 
+            this.lifestylesToolStripMenuItem.Name = "lifestylesToolStripMenuItem";
+            this.lifestylesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.lifestylesToolStripMenuItem.Text = "Lifestyles";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(163, 6);
+            // 
+            // shoppingToolStripMenuItem
+            // 
+            this.shoppingToolStripMenuItem.Name = "shoppingToolStripMenuItem";
+            this.shoppingToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.shoppingToolStripMenuItem.Text = "Shopping";
+            // 
+            // healthToolStripMenuItem
+            // 
+            this.healthToolStripMenuItem.Name = "healthToolStripMenuItem";
+            this.healthToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.healthToolStripMenuItem.Text = "Health";
+            // 
+            // familiesToolStripMenuItem
+            // 
+            this.familiesToolStripMenuItem.Name = "familiesToolStripMenuItem";
+            this.familiesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.familiesToolStripMenuItem.Text = "Families";
+            // 
+            // kidsOnlyToolStripMenuItem
+            // 
+            this.kidsOnlyToolStripMenuItem.Name = "kidsOnlyToolStripMenuItem";
+            this.kidsOnlyToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.kidsOnlyToolStripMenuItem.Text = "Kids Only";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(163, 6);
+            // 
+            // localToolStripMenuItem
+            // 
+            this.localToolStripMenuItem.Name = "localToolStripMenuItem";
+            this.localToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.localToolStripMenuItem.Text = "Local";
             // 
             // panel1
             // 
@@ -647,6 +846,12 @@
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -667,13 +872,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.quotes_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingIcon)).EndInit();
+            this.channelsContextMenuStrip.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -716,7 +916,7 @@
         private System.Windows.Forms.PictureBox quotes_btn;
         private System.Windows.Forms.PictureBox perks_btn;
         private System.Windows.Forms.PictureBox weather_btn;
-        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox loadingIcon;
         private System.Windows.Forms.PictureBox backBtn;
         private System.Windows.Forms.PictureBox forwardBtn;
         private System.Windows.Forms.PictureBox stopBtn;
@@ -724,6 +924,31 @@
         private System.Windows.Forms.PictureBox homeBtn;
         private System.Windows.Forms.ComboBox findDropDown;
         private System.Windows.Forms.PictureBox mie_badge;
+        private System.Windows.Forms.ContextMenuStrip channelsContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem aOLTodayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem influenceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem travelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem internationalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem personalFinanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem workPlaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem computingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem researchLearnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem entertainmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem interestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lifestylesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem shoppingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem healthToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem familiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kidsOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem localToolStripMenuItem;
     }
 }
 

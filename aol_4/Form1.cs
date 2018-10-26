@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -134,6 +135,9 @@ namespace WindowsFormsApp5
             toolTip1.SetToolTip(this.backBtn, "Back");
             toolTip1.SetToolTip(this.forwardBtn, "Forward");
             toolTip1.SetToolTip(this.reloadBtn, "Refresh");
+            toolTip1.SetToolTip(this.write_mail_button, "Write mail and send files.");
+            toolTip1.SetToolTip(this.my_files_btn, "Your Personal Documents.");
+            toolTip1.SetToolTip(this.print_page_btn, "Print text or pictures.");
 
             // open fake dial up window
             dial_up du = new dial_up();
@@ -148,16 +152,12 @@ namespace WindowsFormsApp5
             bo.Owner = (Form)this;
             bo.MdiParent = this;
             bo.Show();
-            bo.Left = this.Width - bo.Width - 8;
-            bo.Top += 100;
 
             // open home menu
             home_menu hm = new home_menu();
             hm.Owner = (Form)this;
             hm.MdiParent = this;
             hm.Show();
-            hm.Left += 320;
-            hm.Top += 200;
 
             // enable buttons
             internet_btn.Image = Properties.Resources.internet_icon_enabled;
@@ -181,8 +181,6 @@ namespace WindowsFormsApp5
             BrowseWnd.Owner = (Form)this;
             BrowseWnd.MdiParent = this;
             BrowseWnd.Show();
-            BrowseWnd.Left += 100;
-            BrowseWnd.Top += 120;
         }
 
         private Point FindLocation(Control ctrl)
@@ -228,6 +226,16 @@ namespace WindowsFormsApp5
         {
             if (this.ActiveMdiChild is Browse)
             {
+                if (((Browse)this.ActiveMdiChild).loading)
+                {
+                    loadingIcon.Enabled = true;
+                }
+                else
+                {
+                    loadingIcon.Enabled = false;
+                    loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
+                    loadingIcon.Image = loadingIcon.Image;
+                }
                 if (((Browse)this.ActiveMdiChild).url != old_url)
                 {
                     addrBox.Text = ((Browse)this.ActiveMdiChild).url;
@@ -342,14 +350,25 @@ namespace WindowsFormsApp5
             System.Threading.Thread.Sleep(1000);
         }
 
+        bool channelsOpen = false;
+        // channels button
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            channels ch = new channels();
+            if (!channelsOpen)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                channelsContextMenuStrip.Show(ptLowerLeft);
+                channelsOpen = true;
+            }
+            else
+                channelsOpen = false;
+            // this form doesn't open from the top bar button, only from the AOL today window
+            /*channels ch = new channels();
             ch.Owner = (Form)this;
             ch.MdiParent = this;
-            ch.Show();
-            ch.Left += 320;
-            ch.Top += 200;
+            ch.Show();*/
         }
 
         private void mainTitle_MouseMove(object sender, MouseEventArgs e)
@@ -359,6 +378,15 @@ namespace WindowsFormsApp5
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void aOLTodayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open home menu
+            home_menu hm = new home_menu();
+            hm.Owner = (Form)this;
+            hm.MdiParent = this;
+            hm.Show();
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }

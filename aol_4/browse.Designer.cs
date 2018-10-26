@@ -148,8 +148,10 @@
             this.Controls.Add(this.toolStripContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(90, 110);
             this.Name = "Browse";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "browser";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);

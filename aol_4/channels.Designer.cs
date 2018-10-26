@@ -50,11 +50,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -323,9 +323,22 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(527, 18);
+            this.panel1.Size = new System.Drawing.Size(520, 18);
             this.panel1.TabIndex = 3;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox22.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox22.Image = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox22.InitialImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox22.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox22.TabIndex = 9;
+            this.pictureBox22.TabStop = false;
             // 
             // titleLabel
             // 
@@ -349,7 +362,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(470, 1);
+            this.miniBtn.Location = new System.Drawing.Point(463, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -367,7 +380,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(488, 1);
+            this.maxBtn.Location = new System.Drawing.Point(481, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -386,7 +399,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(508, 1);
+            this.closeBtn.Location = new System.Drawing.Point(501, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -395,24 +408,11 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // pictureBox22
-            // 
-            this.pictureBox22.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox22.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox22.Image = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox22.InitialImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox22.Location = new System.Drawing.Point(2, 0);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(18, 18);
-            this.pictureBox22.TabIndex = 9;
-            this.pictureBox22.TabStop = false;
-            // 
             // channels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 374);
+            this.ClientSize = new System.Drawing.Size(524, 369);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox16);
@@ -436,8 +436,12 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(350, 240);
             this.Name = "channels";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "channels";
+            this.Load += new System.EventHandler(this.channels_Load);
+            this.Shown += new System.EventHandler(this.channels_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();

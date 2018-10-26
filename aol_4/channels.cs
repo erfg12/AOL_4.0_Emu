@@ -50,6 +50,16 @@ namespace WindowsFormsApp5
             }
         }
 
+        private void channels_Shown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void channels_Load(object sender, EventArgs e)
+        {
+            
+        }
+
         Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         public channels()
