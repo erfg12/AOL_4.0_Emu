@@ -42,7 +42,9 @@ namespace WindowsFormsApp5
 
         public void InitBrowser(string url)
         {
-            //Cef.Initialize(new CefSettings());
+            var settings = new CefSettings();
+            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
+            Cef.Initialize(settings);
             if (url == "")
                 url = "https://www.google.com";
             browser = new ChromiumWebBrowser(url);

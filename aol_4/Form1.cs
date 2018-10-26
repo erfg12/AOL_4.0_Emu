@@ -162,9 +162,14 @@ namespace WindowsFormsApp5
             findDropDown.SelectedIndex = 0; // default find text selected
         }
 
-        private void openBrowser()
+        private void openBrowser(string url = "")
         {
-            Form BrowseWnd = new Browse(addrBox.Text);
+            string goTo = "";
+            if (url == "")
+                goTo = addrBox.Text;
+            else
+                goTo = url;
+            Form BrowseWnd = new Browse(goTo);
             BrowseWnd.Owner = (Form)this;
             BrowseWnd.MdiParent = this;
             BrowseWnd.Show();
@@ -303,6 +308,11 @@ namespace WindowsFormsApp5
         {
             if (this.ActiveMdiChild is Browse)
                 ((Browse)this.ActiveMdiChild).goToUrl("google.com");
+            else // we don't have a browser window selected, open a new one anyways
+            {
+                openBrowser("google.com");
+                newWindow = false;
+            }
         }
 
         private void addrBox_MouseClick(object sender, MouseEventArgs e)
