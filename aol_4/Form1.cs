@@ -232,7 +232,11 @@ namespace WindowsFormsApp5
                 {
                     addrBox.Text = ((Browse)this.ActiveMdiChild).url;
                     old_url = addrBox.Text = ((Browse)this.ActiveMdiChild).url;
+                    mie_badge.Image = Properties.Resources.mie_badge;
                 }
+            } else
+            {
+                mie_badge.Image = null;
             }
         }
 
@@ -346,6 +350,15 @@ namespace WindowsFormsApp5
             ch.Show();
             ch.Left += 320;
             ch.Top += 200;
+        }
+
+        private void mainTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }

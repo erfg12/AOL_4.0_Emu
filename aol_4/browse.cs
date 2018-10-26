@@ -44,9 +44,8 @@ namespace WindowsFormsApp5
         {
             var settings = new CefSettings();
             settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            Cef.Initialize(settings);
-            if (url == "")
-                url = "https://www.google.com";
+            if (!Cef.IsInitialized) Cef.Initialize(settings);
+            if (url == "") url = "https://www.google.com";
             browser = new ChromiumWebBrowser(url);
             browser.Dock = DockStyle.Fill;
             browser.AddressChanged += Browser_AddressChanged;
@@ -149,6 +148,15 @@ namespace WindowsFormsApp5
             toolTip1.SetToolTip(this.closeBtn, "Close Window");
             toolTip1.SetToolTip(this.maxBtn, "Maximize Window");
             toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
+        }
+
+        private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }

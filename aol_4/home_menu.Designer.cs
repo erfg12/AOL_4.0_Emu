@@ -36,8 +36,10 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.todayLabel = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -56,6 +58,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.titleLabel);
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
@@ -73,11 +76,12 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(3, 3);
+            this.titleLabel.Location = new System.Drawing.Point(24, 3);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(89, 13);
             this.titleLabel.TabIndex = 3;
             this.titleLabel.Text = "Welcome, Name!";
+            this.titleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseMove);
             // 
             // miniBtn
             // 
@@ -146,6 +150,19 @@
             this.todayLabel.TabIndex = 4;
             this.todayLabel.Text = "today";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox2.InitialImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
             // home_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +196,6 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label todayLabel;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

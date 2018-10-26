@@ -80,9 +80,9 @@
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(3, 3);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(27, 13);
+            this.titleLabel.Size = new System.Drawing.Size(0, 13);
             this.titleLabel.TabIndex = 3;
-            this.titleLabel.Text = "Title";
+            this.titleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseMove);
             // 
             // miniBtn
             // 

@@ -40,6 +40,16 @@ namespace WindowsFormsApp5
         Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
         Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
         Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+
+        private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
         Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         public channels()

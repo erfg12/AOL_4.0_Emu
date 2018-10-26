@@ -56,6 +56,15 @@ namespace WindowsFormsApp5
             }
         }
 
+        private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -552,6 +552,16 @@ namespace WindowsFormsApp5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mie_badge {
+            get {
+                object obj = ResourceManager.GetObject("mie_badge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimize_btn {
             get {
                 object obj = ResourceManager.GetObject("minimize_btn", resourceCulture);
@@ -764,6 +774,16 @@ namespace WindowsFormsApp5.Properties {
         internal static System.Drawing.Bitmap write_icon {
             get {
                 object obj = ResourceManager.GetObject("write_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap youve_got_mail_icon {
+            get {
+                object obj = ResourceManager.GetObject("youve_got_mail_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

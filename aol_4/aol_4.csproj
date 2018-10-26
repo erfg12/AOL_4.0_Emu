@@ -237,6 +237,7 @@
     <None Include="Resources\dialup_pic3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\youve_got_mail_icon.png" />
     <None Include="Resources\back_btn1.png" />
     <None Include="Resources\forward_btn1.png" />
     <None Include="Resources\channels_background.png" />
@@ -282,6 +283,7 @@
     <None Include="Resources\people_icon_enabled.png" />
     <None Include="Resources\perks_icon_enabled.png" />
     <None Include="Resources\quotes_icon_enabled.png" />
+    <None Include="Resources\mie_badge.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>
