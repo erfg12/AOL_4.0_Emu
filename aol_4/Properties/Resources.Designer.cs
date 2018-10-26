@@ -233,6 +233,16 @@ namespace WindowsFormsApp5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap channels_icon_enabled {
+            get {
+                object obj = ResourceManager.GetObject("channels_icon_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap channels_influence_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_influence_btn", resourceCulture);
@@ -512,6 +522,16 @@ namespace WindowsFormsApp5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap internet_icon_enabled {
+            get {
+                object obj = ResourceManager.GetObject("internet_icon_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mail_center_icon {
             get {
                 object obj = ResourceManager.GetObject("mail_center_icon", resourceCulture);
@@ -582,9 +602,29 @@ namespace WindowsFormsApp5.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap people_icon_enabled {
+            get {
+                object obj = ResourceManager.GetObject("people_icon_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap perks_icon {
             get {
                 object obj = ResourceManager.GetObject("perks_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap perks_icon_enabled {
+            get {
+                object obj = ResourceManager.GetObject("perks_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -605,6 +645,16 @@ namespace WindowsFormsApp5.Properties {
         internal static System.Drawing.Bitmap quotes_icon {
             get {
                 object obj = ResourceManager.GetObject("quotes_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quotes_icon_enabled {
+            get {
+                object obj = ResourceManager.GetObject("quotes_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -685,6 +735,16 @@ namespace WindowsFormsApp5.Properties {
         internal static System.Drawing.Bitmap weather_icon {
             get {
                 object obj = ResourceManager.GetObject("weather_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap weather_icon_enabled {
+            get {
+                object obj = ResourceManager.GetObject("weather_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

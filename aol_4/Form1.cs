@@ -141,7 +141,7 @@ namespace WindowsFormsApp5
             du.MdiParent = this;
             du.Show();
 
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
 
             // open buddies online window
             buddies_online bo = new buddies_online();
@@ -158,6 +158,14 @@ namespace WindowsFormsApp5
             hm.Show();
             hm.Left += 320;
             hm.Top += 200;
+
+            // enable buttons
+            internet_btn.Image = Properties.Resources.internet_icon_enabled;
+            channels_btn.Image = Properties.Resources.channels_icon_enabled;
+            people_btn.Image = Properties.Resources.people_icon_enabled;
+            quotes_btn.Image = Properties.Resources.quotes_icon_enabled;
+            perks_btn.Image = Properties.Resources.perks_icon_enabled;
+            weather_btn.Image = Properties.Resources.weather_icon_enabled;
 
             findDropDown.SelectedIndex = 0; // default find text selected
         }
@@ -192,7 +200,7 @@ namespace WindowsFormsApp5
 
         private void fileBtn_Click(object sender, EventArgs e)
         {
-            fileContextMenuStrip.Show(this.Location.X + 10, this.Location.Y + 40);
+            fileContextMenuStrip.Show(this.Location.X, this.Location.Y + 40);
         }
 
         private void closeForm_Click(object sender, EventArgs e)

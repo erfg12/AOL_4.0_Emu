@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
             this.findDropDown = new System.Windows.Forms.ComboBox();
+            this.homeBtn = new System.Windows.Forms.PictureBox();
+            this.reloadBtn = new System.Windows.Forms.PictureBox();
+            this.stopBtn = new System.Windows.Forms.PictureBox();
+            this.forwardBtn = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
             this.goBtn = new System.Windows.Forms.Button();
@@ -46,25 +51,20 @@
             this.closeForm = new System.Windows.Forms.ToolStripMenuItem();
             this.getMdiChildURL = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.my_files_btn = new System.Windows.Forms.PictureBox();
+            this.mail_center_btn = new System.Windows.Forms.PictureBox();
+            this.write_mail_button = new System.Windows.Forms.PictureBox();
+            this.read_mail_btn = new System.Windows.Forms.PictureBox();
+            this.print_page_btn = new System.Windows.Forms.PictureBox();
+            this.my_aol_btn = new System.Windows.Forms.PictureBox();
+            this.favorites_btn = new System.Windows.Forms.PictureBox();
+            this.internet_btn = new System.Windows.Forms.PictureBox();
+            this.channels_btn = new System.Windows.Forms.PictureBox();
+            this.people_btn = new System.Windows.Forms.PictureBox();
+            this.quotes_btn = new System.Windows.Forms.PictureBox();
+            this.perks_btn = new System.Windows.Forms.PictureBox();
+            this.weather_btn = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.homeBtn = new System.Windows.Forms.PictureBox();
-            this.reloadBtn = new System.Windows.Forms.PictureBox();
-            this.stopBtn = new System.Windows.Forms.PictureBox();
-            this.forwardBtn = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -72,30 +72,30 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.fileContextMenuStrip.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
+            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
+            this.toolStripContainer1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.fileContextMenuStrip.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.my_files_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mail_center_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.write_mail_button)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.read_mail_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.print_page_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_aol_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.favorites_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internet_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channels_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.people_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotes_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,6 +130,62 @@
             this.findDropDown.Name = "findDropDown";
             this.findDropDown.Size = new System.Drawing.Size(57, 21);
             this.findDropDown.TabIndex = 15;
+            // 
+            // homeBtn
+            // 
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
+            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(27, 20);
+            this.homeBtn.TabIndex = 14;
+            this.homeBtn.TabStop = false;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
+            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
+            this.reloadBtn.TabIndex = 13;
+            this.reloadBtn.TabStop = false;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn1;
+            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(27, 20);
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.TabStop = false;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn1;
+            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
+            this.forwardBtn.TabIndex = 11;
+            this.forwardBtn.TabStop = false;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn1;
+            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(25, 20);
+            this.backBtn.TabIndex = 10;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
             // 
             // addrBox
             // 
@@ -281,19 +337,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox6, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox7, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox8, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox9, 7, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox10, 8, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox11, 9, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox12, 10, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox13, 11, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox14, 12, 0);
+            this.tableLayoutPanel1.Controls.Add(this.my_files_btn, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.mail_center_btn, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.write_mail_button, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.read_mail_btn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.print_page_btn, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.my_aol_btn, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.favorites_btn, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.internet_btn, 7, 0);
+            this.tableLayoutPanel1.Controls.Add(this.channels_btn, 8, 0);
+            this.tableLayoutPanel1.Controls.Add(this.people_btn, 9, 0);
+            this.tableLayoutPanel1.Controls.Add(this.quotes_btn, 10, 0);
+            this.tableLayoutPanel1.Controls.Add(this.perks_btn, 11, 0);
+            this.tableLayoutPanel1.Controls.Add(this.weather_btn, 12, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox15, 14, 0);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 41);
@@ -306,149 +362,149 @@
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // pictureBox6
+            // my_files_btn
             // 
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = global::WindowsFormsApp5.Properties.Resources.my_files_icon;
-            this.pictureBox6.Location = new System.Drawing.Point(205, 0);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(60, 38);
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
+            this.my_files_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.my_files_btn.Image = global::WindowsFormsApp5.Properties.Resources.my_files_icon;
+            this.my_files_btn.Location = new System.Drawing.Point(205, 0);
+            this.my_files_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.my_files_btn.Name = "my_files_btn";
+            this.my_files_btn.Size = new System.Drawing.Size(60, 38);
+            this.my_files_btn.TabIndex = 4;
+            this.my_files_btn.TabStop = false;
             // 
-            // pictureBox4
+            // mail_center_btn
             // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::WindowsFormsApp5.Properties.Resources.mail_center_icon;
-            this.pictureBox4.Location = new System.Drawing.Point(87, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 38);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
+            this.mail_center_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mail_center_btn.Image = global::WindowsFormsApp5.Properties.Resources.mail_center_icon;
+            this.mail_center_btn.Location = new System.Drawing.Point(87, 0);
+            this.mail_center_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.mail_center_btn.Name = "mail_center_btn";
+            this.mail_center_btn.Size = new System.Drawing.Size(73, 38);
+            this.mail_center_btn.TabIndex = 2;
+            this.mail_center_btn.TabStop = false;
             // 
-            // pictureBox3
+            // write_mail_button
             // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::WindowsFormsApp5.Properties.Resources.write_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(41, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(46, 38);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.write_mail_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.write_mail_button.Image = global::WindowsFormsApp5.Properties.Resources.write_icon;
+            this.write_mail_button.Location = new System.Drawing.Point(41, 0);
+            this.write_mail_button.Margin = new System.Windows.Forms.Padding(0);
+            this.write_mail_button.Name = "write_mail_button";
+            this.write_mail_button.Size = new System.Drawing.Size(46, 38);
+            this.write_mail_button.TabIndex = 1;
+            this.write_mail_button.TabStop = false;
             // 
-            // pictureBox2
+            // read_mail_btn
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 38);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.read_mail_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.read_mail_btn.Image = ((System.Drawing.Image)(resources.GetObject("read_mail_btn.Image")));
+            this.read_mail_btn.Location = new System.Drawing.Point(0, 0);
+            this.read_mail_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.read_mail_btn.Name = "read_mail_btn";
+            this.read_mail_btn.Size = new System.Drawing.Size(41, 38);
+            this.read_mail_btn.TabIndex = 0;
+            this.read_mail_btn.TabStop = false;
             // 
-            // pictureBox5
+            // print_page_btn
             // 
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = global::WindowsFormsApp5.Properties.Resources.print_icon;
-            this.pictureBox5.Location = new System.Drawing.Point(160, 0);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 38);
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.print_page_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.print_page_btn.Image = global::WindowsFormsApp5.Properties.Resources.print_icon;
+            this.print_page_btn.Location = new System.Drawing.Point(160, 0);
+            this.print_page_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.print_page_btn.Name = "print_page_btn";
+            this.print_page_btn.Size = new System.Drawing.Size(45, 38);
+            this.print_page_btn.TabIndex = 3;
+            this.print_page_btn.TabStop = false;
             // 
-            // pictureBox7
+            // my_aol_btn
             // 
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::WindowsFormsApp5.Properties.Resources.my_aol_icon;
-            this.pictureBox7.Location = new System.Drawing.Point(265, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(57, 38);
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
+            this.my_aol_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.my_aol_btn.Image = global::WindowsFormsApp5.Properties.Resources.my_aol_icon;
+            this.my_aol_btn.Location = new System.Drawing.Point(265, 0);
+            this.my_aol_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.my_aol_btn.Name = "my_aol_btn";
+            this.my_aol_btn.Size = new System.Drawing.Size(57, 38);
+            this.my_aol_btn.TabIndex = 5;
+            this.my_aol_btn.TabStop = false;
             // 
-            // pictureBox8
+            // favorites_btn
             // 
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::WindowsFormsApp5.Properties.Resources.favorites_icon;
-            this.pictureBox8.Location = new System.Drawing.Point(322, 0);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(62, 38);
-            this.pictureBox8.TabIndex = 6;
-            this.pictureBox8.TabStop = false;
+            this.favorites_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.favorites_btn.Image = global::WindowsFormsApp5.Properties.Resources.favorites_icon;
+            this.favorites_btn.Location = new System.Drawing.Point(322, 0);
+            this.favorites_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.favorites_btn.Name = "favorites_btn";
+            this.favorites_btn.Size = new System.Drawing.Size(62, 38);
+            this.favorites_btn.TabIndex = 6;
+            this.favorites_btn.TabStop = false;
             // 
-            // pictureBox9
+            // internet_btn
             // 
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = global::WindowsFormsApp5.Properties.Resources.internet_icon;
-            this.pictureBox9.Location = new System.Drawing.Point(384, 0);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(55, 38);
-            this.pictureBox9.TabIndex = 7;
-            this.pictureBox9.TabStop = false;
+            this.internet_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.internet_btn.Image = global::WindowsFormsApp5.Properties.Resources.internet_icon;
+            this.internet_btn.Location = new System.Drawing.Point(384, 0);
+            this.internet_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.internet_btn.Name = "internet_btn";
+            this.internet_btn.Size = new System.Drawing.Size(55, 38);
+            this.internet_btn.TabIndex = 7;
+            this.internet_btn.TabStop = false;
             // 
-            // pictureBox10
+            // channels_btn
             // 
-            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox10.Image = global::WindowsFormsApp5.Properties.Resources.channels_icon;
-            this.pictureBox10.Location = new System.Drawing.Point(439, 0);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(62, 38);
-            this.pictureBox10.TabIndex = 8;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            this.channels_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.channels_btn.Image = global::WindowsFormsApp5.Properties.Resources.channels_icon;
+            this.channels_btn.Location = new System.Drawing.Point(439, 0);
+            this.channels_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.channels_btn.Name = "channels_btn";
+            this.channels_btn.Size = new System.Drawing.Size(62, 38);
+            this.channels_btn.TabIndex = 8;
+            this.channels_btn.TabStop = false;
+            this.channels_btn.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
-            // pictureBox11
+            // people_btn
             // 
-            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox11.Image = global::WindowsFormsApp5.Properties.Resources.people_icon;
-            this.pictureBox11.Location = new System.Drawing.Point(501, 0);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(82, 38);
-            this.pictureBox11.TabIndex = 9;
-            this.pictureBox11.TabStop = false;
+            this.people_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.people_btn.Image = global::WindowsFormsApp5.Properties.Resources.people_icon;
+            this.people_btn.Location = new System.Drawing.Point(501, 0);
+            this.people_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.people_btn.Name = "people_btn";
+            this.people_btn.Size = new System.Drawing.Size(82, 38);
+            this.people_btn.TabIndex = 9;
+            this.people_btn.TabStop = false;
             // 
-            // pictureBox12
+            // quotes_btn
             // 
-            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Image = global::WindowsFormsApp5.Properties.Resources.quotes_icon;
-            this.pictureBox12.Location = new System.Drawing.Point(583, 0);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(54, 38);
-            this.pictureBox12.TabIndex = 10;
-            this.pictureBox12.TabStop = false;
+            this.quotes_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quotes_btn.Image = global::WindowsFormsApp5.Properties.Resources.quotes_icon;
+            this.quotes_btn.Location = new System.Drawing.Point(583, 0);
+            this.quotes_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.quotes_btn.Name = "quotes_btn";
+            this.quotes_btn.Size = new System.Drawing.Size(54, 38);
+            this.quotes_btn.TabIndex = 10;
+            this.quotes_btn.TabStop = false;
             // 
-            // pictureBox13
+            // perks_btn
             // 
-            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox13.Image = global::WindowsFormsApp5.Properties.Resources.perks_icon;
-            this.pictureBox13.Location = new System.Drawing.Point(637, 0);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(47, 38);
-            this.pictureBox13.TabIndex = 11;
-            this.pictureBox13.TabStop = false;
+            this.perks_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.perks_btn.Image = global::WindowsFormsApp5.Properties.Resources.perks_icon;
+            this.perks_btn.Location = new System.Drawing.Point(637, 0);
+            this.perks_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.perks_btn.Name = "perks_btn";
+            this.perks_btn.Size = new System.Drawing.Size(47, 38);
+            this.perks_btn.TabIndex = 11;
+            this.perks_btn.TabStop = false;
             // 
-            // pictureBox14
+            // weather_btn
             // 
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Image = global::WindowsFormsApp5.Properties.Resources.weather_icon;
-            this.pictureBox14.Location = new System.Drawing.Point(684, 0);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(64, 38);
-            this.pictureBox14.TabIndex = 12;
-            this.pictureBox14.TabStop = false;
+            this.weather_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.weather_btn.Image = global::WindowsFormsApp5.Properties.Resources.weather_icon;
+            this.weather_btn.Location = new System.Drawing.Point(684, 0);
+            this.weather_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.weather_btn.Name = "weather_btn";
+            this.weather_btn.Size = new System.Drawing.Size(64, 38);
+            this.weather_btn.TabIndex = 12;
+            this.weather_btn.TabStop = false;
             // 
             // pictureBox15
             // 
@@ -459,62 +515,6 @@
             this.pictureBox15.Size = new System.Drawing.Size(46, 38);
             this.pictureBox15.TabIndex = 13;
             this.pictureBox15.TabStop = false;
-            // 
-            // homeBtn
-            // 
-            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
-            this.homeBtn.Location = new System.Drawing.Point(107, 4);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(27, 20);
-            this.homeBtn.TabIndex = 14;
-            this.homeBtn.TabStop = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
-            // 
-            // reloadBtn
-            // 
-            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
-            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
-            this.reloadBtn.TabIndex = 13;
-            this.reloadBtn.TabStop = false;
-            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
-            // 
-            // stopBtn
-            // 
-            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn1;
-            this.stopBtn.Location = new System.Drawing.Point(52, 4);
-            this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(27, 20);
-            this.stopBtn.TabIndex = 12;
-            this.stopBtn.TabStop = false;
-            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
-            // 
-            // forwardBtn
-            // 
-            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn1;
-            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
-            this.forwardBtn.Name = "forwardBtn";
-            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
-            this.forwardBtn.TabIndex = 11;
-            this.forwardBtn.TabStop = false;
-            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
-            // 
-            // backBtn
-            // 
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn1;
-            this.backBtn.Location = new System.Drawing.Point(4, 4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(25, 20);
-            this.backBtn.TabIndex = 10;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
             // 
             // panel1
             // 
@@ -634,6 +634,11 @@
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -641,25 +646,20 @@
             this.toolStrip1.PerformLayout();
             this.fileContextMenuStrip.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_files_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mail_center_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.write_mail_button)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.read_mail_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.print_page_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.my_aol_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.favorites_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.internet_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.channels_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.people_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quotes_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -689,19 +689,19 @@
         private System.Windows.Forms.ComboBox addrBox;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox read_mail_btn;
+        private System.Windows.Forms.PictureBox write_mail_button;
+        private System.Windows.Forms.PictureBox mail_center_btn;
+        private System.Windows.Forms.PictureBox print_page_btn;
+        private System.Windows.Forms.PictureBox my_files_btn;
+        private System.Windows.Forms.PictureBox my_aol_btn;
+        private System.Windows.Forms.PictureBox favorites_btn;
+        private System.Windows.Forms.PictureBox internet_btn;
+        private System.Windows.Forms.PictureBox channels_btn;
+        private System.Windows.Forms.PictureBox people_btn;
+        private System.Windows.Forms.PictureBox quotes_btn;
+        private System.Windows.Forms.PictureBox perks_btn;
+        private System.Windows.Forms.PictureBox weather_btn;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox backBtn;
         private System.Windows.Forms.PictureBox forwardBtn;
