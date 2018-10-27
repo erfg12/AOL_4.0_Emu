@@ -12,7 +12,7 @@ using CefSharp;
 using CefSharp.WinForms;
 using CefSharp.Example;
 
-namespace WindowsFormsApp5
+namespace aol
 {
     public partial class Browse : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp5
+﻿namespace aol
 {
     partial class buddies_online
     {
@@ -130,7 +130,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::WindowsFormsApp5.Properties.Resources.buddiesonline_buddychat_btn;
+            this.pictureBox4.Image = global::aol.Properties.Resources.buddiesonline_buddychat_btn;
             this.pictureBox4.Location = new System.Drawing.Point(113, 206);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox4.Name = "pictureBox4";
@@ -140,7 +140,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.buddiesonline_setup_btn;
+            this.pictureBox3.BackgroundImage = global::aol.Properties.Resources.buddiesonline_setup_btn;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Location = new System.Drawing.Point(77, 206);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
@@ -152,7 +152,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::WindowsFormsApp5.Properties.Resources.buddiesonline_IM_btn;
+            this.pictureBox2.Image = global::aol.Properties.Resources.buddiesonline_IM_btn;
             this.pictureBox2.Location = new System.Drawing.Point(42, 206);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
@@ -163,7 +163,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::WindowsFormsApp5.Properties.Resources.buddiesonline_locate_btn;
+            this.pictureBox1.Image = global::aol.Properties.Resources.buddiesonline_locate_btn;
             this.pictureBox1.Location = new System.Drawing.Point(8, 206);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
@@ -176,7 +176,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.top_bar;
+            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
@@ -192,7 +192,7 @@
             // 
             this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.minimize_btn;
+            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
             this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -209,7 +209,7 @@
             // 
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.maximize_btn;
+            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
             this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -228,7 +228,7 @@
             // 
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.close_btn;
+            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

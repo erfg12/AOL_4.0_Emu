@@ -10,8 +10,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp5</RootNamespace>
-    <AssemblyName>WindowsFormsApp5</AssemblyName>
+    <RootNamespace>aol</RootNamespace>
+    <AssemblyName>aol</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 
-namespace WindowsFormsApp5
+namespace aol
 {
     public partial class Form1 : Form
     {
@@ -138,6 +138,9 @@ namespace WindowsFormsApp5
             toolTip1.SetToolTip(this.write_mail_button, "Write mail and send files.");
             toolTip1.SetToolTip(this.my_files_btn, "Your Personal Documents.");
             toolTip1.SetToolTip(this.print_page_btn, "Print text or pictures.");
+            toolTip1.SetToolTip(this.mail_center_btn, "Everything about mail.");
+            toolTip1.SetToolTip(this.my_aol_btn, "Customize AOL for YOU.");
+            toolTip1.SetToolTip(this.favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
             // open fake dial up window
             dial_up du = new dial_up();
@@ -387,6 +390,66 @@ namespace WindowsFormsApp5
             hm.Owner = (Form)this;
             hm.MdiParent = this;
             hm.Show();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            editContextMenuStrip.Show(this.Location.X + 28, this.Location.Y + 40);
+        }
+
+        private void windowBtn_Click(object sender, EventArgs e)
+        {
+            windowContextMenuStrip.Show(this.Location.X + 54, this.Location.Y + 40);
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + 40);
+        }
+
+        bool mailCenterOpen = false;
+        private void mail_center_btn_Click(object sender, EventArgs e)
+        {
+            if (!mailCenterOpen)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                mailCenterContextMenuStrip.Show(ptLowerLeft);
+                mailCenterOpen = true;
+            }
+            else
+                mailCenterOpen = false;
+        }
+
+        bool myFilesOpen = false;
+        private void my_files_btn_Click(object sender, EventArgs e)
+        {
+            if (!myFilesOpen)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                myFilesContextMenuStrip.Show(ptLowerLeft);
+                myFilesOpen = true;
+            }
+            else
+                myFilesOpen = false;
+        }
+
+        bool myAOLOpen = false;
+        private void my_aol_btn_Click(object sender, EventArgs e)
+        {
+            if (!myAOLOpen)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                myAOLContextMenuStrip.Show(ptLowerLeft);
+                myAOLOpen = true;
+            }
+            else
+                myAOLOpen = false;
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }

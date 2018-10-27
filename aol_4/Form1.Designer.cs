@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp5
+﻿namespace aol
 {
     partial class Form1
     {
@@ -97,6 +97,99 @@
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openPictureGalleryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToPersonalFilingCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopIncomingTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.editContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findInTopWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spellCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dictionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thesaurusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.capturePictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.windowContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arrangeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeAllExceptFrontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addTopWindowToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rememberWindowSizeOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rememberWindowSizeAndPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forgetWindowSizeAndPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuServicesOnlineSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offlineHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parentalControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpWithKeywordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountsAndBillingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aOLAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.whatsNewInAOL40ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutAmericaOnlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.mailCenterContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mailCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.writeMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oldMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sentMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addressBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mailPreferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mailControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mailExtrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupAutomaticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runAutomaticAOLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readOfflineMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
+            this.myFilesContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.personalFilingCabinetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToPersonalFilingCabinetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.offlineMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.downloadManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myWebPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newsgroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
+            this.myAOLContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.myAOLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setUpAOLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.myMemberProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.screennamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parentalControlsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlineClockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buddyListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalPublisherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockPortfoliosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reminderServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newsProfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -126,6 +219,12 @@
             this.channelsContextMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.editContextMenuStrip.SuspendLayout();
+            this.windowContextMenuStrip.SuspendLayout();
+            this.helpContextMenuStrip.SuspendLayout();
+            this.mailCenterContextMenuStrip.SuspendLayout();
+            this.myFilesContextMenuStrip.SuspendLayout();
+            this.myAOLContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -173,7 +272,7 @@
             // homeBtn
             // 
             this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::WindowsFormsApp5.Properties.Resources.home_btn_enabled;
+            this.homeBtn.Image = global::aol.Properties.Resources.home_btn_enabled;
             this.homeBtn.Location = new System.Drawing.Point(107, 4);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(27, 20);
@@ -184,7 +283,7 @@
             // reloadBtn
             // 
             this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.Image = global::WindowsFormsApp5.Properties.Resources.reload_btn;
+            this.reloadBtn.Image = global::aol.Properties.Resources.reload_btn;
             this.reloadBtn.Location = new System.Drawing.Point(79, 4);
             this.reloadBtn.Name = "reloadBtn";
             this.reloadBtn.Size = new System.Drawing.Size(28, 20);
@@ -196,7 +295,7 @@
             // 
             this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = global::WindowsFormsApp5.Properties.Resources.stop_btn1;
+            this.stopBtn.Image = global::aol.Properties.Resources.stop_btn1;
             this.stopBtn.Location = new System.Drawing.Point(52, 4);
             this.stopBtn.Name = "stopBtn";
             this.stopBtn.Size = new System.Drawing.Size(27, 20);
@@ -207,7 +306,7 @@
             // forwardBtn
             // 
             this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.Image = global::WindowsFormsApp5.Properties.Resources.forward_btn1;
+            this.forwardBtn.Image = global::aol.Properties.Resources.forward_btn1;
             this.forwardBtn.Location = new System.Drawing.Point(28, 4);
             this.forwardBtn.Name = "forwardBtn";
             this.forwardBtn.Size = new System.Drawing.Size(25, 20);
@@ -218,7 +317,7 @@
             // backBtn
             // 
             this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Image = global::WindowsFormsApp5.Properties.Resources.back_btn1;
+            this.backBtn.Image = global::aol.Properties.Resources.back_btn1;
             this.backBtn.Location = new System.Drawing.Point(4, 4);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(25, 20);
@@ -317,12 +416,14 @@
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(27, 15);
             this.editBtn.Text = "Edit";
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // windowBtn
             // 
             this.windowBtn.Name = "windowBtn";
             this.windowBtn.Size = new System.Drawing.Size(51, 15);
             this.windowBtn.Text = "Window";
+            this.windowBtn.Click += new System.EventHandler(this.windowBtn_Click);
             // 
             // signOffBtn
             // 
@@ -335,20 +436,33 @@
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.Size = new System.Drawing.Size(32, 15);
             this.helpBtn.Text = "Help";
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
             // fileContextMenuStrip
             // 
             this.fileContextMenuStrip.AllowDrop = true;
             this.fileContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.openPictureGalleryToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.saveToPersonalFilingCabinetToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.printSetupToolStripMenuItem,
+            this.printToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.stopIncomingTextToolStripMenuItem,
             this.closeForm});
             this.fileContextMenuStrip.Name = "fileContextMenuStrip";
-            this.fileContextMenuStrip.Size = new System.Drawing.Size(104, 26);
+            this.fileContextMenuStrip.Size = new System.Drawing.Size(239, 242);
             // 
             // closeForm
             // 
             this.closeForm.Name = "closeForm";
-            this.closeForm.Size = new System.Drawing.Size(103, 22);
-            this.closeForm.Text = "Close";
+            this.closeForm.Size = new System.Drawing.Size(238, 22);
+            this.closeForm.Text = "Exit";
             this.closeForm.Click += new System.EventHandler(this.closeForm_Click);
             // 
             // getMdiChildURL
@@ -404,29 +518,31 @@
             // my_files_btn
             // 
             this.my_files_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.my_files_btn.Image = global::WindowsFormsApp5.Properties.Resources.my_files_icon;
+            this.my_files_btn.Image = global::aol.Properties.Resources.my_files_icon;
             this.my_files_btn.Location = new System.Drawing.Point(205, 0);
             this.my_files_btn.Margin = new System.Windows.Forms.Padding(0);
             this.my_files_btn.Name = "my_files_btn";
             this.my_files_btn.Size = new System.Drawing.Size(60, 38);
             this.my_files_btn.TabIndex = 4;
             this.my_files_btn.TabStop = false;
+            this.my_files_btn.Click += new System.EventHandler(this.my_files_btn_Click);
             // 
             // mail_center_btn
             // 
             this.mail_center_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mail_center_btn.Image = global::WindowsFormsApp5.Properties.Resources.mail_center_icon;
+            this.mail_center_btn.Image = global::aol.Properties.Resources.mail_center_icon;
             this.mail_center_btn.Location = new System.Drawing.Point(87, 0);
             this.mail_center_btn.Margin = new System.Windows.Forms.Padding(0);
             this.mail_center_btn.Name = "mail_center_btn";
             this.mail_center_btn.Size = new System.Drawing.Size(73, 38);
             this.mail_center_btn.TabIndex = 2;
             this.mail_center_btn.TabStop = false;
+            this.mail_center_btn.Click += new System.EventHandler(this.mail_center_btn_Click);
             // 
             // write_mail_button
             // 
             this.write_mail_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.write_mail_button.Image = global::WindowsFormsApp5.Properties.Resources.write_icon;
+            this.write_mail_button.Image = global::aol.Properties.Resources.write_icon;
             this.write_mail_button.Location = new System.Drawing.Point(41, 0);
             this.write_mail_button.Margin = new System.Windows.Forms.Padding(0);
             this.write_mail_button.Name = "write_mail_button";
@@ -448,7 +564,7 @@
             // print_page_btn
             // 
             this.print_page_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.print_page_btn.Image = global::WindowsFormsApp5.Properties.Resources.print_icon;
+            this.print_page_btn.Image = global::aol.Properties.Resources.print_icon;
             this.print_page_btn.Location = new System.Drawing.Point(160, 0);
             this.print_page_btn.Margin = new System.Windows.Forms.Padding(0);
             this.print_page_btn.Name = "print_page_btn";
@@ -459,18 +575,19 @@
             // my_aol_btn
             // 
             this.my_aol_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.my_aol_btn.Image = global::WindowsFormsApp5.Properties.Resources.my_aol_icon;
+            this.my_aol_btn.Image = global::aol.Properties.Resources.my_aol_icon;
             this.my_aol_btn.Location = new System.Drawing.Point(265, 0);
             this.my_aol_btn.Margin = new System.Windows.Forms.Padding(0);
             this.my_aol_btn.Name = "my_aol_btn";
             this.my_aol_btn.Size = new System.Drawing.Size(57, 38);
             this.my_aol_btn.TabIndex = 5;
             this.my_aol_btn.TabStop = false;
+            this.my_aol_btn.Click += new System.EventHandler(this.my_aol_btn_Click);
             // 
             // favorites_btn
             // 
             this.favorites_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.favorites_btn.Image = global::WindowsFormsApp5.Properties.Resources.favorites_icon;
+            this.favorites_btn.Image = global::aol.Properties.Resources.favorites_icon;
             this.favorites_btn.Location = new System.Drawing.Point(322, 0);
             this.favorites_btn.Margin = new System.Windows.Forms.Padding(0);
             this.favorites_btn.Name = "favorites_btn";
@@ -481,7 +598,7 @@
             // internet_btn
             // 
             this.internet_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.internet_btn.Image = global::WindowsFormsApp5.Properties.Resources.internet_icon;
+            this.internet_btn.Image = global::aol.Properties.Resources.internet_icon;
             this.internet_btn.Location = new System.Drawing.Point(384, 0);
             this.internet_btn.Margin = new System.Windows.Forms.Padding(0);
             this.internet_btn.Name = "internet_btn";
@@ -492,7 +609,7 @@
             // channels_btn
             // 
             this.channels_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.channels_btn.Image = global::WindowsFormsApp5.Properties.Resources.channels_icon;
+            this.channels_btn.Image = global::aol.Properties.Resources.channels_icon;
             this.channels_btn.Location = new System.Drawing.Point(439, 0);
             this.channels_btn.Margin = new System.Windows.Forms.Padding(0);
             this.channels_btn.Name = "channels_btn";
@@ -504,7 +621,7 @@
             // people_btn
             // 
             this.people_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.people_btn.Image = global::WindowsFormsApp5.Properties.Resources.people_icon;
+            this.people_btn.Image = global::aol.Properties.Resources.people_icon;
             this.people_btn.Location = new System.Drawing.Point(501, 0);
             this.people_btn.Margin = new System.Windows.Forms.Padding(0);
             this.people_btn.Name = "people_btn";
@@ -515,7 +632,7 @@
             // quotes_btn
             // 
             this.quotes_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.quotes_btn.Image = global::WindowsFormsApp5.Properties.Resources.quotes_icon;
+            this.quotes_btn.Image = global::aol.Properties.Resources.quotes_icon;
             this.quotes_btn.Location = new System.Drawing.Point(583, 0);
             this.quotes_btn.Margin = new System.Windows.Forms.Padding(0);
             this.quotes_btn.Name = "quotes_btn";
@@ -526,7 +643,7 @@
             // perks_btn
             // 
             this.perks_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.perks_btn.Image = global::WindowsFormsApp5.Properties.Resources.perks_icon;
+            this.perks_btn.Image = global::aol.Properties.Resources.perks_icon;
             this.perks_btn.Location = new System.Drawing.Point(637, 0);
             this.perks_btn.Margin = new System.Windows.Forms.Padding(0);
             this.perks_btn.Name = "perks_btn";
@@ -537,7 +654,7 @@
             // weather_btn
             // 
             this.weather_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.weather_btn.Image = global::WindowsFormsApp5.Properties.Resources.weather_icon;
+            this.weather_btn.Image = global::aol.Properties.Resources.weather_icon;
             this.weather_btn.Location = new System.Drawing.Point(684, 0);
             this.weather_btn.Margin = new System.Windows.Forms.Padding(0);
             this.weather_btn.Name = "weather_btn";
@@ -547,9 +664,9 @@
             // 
             // loadingIcon
             // 
-            this.loadingIcon.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_loading_image;
+            this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
             this.loadingIcon.Enabled = false;
-            this.loadingIcon.Image = global::WindowsFormsApp5.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
             this.loadingIcon.Location = new System.Drawing.Point(1202, 0);
             this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
             this.loadingIcon.Name = "loadingIcon";
@@ -732,7 +849,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.top_bar;
+            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.mainTitle);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -761,10 +878,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::WindowsFormsApp5.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
             this.pictureBox1.Location = new System.Drawing.Point(1, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(18, 18);
@@ -775,7 +892,7 @@
             // 
             this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.minimize_btn;
+            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
             this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -792,7 +909,7 @@
             // 
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.maximize_btn;
+            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
             this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -811,7 +928,7 @@
             // 
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.close_btn;
+            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -825,6 +942,619 @@
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.newToolStripMenuItem.Text = "New";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.openToolStripMenuItem.Text = "Open...";
+            // 
+            // openPictureGalleryToolStripMenuItem
+            // 
+            this.openPictureGalleryToolStripMenuItem.Name = "openPictureGalleryToolStripMenuItem";
+            this.openPictureGalleryToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.openPictureGalleryToolStripMenuItem.Text = "Open Picture Gallery...";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As...";
+            // 
+            // saveToPersonalFilingCabinetToolStripMenuItem
+            // 
+            this.saveToPersonalFilingCabinetToolStripMenuItem.Name = "saveToPersonalFilingCabinetToolStripMenuItem";
+            this.saveToPersonalFilingCabinetToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.saveToPersonalFilingCabinetToolStripMenuItem.Text = "Save To Personal Filing Cabinet";
+            // 
+            // printSetupToolStripMenuItem
+            // 
+            this.printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
+            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.printSetupToolStripMenuItem.Text = "Print Setup...";
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.printToolStripMenuItem.Text = "Print...";
+            // 
+            // stopIncomingTextToolStripMenuItem
+            // 
+            this.stopIncomingTextToolStripMenuItem.Name = "stopIncomingTextToolStripMenuItem";
+            this.stopIncomingTextToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.stopIncomingTextToolStripMenuItem.Text = "Stop Incoming Text";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(235, 6);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(235, 6);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(235, 6);
+            // 
+            // editContextMenuStrip
+            // 
+            this.editContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.cutToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.selectAllToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.findInTopWindowToolStripMenuItem,
+            this.spellCheckToolStripMenuItem,
+            this.dictionaryToolStripMenuItem,
+            this.thesaurusToolStripMenuItem,
+            this.toolStripSeparator11,
+            this.capturePictureToolStripMenuItem});
+            this.editContextMenuStrip.Name = "editContextMenuStrip";
+            this.editContextMenuStrip.Size = new System.Drawing.Size(190, 242);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.editToolStripMenuItem.Text = "Undo";
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            // 
+            // selectAllToolStripMenuItem
+            // 
+            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.selectAllToolStripMenuItem.Text = "Select All";
+            // 
+            // findInTopWindowToolStripMenuItem
+            // 
+            this.findInTopWindowToolStripMenuItem.Name = "findInTopWindowToolStripMenuItem";
+            this.findInTopWindowToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.findInTopWindowToolStripMenuItem.Text = "Find in Top Window...";
+            // 
+            // spellCheckToolStripMenuItem
+            // 
+            this.spellCheckToolStripMenuItem.Name = "spellCheckToolStripMenuItem";
+            this.spellCheckToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.spellCheckToolStripMenuItem.Text = "Spell Check";
+            // 
+            // dictionaryToolStripMenuItem
+            // 
+            this.dictionaryToolStripMenuItem.Name = "dictionaryToolStripMenuItem";
+            this.dictionaryToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.dictionaryToolStripMenuItem.Text = "Dictionary";
+            // 
+            // thesaurusToolStripMenuItem
+            // 
+            this.thesaurusToolStripMenuItem.Name = "thesaurusToolStripMenuItem";
+            this.thesaurusToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.thesaurusToolStripMenuItem.Text = "Thesaurus";
+            // 
+            // capturePictureToolStripMenuItem
+            // 
+            this.capturePictureToolStripMenuItem.Name = "capturePictureToolStripMenuItem";
+            this.capturePictureToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.capturePictureToolStripMenuItem.Text = "Capture Picture";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(186, 6);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(186, 6);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(186, 6);
+            // 
+            // windowContextMenuStrip
+            // 
+            this.windowContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cascadeToolStripMenuItem,
+            this.tileToolStripMenuItem,
+            this.arrangeIconsToolStripMenuItem,
+            this.closeAllExceptFrontToolStripMenuItem,
+            this.toolStripSeparator12,
+            this.addTopWindowToToolStripMenuItem,
+            this.rememberWindowSizeOnlyToolStripMenuItem,
+            this.rememberWindowSizeAndPositionToolStripMenuItem,
+            this.forgetWindowSizeAndPositionToolStripMenuItem,
+            this.toolStripSeparator13});
+            this.windowContextMenuStrip.Name = "windowContextMenuStrip";
+            this.windowContextMenuStrip.Size = new System.Drawing.Size(272, 192);
+            // 
+            // cascadeToolStripMenuItem
+            // 
+            this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.cascadeToolStripMenuItem.Text = "Cascade";
+            // 
+            // tileToolStripMenuItem
+            // 
+            this.tileToolStripMenuItem.Name = "tileToolStripMenuItem";
+            this.tileToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.tileToolStripMenuItem.Text = "Tile";
+            // 
+            // arrangeIconsToolStripMenuItem
+            // 
+            this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.arrangeIconsToolStripMenuItem.Text = "Arrange Icons";
+            // 
+            // closeAllExceptFrontToolStripMenuItem
+            // 
+            this.closeAllExceptFrontToolStripMenuItem.Name = "closeAllExceptFrontToolStripMenuItem";
+            this.closeAllExceptFrontToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.closeAllExceptFrontToolStripMenuItem.Text = "Close All Except Front";
+            // 
+            // addTopWindowToToolStripMenuItem
+            // 
+            this.addTopWindowToToolStripMenuItem.Name = "addTopWindowToToolStripMenuItem";
+            this.addTopWindowToToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.addTopWindowToToolStripMenuItem.Text = "Add Top Window to Favorite Places";
+            // 
+            // rememberWindowSizeOnlyToolStripMenuItem
+            // 
+            this.rememberWindowSizeOnlyToolStripMenuItem.Name = "rememberWindowSizeOnlyToolStripMenuItem";
+            this.rememberWindowSizeOnlyToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.rememberWindowSizeOnlyToolStripMenuItem.Text = "Remember Window Size Only";
+            // 
+            // rememberWindowSizeAndPositionToolStripMenuItem
+            // 
+            this.rememberWindowSizeAndPositionToolStripMenuItem.Name = "rememberWindowSizeAndPositionToolStripMenuItem";
+            this.rememberWindowSizeAndPositionToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.rememberWindowSizeAndPositionToolStripMenuItem.Text = "Remember Window Size and Position";
+            // 
+            // forgetWindowSizeAndPositionToolStripMenuItem
+            // 
+            this.forgetWindowSizeAndPositionToolStripMenuItem.Name = "forgetWindowSizeAndPositionToolStripMenuItem";
+            this.forgetWindowSizeAndPositionToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.forgetWindowSizeAndPositionToolStripMenuItem.Text = "Forget Window Size and Position";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(268, 6);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(268, 6);
+            // 
+            // helpContextMenuStrip
+            // 
+            this.helpContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuServicesOnlineSupportToolStripMenuItem,
+            this.offlineHelpToolStripMenuItem,
+            this.toolStripSeparator14,
+            this.parentalControlsToolStripMenuItem,
+            this.toolStripSeparator15,
+            this.helpWithKeywordsToolStripMenuItem,
+            this.accountsAndBillingToolStripMenuItem,
+            this.aOLAccessToolStripMenuItem,
+            this.toolStripSeparator16,
+            this.whatsNewInAOL40ToolStripMenuItem,
+            this.aboutAmericaOnlineToolStripMenuItem});
+            this.helpContextMenuStrip.Name = "helpContextMenuStrip";
+            this.helpContextMenuStrip.Size = new System.Drawing.Size(231, 198);
+            // 
+            // menuServicesOnlineSupportToolStripMenuItem
+            // 
+            this.menuServicesOnlineSupportToolStripMenuItem.Name = "menuServicesOnlineSupportToolStripMenuItem";
+            this.menuServicesOnlineSupportToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.menuServicesOnlineSupportToolStripMenuItem.Text = "Member Services Online Help";
+            // 
+            // offlineHelpToolStripMenuItem
+            // 
+            this.offlineHelpToolStripMenuItem.Name = "offlineHelpToolStripMenuItem";
+            this.offlineHelpToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.offlineHelpToolStripMenuItem.Text = "Offline Help";
+            // 
+            // parentalControlsToolStripMenuItem
+            // 
+            this.parentalControlsToolStripMenuItem.Name = "parentalControlsToolStripMenuItem";
+            this.parentalControlsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.parentalControlsToolStripMenuItem.Text = "Parental Controls";
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(227, 6);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(227, 6);
+            // 
+            // helpWithKeywordsToolStripMenuItem
+            // 
+            this.helpWithKeywordsToolStripMenuItem.Name = "helpWithKeywordsToolStripMenuItem";
+            this.helpWithKeywordsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.helpWithKeywordsToolStripMenuItem.Text = "Help With Keywords";
+            // 
+            // accountsAndBillingToolStripMenuItem
+            // 
+            this.accountsAndBillingToolStripMenuItem.Name = "accountsAndBillingToolStripMenuItem";
+            this.accountsAndBillingToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.accountsAndBillingToolStripMenuItem.Text = "Accounts and Billing";
+            // 
+            // aOLAccessToolStripMenuItem
+            // 
+            this.aOLAccessToolStripMenuItem.Name = "aOLAccessToolStripMenuItem";
+            this.aOLAccessToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.aOLAccessToolStripMenuItem.Text = "AOL Access Phone Numbers";
+            // 
+            // whatsNewInAOL40ToolStripMenuItem
+            // 
+            this.whatsNewInAOL40ToolStripMenuItem.Name = "whatsNewInAOL40ToolStripMenuItem";
+            this.whatsNewInAOL40ToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.whatsNewInAOL40ToolStripMenuItem.Text = "What\'s New in AOL 4.0";
+            // 
+            // aboutAmericaOnlineToolStripMenuItem
+            // 
+            this.aboutAmericaOnlineToolStripMenuItem.Name = "aboutAmericaOnlineToolStripMenuItem";
+            this.aboutAmericaOnlineToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.aboutAmericaOnlineToolStripMenuItem.Text = "About America Online";
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            this.toolStripSeparator16.Size = new System.Drawing.Size(227, 6);
+            // 
+            // mailCenterContextMenuStrip
+            // 
+            this.mailCenterContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mailCenterToolStripMenuItem,
+            this.toolStripSeparator17,
+            this.readMailToolStripMenuItem,
+            this.writeMailToolStripMenuItem,
+            this.oldMailToolStripMenuItem,
+            this.sentMailToolStripMenuItem,
+            this.toolStripSeparator19,
+            this.addressBookToolStripMenuItem,
+            this.mailPreferencesToolStripMenuItem,
+            this.mailControlsToolStripMenuItem,
+            this.mailExtrasToolStripMenuItem,
+            this.toolStripSeparator20,
+            this.setupAutomaticToolStripMenuItem,
+            this.runAutomaticAOLToolStripMenuItem,
+            this.toolStripSeparator18,
+            this.readOfflineMailToolStripMenuItem});
+            this.mailCenterContextMenuStrip.Name = "mailCenterContextMenuStrip";
+            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 292);
+            // 
+            // mailCenterToolStripMenuItem
+            // 
+            this.mailCenterToolStripMenuItem.Name = "mailCenterToolStripMenuItem";
+            this.mailCenterToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.mailCenterToolStripMenuItem.Text = "Mail Center";
+            // 
+            // readMailToolStripMenuItem
+            // 
+            this.readMailToolStripMenuItem.Name = "readMailToolStripMenuItem";
+            this.readMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.readMailToolStripMenuItem.Text = "Read Mail";
+            // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            this.toolStripSeparator17.Size = new System.Drawing.Size(286, 6);
+            // 
+            // writeMailToolStripMenuItem
+            // 
+            this.writeMailToolStripMenuItem.Name = "writeMailToolStripMenuItem";
+            this.writeMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.writeMailToolStripMenuItem.Text = "Write Mail";
+            // 
+            // oldMailToolStripMenuItem
+            // 
+            this.oldMailToolStripMenuItem.Name = "oldMailToolStripMenuItem";
+            this.oldMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.oldMailToolStripMenuItem.Text = "Old Mail";
+            // 
+            // sentMailToolStripMenuItem
+            // 
+            this.sentMailToolStripMenuItem.Name = "sentMailToolStripMenuItem";
+            this.sentMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.sentMailToolStripMenuItem.Text = "Sent Mail";
+            // 
+            // addressBookToolStripMenuItem
+            // 
+            this.addressBookToolStripMenuItem.Name = "addressBookToolStripMenuItem";
+            this.addressBookToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.addressBookToolStripMenuItem.Text = "Address Book";
+            // 
+            // mailPreferencesToolStripMenuItem
+            // 
+            this.mailPreferencesToolStripMenuItem.Name = "mailPreferencesToolStripMenuItem";
+            this.mailPreferencesToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.mailPreferencesToolStripMenuItem.Text = "Mail Preferences";
+            // 
+            // mailControlsToolStripMenuItem
+            // 
+            this.mailControlsToolStripMenuItem.Name = "mailControlsToolStripMenuItem";
+            this.mailControlsToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.mailControlsToolStripMenuItem.Text = "Mail Controls";
+            // 
+            // mailExtrasToolStripMenuItem
+            // 
+            this.mailExtrasToolStripMenuItem.Name = "mailExtrasToolStripMenuItem";
+            this.mailExtrasToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.mailExtrasToolStripMenuItem.Text = "Mail Extras";
+            // 
+            // setupAutomaticToolStripMenuItem
+            // 
+            this.setupAutomaticToolStripMenuItem.Name = "setupAutomaticToolStripMenuItem";
+            this.setupAutomaticToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.setupAutomaticToolStripMenuItem.Text = "Set up Automatic AOL (Flashsessions)";
+            // 
+            // runAutomaticAOLToolStripMenuItem
+            // 
+            this.runAutomaticAOLToolStripMenuItem.Name = "runAutomaticAOLToolStripMenuItem";
+            this.runAutomaticAOLToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.runAutomaticAOLToolStripMenuItem.Text = "Run Automatic AOL (Flashsessions) Now";
+            // 
+            // readOfflineMailToolStripMenuItem
+            // 
+            this.readOfflineMailToolStripMenuItem.Name = "readOfflineMailToolStripMenuItem";
+            this.readOfflineMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.readOfflineMailToolStripMenuItem.Text = "Read Offline Mail";
+            // 
+            // toolStripSeparator18
+            // 
+            this.toolStripSeparator18.Name = "toolStripSeparator18";
+            this.toolStripSeparator18.Size = new System.Drawing.Size(286, 6);
+            // 
+            // toolStripSeparator19
+            // 
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(286, 6);
+            // 
+            // toolStripSeparator20
+            // 
+            this.toolStripSeparator20.Name = "toolStripSeparator20";
+            this.toolStripSeparator20.Size = new System.Drawing.Size(286, 6);
+            // 
+            // myFilesContextMenuStrip
+            // 
+            this.myFilesContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.personalFilingCabinetToolStripMenuItem,
+            this.saveToPersonalFilingCabinetToolStripMenuItem1,
+            this.toolStripSeparator21,
+            this.offlineMailToolStripMenuItem,
+            this.downloadManagerToolStripMenuItem,
+            this.myWebPageToolStripMenuItem,
+            this.newsgroupsToolStripMenuItem,
+            this.toolStripSeparator22,
+            this.logManagerToolStripMenuItem});
+            this.myFilesContextMenuStrip.Name = "myFilesContextMenuStrip";
+            this.myFilesContextMenuStrip.Size = new System.Drawing.Size(239, 170);
+            // 
+            // personalFilingCabinetToolStripMenuItem
+            // 
+            this.personalFilingCabinetToolStripMenuItem.Name = "personalFilingCabinetToolStripMenuItem";
+            this.personalFilingCabinetToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.personalFilingCabinetToolStripMenuItem.Text = "Personal Filing Cabinet";
+            // 
+            // saveToPersonalFilingCabinetToolStripMenuItem1
+            // 
+            this.saveToPersonalFilingCabinetToolStripMenuItem1.Name = "saveToPersonalFilingCabinetToolStripMenuItem1";
+            this.saveToPersonalFilingCabinetToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
+            this.saveToPersonalFilingCabinetToolStripMenuItem1.Text = "Save To Personal Filing Cabinet";
+            // 
+            // offlineMailToolStripMenuItem
+            // 
+            this.offlineMailToolStripMenuItem.Name = "offlineMailToolStripMenuItem";
+            this.offlineMailToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.offlineMailToolStripMenuItem.Text = "Offline Mail";
+            // 
+            // downloadManagerToolStripMenuItem
+            // 
+            this.downloadManagerToolStripMenuItem.Name = "downloadManagerToolStripMenuItem";
+            this.downloadManagerToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.downloadManagerToolStripMenuItem.Text = "Download Manager";
+            // 
+            // myWebPageToolStripMenuItem
+            // 
+            this.myWebPageToolStripMenuItem.Name = "myWebPageToolStripMenuItem";
+            this.myWebPageToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.myWebPageToolStripMenuItem.Text = "My Web Page";
+            // 
+            // newsgroupsToolStripMenuItem
+            // 
+            this.newsgroupsToolStripMenuItem.Name = "newsgroupsToolStripMenuItem";
+            this.newsgroupsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.newsgroupsToolStripMenuItem.Text = "Offline Newsgroups";
+            // 
+            // logManagerToolStripMenuItem
+            // 
+            this.logManagerToolStripMenuItem.Name = "logManagerToolStripMenuItem";
+            this.logManagerToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.logManagerToolStripMenuItem.Text = "Log Manager";
+            // 
+            // toolStripSeparator21
+            // 
+            this.toolStripSeparator21.Name = "toolStripSeparator21";
+            this.toolStripSeparator21.Size = new System.Drawing.Size(235, 6);
+            // 
+            // toolStripSeparator22
+            // 
+            this.toolStripSeparator22.Name = "toolStripSeparator22";
+            this.toolStripSeparator22.Size = new System.Drawing.Size(235, 6);
+            // 
+            // myAOLContextMenuStrip
+            // 
+            this.myAOLContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.myAOLToolStripMenuItem,
+            this.toolStripSeparator23,
+            this.setUpAOLToolStripMenuItem,
+            this.preferencesToolStripMenuItem,
+            this.toolStripSeparator24,
+            this.myMemberProfileToolStripMenuItem,
+            this.screennamesToolStripMenuItem,
+            this.passwordsToolStripMenuItem,
+            this.parentalControlsToolStripMenuItem1,
+            this.toolStripSeparator25,
+            this.onlineClockToolStripMenuItem,
+            this.buddyListToolStripMenuItem,
+            this.personalPublisherToolStripMenuItem,
+            this.stockPortfoliosToolStripMenuItem,
+            this.reminderServiceToolStripMenuItem,
+            this.newsProfilesToolStripMenuItem});
+            this.myAOLContextMenuStrip.Name = "myAOLContextMenuStrip";
+            this.myAOLContextMenuStrip.Size = new System.Drawing.Size(181, 330);
+            // 
+            // myAOLToolStripMenuItem
+            // 
+            this.myAOLToolStripMenuItem.Name = "myAOLToolStripMenuItem";
+            this.myAOLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myAOLToolStripMenuItem.Text = "My AOL";
+            // 
+            // setUpAOLToolStripMenuItem
+            // 
+            this.setUpAOLToolStripMenuItem.Name = "setUpAOLToolStripMenuItem";
+            this.setUpAOLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setUpAOLToolStripMenuItem.Text = "Set Up AOL";
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesToolStripMenuItem.Text = "Preferences";
+            // 
+            // myMemberProfileToolStripMenuItem
+            // 
+            this.myMemberProfileToolStripMenuItem.Name = "myMemberProfileToolStripMenuItem";
+            this.myMemberProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myMemberProfileToolStripMenuItem.Text = "My Member Profile";
+            // 
+            // screennamesToolStripMenuItem
+            // 
+            this.screennamesToolStripMenuItem.Name = "screennamesToolStripMenuItem";
+            this.screennamesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.screennamesToolStripMenuItem.Text = "Screen Names";
+            // 
+            // passwordsToolStripMenuItem
+            // 
+            this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
+            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passwordsToolStripMenuItem.Text = "Passwords";
+            // 
+            // parentalControlsToolStripMenuItem1
+            // 
+            this.parentalControlsToolStripMenuItem1.Name = "parentalControlsToolStripMenuItem1";
+            this.parentalControlsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.parentalControlsToolStripMenuItem1.Text = "Parental Controls";
+            // 
+            // onlineClockToolStripMenuItem
+            // 
+            this.onlineClockToolStripMenuItem.Name = "onlineClockToolStripMenuItem";
+            this.onlineClockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.onlineClockToolStripMenuItem.Text = "Online Clock";
+            // 
+            // buddyListToolStripMenuItem
+            // 
+            this.buddyListToolStripMenuItem.Name = "buddyListToolStripMenuItem";
+            this.buddyListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buddyListToolStripMenuItem.Text = "Buddy List";
+            // 
+            // personalPublisherToolStripMenuItem
+            // 
+            this.personalPublisherToolStripMenuItem.Name = "personalPublisherToolStripMenuItem";
+            this.personalPublisherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personalPublisherToolStripMenuItem.Text = "Personal Publisher";
+            // 
+            // stockPortfoliosToolStripMenuItem
+            // 
+            this.stockPortfoliosToolStripMenuItem.Name = "stockPortfoliosToolStripMenuItem";
+            this.stockPortfoliosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stockPortfoliosToolStripMenuItem.Text = "Stock Portfolios";
+            // 
+            // reminderServiceToolStripMenuItem
+            // 
+            this.reminderServiceToolStripMenuItem.Name = "reminderServiceToolStripMenuItem";
+            this.reminderServiceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reminderServiceToolStripMenuItem.Text = "Reminder Service";
+            // 
+            // newsProfilesToolStripMenuItem
+            // 
+            this.newsProfilesToolStripMenuItem.Name = "newsProfilesToolStripMenuItem";
+            this.newsProfilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newsProfilesToolStripMenuItem.Text = "News Profiles";
+            // 
+            // toolStripSeparator23
+            // 
+            this.toolStripSeparator23.Name = "toolStripSeparator23";
+            this.toolStripSeparator23.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator24
+            // 
+            this.toolStripSeparator24.Name = "toolStripSeparator24";
+            this.toolStripSeparator24.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator25
+            // 
+            this.toolStripSeparator25.Name = "toolStripSeparator25";
+            this.toolStripSeparator25.Size = new System.Drawing.Size(177, 6);
             // 
             // Form1
             // 
@@ -877,6 +1607,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.editContextMenuStrip.ResumeLayout(false);
+            this.windowContextMenuStrip.ResumeLayout(false);
+            this.helpContextMenuStrip.ResumeLayout(false);
+            this.mailCenterContextMenuStrip.ResumeLayout(false);
+            this.myFilesContextMenuStrip.ResumeLayout(false);
+            this.myAOLContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -949,6 +1685,99 @@
         private System.Windows.Forms.ToolStripMenuItem kidsOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem localToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openPictureGalleryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToPersonalFilingCabinetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem printSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem stopIncomingTextToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip editContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem findInTopWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spellCheckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dictionaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thesaurusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem capturePictureToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip windowContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem cascadeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeAllExceptFrontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addTopWindowToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rememberWindowSizeOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rememberWindowSizeAndPositionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forgetWindowSizeAndPositionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ContextMenuStrip helpContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuServicesOnlineSupportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem offlineHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem parentalControlsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripMenuItem helpWithKeywordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accountsAndBillingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aOLAccessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripMenuItem whatsNewInAOL40ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutAmericaOnlineToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip mailCenterContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem mailCenterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
+        private System.Windows.Forms.ToolStripMenuItem readMailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem writeMailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oldMailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sentMailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
+        private System.Windows.Forms.ToolStripMenuItem addressBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailPreferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailControlsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailExtrasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
+        private System.Windows.Forms.ToolStripMenuItem setupAutomaticToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem runAutomaticAOLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
+        private System.Windows.Forms.ToolStripMenuItem readOfflineMailToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip myFilesContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem personalFilingCabinetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToPersonalFilingCabinetToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
+        private System.Windows.Forms.ToolStripMenuItem offlineMailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem downloadManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem myWebPageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newsgroupsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
+        private System.Windows.Forms.ToolStripMenuItem logManagerToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip myAOLContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem myAOLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
+        private System.Windows.Forms.ToolStripMenuItem setUpAOLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator24;
+        private System.Windows.Forms.ToolStripMenuItem myMemberProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem screennamesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parentalControlsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator25;
+        private System.Windows.Forms.ToolStripMenuItem onlineClockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buddyListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personalPublisherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockPortfoliosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reminderServiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newsProfilesToolStripMenuItem;
     }
 }
 

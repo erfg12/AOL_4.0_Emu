@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp5
+﻿namespace aol
 {
     partial class Browse
     {
@@ -60,7 +60,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.top_bar;
+            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.titleLabel);
             this.panel1.Controls.Add(this.miniBtn);
@@ -88,7 +88,7 @@
             // 
             this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.minimize_btn;
+            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
             this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -105,7 +105,7 @@
             // 
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.maximize_btn;
+            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
             this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -124,7 +124,7 @@
             // 
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.close_btn;
+            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

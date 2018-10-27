@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp5
+﻿namespace aol
 {
     partial class dial_up
     {
@@ -53,7 +53,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.dialup_pic1;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.dialup_pic1;
             this.pictureBox1.Location = new System.Drawing.Point(52, 95);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
@@ -64,7 +64,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.dialup_pic2;
+            this.pictureBox2.BackgroundImage = global::aol.Properties.Resources.dialup_pic2;
             this.pictureBox2.Location = new System.Drawing.Point(183, 95);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
@@ -75,7 +75,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.dialup_pic3;
+            this.pictureBox3.BackgroundImage = global::aol.Properties.Resources.dialup_pic3;
             this.pictureBox3.Location = new System.Drawing.Point(314, 95);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
@@ -94,7 +94,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.dial_up1;
+            this.BackgroundImage = global::aol.Properties.Resources.dial_up1;
             this.ClientSize = new System.Drawing.Size(496, 259);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
