@@ -103,7 +103,7 @@ namespace WindowsFormsApp5
                 if (resize)
                 {
                     this.ActiveMdiChild.Width = this.Width - 4;
-                    this.ActiveMdiChild.Height = this.Height - 121;
+                    this.ActiveMdiChild.Height = this.Height - 110;
                 }
             }
         }
