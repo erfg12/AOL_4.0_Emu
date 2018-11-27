@@ -22,5 +22,17 @@ namespace aol.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool fullScreen {
+            get {
+                return ((bool)(this["fullScreen"]));
+            }
+            set {
+                this["fullScreen"] = value;
+            }
+        }
     }
 }

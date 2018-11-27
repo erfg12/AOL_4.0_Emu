@@ -262,7 +262,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(1100, 120);
+            this.Location = new System.Drawing.Point(650, 120);
             this.MinimumSize = new System.Drawing.Size(145, 280);
             this.Name = "buddies_online";
             this.ShowIcon = false;

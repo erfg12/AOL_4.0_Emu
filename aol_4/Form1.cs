@@ -128,6 +128,9 @@ namespace aol
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.fullScreen)
+                WindowState = FormWindowState.Maximized;
+
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.closeBtn, "Close Browser");
             toolTip1.SetToolTip(this.maxBtn, "Maximize Browser");
@@ -450,6 +453,17 @@ namespace aol
             }
             else
                 myAOLOpen = false;
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settings settingsForm = new settings();
+            settingsForm.Show();
+        }
+
+        private void downloadManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.Personal));
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }

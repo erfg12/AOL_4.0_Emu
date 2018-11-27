@@ -53,7 +53,7 @@ namespace aol
             browser.AddressChanged += Browser_AddressChanged;
             toolStripContainer1.ContentPanel.Controls.Add(browser);
             browser.DownloadHandler = new DownloadHandler();
-            browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
+            //browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
 
             //Wait for the page to finish loading (all resources will have been loaded, rendering is likely still happening)
             browser.LoadingStateChanged += (sender, args) =>
@@ -174,33 +174,6 @@ namespace aol
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
-
-        public class RenderProcessMessageHandler : IRenderProcessMessageHandler
-        {
-            // Wait for the underlying `Javascript Context` to be created, this is only called for the main frame.
-            // If the page has no javascript, no context will be created.
-            void IRenderProcessMessageHandler.OnContextCreated(IWebBrowser browserControl, IBrowser browser, IFrame frame)
-            {
-                //const string script = "document.addEventListener('DOMContentLoaded', function(){ alert('DomLoaded'); });";
-
-                //frame.ExecuteJavaScriptAsync(script);
-            }
-
-            void IRenderProcessMessageHandler.OnContextReleased(IWebBrowser browserControl, IBrowser browser, IFrame frame)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IRenderProcessMessageHandler.OnFocusedNodeChanged(IWebBrowser browserControl, IBrowser browser, IFrame frame, IDomNode node)
-            {
-                throw new NotImplementedException();
-            }
-
-            void IRenderProcessMessageHandler.OnUncaughtException(IWebBrowser browserControl, IBrowser browser, IFrame frame, JavascriptException exception)
-            {
-                throw new NotImplementedException();
-            }
-        }
         
         protected override void WndProc(ref Message message)
         {
