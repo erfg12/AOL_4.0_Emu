@@ -27,5 +27,26 @@ namespace aol
         {
             this.Close();
         }
+
+        private void settings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settings_Shown(object sender, EventArgs e)
+        {
+            homePageBox.Text = Properties.Settings.Default.homeSite;
+            //saveWndP.Checked = Properties.Settings.Default.windowSize;
+            fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
+        }
+
+        private void homePageBox_TextChanged(object sender, EventArgs e)
+        {
+            if (homePageBox.Text.Length > 4)
+            { // make sure it's not blank
+                Properties.Settings.Default.homeSite = homePageBox.Text;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

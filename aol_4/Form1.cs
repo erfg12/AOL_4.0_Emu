@@ -118,16 +118,10 @@ namespace aol
             this.WindowState = FormWindowState.Minimized;
         }
 
-        const int tenDigit = 2; // you can rename this variable if you like
-
-        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, tenDigit); } }
-        Rectangle Left { get { return new Rectangle(0, 0, tenDigit, this.ClientSize.Height); } }
-        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - tenDigit, this.ClientSize.Width, tenDigit); } }
-
-        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - tenDigit, 0, tenDigit, this.ClientSize.Height); } }
-
         private async void Form1_Shown(object sender, EventArgs e)
         {
+            Debug.WriteLine("ClientSize Width:" + this.ClientSize.Width);
+            Debug.WriteLine("ClientSize Height:" + this.ClientSize.Height);
             if (Properties.Settings.Default.fullScreen)
                 WindowState = FormWindowState.Maximized;
 
@@ -189,19 +183,6 @@ namespace aol
             BrowseWnd.Show();
         }
 
-        private Point FindLocation(Control ctrl)
-        {
-            if (ctrl.Parent is Form)
-                return ctrl.Location;
-            else
-            {
-                Point p = FindLocation(ctrl.Parent);
-                p.X += ctrl.Location.X;
-                p.Y += ctrl.Location.Y;
-                return p;
-            }
-        }
-
         private void fileBtn_Click(object sender, EventArgs e)
         {
             fileContextMenuStrip.Show(this.Location.X, this.Location.Y + 40);
@@ -230,46 +211,59 @@ namespace aol
 
         private void getMdiChildURL_Tick(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
+            try
             {
-                if (((Browse)this.ActiveMdiChild).loading)
+                if (this.ActiveMdiChild is Browse)
                 {
-                    loadingIcon.Enabled = true;
+                    if (((Browse)this.ActiveMdiChild).loading)
+                    {
+                        loadingIcon.Enabled = true;
+                    }
+                    else
+                    {
+                        loadingIcon.Enabled = false;
+                        loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
+                        loadingIcon.Image = loadingIcon.Image;
+                    }
+                    if (((Browse)this.ActiveMdiChild).url != old_url)
+                    {
+                        addrBox.Text = ((Browse)this.ActiveMdiChild).url;
+                        old_url = addrBox.Text = ((Browse)this.ActiveMdiChild).url;
+                        mie_badge.Image = Properties.Resources.mie_badge;
+                    }
                 }
                 else
                 {
-                    loadingIcon.Enabled = false;
-                    loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
-                    loadingIcon.Image = loadingIcon.Image;
+                    mie_badge.Image = null;
                 }
-                if (((Browse)this.ActiveMdiChild).url != old_url)
-                {
-                    addrBox.Text = ((Browse)this.ActiveMdiChild).url;
-                    old_url = addrBox.Text = ((Browse)this.ActiveMdiChild).url;
-                    mie_badge.Image = Properties.Resources.mie_badge;
-                }
-            } else
+            } catch
             {
-                mie_badge.Image = null;
+                MessageBox.Show("getMdiChildURL_Tick() function crashed!");
             }
         }
 
         public void GoToURL()
         {
-            if (!newWindow)
+            try
             {
-                if (this.ActiveMdiChild is Browse)
-                    ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
-                else // we don't have a browser window selected, open a new one anyways
+                if (!newWindow)
                 {
-                    openBrowser();
+                    if (this.ActiveMdiChild is Browse)
+                        ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
+                    else // we don't have a browser window selected, open a new one anyways
+                    {
+                        openBrowser(addrBox.Text);
+                        newWindow = false;
+                    }
+                }
+                else
+                {
+                    openBrowser(addrBox.Text);
                     newWindow = false;
                 }
-            }
-            else
+            } catch
             {
-                openBrowser();
-                newWindow = false;
+                MessageBox.Show("GoToURL() function crashed!");
             }
         }
 
@@ -332,11 +326,19 @@ namespace aol
 
         private void homeBtn_Click(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).goToUrl("google.com");
-            else // we don't have a browser window selected, open a new one anyways
+            try
             {
-                openBrowser("google.com");
+                if (this.ActiveMdiChild is Browse)
+                    ((Browse)this.ActiveMdiChild).goToUrl(Properties.Settings.Default.homeSite);
+                else // we don't have a browser window selected, open a new one anyways
+                {
+                    openBrowser(Properties.Settings.Default.homeSite);
+                    newWindow = false;
+                }
+            }
+            catch
+            { // something in the settings was messed up, load a default
+                openBrowser("https://google.com");
                 newWindow = false;
             }
         }
@@ -370,11 +372,6 @@ namespace aol
             }
             else
                 channelsOpen = false;
-            // this form doesn't open from the top bar button, only from the AOL today window
-            /*channels ch = new channels();
-            ch.Owner = (Form)this;
-            ch.MdiParent = this;
-            ch.Show();*/
         }
 
         private void mainTitle_MouseMove(object sender, MouseEventArgs e)
@@ -440,6 +437,63 @@ namespace aol
                 myFilesOpen = false;
         }
 
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            // doesnt trigger
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            // doesnt trigger
+        }
+
+        private bool resizeR, resizeD, resizeB = false;
+        const int padding = 15;
+        Rectangle FormBottom { get { return new Rectangle(0 + padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
+        Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
+        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (RectangleToScreen(FormRight).Contains(MousePosition))
+            {
+                Cursor = Cursors.SizeWE;
+                if (Control.MouseButtons == MouseButtons.Left) resizeR = true;
+            }
+            else if (RectangleToScreen(FormBottom).Contains(MousePosition))
+            {
+                Cursor = Cursors.SizeNS;
+                if (Control.MouseButtons == MouseButtons.Left) resizeB = true;
+            }
+            else if (RectangleToScreen(BottomRight).Contains(MousePosition))
+            {
+                Cursor = Cursors.SizeNWSE;
+                if (Control.MouseButtons == MouseButtons.Left) resizeD = true;
+            }
+            else
+            {
+                if (Cursor == Cursors.SizeNWSE || Cursor == Cursors.SizeNESW || Cursor == Cursors.SizeNS || Cursor == Cursors.SizeWE)
+                {
+                    Cursor = Cursors.Default;
+                }
+            }
+
+            if (Control.MouseButtons != MouseButtons.Left)
+            {
+                resizeD = false; resizeR = false; resizeB = false;
+            }
+
+            if (resizeR)
+                Width = Cursor.Position.X - Location.X;
+            else if (resizeB)
+                Height = Cursor.Position.Y - Location.Y;
+            else if (resizeD)
+            {
+                Width = Cursor.Position.X - Location.X;
+                Height = Cursor.Position.Y - Location.Y;
+            }
+        }
+
         bool myAOLOpen = false;
         private void my_aol_btn_Click(object sender, EventArgs e)
         {
@@ -464,39 +518,6 @@ namespace aol
         private void downloadManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.Personal));
-        }
-
-        Rectangle TopLeft { get { return new Rectangle(0, 0, tenDigit, tenDigit); } }
-        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - tenDigit, 0, tenDigit, tenDigit); } }
-        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - tenDigit, tenDigit, tenDigit); } }
-        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - tenDigit, this.ClientSize.Height - tenDigit, tenDigit, tenDigit); } }
-
-        protected override void WndProc(ref Message message)
-        {
-            base.WndProc(ref message);
-
-            if (message.Msg == 0x84)
-            {
-                var cursor = this.PointToClient(Cursor.Position);
-
-                if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
-                else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
-                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
-                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
-
-                else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
-                else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
-                else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
-            }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Gray, Top);
-            e.Graphics.FillRectangle(Brushes.Gray, Left);
-            e.Graphics.FillRectangle(Brushes.Gray, Right);
-            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)

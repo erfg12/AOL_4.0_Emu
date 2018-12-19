@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.mie_badge = new System.Windows.Forms.PictureBox();
             this.findDropDown = new System.Windows.Forms.ComboBox();
+            this.homeBtn = new System.Windows.Forms.PictureBox();
+            this.reloadBtn = new System.Windows.Forms.PictureBox();
+            this.stopBtn = new System.Windows.Forms.PictureBox();
+            this.forwardBtn = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
             this.goBtn = new System.Windows.Forms.Button();
@@ -58,6 +64,20 @@
             this.closeForm = new System.Windows.Forms.ToolStripMenuItem();
             this.getMdiChildURL = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.my_files_btn = new System.Windows.Forms.PictureBox();
+            this.mail_center_btn = new System.Windows.Forms.PictureBox();
+            this.write_mail_button = new System.Windows.Forms.PictureBox();
+            this.read_mail_btn = new System.Windows.Forms.PictureBox();
+            this.print_page_btn = new System.Windows.Forms.PictureBox();
+            this.my_aol_btn = new System.Windows.Forms.PictureBox();
+            this.favorites_btn = new System.Windows.Forms.PictureBox();
+            this.internet_btn = new System.Windows.Forms.PictureBox();
+            this.channels_btn = new System.Windows.Forms.PictureBox();
+            this.people_btn = new System.Windows.Forms.PictureBox();
+            this.quotes_btn = new System.Windows.Forms.PictureBox();
+            this.perks_btn = new System.Windows.Forms.PictureBox();
+            this.weather_btn = new System.Windows.Forms.PictureBox();
+            this.loadingIcon = new System.Windows.Forms.PictureBox();
             this.channelsContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aOLTodayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -164,45 +184,25 @@
             this.stockPortfoliosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reminderServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsProfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.my_files_btn = new System.Windows.Forms.PictureBox();
-            this.mail_center_btn = new System.Windows.Forms.PictureBox();
-            this.write_mail_button = new System.Windows.Forms.PictureBox();
-            this.read_mail_btn = new System.Windows.Forms.PictureBox();
-            this.print_page_btn = new System.Windows.Forms.PictureBox();
-            this.my_aol_btn = new System.Windows.Forms.PictureBox();
-            this.favorites_btn = new System.Windows.Forms.PictureBox();
-            this.internet_btn = new System.Windows.Forms.PictureBox();
-            this.channels_btn = new System.Windows.Forms.PictureBox();
-            this.people_btn = new System.Windows.Forms.PictureBox();
-            this.quotes_btn = new System.Windows.Forms.PictureBox();
-            this.perks_btn = new System.Windows.Forms.PictureBox();
-            this.weather_btn = new System.Windows.Forms.PictureBox();
-            this.loadingIcon = new System.Windows.Forms.PictureBox();
-            this.mie_badge = new System.Windows.Forms.PictureBox();
-            this.homeBtn = new System.Windows.Forms.PictureBox();
-            this.reloadBtn = new System.Windows.Forms.PictureBox();
-            this.stopBtn = new System.Windows.Forms.PictureBox();
-            this.forwardBtn = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.cursorTimer = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.fileContextMenuStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.channelsContextMenuStrip.SuspendLayout();
-            this.editContextMenuStrip.SuspendLayout();
-            this.windowContextMenuStrip.SuspendLayout();
-            this.helpContextMenuStrip.SuspendLayout();
-            this.mailCenterContextMenuStrip.SuspendLayout();
-            this.myFilesContextMenuStrip.SuspendLayout();
-            this.myAOLContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.my_files_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mail_center_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.write_mail_button)).BeginInit();
@@ -217,12 +217,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
+            this.channelsContextMenuStrip.SuspendLayout();
+            this.editContextMenuStrip.SuspendLayout();
+            this.windowContextMenuStrip.SuspendLayout();
+            this.helpContextMenuStrip.SuspendLayout();
+            this.mailCenterContextMenuStrip.SuspendLayout();
+            this.myFilesContextMenuStrip.SuspendLayout();
+            this.myAOLContextMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -243,10 +244,20 @@
             this.panel2.Controls.Add(this.addrBox);
             this.panel2.Controls.Add(this.keywordBtn);
             this.panel2.Controls.Add(this.goBtn);
-            this.panel2.Location = new System.Drawing.Point(3, 79);
+            this.panel2.Location = new System.Drawing.Point(3, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(796, 27);
+            this.panel2.Size = new System.Drawing.Size(797, 27);
             this.panel2.TabIndex = 8;
+            // 
+            // mie_badge
+            // 
+            this.mie_badge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mie_badge.Location = new System.Drawing.Point(740, 3);
+            this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
+            this.mie_badge.Name = "mie_badge";
+            this.mie_badge.Size = new System.Drawing.Size(59, 21);
+            this.mie_badge.TabIndex = 16;
+            this.mie_badge.TabStop = false;
             // 
             // findDropDown
             // 
@@ -259,6 +270,62 @@
             this.findDropDown.Size = new System.Drawing.Size(57, 21);
             this.findDropDown.TabIndex = 15;
             // 
+            // homeBtn
+            // 
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeBtn.Image = global::aol.Properties.Resources.home_btn_enabled;
+            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(27, 20);
+            this.homeBtn.TabIndex = 14;
+            this.homeBtn.TabStop = false;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reloadBtn.Image = global::aol.Properties.Resources.reload_btn;
+            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
+            this.reloadBtn.TabIndex = 13;
+            this.reloadBtn.TabStop = false;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopBtn.Image = global::aol.Properties.Resources.stop_btn1;
+            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(27, 20);
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.TabStop = false;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forwardBtn.Image = global::aol.Properties.Resources.forward_btn1;
+            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
+            this.forwardBtn.TabIndex = 11;
+            this.forwardBtn.TabStop = false;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Image = global::aol.Properties.Resources.back_btn1;
+            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(25, 20);
+            this.backBtn.TabIndex = 10;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
+            // 
             // addrBox
             // 
             this.addrBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -266,7 +333,7 @@
             this.addrBox.FormattingEnabled = true;
             this.addrBox.Location = new System.Drawing.Point(201, 3);
             this.addrBox.Name = "addrBox";
-            this.addrBox.Size = new System.Drawing.Size(432, 21);
+            this.addrBox.Size = new System.Drawing.Size(438, 21);
             this.addrBox.TabIndex = 9;
             this.addrBox.Text = "Type Keyword or Web Address here and click Go";
             this.addrBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyDown_1);
@@ -278,7 +345,7 @@
             this.keywordBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.keywordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.keywordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.keywordBtn.Location = new System.Drawing.Point(674, 3);
+            this.keywordBtn.Location = new System.Drawing.Point(680, 3);
             this.keywordBtn.Name = "keywordBtn";
             this.keywordBtn.Size = new System.Drawing.Size(57, 21);
             this.keywordBtn.TabIndex = 8;
@@ -290,7 +357,7 @@
             this.goBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.goBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.goBtn.Location = new System.Drawing.Point(637, 3);
+            this.goBtn.Location = new System.Drawing.Point(643, 3);
             this.goBtn.Name = "goBtn";
             this.goBtn.Size = new System.Drawing.Size(33, 21);
             this.goBtn.TabIndex = 7;
@@ -306,10 +373,10 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(797, 3);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(798, 3);
             this.toolStripContainer1.Location = new System.Drawing.Point(2, 20);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(797, 21);
+            this.toolStripContainer1.Size = new System.Drawing.Size(798, 21);
             this.toolStripContainer1.TabIndex = 10;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -334,7 +401,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(797, 18);
+            this.toolStrip1.Size = new System.Drawing.Size(798, 18);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             // 
@@ -508,15 +575,174 @@
             this.tableLayoutPanel1.Controls.Add(this.weather_btn, 12, 0);
             this.tableLayoutPanel1.Controls.Add(this.loadingIcon, 14, 0);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 41);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 39);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 38);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(795, 38);
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // my_files_btn
+            // 
+            this.my_files_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.my_files_btn.Image = global::aol.Properties.Resources.my_files_icon;
+            this.my_files_btn.Location = new System.Drawing.Point(205, 0);
+            this.my_files_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.my_files_btn.Name = "my_files_btn";
+            this.my_files_btn.Size = new System.Drawing.Size(60, 38);
+            this.my_files_btn.TabIndex = 4;
+            this.my_files_btn.TabStop = false;
+            this.my_files_btn.Click += new System.EventHandler(this.my_files_btn_Click);
+            // 
+            // mail_center_btn
+            // 
+            this.mail_center_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mail_center_btn.Image = global::aol.Properties.Resources.mail_center_icon;
+            this.mail_center_btn.Location = new System.Drawing.Point(87, 0);
+            this.mail_center_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.mail_center_btn.Name = "mail_center_btn";
+            this.mail_center_btn.Size = new System.Drawing.Size(73, 38);
+            this.mail_center_btn.TabIndex = 2;
+            this.mail_center_btn.TabStop = false;
+            this.mail_center_btn.Click += new System.EventHandler(this.mail_center_btn_Click);
+            // 
+            // write_mail_button
+            // 
+            this.write_mail_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.write_mail_button.Image = global::aol.Properties.Resources.write_icon;
+            this.write_mail_button.Location = new System.Drawing.Point(41, 0);
+            this.write_mail_button.Margin = new System.Windows.Forms.Padding(0);
+            this.write_mail_button.Name = "write_mail_button";
+            this.write_mail_button.Size = new System.Drawing.Size(46, 38);
+            this.write_mail_button.TabIndex = 1;
+            this.write_mail_button.TabStop = false;
+            // 
+            // read_mail_btn
+            // 
+            this.read_mail_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.read_mail_btn.Image = ((System.Drawing.Image)(resources.GetObject("read_mail_btn.Image")));
+            this.read_mail_btn.Location = new System.Drawing.Point(0, 0);
+            this.read_mail_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.read_mail_btn.Name = "read_mail_btn";
+            this.read_mail_btn.Size = new System.Drawing.Size(41, 38);
+            this.read_mail_btn.TabIndex = 0;
+            this.read_mail_btn.TabStop = false;
+            // 
+            // print_page_btn
+            // 
+            this.print_page_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.print_page_btn.Image = global::aol.Properties.Resources.print_icon;
+            this.print_page_btn.Location = new System.Drawing.Point(160, 0);
+            this.print_page_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.print_page_btn.Name = "print_page_btn";
+            this.print_page_btn.Size = new System.Drawing.Size(45, 38);
+            this.print_page_btn.TabIndex = 3;
+            this.print_page_btn.TabStop = false;
+            // 
+            // my_aol_btn
+            // 
+            this.my_aol_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.my_aol_btn.Image = global::aol.Properties.Resources.my_aol_icon;
+            this.my_aol_btn.Location = new System.Drawing.Point(265, 0);
+            this.my_aol_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.my_aol_btn.Name = "my_aol_btn";
+            this.my_aol_btn.Size = new System.Drawing.Size(57, 38);
+            this.my_aol_btn.TabIndex = 5;
+            this.my_aol_btn.TabStop = false;
+            this.my_aol_btn.Click += new System.EventHandler(this.my_aol_btn_Click);
+            // 
+            // favorites_btn
+            // 
+            this.favorites_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.favorites_btn.Image = global::aol.Properties.Resources.favorites_icon;
+            this.favorites_btn.Location = new System.Drawing.Point(322, 0);
+            this.favorites_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.favorites_btn.Name = "favorites_btn";
+            this.favorites_btn.Size = new System.Drawing.Size(62, 38);
+            this.favorites_btn.TabIndex = 6;
+            this.favorites_btn.TabStop = false;
+            // 
+            // internet_btn
+            // 
+            this.internet_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.internet_btn.Image = global::aol.Properties.Resources.internet_icon;
+            this.internet_btn.Location = new System.Drawing.Point(384, 0);
+            this.internet_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.internet_btn.Name = "internet_btn";
+            this.internet_btn.Size = new System.Drawing.Size(55, 38);
+            this.internet_btn.TabIndex = 7;
+            this.internet_btn.TabStop = false;
+            // 
+            // channels_btn
+            // 
+            this.channels_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.channels_btn.Image = global::aol.Properties.Resources.channels_icon;
+            this.channels_btn.Location = new System.Drawing.Point(439, 0);
+            this.channels_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.channels_btn.Name = "channels_btn";
+            this.channels_btn.Size = new System.Drawing.Size(62, 38);
+            this.channels_btn.TabIndex = 8;
+            this.channels_btn.TabStop = false;
+            this.channels_btn.Click += new System.EventHandler(this.pictureBox10_Click);
+            // 
+            // people_btn
+            // 
+            this.people_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.people_btn.Image = global::aol.Properties.Resources.people_icon;
+            this.people_btn.Location = new System.Drawing.Point(501, 0);
+            this.people_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.people_btn.Name = "people_btn";
+            this.people_btn.Size = new System.Drawing.Size(82, 38);
+            this.people_btn.TabIndex = 9;
+            this.people_btn.TabStop = false;
+            // 
+            // quotes_btn
+            // 
+            this.quotes_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quotes_btn.Image = global::aol.Properties.Resources.quotes_icon;
+            this.quotes_btn.Location = new System.Drawing.Point(583, 0);
+            this.quotes_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.quotes_btn.Name = "quotes_btn";
+            this.quotes_btn.Size = new System.Drawing.Size(54, 38);
+            this.quotes_btn.TabIndex = 10;
+            this.quotes_btn.TabStop = false;
+            // 
+            // perks_btn
+            // 
+            this.perks_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.perks_btn.Image = global::aol.Properties.Resources.perks_icon;
+            this.perks_btn.Location = new System.Drawing.Point(637, 0);
+            this.perks_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.perks_btn.Name = "perks_btn";
+            this.perks_btn.Size = new System.Drawing.Size(47, 38);
+            this.perks_btn.TabIndex = 11;
+            this.perks_btn.TabStop = false;
+            // 
+            // weather_btn
+            // 
+            this.weather_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.weather_btn.Image = global::aol.Properties.Resources.weather_icon;
+            this.weather_btn.Location = new System.Drawing.Point(684, 0);
+            this.weather_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.weather_btn.Name = "weather_btn";
+            this.weather_btn.Size = new System.Drawing.Size(64, 38);
+            this.weather_btn.TabIndex = 12;
+            this.weather_btn.TabStop = false;
+            // 
+            // loadingIcon
+            // 
+            this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Enabled = false;
+            this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Location = new System.Drawing.Point(749, 0);
+            this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.loadingIcon.Name = "loadingIcon";
+            this.loadingIcon.Size = new System.Drawing.Size(46, 38);
+            this.loadingIcon.TabIndex = 13;
+            this.loadingIcon.TabStop = false;
             // 
             // channelsContextMenuStrip
             // 
@@ -1063,7 +1289,7 @@
             this.toolStripSeparator22,
             this.logManagerToolStripMenuItem});
             this.myFilesContextMenuStrip.Name = "myFilesContextMenuStrip";
-            this.myFilesContextMenuStrip.Size = new System.Drawing.Size(239, 192);
+            this.myFilesContextMenuStrip.Size = new System.Drawing.Size(239, 170);
             // 
             // personalFilingCabinetToolStripMenuItem
             // 
@@ -1143,321 +1369,96 @@
             // myAOLToolStripMenuItem
             // 
             this.myAOLToolStripMenuItem.Name = "myAOLToolStripMenuItem";
-            this.myAOLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myAOLToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.myAOLToolStripMenuItem.Text = "My AOL";
             // 
             // toolStripSeparator23
             // 
             this.toolStripSeparator23.Name = "toolStripSeparator23";
-            this.toolStripSeparator23.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator23.Size = new System.Drawing.Size(173, 6);
             // 
             // setUpAOLToolStripMenuItem
             // 
             this.setUpAOLToolStripMenuItem.Name = "setUpAOLToolStripMenuItem";
-            this.setUpAOLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setUpAOLToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.setUpAOLToolStripMenuItem.Text = "Set Up AOL";
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // toolStripSeparator24
             // 
             this.toolStripSeparator24.Name = "toolStripSeparator24";
-            this.toolStripSeparator24.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator24.Size = new System.Drawing.Size(173, 6);
             // 
             // myMemberProfileToolStripMenuItem
             // 
             this.myMemberProfileToolStripMenuItem.Name = "myMemberProfileToolStripMenuItem";
-            this.myMemberProfileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.myMemberProfileToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.myMemberProfileToolStripMenuItem.Text = "My Member Profile";
             // 
             // screennamesToolStripMenuItem
             // 
             this.screennamesToolStripMenuItem.Name = "screennamesToolStripMenuItem";
-            this.screennamesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.screennamesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.screennamesToolStripMenuItem.Text = "Screen Names";
             // 
             // passwordsToolStripMenuItem
             // 
             this.passwordsToolStripMenuItem.Name = "passwordsToolStripMenuItem";
-            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.passwordsToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.passwordsToolStripMenuItem.Text = "Passwords";
             // 
             // parentalControlsToolStripMenuItem1
             // 
             this.parentalControlsToolStripMenuItem1.Name = "parentalControlsToolStripMenuItem1";
-            this.parentalControlsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.parentalControlsToolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
             this.parentalControlsToolStripMenuItem1.Text = "Parental Controls";
             // 
             // toolStripSeparator25
             // 
             this.toolStripSeparator25.Name = "toolStripSeparator25";
-            this.toolStripSeparator25.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator25.Size = new System.Drawing.Size(173, 6);
             // 
             // onlineClockToolStripMenuItem
             // 
             this.onlineClockToolStripMenuItem.Name = "onlineClockToolStripMenuItem";
-            this.onlineClockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.onlineClockToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.onlineClockToolStripMenuItem.Text = "Online Clock";
             // 
             // buddyListToolStripMenuItem
             // 
             this.buddyListToolStripMenuItem.Name = "buddyListToolStripMenuItem";
-            this.buddyListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buddyListToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.buddyListToolStripMenuItem.Text = "Buddy List";
             // 
             // personalPublisherToolStripMenuItem
             // 
             this.personalPublisherToolStripMenuItem.Name = "personalPublisherToolStripMenuItem";
-            this.personalPublisherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personalPublisherToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.personalPublisherToolStripMenuItem.Text = "Personal Publisher";
             // 
             // stockPortfoliosToolStripMenuItem
             // 
             this.stockPortfoliosToolStripMenuItem.Name = "stockPortfoliosToolStripMenuItem";
-            this.stockPortfoliosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stockPortfoliosToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.stockPortfoliosToolStripMenuItem.Text = "Stock Portfolios";
             // 
             // reminderServiceToolStripMenuItem
             // 
             this.reminderServiceToolStripMenuItem.Name = "reminderServiceToolStripMenuItem";
-            this.reminderServiceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reminderServiceToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.reminderServiceToolStripMenuItem.Text = "Reminder Service";
             // 
             // newsProfilesToolStripMenuItem
             // 
             this.newsProfilesToolStripMenuItem.Name = "newsProfilesToolStripMenuItem";
-            this.newsProfilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newsProfilesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.newsProfilesToolStripMenuItem.Text = "News Profiles";
-            // 
-            // my_files_btn
-            // 
-            this.my_files_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.my_files_btn.Image = global::aol.Properties.Resources.my_files_icon;
-            this.my_files_btn.Location = new System.Drawing.Point(205, 0);
-            this.my_files_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.my_files_btn.Name = "my_files_btn";
-            this.my_files_btn.Size = new System.Drawing.Size(60, 38);
-            this.my_files_btn.TabIndex = 4;
-            this.my_files_btn.TabStop = false;
-            this.my_files_btn.Click += new System.EventHandler(this.my_files_btn_Click);
-            // 
-            // mail_center_btn
-            // 
-            this.mail_center_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mail_center_btn.Image = global::aol.Properties.Resources.mail_center_icon;
-            this.mail_center_btn.Location = new System.Drawing.Point(87, 0);
-            this.mail_center_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.mail_center_btn.Name = "mail_center_btn";
-            this.mail_center_btn.Size = new System.Drawing.Size(73, 38);
-            this.mail_center_btn.TabIndex = 2;
-            this.mail_center_btn.TabStop = false;
-            this.mail_center_btn.Click += new System.EventHandler(this.mail_center_btn_Click);
-            // 
-            // write_mail_button
-            // 
-            this.write_mail_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.write_mail_button.Image = global::aol.Properties.Resources.write_icon;
-            this.write_mail_button.Location = new System.Drawing.Point(41, 0);
-            this.write_mail_button.Margin = new System.Windows.Forms.Padding(0);
-            this.write_mail_button.Name = "write_mail_button";
-            this.write_mail_button.Size = new System.Drawing.Size(46, 38);
-            this.write_mail_button.TabIndex = 1;
-            this.write_mail_button.TabStop = false;
-            // 
-            // read_mail_btn
-            // 
-            this.read_mail_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.read_mail_btn.Image = ((System.Drawing.Image)(resources.GetObject("read_mail_btn.Image")));
-            this.read_mail_btn.Location = new System.Drawing.Point(0, 0);
-            this.read_mail_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.read_mail_btn.Name = "read_mail_btn";
-            this.read_mail_btn.Size = new System.Drawing.Size(41, 38);
-            this.read_mail_btn.TabIndex = 0;
-            this.read_mail_btn.TabStop = false;
-            // 
-            // print_page_btn
-            // 
-            this.print_page_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.print_page_btn.Image = global::aol.Properties.Resources.print_icon;
-            this.print_page_btn.Location = new System.Drawing.Point(160, 0);
-            this.print_page_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.print_page_btn.Name = "print_page_btn";
-            this.print_page_btn.Size = new System.Drawing.Size(45, 38);
-            this.print_page_btn.TabIndex = 3;
-            this.print_page_btn.TabStop = false;
-            // 
-            // my_aol_btn
-            // 
-            this.my_aol_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.my_aol_btn.Image = global::aol.Properties.Resources.my_aol_icon;
-            this.my_aol_btn.Location = new System.Drawing.Point(265, 0);
-            this.my_aol_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.my_aol_btn.Name = "my_aol_btn";
-            this.my_aol_btn.Size = new System.Drawing.Size(57, 38);
-            this.my_aol_btn.TabIndex = 5;
-            this.my_aol_btn.TabStop = false;
-            this.my_aol_btn.Click += new System.EventHandler(this.my_aol_btn_Click);
-            // 
-            // favorites_btn
-            // 
-            this.favorites_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.favorites_btn.Image = global::aol.Properties.Resources.favorites_icon;
-            this.favorites_btn.Location = new System.Drawing.Point(322, 0);
-            this.favorites_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.favorites_btn.Name = "favorites_btn";
-            this.favorites_btn.Size = new System.Drawing.Size(62, 38);
-            this.favorites_btn.TabIndex = 6;
-            this.favorites_btn.TabStop = false;
-            // 
-            // internet_btn
-            // 
-            this.internet_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.internet_btn.Image = global::aol.Properties.Resources.internet_icon;
-            this.internet_btn.Location = new System.Drawing.Point(384, 0);
-            this.internet_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.internet_btn.Name = "internet_btn";
-            this.internet_btn.Size = new System.Drawing.Size(55, 38);
-            this.internet_btn.TabIndex = 7;
-            this.internet_btn.TabStop = false;
-            // 
-            // channels_btn
-            // 
-            this.channels_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.channels_btn.Image = global::aol.Properties.Resources.channels_icon;
-            this.channels_btn.Location = new System.Drawing.Point(439, 0);
-            this.channels_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.channels_btn.Name = "channels_btn";
-            this.channels_btn.Size = new System.Drawing.Size(62, 38);
-            this.channels_btn.TabIndex = 8;
-            this.channels_btn.TabStop = false;
-            this.channels_btn.Click += new System.EventHandler(this.pictureBox10_Click);
-            // 
-            // people_btn
-            // 
-            this.people_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.people_btn.Image = global::aol.Properties.Resources.people_icon;
-            this.people_btn.Location = new System.Drawing.Point(501, 0);
-            this.people_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.people_btn.Name = "people_btn";
-            this.people_btn.Size = new System.Drawing.Size(82, 38);
-            this.people_btn.TabIndex = 9;
-            this.people_btn.TabStop = false;
-            // 
-            // quotes_btn
-            // 
-            this.quotes_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.quotes_btn.Image = global::aol.Properties.Resources.quotes_icon;
-            this.quotes_btn.Location = new System.Drawing.Point(583, 0);
-            this.quotes_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.quotes_btn.Name = "quotes_btn";
-            this.quotes_btn.Size = new System.Drawing.Size(54, 38);
-            this.quotes_btn.TabIndex = 10;
-            this.quotes_btn.TabStop = false;
-            // 
-            // perks_btn
-            // 
-            this.perks_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.perks_btn.Image = global::aol.Properties.Resources.perks_icon;
-            this.perks_btn.Location = new System.Drawing.Point(637, 0);
-            this.perks_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.perks_btn.Name = "perks_btn";
-            this.perks_btn.Size = new System.Drawing.Size(47, 38);
-            this.perks_btn.TabIndex = 11;
-            this.perks_btn.TabStop = false;
-            // 
-            // weather_btn
-            // 
-            this.weather_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.weather_btn.Image = global::aol.Properties.Resources.weather_icon;
-            this.weather_btn.Location = new System.Drawing.Point(684, 0);
-            this.weather_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.weather_btn.Name = "weather_btn";
-            this.weather_btn.Size = new System.Drawing.Size(64, 38);
-            this.weather_btn.TabIndex = 12;
-            this.weather_btn.TabStop = false;
-            // 
-            // loadingIcon
-            // 
-            this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
-            this.loadingIcon.Enabled = false;
-            this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
-            this.loadingIcon.Location = new System.Drawing.Point(748, 0);
-            this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.loadingIcon.Name = "loadingIcon";
-            this.loadingIcon.Size = new System.Drawing.Size(46, 38);
-            this.loadingIcon.TabIndex = 13;
-            this.loadingIcon.TabStop = false;
-            // 
-            // mie_badge
-            // 
-            this.mie_badge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mie_badge.Location = new System.Drawing.Point(734, 3);
-            this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
-            this.mie_badge.Name = "mie_badge";
-            this.mie_badge.Size = new System.Drawing.Size(59, 21);
-            this.mie_badge.TabIndex = 16;
-            this.mie_badge.TabStop = false;
-            // 
-            // homeBtn
-            // 
-            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::aol.Properties.Resources.home_btn_enabled;
-            this.homeBtn.Location = new System.Drawing.Point(107, 4);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(27, 20);
-            this.homeBtn.TabIndex = 14;
-            this.homeBtn.TabStop = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
-            // 
-            // reloadBtn
-            // 
-            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.Image = global::aol.Properties.Resources.reload_btn;
-            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
-            this.reloadBtn.TabIndex = 13;
-            this.reloadBtn.TabStop = false;
-            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
-            // 
-            // stopBtn
-            // 
-            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = global::aol.Properties.Resources.stop_btn1;
-            this.stopBtn.Location = new System.Drawing.Point(52, 4);
-            this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(27, 20);
-            this.stopBtn.TabIndex = 12;
-            this.stopBtn.TabStop = false;
-            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
-            // 
-            // forwardBtn
-            // 
-            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.Image = global::aol.Properties.Resources.forward_btn1;
-            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
-            this.forwardBtn.Name = "forwardBtn";
-            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
-            this.forwardBtn.TabIndex = 11;
-            this.forwardBtn.TabStop = false;
-            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
-            // 
-            // backBtn
-            // 
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Image = global::aol.Properties.Resources.back_btn1;
-            this.backBtn.Location = new System.Drawing.Point(4, 4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(25, 20);
-            this.backBtn.TabIndex = 10;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
             // 
             // panel1
             // 
@@ -1473,7 +1474,7 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(796, 18);
+            this.panel1.Size = new System.Drawing.Size(797, 18);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -1513,7 +1514,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(739, 1);
+            this.miniBtn.Location = new System.Drawing.Point(741, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -1530,7 +1531,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(757, 1);
+            this.maxBtn.Location = new System.Drawing.Point(759, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1549,7 +1550,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(777, 1);
+            this.closeBtn.Location = new System.Drawing.Point(779, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1558,12 +1559,18 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // cursorTimer
+            // 
+            this.cursorTimer.Enabled = true;
+            this.cursorTimer.Interval = 10;
+            this.cursorTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(801, 600);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.panel2);
@@ -1571,13 +1578,22 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Form1";
             this.Text = "AOL 4.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -1585,13 +1601,6 @@
             this.toolStrip1.PerformLayout();
             this.fileContextMenuStrip.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.channelsContextMenuStrip.ResumeLayout(false);
-            this.editContextMenuStrip.ResumeLayout(false);
-            this.windowContextMenuStrip.ResumeLayout(false);
-            this.helpContextMenuStrip.ResumeLayout(false);
-            this.mailCenterContextMenuStrip.ResumeLayout(false);
-            this.myFilesContextMenuStrip.ResumeLayout(false);
-            this.myAOLContextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.my_files_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mail_center_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.write_mail_button)).EndInit();
@@ -1606,12 +1615,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
+            this.channelsContextMenuStrip.ResumeLayout(false);
+            this.editContextMenuStrip.ResumeLayout(false);
+            this.windowContextMenuStrip.ResumeLayout(false);
+            this.helpContextMenuStrip.ResumeLayout(false);
+            this.mailCenterContextMenuStrip.ResumeLayout(false);
+            this.myFilesContextMenuStrip.ResumeLayout(false);
+            this.myAOLContextMenuStrip.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1780,6 +1790,7 @@
         private System.Windows.Forms.ToolStripMenuItem stockPortfoliosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reminderServiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newsProfilesToolStripMenuItem;
+        private System.Windows.Forms.Timer cursorTimer;
     }
 }
 

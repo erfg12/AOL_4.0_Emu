@@ -34,13 +34,15 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.homePageBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fullscreenCheckbox
             // 
             this.fullscreenCheckbox.AutoSize = true;
-            this.fullscreenCheckbox.Location = new System.Drawing.Point(13, 69);
+            this.fullscreenCheckbox.Location = new System.Drawing.Point(12, 59);
             this.fullscreenCheckbox.Name = "fullscreenCheckbox";
             this.fullscreenCheckbox.Size = new System.Drawing.Size(104, 17);
             this.fullscreenCheckbox.TabIndex = 0;
@@ -126,17 +128,38 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // homePageBox
+            // 
+            this.homePageBox.Location = new System.Drawing.Point(85, 90);
+            this.homePageBox.Name = "homePageBox";
+            this.homePageBox.Size = new System.Drawing.Size(231, 20);
+            this.homePageBox.TabIndex = 5;
+            this.homePageBox.TextChanged += new System.EventHandler(this.homePageBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Home Page:";
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 403);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.homePageBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.fullscreenCheckbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "settings";
             this.Text = "settings";
+            this.Load += new System.EventHandler(this.settings_Load);
+            this.Shown += new System.EventHandler(this.settings_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,5 +174,7 @@
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox homePageBox;
+        private System.Windows.Forms.Label label1;
     }
 }

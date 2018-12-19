@@ -5,5 +5,11 @@
     <Setting Name="fullScreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="homeSite" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://google.com</Value>
+    </Setting>
+    <Setting Name="windowSize" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
