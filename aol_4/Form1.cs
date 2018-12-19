@@ -455,17 +455,20 @@ namespace aol
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (RectangleToScreen(FormRight).Contains(MousePosition))
+            if (this.WindowState == FormWindowState.Maximized)
+                return;
+
+            if (RectangleToScreen(FormRight).Contains(MousePosition) && !resizeB && !resizeD)
             {
                 Cursor = Cursors.SizeWE;
                 if (Control.MouseButtons == MouseButtons.Left) resizeR = true;
             }
-            else if (RectangleToScreen(FormBottom).Contains(MousePosition))
+            else if (RectangleToScreen(FormBottom).Contains(MousePosition) && !resizeR && !resizeD)
             {
                 Cursor = Cursors.SizeNS;
                 if (Control.MouseButtons == MouseButtons.Left) resizeB = true;
             }
-            else if (RectangleToScreen(BottomRight).Contains(MousePosition))
+            else if (RectangleToScreen(BottomRight).Contains(MousePosition) && !resizeB && !resizeR)
             {
                 Cursor = Cursors.SizeNWSE;
                 if (Control.MouseButtons == MouseButtons.Left) resizeD = true;
