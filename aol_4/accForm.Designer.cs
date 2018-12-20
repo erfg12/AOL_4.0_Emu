@@ -1,6 +1,6 @@
 ﻿namespace aol
 {
-    partial class settings
+    partial class accForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fullscreenCheckbox = new System.Windows.Forms.CheckBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.homePageBox = new System.Windows.Forms.TextBox();
+            this.leftBanner = new System.Windows.Forms.PictureBox();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // fullscreenCheckbox
-            // 
-            this.fullscreenCheckbox.AutoSize = true;
-            this.fullscreenCheckbox.Location = new System.Drawing.Point(12, 59);
-            this.fullscreenCheckbox.Name = "fullscreenCheckbox";
-            this.fullscreenCheckbox.Size = new System.Drawing.Size(104, 17);
-            this.fullscreenCheckbox.TabIndex = 0;
-            this.fullscreenCheckbox.Text = "Start Full Screen";
-            this.fullscreenCheckbox.UseVisualStyleBackColor = true;
-            this.fullscreenCheckbox.CheckedChanged += new System.EventHandler(this.fullscreenCheckbox_CheckedChanged);
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.mainTitle);
             this.panel1.Controls.Add(this.miniBtn);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(455, 18);
-            this.panel1.TabIndex = 3;
+            this.panel1.Size = new System.Drawing.Size(416, 18);
+            this.panel1.TabIndex = 4;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // miniBtn
@@ -76,7 +72,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(398, 1);
+            this.miniBtn.Location = new System.Drawing.Point(359, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -93,7 +89,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(416, 1);
+            this.maxBtn.Location = new System.Drawing.Point(377, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -111,7 +107,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(436, 1);
+            this.closeBtn.Location = new System.Drawing.Point(397, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -119,49 +115,97 @@
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // leftBanner
             // 
-            this.button1.Location = new System.Drawing.Point(387, 368);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
+            this.leftBanner.Location = new System.Drawing.Point(0, 18);
+            this.leftBanner.Name = "leftBanner";
+            this.leftBanner.Size = new System.Drawing.Size(100, 300);
+            this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.leftBanner.TabIndex = 5;
+            this.leftBanner.TabStop = false;
             // 
-            // homePageBox
+            // mainTitle
             // 
-            this.homePageBox.Location = new System.Drawing.Point(85, 90);
-            this.homePageBox.Name = "homePageBox";
-            this.homePageBox.Size = new System.Drawing.Size(231, 20);
-            this.homePageBox.TabIndex = 5;
-            this.homePageBox.TextChanged += new System.EventHandler(this.homePageBox_TextChanged);
+            this.mainTitle.AutoSize = true;
+            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
+            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mainTitle.Location = new System.Drawing.Point(26, 2);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(45, 13);
+            this.mainTitle.TabIndex = 10;
+            this.mainTitle.Text = "Sign On";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Location = new System.Drawing.Point(4, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 93);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(161, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Home Page:";
+            this.label1.Text = "Select Screen Name:";
             // 
-            // settings
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(164, 138);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(185, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(164, 224);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Select Location:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(164, 240);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(185, 21);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // accForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 403);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(416, 319);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.homePageBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.leftBanner);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.fullscreenCheckbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "settings";
-            this.Text = "settings";
-            this.Load += new System.EventHandler(this.settings_Load);
-            this.Shown += new System.EventHandler(this.settings_Shown);
+            this.Name = "accForm";
+            this.ShowIcon = false;
+            this.Text = "accForm";
+            this.Load += new System.EventHandler(this.accForm_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,13 +213,16 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox fullscreenCheckbox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox homePageBox;
+        private System.Windows.Forms.PictureBox leftBanner;
+        private System.Windows.Forms.Label mainTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
