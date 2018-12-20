@@ -448,8 +448,8 @@ namespace aol
         }
 
         private bool resizeR, resizeD, resizeB = false;
-        const int padding = 15;
-        Rectangle FormBottom { get { return new Rectangle(0 + padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
+        const int padding = 5;
+        Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
         Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
 
