@@ -162,6 +162,12 @@
     <Compile Include="settings.Designer.cs">
       <DependentUpon>settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="signup_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="signup_form.Designer.cs">
+      <DependentUpon>signup_form.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="accForm.resx">
       <DependentUpon>accForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +201,9 @@
     </Compile>
     <EmbeddedResource Include="settings.resx">
       <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signup_form.resx">
+      <DependentUpon>signup_form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

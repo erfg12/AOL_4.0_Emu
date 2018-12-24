@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
@@ -139,25 +140,50 @@ namespace aol
             toolTip1.SetToolTip(this.my_aol_btn, "Customize AOL for YOU.");
             toolTip1.SetToolTip(this.favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
-            // open fake dial up window
-            dial_up du = new dial_up();
-            du.Owner = (Form)this;
-            du.MdiParent = this;
-            du.Show();
+            // open account form window
+            accForm acf = new accForm();
+            acf.Owner = (Form)this;
+            acf.MdiParent = this;
+            acf.Show();
 
-            await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
+            Thread.CurrentThread.Name = "Main"; 
+            Task taskA = new Task(() => {
+                while (true)
+                {
+                    if (!MdiChildren.Any())
+                    {
+                        startProgram();
+                        break;
+                    }
+                }
+            });
+            taskA.Start();
+        }
 
-            // open buddies online window
-            buddies_online bo = new buddies_online();
-            bo.Owner = (Form)this;
-            bo.MdiParent = this;
-            bo.Show();
+        private void startProgram()
+        {
+            this.Invoke((MethodInvoker)async delegate ()
+            {
+                // open fake dial up window
+                dial_up du = new dial_up();
+                du.Owner = (Form)this;
+                du.MdiParent = this;
+                du.Show();
 
-            // open home menu
-            home_menu hm = new home_menu();
-            hm.Owner = (Form)this;
-            hm.MdiParent = this;
-            hm.Show();
+                await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
+
+                // open buddies online window
+                buddies_online bo = new buddies_online();
+                bo.Owner = (Form)this;
+                bo.MdiParent = this;
+                bo.Show();
+
+                // open home menu
+                home_menu hm = new home_menu();
+                hm.Owner = (Form)this;
+                hm.MdiParent = this;
+                hm.Show();
+            });
 
             // enable buttons
             internet_btn.Image = Properties.Resources.internet_icon_enabled;
@@ -167,7 +193,10 @@ namespace aol
             perks_btn.Image = Properties.Resources.perks_icon_enabled;
             weather_btn.Image = Properties.Resources.weather_icon_enabled;
 
-            findDropDown.SelectedIndex = 0; // default find text selected
+            findDropDown.Invoke((MethodInvoker)delegate ()
+            {
+                findDropDown.SelectedIndex = 0; // default find text selected
+            });
         }
 
         private void openBrowser(string url = "")
@@ -263,7 +292,7 @@ namespace aol
                 }
             } catch
             {
-                MessageBox.Show("GoToURL() function crashed!");
+                MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "https://www.microsoft.com/en-us/download/details.aspx?id=52685");
             }
         }
 

@@ -246,7 +246,7 @@
             this.panel2.Controls.Add(this.goBtn);
             this.panel2.Location = new System.Drawing.Point(3, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(797, 27);
+            this.panel2.Size = new System.Drawing.Size(797, 26);
             this.panel2.TabIndex = 8;
             // 
             // mie_badge
