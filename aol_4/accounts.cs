@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace aol
 {
@@ -14,7 +15,8 @@ namespace aol
         {
             var pathDB = System.IO.Path.Combine(Environment.CurrentDirectory, "accounts.db");
             if (!System.IO.File.Exists(pathDB)) throw new Exception();
-            return new SQLiteConnection("Data Source=" + openDB() + ";Version=3;");
+            Debug.WriteLine("pageDB=" + pathDB);
+            return new SQLiteConnection("Data Source=" + pathDB + ";Version=3;");
         }
 
         private byte[] passSalt = Encoding.ASCII.GetBytes("My$@lT!2");

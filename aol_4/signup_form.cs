@@ -48,8 +48,8 @@ namespace aol
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            panel2.Visible = true;
-            panel3.Visible = false;
+            panel2.BringToFront();
+            panel3.SendToBack();
         }
 
         private void registerBtn_Click(object sender, EventArgs e)
@@ -66,6 +66,7 @@ namespace aol
         private void signup_form_Shown(object sender, EventArgs e)
         {
             panel3.SendToBack();
+            panel2.BringToFront();
         }
     }
 }

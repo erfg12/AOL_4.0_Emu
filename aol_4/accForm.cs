@@ -27,14 +27,14 @@ namespace aol
             InitializeComponent();
         }
 
-        //Dictionary<string, string> theAccs = accounts.listAccounts();
+        Dictionary<string, string> theAccs = accounts.listAccounts();
 
         private void accForm_Load(object sender, EventArgs e)
         {
-            /*foreach(KeyValuePair<string, string> entry in accounts.listAccounts())
+            foreach(KeyValuePair<string, string> entry in accounts.listAccounts())
             {
                 screenName.Items.Add(entry.Key);
-            }*/
+            }
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -59,7 +59,7 @@ namespace aol
                 signup_form suf = new signup_form();
                 suf.Show();
             }
-            //Close();
+            Close();
         }
 
         private void setupBtn_Click(object sender, EventArgs e)
@@ -70,12 +70,12 @@ namespace aol
 
         private void screenName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*if (theAccs.ContainsKey(screenName.Text))
+            if (theAccs.ContainsKey(screenName.Text))
             {
                 string accPass;
                 theAccs.TryGetValue(screenName.Text, out accPass);
                 passBox.Text = accPass;
-            }*/
+            }
         }
     }
 }
