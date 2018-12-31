@@ -151,14 +151,26 @@ namespace aol
             acf.Owner = (Form)this;
             acf.MdiParent = this;
             acf.Show();
-            
-            Task taskA = new Task(() => {
+
+            if (MdiChildren.Length <= 0)
+                return;
+
+
+            Task taskA = new Task(() =>
+            {
                 while (true)
                 {
-                    if (!MdiChildren.Any())
+                    try
                     {
-                        startProgram();
-                        break;
+                        if (!MdiChildren.Any())
+                        {
+                            startProgram();
+                            break;
+                        }
+                    }
+                    catch
+                    {
+                        Debug.WriteLine("openAccWindow() crashed");
                     }
                 }
             });
@@ -171,36 +183,42 @@ namespace aol
             {
                 try
                 {
+                    if (this == null)
+                        return;
+
+                    if (this.Handle == null)
+                        return;
+
                     if (IsWindow(this.Handle) == false)
                         return;
+
+                    // open fake dial up window
+                    dial_up du = new dial_up();
+                    du.Owner = (Form)this;
+                    du.MdiParent = this;
+                    du.Show();
+
+                    await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
+
+                    // open buddies online window
+                    if (accounts.tmpUsername != "Guest")
+                    {
+                        buddies_online bo = new buddies_online();
+                        bo.Owner = (Form)this;
+                        bo.MdiParent = this;
+                        bo.Show();
+                    }
+
+                    // open home menu
+                    home_menu hm = new home_menu();
+                    hm.Owner = (Form)this;
+                    hm.MdiParent = this;
+                    hm.Show();
                 }
                 catch
                 {
                     return; // object was disposed
                 }
-
-                // open fake dial up window
-                dial_up du = new dial_up();
-                du.Owner = (Form)this;
-                du.MdiParent = this;
-                du.Show();
-
-                await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
-
-                // open buddies online window
-                if (accounts.tmpUsername != "Guest")
-                {
-                    buddies_online bo = new buddies_online();
-                    bo.Owner = (Form)this;
-                    bo.MdiParent = this;
-                    bo.Show();
-                }
-
-                // open home menu
-                home_menu hm = new home_menu();
-                hm.Owner = (Form)this;
-                hm.MdiParent = this;
-                hm.Show();
             });
 
             // enable buttons
@@ -510,6 +528,14 @@ namespace aol
         {
             DisposeAllButThis();
             openAccWindow();
+        }
+
+        private void readMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mailbox mb = new mailbox();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
         }
 
         Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }

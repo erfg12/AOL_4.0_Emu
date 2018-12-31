@@ -1183,7 +1183,7 @@
             this.toolStripSeparator18,
             this.readOfflineMailToolStripMenuItem});
             this.mailCenterContextMenuStrip.Name = "mailCenterContextMenuStrip";
-            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 292);
+            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 314);
             // 
             // mailCenterToolStripMenuItem
             // 
@@ -1201,6 +1201,7 @@
             this.readMailToolStripMenuItem.Name = "readMailToolStripMenuItem";
             this.readMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.readMailToolStripMenuItem.Text = "Read Mail";
+            this.readMailToolStripMenuItem.Click += new System.EventHandler(this.readMailToolStripMenuItem_Click);
             // 
             // writeMailToolStripMenuItem
             // 
