@@ -58,5 +58,17 @@ namespace aol.Properties {
                 this["windowSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Guest")]
+        public string lastAcc {
+            get {
+                return ((string)(this["lastAcc"]));
+            }
+            set {
+                this["lastAcc"] = value;
+            }
+        }
     }
 }

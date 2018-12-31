@@ -32,6 +32,10 @@ namespace aol
         [DllImport("winmm.dll")]
         private static extern uint mciSendString(string command, StringBuilder returnValue, int returnLength, IntPtr winHandle);
 
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool IsWindow(IntPtr hWnd);
+
         private const int cGrip = 16;
         private const int cCaption = 32;
 
@@ -119,7 +123,7 @@ namespace aol
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private async void Form1_Shown(object sender, EventArgs e)
+        private void Form1_Shown(object sender, EventArgs e)
         {
             Debug.WriteLine("ClientSize Width:" + this.ClientSize.Width);
             Debug.WriteLine("ClientSize Height:" + this.ClientSize.Height);
@@ -127,9 +131,6 @@ namespace aol
                 WindowState = FormWindowState.Maximized;
 
             ToolTip toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(this.closeBtn, "Close Browser");
-            toolTip1.SetToolTip(this.maxBtn, "Maximize Browser");
-            toolTip1.SetToolTip(this.miniBtn, "Minimize Browser");
             toolTip1.SetToolTip(this.backBtn, "Back");
             toolTip1.SetToolTip(this.forwardBtn, "Forward");
             toolTip1.SetToolTip(this.reloadBtn, "Refresh");
@@ -141,12 +142,16 @@ namespace aol
             toolTip1.SetToolTip(this.favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
             // open account form window
+            openAccWindow();
+        }
+
+        private void openAccWindow()
+        {
             accForm acf = new accForm();
             acf.Owner = (Form)this;
             acf.MdiParent = this;
             acf.Show();
-
-            Thread.CurrentThread.Name = "Main"; 
+            
             Task taskA = new Task(() => {
                 while (true)
                 {
@@ -164,6 +169,16 @@ namespace aol
         {
             this.Invoke((MethodInvoker)async delegate ()
             {
+                try
+                {
+                    if (IsWindow(this.Handle) == false)
+                        return;
+                }
+                catch
+                {
+                    return; // object was disposed
+                }
+
                 // open fake dial up window
                 dial_up du = new dial_up();
                 du.Owner = (Form)this;
@@ -173,10 +188,13 @@ namespace aol
                 await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
 
                 // open buddies online window
-                buddies_online bo = new buddies_online();
-                bo.Owner = (Form)this;
-                bo.MdiParent = this;
-                bo.Show();
+                if (accounts.tmpUsername != "Guest")
+                {
+                    buddies_online bo = new buddies_online();
+                    bo.Owner = (Form)this;
+                    bo.MdiParent = this;
+                    bo.Show();
+                }
 
                 // open home menu
                 home_menu hm = new home_menu();
@@ -478,6 +496,22 @@ namespace aol
 
         private bool resizeR, resizeD, resizeB = false;
         const int padding = 5;
+
+        public void DisposeAllButThis()
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Dispose();
+                frm.Close();
+            }
+        }
+
+        private void signOffBtn_Click(object sender, EventArgs e)
+        {
+            DisposeAllButThis();
+            openAccWindow();
+        }
+
         Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
         Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }

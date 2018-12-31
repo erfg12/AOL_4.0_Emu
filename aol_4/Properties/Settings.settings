@@ -11,5 +11,8 @@
     <Setting Name="windowSize" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="lastAcc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Guest</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

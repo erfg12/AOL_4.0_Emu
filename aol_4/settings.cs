@@ -48,6 +48,7 @@ namespace aol
             homePageBox.Text = Properties.Settings.Default.homeSite;
             //saveWndP.Checked = Properties.Settings.Default.windowSize;
             fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
+            fullnameBox.Text = accounts.getFullName();
         }
 
         private void homePageBox_TextChanged(object sender, EventArgs e)
@@ -66,6 +67,16 @@ namespace aol
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void updateFNBtn_Click(object sender, EventArgs e)
+        {
+            accounts.updateFullName(fullnameBox.Text);
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

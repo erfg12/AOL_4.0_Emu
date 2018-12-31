@@ -88,6 +88,7 @@ namespace aol
         private void home_menu_Shown(object sender, EventArgs e)
         {
             todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
+            titleLabel.Text = "Welcome, " + accounts.tmpUsername;
         }
 
         protected override void OnPaint(PaintEventArgs e)

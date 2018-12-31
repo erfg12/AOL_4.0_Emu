@@ -57,9 +57,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.fullname = new System.Windows.Forms.TextBox();
+            this.username = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.PictureBox();
             this.registerBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -368,9 +368,9 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.password);
+            this.panel3.Controls.Add(this.fullname);
+            this.panel3.Controls.Add(this.username);
             this.panel3.Controls.Add(this.backBtn);
             this.panel3.Controls.Add(this.registerBtn);
             this.panel3.Location = new System.Drawing.Point(100, 19);
@@ -405,26 +405,26 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Username:";
             // 
-            // textBox5
+            // password
             // 
-            this.textBox5.Location = new System.Drawing.Point(144, 173);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(183, 20);
-            this.textBox5.TabIndex = 4;
+            this.password.Location = new System.Drawing.Point(144, 173);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(183, 20);
+            this.password.TabIndex = 4;
             // 
-            // textBox4
+            // fullname
             // 
-            this.textBox4.Location = new System.Drawing.Point(144, 122);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 20);
-            this.textBox4.TabIndex = 3;
+            this.fullname.Location = new System.Drawing.Point(144, 122);
+            this.fullname.Name = "fullname";
+            this.fullname.Size = new System.Drawing.Size(183, 20);
+            this.fullname.TabIndex = 3;
             // 
-            // textBox3
+            // username
             // 
-            this.textBox3.Location = new System.Drawing.Point(144, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 20);
-            this.textBox3.TabIndex = 2;
+            this.username.Location = new System.Drawing.Point(144, 71);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(183, 20);
+            this.username.TabIndex = 2;
             // 
             // backBtn
             // 
@@ -453,9 +453,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 317);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.leftBanner);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(150, 150);
@@ -509,9 +509,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.TextBox fullname;
+        private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.PictureBox backBtn;
         private System.Windows.Forms.PictureBox registerBtn;
     }

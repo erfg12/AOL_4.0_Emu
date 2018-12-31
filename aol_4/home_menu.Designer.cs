@@ -177,7 +177,7 @@
             this.Name = "home_menu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "home_menu";
+            this.Text = "Welcome Home Window";
             this.Shown += new System.EventHandler(this.home_menu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

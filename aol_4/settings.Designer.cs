@@ -36,6 +36,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.homePageBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fullnameBox = new System.Windows.Forms.TextBox();
+            this.updateFNBtn = new System.Windows.Forms.Button();
+            this.mainTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +61,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.mainTitle);
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
@@ -118,6 +123,7 @@
             this.closeBtn.Size = new System.Drawing.Size(18, 16);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // button1
             // 
@@ -146,11 +152,51 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Home Page:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Full Name:";
+            // 
+            // fullnameBox
+            // 
+            this.fullnameBox.Location = new System.Drawing.Point(85, 116);
+            this.fullnameBox.Name = "fullnameBox";
+            this.fullnameBox.Size = new System.Drawing.Size(169, 20);
+            this.fullnameBox.TabIndex = 7;
+            // 
+            // updateFNBtn
+            // 
+            this.updateFNBtn.Location = new System.Drawing.Point(260, 115);
+            this.updateFNBtn.Name = "updateFNBtn";
+            this.updateFNBtn.Size = new System.Drawing.Size(56, 21);
+            this.updateFNBtn.TabIndex = 9;
+            this.updateFNBtn.Text = "Update";
+            this.updateFNBtn.UseVisualStyleBackColor = true;
+            this.updateFNBtn.Click += new System.EventHandler(this.updateFNBtn_Click);
+            // 
+            // mainTitle
+            // 
+            this.mainTitle.AutoSize = true;
+            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
+            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mainTitle.Location = new System.Drawing.Point(3, 2);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(106, 13);
+            this.mainTitle.TabIndex = 11;
+            this.mainTitle.Text = "Preferences Window";
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 403);
+            this.Controls.Add(this.updateFNBtn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.fullnameBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.homePageBox);
             this.Controls.Add(this.button1);
@@ -158,10 +204,11 @@
             this.Controls.Add(this.fullscreenCheckbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "settings";
-            this.Text = "settings";
+            this.Text = "Preferences Window";
             this.Load += new System.EventHandler(this.settings_Load);
             this.Shown += new System.EventHandler(this.settings_Shown);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +224,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox homePageBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox fullnameBox;
+        private System.Windows.Forms.Button updateFNBtn;
+        private System.Windows.Forms.Label mainTitle;
     }
 }

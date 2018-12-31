@@ -55,12 +55,22 @@ namespace aol
         private void registerBtn_Click(object sender, EventArgs e)
         {
             // insert into db
+            int crAcc = accounts.createAcc(username.Text, fullname.Text, password.Text);
+            if (crAcc == 0)
+                MessageBox.Show("Account Created");
+            else
+                MessageBox.Show("Error #" + crAcc.ToString());
         }
 
         private void nextBtn_Click(object sender, EventArgs e)
         {
-            panel2.SendToBack();
-            panel3.BringToFront();
+            if (newAOL.Checked)
+            {
+                panel2.SendToBack();
+                panel3.BringToFront();
+            }
+            else
+                Close();
         }
 
         private void signup_form_Shown(object sender, EventArgs e)

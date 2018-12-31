@@ -44,7 +44,7 @@
             this.helpBtn = new System.Windows.Forms.Button();
             this.setupBtn = new System.Windows.Forms.Button();
             this.passBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.passLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).BeginInit();
@@ -244,18 +244,20 @@
             // 
             this.passBox.Location = new System.Drawing.Point(145, 183);
             this.passBox.Name = "passBox";
+            this.passBox.PasswordChar = '*';
             this.passBox.Size = new System.Drawing.Size(185, 20);
             this.passBox.TabIndex = 13;
+            this.passBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passBox_KeyDown);
             // 
-            // label3
+            // passLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(142, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 15);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Enter Password:";
+            this.passLabel.AutoSize = true;
+            this.passLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passLabel.Location = new System.Drawing.Point(142, 164);
+            this.passLabel.Name = "passLabel";
+            this.passLabel.Size = new System.Drawing.Size(101, 15);
+            this.passLabel.TabIndex = 14;
+            this.passLabel.Text = "Enter Password:";
             // 
             // accForm
             // 
@@ -263,7 +265,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(382, 316);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.passLabel);
             this.Controls.Add(this.passBox);
             this.Controls.Add(this.setupBtn);
             this.Controls.Add(this.helpBtn);
@@ -308,6 +310,6 @@
         private System.Windows.Forms.Button helpBtn;
         private System.Windows.Forms.Button setupBtn;
         private System.Windows.Forms.TextBox passBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label passLabel;
     }
 }
