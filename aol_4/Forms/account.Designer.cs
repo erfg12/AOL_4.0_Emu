@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.setupBtn = new System.Windows.Forms.Button();
             this.passBox = new System.Windows.Forms.TextBox();
             this.passLabel = new System.Windows.Forms.Label();
+            this.accCheck = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).BeginInit();
@@ -175,7 +177,7 @@
             this.screenName.Location = new System.Drawing.Point(145, 133);
             this.screenName.Name = "screenName";
             this.screenName.Size = new System.Drawing.Size(185, 21);
-            this.screenName.TabIndex = 7;
+            this.screenName.TabIndex = 0;
             this.screenName.SelectedIndexChanged += new System.EventHandler(this.screenName_SelectedIndexChanged);
             // 
             // label2
@@ -197,7 +199,7 @@
             this.selectLocation.Location = new System.Drawing.Point(145, 235);
             this.selectLocation.Name = "selectLocation";
             this.selectLocation.Size = new System.Drawing.Size(185, 21);
-            this.selectLocation.TabIndex = 9;
+            this.selectLocation.TabIndex = 2;
             // 
             // signOnBtn
             // 
@@ -208,7 +210,7 @@
             this.signOnBtn.Location = new System.Drawing.Point(290, 274);
             this.signOnBtn.Name = "signOnBtn";
             this.signOnBtn.Size = new System.Drawing.Size(66, 23);
-            this.signOnBtn.TabIndex = 10;
+            this.signOnBtn.TabIndex = 5;
             this.signOnBtn.Text = "SIGN ON";
             this.signOnBtn.UseVisualStyleBackColor = false;
             this.signOnBtn.Click += new System.EventHandler(this.signOnBtn_Click);
@@ -222,7 +224,7 @@
             this.helpBtn.Location = new System.Drawing.Point(203, 274);
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.Size = new System.Drawing.Size(66, 23);
-            this.helpBtn.TabIndex = 11;
+            this.helpBtn.TabIndex = 4;
             this.helpBtn.Text = "HELP";
             this.helpBtn.UseVisualStyleBackColor = false;
             // 
@@ -235,7 +237,7 @@
             this.setupBtn.Location = new System.Drawing.Point(114, 274);
             this.setupBtn.Name = "setupBtn";
             this.setupBtn.Size = new System.Drawing.Size(66, 23);
-            this.setupBtn.TabIndex = 12;
+            this.setupBtn.TabIndex = 3;
             this.setupBtn.Text = "SETUP";
             this.setupBtn.UseVisualStyleBackColor = false;
             this.setupBtn.Click += new System.EventHandler(this.setupBtn_Click);
@@ -246,7 +248,7 @@
             this.passBox.Name = "passBox";
             this.passBox.PasswordChar = '*';
             this.passBox.Size = new System.Drawing.Size(185, 20);
-            this.passBox.TabIndex = 13;
+            this.passBox.TabIndex = 1;
             this.passBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passBox_KeyDown);
             // 
             // passLabel
@@ -258,6 +260,12 @@
             this.passLabel.Size = new System.Drawing.Size(101, 15);
             this.passLabel.TabIndex = 14;
             this.passLabel.Text = "Enter Password:";
+            // 
+            // accCheck
+            // 
+            this.accCheck.Enabled = true;
+            this.accCheck.Interval = 1000;
+            this.accCheck.Tick += new System.EventHandler(this.accCheck_Tick);
             // 
             // accForm
             // 
@@ -311,5 +319,6 @@
         private System.Windows.Forms.Button setupBtn;
         private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Label passLabel;
+        private System.Windows.Forms.Timer accCheck;
     }
 }

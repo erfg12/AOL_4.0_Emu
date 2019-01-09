@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aol.Classes;
 using CefSharp;
 using CefSharp.WinForms;
 
@@ -20,7 +21,7 @@ namespace aol
 {
     public partial class Form1 : Form
     {
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -214,6 +215,8 @@ namespace aol
                     hm.Owner = (Form)this;
                     hm.MdiParent = this;
                     hm.Show();
+
+                    email.checkNewEmail();
                 }
                 catch
                 {

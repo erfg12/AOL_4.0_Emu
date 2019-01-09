@@ -57,7 +57,10 @@ namespace aol
             // insert into db
             int crAcc = accounts.createAcc(username.Text, fullname.Text, password.Text);
             if (crAcc == 0)
+            {
                 MessageBox.Show("Account Created");
+                Close();
+            }
             else
                 MessageBox.Show("Error #" + crAcc.ToString());
         }

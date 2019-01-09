@@ -49,15 +49,15 @@ namespace aol
             //saveWndP.Checked = Properties.Settings.Default.windowSize;
             fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
             fullnameBox.Text = accounts.getFullName();
-        }
 
-        private void homePageBox_TextChanged(object sender, EventArgs e)
-        {
-            if (homePageBox.Text.Length > 4)
-            { // make sure it's not blank
-                Properties.Settings.Default.homeSite = homePageBox.Text;
-                Properties.Settings.Default.Save();
-            }
+            // email info
+            string[] accInfo = accounts.getEmailInfo();
+            emailAddress.Text = accInfo[0];
+            emailPassword.Text = accInfo[1];
+            imapServer.Text = accInfo[2];
+            imapPort.Text = accInfo[3];
+            smtpServer.Text = accInfo[4];
+            smtpPort.Text = accInfo[5];
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -77,6 +77,15 @@ namespace aol
         private void closeBtn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void settings_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (homePageBox.Text.Length > 4) // make sure it's not blank
+                Properties.Settings.Default.homeSite = homePageBox.Text;
+
+            int ssl = useSSL.Checked ? 1 : 0;
+            accounts.emailAcc(emailAddress.Text, emailPassword.Text, imapServer.Text, Convert.ToInt32(imapPort.Text), smtpServer.Text, Convert.ToInt32(smtpPort.Text), ssl);
         }
     }
 }

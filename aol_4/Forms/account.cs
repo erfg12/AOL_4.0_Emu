@@ -54,6 +54,8 @@ namespace aol
             else
                 screenName.SelectedIndex = 0;
             selectLocation.SelectedIndex = 0;
+            if (passBox.Visible)
+                this.ActiveControl = passBox;
         }
 
         private void signOnBtn_Click(object sender, EventArgs e)
@@ -109,6 +111,22 @@ namespace aol
         {
             if (e.KeyCode == Keys.Enter)
                 signOnBtn.PerformClick();
+        }
+
+        private void accCheck_Tick(object sender, EventArgs e)
+        {
+            Dictionary<string, string> accsCheck = accounts.listAccounts();
+            if (accsCheck.Count() != theAccs.Count())
+            {
+                screenName.Items.Clear();
+                screenName.Items.Add("Guest");
+                screenName.Items.Add("Existing Member");
+                screenName.Items.Add("New User");
+                foreach (KeyValuePair<string, string> entry in accounts.listAccounts())
+                {
+                    screenName.Items.Add(entry.Key);
+                }
+            }
         }
     }
 }

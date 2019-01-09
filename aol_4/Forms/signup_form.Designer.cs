@@ -440,7 +440,7 @@
             // registerBtn
             // 
             this.registerBtn.Image = ((System.Drawing.Image)(resources.GetObject("registerBtn.Image")));
-            this.registerBtn.Location = new System.Drawing.Point(414, 259);
+            this.registerBtn.Location = new System.Drawing.Point(417, 266);
             this.registerBtn.Name = "registerBtn";
             this.registerBtn.Size = new System.Drawing.Size(40, 23);
             this.registerBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
