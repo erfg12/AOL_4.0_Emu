@@ -1,5 +1,4 @@
-﻿using aol.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aol
+namespace aol.Forms
 {
-    public partial class mailbox : Form
+    public partial class read_mail : Form
     {
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -29,18 +28,13 @@ namespace aol
         int wndHeight = 0;
         public bool maximized = false;
 
-        public mailbox()
+        public read_mail()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.Dock = DockStyle.Fill;
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void miniMax()
@@ -88,6 +82,31 @@ namespace aol
             }
         }
 
+        private void read_mail_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+
+        private void miniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -97,51 +116,9 @@ namespace aol
             }
         }
 
-        private void miniBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
             maxiMini();
-        }
-
-        private void maxBtn_Click(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
-        private void mailbox_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mailbox_Shown(object sender, EventArgs e)
-        {
-            email.getEmail();
-            foreach (KeyValuePair<string, string> entry in email.emails)
-            {
-                ListViewItem lIt = new ListViewItem();
-                lIt.Tag = entry.Key;
-                lIt.SubItems.Add(entry.Value);
-                newListview.Items.Add(lIt);
-            }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void newListbox_DoubleClick(object sender, EventArgs e)
-        {
-            MessageBox.Show(newListview.SelectedItems[0].SubItems[0].Text);
         }
     }
 }

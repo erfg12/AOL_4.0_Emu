@@ -13,6 +13,8 @@ namespace aol.Classes
 {
     class email
     {
+        public static Dictionary<string, string> emails = new Dictionary<string, string>();
+
         public static bool checkNewEmail()
         {
             using (var client = new ImapClient())
@@ -61,6 +63,7 @@ namespace aol.Classes
                 {
                     var message = inbox.GetMessage(i);
                     Debug.WriteLine("[MAIL] id:" + message.MessageId + " subj:" + message.Subject);
+                    emails.Add(message.MessageId, message.Subject);
                 }
 
                 client.Disconnect(true);

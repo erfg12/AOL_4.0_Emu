@@ -631,6 +631,7 @@
             this.read_mail_btn.Size = new System.Drawing.Size(41, 38);
             this.read_mail_btn.TabIndex = 0;
             this.read_mail_btn.TabStop = false;
+            this.read_mail_btn.Click += new System.EventHandler(this.read_mail_btn_Click);
             // 
             // print_page_btn
             // 
@@ -1183,7 +1184,7 @@
             this.toolStripSeparator18,
             this.readOfflineMailToolStripMenuItem});
             this.mailCenterContextMenuStrip.Name = "mailCenterContextMenuStrip";
-            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 314);
+            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 292);
             // 
             // mailCenterToolStripMenuItem
             // 

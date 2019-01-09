@@ -547,6 +547,14 @@ namespace aol
             mb.Show();
         }
 
+        private void read_mail_btn_Click(object sender, EventArgs e)
+        {
+            mailbox mb = new mailbox();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
+
         Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
         Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
