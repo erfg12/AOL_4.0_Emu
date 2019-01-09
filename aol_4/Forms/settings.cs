@@ -52,12 +52,14 @@ namespace aol
 
             // email info
             string[] accInfo = accounts.getEmailInfo();
+            bool checkSSL = Convert.ToInt32(accInfo[6]) != 0;
             emailAddress.Text = accInfo[0];
             emailPassword.Text = accInfo[1];
             imapServer.Text = accInfo[2];
             imapPort.Text = accInfo[3];
             smtpServer.Text = accInfo[4];
             smtpPort.Text = accInfo[5];
+            useSSL.Checked = checkSSL;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)

@@ -216,7 +216,13 @@ namespace aol
                     hm.MdiParent = this;
                     hm.Show();
 
-                    email.checkNewEmail();
+                    if (email.checkNewEmail())
+                    {
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                        player.Stream = Properties.Resources.youGotmail;
+                        player.Play();
+                        read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
+                    }
                 }
                 catch
                 {

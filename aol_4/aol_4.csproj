@@ -215,7 +215,6 @@
     <EmbeddedResource Include="Forms\signup_form.resx">
       <DependentUpon>signup_form.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="accounts.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -324,6 +323,8 @@
     <None Include="Resources\dialup_pic3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\youGotmail.wav" />
+    <None Include="Resources\yougotmail.bmp" />
     <None Include="Resources\youve_got_mail_icon.png" />
     <None Include="Resources\back_btn1.png" />
     <None Include="Resources\forward_btn1.png" />

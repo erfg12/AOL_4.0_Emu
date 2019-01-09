@@ -126,6 +126,7 @@ namespace aol
                 {
                     screenName.Items.Add(entry.Key);
                 }
+                theAccs = accsCheck; // update to stop refresh
             }
         }
     }

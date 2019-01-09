@@ -77,7 +77,7 @@ namespace aol
         {
             int foundAcc = 0;
 
-            Debug.WriteLine("logging in with user:" + user + " pass:" + pass);
+            //Debug.WriteLine("logging in with user:" + user + " pass:" + pass);
 
             string encryptedPass = "";
             if (encrypt)
@@ -135,8 +135,8 @@ namespace aol
                     {
                         info[0] = reader["address"].ToString();
                         info[1] = reader["password"].ToString();
-                        info[2] = reader["pop3"].ToString();
-                        info[3] = reader["pop3_port"].ToString();
+                        info[2] = reader["imap"].ToString();
+                        info[3] = reader["imap_port"].ToString();
                         info[4] = reader["smtp"].ToString();
                         info[5] = reader["smtp_port"].ToString();
                         info[6] = reader["ssl"].ToString();
@@ -145,7 +145,7 @@ namespace aol
                 else
                 {
                     Debug.WriteLine("No email acc created yet.");
-                    info = new string[] { " ", " ", " ", " ", " ", " ", " " };
+                    info = new string[] { "", "", "", "", "", "", "" };
                 }
             }
             catch (SQLiteException ex)
