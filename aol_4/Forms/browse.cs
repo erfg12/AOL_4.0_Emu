@@ -11,8 +11,9 @@ using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 using CefSharp.Example;
+using aol.Classes;
 
-namespace aol
+namespace aol.Forms
 {
     public partial class Browse : Form
     {

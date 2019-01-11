@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aol
+namespace aol.Forms
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace aol
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new main());
         }
     }
 }

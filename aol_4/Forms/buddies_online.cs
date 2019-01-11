@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aol
+namespace aol.Forms
 {
     public partial class buddies_online : Form
     {
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
         public const int WM_NCLBUTTONDOWN = 0xA1;

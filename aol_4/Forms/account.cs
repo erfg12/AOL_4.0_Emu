@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aol
+namespace aol.Forms
 {
     public partial class accForm : Form
     {
@@ -22,6 +22,21 @@ namespace aol
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+
+        int _ = 2;
+
+        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Gray, Top);
+            e.Graphics.FillRectangle(Brushes.Gray, Left);
+            e.Graphics.FillRectangle(Brushes.Gray, Right);
+            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
 
         public accForm()
         {

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Security.Cryptography;
 using System.Diagnostics;
+using aol.Classes;
 
-namespace aol
+namespace aol.Forms
 {
     class accounts
     {

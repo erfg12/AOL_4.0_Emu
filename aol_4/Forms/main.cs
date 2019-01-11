@@ -17,9 +17,9 @@ using aol.Classes;
 using CefSharp;
 using CefSharp.WinForms;
 
-namespace aol
+namespace aol.Forms
 {
-    public partial class Form1 : Form
+    public partial class main : Form
     {
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
@@ -50,17 +50,17 @@ namespace aol
             HTBOTTOMLEFT = 16,
             HTBOTTOMRIGHT = 17;
 
-        public Form1()
+        public main()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            FormBorderStyle = FormBorderStyle.None;
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public static int GetSoundLength(string fileName)
@@ -131,6 +131,10 @@ namespace aol
             if (Properties.Settings.Default.fullScreen)
                 WindowState = FormWindowState.Maximized;
 
+            preferencesToolStripMenuItem.Enabled = false;
+
+            findDropDown.SelectedIndex = 0; // default find text selected
+
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.backBtn, "Back");
             toolTip1.SetToolTip(this.forwardBtn, "Forward");
@@ -178,6 +182,17 @@ namespace aol
             taskA.Start();
         }
 
+        private void CheckEmail()
+        {
+            if (email.checkNewEmail())
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                player.Stream = Properties.Resources.youGotmail;
+                player.Play();
+                read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
+            }
+        }
+
         private void startProgram()
         {
             this.Invoke((MethodInvoker)async delegate ()
@@ -216,13 +231,8 @@ namespace aol
                     hm.MdiParent = this;
                     hm.Show();
 
-                    if (email.checkNewEmail())
-                    {
-                        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                        player.Stream = Properties.Resources.youGotmail;
-                        player.Play();
-                        read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
-                    }
+                    Thread thread = new Thread(new ThreadStart(CheckEmail));
+                    thread.Start();
                 }
                 catch
                 {
@@ -237,11 +247,7 @@ namespace aol
             quotes_btn.Image = Properties.Resources.quotes_icon_enabled;
             perks_btn.Image = Properties.Resources.perks_icon_enabled;
             weather_btn.Image = Properties.Resources.weather_icon_enabled;
-
-            findDropDown.Invoke((MethodInvoker)delegate ()
-            {
-                findDropDown.SelectedIndex = 0; // default find text selected
-            });
+            preferencesToolStripMenuItem.Enabled = true; // settings holds email info
         }
 
         private void openBrowser(string url = "")
@@ -567,17 +573,17 @@ namespace aol
             if (RectangleToScreen(FormRight).Contains(MousePosition) && !resizeB && !resizeD)
             {
                 Cursor = Cursors.SizeWE;
-                if (Control.MouseButtons == MouseButtons.Left) resizeR = true;
+                if (MouseButtons == MouseButtons.Left) resizeR = true;
             }
             else if (RectangleToScreen(FormBottom).Contains(MousePosition) && !resizeR && !resizeD)
             {
                 Cursor = Cursors.SizeNS;
-                if (Control.MouseButtons == MouseButtons.Left) resizeB = true;
+                if (MouseButtons == MouseButtons.Left) resizeB = true;
             }
             else if (RectangleToScreen(BottomRight).Contains(MousePosition) && !resizeB && !resizeR)
             {
                 Cursor = Cursors.SizeNWSE;
-                if (Control.MouseButtons == MouseButtons.Left) resizeD = true;
+                if (MouseButtons == MouseButtons.Left) resizeD = true;
             }
             else
             {
@@ -587,7 +593,7 @@ namespace aol
                 }
             }
 
-            if (Control.MouseButtons != MouseButtons.Left)
+            if (MouseButtons != MouseButtons.Left)
             {
                 resizeD = false; resizeR = false; resizeB = false;
             }
@@ -620,8 +626,10 @@ namespace aol
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            settings settingsForm = new settings();
-            settingsForm.Show();
+            settings sf = new settings();
+            sf.Owner = (Form)this;
+            sf.MdiParent = this;
+            sf.Show();
         }
 
         private void downloadManagerToolStripMenuItem_Click(object sender, EventArgs e)

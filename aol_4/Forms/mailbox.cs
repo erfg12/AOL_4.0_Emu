@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aol
+namespace aol.Forms
 {
     public partial class mailbox : Form
     {
@@ -28,6 +30,56 @@ namespace aol
         int wndWidth = 0;
         int wndHeight = 0;
         public bool maximized = false;
+
+        private const int
+            HTLEFT = 10,
+            HTRIGHT = 11,
+            HTTOP = 12,
+            HTTOPLEFT = 13,
+            HTTOPRIGHT = 14,
+            HTBOTTOM = 15,
+            HTBOTTOMLEFT = 16,
+            HTBOTTOMRIGHT = 17;
+
+        const int _ = 2;
+
+        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+
+        Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
+        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
+        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
+        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
+
+        protected override void WndProc(ref Message message)
+        {
+            base.WndProc(ref message);
+
+            if (message.Msg == 0x84)
+            {
+                var cursor = this.PointToClient(Cursor.Position);
+
+                if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
+                else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
+                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
+                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
+
+                else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
+                else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
+                else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
+                else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Gray, Top);
+            e.Graphics.FillRectangle(Brushes.Gray, Left);
+            e.Graphics.FillRectangle(Brushes.Gray, Right);
+            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
 
         public mailbox()
         {
@@ -117,16 +169,23 @@ namespace aol
 
         }
 
-        private void mailbox_Shown(object sender, EventArgs e)
+        private void GetEmail()
         {
             email.getEmail();
             foreach (KeyValuePair<string, string> entry in email.emails)
             {
                 ListViewItem lIt = new ListViewItem();
                 lIt.Tag = entry.Key;
-                lIt.SubItems.Add(entry.Value);
-                newListview.Items.Add(lIt);
+                lIt.Text = entry.Value;
+                Debug.WriteLine("Adding Key(tag):" + entry.Key + " Value(text):" + entry.Value);
+                newListview.Invoke(new MethodInvoker(delegate { newListview.Items.Add(lIt); }));
             }
+        }
+
+        private void mailbox_Shown(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(new ThreadStart(GetEmail));
+            thread.Start();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -139,9 +198,12 @@ namespace aol
 
         }
 
-        private void newListbox_DoubleClick(object sender, EventArgs e)
+        private void newListview_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show(newListview.SelectedItems[0].SubItems[0].Text);
+            read_mail rmf = new read_mail(newListview.SelectedItems[0].Text, newListview.SelectedItems[0].Tag.ToString());
+            rmf.Owner = (Form)this;
+            rmf.MdiParent = this.MdiParent;
+            rmf.Show();
         }
     }
 }

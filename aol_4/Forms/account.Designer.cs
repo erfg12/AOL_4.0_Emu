@@ -1,4 +1,4 @@
-﻿namespace aol
+﻿namespace aol.Forms
 {
     partial class accForm
     {

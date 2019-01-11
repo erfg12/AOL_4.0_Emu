@@ -1,4 +1,4 @@
-﻿namespace aol
+﻿namespace aol.Forms
 {
     partial class mailbox
     {
@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mailbox));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.newListview = new System.Windows.Forms.ListView();
+            this.subject = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.readBtn = new System.Windows.Forms.Button();
@@ -48,7 +50,6 @@
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.newListview = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -82,6 +83,30 @@
             this.tabPage1.Size = new System.Drawing.Size(676, 319);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Mail";
+            // 
+            // newListview
+            // 
+            this.newListview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.newListview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.subject});
+            this.newListview.FullRowSelect = true;
+            this.newListview.GridLines = true;
+            this.newListview.HideSelection = false;
+            this.newListview.Location = new System.Drawing.Point(9, 7);
+            this.newListview.MultiSelect = false;
+            this.newListview.Name = "newListview";
+            this.newListview.Size = new System.Drawing.Size(659, 306);
+            this.newListview.TabIndex = 0;
+            this.newListview.UseCompatibleStateImageBehavior = false;
+            this.newListview.View = System.Windows.Forms.View.Details;
+            this.newListview.DoubleClick += new System.EventHandler(this.newListview_DoubleClick);
+            // 
+            // subject
+            // 
+            this.subject.Text = "subject";
+            this.subject.Width = 650;
             // 
             // tabPage2
             // 
@@ -220,7 +245,7 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 18);
+            this.panel1.Size = new System.Drawing.Size(705, 18);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
@@ -260,7 +285,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(650, 1);
+            this.miniBtn.Location = new System.Drawing.Point(649, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -277,7 +302,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(668, 1);
+            this.maxBtn.Location = new System.Drawing.Point(667, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -296,7 +321,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(688, 1);
+            this.closeBtn.Location = new System.Drawing.Point(687, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -304,15 +329,6 @@
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
-            // 
-            // newListview
-            // 
-            this.newListview.Location = new System.Drawing.Point(9, 7);
-            this.newListview.Name = "newListview";
-            this.newListview.Size = new System.Drawing.Size(659, 306);
-            this.newListview.TabIndex = 0;
-            this.newListview.UseCompatibleStateImageBehavior = false;
-            this.newListview.View = System.Windows.Forms.View.Details;
             // 
             // mailbox
             // 
@@ -371,6 +387,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ListView newListview;
+        public System.Windows.Forms.ListView newListview;
+        private System.Windows.Forms.ColumnHeader subject;
     }
 }

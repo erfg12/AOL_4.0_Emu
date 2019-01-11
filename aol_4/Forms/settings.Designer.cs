@@ -1,4 +1,4 @@
-﻿namespace aol
+﻿namespace aol.Forms
 {
     partial class settings
     {
@@ -349,8 +349,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.fullscreenCheckbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(15, 120);
             this.Name = "settings";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Preferences Window";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.settings_FormClosing);
             this.Load += new System.EventHandler(this.settings_Load);
