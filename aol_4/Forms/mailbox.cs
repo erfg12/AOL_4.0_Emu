@@ -201,8 +201,8 @@ namespace aol.Forms
         private void newListview_DoubleClick(object sender, EventArgs e)
         {
             read_mail rmf = new read_mail(newListview.SelectedItems[0].Text, newListview.SelectedItems[0].Tag.ToString());
-            rmf.Owner = (Form)this;
-            rmf.MdiParent = this.MdiParent;
+            rmf.Owner = this;
+            rmf.MdiParent = MdiParent;
             rmf.Show();
         }
     }

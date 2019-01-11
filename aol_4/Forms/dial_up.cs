@@ -18,8 +18,8 @@ namespace aol.Forms
         public dial_up()
         {
             InitializeComponent();
-            this.TopLevel = true;
-            this.Focus();
+            TopLevel = true;
+            Focus();
         }
 
         int _ = 2;

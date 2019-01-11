@@ -97,6 +97,8 @@ namespace aol.Forms
         private void setupBtn_Click(object sender, EventArgs e)
         {
             signup_form suf = new signup_form();
+            suf.Owner = this;
+            suf.MdiParent = MdiParent;
             suf.Show();
         }
 
@@ -105,6 +107,7 @@ namespace aol.Forms
             Properties.Settings.Default.lastAcc = screenName.Text;
             Properties.Settings.Default.Save();
             Debug.WriteLine("changing lastAcc to " + screenName.Text);
+            // remember password code
             /*if (theAccs.ContainsKey(screenName.Text))
             {
                 string accPass;

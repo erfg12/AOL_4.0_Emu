@@ -74,6 +74,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -82,10 +84,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(574, 18);
+            this.panel1.Size = new System.Drawing.Size(570, 18);
             this.panel1.TabIndex = 5;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -110,7 +111,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(517, 1);
+            this.miniBtn.Location = new System.Drawing.Point(513, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -140,7 +141,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(535, 1);
+            this.maxBtn.Location = new System.Drawing.Point(531, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -158,7 +159,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(555, 1);
+            this.closeBtn.Location = new System.Drawing.Point(551, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -224,7 +225,7 @@
             // leftBanner
             // 
             this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
-            this.leftBanner.Location = new System.Drawing.Point(0, 18);
+            this.leftBanner.Location = new System.Drawing.Point(2, 18);
             this.leftBanner.Name = "leftBanner";
             this.leftBanner.Size = new System.Drawing.Size(100, 300);
             this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -360,7 +361,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(100, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(474, 300);
+            this.panel2.Size = new System.Drawing.Size(470, 299);
             this.panel2.TabIndex = 23;
             // 
             // panel3
@@ -375,7 +376,7 @@
             this.panel3.Controls.Add(this.registerBtn);
             this.panel3.Location = new System.Drawing.Point(100, 19);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(475, 299);
+            this.panel3.Size = new System.Drawing.Size(470, 296);
             this.panel3.TabIndex = 23;
             // 
             // label13
@@ -452,13 +453,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 317);
+            this.ClientSize = new System.Drawing.Size(574, 320);
             this.Controls.Add(this.leftBanner);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(150, 150);
+            this.Location = new System.Drawing.Point(100, 150);
             this.Name = "signup_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "signup_form";
