@@ -561,6 +561,14 @@ namespace aol.Forms
             mb.Show();
         }
 
+        private void write_mail_button_Click(object sender, EventArgs e)
+        {
+            write_mail wmf = new write_mail();
+            wmf.Owner = (Form)this;
+            wmf.MdiParent = this;
+            wmf.Show();
+        }
+
         Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
         Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }

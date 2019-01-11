@@ -3,18 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
+using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace aol.Forms
 {
-    public partial class mailbox : Form
+    public partial class write_mail : Form
     {
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
@@ -30,6 +28,9 @@ namespace aol.Forms
         int wndWidth = 0;
         int wndHeight = 0;
         public bool maximized = false;
+
+        private const int cGrip = 16;
+        private const int cCaption = 32;
 
         private const int
             HTLEFT = 10,
@@ -50,6 +51,48 @@ namespace aol.Forms
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void miniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            email.sendEmail("N/A", sendToBox.Text, subjectBox.Text, messageBox.Text);
+            MessageBox.Show("Your email has been sent!");
+            Close();
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
 
@@ -81,43 +124,6 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
-        public mailbox()
-        {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            this.Dock = DockStyle.Fill;
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void miniMax()
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-
-            if (this.ActiveMdiChild != null)
-            {
-                bool resize = false;
-                if (this.ActiveMdiChild is Browse && ((Browse)ActiveMdiChild).maximized)
-                    resize = true;
-                if (this.ActiveMdiChild is buddies_online && ((buddies_online)ActiveMdiChild).maximized)
-                    resize = true;
-
-                if (resize)
-                {
-                    this.ActiveMdiChild.Width = this.Width - 4;
-                    this.ActiveMdiChild.Height = this.Height - 110;
-                }
-            }
-        }
-
         private void maxiMini()
         {
             if (maximized)
@@ -140,70 +146,21 @@ namespace aol.Forms
             }
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        public write_mail(string sendTo = "", string subject = "")
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            Dock = DockStyle.Fill;
+
+            sendToBox.Text = sendTo;
+            subjectBox.Text = subject;
         }
 
-        private void miniBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void panel1_DoubleClick(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
-        private void maxBtn_Click(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
-        private void mailbox_Load(object sender, EventArgs e)
+        private void write_mail_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void GetEmail()
-        {
-            email.getEmail();
-            foreach (KeyValuePair<string, string> entry in email.emails)
-            {
-                ListViewItem lIt = new ListViewItem();
-                lIt.Tag = entry.Key;
-                lIt.Text = entry.Value;
-                Debug.WriteLine("Adding Key(tag):" + entry.Key + " Value(text):" + entry.Value);
-                newListview.Invoke(new MethodInvoker(delegate { newListview.Items.Add(lIt); }));
-            }
-        }
-
-        private void mailbox_Shown(object sender, EventArgs e)
-        {
-            Thread thread = new Thread(new ThreadStart(GetEmail));
-            thread.Start();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void newListview_DoubleClick(object sender, EventArgs e)
-        {
-            read_mail rmf = new read_mail(newListview.SelectedItems[0].Text, newListview.SelectedItems[0].Tag.ToString());
-            rmf.Owner = this;
-            rmf.MdiParent = MdiParent;
-            rmf.Show();
         }
     }
 }

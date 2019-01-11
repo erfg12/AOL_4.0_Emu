@@ -168,6 +168,12 @@
     <Compile Include="Forms\read_mail.Designer.cs">
       <DependentUpon>read_mail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\write_mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\write_mail.Designer.cs">
+      <DependentUpon>write_mail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\settings.cs">
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\read_mail.resx">
       <DependentUpon>read_mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\write_mail.resx">
+      <DependentUpon>write_mail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

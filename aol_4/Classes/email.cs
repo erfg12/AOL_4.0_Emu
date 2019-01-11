@@ -20,6 +20,7 @@ namespace aol.Classes
     class email
     {
         public static Dictionary<string, string> emails = new Dictionary<string, string>();
+        public static string reply = "";
 
         public static bool checkNewEmail()
         {
@@ -52,6 +53,9 @@ namespace aol.Classes
 
         public static void getEmail()
         {
+            if (accounts.tmpUsername == "Guest" || accounts.tmpUsername == "")
+                return;
+
             using (var client = new ImapClient())
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
@@ -121,11 +125,12 @@ namespace aol.Classes
                 inbox.Open(FolderAccess.ReadOnly);
 
                 var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
-                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure);
+                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure | MessageSummaryItems.Headers | MessageSummaryItems.Envelope);
 
                 foreach (var item in items)
                 {
                     body = client.Inbox.GetBodyPart(item.UniqueId, item.TextBody).ToString();
+                    reply = item.Envelope.From.First().ToString();
                 }
 
                 client.Disconnect(true);

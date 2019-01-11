@@ -90,32 +90,10 @@ namespace aol.Forms
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
             Dock = DockStyle.Fill;
+
             EmailID = emailID;
             Text = subject;
             mailViewer.DocumentText = email.readEmail(EmailID);
-        }
-
-        private void miniMax()
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-
-            if (this.ActiveMdiChild != null)
-            {
-                bool resize = false;
-                if (this.ActiveMdiChild is Browse && ((Browse)ActiveMdiChild).maximized)
-                    resize = true;
-                if (this.ActiveMdiChild is buddies_online && ((buddies_online)ActiveMdiChild).maximized)
-                    resize = true;
-
-                if (resize)
-                {
-                    this.ActiveMdiChild.Width = this.Width - 4;
-                    this.ActiveMdiChild.Height = this.Height - 110;
-                }
-            }
         }
 
         private void maxiMini()
@@ -143,6 +121,14 @@ namespace aol.Forms
         private void read_mail_Shown(object sender, EventArgs e)
         {
 
+        }
+
+        private void replyButton_Click(object sender, EventArgs e)
+        {
+            write_mail wmf = new write_mail(email.reply, "Re:" + Text);
+            wmf.Owner = this;
+            wmf.MdiParent = MdiParent;
+            wmf.Show();
         }
 
         private void read_mail_Load(object sender, EventArgs e)
