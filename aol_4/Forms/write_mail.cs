@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace aol.Forms
 {
@@ -81,9 +82,44 @@ namespace aol.Forms
             }
         }
 
+        // key = name, value = address
+        private Dictionary<string, string> parseSendTo(string parse)
+        {
+            Dictionary<string, string> list = new Dictionary<string, string>();
+            string[] replaceThese = new string[] { "<", ">", "\"" };
+
+            string[] eachAddr = parse.Split(';');
+
+            foreach (string addr in eachAddr)
+            {
+                if (addr == "")
+                    continue;
+
+                string[] info = addr.Split('<');
+                string cleanName = info[0];
+                string cleanAddr = info[1];
+
+                foreach (string r in replaceThese)
+                {
+                    cleanName = cleanName.Replace(r, "").Trim();
+                    cleanAddr = cleanAddr.Replace(r, "").Trim();
+                    Debug.WriteLine("[MAIL] replacing " + r);
+                }
+                Debug.WriteLine("[MAIL] Adding 0:" + cleanName + " 1:" + cleanAddr);
+                if (!list.ContainsKey(cleanName))
+                    list.Add(cleanName, cleanAddr);
+            }
+
+            return list;
+        }
+
         private void sendButton_Click(object sender, EventArgs e)
         {
-            email.sendEmail("N/A", sendToBox.Text, subjectBox.Text, messageBox.Text);
+            // parse <name> "address"; format
+            foreach (KeyValuePair<string, string> entry in parseSendTo(sendToBox.Text))
+            {
+                email.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
+            }
             MessageBox.Show("Your email has been sent!");
             Close();
         }

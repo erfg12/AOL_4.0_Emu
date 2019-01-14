@@ -31,6 +31,12 @@ namespace aol.Classes
                 string[] accInfo = accounts.getEmailInfo();
 
                 bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
+
+                if (accInfo[2] == "" || accInfo[0] == "" || accInfo[1] == "")
+                {
+                    Debug.WriteLine("[MAIL] Missing some information, can't login.");
+                    return false;
+                }
                 client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
                 client.Authenticate(accInfo[0], accInfo[1]);
                 
@@ -63,6 +69,12 @@ namespace aol.Classes
                 string[] accInfo = accounts.getEmailInfo();
 
                 bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
+
+                if (accInfo[2] == "" || accInfo[0] == "" || accInfo[1] == "")
+                {
+                    Debug.WriteLine("[MAIL] Missing some information, can't login.");
+                    return;
+                }
                 client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
                 client.Authenticate(accInfo[0], accInfo[1]);
 
@@ -114,6 +126,7 @@ namespace aol.Classes
             using (var client = new ImapClient())
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                reply = ""; // clear before we start
 
                 string[] accInfo = accounts.getEmailInfo();
 
@@ -125,12 +138,19 @@ namespace aol.Classes
                 inbox.Open(FolderAccess.ReadOnly);
 
                 var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
-                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure | MessageSummaryItems.Headers | MessageSummaryItems.Envelope);
+                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.Body | MessageSummaryItems.Envelope);
 
                 foreach (var item in items)
                 {
                     body = client.Inbox.GetBodyPart(item.UniqueId, item.TextBody).ToString();
-                    reply = item.Envelope.From.First().ToString();
+                    foreach (InternetAddress rt in item.Envelope.ReplyTo)
+                    {
+                        reply = reply + rt.ToString() + ";";
+                    }
+                    
+                    //Debug.WriteLine("[MAIL] ReplyTo: " + item.Envelope.ReplyTo.First().ToString());
+                    //Debug.WriteLine("[MAIL] Sender: " + item.Envelope.Sender.First().ToString());
+                    //Debug.WriteLine("[MAIL] From: " + item.Envelope.From.First().ToString());
                 }
 
                 client.Disconnect(true);

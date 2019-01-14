@@ -290,6 +290,7 @@
             // sendButton
             // 
             this.sendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sendButton.Image = ((System.Drawing.Image)(resources.GetObject("sendButton.Image")));
             this.sendButton.Location = new System.Drawing.Point(614, 28);
             this.sendButton.Name = "sendButton";

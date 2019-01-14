@@ -101,7 +101,7 @@ namespace aol.Forms
 
             m_dbConnection.Close();
 
-            Debug.WriteLine("storing user:" + user + " pass:" + pass);
+            //Debug.WriteLine("storing user:" + user + " pass:" + pass);
 
             tmpUsername = user;
             tmpPassword = encryptedPass;
@@ -146,7 +146,7 @@ namespace aol.Forms
                 else
                 {
                     Debug.WriteLine("No email acc created yet.");
-                    info = new string[] { "", "", "", "", "", "", "" };
+                    info = new string[] { "", "", "", "993", "", "465", "1" };
                 }
             }
             catch (SQLiteException ex)
