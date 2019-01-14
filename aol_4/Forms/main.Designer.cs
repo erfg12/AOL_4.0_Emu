@@ -1185,13 +1185,14 @@
             this.toolStripSeparator18,
             this.readOfflineMailToolStripMenuItem});
             this.mailCenterContextMenuStrip.Name = "mailCenterContextMenuStrip";
-            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 292);
+            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 314);
             // 
             // mailCenterToolStripMenuItem
             // 
             this.mailCenterToolStripMenuItem.Name = "mailCenterToolStripMenuItem";
             this.mailCenterToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.mailCenterToolStripMenuItem.Text = "Mail Center";
+            this.mailCenterToolStripMenuItem.Click += new System.EventHandler(this.mailCenterToolStripMenuItem_Click);
             // 
             // toolStripSeparator17
             // 
@@ -1210,18 +1211,21 @@
             this.writeMailToolStripMenuItem.Name = "writeMailToolStripMenuItem";
             this.writeMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.writeMailToolStripMenuItem.Text = "Write Mail";
+            this.writeMailToolStripMenuItem.Click += new System.EventHandler(this.writeMailToolStripMenuItem_Click);
             // 
             // oldMailToolStripMenuItem
             // 
             this.oldMailToolStripMenuItem.Name = "oldMailToolStripMenuItem";
             this.oldMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.oldMailToolStripMenuItem.Text = "Old Mail";
+            this.oldMailToolStripMenuItem.Click += new System.EventHandler(this.oldMailToolStripMenuItem_Click);
             // 
             // sentMailToolStripMenuItem
             // 
             this.sentMailToolStripMenuItem.Name = "sentMailToolStripMenuItem";
             this.sentMailToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.sentMailToolStripMenuItem.Text = "Sent Mail";
+            this.sentMailToolStripMenuItem.Click += new System.EventHandler(this.sentMailToolStripMenuItem_Click);
             // 
             // toolStripSeparator19
             // 
@@ -1239,6 +1243,7 @@
             this.mailPreferencesToolStripMenuItem.Name = "mailPreferencesToolStripMenuItem";
             this.mailPreferencesToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.mailPreferencesToolStripMenuItem.Text = "Mail Preferences";
+            this.mailPreferencesToolStripMenuItem.Click += new System.EventHandler(this.mailPreferencesToolStripMenuItem_Click);
             // 
             // mailControlsToolStripMenuItem
             // 

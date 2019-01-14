@@ -159,8 +159,7 @@ namespace aol.Forms
 
             if (MdiChildren.Length <= 0)
                 return;
-
-
+            
             Task taskA = new Task(() =>
             {
                 while (true)
@@ -442,16 +441,13 @@ namespace aol.Forms
         // channels button
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            if (!channelsOpen)
+            if (!channelsContextMenuStrip.Visible)
             {
                 PictureBox btnSender = (PictureBox)sender;
                 Point ptLowerLeft = new Point(0, btnSender.Height);
                 ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
                 channelsContextMenuStrip.Show(ptLowerLeft);
-                channelsOpen = true;
             }
-            else
-                channelsOpen = false;
         }
 
         private void mainTitle_MouseMove(object sender, MouseEventArgs e)
@@ -486,35 +482,27 @@ namespace aol.Forms
         {
             helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + 40);
         }
-
-        bool mailCenterOpen = false;
+        
         private void mail_center_btn_Click(object sender, EventArgs e)
         {
-            if (!mailCenterOpen)
+            if (!mailCenterContextMenuStrip.Visible)
             {
                 PictureBox btnSender = (PictureBox)sender;
                 Point ptLowerLeft = new Point(0, btnSender.Height);
                 ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
                 mailCenterContextMenuStrip.Show(ptLowerLeft);
-                mailCenterOpen = true;
             }
-            else
-                mailCenterOpen = false;
         }
-
-        bool myFilesOpen = false;
+        
         private void my_files_btn_Click(object sender, EventArgs e)
         {
-            if (!myFilesOpen)
+            if (!myFilesContextMenuStrip.Visible)
             {
                 PictureBox btnSender = (PictureBox)sender;
                 Point ptLowerLeft = new Point(0, btnSender.Height);
                 ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
                 myFilesContextMenuStrip.Show(ptLowerLeft);
-                myFilesOpen = true;
             }
-            else
-                myFilesOpen = false;
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -569,6 +557,46 @@ namespace aol.Forms
             wmf.Show();
         }
 
+        private void mailCenterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mailbox mb = new mailbox();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
+
+        private void writeMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            write_mail wmf = new write_mail();
+            wmf.Owner = (Form)this;
+            wmf.MdiParent = this;
+            wmf.Show();
+        }
+
+        private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mailbox mb = new mailbox();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
+
+        private void sentMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mailbox mb = new mailbox();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
+
+        private void mailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settings sf = new settings();
+            sf.Owner = (Form)this;
+            sf.MdiParent = this;
+            sf.Show();
+        }
+
         Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
         Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
@@ -616,20 +644,16 @@ namespace aol.Forms
                 Height = Cursor.Position.Y - Location.Y;
             }
         }
-
-        bool myAOLOpen = false;
+        
         private void my_aol_btn_Click(object sender, EventArgs e)
         {
-            if (!myAOLOpen)
+            if (!myAOLContextMenuStrip.Visible)
             {
                 PictureBox btnSender = (PictureBox)sender;
                 Point ptLowerLeft = new Point(0, btnSender.Height);
                 ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
                 myAOLContextMenuStrip.Show(ptLowerLeft);
-                myAOLOpen = true;
             }
-            else
-                myAOLOpen = false;
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
