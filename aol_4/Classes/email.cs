@@ -123,6 +123,7 @@ namespace aol.Classes
         public static string readEmail(string id)
         {
             string body = "";
+            TextPart rawBody = null;
             using (var client = new ImapClient())
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
@@ -138,11 +139,13 @@ namespace aol.Classes
                 inbox.Open(FolderAccess.ReadOnly);
 
                 var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
-                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.Body | MessageSummaryItems.Envelope);
+                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure | MessageSummaryItems.Envelope);
 
                 foreach (var item in items)
                 {
-                    body = client.Inbox.GetBodyPart(item.UniqueId, item.TextBody).ToString();
+                    if (item.TextBody != null)
+                        rawBody = (TextPart) client.Inbox.GetBodyPart(item.UniqueId, item.TextBody);
+
                     foreach (InternetAddress rt in item.Envelope.ReplyTo)
                     {
                         reply = reply + rt.ToString() + ";";
@@ -155,7 +158,7 @@ namespace aol.Classes
 
                 client.Disconnect(true);
             }
-            body = body.Replace(Environment.NewLine, "<br>");
+            body = rawBody.Text.Replace(Environment.NewLine, "<br>");
             body = WebUtility.HtmlDecode(body);
 
             return body;
