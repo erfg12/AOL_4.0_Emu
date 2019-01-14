@@ -172,14 +172,50 @@ namespace aol.Forms
         private void GetEmail()
         {
             email.getEmail();
-            foreach (KeyValuePair<string, string> entry in email.emails)
+            foreach (KeyValuePair<string, string> entry in email.emailsNew)
             {
                 ListViewItem lIt = new ListViewItem();
                 lIt.Tag = entry.Key;
                 lIt.Text = entry.Value;
-                Debug.WriteLine("Adding Key(tag):" + entry.Key + " Value(text):" + entry.Value);
-                newListview.Invoke(new MethodInvoker(delegate { newListview.Items.Add(lIt); }));
+                //Debug.WriteLine("[MAIL] Adding NEW Key(tag):" + entry.Key + " Value(text):" + entry.Value);
+                newListView.Invoke(new MethodInvoker(delegate { newListView.Items.Add(lIt); }));
             }
+            foreach (KeyValuePair<string, string> entry in email.emailsOld)
+            {
+                ListViewItem lIt = new ListViewItem();
+                lIt.Tag = entry.Key;
+                lIt.Text = entry.Value;
+                //Debug.WriteLine("[MAIL] Adding OLD Key(tag):" + entry.Key + " Value(text):" + entry.Value);
+                oldListView.Invoke(new MethodInvoker(delegate { oldListView.Items.Add(lIt); }));
+            }
+            foreach (KeyValuePair<string, string> entry in email.emailsSent)
+            {
+                ListViewItem lIt = new ListViewItem();
+                lIt.Tag = entry.Key;
+                lIt.Text = entry.Value;
+                //Debug.WriteLine("[MAIL] Adding SENT Key(tag):" + entry.Key + " Value(text):" + entry.Value);
+                sentListView.Invoke(new MethodInvoker(delegate { sentListView.Items.Add(lIt); }));
+            }
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (newListView.Visible)
+            {
+                email.deleteEmail(newListView.SelectedItems[0].Tag.ToString());
+                newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
+            }
+            else if (oldListView.Visible)
+            {
+                email.deleteEmail(oldListView.SelectedItems[0].Tag.ToString());
+                oldListView.Items.RemoveAt(oldListView.SelectedItems[0].Index);
+            }
+            else if (sentListView.Visible)
+            {
+                email.deleteEmail(sentListView.SelectedItems[0].Tag.ToString());
+                sentListView.Items.RemoveAt(sentListView.SelectedItems[0].Index);
+            }
+            MessageBox.Show("Email has been deleted.");
         }
 
         private void mailbox_Shown(object sender, EventArgs e)
@@ -198,12 +234,33 @@ namespace aol.Forms
 
         }
 
-        private void newListview_DoubleClick(object sender, EventArgs e)
+        private void openReadEmail(string subject, string emailID)
         {
-            read_mail rmf = new read_mail(newListview.SelectedItems[0].Text, newListview.SelectedItems[0].Tag.ToString());
+            read_mail rmf = new read_mail(subject, emailID);
             rmf.Owner = this;
             rmf.MdiParent = MdiParent;
             rmf.Show();
+        }
+
+        private void newListview_DoubleClick(object sender, EventArgs e)
+        {
+            email.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
+            openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
+            ListViewItem lIt = new ListViewItem();
+            lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
+            lIt.Text = newListView.SelectedItems[0].Text;
+            oldListView.Items.Add(lIt);
+            newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
+        }
+
+        private void oldListView_DoubleClick(object sender, EventArgs e)
+        {
+            openReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
+        }
+
+        private void sentListView_DoubleClick(object sender, EventArgs e)
+        {
+            openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
         }
     }
 }

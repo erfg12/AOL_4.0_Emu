@@ -31,10 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mailbox));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.newListview = new System.Windows.Forms.ListView();
+            this.newListView = new System.Windows.Forms.ListView();
             this.subject = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.oldListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.sentListView = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.readBtn = new System.Windows.Forms.Button();
             this.statusBtn = new System.Windows.Forms.Button();
             this.keepBtn = new System.Windows.Forms.Button();
@@ -52,6 +56,8 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -76,7 +82,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.tabPage1.Controls.Add(this.newListview);
+            this.tabPage1.Controls.Add(this.newListView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -84,24 +90,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Mail";
             // 
-            // newListview
+            // newListView
             // 
-            this.newListview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.newListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.newListview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.newListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.subject});
-            this.newListview.FullRowSelect = true;
-            this.newListview.GridLines = true;
-            this.newListview.HideSelection = false;
-            this.newListview.Location = new System.Drawing.Point(9, 7);
-            this.newListview.MultiSelect = false;
-            this.newListview.Name = "newListview";
-            this.newListview.Size = new System.Drawing.Size(659, 306);
-            this.newListview.TabIndex = 0;
-            this.newListview.UseCompatibleStateImageBehavior = false;
-            this.newListview.View = System.Windows.Forms.View.Details;
-            this.newListview.DoubleClick += new System.EventHandler(this.newListview_DoubleClick);
+            this.newListView.FullRowSelect = true;
+            this.newListView.GridLines = true;
+            this.newListView.HideSelection = false;
+            this.newListView.Location = new System.Drawing.Point(9, 7);
+            this.newListView.MultiSelect = false;
+            this.newListView.Name = "newListView";
+            this.newListView.Size = new System.Drawing.Size(659, 306);
+            this.newListView.TabIndex = 0;
+            this.newListView.UseCompatibleStateImageBehavior = false;
+            this.newListView.View = System.Windows.Forms.View.Details;
+            this.newListView.DoubleClick += new System.EventHandler(this.newListview_DoubleClick);
             // 
             // subject
             // 
@@ -111,6 +117,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.tabPage2.Controls.Add(this.oldListView);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -118,14 +125,63 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Old Mail";
             // 
+            // oldListView
+            // 
+            this.oldListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.oldListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.oldListView.FullRowSelect = true;
+            this.oldListView.GridLines = true;
+            this.oldListView.HideSelection = false;
+            this.oldListView.Location = new System.Drawing.Point(9, 6);
+            this.oldListView.MultiSelect = false;
+            this.oldListView.Name = "oldListView";
+            this.oldListView.Size = new System.Drawing.Size(659, 306);
+            this.oldListView.TabIndex = 1;
+            this.oldListView.UseCompatibleStateImageBehavior = false;
+            this.oldListView.View = System.Windows.Forms.View.Details;
+            this.oldListView.DoubleClick += new System.EventHandler(this.oldListView_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "subject";
+            this.columnHeader1.Width = 650;
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.tabPage3.Controls.Add(this.sentListView);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(676, 319);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Sent Mail";
+            // 
+            // sentListView
+            // 
+            this.sentListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sentListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.sentListView.FullRowSelect = true;
+            this.sentListView.GridLines = true;
+            this.sentListView.HideSelection = false;
+            this.sentListView.Location = new System.Drawing.Point(9, 6);
+            this.sentListView.MultiSelect = false;
+            this.sentListView.Name = "sentListView";
+            this.sentListView.Size = new System.Drawing.Size(659, 306);
+            this.sentListView.TabIndex = 1;
+            this.sentListView.UseCompatibleStateImageBehavior = false;
+            this.sentListView.View = System.Windows.Forms.View.Details;
+            this.sentListView.DoubleClick += new System.EventHandler(this.sentListView_DoubleClick);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "subject";
+            this.columnHeader2.Width = 650;
             // 
             // readBtn
             // 
@@ -178,6 +234,7 @@
             this.deleteBtn.TabIndex = 7;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // helpBtn
             // 
@@ -356,6 +413,8 @@
             this.Shown += new System.EventHandler(this.mailbox_Shown);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -387,7 +446,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        public System.Windows.Forms.ListView newListview;
+        public System.Windows.Forms.ListView newListView;
         private System.Windows.Forms.ColumnHeader subject;
+        public System.Windows.Forms.ListView oldListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        public System.Windows.Forms.ListView sentListView;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

@@ -19,7 +19,9 @@ namespace aol.Classes
 {
     class email
     {
-        public static Dictionary<string, string> emails = new Dictionary<string, string>();
+        public static Dictionary<string, string> emailsNew = new Dictionary<string, string>();
+        public static Dictionary<string, string> emailsOld = new Dictionary<string, string>();
+        public static Dictionary<string, string> emailsSent = new Dictionary<string, string>();
         public static string reply = "";
 
         public static bool checkNewEmail()
@@ -81,14 +83,82 @@ namespace aol.Classes
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadOnly);
 
-                for (int i = 0; i < inbox.Count; i++)
+                // new emails
+                var uids = inbox.Search(SearchQuery.NotSeen);
+                var items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure | MessageSummaryItems.Envelope | MessageSummaryItems.Flags);
+                foreach (var i in items)
                 {
-                    var message = inbox.GetMessage(i);
-                    //Debug.WriteLine("[MAIL] id:" + message.MessageId + " subj:" + message.Subject);
-                    emails.Add(message.MessageId, message.Subject);
+                    if (i.Flags == MessageFlags.Deleted) continue;
+                    var message = inbox.GetMessage(i.UniqueId);
+                    //Debug.WriteLine("[MAIL] new id:" + message.MessageId + " subj:" + message.Subject);
+                    emailsNew.Add(message.MessageId, message.Subject);
+                }
+
+                // old emails
+                uids = inbox.Search(SearchQuery.Seen);
+                items = inbox.Fetch(uids, MessageSummaryItems.UniqueId | MessageSummaryItems.BodyStructure | MessageSummaryItems.Envelope | MessageSummaryItems.Flags);
+                foreach (var i in items)
+                {
+                    var message = inbox.GetMessage(i.UniqueId);
+                    //Debug.WriteLine("[MAIL] old id:" + message.MessageId + " subj:" + message.Subject);
+                    emailsOld.Add(message.MessageId, message.Subject);
+                }
+
+                var outbox = client.GetFolder(SpecialFolder.Sent);
+                outbox.Open(FolderAccess.ReadOnly);
+
+                // sent emails
+                for (int i = 0; i < outbox.Count; i++)
+                {
+                    var message = outbox.GetMessage(i);
+                    //Debug.WriteLine("[MAIL] sent id:" + message.MessageId + " subj:" + message.Subject);
+                    emailsSent.Add(message.MessageId, message.Subject);
                 }
 
                 client.Disconnect(true);
+            }
+        }
+
+        public static void deleteEmail(string id)
+        {
+            using (var client = new ImapClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                string[] accInfo = accounts.getEmailInfo();
+
+                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
+                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                client.Authenticate(accInfo[0], accInfo[1]);
+
+                var inbox = client.Inbox;
+                inbox.Open(FolderAccess.ReadWrite);
+
+                var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
+                inbox.AddFlags(uids.First(), MessageFlags.Deleted, true);
+                var matchFolder = client.GetFolder(SpecialFolder.Trash);
+                if (matchFolder != null)
+                    inbox.MoveTo(uids.First(), matchFolder);
+            }
+        }
+
+        public static void markAsSeen(string id)
+        {
+            using (var client = new ImapClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                string[] accInfo = accounts.getEmailInfo();
+
+                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
+                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                client.Authenticate(accInfo[0], accInfo[1]);
+
+                var inbox = client.Inbox;
+                inbox.Open(FolderAccess.ReadWrite);
+
+                var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
+                inbox.AddFlags(uids.First(), MessageFlags.Seen, true);
             }
         }
 
@@ -144,7 +214,10 @@ namespace aol.Classes
                 foreach (var item in items)
                 {
                     if (item.TextBody != null)
-                        rawBody = (TextPart) client.Inbox.GetBodyPart(item.UniqueId, item.TextBody);
+                    {
+                        rawBody = (TextPart) inbox.GetBodyPart(item.UniqueId, item.TextBody);
+                        //var html = inbox.GetBodyPart(item.UniqueId, item.TextBody);
+                    }
 
                     foreach (InternetAddress rt in item.Envelope.ReplyTo)
                     {
