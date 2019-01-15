@@ -88,26 +88,40 @@ namespace aol.Forms
             Dictionary<string, string> list = new Dictionary<string, string>();
             string[] replaceThese = new string[] { "<", ">", "\"" };
 
-            string[] eachAddr = parse.Split(';');
-
-            foreach (string addr in eachAddr)
+            if (parse.Contains(";"))
             {
-                if (addr == "")
-                    continue;
+                string[] eachAddr = parse.Split(';');
 
-                string[] info = addr.Split('<');
-                string cleanName = info[0];
-                string cleanAddr = info[1];
-
-                foreach (string r in replaceThese)
+                foreach (string addr in eachAddr)
                 {
-                    cleanName = cleanName.Replace(r, "").Trim();
-                    cleanAddr = cleanAddr.Replace(r, "").Trim();
-                    Debug.WriteLine("[MAIL] replacing " + r);
+                    if (addr == "")
+                        continue;
+
+                    if (addr.Contains("<"))
+                    {
+                        string[] info = addr.Split('<');
+                        string cleanName = info[0];
+                        string cleanAddr = info[1];
+
+                        foreach (string r in replaceThese)
+                        {
+                            cleanName = cleanName.Replace(r, "").Trim();
+                            cleanAddr = cleanAddr.Replace(r, "").Trim();
+                            Debug.WriteLine("[MAIL] replacing " + r);
+                        }
+                        Debug.WriteLine("[MAIL] Adding 0:" + cleanName + " 1:" + cleanAddr);
+                        if (!list.ContainsKey(cleanName))
+                            list.Add(cleanName, cleanAddr);
+                    }
+                    else
+                    {
+                        list.Add("", addr);
+                    }
                 }
-                Debug.WriteLine("[MAIL] Adding 0:" + cleanName + " 1:" + cleanAddr);
-                if (!list.ContainsKey(cleanName))
-                    list.Add(cleanName, cleanAddr);
+            }
+            else
+            {
+                list.Add("", parse);
             }
 
             return list;
