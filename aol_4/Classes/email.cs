@@ -14,6 +14,7 @@ using System.IO;
 using System.Web;
 using System.Net;
 using MailKit.Net.Smtp;
+using System.Windows.Forms;
 
 namespace aol.Classes
 {
@@ -43,9 +44,25 @@ namespace aol.Classes
                     Debug.WriteLine("[MAIL] Missing some information, can't login.");
                     return false;
                 }
-                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
-                
+
+                try
+                {
+                    client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                }
+                catch
+                {
+                    return false;
+                }
+
+                try
+                {
+                    client.Authenticate(accInfo[0], accInfo[1]);
+                }
+                catch
+                {
+                    return false;
+                }
+
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadOnly);
 
@@ -81,8 +98,32 @@ namespace aol.Classes
                     Debug.WriteLine("[MAIL] Missing some information, can't login.");
                     return;
                 }
-                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
+
+                try
+                {
+                    client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                }
+                catch
+                {
+                    MessageBox.Show("Connection to email server failed!");
+                    return;
+                }
+
+                try
+                {
+                    client.Authenticate(accInfo[0], accInfo[1]);
+                }
+                catch
+                {
+                    if (accInfo[0].Contains("@gmail.com"))
+                    {
+                        if (MessageBox.Show("Authentication Failed! GMail requires an app password! https://support.google.com/accounts/answer/185833", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                            Process.Start("https://support.google.com/accounts/answer/185833");
+                    }
+                    else
+                        MessageBox.Show("Authentication Failed!");
+                    return;
+                }
 
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadOnly);
@@ -166,6 +207,26 @@ namespace aol.Classes
 
                 var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
                 inbox.AddFlags(uids.First(), MessageFlags.Seen, true);
+            }
+        }
+
+        public static void markAsUnseen(string id)
+        {
+            using (var client = new ImapClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                string[] accInfo = accounts.getEmailInfo();
+
+                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
+                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                client.Authenticate(accInfo[0], accInfo[1]);
+
+                var inbox = client.Inbox;
+                inbox.Open(FolderAccess.ReadWrite);
+
+                var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
+                inbox.RemoveFlags(uids.First(), MessageFlags.Seen, true);
             }
         }
 

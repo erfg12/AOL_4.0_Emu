@@ -21,11 +21,9 @@ namespace aol.Forms
 {
     public partial class main : Form
     {
+        #region DLLImports
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
@@ -36,9 +34,17 @@ namespace aol.Forms
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool IsWindow(IntPtr hWnd);
+        #endregion
 
+        #region win95_theme
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
         private const int cGrip = 16;
         private const int cCaption = 32;
+
+        Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
+        Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
+        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
 
         private const int
             HTLEFT = 10,
@@ -49,47 +55,6 @@ namespace aol.Forms
             HTBOTTOM = 15,
             HTBOTTOMLEFT = 16,
             HTBOTTOMRIGHT = 17;
-
-        public main()
-        {
-            InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
-            DoubleBuffered = true;
-            SetStyle(ControlStyles.ResizeRedraw, true);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public static int GetSoundLength(string fileName)
-        {
-            StringBuilder lengthBuf = new StringBuilder(32);
-
-            mciSendString(string.Format("open \"{0}\" type waveaudio alias wave", fileName), null, 0, IntPtr.Zero);
-            mciSendString("status wave length", lengthBuf, lengthBuf.Capacity, IntPtr.Zero);
-            mciSendString("close wave", null, 0, IntPtr.Zero);
-
-            int length = 0;
-            int.TryParse(lengthBuf.ToString(), out length);
-
-            return length;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void miniMax()
         {
@@ -113,41 +78,26 @@ namespace aol.Forms
                 }
             }
         }
+        #endregion
 
-        private void maxBtn_Click(object sender, EventArgs e)
+        #region shared_variables
+        bool newWindow = true;
+        string old_url = "";
+        #endregion
+
+        #region my_functions
+        public static int GetSoundLength(string fileName)
         {
-            miniMax();
-        }
+            StringBuilder lengthBuf = new StringBuilder(32);
 
-        private void miniBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+            mciSendString(string.Format("open \"{0}\" type waveaudio alias wave", fileName), null, 0, IntPtr.Zero);
+            mciSendString("status wave length", lengthBuf, lengthBuf.Capacity, IntPtr.Zero);
+            mciSendString("close wave", null, 0, IntPtr.Zero);
 
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-            Debug.WriteLine("ClientSize Width:" + this.ClientSize.Width);
-            Debug.WriteLine("ClientSize Height:" + this.ClientSize.Height);
-            if (Properties.Settings.Default.fullScreen)
-                WindowState = FormWindowState.Maximized;
+            int length = 0;
+            int.TryParse(lengthBuf.ToString(), out length);
 
-            preferencesToolStripMenuItem.Enabled = false;
-
-            findDropDown.SelectedIndex = 0; // default find text selected
-
-            ToolTip toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(this.backBtn, "Back");
-            toolTip1.SetToolTip(this.forwardBtn, "Forward");
-            toolTip1.SetToolTip(this.reloadBtn, "Refresh");
-            toolTip1.SetToolTip(this.write_mail_button, "Write mail and send files.");
-            toolTip1.SetToolTip(this.my_files_btn, "Your Personal Documents.");
-            toolTip1.SetToolTip(this.print_page_btn, "Print text or pictures.");
-            toolTip1.SetToolTip(this.mail_center_btn, "Everything about mail.");
-            toolTip1.SetToolTip(this.my_aol_btn, "Customize AOL for YOU.");
-            toolTip1.SetToolTip(this.favorites_btn, "See your favorite places.\nDrag heart icons here.");
-
-            // open account form window
-            openAccWindow();
+            return length;
         }
 
         private void openAccWindow()
@@ -159,7 +109,7 @@ namespace aol.Forms
 
             if (MdiChildren.Length <= 0)
                 return;
-            
+
             Task taskA = new Task(() =>
             {
                 while (true)
@@ -247,6 +197,32 @@ namespace aol.Forms
             preferencesToolStripMenuItem.Enabled = true; // settings holds email info
         }
 
+        public void GoToURL()
+        {
+            try
+            {
+                if (!newWindow)
+                {
+                    if (this.ActiveMdiChild is Browse)
+                        ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
+                    else // we don't have a browser window selected, open a new one anyways
+                    {
+                        openBrowser(addrBox.Text);
+                        newWindow = false;
+                    }
+                }
+                else
+                {
+                    openBrowser(addrBox.Text);
+                    newWindow = false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "https://www.microsoft.com/en-us/download/details.aspx?id=52685");
+            }
+        }
+
         private void openBrowser(string url = "")
         {
             string goTo = "";
@@ -259,6 +235,71 @@ namespace aol.Forms
             BrowseWnd.MdiParent = this;
             BrowseWnd.Show();
         }
+        #endregion
+
+        #region winform_functions
+        public main()
+        {
+            InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            miniMax();
+        }
+
+        private void miniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            Debug.WriteLine("ClientSize Width:" + this.ClientSize.Width);
+            Debug.WriteLine("ClientSize Height:" + this.ClientSize.Height);
+            if (Properties.Settings.Default.fullScreen)
+                WindowState = FormWindowState.Maximized;
+
+            preferencesToolStripMenuItem.Enabled = false;
+
+            findDropDown.SelectedIndex = 0; // default find text selected
+
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(this.backBtn, "Back");
+            toolTip1.SetToolTip(this.forwardBtn, "Forward");
+            toolTip1.SetToolTip(this.reloadBtn, "Refresh");
+            toolTip1.SetToolTip(this.write_mail_button, "Write mail and send files.");
+            toolTip1.SetToolTip(this.my_files_btn, "Your Personal Documents.");
+            toolTip1.SetToolTip(this.print_page_btn, "Print text or pictures.");
+            toolTip1.SetToolTip(this.mail_center_btn, "Everything about mail.");
+            toolTip1.SetToolTip(this.my_aol_btn, "Customize AOL for YOU.");
+            toolTip1.SetToolTip(this.favorites_btn, "See your favorite places.\nDrag heart icons here.");
+
+            // open account form window
+            openAccWindow();
+        }
 
         private void fileBtn_Click(object sender, EventArgs e)
         {
@@ -269,8 +310,6 @@ namespace aol.Forms
         {
             this.Close();
         }
-
-        bool newWindow = true;
 
         private void Form1_MdiChildActivate(object sender, EventArgs e)
         {
@@ -283,9 +322,7 @@ namespace aol.Forms
                 backBtn.Image = Properties.Resources.back_btn_enabled;
             }
         }
-
-        string old_url = "";
-
+        
         private void getMdiChildURL_Tick(object sender, EventArgs e)
         {
             try
@@ -316,31 +353,6 @@ namespace aol.Forms
             } catch
             {
                 MessageBox.Show("getMdiChildURL_Tick() function crashed!");
-            }
-        }
-
-        public void GoToURL()
-        {
-            try
-            {
-                if (!newWindow)
-                {
-                    if (this.ActiveMdiChild is Browse)
-                        ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
-                    else // we don't have a browser window selected, open a new one anyways
-                    {
-                        openBrowser(addrBox.Text);
-                        newWindow = false;
-                    }
-                }
-                else
-                {
-                    openBrowser(addrBox.Text);
-                    newWindow = false;
-                }
-            } catch
-            {
-                MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "https://www.microsoft.com/en-us/download/details.aspx?id=52685");
             }
         }
 
@@ -437,7 +449,6 @@ namespace aol.Forms
             System.Threading.Thread.Sleep(1000);
         }
 
-        bool channelsOpen = false;
         // channels button
         private void pictureBox10_Click(object sender, EventArgs e)
         {
@@ -608,10 +619,6 @@ namespace aol.Forms
             sf.Show();
         }
 
-        Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
-        Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
-        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
@@ -684,5 +691,6 @@ namespace aol.Forms
         {
             miniMax();
         }
+        #endregion
     }
 }

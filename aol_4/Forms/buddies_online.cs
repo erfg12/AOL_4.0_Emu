@@ -13,15 +13,17 @@ namespace aol.Forms
 {
     public partial class buddies_online : Form
     {
+        #region DLLImports
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+        #endregion
 
+        #region win95_theme
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
         private const int cGrip = 16;
         private const int cCaption = 32;
 
@@ -46,6 +48,11 @@ namespace aol.Forms
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
+
+        int wndX = 0;
+        int wndY = 0;
+        int wndWidth = 0;
+        int wndHeight = 0;
 
         protected override void WndProc(ref Message message)
         {
@@ -75,25 +82,6 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        int wndX = 0;
-        int wndY = 0;
-        int wndWidth = 0;
-        int wndHeight = 0;
-
-        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            maxiMini();
-        }
-
         public bool maximized = false;
 
         void maxiMini()
@@ -116,6 +104,22 @@ namespace aol.Forms
                 this.Width = Parent.Width - 4;
                 this.Height = Parent.Height - 110;
             }
+        }
+        #endregion
+
+        #region winform_functions
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            maxiMini();
         }
 
         private void miniBtn_Click(object sender, EventArgs e)
@@ -153,5 +157,6 @@ namespace aol.Forms
         {
 
         }
+        #endregion
     }
 }

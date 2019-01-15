@@ -15,14 +15,17 @@ namespace aol.Forms
 {
     public partial class write_mail : Form
     {
+        #region DLLImports
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+        #endregion
+
+        #region win95_theme
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
 
         int wndX = 0;
         int wndY = 0;
@@ -52,96 +55,6 @@ namespace aol.Forms
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void miniBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void maxBtn_Click(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        // key = name, value = address
-        private Dictionary<string, string> parseSendTo(string parse)
-        {
-            Dictionary<string, string> list = new Dictionary<string, string>();
-            string[] replaceThese = new string[] { "<", ">", "\"" };
-
-            if (parse.Contains(";"))
-            {
-                string[] eachAddr = parse.Split(';');
-
-                foreach (string addr in eachAddr)
-                {
-                    if (addr == "")
-                        continue;
-
-                    if (addr.Contains("<"))
-                    {
-                        string[] info = addr.Split('<');
-                        string cleanName = info[0];
-                        string cleanAddr = info[1];
-
-                        foreach (string r in replaceThese)
-                        {
-                            cleanName = cleanName.Replace(r, "").Trim();
-                            cleanAddr = cleanAddr.Replace(r, "").Trim();
-                            Debug.WriteLine("[MAIL] replacing " + r);
-                        }
-                        Debug.WriteLine("[MAIL] Adding 0:" + cleanName + " 1:" + cleanAddr);
-                        if (!list.ContainsKey(cleanName))
-                            list.Add(cleanName, cleanAddr);
-                    }
-                    else
-                    {
-                        list.Add("", addr);
-                    }
-                }
-            }
-            else
-            {
-                list.Add("", parse);
-            }
-
-            return list;
-        }
-
-        private void sendButton_Click(object sender, EventArgs e)
-        {
-            // parse <name> "address"; format
-            foreach (KeyValuePair<string, string> entry in parseSendTo(sendToBox.Text))
-            {
-                email.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
-            }
-            MessageBox.Show("Your email has been sent!");
-            Close();
-        }
-
-        private void panel1_DoubleClick(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
 
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
@@ -195,6 +108,53 @@ namespace aol.Forms
                 this.Height = Parent.Height - 105;
             }
         }
+        #endregion
+
+        #region my_functions
+        // key = name, value = address
+        private Dictionary<string, string> parseSendTo(string parse)
+        {
+            Dictionary<string, string> list = new Dictionary<string, string>();
+            string[] replaceThese = new string[] { "<", ">", "\"" };
+
+            if (parse.Contains(";"))
+            {
+                string[] eachAddr = parse.Split(';');
+
+                foreach (string addr in eachAddr)
+                {
+                    if (addr == "")
+                        continue;
+
+                    if (addr.Contains("<"))
+                    {
+                        string[] info = addr.Split('<');
+                        string cleanName = info[0];
+                        string cleanAddr = info[1];
+
+                        foreach (string r in replaceThese)
+                        {
+                            cleanName = cleanName.Replace(r, "").Trim();
+                            cleanAddr = cleanAddr.Replace(r, "").Trim();
+                            Debug.WriteLine("[MAIL] replacing " + r);
+                        }
+                        Debug.WriteLine("[MAIL] Adding 0:" + cleanName + " 1:" + cleanAddr);
+                        if (!list.ContainsKey(cleanName))
+                            list.Add(cleanName, cleanAddr);
+                    }
+                    else
+                    {
+                        list.Add("", addr);
+                    }
+                }
+            }
+            else
+            {
+                list.Add("", parse);
+            }
+
+            return list;
+        }
 
         public write_mail(string sendTo = "", string subject = "")
         {
@@ -207,10 +167,58 @@ namespace aol.Forms
             sendToBox.Text = sendTo;
             subjectBox.Text = subject;
         }
+        #endregion
+
+        #region winform_functions
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void miniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            // parse <name> "address"; format
+            foreach (KeyValuePair<string, string> entry in parseSendTo(sendToBox.Text))
+            {
+                email.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
+            }
+            MessageBox.Show("Your email has been sent!");
+            Close();
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
 
         private void write_mail_Load(object sender, EventArgs e)
         {
 
         }
+        #endregion
     }
 }

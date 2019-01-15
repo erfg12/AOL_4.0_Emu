@@ -16,6 +16,7 @@ namespace aol.Forms
 {
     public partial class mailbox : Form
     {
+        #region DllImports
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -24,7 +25,9 @@ namespace aol.Forms
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+        #endregion
 
+        #region win95_theme
         int wndX = 0;
         int wndY = 0;
         int wndWidth = 0;
@@ -81,20 +84,6 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
-        public mailbox()
-        {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            this.Dock = DockStyle.Fill;
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void miniMax()
         {
             if (this.WindowState == FormWindowState.Maximized)
@@ -139,34 +128,16 @@ namespace aol.Forms
                 this.Height = Parent.Height - 105;
             }
         }
+        #endregion
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        #region my_functions
+        public mailbox()
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void miniBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void panel1_DoubleClick(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
-        private void maxBtn_Click(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
-        private void mailbox_Load(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.Dock = DockStyle.Fill;
         }
 
         private void GetEmail()
@@ -198,6 +169,62 @@ namespace aol.Forms
             }
         }
 
+        void moveToOld()
+        {
+            email.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
+            ListViewItem lIt = new ListViewItem();
+            lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
+            lIt.Text = newListView.SelectedItems[0].Text;
+            oldListView.Items.Add(lIt);
+            newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
+            if (newListView.Items.Count == 0)
+                email.youGotMail = false;
+        }
+
+        private void openReadEmail(string subject, string emailID)
+        {
+            read_mail rmf = new read_mail(subject, emailID);
+            rmf.Owner = this;
+            rmf.MdiParent = MdiParent;
+            rmf.Show();
+        }
+        #endregion
+
+        #region winform_functions
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void miniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+
+        private void mailbox_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             if (newListView.Visible)
@@ -221,6 +248,26 @@ namespace aol.Forms
             MessageBox.Show("Email has been deleted.");
         }
 
+        private void keepBtn_Click(object sender, EventArgs e)
+        {
+            if (oldListView.Visible) // only works on old emails
+            {
+                email.markAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
+                ListViewItem lIt = new ListViewItem();
+                lIt.Tag = oldListView.SelectedItems[0].Tag.ToString();
+                lIt.Text = oldListView.SelectedItems[0].Text;
+                newListView.Items.Add(lIt);
+                oldListView.Items.RemoveAt(oldListView.SelectedItems[0].Index);
+            }
+        }
+
+        private void readBtn_Click(object sender, EventArgs e)
+        {
+            openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
+            if (newListView.Visible)
+                moveToOld();
+        }
+
         private void mailbox_Shown(object sender, EventArgs e)
         {
             Thread thread = new Thread(new ThreadStart(GetEmail));
@@ -237,25 +284,10 @@ namespace aol.Forms
 
         }
 
-        private void openReadEmail(string subject, string emailID)
-        {
-            read_mail rmf = new read_mail(subject, emailID);
-            rmf.Owner = this;
-            rmf.MdiParent = MdiParent;
-            rmf.Show();
-        }
-
         private void newListview_DoubleClick(object sender, EventArgs e)
         {
-            email.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
             openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
-            ListViewItem lIt = new ListViewItem();
-            lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
-            lIt.Text = newListView.SelectedItems[0].Text;
-            oldListView.Items.Add(lIt);
-            newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
-            if (newListView.Items.Count == 0)
-                email.youGotMail = false;
+            moveToOld();
         }
 
         private void oldListView_DoubleClick(object sender, EventArgs e)
@@ -267,5 +299,6 @@ namespace aol.Forms
         {
             openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
         }
+        #endregion
     }
 }

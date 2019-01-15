@@ -14,22 +14,23 @@ namespace aol.Forms
 {
     public partial class read_mail : Form
     {
+        #region DLLImports
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+        #endregion
 
+        #region win95_theme
         int wndX = 0;
         int wndY = 0;
         int wndWidth = 0;
         int wndHeight = 0;
         public bool maximized = false;
-        string EmailID = "";
 
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
         private const int cGrip = 16;
         private const int cCaption = 32;
 
@@ -83,19 +84,6 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
-        public read_mail(string subject, string emailID)
-        {
-            InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
-            DoubleBuffered = true;
-            SetStyle(ControlStyles.ResizeRedraw, true);
-            Dock = DockStyle.Fill;
-
-            EmailID = emailID;
-            Text = subject;
-            mailViewer.DocumentText = email.readEmail(EmailID);
-        }
-
         private void maxiMini()
         {
             if (maximized)
@@ -117,7 +105,26 @@ namespace aol.Forms
                 this.Height = Parent.Height - 105;
             }
         }
+        #endregion
 
+        string EmailID = "";
+
+        #region my_functions
+        public read_mail(string subject, string emailID)
+        {
+            InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            Dock = DockStyle.Fill;
+
+            EmailID = emailID;
+            Text = subject;
+            mailViewer.DocumentText = email.readEmail(EmailID);
+        }
+        #endregion
+
+        #region winform_functions
         private void read_mail_Shown(object sender, EventArgs e)
         {
 
@@ -169,5 +176,6 @@ namespace aol.Forms
         {
             maxiMini();
         }
+        #endregion
     }
 }

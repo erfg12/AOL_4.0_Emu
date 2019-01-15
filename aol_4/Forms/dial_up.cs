@@ -15,13 +15,7 @@ namespace aol.Forms
 {
     public partial class dial_up : Form
     {
-        public dial_up()
-        {
-            InitializeComponent();
-            TopLevel = true;
-            Focus();
-        }
-
+        #region win95_theme
         int _ = 2;
 
         Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
@@ -35,6 +29,15 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
+        #endregion
+
+        #region winform_functions
+        public dial_up()
+        {
+            InitializeComponent();
+            TopLevel = true;
+            Focus();
         }
 
         int i = 0;
@@ -68,5 +71,6 @@ namespace aol.Forms
             }
             i++;
         }
+        #endregion
     }
 }

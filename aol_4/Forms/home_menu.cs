@@ -13,15 +13,17 @@ namespace aol.Forms
 {
     public partial class home_menu : Form
     {
-        [DllImportAttribute("user32.dll")]
+        #region DLLImports
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+        #endregion
 
+        #region win95_theme
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
         private const int cGrip = 16;
         private const int cCaption = 32;
 
@@ -42,6 +44,16 @@ namespace aol.Forms
         Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Gray, Top);
+            e.Graphics.FillRectangle(Brushes.Gray, Left);
+            e.Graphics.FillRectangle(Brushes.Gray, Right);
+            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+        }
+        #endregion
+
+        #region winform_functions
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             
@@ -91,17 +103,10 @@ namespace aol.Forms
             titleLabel.Text = "Welcome, " + accounts.tmpUsername;
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Gray, Top);
-            e.Graphics.FillRectangle(Brushes.Gray, Left);
-            e.Graphics.FillRectangle(Brushes.Gray, Right);
-            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-        }
-
         public home_menu()
         {
             InitializeComponent();
         }
+        #endregion
     }
 }

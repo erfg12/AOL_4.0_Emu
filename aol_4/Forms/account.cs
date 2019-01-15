@@ -14,14 +14,17 @@ namespace aol.Forms
 {
     public partial class accForm : Form
     {
+        #region DLLImports
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+        #endregion
+
+        #region win95_theme
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
 
         int _ = 2;
 
@@ -37,14 +40,16 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Right);
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
+        #endregion
 
+        Dictionary<string, string> theAccs = accounts.listAccounts();
+
+        #region winform_functions
         public accForm()
         {
             InitializeComponent();
         }
-
-        Dictionary<string, string> theAccs = accounts.listAccounts();
-
+        
         private void accForm_Load(object sender, EventArgs e)
         {
             foreach(KeyValuePair<string, string> entry in accounts.listAccounts())
@@ -147,5 +152,6 @@ namespace aol.Forms
                 theAccs = accsCheck; // update to stop refresh
             }
         }
+        #endregion
     }
 }

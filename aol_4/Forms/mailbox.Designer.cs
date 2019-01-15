@@ -195,6 +195,7 @@
             this.readBtn.TabIndex = 4;
             this.readBtn.Text = "Read";
             this.readBtn.UseVisualStyleBackColor = false;
+            this.readBtn.Click += new System.EventHandler(this.readBtn_Click);
             // 
             // statusBtn
             // 
@@ -221,6 +222,7 @@
             this.keepBtn.TabIndex = 6;
             this.keepBtn.Text = "Keep As New";
             this.keepBtn.UseVisualStyleBackColor = false;
+            this.keepBtn.Click += new System.EventHandler(this.keepBtn_Click);
             // 
             // deleteBtn
             // 
