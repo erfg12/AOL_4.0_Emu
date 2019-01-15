@@ -176,6 +176,7 @@ namespace aol.Forms
             titleLabel.Invoke(new MethodInvoker(delegate
             {
                 titleLabel.Text = url;
+                Text = url;
             }));
         }
 
