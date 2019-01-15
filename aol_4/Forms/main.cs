@@ -354,6 +354,8 @@ namespace aol.Forms
             if (e.KeyCode == Keys.Enter)
             {
                 GoToURL();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 

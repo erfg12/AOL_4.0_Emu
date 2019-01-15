@@ -91,7 +91,8 @@ namespace aol.Classes
                     if (i.Flags == MessageFlags.Deleted) continue;
                     var message = inbox.GetMessage(i.UniqueId);
                     //Debug.WriteLine("[MAIL] new id:" + message.MessageId + " subj:" + message.Subject);
-                    emailsNew.Add(message.MessageId, message.Subject);
+                    if (!emailsNew.ContainsKey(message.MessageId))
+                        emailsNew.Add(message.MessageId, message.Subject);
                 }
 
                 // old emails
@@ -101,7 +102,8 @@ namespace aol.Classes
                 {
                     var message = inbox.GetMessage(i.UniqueId);
                     //Debug.WriteLine("[MAIL] old id:" + message.MessageId + " subj:" + message.Subject);
-                    emailsOld.Add(message.MessageId, message.Subject);
+                    if (!emailsOld.ContainsKey(message.MessageId))
+                        emailsOld.Add(message.MessageId, message.Subject);
                 }
 
                 var outbox = client.GetFolder(SpecialFolder.Sent);
@@ -112,7 +114,8 @@ namespace aol.Classes
                 {
                     var message = outbox.GetMessage(i);
                     //Debug.WriteLine("[MAIL] sent id:" + message.MessageId + " subj:" + message.Subject);
-                    emailsSent.Add(message.MessageId, message.Subject);
+                    if (!emailsSent.ContainsKey(message.MessageId))
+                        emailsSent.Add(message.MessageId, message.Subject);
                 }
 
                 client.Disconnect(true);
