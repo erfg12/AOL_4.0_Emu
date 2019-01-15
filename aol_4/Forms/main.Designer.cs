@@ -191,6 +191,7 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.cursorTimer = new System.Windows.Forms.Timer(this.components);
+            this.checkMail = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -1185,7 +1186,7 @@
             this.toolStripSeparator18,
             this.readOfflineMailToolStripMenuItem});
             this.mailCenterContextMenuStrip.Name = "mailCenterContextMenuStrip";
-            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 314);
+            this.mailCenterContextMenuStrip.Size = new System.Drawing.Size(290, 292);
             // 
             // mailCenterToolStripMenuItem
             // 
@@ -1574,6 +1575,12 @@
             this.cursorTimer.Interval = 10;
             this.cursorTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // checkMail
+            // 
+            this.checkMail.Enabled = true;
+            this.checkMail.Interval = 2500;
+            this.checkMail.Tick += new System.EventHandler(this.checkMail_Tick);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1660,7 +1667,6 @@
         private System.Windows.Forms.ComboBox addrBox;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox read_mail_btn;
         private System.Windows.Forms.PictureBox write_mail_button;
         private System.Windows.Forms.PictureBox mail_center_btn;
         private System.Windows.Forms.PictureBox print_page_btn;
@@ -1800,6 +1806,8 @@
         private System.Windows.Forms.ToolStripMenuItem reminderServiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newsProfilesToolStripMenuItem;
         private System.Windows.Forms.Timer cursorTimer;
+        public System.Windows.Forms.PictureBox read_mail_btn;
+        private System.Windows.Forms.Timer checkMail;
     }
 }
 

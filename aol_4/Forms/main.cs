@@ -189,6 +189,7 @@ namespace aol.Forms
                 player.Stream = Properties.Resources.youGotmail;
                 player.Play();
                 read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
+                email.youGotMail = true;
             }
         }
 
@@ -229,9 +230,6 @@ namespace aol.Forms
                     hm.Owner = (Form)this;
                     hm.MdiParent = this;
                     hm.Show();
-
-                    Thread thread = new Thread(new ThreadStart(CheckEmail));
-                    thread.Start();
                 }
                 catch
                 {
@@ -589,6 +587,17 @@ namespace aol.Forms
             mb.Owner = (Form)this;
             mb.MdiParent = this;
             mb.Show();
+        }
+
+        private void checkMail_Tick(object sender, EventArgs e)
+        {
+            if (!email.youGotMail)
+            {
+                read_mail_btn.Image = Properties.Resources.nomail_icon;
+                Thread thread = new Thread(new ThreadStart(CheckEmail));
+                thread.Start();
+                //Debug.WriteLine("Checking for new mail");
+            }
         }
 
         private void mailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)

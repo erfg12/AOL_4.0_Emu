@@ -23,9 +23,13 @@ namespace aol.Classes
         public static Dictionary<string, string> emailsOld = new Dictionary<string, string>();
         public static Dictionary<string, string> emailsSent = new Dictionary<string, string>();
         public static string reply = "";
+        public static bool youGotMail = false;
 
         public static bool checkNewEmail()
         {
+            if (youGotMail)
+                return true;
+
             using (var client = new ImapClient())
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;

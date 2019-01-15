@@ -204,6 +204,9 @@ namespace aol.Forms
             {
                 email.deleteEmail(newListView.SelectedItems[0].Tag.ToString());
                 newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
+                Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + email.youGotMail);
+                if (newListView.Items.Count == 0)
+                    email.youGotMail = false;
             }
             else if (oldListView.Visible)
             {
@@ -251,6 +254,8 @@ namespace aol.Forms
             lIt.Text = newListView.SelectedItems[0].Text;
             oldListView.Items.Add(lIt);
             newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
+            if (newListView.Items.Count == 0)
+                email.youGotMail = false;
         }
 
         private void oldListView_DoubleClick(object sender, EventArgs e)
