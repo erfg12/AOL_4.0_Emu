@@ -85,6 +85,9 @@
     <Reference Include="MimeKit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.2.1.2\lib\net45\MimeKit.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleIRCLib, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleIRCLib.2.2.1\lib\netstandard2.0\SimpleIRCLib.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
     </Reference>
@@ -111,6 +114,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\chat.cs" />
     <Compile Include="Classes\email.cs" />
     <Compile Include="Forms\account.cs">
       <SubType>Form</SubType>
@@ -137,6 +141,18 @@
     <Compile Include="Forms\channels.Designer.cs">
       <DependentUpon>channels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\chatroom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\chatroom.Designer.cs">
+      <DependentUpon>chatroom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\chat_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\chat_list.Designer.cs">
+      <DependentUpon>chat_list.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\dial_up.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +160,12 @@
       <DependentUpon>dial_up.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DownloadHandler.cs" />
+    <Compile Include="Forms\instant_message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\instant_message.Designer.cs">
+      <DependentUpon>instant_message.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,8 +222,17 @@
     <EmbeddedResource Include="Forms\channels.resx">
       <DependentUpon>channels.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\chatroom.resx">
+      <DependentUpon>chatroom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\chat_list.resx">
+      <DependentUpon>chat_list.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\dial_up.resx">
       <DependentUpon>dial_up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\instant_message.resx">
+      <DependentUpon>instant_message.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\main.resx">
       <DependentUpon>main.cs</DependentUpon>

@@ -8,14 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
-using CefSharp.Example;
-using aol.Classes;
 
 namespace aol.Forms
 {
-    public partial class Browse : Form
+    public partial class instant_message : Form
     {
         #region DLLImports
         [DllImport("user32.dll")]
@@ -78,8 +74,10 @@ namespace aol.Forms
         Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
+
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
+
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
 
         protected override void WndProc(ref Message message)
@@ -111,54 +109,20 @@ namespace aol.Forms
         }
         #endregion
 
-        #region public_variables
-        public bool loading = false;
-        public ChromiumWebBrowser browser;
-        public string url = "";
-        #endregion
-
-        #region my_functions
-        public void InitBrowser(string url)
-        {
-            var settings = new CefSettings();
-            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            if (!Cef.IsInitialized) Cef.Initialize(settings);
-            if (url == "") url = "https://www.google.com";
-            browser = new ChromiumWebBrowser(url);
-            browser.Dock = DockStyle.Fill;
-            browser.AddressChanged += Browser_AddressChanged;
-            toolStripContainer1.ContentPanel.Controls.Add(browser);
-            browser.DownloadHandler = new DownloadHandler();
-            //browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
-
-            //Wait for the page to finish loading (all resources will have been loaded, rendering is likely still happening)
-            browser.LoadingStateChanged += (sender, args) =>
-            {
-                //Wait for the Page to finish loading
-                loading = args.IsLoading;
-            };
-            
-        }
-
-        public void goToUrl(string url)
-        {
-            browser.Load(url);
-        }
-
-        public Browse(string url = "")
+        #region winform_functions
+        public instant_message()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            InitBrowser(url);
         }
-        #endregion
 
-        #region winform_functions
-        private void Form1_Load(object sender, EventArgs e)
+        private void instant_message_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            maxiMini();
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -170,56 +134,14 @@ namespace aol.Forms
             }
         }
 
-        private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
-        {
-            url = e.Address;
-            titleLabel.Invoke(new MethodInvoker(delegate
-            {
-                titleLabel.Text = url;
-                Text = url;
-            }));
-        }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void maxBtn_Click(object sender, EventArgs e)
-        {
-            maxiMini();
-        }
-
         private void miniBtn_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
+        private void closeBtn_Click(object sender, EventArgs e)
         {
-            ToolTip toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(this.closeBtn, "Close Window");
-            toolTip1.SetToolTip(this.maxBtn, "Maximize Window");
-            toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
-        }
-
-        private void titleLabel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            maxiMini();
+            Close();
         }
         #endregion
     }

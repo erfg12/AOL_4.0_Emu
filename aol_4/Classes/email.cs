@@ -41,7 +41,7 @@ namespace aol.Classes
 
                 if (accInfo[2] == "" || accInfo[0] == "" || accInfo[1] == "")
                 {
-                    Debug.WriteLine("[MAIL] Missing some information, can't login.");
+                    //Debug.WriteLine("[MAIL] Missing some information, can't login.");
                     return false;
                 }
 

@@ -195,6 +195,9 @@ namespace aol.Forms
             perks_btn.Image = Properties.Resources.perks_icon_enabled;
             weather_btn.Image = Properties.Resources.weather_icon_enabled;
             preferencesToolStripMenuItem.Enabled = true; // settings holds email info
+
+            if (accounts.tmpUsername != "Guest")
+                chat.startConnection();
         }
 
         public void GoToURL()
