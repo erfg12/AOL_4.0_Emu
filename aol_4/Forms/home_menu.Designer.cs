@@ -62,6 +62,8 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             // 
             // panel1
             // 
@@ -180,6 +182,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Welcome Home Window";
             this.Shown += new System.EventHandler(this.home_menu_Shown);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.home_menu_MouseClick);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.home_menu_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.home_menu_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

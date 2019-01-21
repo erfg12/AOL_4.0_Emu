@@ -30,14 +30,17 @@
         {
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.sendBtn = new System.Windows.Forms.Button();
-            this.usersListBox = new System.Windows.Forms.ListBox();
             this.chatRoomTextBox = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // messageTextBox
@@ -59,16 +62,6 @@
             this.sendBtn.UseVisualStyleBackColor = true;
             this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
-            // usersListBox
-            // 
-            this.usersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.usersListBox.FormattingEnabled = true;
-            this.usersListBox.HorizontalScrollbar = true;
-            this.usersListBox.Location = new System.Drawing.Point(603, 80);
-            this.usersListBox.Name = "usersListBox";
-            this.usersListBox.Size = new System.Drawing.Size(174, 225);
-            this.usersListBox.TabIndex = 5;
-            // 
             // chatRoomTextBox
             // 
             this.chatRoomTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -87,6 +80,8 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.mainTitle);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.titleLabel);
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
@@ -163,13 +158,46 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(598, 79);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(190, 288);
+            this.listView1.TabIndex = 7;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // mainTitle
+            // 
+            this.mainTitle.AutoSize = true;
+            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
+            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mainTitle.Location = new System.Drawing.Point(22, 2);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(52, 13);
+            this.mainTitle.TabIndex = 10;
+            this.mainTitle.Text = "Chatroom";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // chatroom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.chatRoomTextBox);
-            this.Controls.Add(this.usersListBox);
             this.Controls.Add(this.sendBtn);
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.panel1);
@@ -179,6 +207,7 @@
             this.Load += new System.EventHandler(this.chatroom_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,7 +222,9 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.TextBox messageTextBox;
         private System.Windows.Forms.Button sendBtn;
-        private System.Windows.Forms.ListBox usersListBox;
         private System.Windows.Forms.RichTextBox chatRoomTextBox;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label mainTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

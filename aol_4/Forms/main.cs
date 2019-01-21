@@ -195,9 +195,8 @@ namespace aol.Forms
             perks_btn.Image = Properties.Resources.perks_icon_enabled;
             weather_btn.Image = Properties.Resources.weather_icon_enabled;
             preferencesToolStripMenuItem.Enabled = true; // settings holds email info
-
-            if (accounts.tmpUsername != "Guest")
-                chat.startConnection();
+            
+            chat.startConnection();
         }
 
         public void GoToURL()
@@ -222,7 +221,8 @@ namespace aol.Forms
             }
             catch
             {
-                MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "https://www.microsoft.com/en-us/download/details.aspx?id=52685");
+                if (MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "Would you like to go to https://www.microsoft.com/en-us/download/details.aspx?id=52685 ?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                    Process.Start("https://support.google.com/accounts/answer/185833");
             }
         }
 

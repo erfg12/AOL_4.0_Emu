@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -54,6 +55,8 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
+        List<Rectangle> rects = new List<Rectangle>();
+
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             
@@ -68,6 +71,62 @@ namespace aol.Forms
             }
         }
 
+        private void home_menu_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void home_menu_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void home_menu_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Debug.WriteLine("cursor position: " + e.Location.ToString());
+            bool hover = false;
+            foreach (Rectangle r in rects)
+            {
+                if (r.Contains(e.Location))
+                    hover = true;
+            }
+            if (hover)
+                Cursor = Cursors.Hand;
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            foreach (Rectangle r in rects)
+            {
+                if (r.Contains(e.Location) && rects.IndexOf(r) == 0) // mailbox
+                {
+                    mailbox mb = new mailbox();
+                    mb.Owner = this;
+                    mb.MdiParent = MdiParent;
+                    mb.Show();
+                }
+                else if (r.Contains(e.Location) && rects.IndexOf(r) == 1) // channels
+                {
+                    channels chan = new channels();
+                    chan.Owner = this;
+                    chan.MdiParent = MdiParent;
+                    chan.Show();
+                }
+                else if (r.Contains(e.Location) && rects.IndexOf(r) == 2) // chat_list
+                {
+                    chat_list cl = new chat_list();
+                    cl.Owner = this;
+                    cl.MdiParent = MdiParent;
+                    cl.Show();
+                }
+            }
+        }
+
         private void titleLabel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -79,7 +138,7 @@ namespace aol.Forms
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void maxBtn_Click(object sender, EventArgs e)
@@ -101,6 +160,9 @@ namespace aol.Forms
         {
             todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
             titleLabel.Text = "Welcome, " + accounts.tmpUsername;
+            rects.Add(new Rectangle(5, 96, 98, 50)); // 0 mailbox
+            rects.Add(new Rectangle(5, 196, 98, 50)); // 1 channels
+            rects.Add(new Rectangle(5, 240, 98, 50)); // 2 chat_list
         }
 
         public home_menu()

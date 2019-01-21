@@ -124,7 +124,7 @@ namespace aol.Forms
             try
             {
                 SQLiteCommand command = new SQLiteCommand(m_dbConnection);
-                Debug.WriteLine("getting email info with id:" + userID);
+                //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM email_accounts WHERE user_id = '" + userID + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using aol.Forms;
 using SimpleIRCLib;
 
 namespace aol.Classes
@@ -72,9 +73,12 @@ namespace aol.Classes
 
         public static void startConnection()
         {
+            if (accounts.tmpUsername == "Guest" || accounts.tmpUsername == "")
+                return;
+
             Task taskA = new Task(() =>
             {
-                irc.SetupIrc(server, "NeWaGe_test", "", port, "", 5000, true);
+                irc.SetupIrc(server, accounts.tmpUsername, "", port, "", 5000, true);
 
                 irc.IrcClient.OnDebugMessage += debugOutputCallback;
                 irc.IrcClient.OnMessageReceived += chatOutputCallback;

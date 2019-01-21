@@ -1,11 +1,14 @@
-﻿using System;
+﻿using aol.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -110,8 +113,16 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
-        public chatroom()
+        public chatroom(string channel)
         {
+            Text = channel + " Chatroom";
+            mainTitle.Text = channel + " Chatroom";
+            while (!chat.irc.IsClientRunning())
+            {
+                Debug.WriteLine("not connected yet");
+                Thread.Sleep(1000); // wait 1 sec
+            }
+            chat.irc.SendRawMessage("join #" + channel);
             InitializeComponent();
         }
 

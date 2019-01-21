@@ -35,9 +35,14 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.categoryListBox = new System.Windows.Forms.ListBox();
-            this.channelListBox = new System.Windows.Forms.ListBox();
+            this.catListView = new System.Windows.Forms.ListView();
+            this.chanListView = new System.Windows.Forms.ListView();
+            this.category_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.channels = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -47,6 +52,8 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.mainTitle);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.titleLabel);
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
@@ -102,6 +109,7 @@
             this.maxBtn.Size = new System.Drawing.Size(18, 16);
             this.maxBtn.TabIndex = 1;
             this.maxBtn.UseVisualStyleBackColor = false;
+            this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
             // 
             // closeBtn
             // 
@@ -139,38 +147,85 @@
             this.SearchBtn.UseVisualStyleBackColor = true;
             this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
-            // categoryListBox
+            // catListView
             // 
-            this.categoryListBox.FormattingEnabled = true;
-            this.categoryListBox.Location = new System.Drawing.Point(48, 91);
-            this.categoryListBox.Name = "categoryListBox";
-            this.categoryListBox.Size = new System.Drawing.Size(142, 316);
-            this.categoryListBox.TabIndex = 5;
+            this.catListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.category_column});
+            this.catListView.FullRowSelect = true;
+            this.catListView.Location = new System.Drawing.Point(29, 91);
+            this.catListView.MultiSelect = false;
+            this.catListView.Name = "catListView";
+            this.catListView.Size = new System.Drawing.Size(155, 316);
+            this.catListView.TabIndex = 7;
+            this.catListView.UseCompatibleStateImageBehavior = false;
+            this.catListView.View = System.Windows.Forms.View.Details;
+            this.catListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.catListView_MouseClick);
             // 
-            // channelListBox
+            // chanListView
             // 
-            this.channelListBox.FormattingEnabled = true;
-            this.channelListBox.Location = new System.Drawing.Point(235, 91);
-            this.channelListBox.Name = "channelListBox";
-            this.channelListBox.Size = new System.Drawing.Size(275, 316);
-            this.channelListBox.TabIndex = 6;
+            this.chanListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.channels});
+            this.chanListView.Location = new System.Drawing.Point(231, 91);
+            this.chanListView.Name = "chanListView";
+            this.chanListView.Size = new System.Drawing.Size(308, 316);
+            this.chanListView.TabIndex = 8;
+            this.chanListView.UseCompatibleStateImageBehavior = false;
+            this.chanListView.View = System.Windows.Forms.View.Details;
+            this.chanListView.DoubleClick += new System.EventHandler(this.chanListView_DoubleClick);
+            // 
+            // category_column
+            // 
+            this.category_column.Text = "categories";
+            this.category_column.Width = 151;
+            // 
+            // channels
+            // 
+            this.channels.Text = "channels";
+            this.channels.Width = 304;
+            // 
+            // mainTitle
+            // 
+            this.mainTitle.AutoSize = true;
+            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
+            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mainTitle.Location = new System.Drawing.Point(25, 3);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(71, 13);
+            this.mainTitle.TabIndex = 10;
+            this.mainTitle.Text = "Chatroom List";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // chat_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 450);
-            this.Controls.Add(this.channelListBox);
-            this.Controls.Add(this.categoryListBox);
+            this.Controls.Add(this.chanListView);
+            this.Controls.Add(this.catListView);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(5, 120);
             this.Name = "chat_list";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "chat_list";
             this.Load += new System.EventHandler(this.chat_list_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +240,11 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.ListBox categoryListBox;
-        private System.Windows.Forms.ListBox channelListBox;
+        private System.Windows.Forms.ListView catListView;
+        private System.Windows.Forms.ListView chanListView;
+        private System.Windows.Forms.ColumnHeader category_column;
+        private System.Windows.Forms.ColumnHeader channels;
+        private System.Windows.Forms.Label mainTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

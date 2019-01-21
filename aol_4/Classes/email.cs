@@ -117,7 +117,7 @@ namespace aol.Classes
                 {
                     if (accInfo[0].Contains("@gmail.com"))
                     {
-                        if (MessageBox.Show("Authentication Failed! GMail requires an app password! https://support.google.com/accounts/answer/185833", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                        if (MessageBox.Show("Authentication Failed! GMail requires an app password! Would you like to go to https://support.google.com/accounts/answer/185833 ?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
                             Process.Start("https://support.google.com/accounts/answer/185833");
                     }
                     else

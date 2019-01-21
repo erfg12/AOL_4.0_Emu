@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -107,12 +111,81 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Right);
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            maxiMini();
+        }
+        #endregion
+
+        #region variables
+        private Dictionary<string, List<string>> categories = new Dictionary<string, List<string>>();
+        //private Dictionary<string, string> channels = new Dictionary<string, string>();
+        #endregion
+
+        #region my_functions
+        public static string StripHTML(string input)
+        {
+            return Regex.Replace(input, "<.*?>", String.Empty);
+        }
+
+        private void getChannels()
+        {
+            using (WebClient client = new WebClient())
+            {
+                string content = client.DownloadString("https://snoonet.org/communities");
+                foreach (Match m in Regex.Matches(content, "<h1 id=\"(.*?)<hr>", RegexOptions.Singleline))
+                {
+                    string catTitle = StripHTML(Regex.Match(m.Value, "<h1 id=\"(.*?)</h1>").Groups[0].Value);
+                    if (catTitle == "Communities of Snoonet")
+                        continue;
+
+                    List<string> tmpChanList = new List<string>();
+                    ListViewItem lIt = new ListViewItem();
+                    lIt.Text = catTitle;
+                    catListView.Invoke(new MethodInvoker(delegate { catListView.Items.Add(lIt); }));
+                    // add channels
+                    foreach (Match m2 in Regex.Matches(m.Value, "<a href=\"(.*?)</a>", RegexOptions.Singleline))
+                    {
+                        string chanHashtag = Regex.Match(m2.Value, "\">(.*?)</a>").Groups[1].Value;
+                        if (!chanHashtag.Contains("#"))
+                            continue;
+                        if (chanHashtag == "#top")
+                            continue;
+                        tmpChanList.Add(chanHashtag);
+                    }
+                    // add category name with channel list to associate with channels dictionary
+                    categories.Add(catTitle, tmpChanList);
+                }
+            }
+        }
         #endregion
 
         #region winform_functions
         public chat_list()
         {
             InitializeComponent();
+        }
+
+        private void chanListView_DoubleClick(object sender, EventArgs e)
+        {
+            chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToString());
+            cr.Owner = this;
+            cr.MdiParent = MdiParent;
+            cr.Show();
+        }
+
+        private void catListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            chanListView.Items.Clear();
+            string key = catListView.SelectedItems[0].Text;
+            foreach (string chan in categories[key])
+            {
+                ListViewItem lIt2 = new ListViewItem();
+                lIt2.Tag = chan;
+                lIt2.Text = chan.Replace("#","");
+                chanListView.Items.Add(lIt2);
+            }
         }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -146,7 +219,8 @@ namespace aol.Forms
 
         private void chat_list_Load(object sender, EventArgs e)
         {
-
+            Thread thread = new Thread(new ThreadStart(getChannels));
+            thread.Start();
         }
         #endregion
     }
