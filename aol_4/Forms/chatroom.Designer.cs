@@ -39,8 +39,8 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.usersListView = new System.Windows.Forms.ListView();
+            this.users = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -186,20 +186,24 @@
             // 
             // usersListView
             // 
+            this.usersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.users});
             this.usersListView.Location = new System.Drawing.Point(469, 56);
             this.usersListView.Name = "usersListView";
             this.usersListView.Size = new System.Drawing.Size(190, 288);
             this.usersListView.TabIndex = 7;
             this.usersListView.UseCompatibleStateImageBehavior = false;
             this.usersListView.View = System.Windows.Forms.View.Details;
+            this.usersListView.DoubleClick += new System.EventHandler(this.usersListView_DoubleClick);
+            // 
+            // users
+            // 
+            this.users.Text = "users";
+            this.users.Width = 190;
             // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // backgroundWorker2
-            // 
-            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             // 
             // chatroom
             // 
@@ -216,6 +220,7 @@
             this.Name = "chatroom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "chatroom";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.chatroom_FormClosing);
             this.Load += new System.EventHandler(this.chatroom_Load);
             this.Shown += new System.EventHandler(this.chatroom_Shown);
             this.panel1.ResumeLayout(false);
@@ -240,6 +245,6 @@
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.ColumnHeader users;
     }
 }

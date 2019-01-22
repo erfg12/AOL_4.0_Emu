@@ -113,18 +113,19 @@ namespace aol.Forms
         }
         #endregion
 
+        string chatlog = "";
+
         #region winform_functions
         public chatroom(string channel)
         {
             chat.pChat = channel;
             string logpath = Application.StartupPath + @"\chatlogs";
-            chat.pLog = logpath + @"\" + channel + ".txt";
+            chatlog = logpath + @"\" + channel + ".txt";
             
-
             if (!Directory.Exists(logpath))
                 Directory.CreateDirectory(logpath);
-            if (!File.Exists(chat.pLog))
-                File.Create(chat.pLog).Dispose();
+            if (!File.Exists(chatlog))
+                File.Create(chatlog).Dispose();
 
             while (!chat.irc.IsClientRunning())
             {
@@ -132,6 +133,7 @@ namespace aol.Forms
                 Thread.Sleep(1000); // wait 1 sec
             }
             chat.irc.SendRawMessage("join #" + channel);
+
             InitializeComponent();
         }
 
@@ -141,46 +143,60 @@ namespace aol.Forms
             mainTitle.Text = chat.pChat + " Chatroom";
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();
-            if (!backgroundWorker2.IsBusy)
-                backgroundWorker2.RunWorkerAsync();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            using (FileStream file = new FileStream(chat.pLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                using (StreamReader sr = new StreamReader(file, Encoding.Unicode))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        chatRoomTextBox.Invoke(new MethodInvoker(delegate
-                        {
-                            chatRoomTextBox.Text += Environment.NewLine + sr.ReadLine();
-                        }));
-                    }
-                }
-            }
-        }
-
-        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
-        {
+            // FIXME
             while (chat.users.Count == 0)
             {
                 Debug.WriteLine("waiting for users list...");
                 Thread.Sleep(3000);
             }
-
-            Debug.WriteLine("writing users list to userListView");
+            
             foreach (string user in chat.users)
             {
                 usersListView.Invoke(new MethodInvoker(delegate
                 {
+                    while (usersListView.Handle == null)
+                    {
+                        Debug.WriteLine("waiting for usersListView handle...");
+                        Thread.Sleep(3000);
+                    }
                     ListViewItem li = new ListViewItem();
                     li.Text = user;
                     Debug.WriteLine("Adding " + user + " to userListView");
                     usersListView.Items.Add(li);
                 }));
             }
+
+            using (FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (StreamReader sr = new StreamReader(file))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                        {
+                            chatRoomTextBox.AppendText(sr.ReadLine());
+                        }));
+                    }
+                }
+            }
+        }
+
+        private void usersListView_DoubleClick(object sender, EventArgs e)
+        {
+            instant_message im = new instant_message(usersListView.SelectedItems[0].Text.ToString());
+            im.Owner = this;
+            im.MdiParent = MdiParent;
+            im.Tag = usersListView.SelectedItems[0].Text.ToString();
+            im.Show();
+        }
+
+        private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            chat.irc.SendRawMessage("leave #" + chat.pChat);
         }
 
         private void chatroom_Load(object sender, EventArgs e)
@@ -190,7 +206,8 @@ namespace aol.Forms
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-
+            chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + chat.pChat);
+            messageTextBox.Clear();
         }
 
         private void miniBtn_Click(object sender, EventArgs e)

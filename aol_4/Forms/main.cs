@@ -180,6 +180,9 @@ namespace aol.Forms
                     hm.Owner = (Form)this;
                     hm.MdiParent = this;
                     hm.Show();
+
+                    checkMail.Enabled = true;
+                    checkMail.Start();
                 }
                 catch
                 {
@@ -195,7 +198,7 @@ namespace aol.Forms
             perks_btn.Image = Properties.Resources.perks_icon_enabled;
             weather_btn.Image = Properties.Resources.weather_icon_enabled;
             preferencesToolStripMenuItem.Enabled = true; // settings holds email info
-            
+
             chat.startConnection();
         }
 
@@ -611,6 +614,31 @@ namespace aol.Forms
                 Thread thread = new Thread(new ThreadStart(CheckEmail));
                 thread.Start();
                 //Debug.WriteLine("Checking for new mail");
+            }
+            // FIXME - not reliable if receiving more than 1 message at a time.
+            if (chat.newPM != "")
+            {
+                bool foundFrm = false;
+                foreach (Form frm in Application.OpenForms)
+                {
+                    Debug.WriteLine("Checking for open form with username tag");
+                    if (frm.Tag == null)
+                        continue;
+
+                    if (frm.Tag.ToString() == chat.newPM)
+                        foundFrm = true;
+                }
+
+                if (!foundFrm)
+                {
+                    Debug.WriteLine("Opening IM for user " + chat.newPM);
+                    instant_message im = new instant_message(chat.newPM);
+                    im.Owner = this;
+                    im.MdiParent = this;
+                    im.Tag = chat.newPM;
+                    im.Show();
+                }
+                chat.newPM = "";
             }
         }
 

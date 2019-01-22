@@ -18,8 +18,8 @@ namespace aol.Classes
         private static string server = "irc.snoonet.org";
         public static SimpleIRC irc = new SimpleIRC();
         public static string pChat = "";
-        public static string pLog = "";
         public static List<string> users = new List<string>();
+        public static string newPM = "";
 
         public static void downloadStatusChanged(object source, DCCEventArgs args)
         {
@@ -30,10 +30,35 @@ namespace aol.Classes
 
         public static void chatOutputCallback(object source, IrcReceivedEventArgs args)
         {
-            string msg = args.Channel + " | " + args.User + ": " + args.Message;
-            Debug.WriteLine(msg);
+            string msg = args.User + ": " + args.Message;
+            Debug.WriteLine("[CO]:" + msg);
+            string cleanChannel = args.Channel.Replace("#", "");
 
-            File.WriteAllText(pLog, msg);
+            if (args.Channel == accounts.tmpUsername) // PRIVMSG
+            {
+                newPM = args.User;
+                string logpath = Application.StartupPath + @"\chatlogs";
+                string privateLog = logpath + @"\PM_" + args.User + ".txt";
+
+                if (!Directory.Exists(logpath))
+                    Directory.CreateDirectory(logpath);
+                if (!File.Exists(privateLog))
+                    File.Create(privateLog).Dispose();
+
+                File.WriteAllText(privateLog, msg);
+            }
+            else
+            {
+                string logpath = Application.StartupPath + @"\chatlogs";
+                string chatlog = logpath + @"\" + cleanChannel + ".txt";
+                
+                if (!Directory.Exists(logpath))
+                    Directory.CreateDirectory(logpath);
+                if (!File.Exists(chatlog))
+                    File.Create(chatlog).Dispose();
+
+                File.WriteAllText(chatlog, msg);
+            }
         }
 
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
@@ -60,7 +85,7 @@ namespace aol.Classes
                     Debug.WriteLine(chanClean[0] + " channel is available");
             }
             else
-                Debug.WriteLine(args.Message);
+                Debug.WriteLine("[RO]: " + args.Message);
         }
 
         public static void debugOutputCallback(object source, IrcDebugMessageEventArgs args)
@@ -77,7 +102,7 @@ namespace aol.Classes
                 {
                     if (user == "")
                         continue;
-                    Debug.WriteLine("ULC: " + user);
+                    //Debug.WriteLine("[UL]: " + user);
                     users.Add(user);
                 }
             }

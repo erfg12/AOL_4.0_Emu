@@ -1,8 +1,11 @@
-﻿using System;
+﻿using aol.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -109,15 +112,48 @@ namespace aol.Forms
         }
         #endregion
 
+        #region public_variables
+        string privateLog = "";
+        string user = "";
+        #endregion
+
         #region winform_functions
-        public instant_message()
+        private void instant_message_Shown(object sender, EventArgs e)
         {
+            if (!backgroundWorker1.IsBusy)
+                backgroundWorker1.RunWorkerAsync();
+            Text = user + " Instant Message";
+            mainTitle.Text = user + " Instant Message";
+        }
+
+        private void sendBtn_Click(object sender, EventArgs e)
+        {
+            chat.irc.SendRawMessage("msg " + user + " " + myMessageBox.Text);
+            myMessageBox.Clear();
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Clear();
+        }
+        
+        public instant_message(string u)
+        {
+            string logpath = Application.StartupPath + @"\chatlogs";
+            privateLog = logpath + @"\PM_" + u + ".txt";
+            user = u;
+
+            if (!Directory.Exists(logpath))
+                Directory.CreateDirectory(logpath);
+            if (!File.Exists(privateLog))
+                File.Create(privateLog).Dispose();
+
             InitializeComponent();
         }
 
         private void instant_message_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void panel1_DoubleClick(object sender, EventArgs e)
@@ -131,6 +167,23 @@ namespace aol.Forms
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (StreamReader sr = new StreamReader(file))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        messagesBox.Invoke(new MethodInvoker(delegate
+                        {
+                            messagesBox.AppendText(sr.ReadLine());
+                        }));
+                    }
+                }
             }
         }
 

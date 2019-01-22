@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
@@ -36,8 +38,10 @@
             this.messagesBox = new System.Windows.Forms.RichTextBox();
             this.myMessageBox = new System.Windows.Forms.RichTextBox();
             this.sendBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -47,6 +51,8 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.mainTitle);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.titleLabel);
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
@@ -57,6 +63,30 @@
             this.panel1.TabIndex = 3;
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // mainTitle
+            // 
+            this.mainTitle.AutoSize = true;
+            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
+            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mainTitle.Location = new System.Drawing.Point(24, 3);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(85, 13);
+            this.mainTitle.TabIndex = 12;
+            this.mainTitle.Text = "Instant Message";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // titleLabel
             // 
@@ -156,36 +186,46 @@
             this.sendBtn.TabIndex = 6;
             this.sendBtn.Text = "SEND";
             this.sendBtn.UseVisualStyleBackColor = false;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
-            // button1
+            // cancelBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(261, 334);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "CANCEL";
-            this.button1.UseVisualStyleBackColor = false;
+            this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.cancelBtn.Location = new System.Drawing.Point(261, 334);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(66, 23);
+            this.cancelBtn.TabIndex = 7;
+            this.cancelBtn.Text = "CANCEL";
+            this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // instant_message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 388);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.sendBtn);
             this.Controls.Add(this.myMessageBox);
             this.Controls.Add(this.messagesBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(5, 120);
             this.Name = "instant_message";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "instant_message";
             this.Load += new System.EventHandler(this.instant_message_Load);
+            this.Shown += new System.EventHandler(this.instant_message_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,6 +240,9 @@
         private System.Windows.Forms.RichTextBox messagesBox;
         private System.Windows.Forms.RichTextBox myMessageBox;
         private System.Windows.Forms.Button sendBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label mainTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -1577,7 +1577,6 @@
             // 
             // checkMail
             // 
-            this.checkMail.Enabled = true;
             this.checkMail.Interval = 2500;
             this.checkMail.Tick += new System.EventHandler(this.checkMail_Tick);
             // 
