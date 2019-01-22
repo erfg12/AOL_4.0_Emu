@@ -28,43 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.buddiesLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.buddyListView = new System.Windows.Forms.ListView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.setupBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.maxBtn = new System.Windows.Forms.Button();
+            this.miniBtn = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setupBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Buddies (0/0)",
-            "Family (0/0)",
-            "Co-Workers (0/0)"});
-            this.listBox1.Location = new System.Drawing.Point(5, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(136, 147);
-            this.listBox1.TabIndex = 3;
             // 
             // buddiesLabel
             // 
@@ -128,6 +114,16 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Keyword: BuddyView";
             // 
+            // buddyListView
+            // 
+            this.buddyListView.Location = new System.Drawing.Point(4, 45);
+            this.buddyListView.Name = "buddyListView";
+            this.buddyListView.Size = new System.Drawing.Size(134, 158);
+            this.buddyListView.TabIndex = 14;
+            this.buddyListView.UseCompatibleStateImageBehavior = false;
+            this.buddyListView.View = System.Windows.Forms.View.List;
+            this.buddyListView.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.buddyListView_ItemCheck);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -139,16 +135,17 @@
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // setupBtn
             // 
-            this.pictureBox3.BackgroundImage = global::aol.Properties.Resources.buddiesonline_setup_btn;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(77, 206);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
+            this.setupBtn.BackgroundImage = global::aol.Properties.Resources.buddiesonline_setup_btn;
+            this.setupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.setupBtn.Location = new System.Drawing.Point(77, 206);
+            this.setupBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.setupBtn.Name = "setupBtn";
+            this.setupBtn.Size = new System.Drawing.Size(25, 25);
+            this.setupBtn.TabIndex = 6;
+            this.setupBtn.TabStop = false;
+            this.setupBtn.Click += new System.EventHandler(this.setupBtn_Click);
             // 
             // pictureBox2
             // 
@@ -190,22 +187,24 @@
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // miniBtn
+            // closeBtn
             // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(84, 1);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(18, 16);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
-            this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.ForeColor = System.Drawing.Color.Black;
+            this.closeBtn.Location = new System.Drawing.Point(122, 1);
+            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.closeBtn.Size = new System.Drawing.Size(18, 16);
+            this.closeBtn.TabIndex = 0;
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // maxBtn
             // 
@@ -226,24 +225,22 @@
             this.maxBtn.UseVisualStyleBackColor = false;
             this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
             // 
-            // closeBtn
+            // miniBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(122, 1);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(18, 16);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
+            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.miniBtn.ForeColor = System.Drawing.Color.Black;
+            this.miniBtn.Location = new System.Drawing.Point(84, 1);
+            this.miniBtn.Name = "miniBtn";
+            this.miniBtn.Size = new System.Drawing.Size(18, 16);
+            this.miniBtn.TabIndex = 2;
+            this.miniBtn.UseVisualStyleBackColor = false;
+            this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
             // 
             // titleLabel
             // 
@@ -256,12 +253,17 @@
             this.titleLabel.TabIndex = 4;
             this.titleLabel.Text = "Buddy List Window";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // buddies_online
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(145, 280);
+            this.Controls.Add(this.buddyListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -269,10 +271,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buddiesLabel);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.setupBtn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(650, 120);
@@ -284,7 +285,7 @@
             this.Load += new System.EventHandler(this.buddies_online_Load);
             this.Shown += new System.EventHandler(this.buddies_online_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setupBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -300,10 +301,9 @@
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox setupBtn;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label buddiesLabel;
         private System.Windows.Forms.Label label2;
@@ -312,5 +312,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.ListView buddyListView;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

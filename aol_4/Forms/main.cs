@@ -452,6 +452,8 @@ namespace aol.Forms
             player.Stream = Properties.Resources.Goodbye;
             player.Play();
 
+            chat.irc.SendRawMessage("disconnect");
+
             System.Threading.Thread.Sleep(1000);
         }
 

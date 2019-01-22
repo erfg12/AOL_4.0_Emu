@@ -1,11 +1,14 @@
-﻿using System;
+﻿using aol.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -107,6 +110,9 @@ namespace aol.Forms
         }
         #endregion
 
+        // key: name, value: online status
+        Dictionary<string, bool> tmpBuddies = new Dictionary<string, bool>();
+             
         #region winform_functions
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -117,6 +123,64 @@ namespace aol.Forms
             }
         }
 
+        private void buddyListView_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            // disable buddies label
+            if (e.Index == 0)
+                e.NewValue = e.CurrentValue;
+        }
+
+        private void setupBtn_Click(object sender, EventArgs e)
+        {
+            add_buddy ab = new add_buddy();
+            ab.Owner = this;
+            ab.MdiParent = MdiParent;
+            ab.Show();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(2000);
+            while (true)
+            {
+                foreach(KeyValuePair<string, bool> kvp in tmpBuddies.ToList())
+                {
+                    chat.irc.SendRawMessage("whois " + kvp.Key);
+
+                    while (chat.buddyOnline == "")
+                    {
+                        //Debug.WriteLine("[BUD] " + kvp.Key + " unknown status...");
+                    }
+                    buddyListView.Invoke(new MethodInvoker(delegate
+                    {
+                        if (chat.buddyOnline == "yes")
+                        {
+                            //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
+                            tmpBuddies[kvp.Key] = true;
+                            if (buddyListView.FindItemWithText("[OFF] " + kvp.Key) != null)
+                                buddyListView.FindItemWithText("[OFF] " + kvp.Key).Text = "[ON] " + kvp.Key; // need both off and on
+                            else
+                                buddyListView.FindItemWithText("[ON] " + kvp.Key).Text = "[ON] " + kvp.Key;
+                        }
+                        else if (chat.buddyOnline == "no")
+                        {
+                            //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
+                            tmpBuddies[kvp.Key] = false;
+                            if (buddyListView.FindItemWithText("[OFF] " + kvp.Key) != null)
+                                buddyListView.FindItemWithText("[OFF] " + kvp.Key).Text = "[OFF] " + kvp.Key;
+                            else
+                                buddyListView.FindItemWithText("[ON] " + kvp.Key).Text = "[OFF] " + kvp.Key;
+                        }
+                    }));
+                    //Debug.WriteLine("[BUD] " + kvp.Key + " Online:" + chat.buddyOnline);
+                    chat.buddyOnline = ""; // reset
+
+                    Thread.Sleep(1000);
+                }
+                Thread.Sleep(3000);
+            }
+        }
+
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             maxiMini();
@@ -124,7 +188,7 @@ namespace aol.Forms
 
         private void miniBtn_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void maxBtn_Click(object sender, EventArgs e)
@@ -134,23 +198,29 @@ namespace aol.Forms
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         public buddies_online()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            FormBorderStyle = FormBorderStyle.None;
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
         private void buddies_online_Shown(object sender, EventArgs e)
         {
-            ToolTip toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(this.closeBtn, "Close Window");
-            toolTip1.SetToolTip(this.maxBtn, "Maximize Window");
-            toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
+            ListViewItem li = new ListViewItem();
+            li.Text = "Buddies 0/0";
+            buddyListView.Items.Add(li);
+            foreach (string b in accounts.getBuddyList())
+            {
+                tmpBuddies.Add(b, false); // offline by default
+                buddyListView.Items.Add("[OFF] " + b);
+            }
+            if (!backgroundWorker1.IsBusy)
+                backgroundWorker1.RunWorkerAsync();
         }
 
         private void buddies_online_Load(object sender, EventArgs e)

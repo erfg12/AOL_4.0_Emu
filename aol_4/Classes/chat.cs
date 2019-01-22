@@ -20,6 +20,7 @@ namespace aol.Classes
         public static string pChat = "";
         public static List<string> users = new List<string>();
         public static string newPM = "";
+        public static string buddyOnline = "";
 
         public static void downloadStatusChanged(object source, DCCEventArgs args)
         {
@@ -64,14 +65,16 @@ namespace aol.Classes
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
         {
             // buddy is offline
-            if (args.Message.Contains("no such nick/channel"))
+            if (args.Message.Contains("No such nick/channel"))
             {
-                Debug.WriteLine("user is dead");
+                //Debug.WriteLine("user is dead");
+                buddyOnline = "no";
             }
             // buddy is online
             else if (args.Message.Contains("End of /WHOIS list"))
             {
-                Debug.WriteLine("user is alive!!");
+                //Debug.WriteLine("user is alive!!");
+                buddyOnline = "yes";
             }
             // get a channel list
             // command -> /list >200

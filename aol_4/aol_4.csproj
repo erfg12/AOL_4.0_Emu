@@ -123,6 +123,12 @@
       <DependentUpon>account.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\accounts.cs" />
+    <Compile Include="Forms\add_buddy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\add_buddy.Designer.cs">
+      <DependentUpon>add_buddy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\browse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\account.resx">
       <DependentUpon>account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\add_buddy.resx">
+      <DependentUpon>add_buddy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\browse.resx">
       <DependentUpon>browse.cs</DependentUpon>

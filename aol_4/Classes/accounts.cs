@@ -109,6 +109,84 @@ namespace aol.Forms
             return foundAcc;
         }
 
+        public static bool AddBuddy(string user)
+        {
+            bool good = false;
+            int userID = loginAcc(tmpUsername, tmpPassword, false);
+
+            SQLiteConnection m_dbConnection = openDB();
+
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand cmd = new SQLiteCommand(m_dbConnection);
+                cmd.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "'";
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count > 0)
+                {
+
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite ERR: " + ex.ErrorCode);
+            }
+
+            string sql = "INSERT INTO buddy_list (userid, buddy_name) VALUES ('" + userID + "', '" + user + "')";
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+                good = true;
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite ERR: " + ex.ErrorCode);
+            }
+
+            m_dbConnection.Close();
+
+            return good;
+        }
+
+        public static List<string> getBuddyList()
+        {
+            int userID = loginAcc(tmpUsername, tmpPassword, false);
+            List<string> buddies = new List<string>();
+
+            SQLiteConnection m_dbConnection = openDB();
+
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                //Debug.WriteLine("getting email info with id:" + userID);
+                command.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "SELECT * FROM buddy_list WHERE userid = '" + userID + "'";
+
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        buddies.Add(reader["buddy_name"].ToString());
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+            }
+
+            m_dbConnection.Close();
+
+            return buddies;
+        }
+
         public static string[] getEmailInfo()
         {
             int userID = loginAcc(tmpUsername, tmpPassword, false);
