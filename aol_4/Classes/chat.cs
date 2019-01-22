@@ -7,6 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using aol.Forms;
 using SimpleIRCLib;
+using System.IO;
+using System.Windows.Forms;
 
 namespace aol.Classes
 {
@@ -15,6 +17,9 @@ namespace aol.Classes
         private static int port = 6697;
         private static string server = "irc.snoonet.org";
         public static SimpleIRC irc = new SimpleIRC();
+        public static string pChat = "";
+        public static string pLog = "";
+        public static List<string> users = new List<string>();
 
         public static void downloadStatusChanged(object source, DCCEventArgs args)
         {
@@ -25,7 +30,10 @@ namespace aol.Classes
 
         public static void chatOutputCallback(object source, IrcReceivedEventArgs args)
         {
-            Debug.WriteLine(args.Channel + " | " + args.User + ": " + args.Message);
+            string msg = args.Channel + " | " + args.User + ": " + args.Message;
+            Debug.WriteLine(msg);
+
+            File.WriteAllText(pLog, msg);
         }
 
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
@@ -62,11 +70,15 @@ namespace aol.Classes
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
         {
+            users.Clear();
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
                 foreach (string user in usersPerChannel.Value)
                 {
-                    Debug.WriteLine(user);
+                    if (user == "")
+                        continue;
+                    Debug.WriteLine("ULC: " + user);
+                    users.Add(user);
                 }
             }
         }

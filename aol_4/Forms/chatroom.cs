@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -115,8 +116,16 @@ namespace aol.Forms
         #region winform_functions
         public chatroom(string channel)
         {
-            Text = channel + " Chatroom";
-            mainTitle.Text = channel + " Chatroom";
+            chat.pChat = channel;
+            string logpath = Application.StartupPath + @"\chatlogs";
+            chat.pLog = logpath + @"\" + channel + ".txt";
+            
+
+            if (!Directory.Exists(logpath))
+                Directory.CreateDirectory(logpath);
+            if (!File.Exists(chat.pLog))
+                File.Create(chat.pLog).Dispose();
+
             while (!chat.irc.IsClientRunning())
             {
                 Debug.WriteLine("not connected yet");
@@ -124,6 +133,54 @@ namespace aol.Forms
             }
             chat.irc.SendRawMessage("join #" + channel);
             InitializeComponent();
+        }
+
+        private void chatroom_Shown(object sender, EventArgs e)
+        {
+            Text = chat.pChat + " Chatroom";
+            mainTitle.Text = chat.pChat + " Chatroom";
+            if (!backgroundWorker1.IsBusy)
+                backgroundWorker1.RunWorkerAsync();
+            if (!backgroundWorker2.IsBusy)
+                backgroundWorker2.RunWorkerAsync();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            using (FileStream file = new FileStream(chat.pLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (StreamReader sr = new StreamReader(file, Encoding.Unicode))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                        {
+                            chatRoomTextBox.Text += Environment.NewLine + sr.ReadLine();
+                        }));
+                    }
+                }
+            }
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (chat.users.Count == 0)
+            {
+                Debug.WriteLine("waiting for users list...");
+                Thread.Sleep(3000);
+            }
+
+            Debug.WriteLine("writing users list to userListView");
+            foreach (string user in chat.users)
+            {
+                usersListView.Invoke(new MethodInvoker(delegate
+                {
+                    ListViewItem li = new ListViewItem();
+                    li.Text = user;
+                    Debug.WriteLine("Adding " + user + " to userListView");
+                    usersListView.Items.Add(li);
+                }));
+            }
         }
 
         private void chatroom_Load(object sender, EventArgs e)

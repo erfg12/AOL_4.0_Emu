@@ -88,7 +88,7 @@ namespace aol.Forms
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            Debug.WriteLine("cursor position: " + e.Location.ToString());
+            //Debug.WriteLine("cursor position: " + e.Location.ToString());
             bool hover = false;
             foreach (Rectangle r in rects)
             {
