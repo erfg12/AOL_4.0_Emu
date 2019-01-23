@@ -139,6 +139,7 @@ namespace aol.Forms
 
         private void chatroom_Shown(object sender, EventArgs e)
         {
+            //chat.users.Clear();
             Text = chat.pChat + " Chatroom";
             mainTitle.Text = chat.pChat + " Chatroom";
             if (!backgroundWorker1.IsBusy)
@@ -189,26 +190,37 @@ namespace aol.Forms
             writeFileToBox(true);
             keepReading();
 
-            while (chat.users.Count == 0)
-            {
-                Debug.WriteLine("waiting for users list...");
-                Thread.Sleep(1000);
-            }
-
-            foreach (string user in chat.users)
+            // keep users list up to date
+            while (true)
             {
                 usersListView.Invoke(new MethodInvoker(delegate
                 {
                     while (usersListView.Handle == null)
                     {
                         Debug.WriteLine("waiting for usersListView handle...");
-                        Thread.Sleep(1000);
+                        Thread.Sleep(500);
                     }
-                    ListViewItem li = new ListViewItem();
-                    li.Text = user;
-                    Debug.WriteLine("Adding " + user + " to userListView");
-                    usersListView.Items.Add(li);
+                    // remove offline users
+                    foreach (ListViewItem item in usersListView.Items)
+                    {
+                        if (!chat.users.Contains(item.Text))
+                            item.Remove();
+                    }
+                    // add online users
+                    List<string> usersList = chat.users; // gotta declare it, so we can use it
+                    foreach (string user in usersList)
+                    {
+                        if (!usersListView.Items.ContainsKey(user))
+                        {
+                            ListViewItem lvi = new ListViewItem();
+                            lvi.Text = user;
+                            lvi.Tag = user;
+                            lvi.Name = user;
+                            usersListView.Items.Add(lvi);
+                        }
+                    }
                 }));
+                Thread.Sleep(5000);
             }
         }
 

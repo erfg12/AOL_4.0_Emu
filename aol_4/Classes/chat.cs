@@ -77,6 +77,18 @@ namespace aol.Classes
                 //Debug.WriteLine("user is alive!!");
                 buddyStatus[info[3]] = true;
             }
+            else if (args.Message.Contains(" JOIN :#"))
+            {
+                irc.GetUsersInCurrentChannel(); // GetUsersInDifferentChannel("#chanName");
+            }
+            else if (args.Message.Contains(" PART #"))
+            {
+                string logpath = Application.StartupPath + @"\chatlogs";
+                string privateLog = logpath + @"\" + pChat + ".txt";
+                string[] getUN = args.Message.Split('!');
+                File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
+                irc.GetUsersInCurrentChannel(); // GetUsersInDifferentChannel("#chanName");
+            }
             // get a channel list
             // command -> /list >200
             // :alamo.snoonet.org 322 NeWaGe_test #beer 58 :[+CFJTfjnrtx 5:60 2 5:1 5:5 10:4] its a !bang (again) | Welcome! Everything you...
@@ -99,15 +111,22 @@ namespace aol.Classes
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
         {
-            users.Clear();
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
-                foreach (string user in usersPerChannel.Value)
+                // check if offline user is still in list
+                foreach (string u in users)
                 {
-                    if (user == "")
+                    if (!usersPerChannel.Value.Contains(u))
+                        users.Remove(u);
+                }
+                // if user is not in list, add them
+                foreach (string u in usersPerChannel.Value)
+                {
+                    if (u == "") // there's always 1 empty user for some reason
                         continue;
                     //Debug.WriteLine("[UL]: " + user);
-                    users.Add(user);
+                    if (!users.Contains(u))
+                        users.Add(u);
                 }
             }
         }

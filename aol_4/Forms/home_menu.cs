@@ -160,9 +160,9 @@ namespace aol.Forms
         {
             todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
             titleLabel.Text = "Welcome, " + accounts.tmpUsername;
-            rects.Add(new Rectangle(5, 96, 98, 50)); // 0 mailbox
-            rects.Add(new Rectangle(5, 196, 98, 50)); // 1 channels
-            rects.Add(new Rectangle(5, 240, 98, 50)); // 2 chat_list
+            rects.Add(new Rectangle(5, 90, 98, 50)); // 0 mailbox
+            rects.Add(new Rectangle(5, 190, 98, 50)); // 1 channels
+            rects.Add(new Rectangle(5, 234, 98, 50)); // 2 chat_list
         }
 
         public home_menu()
