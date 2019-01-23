@@ -103,7 +103,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(24, 3);
+            this.titleLabel.Location = new System.Drawing.Point(24, 2);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(89, 13);
             this.titleLabel.TabIndex = 3;

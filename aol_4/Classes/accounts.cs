@@ -121,12 +121,10 @@ namespace aol.Forms
             try
             {
                 SQLiteCommand cmd = new SQLiteCommand(m_dbConnection);
-                cmd.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "'";
+                cmd.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "' AND buddy_name = '" + user + "'";
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 if (count > 0)
-                {
-
-                }
+                    return false; // user already exists
             }
             catch (SQLiteException ex)
             {

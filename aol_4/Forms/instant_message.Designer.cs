@@ -173,6 +173,7 @@
             this.myMessageBox.Size = new System.Drawing.Size(513, 57);
             this.myMessageBox.TabIndex = 5;
             this.myMessageBox.Text = "";
+            this.myMessageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.myMessageBox_KeyDown);
             // 
             // sendBtn
             // 
@@ -237,12 +238,12 @@
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.RichTextBox messagesBox;
         private System.Windows.Forms.RichTextBox myMessageBox;
         private System.Windows.Forms.Button sendBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox messagesBox;
     }
 }

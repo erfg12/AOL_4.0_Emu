@@ -145,15 +145,56 @@ namespace aol.Forms
                 backgroundWorker1.RunWorkerAsync();
         }
 
+        private void writeFileToBox(bool init = false)
+        {
+            string lastLine = "";
+            chatRoomTextBox.Invoke(new MethodInvoker(delegate
+            {
+                using (FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    using (StreamReader sr = new StreamReader(file))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            if (init)
+                                chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                            else
+                                lastLine = sr.ReadLine();
+                        }
+                    }
+                }
+                if (!init)
+                    chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
+                chatRoomTextBox.ScrollToCaret();
+            }));
+        }
+
+        public void OnChanged(object source, FileSystemEventArgs e)
+        {
+            writeFileToBox();
+        }
+
+        public void keepReading()
+        {
+            var watch = new FileSystemWatcher();
+            watch.Path = Path.GetDirectoryName(chatlog);
+            watch.Filter = Path.GetFileName(chatlog);
+            watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
+            watch.Changed += new FileSystemEventHandler(OnChanged);
+            watch.EnableRaisingEvents = true;
+        }
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            // FIXME
+            writeFileToBox(true);
+            keepReading();
+
             while (chat.users.Count == 0)
             {
                 Debug.WriteLine("waiting for users list...");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
             }
-            
+
             foreach (string user in chat.users)
             {
                 usersListView.Invoke(new MethodInvoker(delegate
@@ -161,27 +202,13 @@ namespace aol.Forms
                     while (usersListView.Handle == null)
                     {
                         Debug.WriteLine("waiting for usersListView handle...");
-                        Thread.Sleep(3000);
+                        Thread.Sleep(1000);
                     }
                     ListViewItem li = new ListViewItem();
                     li.Text = user;
                     Debug.WriteLine("Adding " + user + " to userListView");
                     usersListView.Items.Add(li);
                 }));
-            }
-
-            using (FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                using (StreamReader sr = new StreamReader(file))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        chatRoomTextBox.Invoke(new MethodInvoker(delegate
-                        {
-                            chatRoomTextBox.AppendText(sr.ReadLine());
-                        }));
-                    }
-                }
             }
         }
 
@@ -199,6 +226,12 @@ namespace aol.Forms
             chat.irc.SendRawMessage("leave #" + chat.pChat);
         }
 
+        private void messageTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                sendBtn.PerformClick();
+        }
+
         private void chatroom_Load(object sender, EventArgs e)
         {
 
@@ -207,6 +240,10 @@ namespace aol.Forms
         private void sendBtn_Click(object sender, EventArgs e)
         {
             chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + chat.pChat);
+            // write to file
+            string logpath = Application.StartupPath + @"\chatlogs";
+            string privateLog = logpath + @"\" + chat.pChat + ".txt";
+            File.AppendAllText(privateLog, accounts.tmpUsername + ": " + messageTextBox.Text + '\n');
             messageTextBox.Clear();
         }
 

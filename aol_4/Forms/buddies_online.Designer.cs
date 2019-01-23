@@ -36,10 +36,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buddyListView = new System.Windows.Forms.ListView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.setupBtn = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.IMBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Button();
@@ -50,7 +49,7 @@
             this.buddyTreeView = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.setupBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -117,16 +116,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Keyword: BuddyView";
             // 
-            // buddyListView
-            // 
-            this.buddyListView.Location = new System.Drawing.Point(4, 139);
-            this.buddyListView.Name = "buddyListView";
-            this.buddyListView.Size = new System.Drawing.Size(134, 64);
-            this.buddyListView.TabIndex = 14;
-            this.buddyListView.UseCompatibleStateImageBehavior = false;
-            this.buddyListView.View = System.Windows.Forms.View.List;
-            this.buddyListView.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.buddyListView_ItemCheck);
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -150,16 +139,17 @@
             this.setupBtn.TabStop = false;
             this.setupBtn.Click += new System.EventHandler(this.setupBtn_Click);
             // 
-            // pictureBox2
+            // IMBtn
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::aol.Properties.Resources.buddiesonline_IM_btn;
-            this.pictureBox2.Location = new System.Drawing.Point(42, 206);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.IMBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IMBtn.Image = global::aol.Properties.Resources.buddiesonline_IM_btn;
+            this.IMBtn.Location = new System.Drawing.Point(42, 206);
+            this.IMBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.IMBtn.Name = "IMBtn";
+            this.IMBtn.Size = new System.Drawing.Size(25, 25);
+            this.IMBtn.TabIndex = 5;
+            this.IMBtn.TabStop = false;
+            this.IMBtn.Click += new System.EventHandler(this.IMBtn_Click);
             // 
             // pictureBox1
             // 
@@ -255,6 +245,7 @@
             this.titleLabel.Size = new System.Drawing.Size(98, 13);
             this.titleLabel.TabIndex = 4;
             this.titleLabel.Text = "Buddy List Window";
+            this.titleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseMove);
             // 
             // backgroundWorker1
             // 
@@ -262,7 +253,7 @@
             // 
             // buddyTreeView
             // 
-            this.buddyTreeView.Location = new System.Drawing.Point(4, 54);
+            this.buddyTreeView.Location = new System.Drawing.Point(6, 41);
             this.buddyTreeView.Name = "buddyTreeView";
             treeNode1.Checked = true;
             treeNode1.Name = "onlineBuddies";
@@ -273,8 +264,9 @@
             this.buddyTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
-            this.buddyTreeView.Size = new System.Drawing.Size(134, 79);
+            this.buddyTreeView.Size = new System.Drawing.Size(134, 162);
             this.buddyTreeView.TabIndex = 15;
+            this.buddyTreeView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.buddyTreeView_MouseDoubleClick);
             // 
             // buddies_online
             // 
@@ -283,7 +275,6 @@
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(145, 280);
             this.Controls.Add(this.buddyTreeView);
-            this.Controls.Add(this.buddyListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -292,7 +283,7 @@
             this.Controls.Add(this.buddiesLabel);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.setupBtn);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.IMBtn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -306,7 +297,7 @@
             this.Shown += new System.EventHandler(this.buddies_online_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setupBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -322,7 +313,7 @@
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox IMBtn;
         private System.Windows.Forms.PictureBox setupBtn;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label buddiesLabel;
@@ -332,7 +323,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.ListView buddyListView;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TreeView buddyTreeView;
     }

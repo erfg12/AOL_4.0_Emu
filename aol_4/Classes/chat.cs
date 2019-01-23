@@ -20,7 +20,7 @@ namespace aol.Classes
         public static string pChat = "";
         public static List<string> users = new List<string>();
         public static string newPM = "";
-        public static string buddyOnline = "";
+        public static Dictionary<string, bool> buddyStatus = new Dictionary<string, bool>(); // key: name, value: online status
 
         public static void downloadStatusChanged(object source, DCCEventArgs args)
         {
@@ -46,7 +46,7 @@ namespace aol.Classes
                 if (!File.Exists(privateLog))
                     File.Create(privateLog).Dispose();
 
-                File.WriteAllText(privateLog, msg);
+                File.AppendAllText(privateLog, msg + '\n');
             }
             else
             {
@@ -58,23 +58,24 @@ namespace aol.Classes
                 if (!File.Exists(chatlog))
                     File.Create(chatlog).Dispose();
 
-                File.WriteAllText(chatlog, msg);
+                File.AppendAllText(chatlog, msg + '\n');
             }
         }
 
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
         {
-            // buddy is offline
+            string[] info = args.Message.Split(' ');
+            // buddy is offline ([RO]::veronica.snoonet.org 401 erfg12 NeWaGe :No such nick/channel)
             if (args.Message.Contains("No such nick/channel"))
             {
                 //Debug.WriteLine("user is dead");
-                buddyOnline = "no";
+                buddyStatus[info[3]] = false;
             }
-            // buddy is online
-            else if (args.Message.Contains("End of /WHOIS list"))
+            // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
+            else if (args.Message.Contains(" 311 " + accounts.tmpUsername))
             {
                 //Debug.WriteLine("user is alive!!");
-                buddyOnline = "yes";
+                buddyStatus[info[3]] = true;
             }
             // get a channel list
             // command -> /list >200
@@ -87,8 +88,8 @@ namespace aol.Classes
                 if (chanClean[0] != "")
                     Debug.WriteLine(chanClean[0] + " channel is available");
             }
-            else
-                Debug.WriteLine("[RO]: " + args.Message);
+            //else
+                Debug.WriteLine("[RO]:" + args.Message);
         }
 
         public static void debugOutputCallback(object source, IrcDebugMessageEventArgs args)

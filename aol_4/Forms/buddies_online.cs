@@ -110,9 +110,6 @@ namespace aol.Forms
         }
         #endregion
 
-        // key: name, value: online status
-        Dictionary<string, bool> tmpBuddies = new Dictionary<string, bool>();
-             
         #region winform_functions
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -140,73 +137,119 @@ namespace aol.Forms
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(2000);
+            int online = 0;
+            int offline = 0;
+            int total = chat.buddyStatus.Count();
+
+            // initialize data
+            buddyTreeView.Invoke(new MethodInvoker(delegate
+            {
+                buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
+                buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
+            }));
+
             while (true)
             {
-                foreach(KeyValuePair<string, bool> kvp in tmpBuddies.ToList())
-                {
-                    chat.irc.SendRawMessage("whois " + kvp.Key);
+                if (!chat.irc.IsClientRunning())
+                    continue;
 
-                    while (chat.buddyOnline == "")
+                foreach(KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
+                {
+                    chat.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
+                    buddyTreeView.Invoke(new MethodInvoker(delegate
                     {
-                        //Debug.WriteLine("[BUD] " + kvp.Key + " unknown status...");
-                    }
-                    buddyListView.Invoke(new MethodInvoker(delegate
-                    {
-                        if (chat.buddyOnline == "yes")
+                        if (kvp.Value == true)
                         {
                             //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
-                            tmpBuddies[kvp.Key] = true;
-
                             TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
                             if (nodes.Length > 0)
-                                buddyTreeView.Nodes[1].Nodes.Remove(nodes[0]);
+                            {
+                                buddyTreeView.Nodes.Remove(nodes[0]);
+                                offline--;
+                            }
                             TreeNode[] nodes2 = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
                             if (nodes2.Length <= 0)
-                                buddyTreeView.Nodes[0].Nodes.Add(kvp.Key);
-
-                            /*TreeNode node = buddyTreeView.Nodes[1].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
-                            if (node != null)
-                                buddyTreeView.Nodes[1].Nodes.Remove(node);
-                            TreeNode node2 = buddyTreeView.Nodes[0].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
-                            if (node2 == null)
-                                buddyTreeView.Nodes[0].Nodes.Add(kvp.Key);*/
-
-                            if (buddyListView.FindItemWithText("[OFF] " + kvp.Key) != null)
-                                buddyListView.FindItemWithText("[OFF] " + kvp.Key).Text = "[ON] " + kvp.Key; // need both off and on
-                            else
-                                buddyListView.FindItemWithText("[ON] " + kvp.Key).Text = "[ON] " + kvp.Key;
+                            {
+                                TreeNode ntn = new TreeNode();
+                                ntn.Text = kvp.Key;
+                                ntn.Name = kvp.Key;
+                                ntn.Tag = kvp.Key;
+                                buddyTreeView.Nodes[0].Nodes.Add(ntn);
+                                online++;
+                                buddyTreeView.Nodes[0].Expand();
+                            }
                         }
-                        else if (chat.buddyOnline == "no")
+                        else
                         {
                             //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
                             TreeNode[] nodes = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
                             if (nodes.Length > 0)
-                                buddyTreeView.Nodes[0].Nodes.Remove(nodes[0]);
+                            {
+                                buddyTreeView.Nodes.Remove(nodes[0]);
+                                online--;
+                            }
                             TreeNode[] nodes2 = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
                             if (nodes2.Length <= 0)
-                                buddyTreeView.Nodes[1].Nodes.Add(kvp.Key);
-
-                            tmpBuddies[kvp.Key] = false;
-                            /*TreeNode node = buddyTreeView.Nodes[0].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
-                            if (node != null)
-                                buddyTreeView.Nodes[0].Nodes.Remove(node);
-                            TreeNode node2 = buddyTreeView.Nodes[1].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
-                            if (node2 == null)
-                                buddyTreeView.Nodes[1].Nodes.Add(kvp.Key);*/
-
-                            if (buddyListView.FindItemWithText("[OFF] " + kvp.Key) != null)
-                                buddyListView.FindItemWithText("[OFF] " + kvp.Key).Text = "[OFF] " + kvp.Key;
-                            else
-                                buddyListView.FindItemWithText("[ON] " + kvp.Key).Text = "[OFF] " + kvp.Key;
+                            {
+                                TreeNode ntn = new TreeNode();
+                                ntn.Text = kvp.Key;
+                                ntn.Name = kvp.Key;
+                                ntn.Tag = kvp.Key;
+                                buddyTreeView.Nodes[1].Nodes.Add(ntn);
+                                offline++;
+                                buddyTreeView.Nodes[1].Expand();
+                            }
                         }
+                        buddyTreeView.Nodes[0].Text = "Online " + online.ToString() + "/" + total.ToString();
+                        buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
                     }));
-                    //Debug.WriteLine("[BUD] " + kvp.Key + " Online:" + chat.buddyOnline);
-                    chat.buddyOnline = ""; // reset
 
                     Thread.Sleep(1000);
                 }
-                Thread.Sleep(3000);
+
+                Thread.Sleep(5000);
+                
+            }
+        }
+
+        private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void buddyTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (buddyTreeView.SelectedNode.Text == null)
+                return;
+            if (!chat.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
+                return;
+            if (chat.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
+            {
+                instant_message im = new instant_message(buddyTreeView.SelectedNode.Text);
+                im.Owner = this;
+                im.MdiParent = MdiParent;
+                im.Tag = buddyTreeView.SelectedNode.Text;
+                im.Show();
+            }
+        }
+
+        private void IMBtn_Click(object sender, EventArgs e)
+        {
+            if (buddyTreeView.SelectedNode.Text == null)
+                return;
+            if (!chat.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
+                return;
+            if (chat.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
+            {
+                instant_message im = new instant_message(buddyTreeView.SelectedNode.Text);
+                im.Owner = this;
+                im.MdiParent = MdiParent;
+                im.Tag = buddyTreeView.SelectedNode.Text;
+                im.Show();
             }
         }
 
@@ -240,13 +283,9 @@ namespace aol.Forms
 
         private void buddies_online_Shown(object sender, EventArgs e)
         {
-            ListViewItem li = new ListViewItem();
-            li.Text = "Buddies 0/0";
-            buddyListView.Items.Add(li);
             foreach (string b in accounts.getBuddyList())
             {
-                tmpBuddies.Add(b, false); // offline by default
-                buddyListView.Items.Add("[OFF] " + b);
+                chat.buddyStatus.Add(b, false); // offline by default
             }
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();

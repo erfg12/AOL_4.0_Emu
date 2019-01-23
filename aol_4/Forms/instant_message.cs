@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -128,7 +129,13 @@ namespace aol.Forms
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            chat.irc.SendRawMessage("msg " + user + " " + myMessageBox.Text);
+            // send to server
+            chat.irc.SendMessageToChannel(myMessageBox.Text, user);
+            // write to file
+            string logpath = Application.StartupPath + @"\chatlogs";
+            string privateLog = logpath + @"\PM_" + user + ".txt";
+            File.AppendAllText(privateLog, accounts.tmpUsername + ": " + myMessageBox.Text + '\n');
+            // clear msg box
             myMessageBox.Clear();
         }
 
@@ -161,6 +168,12 @@ namespace aol.Forms
             maxiMini();
         }
 
+        private void myMessageBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                sendBtn.PerformClick();
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -170,21 +183,50 @@ namespace aol.Forms
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void writeFileToBox(bool init = false)
         {
-            using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            string lastLine = "";
+            messagesBox.Invoke(new MethodInvoker(delegate
             {
-                using (StreamReader sr = new StreamReader(file))
+                using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
-                    while (!sr.EndOfStream)
+                    using (StreamReader sr = new StreamReader(file))
                     {
-                        messagesBox.Invoke(new MethodInvoker(delegate
+                        while (!sr.EndOfStream)
                         {
-                            messagesBox.AppendText(sr.ReadLine());
-                        }));
+                            if (init)
+                                messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                            else
+                                lastLine = sr.ReadLine();
+                        }
                     }
                 }
-            }
+                if (!init)
+                    messagesBox.AppendText(lastLine + Environment.NewLine);
+                messagesBox.ScrollToCaret();
+            }));
+        }
+
+        private void OnChanged(object source, FileSystemEventArgs e)
+        {
+            Debug.WriteLine("onchanged");
+            writeFileToBox();
+        }
+
+        private void keepReading()
+        {
+            var watch = new FileSystemWatcher();
+            watch.Path = Path.GetDirectoryName(privateLog);
+            watch.Filter = Path.GetFileName(privateLog);
+            watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
+            watch.Changed += new FileSystemEventHandler(OnChanged);
+            watch.EnableRaisingEvents = true;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            writeFileToBox(true);
+            keepReading();
         }
 
         private void miniBtn_Click(object sender, EventArgs e)
