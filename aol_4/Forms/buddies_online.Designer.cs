@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Buddies 0/0");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Offline 0/0");
             this.buddiesLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +47,7 @@
             this.miniBtn = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.buddyTreeView = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.setupBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -116,9 +119,9 @@
             // 
             // buddyListView
             // 
-            this.buddyListView.Location = new System.Drawing.Point(4, 45);
+            this.buddyListView.Location = new System.Drawing.Point(4, 139);
             this.buddyListView.Name = "buddyListView";
-            this.buddyListView.Size = new System.Drawing.Size(134, 158);
+            this.buddyListView.Size = new System.Drawing.Size(134, 64);
             this.buddyListView.TabIndex = 14;
             this.buddyListView.UseCompatibleStateImageBehavior = false;
             this.buddyListView.View = System.Windows.Forms.View.List;
@@ -257,12 +260,29 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // buddyTreeView
+            // 
+            this.buddyTreeView.Location = new System.Drawing.Point(4, 54);
+            this.buddyTreeView.Name = "buddyTreeView";
+            treeNode1.Checked = true;
+            treeNode1.Name = "onlineBuddies";
+            treeNode1.Text = "Buddies 0/0";
+            treeNode2.Checked = true;
+            treeNode2.Name = "offlineBuddies";
+            treeNode2.Text = "Offline 0/0";
+            this.buddyTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            this.buddyTreeView.Size = new System.Drawing.Size(134, 79);
+            this.buddyTreeView.TabIndex = 15;
+            // 
             // buddies_online
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(145, 280);
+            this.Controls.Add(this.buddyTreeView);
             this.Controls.Add(this.buddyListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
@@ -314,5 +334,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ListView buddyListView;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TreeView buddyTreeView;
     }
 }

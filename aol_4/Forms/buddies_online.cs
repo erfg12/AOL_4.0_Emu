@@ -157,6 +157,21 @@ namespace aol.Forms
                         {
                             //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
                             tmpBuddies[kvp.Key] = true;
+
+                            TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
+                            if (nodes.Length > 0)
+                                buddyTreeView.Nodes[1].Nodes.Remove(nodes[0]);
+                            TreeNode[] nodes2 = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
+                            if (nodes2.Length <= 0)
+                                buddyTreeView.Nodes[0].Nodes.Add(kvp.Key);
+
+                            /*TreeNode node = buddyTreeView.Nodes[1].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
+                            if (node != null)
+                                buddyTreeView.Nodes[1].Nodes.Remove(node);
+                            TreeNode node2 = buddyTreeView.Nodes[0].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
+                            if (node2 == null)
+                                buddyTreeView.Nodes[0].Nodes.Add(kvp.Key);*/
+
                             if (buddyListView.FindItemWithText("[OFF] " + kvp.Key) != null)
                                 buddyListView.FindItemWithText("[OFF] " + kvp.Key).Text = "[ON] " + kvp.Key; // need both off and on
                             else
@@ -165,7 +180,21 @@ namespace aol.Forms
                         else if (chat.buddyOnline == "no")
                         {
                             //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
+                            TreeNode[] nodes = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
+                            if (nodes.Length > 0)
+                                buddyTreeView.Nodes[0].Nodes.Remove(nodes[0]);
+                            TreeNode[] nodes2 = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
+                            if (nodes2.Length <= 0)
+                                buddyTreeView.Nodes[1].Nodes.Add(kvp.Key);
+
                             tmpBuddies[kvp.Key] = false;
+                            /*TreeNode node = buddyTreeView.Nodes[0].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
+                            if (node != null)
+                                buddyTreeView.Nodes[0].Nodes.Remove(node);
+                            TreeNode node2 = buddyTreeView.Nodes[1].Nodes.Cast<TreeNode>().FirstOrDefault(x => x.Name == kvp.Key);
+                            if (node2 == null)
+                                buddyTreeView.Nodes[1].Nodes.Add(kvp.Key);*/
+
                             if (buddyListView.FindItemWithText("[OFF] " + kvp.Key) != null)
                                 buddyListView.FindItemWithText("[OFF] " + kvp.Key).Text = "[OFF] " + kvp.Key;
                             else
