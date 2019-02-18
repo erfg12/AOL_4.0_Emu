@@ -38,20 +38,38 @@ namespace aol.Forms
             InitializeComponent();
             TopLevel = true;
             Focus();
+            if (accounts.tmpLocation == "Dial-Up")
+                verbage = "Dial-Up";
         }
 
+        string verbage = "TCP/IP";
         int i = 0;
+
+        private void dialUp()
+        {
+            if (accounts.tmpLocation == "Dial-Up")
+            {
+                verbage = "Dial-Up";
+                //timer1.Enabled = false;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                player.Stream = Properties.Resources.dial_up_modem;
+                player.Play();
+                System.Threading.Thread.Sleep(25000);
+                //timer1.Enabled = true;
+            }
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             switch (i)
             {
                 case 0:
-                    statusLabel.Text = "Step 1: Looking for AOL via TCP/IP...";
+                    statusLabel.Text = "Step 1: Looking for AOL via " + verbage + "...";
                     break;
                 case 1:
                     pictureBox1.Visible = Visible;
-                    statusLabel.Text = "Step 2: Connecting using TCP/IP ...";
+                    statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
+                    dialUp();
                     break;
                 case 2:
                     pictureBox2.Visible = Visible;

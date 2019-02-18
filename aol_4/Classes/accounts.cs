@@ -14,6 +14,7 @@ namespace aol.Forms
     {
         public static string tmpUsername = "";
         public static string tmpPassword = "";
+        public static string tmpLocation = "";
 
         public static SQLiteConnection openDB()
         {

@@ -80,6 +80,9 @@ namespace aol.Forms
 
         private void signOnBtn_Click(object sender, EventArgs e)
         {
+            if (selectLocation.Text == "Dial-Up")
+                accounts.tmpLocation = selectLocation.Text;
+
             if (screenName.Text == "New User")
             {
                 signup_form suf = new signup_form();

@@ -196,7 +196,8 @@
             this.selectLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectLocation.FormattingEnabled = true;
             this.selectLocation.Items.AddRange(new object[] {
-            "ISP/LAN Connection"});
+            "ISP/LAN Connection",
+            "Dial-Up"});
             this.selectLocation.Location = new System.Drawing.Point(145, 235);
             this.selectLocation.Name = "selectLocation";
             this.selectLocation.Size = new System.Drawing.Size(185, 21);

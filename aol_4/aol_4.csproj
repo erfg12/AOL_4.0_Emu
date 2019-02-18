@@ -419,6 +419,7 @@
     <None Include="Resources\aol_loading_image1.gif" />
     <Content Include="aol_icon_4_Bnk_icon.ico" />
     <None Include="Resources\accountsdb.bmp" />
+    <None Include="Resources\dial-up-modem.wav" />
     <Content Include="Resources\Goodbye.wav" />
     <None Include="Resources\stop_btn_enabled.png" />
     <None Include="Resources\stop_btn1.png" />
