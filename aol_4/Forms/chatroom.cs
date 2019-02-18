@@ -114,11 +114,13 @@ namespace aol.Forms
         #endregion
 
         string chatlog = "";
+        string roomname = "";
 
         #region winform_functions
         public chatroom(string channel)
         {
             chat.pChat = channel;
+            roomname = channel;
             string logpath = Application.StartupPath + @"\chatlogs";
             chatlog = logpath + @"\" + channel + ".txt";
             
@@ -193,33 +195,36 @@ namespace aol.Forms
             // keep users list up to date
             while (true)
             {
-                usersListView.Invoke(new MethodInvoker(delegate
+                try
                 {
-                    while (usersListView.Handle == null)
+                    usersListView.Invoke(new MethodInvoker(delegate
                     {
-                        Debug.WriteLine("waiting for usersListView handle...");
-                        Thread.Sleep(500);
-                    }
-                    // remove offline users
-                    foreach (ListViewItem item in usersListView.Items)
-                    {
-                        if (!chat.users.Contains(item.Text))
-                            item.Remove();
-                    }
-                    // add online users
-                    List<string> usersList = chat.users; // gotta declare it, so we can use it
-                    foreach (string user in usersList)
-                    {
-                        if (!usersListView.Items.ContainsKey(user))
+                        if (!chat.users.ContainsKey(roomname))
                         {
-                            ListViewItem lvi = new ListViewItem();
-                            lvi.Text = user;
-                            lvi.Tag = user;
-                            lvi.Name = user;
-                            usersListView.Items.Add(lvi);
+                            Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
+                            return;
                         }
-                    }
-                }));
+                        // remove offline users
+                        foreach (ListViewItem item in usersListView.Items)
+                        {
+                            if (!chat.users[roomname].Contains(item.Text))
+                                usersListView.Items.Remove(item);
+                        }
+                        // add online users
+                        List<string> usersList = chat.users[roomname]; // gotta declare it, so we can use it
+                        for (int i = 0; i < usersList.Count; i++)
+                        {
+                            if (!usersListView.Items.ContainsKey(usersList[i]))
+                            {
+                                ListViewItem lvi = new ListViewItem();
+                                lvi.Text = usersList[i];
+                                lvi.Tag = usersList[i];
+                                lvi.Name = usersList[i];
+                                usersListView.Items.Add(lvi);
+                            }
+                        }
+                    }));
+                } catch { }
                 Thread.Sleep(5000);
             }
         }

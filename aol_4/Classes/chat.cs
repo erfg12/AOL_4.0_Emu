@@ -18,7 +18,7 @@ namespace aol.Classes
         private static string server = "irc.snoonet.org";
         public static SimpleIRC irc = new SimpleIRC();
         public static string pChat = "";
-        public static List<string> users = new List<string>();
+        public static Dictionary<string, List<string>> users = new Dictionary<string, List<string>>(); // key: channel, value: users
         public static string newPM = "";
         public static Dictionary<string, bool> buddyStatus = new Dictionary<string, bool>(); // key: name, value: online status
 
@@ -113,20 +113,26 @@ namespace aol.Classes
         {
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
-                // check if offline user is still in list
-                foreach (string u in users)
+                if (!users.ContainsKey(usersPerChannel.Key))
                 {
-                    if (!usersPerChannel.Value.Contains(u))
-                        users.Remove(u);
+                    Debug.WriteLine("Creating users key " + usersPerChannel.Key);
+                    users.Add(usersPerChannel.Key.Replace("#",""), args.UsersPerChannel[usersPerChannel.Key]);
+                    continue;
+                }
+                // check if offline user is still in list
+                for (int i = 0; i < users[usersPerChannel.Key].Count; i++)
+                {
+                    if (!usersPerChannel.Value.Contains(users[usersPerChannel.Key][i]))
+                        users[usersPerChannel.Key].Remove(users[usersPerChannel.Key][i]);
                 }
                 // if user is not in list, add them
-                foreach (string u in usersPerChannel.Value)
+                for (int i = 0; i < usersPerChannel.Value.Count; i++)
                 {
-                    if (u == "") // there's always 1 empty user for some reason
+                    if (usersPerChannel.Value[i] == "") // there's always 1 empty user for some reason
                         continue;
                     //Debug.WriteLine("[UL]: " + user);
-                    if (!users.Contains(u))
-                        users.Add(u);
+                    if (!users[usersPerChannel.Key].Contains(usersPerChannel.Value[i]))
+                        users[usersPerChannel.Key].Add(usersPerChannel.Value[i]);
                 }
             }
         }
