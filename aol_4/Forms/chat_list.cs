@@ -175,6 +175,11 @@ namespace aol.Forms
             cr.Show();
         }
 
+        private void chat_list_Shown(object sender, EventArgs e)
+        {
+
+        }
+
         private void catListView_MouseClick(object sender, MouseEventArgs e)
         {
             chanListView.Items.Clear();
