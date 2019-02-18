@@ -43,6 +43,7 @@
             this.chanListView = new System.Windows.Forms.ListView();
             this.channels = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.roomsIn = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -63,7 +64,7 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(601, 18);
+            this.panel1.Size = new System.Drawing.Size(604, 18);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -78,6 +79,7 @@
             this.mainTitle.Size = new System.Drawing.Size(71, 13);
             this.mainTitle.TabIndex = 10;
             this.mainTitle.Text = "Chatroom List";
+            this.mainTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainTitle_MouseMove);
             // 
             // pictureBox1
             // 
@@ -112,7 +114,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(544, 1);
+            this.miniBtn.Location = new System.Drawing.Point(547, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -129,7 +131,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(562, 1);
+            this.maxBtn.Location = new System.Drawing.Point(565, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -148,7 +150,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(582, 1);
+            this.closeBtn.Location = new System.Drawing.Point(585, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -187,6 +189,7 @@
             this.catListView.TabIndex = 7;
             this.catListView.UseCompatibleStateImageBehavior = false;
             this.catListView.View = System.Windows.Forms.View.Details;
+            this.catListView.SelectedIndexChanged += new System.EventHandler(this.catListView_SelectedIndexChanged);
             this.catListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.catListView_MouseClick);
             // 
             // category_column
@@ -221,11 +224,23 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // roomsIn
+            // 
+            this.roomsIn.AutoSize = true;
+            this.roomsIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(229)))), ((int)(((byte)(248)))));
+            this.roomsIn.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.roomsIn.Location = new System.Drawing.Point(268, 206);
+            this.roomsIn.Name = "roomsIn";
+            this.roomsIn.Size = new System.Drawing.Size(11, 13);
+            this.roomsIn.TabIndex = 10;
+            this.roomsIn.Text = "\'\'";
+            // 
             // chat_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 437);
+            this.ClientSize = new System.Drawing.Size(608, 439);
+            this.Controls.Add(this.roomsIn);
             this.Controls.Add(this.chanListView);
             this.Controls.Add(this.catListView);
             this.Controls.Add(this.SearchBtn);
@@ -264,5 +279,6 @@
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label roomsIn;
     }
 }

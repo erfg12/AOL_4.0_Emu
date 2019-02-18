@@ -56,6 +56,7 @@ namespace aol.Forms
 
         #region winform_functions
         List<Rectangle> rects = new List<Rectangle>();
+        bool hover = false;
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -89,14 +90,17 @@ namespace aol.Forms
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             //Debug.WriteLine("cursor position: " + e.Location.ToString());
-            bool hover = false;
             foreach (Rectangle r in rects)
             {
-                if (r.Contains(e.Location))
-                    hover = true;
+                if (r.Contains(e.Location)) {
+                    Cursor = Cursors.Hand;
+                    return;
+                }
             }
-            if (hover)
-                Cursor = Cursors.Hand;
+            //if (hover)
+            //    Cursor = Cursors.Hand;
+            //else
+            Cursor = Cursors.Default;
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -110,14 +114,14 @@ namespace aol.Forms
                     mb.MdiParent = MdiParent;
                     mb.Show();
                 }
-                else if (r.Contains(e.Location) && rects.IndexOf(r) == 1) // channels
+                if (r.Contains(e.Location) && rects.IndexOf(r) == 1) // channels
                 {
                     channels chan = new channels();
                     chan.Owner = this;
                     chan.MdiParent = MdiParent;
                     chan.Show();
                 }
-                else if (r.Contains(e.Location) && rects.IndexOf(r) == 2) // chat_list
+                if (r.Contains(e.Location) && rects.IndexOf(r) == 2) // chat_list
                 {
                     chat_list cl = new chat_list();
                     cl.Owner = this;
@@ -160,9 +164,9 @@ namespace aol.Forms
         {
             todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
             titleLabel.Text = "Welcome, " + accounts.tmpUsername;
-            rects.Add(new Rectangle(5, 90, 98, 50)); // 0 mailbox
-            rects.Add(new Rectangle(5, 190, 98, 50)); // 1 channels
-            rects.Add(new Rectangle(5, 234, 98, 50)); // 2 chat_list
+            rects.Add(new Rectangle(5, 80, 98, 50)); // 0 mailbox
+            rects.Add(new Rectangle(5, 180, 98, 50)); // 1 channels
+            rects.Add(new Rectangle(5, 224, 98, 50)); // 2 chat_list
         }
 
         public home_menu()

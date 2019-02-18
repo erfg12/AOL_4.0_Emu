@@ -43,6 +43,7 @@
             this.users = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pplQty = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -52,9 +53,9 @@
             // 
             this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageTextBox.Location = new System.Drawing.Point(13, 487);
+            this.messageTextBox.Location = new System.Drawing.Point(14, 487);
             this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(409, 23);
+            this.messageTextBox.Size = new System.Drawing.Size(408, 23);
             this.messageTextBox.TabIndex = 3;
             this.messageTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageTextBox_KeyDown);
             // 
@@ -76,7 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chatRoomTextBox.Location = new System.Drawing.Point(13, 23);
             this.chatRoomTextBox.Name = "chatRoomTextBox";
-            this.chatRoomTextBox.Size = new System.Drawing.Size(466, 430);
+            this.chatRoomTextBox.Size = new System.Drawing.Size(466, 434);
             this.chatRoomTextBox.TabIndex = 6;
             this.chatRoomTextBox.Text = "";
             // 
@@ -95,7 +96,7 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(672, 18);
+            this.panel1.Size = new System.Drawing.Size(676, 18);
             this.panel1.TabIndex = 2;
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -110,6 +111,7 @@
             this.mainTitle.Size = new System.Drawing.Size(52, 13);
             this.mainTitle.TabIndex = 10;
             this.mainTitle.Text = "Chatroom";
+            this.mainTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainTitle_MouseMove);
             // 
             // pictureBox1
             // 
@@ -144,7 +146,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(615, 1);
+            this.miniBtn.Location = new System.Drawing.Point(619, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -161,7 +163,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(633, 1);
+            this.maxBtn.Location = new System.Drawing.Point(637, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -180,7 +182,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(653, 1);
+            this.closeBtn.Location = new System.Drawing.Point(657, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -220,11 +222,22 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
+            // pplQty
+            // 
+            this.pplQty.AutoSize = true;
+            this.pplQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(229)))), ((int)(((byte)(243)))));
+            this.pplQty.Location = new System.Drawing.Point(573, 54);
+            this.pplQty.Name = "pplQty";
+            this.pplQty.Size = new System.Drawing.Size(14, 13);
+            this.pplQty.TabIndex = 9;
+            this.pplQty.Text = "#";
+            // 
             // chatroom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 517);
+            this.ClientSize = new System.Drawing.Size(680, 521);
+            this.Controls.Add(this.pplQty);
             this.Controls.Add(this.usersListView);
             this.Controls.Add(this.chatRoomTextBox);
             this.Controls.Add(this.sendBtn);
@@ -264,5 +277,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ColumnHeader users;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label pplQty;
     }
 }

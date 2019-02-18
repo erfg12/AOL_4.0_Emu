@@ -138,6 +138,7 @@ namespace aol.Forms
             {
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
+                chat.buddyStatus.Add(user, false); // put them immediately into our buddy list
                 good = true;
             }
             catch (SQLiteException ex)

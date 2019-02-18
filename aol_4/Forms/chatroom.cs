@@ -46,29 +46,6 @@ namespace aol.Forms
         int wndY = 0;
         int wndWidth = 0;
         int wndHeight = 0;
-        public bool maximized = false;
-
-        void maxiMini()
-        {
-            if (maximized)
-            {
-                this.Location = new Point(wndX, wndY);
-                this.Width = wndWidth;
-                this.Height = wndHeight;
-                maximized = false;
-            }
-            else
-            {
-                wndX = this.Location.X;
-                wndY = this.Location.Y;
-                wndWidth = this.Width;
-                wndHeight = this.Height;
-                maximized = true;
-                this.Location = new Point(0, 101);
-                this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 105;
-            }
-        }
 
         const int _ = 2;
 
@@ -84,26 +61,6 @@ namespace aol.Forms
 
         Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
 
-        protected override void WndProc(ref Message message)
-        {
-            base.WndProc(ref message);
-
-            if (message.Msg == 0x84)
-            {
-                var cursor = this.PointToClient(Cursor.Position);
-
-                if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
-                else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
-                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
-                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
-
-                else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
-                else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
-                else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
-            }
-        }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(Brushes.Gray, Top);
@@ -115,6 +72,7 @@ namespace aol.Forms
 
         string chatlog = "";
         string roomname = "";
+        int pplCount = 0;
 
         #region winform_functions
         public chatroom(string channel)
@@ -208,12 +166,17 @@ namespace aol.Forms
                         foreach (ListViewItem item in usersListView.Items)
                         {
                             if (!chat.users[roomname].Contains(item.Text))
+                            {
                                 usersListView.Items.Remove(item);
+                                pplCount--;
+                            }
                         }
                         // add online users
                         List<string> usersList = chat.users[roomname]; // gotta declare it, so we can use it
                         for (int i = 0; i < usersList.Count; i++)
                         {
+                            if (usersList[i] == "")
+                                continue;
                             if (!usersListView.Items.ContainsKey(usersList[i]))
                             {
                                 ListViewItem lvi = new ListViewItem();
@@ -221,8 +184,13 @@ namespace aol.Forms
                                 lvi.Tag = usersList[i];
                                 lvi.Name = usersList[i];
                                 usersListView.Items.Add(lvi);
+                                pplCount++;
                             }
                         }
+                    }));
+                    pplQty.Invoke(new MethodInvoker(delegate
+                    {
+                        pplQty.Text = pplCount.ToString();
                     }));
                 } catch { }
                 Thread.Sleep(5000);
@@ -247,6 +215,15 @@ namespace aol.Forms
         {
             if (e.KeyData == Keys.Enter)
                 sendBtn.PerformClick();
+        }
+
+        private void mainTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         private void chatroom_Load(object sender, EventArgs e)
@@ -276,7 +253,7 @@ namespace aol.Forms
 
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
-            maxiMini();
+
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -290,7 +267,7 @@ namespace aol.Forms
 
         private void maxBtn_Click(object sender, EventArgs e)
         {
-            maxiMini();
+
         }
         #endregion
     }
