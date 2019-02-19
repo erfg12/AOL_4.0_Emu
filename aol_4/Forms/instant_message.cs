@@ -170,8 +170,12 @@ namespace aol.Forms
 
         private void myMessageBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
+            {
                 sendBtn.PerformClick();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)

@@ -45,21 +45,18 @@ namespace aol.Forms
         string verbage = "TCP/IP";
         int i = 0;
 
-        private void dialUp()
+        async Task dialUp()
         {
-            if (accounts.tmpLocation == "Dial-Up")
-            {
-                verbage = "Dial-Up";
-                //timer1.Enabled = false;
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                player.Stream = Properties.Resources.dial_up_modem;
-                player.Play();
-                System.Threading.Thread.Sleep(25000);
-                //timer1.Enabled = true;
-            }
+            timer1.Stop();
+            verbage = "Dial-Up";
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.Stream = Properties.Resources.dial_up_modem;
+            player.Play();
+            await Task.Delay(25000);
+            timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             switch (i)
             {
@@ -69,7 +66,8 @@ namespace aol.Forms
                 case 1:
                     pictureBox1.Visible = Visible;
                     statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
-                    dialUp();
+                    if (accounts.tmpLocation == "Dial-Up")
+                        await dialUp();
                     break;
                 case 2:
                     pictureBox2.Visible = Visible;

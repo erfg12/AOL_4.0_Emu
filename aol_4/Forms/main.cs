@@ -164,7 +164,11 @@ namespace aol.Forms
                     du.MdiParent = this;
                     du.Show();
 
-                    await Task.Delay(TimeSpan.FromSeconds(1)); // wait for dial up to finish
+                    // wait for dial up to finish
+                    if (accounts.tmpLocation == "Dial-Up")
+                        await Task.Delay(TimeSpan.FromSeconds(26));
+                    else
+                        await Task.Delay(TimeSpan.FromSeconds(1));
 
                     // open buddies online window
                     if (accounts.tmpUsername != "Guest")

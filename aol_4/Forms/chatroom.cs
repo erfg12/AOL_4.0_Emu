@@ -221,8 +221,12 @@ namespace aol.Forms
 
         private void messageTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
+            {
                 sendMsg();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void mainTitle_MouseMove(object sender, MouseEventArgs e)
