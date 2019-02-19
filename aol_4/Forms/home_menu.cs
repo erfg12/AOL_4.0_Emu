@@ -56,7 +56,6 @@ namespace aol.Forms
 
         #region winform_functions
         List<Rectangle> rects = new List<Rectangle>();
-        bool hover = false;
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -89,7 +88,6 @@ namespace aol.Forms
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            //Debug.WriteLine("cursor position: " + e.Location.ToString());
             foreach (Rectangle r in rects)
             {
                 if (r.Contains(e.Location)) {
@@ -97,9 +95,6 @@ namespace aol.Forms
                     return;
                 }
             }
-            //if (hover)
-            //    Cursor = Cursors.Hand;
-            //else
             Cursor = Cursors.Default;
         }
 

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(chatroom));
             this.messageTextBox = new System.Windows.Forms.TextBox();
-            this.sendBtn = new System.Windows.Forms.Button();
             this.chatRoomTextBox = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
@@ -59,17 +58,6 @@
             this.messageTextBox.TabIndex = 3;
             this.messageTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageTextBox_KeyDown);
             // 
-            // sendBtn
-            // 
-            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sendBtn.Location = new System.Drawing.Point(427, 487);
-            this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(54, 23);
-            this.sendBtn.TabIndex = 4;
-            this.sendBtn.Text = "SEND";
-            this.sendBtn.UseVisualStyleBackColor = true;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
-            // 
             // chatRoomTextBox
             // 
             this.chatRoomTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -77,6 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chatRoomTextBox.Location = new System.Drawing.Point(13, 23);
             this.chatRoomTextBox.Name = "chatRoomTextBox";
+            this.chatRoomTextBox.ReadOnly = true;
             this.chatRoomTextBox.Size = new System.Drawing.Size(466, 434);
             this.chatRoomTextBox.TabIndex = 6;
             this.chatRoomTextBox.Text = "";
@@ -221,6 +210,8 @@
             this.pictureBox2.Size = new System.Drawing.Size(675, 499);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
+            this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseMove);
             // 
             // pplQty
             // 
@@ -240,7 +231,6 @@
             this.Controls.Add(this.pplQty);
             this.Controls.Add(this.usersListView);
             this.Controls.Add(this.chatRoomTextBox);
-            this.Controls.Add(this.sendBtn);
             this.Controls.Add(this.messageTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -269,7 +259,6 @@
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.TextBox messageTextBox;
-        private System.Windows.Forms.Button sendBtn;
         private System.Windows.Forms.RichTextBox chatRoomTextBox;
         private System.Windows.Forms.ListView usersListView;
         private System.Windows.Forms.Label mainTitle;

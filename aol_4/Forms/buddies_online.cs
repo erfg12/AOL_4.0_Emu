@@ -111,6 +111,8 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
+        int total = 0;
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -139,7 +141,6 @@ namespace aol.Forms
         {
             int online = 0;
             int offline = 0;
-            int total = chat.buddyStatus.Count();
 
             // initialize data
             buddyTreeView.Invoke(new MethodInvoker(delegate
@@ -153,7 +154,9 @@ namespace aol.Forms
                 if (!chat.irc.IsClientRunning())
                     continue;
 
-                foreach(KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
+                total = chat.buddyStatus.Count();
+
+                foreach (KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
                 {
                     chat.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
                     buddyTreeView.Invoke(new MethodInvoker(delegate

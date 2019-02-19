@@ -37,7 +37,6 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.SearchBtn = new System.Windows.Forms.Button();
             this.catListView = new System.Windows.Forms.ListView();
             this.category_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chanListView = new System.Windows.Forms.ListView();
@@ -161,20 +160,10 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(10, 106);
+            this.searchTextBox.Location = new System.Drawing.Point(9, 106);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(148, 20);
             this.searchTextBox.TabIndex = 3;
-            // 
-            // SearchBtn
-            // 
-            this.SearchBtn.Location = new System.Drawing.Point(159, 105);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(54, 23);
-            this.SearchBtn.TabIndex = 4;
-            this.SearchBtn.Text = "Search";
-            this.SearchBtn.UseVisualStyleBackColor = true;
-            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // catListView
             // 
@@ -204,7 +193,7 @@
             this.chanListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.chanListView.Location = new System.Drawing.Point(168, 222);
             this.chanListView.Name = "chanListView";
-            this.chanListView.Size = new System.Drawing.Size(237, 161);
+            this.chanListView.Size = new System.Drawing.Size(237, 160);
             this.chanListView.TabIndex = 8;
             this.chanListView.UseCompatibleStateImageBehavior = false;
             this.chanListView.View = System.Windows.Forms.View.Details;
@@ -223,6 +212,8 @@
             this.pictureBox2.Size = new System.Drawing.Size(604, 418);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
+            this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseMove);
             // 
             // roomsIn
             // 
@@ -243,7 +234,6 @@
             this.Controls.Add(this.roomsIn);
             this.Controls.Add(this.chanListView);
             this.Controls.Add(this.catListView);
-            this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -271,7 +261,6 @@
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button SearchBtn;
         private System.Windows.Forms.ListView catListView;
         private System.Windows.Forms.ListView chanListView;
         private System.Windows.Forms.ColumnHeader category_column;

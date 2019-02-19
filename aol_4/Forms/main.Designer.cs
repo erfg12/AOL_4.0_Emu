@@ -245,7 +245,7 @@
             this.panel2.Controls.Add(this.addrBox);
             this.panel2.Controls.Add(this.keywordBtn);
             this.panel2.Controls.Add(this.goBtn);
-            this.panel2.Location = new System.Drawing.Point(3, 77);
+            this.panel2.Location = new System.Drawing.Point(2, 77);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(797, 26);
             this.panel2.TabIndex = 8;
@@ -577,12 +577,12 @@
             this.tableLayoutPanel1.Controls.Add(this.weather_btn, 12, 0);
             this.tableLayoutPanel1.Controls.Add(this.loadingIcon, 14, 0);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 39);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 39);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(795, 38);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(797, 38);
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -741,7 +741,7 @@
             this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
             this.loadingIcon.Enabled = false;
             this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
-            this.loadingIcon.Location = new System.Drawing.Point(749, 0);
+            this.loadingIcon.Location = new System.Drawing.Point(751, 0);
             this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
             this.loadingIcon.Name = "loadingIcon";
             this.loadingIcon.Size = new System.Drawing.Size(46, 38);

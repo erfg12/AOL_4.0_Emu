@@ -119,6 +119,8 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
+        List<Rectangle> rects = new List<Rectangle>();
+
         public chat_list()
         {
             InitializeComponent();
@@ -134,12 +136,14 @@ namespace aol.Forms
 
         private void chat_list_Shown(object sender, EventArgs e)
         {
-
+            rects.Add(new Rectangle(165, 367, 62, 23)); // 0 join channel
+            rects.Add(new Rectangle(155, 85, 54, 23)); // 1 search button
         }
 
         private void catListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            roomsIn.Text = "'" + catListView.SelectedItems[0].Text + "'";
+            if (catListView.SelectedItems.Count > 0)
+                roomsIn.Text = "'" + catListView.SelectedItems[0].Text + "'";
         }
 
         private void mainTitle_MouseMove(object sender, MouseEventArgs e)
@@ -148,6 +152,35 @@ namespace aol.Forms
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
+        {
+            foreach (Rectangle r in rects)
+            {
+                if (r.Contains(e.Location))
+                {
+                    Cursor = Cursors.Hand;
+                    return;
+                }
+            }
+            Cursor = Cursors.Default;
+        }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            foreach (Rectangle r in rects)
+            {
+                if (r.Contains(e.Location) && rects.IndexOf(r) == 0) // join channel
+                {
+                    if (chanListView.SelectedItems.Count <= 0)
+                        continue;
+                    chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToString());
+                    cr.Owner = this;
+                    cr.MdiParent = MdiParent;
+                    cr.Show();
+                }
             }
         }
 

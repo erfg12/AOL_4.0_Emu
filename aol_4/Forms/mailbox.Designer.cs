@@ -99,6 +99,7 @@
             this.subject});
             this.newListView.FullRowSelect = true;
             this.newListView.GridLines = true;
+            this.newListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.newListView.HideSelection = false;
             this.newListView.Location = new System.Drawing.Point(9, 6);
             this.newListView.MultiSelect = false;
@@ -134,6 +135,7 @@
             this.columnHeader1});
             this.oldListView.FullRowSelect = true;
             this.oldListView.GridLines = true;
+            this.oldListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.oldListView.HideSelection = false;
             this.oldListView.Location = new System.Drawing.Point(9, 6);
             this.oldListView.MultiSelect = false;
@@ -168,6 +170,7 @@
             this.columnHeader2});
             this.sentListView.FullRowSelect = true;
             this.sentListView.GridLines = true;
+            this.sentListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.sentListView.HideSelection = false;
             this.sentListView.Location = new System.Drawing.Point(9, 6);
             this.sentListView.MultiSelect = false;
