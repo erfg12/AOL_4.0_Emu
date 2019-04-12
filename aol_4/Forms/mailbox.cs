@@ -157,7 +157,13 @@ namespace aol.Forms
                 lIt.Tag = entry.Key;
                 lIt.Text = entry.Value;
                 //Debug.WriteLine("[MAIL] Adding OLD Key(tag):" + entry.Key + " Value(text):" + entry.Value);
-                oldListView.Invoke(new MethodInvoker(delegate { oldListView.Items.Add(lIt); }));
+                try
+                {
+                    oldListView.Invoke(new MethodInvoker(delegate { oldListView.Items.Add(lIt); }));
+                } catch
+                {
+
+                }
             }
             foreach (KeyValuePair<string, string> entry in email.emailsSent)
             {
@@ -165,7 +171,10 @@ namespace aol.Forms
                 lIt.Tag = entry.Key;
                 lIt.Text = entry.Value;
                 //Debug.WriteLine("[MAIL] Adding SENT Key(tag):" + entry.Key + " Value(text):" + entry.Value);
-                sentListView.Invoke(new MethodInvoker(delegate { sentListView.Items.Add(lIt); }));
+                try
+                {
+                    sentListView.Invoke(new MethodInvoker(delegate { sentListView.Items.Add(lIt); }));
+                } catch { }
             }
         }
 

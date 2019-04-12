@@ -147,6 +147,8 @@ namespace aol.Classes
                 {
                     var message = inbox.GetMessage(i.UniqueId);
                     //Debug.WriteLine("[MAIL] old id:" + message.MessageId + " subj:" + message.Subject);
+                    if (message.MessageId == null)
+                        break;
                     if (!emailsOld.ContainsKey(message.MessageId))
                         emailsOld.Add(message.MessageId, message.Subject);
                 }
