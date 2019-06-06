@@ -60,27 +60,27 @@ namespace aol.Forms
         {
             switch (i)
             {
-                case 0:
+                case 0: // pretend to initialize the modem
                     statusLabel.Text = "Step 1: Looking for AOL via " + verbage + "...";
                     break;
-                case 1:
+                case 1: // pretend to connect to server
                     pictureBox1.Visible = Visible;
                     statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
                     if (accounts.tmpLocation == "Dial-Up")
                         await dialUp();
                     break;
-                case 2:
+                case 2: // pretend to check password
                     pictureBox2.Visible = Visible;
                     statusLabel.Text = "Step 3: Checking password ...";
                     break;
-                case 3:
+                case 3: // show final running man
                     pictureBox3.Visible = Visible;
                     break;
-                case 4:
+                case 4: // play welcome audio msg and close form
                     System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                     player.Stream = Properties.Resources.Welcome;
                     player.Play();
-                    this.Close();
+                    Close();
                     break;
                 default:
                     break;

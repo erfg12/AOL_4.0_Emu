@@ -86,6 +86,8 @@ namespace aol.Forms
             if (screenName.Text == "New User")
             {
                 signup_form suf = new signup_form();
+                suf.Owner = this;
+                suf.MdiParent = MdiParent;
                 suf.Show();
             }
             else if (screenName.Text == "Guest")

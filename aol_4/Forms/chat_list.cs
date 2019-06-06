@@ -90,10 +90,10 @@ namespace aol.Forms
         {
             using (WebClient client = new WebClient())
             {
-                string content = client.DownloadString("https://snoonet.org/communities");
-                foreach (Match m in Regex.Matches(content, "<h1 id=\"(.*?)<hr>", RegexOptions.Singleline))
+                string content = client.DownloadString("https://snoonet.org/community/");
+                foreach (Match m in Regex.Matches(content, "<h2>(.*?)</table>", RegexOptions.Singleline))
                 {
-                    string catTitle = StripHTML(Regex.Match(m.Value, "<h1 id=\"(.*?)</h1>").Groups[0].Value);
+                    string catTitle = StripHTML(Regex.Match(m.Value, "<h2>(.*?)</h2>").Groups[0].Value);
                     if (catTitle == "Communities of Snoonet")
                         continue;
 
@@ -104,7 +104,8 @@ namespace aol.Forms
                     // add channels
                     foreach (Match m2 in Regex.Matches(m.Value, "<a href=\"(.*?)</a>", RegexOptions.Singleline))
                     {
-                        string chanHashtag = Regex.Match(m2.Value, "\">(.*?)</a>").Groups[1].Value;
+                        string chanHashtag = Regex.Match(m2.Value, "\">(.*?)</a>", RegexOptions.IgnoreCase | RegexOptions.Singleline).Groups[1].Value;
+                        chanHashtag = Regex.Replace(chanHashtag, @"\s+", string.Empty); // clean channel name
                         if (!chanHashtag.Contains("#"))
                             continue;
                         if (chanHashtag == "#top")

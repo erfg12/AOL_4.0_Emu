@@ -152,10 +152,10 @@ namespace aol.Forms
                     if (this == null)
                         return;
 
-                    if (this.Handle == null)
+                    if (Handle == null)
                         return;
 
-                    if (IsWindow(this.Handle) == false)
+                    if (IsWindow(Handle) == false)
                         return;
 
                     // open fake dial up window
@@ -212,8 +212,8 @@ namespace aol.Forms
             {
                 if (!newWindow)
                 {
-                    if (this.ActiveMdiChild is Browse)
-                        ((Browse)this.ActiveMdiChild).goToUrl(addrBox.Text);
+                    if (ActiveMdiChild is Browse)
+                        ((Browse)ActiveMdiChild).goToUrl(addrBox.Text);
                     else // we don't have a browser window selected, open a new one anyways
                     {
                         openBrowser(addrBox.Text);
@@ -339,7 +339,7 @@ namespace aol.Forms
             {
                 if (this.ActiveMdiChild is Browse)
                 {
-                    if (((Browse)this.ActiveMdiChild).loading)
+                    if (((Browse)ActiveMdiChild).loading)
                     {
                         loadingIcon.Enabled = true;
                     }
@@ -349,7 +349,7 @@ namespace aol.Forms
                         loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
                         loadingIcon.Image = loadingIcon.Image;
                     }
-                    if (((Browse)this.ActiveMdiChild).url != old_url)
+                    if (((Browse)ActiveMdiChild).url != old_url)
                     {
                         addrBox.Text = ((Browse)this.ActiveMdiChild).url;
                         old_url = addrBox.Text = ((Browse)this.ActiveMdiChild).url;
@@ -403,26 +403,26 @@ namespace aol.Forms
 
         private void backBtn_Click_1(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Back();
+            if (ActiveMdiChild is Browse)
+                ((Browse)ActiveMdiChild).browser.Back();
         }
 
         private void forwardBtn_Click_1(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Forward();
+            if (ActiveMdiChild is Browse)
+                ((Browse)ActiveMdiChild).browser.Forward();
         }
 
         private void stopBtn_Click(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Stop();
+            if (ActiveMdiChild is Browse)
+                ((Browse)ActiveMdiChild).browser.Stop();
         }
 
         private void reloadBtn_Click_1(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
-                ((Browse)this.ActiveMdiChild).browser.Reload();
+            if (ActiveMdiChild is Browse)
+                ((Browse)ActiveMdiChild).browser.Reload();
         }
 
         private void homeBtn_Click(object sender, EventArgs e)

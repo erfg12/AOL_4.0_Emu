@@ -52,9 +52,9 @@
             // 
             this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageTextBox.Location = new System.Drawing.Point(14, 487);
+            this.messageTextBox.Location = new System.Drawing.Point(13, 414);
             this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(408, 23);
+            this.messageTextBox.Size = new System.Drawing.Size(410, 23);
             this.messageTextBox.TabIndex = 3;
             this.messageTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageTextBox_KeyDown);
             // 
@@ -66,7 +66,7 @@
             this.chatRoomTextBox.Location = new System.Drawing.Point(13, 23);
             this.chatRoomTextBox.Name = "chatRoomTextBox";
             this.chatRoomTextBox.ReadOnly = true;
-            this.chatRoomTextBox.Size = new System.Drawing.Size(466, 434);
+            this.chatRoomTextBox.Size = new System.Drawing.Size(466, 357);
             this.chatRoomTextBox.TabIndex = 6;
             this.chatRoomTextBox.Text = "";
             // 
@@ -207,7 +207,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.Location = new System.Drawing.Point(2, 20);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(675, 499);
+            this.pictureBox2.Size = new System.Drawing.Size(675, 428);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 521);
+            this.ClientSize = new System.Drawing.Size(680, 449);
             this.Controls.Add(this.pplQty);
             this.Controls.Add(this.usersListView);
             this.Controls.Add(this.chatRoomTextBox);
