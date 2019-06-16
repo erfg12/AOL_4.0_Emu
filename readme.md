@@ -1,8 +1,8 @@
-I'm trying to emulate AOL 4.0 with C# Winforms and Chromium (cefsharp).
+AOL 4.0 rebuilt with C# Winforms and Chromium. [aolemu.com](https://media.discordapp.net/attachments/376865174570926090/504482148716249128/Capture.PNG)
 
-Compile with `x64` or `x86` targets as `Any Cpu` will not compile for cefsharp. Right click on the project and Restore Nuget Packages, then close and re-open the project.
+_HOW TO COMPILE:_ Open with VS.net, right click on the project and click "Restore Nuget Packages". Now compile the code.
 
-CEFSharp requires [VC++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=52685)
+_END USERS:_ https://github.com/erfg12/AOL_4.0_Emu/releases
 
 ![](https://media.discordapp.net/attachments/376865174570926090/504482148716249128/Capture.PNG)
 

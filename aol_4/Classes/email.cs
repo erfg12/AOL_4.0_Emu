@@ -184,11 +184,17 @@ namespace aol.Classes
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadWrite);
 
-                var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
-                inbox.AddFlags(uids.First(), MessageFlags.Deleted, true);
-                var matchFolder = client.GetFolder(SpecialFolder.Trash);
-                if (matchFolder != null)
-                    inbox.MoveTo(uids.First(), matchFolder);
+                try
+                {
+                    var uids = inbox.Search(SearchQuery.HeaderContains("Message-ID", id));
+                    inbox.AddFlags(uids.First(), MessageFlags.Deleted, true); // crashes if deleting sent mail
+                    var matchFolder = client.GetFolder(SpecialFolder.Trash);
+                    if (matchFolder != null)
+                        inbox.MoveTo(uids.First(), matchFolder);
+                } catch
+                {
+                    Debug.WriteLine("ERROR: Crashed on deleting mail!");
+                }
             }
         }
 
