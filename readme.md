@@ -1,8 +1,8 @@
-AOL 4.0 rebuilt with C# Winforms and Chromium. [aolemu.com](https://media.discordapp.net/attachments/376865174570926090/504482148716249128/Capture.PNG)
+AOL 4.0 rebuilt with C# Winforms and Chromium. [aolemu.com](https://aolemu.com)
 
-_HOW TO COMPILE:_ Open with VS.net, right click on the project and click "Restore Nuget Packages". Now compile the code.
+*HOW TO COMPILE:* Open with VS.net, right click on the project and click "Restore Nuget Packages". Now compile the code.
 
-_END USERS:_ https://github.com/erfg12/AOL_4.0_Emu/releases
+*END USERS:* https://github.com/erfg12/AOL_4.0_Emu/releases
 
 ![](https://media.discordapp.net/attachments/376865174570926090/504482148716249128/Capture.PNG)
 
