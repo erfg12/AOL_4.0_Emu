@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using aol.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,14 +76,13 @@ namespace aol.Forms
         private void registerBtn_Click(object sender, EventArgs e)
         {
             // insert into db
-            int crAcc = accounts.createAcc(username.Text, fullname.Text, password.Text);
-            if (crAcc == 0)
+            if (RestAPI.createAccount(username.Text, password.Text, fullname.Text))
             {
                 MessageBox.Show("Account Created");
                 Close();
             }
             else
-                MessageBox.Show("Error #" + crAcc.ToString());
+                MessageBox.Show("Error");
         }
 
         private void nextBtn_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ using aol.Classes;
 
 namespace aol.Forms
 {
-    class accounts
+    class sqlite_accounts
     {
         public static string tmpUsername = "";
         public static string tmpPassword = "";

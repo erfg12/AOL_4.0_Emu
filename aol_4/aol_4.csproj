@@ -85,6 +85,9 @@
     <Reference Include="MimeKit, Version=2.1.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.2.1.2\lib\net45\MimeKit.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleIRCLib, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleIRCLib.2.2.1\lib\netstandard2.0\SimpleIRCLib.dll</HintPath>
     </Reference>
@@ -116,13 +119,14 @@
   <ItemGroup>
     <Compile Include="Classes\chat.cs" />
     <Compile Include="Classes\email.cs" />
+    <Compile Include="Classes\RestAPI.cs" />
     <Compile Include="Forms\account.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\account.Designer.cs">
       <DependentUpon>account.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\accounts.cs" />
+    <Compile Include="Classes\sqlite_accounts.cs" />
     <Compile Include="Forms\add_buddy.cs">
       <SubType>Form</SubType>
     </Compile>
