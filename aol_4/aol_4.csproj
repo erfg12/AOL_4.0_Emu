@@ -59,6 +59,8 @@
     <PlatformTarget>x64</PlatformTarget>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <OutputPath>bin\x64\Debug\</OutputPath>
+    <WarningLevel>3</WarningLevel>
+    <NoWarn>CS0108,CS0414</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>aol_icon_4_Bnk_icon.ico</ApplicationIcon>

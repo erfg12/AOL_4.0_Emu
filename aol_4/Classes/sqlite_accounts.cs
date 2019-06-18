@@ -12,10 +12,6 @@ namespace aol.Forms
 {
     class sqlite_accounts
     {
-        public static string tmpUsername = "";
-        public static string tmpPassword = "";
-        public static string tmpLocation = "";
-
         public static SQLiteConnection openDB()
         {
             var pathDB = System.IO.Path.Combine(Environment.CurrentDirectory, "accounts.db");
@@ -24,8 +20,8 @@ namespace aol.Forms
             return new SQLiteConnection("Data Source=" + pathDB + ";Version=3;");
         }
 
-        private static byte[] passSalt = Encoding.ASCII.GetBytes("My$@lT!2");
-        private static byte[] Hash(string value, byte[] salt)
+        public static byte[] passSalt = Encoding.ASCII.GetBytes("My$@lT!2");
+        public static byte[] Hash(string value, byte[] salt)
         {
             byte[] saltedValue = Encoding.UTF8.GetBytes(value).Concat(salt).ToArray();
             return new SHA256Managed().ComputeHash(saltedValue);
@@ -37,22 +33,17 @@ namespace aol.Forms
         /// <param name="user"></param>
         /// <param name="pass">encrypted</param>
         /// <returns></returns>
-        public static int createAcc(string user, string fullname, string pass)
+        public static int createAcc(string user, string fullname)
         {
             int code = 0;
-
-            string encryptedPass = Encoding.Default.GetString(Hash(pass, passSalt));
-
             SQLiteConnection m_dbConnection = openDB();
-
             m_dbConnection.Open();
-
-            string sql = "INSERT INTO aol_accounts (username, fullname, password) VALUES ('" + user + "', @fullname, @encPass)";
+            string sql = "INSERT INTO aol_accounts (username, fullname) VALUES ('" + user + "', @fullname)";
 
             try
             {
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                SQLiteParameter[] parameters = { new SQLiteParameter("fullname", fullname), new SQLiteParameter("encPass", encryptedPass) };
+                SQLiteParameter[] parameters = { new SQLiteParameter("fullname", fullname) };
                 command.Parameters.AddRange(parameters);
                 command.ExecuteNonQuery();
             }
@@ -62,10 +53,6 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
-            tmpUsername = user;
-            tmpPassword = encryptedPass;
-
             return code;
         }
 
@@ -75,12 +62,10 @@ namespace aol.Forms
         /// <param name="user"></param>
         /// <param name="pass">encrypted</param>
         /// <returns></returns>
-        public static int loginAcc(string user, string pass, bool encrypt = true)
+        /*public static int loginAcc(string user, string pass, bool encrypt = true)
         {
             int foundAcc = 0;
-
             //Debug.WriteLine("logging in with user:" + user + " pass:" + pass);
-
             string encryptedPass = "";
             if (encrypt)
                 encryptedPass = Encoding.Default.GetString(Hash(pass, passSalt));
@@ -101,22 +86,17 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             //Debug.WriteLine("storing user:" + user + " pass:" + pass);
-
-            tmpUsername = user;
-            tmpPassword = encryptedPass;
-
+            accForm.tmpUsername = user;
+            accForm.tmpPassword = encryptedPass;
             return foundAcc;
-        }
+        }*/
 
-        public static bool AddBuddy(string user)
+        public static bool addBuddy(string user)
         {
             bool good = false;
-            int userID = loginAcc(tmpUsername, tmpPassword, false);
-
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             SQLiteConnection m_dbConnection = openDB();
-
             m_dbConnection.Open();
 
             try
@@ -147,17 +127,14 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             return good;
         }
 
         public static List<string> getBuddyList()
         {
-            int userID = loginAcc(tmpUsername, tmpPassword, false);
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             List<string> buddies = new List<string>();
-
             SQLiteConnection m_dbConnection = openDB();
-
             m_dbConnection.Open();
 
             try
@@ -183,20 +160,15 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             return buddies;
         }
 
-        public static string[] getEmailInfo()
+        /*public static string[] getEmailInfo()
         {
-            int userID = loginAcc(tmpUsername, tmpPassword, false);
-
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             //Debug.WriteLine("tmpUsername:" + tmpUsername + " tmpPassword:" + tmpPassword + " userID:" + userID);
-
             string[] info = new string[7];
-
             SQLiteConnection m_dbConnection = openDB();
-
             m_dbConnection.Open();
 
             try
@@ -233,21 +205,16 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             return info;
-        }
+        }*/
 
         public static int emailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
         {
             int code = 0;
-            int userID = loginAcc(tmpUsername, tmpPassword, false);
-
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             Debug.WriteLine("userID:" + userID);
-
             string encryptedPass = Encoding.Default.GetString(Hash(pass, passSalt));
-
             SQLiteConnection m_dbConnection = openDB();
-
             m_dbConnection.Open();
 
             try
@@ -276,20 +243,17 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             return code;
         }
 
         public static string getFullName()
         {
             string foundFN = "";
-
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
-            string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + tmpUsername + "' AND password = @encPass";
+            string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + accForm.tmpUsername + "'";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            command.Parameters.AddWithValue("encPass", tmpPassword);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -297,22 +261,18 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             return foundFN;
         }
 
         public static void updateFullName(string fullname)
         {
             SQLiteConnection m_dbConnection = openDB();
-
             m_dbConnection.Open();
-
-            string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + tmpUsername + "' AND password = @encPass";
+            string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + accForm.tmpUsername + "'";
 
             try
             {
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                command.Parameters.AddWithValue("encPass", tmpPassword);
                 command.ExecuteNonQuery();
             }
             catch (SQLiteException ex)
@@ -326,11 +286,10 @@ namespace aol.Forms
         public static Dictionary<string, string> listAccounts()
         {
             Dictionary<string, string> accs = new Dictionary<string, string>();
-
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
-            string sql = "SELECT username, password FROM aol_accounts";
+            string sql = "SELECT username FROM aol_accounts";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
 
             SQLiteDataReader reader = command.ExecuteReader();
@@ -340,7 +299,6 @@ namespace aol.Forms
             }
 
             m_dbConnection.Close();
-
             return accs;
         }
     }

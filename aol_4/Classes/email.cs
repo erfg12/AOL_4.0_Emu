@@ -25,6 +25,8 @@ namespace aol.Classes
         public static Dictionary<string, string> emailsSent = new Dictionary<string, string>();
         public static string reply = "";
         public static bool youGotMail = false;
+        private static string host = "mail.aolemu.com";
+        private static int port = 993;
 
         public static bool checkNewEmail()
         {
@@ -35,19 +37,9 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                string[] accInfo = accounts.getEmailInfo();
-
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
-
-                if (accInfo[2] == "" || accInfo[0] == "" || accInfo[1] == "")
-                {
-                    //Debug.WriteLine("[MAIL] Missing some information, can't login.");
-                    return false;
-                }
-
                 try
                 {
-                    client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                    client.Connect(host, port, true);
                 }
                 catch
                 {
@@ -56,7 +48,7 @@ namespace aol.Classes
 
                 try
                 {
-                    client.Authenticate(accInfo[0], accInfo[1]);
+                    client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
                 }
                 catch
                 {
@@ -82,26 +74,16 @@ namespace aol.Classes
 
         public static void getEmail()
         {
-            if (accounts.tmpUsername == "Guest" || accounts.tmpUsername == "")
+            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "")
                 return;
 
             using (var client = new ImapClient())
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                string[] accInfo = accounts.getEmailInfo();
-
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
-
-                if (accInfo[2] == "" || accInfo[0] == "" || accInfo[1] == "")
-                {
-                    Debug.WriteLine("[MAIL] Missing some information, can't login.");
-                    return;
-                }
-
                 try
                 {
-                    client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
+                    client.Connect(host, port, true);
                 }
                 catch
                 {
@@ -111,17 +93,11 @@ namespace aol.Classes
 
                 try
                 {
-                    client.Authenticate(accInfo[0], accInfo[1]);
+                    client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
                 }
                 catch
                 {
-                    if (accInfo[0].Contains("@gmail.com"))
-                    {
-                        if (MessageBox.Show("Authentication Failed! GMail requires an app password! Would you like to go to https://support.google.com/accounts/answer/185833 ?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
-                            Process.Start("https://support.google.com/accounts/answer/185833");
-                    }
-                    else
-                        MessageBox.Show("Authentication Failed!");
+                    MessageBox.Show("Authentication Failed!");
                     return;
                 }
 
@@ -175,11 +151,8 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                string[] accInfo = accounts.getEmailInfo();
-
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
-                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
+                client.Connect(host, port, true);
+                client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadWrite);
@@ -204,11 +177,8 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                string[] accInfo = accounts.getEmailInfo();
-
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
-                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
+                client.Connect(host, port, true);
+                client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadWrite);
@@ -224,11 +194,8 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                string[] accInfo = accounts.getEmailInfo();
-
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
-                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
+                client.Connect(host, port, true);
+                client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadWrite);
@@ -241,10 +208,7 @@ namespace aol.Classes
         public static void sendEmail(string toName, string toAddress, string subject, string body)
         {
             var message = new MimeMessage();
-
-            string[] accInfo = accounts.getEmailInfo();
-
-            message.From.Add(new MailboxAddress(accounts.getFullName(), accInfo[0]));
+            message.From.Add(new MailboxAddress(sqlite_accounts.getFullName(), accForm.tmpUsername +"@aolemu.com"));
             message.To.Add(new MailboxAddress(toName, toAddress));
             message.Subject = subject;
 
@@ -256,10 +220,9 @@ namespace aol.Classes
             using (var client = new SmtpClient())
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
 
-                client.Connect(accInfo[4], Convert.ToInt32(accInfo[5]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
+                client.Connect(host, port, true);
+                client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 client.Send(message);
                 client.Disconnect(true);
@@ -275,11 +238,8 @@ namespace aol.Classes
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                 reply = ""; // clear before we start
 
-                string[] accInfo = accounts.getEmailInfo();
-
-                bool useSSL = Convert.ToInt32(accInfo[6]) != 0;
-                client.Connect(accInfo[2], Convert.ToInt32(accInfo[3]), useSSL);
-                client.Authenticate(accInfo[0], accInfo[1]);
+                client.Connect(host, port, true);
+                client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
                 inbox.Open(FolderAccess.ReadOnly);

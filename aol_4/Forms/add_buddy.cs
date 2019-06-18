@@ -24,7 +24,7 @@ namespace aol.Forms
 
         private void sendBtn_Click(object sender, EventArgs e)
         {
-            if (accounts.AddBuddy(nameTextBox.Text))
+            if (RestAPI.addBuddy(nameTextBox.Text))
                 MessageBox.Show("Buddy Added!");
             else
                 MessageBox.Show("Error: Buddy not added.");

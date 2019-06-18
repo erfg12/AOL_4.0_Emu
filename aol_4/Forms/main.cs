@@ -165,13 +165,13 @@ namespace aol.Forms
                     du.Show();
 
                     // wait for dial up to finish
-                    if (accounts.tmpLocation == "Dial-Up")
+                    if (accForm.tmpLocation == "Dial-Up")
                         await Task.Delay(TimeSpan.FromSeconds(26));
                     else
                         await Task.Delay(TimeSpan.FromSeconds(1));
 
                     // open buddies online window
-                    if (accounts.tmpUsername != "Guest")
+                    if (accForm.tmpUsername != "Guest")
                     {
                         buddies_online bo = new buddies_online();
                         bo.Owner = (Form)this;
@@ -185,8 +185,11 @@ namespace aol.Forms
                     hm.MdiParent = this;
                     hm.Show();
 
-                    checkMail.Enabled = true;
-                    checkMail.Start();
+                    if (accForm.tmpUsername != "Guest")
+                    {
+                        checkMail.Enabled = true;
+                        checkMail.Start();
+                    }
                 }
                 catch
                 {

@@ -70,11 +70,11 @@ namespace aol.Forms
             homePageBox.Text = Properties.Settings.Default.homeSite;
             //saveWndP.Checked = Properties.Settings.Default.windowSize;
             fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
-            fullnameBox.Text = accounts.getFullName();
+            fullnameBox.Text = sqlite_accounts.getFullName();
 
-            if (accounts.tmpUsername != "Guest" && accounts.tmpUsername != "") {
+            /*if (accForm.tmpUsername != "Guest" && accForm.tmpUsername != "") {
                 // email info
-                string[] accInfo = accounts.getEmailInfo();
+                string[] accInfo = sqlite_accounts.getEmailInfo();
                 bool checkSSL = Convert.ToInt32(accInfo[6]) != 0;
                 emailAddress.Text = accInfo[0];
                 emailPassword.Text = accInfo[1];
@@ -83,7 +83,7 @@ namespace aol.Forms
                 smtpServer.Text = accInfo[4];
                 smtpPort.Text = accInfo[5];
                 useSSL.Checked = checkSSL;
-            }
+            }*/
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -97,7 +97,7 @@ namespace aol.Forms
 
         private void updateFNBtn_Click(object sender, EventArgs e)
         {
-            accounts.updateFullName(fullnameBox.Text);
+            RestAPI.updateFullName(fullnameBox.Text);
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -107,13 +107,13 @@ namespace aol.Forms
 
         private void settings_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (accounts.tmpUsername != "Guest" && accounts.tmpUsername != "")
+            if (accForm.tmpUsername != "Guest" && accForm.tmpUsername != "")
             {
                 if (homePageBox.Text.Length > 4) // make sure it's not blank
                     Properties.Settings.Default.homeSite = homePageBox.Text;
 
-                int ssl = useSSL.Checked ? 1 : 0;
-                accounts.emailAcc(emailAddress.Text, emailPassword.Text, imapServer.Text, Convert.ToInt32(imapPort.Text), smtpServer.Text, Convert.ToInt32(smtpPort.Text), ssl);
+                //int ssl = useSSL.Checked ? 1 : 0;
+                //sqlite_accounts.emailAcc(emailAddress.Text, emailPassword.Text, imapServer.Text, Convert.ToInt32(imapPort.Text), smtpServer.Text, Convert.ToInt32(smtpPort.Text), ssl);
             }
         }
         #endregion

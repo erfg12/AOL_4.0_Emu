@@ -75,14 +75,11 @@ namespace aol.Forms
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-            // insert into db
             if (RestAPI.createAccount(username.Text, password.Text, fullname.Text))
             {
                 MessageBox.Show("Account Created");
                 Close();
             }
-            else
-                MessageBox.Show("Error");
         }
 
         private void nextBtn_Click(object sender, EventArgs e)
@@ -92,8 +89,21 @@ namespace aol.Forms
                 panel2.SendToBack();
                 panel3.BringToFront();
             }
-            else
-                Close();
+            else // recover acc from DB API
+            {
+                string user = recoverUser.Text;
+                string pass = recoverPass.Text;
+                if (RestAPI.loginAccount(user, pass))
+                {
+                    if (sqlite_accounts.createAcc(user, RestAPI.getAccInfo("fullname")) != 0)
+                    { // store in sqlite db for reference
+                        MessageBox.Show("Found account!");
+                        Close();
+                    }
+                }
+                else
+                    MessageBox.Show("Account not found.");
+            }
         }
 
         private void signup_form_Shown(object sender, EventArgs e)

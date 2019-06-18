@@ -14,5 +14,8 @@
     <Setting Name="lastAcc" Type="System.String" Scope="User">
       <Value Profile="(Default)">Guest</Value>
     </Setting>
+    <Setting Name="connType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ISP/LAN Connection</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

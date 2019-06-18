@@ -286,7 +286,7 @@ namespace aol.Forms
 
         private void buddies_online_Shown(object sender, EventArgs e)
         {
-            foreach (string b in accounts.getBuddyList())
+            foreach (string b in sqlite_accounts.getBuddyList())
             {
                 chat.buddyStatus.Add(b, false); // offline by default
             }

@@ -38,7 +38,7 @@ namespace aol.Forms
             InitializeComponent();
             TopLevel = true;
             Focus();
-            if (accounts.tmpLocation == "Dial-Up")
+            if (accForm.tmpLocation == "Dial-Up")
                 verbage = "Dial-Up";
         }
 
@@ -66,7 +66,7 @@ namespace aol.Forms
                 case 1: // pretend to connect to server
                     pictureBox1.Visible = Visible;
                     statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
-                    if (accounts.tmpLocation == "Dial-Up")
+                    if (accForm.tmpLocation == "Dial-Up")
                         await dialUp();
                     break;
                 case 2: // pretend to check password

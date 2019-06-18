@@ -158,7 +158,7 @@ namespace aol.Forms
         private void home_menu_Shown(object sender, EventArgs e)
         {
             todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
-            titleLabel.Text = "Welcome, " + accounts.tmpUsername;
+            titleLabel.Text = "Welcome, " + accForm.tmpUsername;
             rects.Add(new Rectangle(5, 80, 98, 50)); // 0 mailbox
             rects.Add(new Rectangle(5, 180, 98, 50)); // 1 channels
             rects.Add(new Rectangle(5, 224, 98, 50)); // 2 chat_list

@@ -244,7 +244,7 @@ namespace aol.Forms
             // write to file
             string logpath = Application.StartupPath + @"\chatlogs";
             string privateLog = logpath + @"\" + chat.pChat + ".txt";
-            File.AppendAllText(privateLog, accounts.tmpUsername + ": " + messageTextBox.Text + '\n');
+            File.AppendAllText(privateLog, accForm.tmpUsername + ": " + messageTextBox.Text + '\n');
             messageTextBox.Clear();
         }
 

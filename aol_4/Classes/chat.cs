@@ -35,7 +35,7 @@ namespace aol.Classes
             Debug.WriteLine("[CO]:" + msg);
             string cleanChannel = args.Channel.Replace("#", "");
 
-            if (args.Channel == accounts.tmpUsername) // PRIVMSG
+            if (args.Channel == accForm.tmpUsername) // PRIVMSG
             {
                 newPM = args.User;
                 string logpath = Application.StartupPath + @"\chatlogs";
@@ -72,7 +72,7 @@ namespace aol.Classes
                 buddyStatus[info[3]] = false;
             }
             // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
-            else if (args.Message.Contains(" 311 " + accounts.tmpUsername))
+            else if (args.Message.Contains(" 311 " + accForm.tmpUsername))
             {
                 //Debug.WriteLine("user is alive!!");
                 buddyStatus[info[3]] = true;
@@ -139,12 +139,12 @@ namespace aol.Classes
 
         public static void startConnection()
         {
-            if (accounts.tmpUsername == "Guest" || accounts.tmpUsername == "")
+            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "")
                 return;
 
             Task taskA = new Task(() =>
             {
-                irc.SetupIrc(server, accounts.tmpUsername, "", port, "", 5000, true);
+                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 5000, true);
 
                 irc.IrcClient.OnDebugMessage += debugOutputCallback;
                 irc.IrcClient.OnMessageReceived += chatOutputCallback;

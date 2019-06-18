@@ -42,7 +42,10 @@ namespace aol.Forms
         }
         #endregion
 
-        Dictionary<string, string> theAccs = accounts.listAccounts();
+        Dictionary<string, string> theAccs = sqlite_accounts.listAccounts();
+        public static string tmpLocation = "";
+        public static string tmpPassword = "";
+        public static string tmpUsername = "";
 
         #region winform_functions
         public accForm()
@@ -52,7 +55,7 @@ namespace aol.Forms
         
         private void accForm_Load(object sender, EventArgs e)
         {
-            foreach(KeyValuePair<string, string> entry in accounts.listAccounts())
+            foreach(KeyValuePair<string, string> entry in sqlite_accounts.listAccounts())
             {
                 screenName.Items.Add(entry.Key);
             }
@@ -73,17 +76,19 @@ namespace aol.Forms
                 screenName.Text = Properties.Settings.Default.lastAcc;
             else
                 screenName.SelectedIndex = 0;
-            selectLocation.SelectedIndex = 0;
+            selectLocation.Text = Properties.Settings.Default.connType;
             if (passBox.Visible)
                 this.ActiveControl = passBox;
         }
 
         private void signOnBtn_Click(object sender, EventArgs e)
         {
-            if (selectLocation.Text == "Dial-Up")
-                accounts.tmpLocation = selectLocation.Text;
+            tmpLocation = selectLocation.Text;
 
-            if (screenName.Text == "New User")
+            Properties.Settings.Default.connType = tmpLocation;
+            Properties.Settings.Default.Save();
+
+            if (screenName.Text == "New User" || screenName.Text == "Existing Member")
             {
                 signup_form suf = new signup_form();
                 suf.Owner = this;
@@ -92,15 +97,15 @@ namespace aol.Forms
             }
             else if (screenName.Text == "Guest")
             {
-                accounts.tmpUsername = "Guest";
+                tmpUsername = "Guest";
                 Close();
             }
             else
             {
-                if (accounts.loginAcc(screenName.Text, passBox.Text) != 0)
+                if (RestAPI.loginAccount(screenName.Text, passBox.Text))
                     Close();
                 else
-                    MessageBox.Show("Account either deosn't exist, or incorrect password.");
+                    MessageBox.Show("Account either doesn't exist, or incorrect password.");
             }
         }
 
@@ -143,14 +148,14 @@ namespace aol.Forms
 
         private void accCheck_Tick(object sender, EventArgs e)
         {
-            Dictionary<string, string> accsCheck = accounts.listAccounts();
+            Dictionary<string, string> accsCheck = sqlite_accounts.listAccounts();
             if (accsCheck.Count() != theAccs.Count())
             {
                 screenName.Items.Clear();
                 screenName.Items.Add("Guest");
                 screenName.Items.Add("Existing Member");
                 screenName.Items.Add("New User");
-                foreach (KeyValuePair<string, string> entry in accounts.listAccounts())
+                foreach (KeyValuePair<string, string> entry in sqlite_accounts.listAccounts())
                 {
                     screenName.Items.Add(entry.Key);
                 }

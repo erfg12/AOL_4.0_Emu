@@ -281,8 +281,8 @@ namespace aol.Forms
         {
             Thread thread = new Thread(new ThreadStart(GetEmail));
             thread.Start();
-            Text = accounts.tmpUsername + "'s Online Mailbox";
-            mainTitle.Text = accounts.tmpUsername + "'s Online Mailbox";
+            Text = accForm.tmpUsername + "'s Online Mailbox";
+            mainTitle.Text = accForm.tmpUsername + "'s Online Mailbox";
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

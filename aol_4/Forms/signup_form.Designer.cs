@@ -44,8 +44,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.recoverUser = new System.Windows.Forms.TextBox();
+            this.recoverPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -267,19 +267,19 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Click this button if you are already an AOL member and have a Screen Name.";
             // 
-            // textBox1
+            // recoverUser
             // 
-            this.textBox1.Location = new System.Drawing.Point(267, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 15;
+            this.recoverUser.Location = new System.Drawing.Point(267, 150);
+            this.recoverUser.Name = "recoverUser";
+            this.recoverUser.Size = new System.Drawing.Size(170, 20);
+            this.recoverUser.TabIndex = 15;
             // 
-            // textBox2
+            // recoverPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(267, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 20);
-            this.textBox2.TabIndex = 16;
+            this.recoverPass.Location = new System.Drawing.Point(267, 172);
+            this.recoverPass.Name = "recoverPass";
+            this.recoverPass.Size = new System.Drawing.Size(170, 20);
+            this.recoverPass.TabIndex = 16;
             // 
             // label5
             // 
@@ -355,11 +355,11 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.recoverPass);
             this.panel2.Controls.Add(this.cancelBtn);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.recoverUser);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(100, 19);
+            this.panel2.Location = new System.Drawing.Point(102, 19);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(470, 299);
             this.panel2.TabIndex = 23;
@@ -374,7 +374,7 @@
             this.panel3.Controls.Add(this.username);
             this.panel3.Controls.Add(this.backBtn);
             this.panel3.Controls.Add(this.registerBtn);
-            this.panel3.Location = new System.Drawing.Point(100, 19);
+            this.panel3.Location = new System.Drawing.Point(102, 21);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(470, 296);
             this.panel3.TabIndex = 23;
@@ -497,8 +497,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox recoverUser;
+        private System.Windows.Forms.TextBox recoverPass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
