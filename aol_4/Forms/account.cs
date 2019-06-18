@@ -42,7 +42,7 @@ namespace aol.Forms
         }
         #endregion
 
-        Dictionary<string, string> theAccs = sqlite_accounts.listAccounts();
+        List<string> theAccs = sqlite_accounts.listAccounts();
         public static string tmpLocation = "";
         public static string tmpPassword = "";
         public static string tmpUsername = "";
@@ -55,9 +55,9 @@ namespace aol.Forms
         
         private void accForm_Load(object sender, EventArgs e)
         {
-            foreach(KeyValuePair<string, string> entry in sqlite_accounts.listAccounts())
+            foreach(string entry in sqlite_accounts.listAccounts())
             {
-                screenName.Items.Add(entry.Key);
+                screenName.Items.Add(entry);
             }
         }
 
@@ -148,16 +148,16 @@ namespace aol.Forms
 
         private void accCheck_Tick(object sender, EventArgs e)
         {
-            Dictionary<string, string> accsCheck = sqlite_accounts.listAccounts();
+            List<string> accsCheck = sqlite_accounts.listAccounts();
             if (accsCheck.Count() != theAccs.Count())
             {
                 screenName.Items.Clear();
                 screenName.Items.Add("Guest");
                 screenName.Items.Add("Existing Member");
                 screenName.Items.Add("New User");
-                foreach (KeyValuePair<string, string> entry in sqlite_accounts.listAccounts())
+                foreach (string entry in sqlite_accounts.listAccounts())
                 {
-                    screenName.Items.Add(entry.Key);
+                    screenName.Items.Add(entry);
                 }
                 theAccs = accsCheck; // update to stop refresh
             }

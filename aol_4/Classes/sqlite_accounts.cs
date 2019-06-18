@@ -283,9 +283,9 @@ namespace aol.Forms
             m_dbConnection.Close();
         }
 
-        public static Dictionary<string, string> listAccounts()
+        public static List<string> listAccounts()
         {
-            Dictionary<string, string> accs = new Dictionary<string, string>();
+            List<string> accs = new List<string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -295,7 +295,7 @@ namespace aol.Forms
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                accs.Add(reader.GetString(0), reader.GetString(1));
+                accs.Add(reader.GetString(0));
             }
 
             m_dbConnection.Close();
