@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using aol.Classes;
+using System.Windows.Forms;
 
 namespace aol.Forms
 {
@@ -15,7 +16,14 @@ namespace aol.Forms
         public static SQLiteConnection openDB()
         {
             var pathDB = System.IO.Path.Combine(Environment.CurrentDirectory, "accounts.db");
-            if (!System.IO.File.Exists(pathDB)) throw new Exception();
+            try {
+                if (!System.IO.File.Exists(pathDB)) throw new Exception();
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: SQLite DB file error.");
+                Application.Exit();
+            }
             //Debug.WriteLine("pageDB=" + pathDB);
             return new SQLiteConnection("Data Source=" + pathDB + ";Version=3;");
         }
@@ -291,11 +299,14 @@ namespace aol.Forms
             string sql = "SELECT username FROM aol_accounts";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
 
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                accs.Add(reader.GetString(0));
-            }
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    accs.Add(reader.GetString(0));
+                }
+            } catch { }
 
             m_dbConnection.Close();
             return accs;
