@@ -213,7 +213,6 @@ namespace aol.Forms
             int code = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             Debug.WriteLine("userID:" + userID);
-            string encryptedPass = Encoding.Default.GetString(Hash(pass, passSalt));
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 

@@ -95,10 +95,19 @@ namespace aol.Forms
                 string pass = recoverPass.Text;
                 if (RestAPI.loginAccount(user, pass))
                 {
-                    if (sqlite_accounts.createAcc(user, RestAPI.getAccInfo("fullname")) != 0)
+                    string fn = RestAPI.getAccInfo("fullname", user, pass);
+                    int code = sqlite_accounts.createAcc(user, fn);
+                    if (code == 0)
                     { // store in sqlite db for reference
                         MessageBox.Show("Found account!");
                         Close();
+                    }
+                    else
+                    {
+                        if (code == 19)
+                            MessageBox.Show("Account already exists.");
+                        else 
+                            MessageBox.Show("SQLite error " + code.ToString() + " on account creation.");
                     }
                 }
                 else

@@ -25,8 +25,9 @@ namespace aol.Classes
         public static Dictionary<string, string> emailsSent = new Dictionary<string, string>();
         public static string reply = "";
         public static bool youGotMail = false;
-        private static string host = "mail.aolemu.com";
-        private static int port = 993;
+        private static string host = "mail.newagesoftware.net";
+        private static int imapPort = 993;
+        private static int smtpPort = 465;
 
         public static bool checkNewEmail()
         {
@@ -39,7 +40,7 @@ namespace aol.Classes
 
                 try
                 {
-                    client.Connect(host, port, true);
+                    client.Connect(host, imapPort, true);
                 }
                 catch
                 {
@@ -83,7 +84,7 @@ namespace aol.Classes
 
                 try
                 {
-                    client.Connect(host, port, true);
+                    client.Connect(host, imapPort, true);
                 }
                 catch
                 {
@@ -151,7 +152,7 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                client.Connect(host, port, true);
+                client.Connect(host, imapPort, true);
                 client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
@@ -177,7 +178,7 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                client.Connect(host, port, true);
+                client.Connect(host, imapPort, true);
                 client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
@@ -194,7 +195,7 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                client.Connect(host, port, true);
+                client.Connect(host, imapPort, true);
                 client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
@@ -221,7 +222,7 @@ namespace aol.Classes
             {
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-                client.Connect(host, port, true);
+                client.Connect(host, smtpPort, true);
                 client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 client.Send(message);
@@ -238,7 +239,7 @@ namespace aol.Classes
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                 reply = ""; // clear before we start
 
-                client.Connect(host, port, true);
+                client.Connect(host, imapPort, true);
                 client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 var inbox = client.Inbox;
