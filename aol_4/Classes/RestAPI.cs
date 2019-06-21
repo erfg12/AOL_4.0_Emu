@@ -17,8 +17,16 @@ namespace aol.Forms
         private static JObject getData(string request, string postVals)
         {
             var client = new WebClient();
+            string response = "{\"content\": [{ \"msg\": \"ERROR\" }]}";
             client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-            string response = client.UploadString("https://aolemu.com/api?" + request, "POST", postVals);
+            try
+            {
+                response = client.UploadString("https://aolemu.com/api?" + request, "POST", postVals);
+            }
+            catch (WebException e)
+            {
+                MessageBox.Show("Error connecting to aolemu.com");
+            }
             return JObject.Parse(response);
         }
 
