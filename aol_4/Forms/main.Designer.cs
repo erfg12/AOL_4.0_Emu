@@ -331,6 +331,8 @@
             // 
             this.addrBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.addrBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.addrBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.addrBox.FormattingEnabled = true;
             this.addrBox.Location = new System.Drawing.Point(201, 3);
             this.addrBox.Name = "addrBox";

@@ -231,7 +231,7 @@ namespace aol.Forms
                 else
                 {
                     openBrowser(addrBox.Text);
-                    if (accForm.tmpUsername != "Guest")
+                    if (accForm.tmpUsername != "Guest" && addrBox.Text.Contains("."))
                         sqlite_accounts.addHistory(addrBox.Text);
                     if (!addrBox.Items.Contains(addrBox.Text))
                         addrBox.Items.Add(addrBox.Text);
