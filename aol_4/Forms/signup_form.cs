@@ -77,7 +77,7 @@ namespace aol.Forms
         {
             if (RestAPI.createAccount(username.Text, password.Text, fullname.Text))
             {
-                MessageBox.Show("Account Created");
+                MessageBox.Show("Account has been created. Welcome!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }
@@ -99,19 +99,19 @@ namespace aol.Forms
                     int code = sqlite_accounts.createAcc(user, fn);
                     if (code == 0)
                     { // store in sqlite db for reference
-                        MessageBox.Show("Found account!");
+                        MessageBox.Show("Account has been added. Welcome back!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }
                     else
                     {
                         if (code == 19)
-                            MessageBox.Show("Account already exists.");
-                        else 
-                            MessageBox.Show("SQLite error " + code.ToString() + " on account creation.");
+                            MessageBox.Show("Account already exists.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            MessageBox.Show("SQLite error " + code.ToString() + " on account creation.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
-                    MessageBox.Show("Account not found.");
+                    MessageBox.Show("Account not found.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

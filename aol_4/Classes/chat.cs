@@ -159,7 +159,7 @@ namespace aol.Classes
                 while (!irc.IsClientRunning())
                 {
                     Debug.WriteLine("not connected yet");
-                    Thread.Sleep(1000); // wait 1 sec
+                    Thread.Sleep(250); // wait
                 }
             });
             taskA.Start();
