@@ -75,6 +75,12 @@ namespace aol.Forms
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
+            if (username.Text == "Guest")
+            {
+                MessageBox.Show("You cannot use the username Guest.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (RestAPI.createAccount(username.Text, password.Text, fullname.Text))
             {
                 MessageBox.Show("Account has been created. Welcome!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -145,7 +145,7 @@ namespace aol.Forms
 
         private void startProgram()
         {
-            this.Invoke((MethodInvoker)async delegate ()
+            Invoke((MethodInvoker)async delegate ()
             {
                 try
                 {
@@ -284,7 +284,7 @@ namespace aol.Forms
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void maxBtn_Click(object sender, EventArgs e)
@@ -294,7 +294,7 @@ namespace aol.Forms
 
         private void miniBtn_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -330,7 +330,7 @@ namespace aol.Forms
 
         private void closeForm_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void Form1_MdiChildActivate(object sender, EventArgs e)
@@ -349,7 +349,7 @@ namespace aol.Forms
         {
             try
             {
-                if (this.ActiveMdiChild is Browse)
+                if (ActiveMdiChild is Browse)
                 {
                     if (((Browse)ActiveMdiChild).loading)
                     {
@@ -441,7 +441,7 @@ namespace aol.Forms
         {
             try
             {
-                if (this.ActiveMdiChild is Browse)
+                if (ActiveMdiChild is Browse)
                     ((Browse)this.ActiveMdiChild).goToUrl(Properties.Settings.Default.homeSite);
                 else // we don't have a browser window selected, open a new one anyways
                 {
@@ -670,7 +670,7 @@ namespace aol.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            if (WindowState == FormWindowState.Maximized)
                 return;
 
             if (RectangleToScreen(FormRight).Contains(MousePosition) && !resizeB && !resizeD)

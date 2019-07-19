@@ -35,9 +35,18 @@ namespace aol.Forms
             return new SHA256Managed().ComputeHash(saltedValue);
         }
 
+        /// <summary>
+        /// Add history URL to address bar
+        /// </summary>
+        /// <param name="url">Address bar URL</param>
+        /// <returns></returns>
         public static int addHistory(string url)
         {
             int code = 0;
+
+            if (findHisory(url) > 0)
+                return 999;
+
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
@@ -58,6 +67,10 @@ namespace aol.Forms
             return code;
         }
 
+        /// <summary>
+        /// Get history to add to address bar drop down list
+        /// </summary>
+        /// <returns></returns>
         public static List<string> getHistory()
         {
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
@@ -91,39 +104,6 @@ namespace aol.Forms
             return history;
         }
 
-        public static List<string> findHistory(string url)
-        {
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            List<string> history = new List<string>();
-            SQLiteConnection m_dbConnection = openDB();
-            m_dbConnection.Open();
-
-            try
-            {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
-                //Debug.WriteLine("getting email info with id:" + userID);
-                command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "'";
-                int count = Convert.ToInt32(command.ExecuteScalar());
-                if (count > 0)
-                {
-                    command.CommandText = "SELECT * FROM history WHERE userid = '" + userID + "' AND LIKE '%" + url + "%'";
-
-                    SQLiteDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        history.Add(reader["url"].ToString());
-                    }
-                }
-            }
-            catch (SQLiteException ex)
-            {
-                Debug.WriteLine("SQLite err " + ex.ErrorCode);
-            }
-
-            m_dbConnection.Close();
-            return history;
-        }
-
         /// <summary>
         /// Returns 0 on success, otherwise an error number will be given.
         /// </summary>
@@ -133,6 +113,10 @@ namespace aol.Forms
         public static int createAcc(string user, string fullname)
         {
             int code = 0;
+
+            if (findAcc(user) > 0)
+                return 999;
+
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
             string sql = "INSERT INTO aol_accounts (username, fullname) VALUES ('" + user + "', @fullname)";
@@ -151,6 +135,54 @@ namespace aol.Forms
 
             m_dbConnection.Close();
             return code;
+        }
+
+        /// <summary>
+        /// Check if history URL is already present, 0 = failed
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <returns></returns>
+        public static int findHisory(string url)
+        {
+            int foundHistory = 0;
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            string sql = "SELECT * FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
+            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                foundHistory++;
+            }
+
+            m_dbConnection.Close();
+            return foundHistory;
+        }
+
+        /// <summary>
+        /// Find account, return user ID.
+        /// </summary>
+        /// <param name="user">username</param>
+        /// <returns></returns>
+        public static int findAcc(string user)
+        {
+            int foundAcc = 0;
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            string sql = "SELECT userid FROM aol_accounts WHERE username = '" + user + "'";
+            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                if (reader.GetInt32(0) > 0)
+                    foundAcc = reader.GetInt32(0);
+            }
+
+            m_dbConnection.Close();
+            return foundAcc;
         }
 
         /// <summary>
@@ -189,6 +221,7 @@ namespace aol.Forms
             return foundAcc;
         }*/
 
+        
         public static bool addBuddy(string user)
         {
             bool good = false;
