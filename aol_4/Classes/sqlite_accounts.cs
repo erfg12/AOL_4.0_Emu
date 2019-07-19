@@ -35,6 +35,95 @@ namespace aol.Forms
             return new SHA256Managed().ComputeHash(saltedValue);
         }
 
+        public static int addHistory(string url)
+        {
+            int code = 0;
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+            long timeStamp = DateTime.Now.ToFileTime();
+            string sql = "INSERT INTO history (userid, url, date) VALUES ('" + userID + "', '" + url + "', '" + timeStamp + "')";
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                code = ex.ErrorCode;
+            }
+
+            m_dbConnection.Close();
+            return code;
+        }
+
+        public static List<string> getHistory()
+        {
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            List<string> history = new List<string>();
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                //Debug.WriteLine("getting email info with id:" + userID);
+                command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "SELECT * FROM history WHERE userid = '" + userID + "'";
+
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        history.Add(reader["url"].ToString());
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+            }
+
+            m_dbConnection.Close();
+            return history;
+        }
+
+        public static List<string> findHistory(string url)
+        {
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            List<string> history = new List<string>();
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                //Debug.WriteLine("getting email info with id:" + userID);
+                command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "SELECT * FROM history WHERE userid = '" + userID + "' AND LIKE '%" + url + "%'";
+
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        history.Add(reader["url"].ToString());
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+            }
+
+            m_dbConnection.Close();
+            return history;
+        }
+
         /// <summary>
         /// Returns 0 on success, otherwise an error number will be given.
         /// </summary>

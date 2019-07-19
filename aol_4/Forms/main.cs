@@ -189,6 +189,11 @@ namespace aol.Forms
                     {
                         checkMail.Enabled = true;
                         checkMail.Start();
+
+                        foreach (string i in sqlite_accounts.getHistory())
+                        {
+                            addrBox.Items.Add(i);
+                        }
                     }
                 }
                 catch
@@ -226,6 +231,10 @@ namespace aol.Forms
                 else
                 {
                     openBrowser(addrBox.Text);
+                    if (accForm.tmpUsername != "Guest")
+                        sqlite_accounts.addHistory(addrBox.Text);
+                    if (!addrBox.Items.Contains(addrBox.Text))
+                        addrBox.Items.Add(addrBox.Text);
                     newWindow = false;
                 }
             }
