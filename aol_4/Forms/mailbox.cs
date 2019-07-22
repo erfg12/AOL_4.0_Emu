@@ -180,6 +180,9 @@ namespace aol.Forms
 
         void moveToOld()
         {
+            if (newListView.SelectedItems.Count <= 0)
+                return;
+
             email.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
@@ -238,6 +241,12 @@ namespace aol.Forms
         {
             if (newListView.Visible)
             {
+                if (newListView.SelectedItems.Count <= 0)
+                {
+                    MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 email.deleteEmail(newListView.SelectedItems[0].Tag.ToString());
                 newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
                 Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + email.youGotMail);
@@ -246,11 +255,23 @@ namespace aol.Forms
             }
             else if (oldListView.Visible)
             {
+                if (oldListView.SelectedItems.Count <= 0)
+                {
+                    MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 email.deleteEmail(oldListView.SelectedItems[0].Tag.ToString());
                 oldListView.Items.RemoveAt(oldListView.SelectedItems[0].Index);
             }
             else if (sentListView.Visible)
             {
+                if (sentListView.SelectedItems.Count <= 0)
+                {
+                    MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 email.deleteEmail(sentListView.SelectedItems[0].Tag.ToString());
                 sentListView.Items.RemoveAt(sentListView.SelectedItems[0].Index);
             }
@@ -259,6 +280,12 @@ namespace aol.Forms
 
         private void keepBtn_Click(object sender, EventArgs e)
         {
+            if (oldListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (oldListView.Visible) // only works on old emails
             {
                 email.markAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
@@ -272,9 +299,32 @@ namespace aol.Forms
 
         private void readBtn_Click(object sender, EventArgs e)
         {
-            openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
-            if (newListView.Visible)
+            if (newListView.Visible && newListView.SelectedItems.Count > 0)
+            {
+                openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
                 moveToOld();
+            }
+            else if (newListView.Visible && newListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (oldListView.Visible && oldListView.SelectedItems.Count > 0)
+                openReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
+            else if (oldListView.Visible && oldListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (sentListView.Visible && sentListView.SelectedItems.Count > 0)
+                openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
+            else if (sentListView.Visible && sentListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void mailbox_Shown(object sender, EventArgs e)
@@ -297,17 +347,35 @@ namespace aol.Forms
 
         private void newListview_DoubleClick(object sender, EventArgs e)
         {
+            if (newListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
             moveToOld();
         }
 
         private void oldListView_DoubleClick(object sender, EventArgs e)
         {
+            if (oldListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             openReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
         }
 
         private void sentListView_DoubleClick(object sender, EventArgs e)
         {
+            if (sentListView.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("Select an email first.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
         }
         #endregion

@@ -23,7 +23,7 @@ namespace aol.Forms
             {
                 response = client.UploadString("https://aolemu.com/api?" + request, "POST", postVals);
             }
-            catch (WebException e)
+            catch
             {
                 MessageBox.Show("Error connecting to aolemu.com");
             }
