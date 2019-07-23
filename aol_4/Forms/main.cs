@@ -634,12 +634,12 @@ namespace aol.Forms
                 //Debug.WriteLine("Checking for new mail");
             }
             // FIXME - not reliable if receiving more than 1 message at a time.
-            if (chat.newPM != "")
+            /*if (chat.newPM != "")
             {
                 bool foundFrm = false;
+                Debug.WriteLine("Checking for open form with username tag");
                 foreach (Form frm in Application.OpenForms)
                 {
-                    Debug.WriteLine("Checking for open form with username tag");
                     if (frm.Tag == null)
                         continue;
 
@@ -657,7 +657,7 @@ namespace aol.Forms
                     im.Show();
                 }
                 chat.newPM = "";
-            }
+            }*/
         }
 
         private void mailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)

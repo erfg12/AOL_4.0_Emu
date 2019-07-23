@@ -132,6 +132,7 @@ namespace aol.Classes
 
                 var outbox = client.GetFolder(SpecialFolder.Sent);
                 outbox.Open(FolderAccess.ReadOnly);
+                Debug.WriteLine("outbox items: " + outbox.Count);
 
                 // sent emails
                 for (int i = 0; i < outbox.Count; i++)
@@ -226,6 +227,20 @@ namespace aol.Classes
                 client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
 
                 client.Send(message);
+                client.Disconnect(true);
+            }
+
+            // make a copy in SENT folder (not needed for some services, ex: GMail)
+            using (var client = new ImapClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                client.Connect(host, imapPort, true);
+                client.Authenticate(accForm.tmpUsername + "@aolemu.com", accForm.tmpPassword);
+
+                var folderSend = client.GetFolder(SpecialFolder.Sent);
+                folderSend.Append(message, MessageFlags.Seen);
+                
                 client.Disconnect(true);
             }
         }

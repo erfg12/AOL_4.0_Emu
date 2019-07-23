@@ -121,10 +121,10 @@ namespace aol.Forms
         #region winform_functions
         private void instant_message_Shown(object sender, EventArgs e)
         {
-            if (!backgroundWorker1.IsBusy)
-                backgroundWorker1.RunWorkerAsync();
             Text = user + " Instant Message";
             mainTitle.Text = user + " Instant Message";
+            if (!backgroundWorker1.IsBusy)
+                backgroundWorker1.RunWorkerAsync();
         }
 
         private void sendBtn_Click(object sender, EventArgs e)
@@ -207,44 +207,52 @@ namespace aol.Forms
             }
         }
 
-        private void writeFileToBox(bool init = false)
+        private void writeFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2
         {
             string lastLine = "";
-            messagesBox.Invoke(new MethodInvoker(delegate
+            try
             {
-                using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                messagesBox.Invoke(new MethodInvoker(delegate
                 {
-                    using (StreamReader sr = new StreamReader(file))
+                    using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
-                        while (!sr.EndOfStream)
+                        using (StreamReader sr = new StreamReader(file))
                         {
-                            if (init)
+                            while (!sr.EndOfStream)
                             {
-                                try
+                                if (init)
                                 {
-                                    messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
-                                } catch
-                                {
-                                    MessageBox.Show("ERROR: writeFileToBox function crashed at AppendText[1].");
+                                    try
+                                    {
+                                        messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                                    }
+                                    catch
+                                    {
+                                        Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[1].");
+                                    }
                                 }
+                                else
+                                    lastLine = sr.ReadLine();
                             }
-                            else
-                                lastLine = sr.ReadLine();
                         }
                     }
-                }
-                if (!init)
-                {
-                    try {
-                        messagesBox.AppendText(lastLine + Environment.NewLine);
-                    }
-                    catch
+                    if (!init)
                     {
-                        MessageBox.Show("ERROR: writeFileToBox function crashed at AppendText[2].");
+                        try
+                        {
+                            messagesBox.AppendText(lastLine + Environment.NewLine);
+                        }
+                        catch
+                        {
+                            Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[2].");
+                        }
                     }
-                }
-                messagesBox.ScrollToCaret();
-            }));
+                    messagesBox.ScrollToCaret();
+                }));
+            } catch
+            {
+                Debug.WriteLine("ERROR: Msgbox wasn't ready. I prevented a crash.");
+            }
         }
 
         private void OnChanged(object source, FileSystemEventArgs e)
@@ -271,6 +279,7 @@ namespace aol.Forms
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            Thread.Sleep(1000);
             writeFileToBox(true);
             keepReading();
         }

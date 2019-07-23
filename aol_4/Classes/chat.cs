@@ -37,6 +37,7 @@ namespace aol.Classes
 
             if (args.Channel == accForm.tmpUsername) // PRIVMSG
             {
+                Debug.WriteLine("RECEIVED PRIVATE MESSAGE FROM " + args.User);
                 newPM = args.User;
                 string logpath = Application.StartupPath + @"\chatlogs";
                 string privateLog = logpath + @"\PM_" + args.User + ".txt";
@@ -47,6 +48,30 @@ namespace aol.Classes
                     File.Create(privateLog).Dispose();
 
                 File.AppendAllText(privateLog, msg + '\n');
+
+                bool foundFrm = false;
+                Debug.WriteLine("Checking for open form with username tag");
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.Tag == null)
+                        continue;
+
+                    if (frm.Tag.ToString() == newPM)
+                        foundFrm = true;
+                }
+
+                if (!foundFrm)
+                {
+                    Debug.WriteLine("Opening IM for user " + newPM);
+                    Application.OpenForms[0].Invoke(new MethodInvoker(delegate
+                    {
+                        instant_message im = new instant_message(newPM);
+                        im.Owner = Application.OpenForms[0];
+                        im.MdiParent = Application.OpenForms[0];
+                        im.Tag = newPM;
+                        im.Show();
+                    }));
+                }
             }
             else
             {
