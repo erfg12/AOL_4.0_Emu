@@ -149,10 +149,20 @@ namespace aol.Forms
                 buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
             }));
 
+            int c = 0;
             while (true)
             {
                 if (!chat.irc.IsClientRunning())
+                {
+                    Debug.WriteLine("IRC buddy list not connected yet...");
+                    c++;
+                    if (c > 20)
+                    {
+                        chat.startConnection();
+                        c = 0;
+                    }
                     continue;
+                }
 
                 total = chat.buddyStatus.Count();
 
@@ -207,10 +217,10 @@ namespace aol.Forms
                         buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
                     }));
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(500);
                 }
 
-                Thread.Sleep(5000);
+                Thread.Sleep(1000);
                 
             }
         }

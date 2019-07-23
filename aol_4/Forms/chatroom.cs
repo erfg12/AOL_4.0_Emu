@@ -88,10 +88,17 @@ namespace aol.Forms
             if (!File.Exists(chatlog))
                 File.Create(chatlog).Dispose();
 
+            int c = 0;
             while (!chat.irc.IsClientRunning())
             {
                 Debug.WriteLine("not connected yet");
-                Thread.Sleep(1000); // wait 1 sec
+                Thread.Sleep(500); // wait 1/2 sec
+                c++;
+                if (c > 20)
+                {
+                    chat.startConnection();
+                    c = 0;
+                }
             }
             chat.irc.SendRawMessage("join #" + channel);
 
