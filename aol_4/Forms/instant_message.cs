@@ -134,7 +134,14 @@ namespace aol.Forms
             // write to file
             string logpath = Application.StartupPath + @"\chatlogs";
             string privateLog = logpath + @"\PM_" + user + ".txt";
-            File.AppendAllText(privateLog, accForm.tmpUsername + ": " + myMessageBox.Text + '\n');
+            try
+            {
+                File.AppendAllText(privateLog, accForm.tmpUsername + ": " + myMessageBox.Text + '\n');
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: There was an issue writing to log file: " + privateLog);
+            }
             // clear msg box
             myMessageBox.Clear();
         }
@@ -150,10 +157,23 @@ namespace aol.Forms
             privateLog = logpath + @"\PM_" + u + ".txt";
             user = u;
 
-            if (!Directory.Exists(logpath))
-                Directory.CreateDirectory(logpath);
-            if (!File.Exists(privateLog))
-                File.Create(privateLog).Dispose();
+            try
+            {
+                if (!Directory.Exists(logpath))
+                    Directory.CreateDirectory(logpath);
+            } catch
+            {
+                MessageBox.Show("ERROR: There was an issue creating log directory: " + logpath);
+            }
+
+            try
+            {
+                if (!File.Exists(privateLog))
+                    File.Create(privateLog).Dispose();
+            } catch
+            {
+                MessageBox.Show("ERROR: There was an issue creating log file: " + privateLog);
+            }
 
             InitializeComponent();
         }
@@ -199,14 +219,30 @@ namespace aol.Forms
                         while (!sr.EndOfStream)
                         {
                             if (init)
-                                messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                            {
+                                try
+                                {
+                                    messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                                } catch
+                                {
+                                    MessageBox.Show("ERROR: writeFileToBox function crashed at AppendText[1].");
+                                }
+                            }
                             else
                                 lastLine = sr.ReadLine();
                         }
                     }
                 }
                 if (!init)
-                    messagesBox.AppendText(lastLine + Environment.NewLine);
+                {
+                    try {
+                        messagesBox.AppendText(lastLine + Environment.NewLine);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("ERROR: writeFileToBox function crashed at AppendText[2].");
+                    }
+                }
                 messagesBox.ScrollToCaret();
             }));
         }
@@ -219,12 +255,18 @@ namespace aol.Forms
 
         private void keepReading()
         {
-            var watch = new FileSystemWatcher();
-            watch.Path = Path.GetDirectoryName(privateLog);
-            watch.Filter = Path.GetFileName(privateLog);
-            watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
-            watch.Changed += new FileSystemEventHandler(OnChanged);
-            watch.EnableRaisingEvents = true;
+            try
+            {
+                var watch = new FileSystemWatcher();
+                watch.Path = Path.GetDirectoryName(privateLog);
+                watch.Filter = Path.GetFileName(privateLog);
+                watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
+                watch.Changed += new FileSystemEventHandler(OnChanged);
+                watch.EnableRaisingEvents = true;
+            } catch
+            {
+                MessageBox.Show("ERROR: keepReading function has crashed.");
+            }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
