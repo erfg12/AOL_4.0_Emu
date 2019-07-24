@@ -158,13 +158,15 @@ namespace aol.Forms
 
                 if (!chat.irc.IsClientRunning() && accForm.tmpUsername != "")
                 {
-                    Debug.WriteLine("IRC buddy list not connected yet...");
+                    //Debug.WriteLine("IRC buddy list not connected yet...");
                     c++;
-                    if (c > 20)
+                    if (c > 50)
                     {
+                        Debug.WriteLine("IRC reconnecting");
                         chat.startConnection();
                         c = 0;
                     }
+                    Thread.Sleep(500);
                     continue;
                 }
 

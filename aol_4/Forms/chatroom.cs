@@ -207,8 +207,10 @@ namespace aol.Forms
                     {
                         pplQty.Text = pplCount.ToString();
                     }));
-                } catch { }
-                Thread.Sleep(5000);
+                } catch {
+                    Debug.WriteLine("BGWorker1 usersListView crashed.");
+                }
+                Thread.Sleep(500);
             }
         }
 

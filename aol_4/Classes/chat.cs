@@ -89,6 +89,7 @@ namespace aol.Classes
 
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
         {
+            Debug.WriteLine("[RO]:" + args.Message);
             string[] info = args.Message.Split(' ');
             // buddy is offline ([RO]::veronica.snoonet.org 401 erfg12 NeWaGe :No such nick/channel)
             if (args.Message.Contains("No such nick/channel"))
@@ -104,6 +105,7 @@ namespace aol.Classes
             }
             else if (args.Message.Contains(" JOIN :#"))
             {
+                Debug.WriteLine("Getting users list from IRC server");
                 irc.GetUsersInCurrentChannel(); // GetUsersInDifferentChannel("#chanName");
             }
             else if (args.Message.Contains(" PART #"))
@@ -113,6 +115,11 @@ namespace aol.Classes
                 string[] getUN = args.Message.Split('!');
                 File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
                 irc.GetUsersInCurrentChannel(); // GetUsersInDifferentChannel("#chanName");
+            }
+            else if(args.Message.Contains(":You need to be identified to a registered account to join this channel"))
+            {
+                // users needs to register
+                MessageBox.Show("ERROR: IRC nickname needs to be registered."); // /msg NickServ REGISTER password email
             }
             // get a channel list
             // command -> /list >200
@@ -125,8 +132,6 @@ namespace aol.Classes
                 if (chanClean[0] != "")
                     Debug.WriteLine(chanClean[0] + " channel is available");
             }
-            //else
-                Debug.WriteLine("[RO]:" + args.Message);
         }
 
         public static void debugOutputCallback(object source, IrcDebugMessageEventArgs args)
@@ -136,6 +141,7 @@ namespace aol.Classes
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
         {
+            Debug.WriteLine("Creating user list");
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
                 if (!users.ContainsKey(usersPerChannel.Key))
