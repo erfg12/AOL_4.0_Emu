@@ -112,6 +112,7 @@ namespace aol.Forms
 
         #region winform_functions
         int total = 0;
+        bool shuttingDown = false;
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -152,7 +153,10 @@ namespace aol.Forms
             int c = 0;
             while (true)
             {
-                if (!chat.irc.IsClientRunning())
+                if (accForm.tmpUsername == "" || shuttingDown)
+                    break;
+
+                if (!chat.irc.IsClientRunning() && accForm.tmpUsername != "")
                 {
                     Debug.WriteLine("IRC buddy list not connected yet...");
                     c++;
@@ -264,6 +268,12 @@ namespace aol.Forms
                 im.Tag = buddyTreeView.SelectedNode.Text;
                 im.Show();
             }
+        }
+
+        private void Buddies_online_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            shuttingDown = true;
+            backgroundWorker1.CancelAsync();
         }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)

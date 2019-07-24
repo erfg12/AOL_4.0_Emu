@@ -249,6 +249,7 @@
             // 
             // backgroundWorker1
             // 
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // buddyTreeView
@@ -293,6 +294,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Buddy List Window";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Buddies_online_FormClosing);
             this.Load += new System.EventHandler(this.buddies_online_Load);
             this.Shown += new System.EventHandler(this.buddies_online_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

@@ -135,11 +135,14 @@ namespace aol.Forms
         {
             if (email.checkNewEmail())
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                player.Stream = Properties.Resources.youGotmail;
-                player.Play();
-                read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
-                email.youGotMail = true;
+                if (!email.youGotMail)
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                    player.Stream = Properties.Resources.youGotmail;
+                    player.Play();
+                    read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
+                    email.youGotMail = true;
+                }
             }
         }
 
@@ -568,7 +571,21 @@ namespace aol.Forms
 
         private void signOffBtn_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "")
+                return;
+
             DisposeAllButThis();
+
+            if (chat.irc.IsClientRunning())
+            {
+                chat.irc.SendRawMessage("disconnect");
+                chat.irc.StopClient();
+            }
+
+            accForm.tmpUsername = "";
+            accForm.tmpPassword = "";
+            accForm.tmpLocation = "";
+
             openAccWindow();
         }
 
@@ -630,13 +647,10 @@ namespace aol.Forms
 
         private void checkMail_Tick(object sender, EventArgs e)
         {
-            if (!email.youGotMail)
-            {
-                read_mail_btn.Image = Properties.Resources.nomail_icon;
-                Thread thread = new Thread(new ThreadStart(CheckEmail));
-                thread.Start();
-                //Debug.WriteLine("Checking for new mail");
-            }
+            read_mail_btn.Image = Properties.Resources.nomail_icon;
+            Thread thread = new Thread(new ThreadStart(CheckEmail));
+            thread.Start();
+            //Debug.WriteLine("Checking for new mail");
             // FIXME - not reliable if receiving more than 1 message at a time.
             /*if (chat.newPM != "")
             {
