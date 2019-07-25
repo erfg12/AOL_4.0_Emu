@@ -119,7 +119,16 @@ namespace aol.Classes
             else if(args.Message.Contains(":You need to be identified to a registered account to join this channel"))
             {
                 // users needs to register
-                MessageBox.Show("ERROR: IRC nickname needs to be registered."); // /msg NickServ REGISTER password email
+                Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
+                string logpath = Application.StartupPath + @"\chatlogs";
+                string privateLog = logpath + @"\" + pChat + ".txt";
+                File.AppendAllText(privateLog, "IMPORTANT NOTICE: This is a registered users only chatroom. We will send an authentication request to the NickServ. Open an email with the subject \"Nickname registration for " + accForm.tmpUsername + "\" please." + '\n');
+                irc.SendMessageToChannel("REGISTER " + accForm.tmpPassword + " " + accForm.tmpUsername + "@aolemu.com", "NickServ");
+            }
+            else if (args.Message.Contains("This nickname is registered and protected."))
+            {
+                // user needs to authenticate
+                irc.SendMessageToChannel("IDENTIFY " + accForm.tmpPassword, "NickServ");
             }
             // get a channel list
             // command -> /list >200

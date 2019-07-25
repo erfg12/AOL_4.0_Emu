@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -121,6 +122,16 @@ namespace aol.Forms
             EmailID = emailID;
             Text = subject;
             mailViewer.DocumentText = email.readEmail(EmailID);
+            if (mailViewer.DocumentText.Contains("msg NickServ"))
+            {
+                registerNickserv(mailViewer.DocumentText);
+            }
+        }
+
+        public void registerNickserv(string m)
+        {
+            MatchCollection matches = Regex.Matches(m, "NickServ (.*) \"", RegexOptions.Singleline);
+            chat.irc.SendMessageToChannel(matches[1].Value, "NickServ");
         }
         #endregion
 
