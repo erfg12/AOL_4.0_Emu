@@ -72,6 +72,8 @@ namespace aol.Forms
             fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
             fullnameBox.Text = sqlite_accounts.getFullName();
 
+            searchProvider.Text = Properties.Settings.Default.searchProvider;
+
             /*if (accForm.tmpUsername != "Guest" && accForm.tmpUsername != "") {
                 // email info
                 string[] accInfo = sqlite_accounts.getEmailInfo();
@@ -111,6 +113,10 @@ namespace aol.Forms
             {
                 if (homePageBox.Text.Length > 4) // make sure it's not blank
                     Properties.Settings.Default.homeSite = homePageBox.Text;
+
+                Properties.Settings.Default.searchProvider = searchProvider.Text;
+
+                Properties.Settings.Default.Save();
 
                 //int ssl = useSSL.Checked ? 1 : 0;
                 //sqlite_accounts.emailAcc(emailAddress.Text, emailPassword.Text, imapServer.Text, Convert.ToInt32(imapPort.Text), smtpServer.Text, Convert.ToInt32(smtpPort.Text), ssl);

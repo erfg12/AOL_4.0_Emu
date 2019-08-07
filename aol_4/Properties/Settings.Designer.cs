@@ -82,5 +82,17 @@ namespace aol.Properties {
                 this["connType"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dogpile")]
+        public string searchProvider {
+            get {
+                return ((string)(this["searchProvider"]));
+            }
+            set {
+                this["searchProvider"] = value;
+            }
+        }
     }
 }

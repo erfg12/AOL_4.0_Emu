@@ -124,6 +124,8 @@ namespace aol.Forms
             settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
             if (!Cef.IsInitialized) Cef.Initialize(settings);
             if (url == "") url = "https://www.google.com";
+            if (!url.Contains("."))
+                url = searchProvider(url);
             browser = new ChromiumWebBrowser(url);
             browser.Dock = DockStyle.Fill;
             browser.AddressChanged += Browser_AddressChanged;
@@ -138,6 +140,27 @@ namespace aol.Forms
                 loading = args.IsLoading;
             };
             
+        }
+
+        public string searchProvider(string query)
+        {
+            if (Properties.Settings.Default.searchProvider == "Dogpile")
+            {
+                return "https://www.dogpile.com/serp?q=" + query;
+            }
+            else if (Properties.Settings.Default.searchProvider == "Bing")
+            {
+                return "https://www.bing.com/search?q=" + query;
+            }
+            else if (Properties.Settings.Default.searchProvider == "Google")
+            {
+                return "https://www.google.com/search?q=" + query;
+            }
+            else if (Properties.Settings.Default.searchProvider == "Yahoo")
+            {
+                return "https://search.yahoo.com/search?p=" + query;
+            }
+            return "";
         }
 
         public void goToUrl(string url)
