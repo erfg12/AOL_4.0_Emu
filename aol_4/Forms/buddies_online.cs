@@ -112,7 +112,7 @@ namespace aol.Forms
 
         #region winform_functions
         int total = 0;
-        bool shuttingDown = false;
+        public static bool shuttingDown = false;
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -153,7 +153,7 @@ namespace aol.Forms
             int c = 0;
             while (true)
             {
-                if (accForm.tmpUsername == "" || shuttingDown)
+                if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest" || shuttingDown)
                     break;
 
                 if (!chat.irc.IsClientRunning() && accForm.tmpUsername != "")
@@ -276,6 +276,7 @@ namespace aol.Forms
         {
             shuttingDown = true;
             backgroundWorker1.CancelAsync();
+            chat.buddyStatus.Clear();
         }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)

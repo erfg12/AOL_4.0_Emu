@@ -124,7 +124,8 @@ namespace aol.Forms
                     }
                     catch
                     {
-                        Debug.WriteLine("openAccWindow() crashed");
+                        //Debug.WriteLine("openAccWindow() crashed");
+                        break;
                     }
                 }
             });
@@ -552,9 +553,10 @@ namespace aol.Forms
 
         public void DisposeAllButThis()
         {
-            foreach (Form frm in this.MdiChildren)
+            foreach (Form frm in MdiChildren)
             {
-                frm.Dispose();
+                //frm.Dispose();
+                Debug.WriteLine("Closing " + frm.Text);
                 frm.Close();
             }
         }
@@ -572,7 +574,7 @@ namespace aol.Forms
 
             if (chat.irc.IsClientRunning())
             {
-                //chat.irc.SendRawMessage("disconnect");
+                buddies_online.shuttingDown = true;
                 chat.irc.StopClient();
             }
 
@@ -581,8 +583,6 @@ namespace aol.Forms
             player.Play();
 
             Thread.Sleep(1000);
-
-
         }
 
         private void signOffBtn_Click(object sender, EventArgs e)
@@ -649,6 +649,9 @@ namespace aol.Forms
 
         private void checkMail_Tick(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest") // prevent crash on sign off
+                return;
+
             read_mail_btn.Image = Properties.Resources.nomail_icon;
             Thread thread = new Thread(new ThreadStart(CheckEmail));
             thread.Start();

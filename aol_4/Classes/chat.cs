@@ -89,6 +89,9 @@ namespace aol.Classes
 
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
         {
+            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "") // prevents crash if signing off
+                return;
+
             Debug.WriteLine("[RO]:" + args.Message);
             string[] info = args.Message.Split(' ');
             // buddy is offline ([RO]::veronica.snoonet.org 401 erfg12 NeWaGe :No such nick/channel)
@@ -184,7 +187,7 @@ namespace aol.Classes
 
             Task taskA = new Task(() =>
             {
-                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 5000, true);
+                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 1000, true);
 
                 irc.IrcClient.OnDebugMessage += debugOutputCallback;
                 irc.IrcClient.OnMessageReceived += chatOutputCallback;

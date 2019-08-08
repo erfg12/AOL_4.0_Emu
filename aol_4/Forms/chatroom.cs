@@ -168,6 +168,9 @@ namespace aol.Forms
             // keep users list up to date
             while (true)
             {
+                if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                    continue;
+
                 try
                 {
                     usersListView.Invoke(new MethodInvoker(delegate
