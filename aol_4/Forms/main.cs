@@ -467,17 +467,7 @@ namespace aol.Forms
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.Stream = Properties.Resources.Goodbye;
-            player.Play();
-
-            if (chat.irc.IsClientRunning())
-            {
-                chat.irc.SendRawMessage("disconnect");
-                chat.irc.StopClient();
-            }
-
-            System.Threading.Thread.Sleep(1000);
+            SignOff();
         }
 
         // channels button
@@ -569,23 +559,35 @@ namespace aol.Forms
             }
         }
 
-        private void signOffBtn_Click(object sender, EventArgs e)
+        private void SignOff()
         {
             if (accForm.tmpUsername == "")
                 return;
 
             DisposeAllButThis();
 
-            if (chat.irc.IsClientRunning())
-            {
-                chat.irc.SendRawMessage("disconnect");
-                chat.irc.StopClient();
-            }
-
             accForm.tmpUsername = "";
             accForm.tmpPassword = "";
             accForm.tmpLocation = "";
 
+            if (chat.irc.IsClientRunning())
+            {
+                //chat.irc.SendRawMessage("disconnect");
+                chat.irc.StopClient();
+            }
+
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.Stream = Properties.Resources.Goodbye;
+            player.Play();
+
+            Thread.Sleep(1000);
+
+
+        }
+
+        private void signOffBtn_Click(object sender, EventArgs e)
+        {
+            SignOff();
             openAccWindow();
         }
 

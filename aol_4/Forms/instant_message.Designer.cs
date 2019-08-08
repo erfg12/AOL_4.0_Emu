@@ -159,6 +159,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.messagesBox.Location = new System.Drawing.Point(8, 27);
             this.messagesBox.Name = "messagesBox";
+            this.messagesBox.ReadOnly = true;
             this.messagesBox.Size = new System.Drawing.Size(513, 212);
             this.messagesBox.TabIndex = 4;
             this.messagesBox.Text = "";
