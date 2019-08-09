@@ -187,10 +187,7 @@ namespace aol.Classes
 
             Task taskA = new Task(() =>
             {
-                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 3000, true);
-
-                //irc.DccClient.OnDccDebugMessage += dccDebugCallback;
-                irc.DccClient.OnDccEvent += downloadStatusChanged;
+                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 1000, true);
 
                 if (!irc.IsClientRunning())
                     irc.StartClient();

@@ -303,8 +303,8 @@ namespace aol.Forms
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            Debug.WriteLine("ClientSize Width:" + this.ClientSize.Width);
-            Debug.WriteLine("ClientSize Height:" + this.ClientSize.Height);
+            Debug.WriteLine("ClientSize Width:" + ClientSize.Width);
+            Debug.WriteLine("ClientSize Height:" + ClientSize.Height);
             if (Properties.Settings.Default.fullScreen)
                 WindowState = FormWindowState.Maximized;
 
@@ -312,21 +312,23 @@ namespace aol.Forms
             chat.irc.IrcClient.OnMessageReceived += chat.chatOutputCallback;
             chat.irc.IrcClient.OnRawMessageReceived += chat.rawOutputCallback;
             chat.irc.IrcClient.OnUserListReceived += chat.userListCallback;
+            //chat.irc.DccClient.OnDccDebugMessage += chat.dccDebugCallback;
+            chat.irc.DccClient.OnDccEvent += chat.downloadStatusChanged;
 
             preferencesToolStripMenuItem.Enabled = false;
 
             findDropDown.SelectedIndex = 0; // default find text selected
 
             ToolTip toolTip1 = new ToolTip();
-            toolTip1.SetToolTip(this.backBtn, "Back");
-            toolTip1.SetToolTip(this.forwardBtn, "Forward");
-            toolTip1.SetToolTip(this.reloadBtn, "Refresh");
-            toolTip1.SetToolTip(this.write_mail_button, "Write mail and send files.");
-            toolTip1.SetToolTip(this.my_files_btn, "Your Personal Documents.");
-            toolTip1.SetToolTip(this.print_page_btn, "Print text or pictures.");
-            toolTip1.SetToolTip(this.mail_center_btn, "Everything about mail.");
-            toolTip1.SetToolTip(this.my_aol_btn, "Customize AOL for YOU.");
-            toolTip1.SetToolTip(this.favorites_btn, "See your favorite places.\nDrag heart icons here.");
+            toolTip1.SetToolTip(backBtn, "Back");
+            toolTip1.SetToolTip(forwardBtn, "Forward");
+            toolTip1.SetToolTip(reloadBtn, "Refresh");
+            toolTip1.SetToolTip(write_mail_button, "Write mail and send files.");
+            toolTip1.SetToolTip(my_files_btn, "Your Personal Documents.");
+            toolTip1.SetToolTip(print_page_btn, "Print text or pictures.");
+            toolTip1.SetToolTip(mail_center_btn, "Everything about mail.");
+            toolTip1.SetToolTip(my_aol_btn, "Customize AOL for YOU.");
+            toolTip1.SetToolTip(favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
             // open account form window
             openAccWindow();
@@ -344,7 +346,7 @@ namespace aol.Forms
 
         private void Form1_MdiChildActivate(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild is Browse)
+            if (ActiveMdiChild is Browse)
             {
                 stopBtn.Image = Properties.Resources.stop_btn_enabled;
                 forwardBtn.Image = Properties.Resources.forward_btn_enabled;
@@ -636,6 +638,17 @@ namespace aol.Forms
             wmf.Owner = (Form)this;
             wmf.MdiParent = this;
             wmf.Show();
+        }
+
+        private void Favorites_btn_Click(object sender, EventArgs e)
+        {
+            if (!myFavoritesContextMenuStrip.Visible)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                myFavoritesContextMenuStrip.Show(ptLowerLeft);
+            }
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)

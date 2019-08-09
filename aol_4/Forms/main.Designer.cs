@@ -192,6 +192,15 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.cursorTimer = new System.Windows.Forms.Timer(this.components);
             this.checkMail = new System.Windows.Forms.Timer(this.components);
+            this.myFavoritesContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.favoritePlacesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
+            this.AddTopWindowToFPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToKeywordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
+            this.myShortcutsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moreFavoritesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -227,6 +236,7 @@
             this.myAOLContextMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.myFavoritesContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -670,6 +680,7 @@
             this.favorites_btn.Size = new System.Drawing.Size(62, 38);
             this.favorites_btn.TabIndex = 6;
             this.favorites_btn.TabStop = false;
+            this.favorites_btn.Click += new System.EventHandler(this.Favorites_btn_Click);
             // 
             // internet_btn
             // 
@@ -1582,6 +1593,65 @@
             this.checkMail.Interval = 2500;
             this.checkMail.Tick += new System.EventHandler(this.checkMail_Tick);
             // 
+            // myFavoritesContextMenuStrip
+            // 
+            this.myFavoritesContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.favoritePlacesMenuItem,
+            this.toolStripSeparator26,
+            this.AddTopWindowToFPMenuItem,
+            this.goToKeywordMenuItem,
+            this.toolStripSeparator27,
+            this.myShortcutsMenuItem,
+            this.toolStripSeparator28,
+            this.moreFavoritesMenuItem});
+            this.myFavoritesContextMenuStrip.Name = "myFavoritesContextMenuStrip";
+            this.myFavoritesContextMenuStrip.Size = new System.Drawing.Size(264, 132);
+            // 
+            // favoritePlacesMenuItem
+            // 
+            this.favoritePlacesMenuItem.Name = "favoritePlacesMenuItem";
+            this.favoritePlacesMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.favoritePlacesMenuItem.Text = "Favorite Places";
+            // 
+            // toolStripSeparator26
+            // 
+            this.toolStripSeparator26.Name = "toolStripSeparator26";
+            this.toolStripSeparator26.Size = new System.Drawing.Size(260, 6);
+            // 
+            // AddTopWindowToFPMenuItem
+            // 
+            this.AddTopWindowToFPMenuItem.Name = "AddTopWindowToFPMenuItem";
+            this.AddTopWindowToFPMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.AddTopWindowToFPMenuItem.Text = "Add Top Window To Favorite Places";
+            // 
+            // goToKeywordMenuItem
+            // 
+            this.goToKeywordMenuItem.Name = "goToKeywordMenuItem";
+            this.goToKeywordMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.goToKeywordMenuItem.Text = "Go To Keyword...";
+            // 
+            // toolStripSeparator27
+            // 
+            this.toolStripSeparator27.Name = "toolStripSeparator27";
+            this.toolStripSeparator27.Size = new System.Drawing.Size(260, 6);
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(260, 6);
+            // 
+            // myShortcutsMenuItem
+            // 
+            this.myShortcutsMenuItem.Name = "myShortcutsMenuItem";
+            this.myShortcutsMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.myShortcutsMenuItem.Text = "My Shortcuts";
+            // 
+            // moreFavoritesMenuItem
+            // 
+            this.moreFavoritesMenuItem.Name = "moreFavoritesMenuItem";
+            this.moreFavoritesMenuItem.Size = new System.Drawing.Size(263, 22);
+            this.moreFavoritesMenuItem.Text = "More Favorites...";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1642,6 +1712,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.myFavoritesContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1809,6 +1880,15 @@
         private System.Windows.Forms.Timer cursorTimer;
         public System.Windows.Forms.PictureBox read_mail_btn;
         private System.Windows.Forms.Timer checkMail;
+        private System.Windows.Forms.ContextMenuStrip myFavoritesContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem favoritePlacesMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator26;
+        private System.Windows.Forms.ToolStripMenuItem AddTopWindowToFPMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goToKeywordMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator27;
+        private System.Windows.Forms.ToolStripMenuItem myShortcutsMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
+        private System.Windows.Forms.ToolStripMenuItem moreFavoritesMenuItem;
     }
 }
 
