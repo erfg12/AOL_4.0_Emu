@@ -182,22 +182,18 @@ namespace aol.Classes
 
         public static void startConnection()
         {
-            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "")
+            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "" || irc.IsClientRunning())
                 return;
 
             Task taskA = new Task(() =>
             {
-                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 1000, true);
-
-                irc.IrcClient.OnDebugMessage += debugOutputCallback;
-                irc.IrcClient.OnMessageReceived += chatOutputCallback;
-                irc.IrcClient.OnRawMessageReceived += rawOutputCallback;
-                irc.IrcClient.OnUserListReceived += userListCallback;
+                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 3000, true);
 
                 //irc.DccClient.OnDccDebugMessage += dccDebugCallback;
                 irc.DccClient.OnDccEvent += downloadStatusChanged;
 
-                irc.StartClient();
+                if (!irc.IsClientRunning())
+                    irc.StartClient();
 
                 while (!irc.IsClientRunning())
                 {

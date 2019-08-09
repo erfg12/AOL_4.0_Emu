@@ -150,13 +150,18 @@ namespace aol.Forms
                 buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
             }));
 
+            Debug.WriteLine("buddies_online BG worker starting up...");
+
             int c = 0;
             while (true)
             {
                 if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest" || shuttingDown)
+                {
+                    Debug.WriteLine("buddies_online BG worker stopping due to shuttingDown or Guest acc");
                     break;
+                }
 
-                if (!chat.irc.IsClientRunning() && accForm.tmpUsername != "")
+                if (!chat.irc.IsClientRunning())
                 {
                     //Debug.WriteLine("IRC buddy list not connected yet...");
                     c++;
@@ -276,7 +281,15 @@ namespace aol.Forms
         {
             shuttingDown = true;
             backgroundWorker1.CancelAsync();
-            chat.buddyStatus.Clear();
+            List<string> tmpList = new List<string>();
+            foreach (KeyValuePair<string, bool> entry in chat.buddyStatus)
+            {
+                tmpList.Add(entry.Key);
+            }
+            foreach (string entry in tmpList)
+            {
+                chat.buddyStatus.Remove(entry);
+            }
         }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -309,6 +322,7 @@ namespace aol.Forms
 
         private void buddies_online_Shown(object sender, EventArgs e)
         {
+            shuttingDown = false; // reset on re-login
             foreach (string b in sqlite_accounts.getBuddyList())
             {
                 chat.buddyStatus.Add(b, false); // offline by default

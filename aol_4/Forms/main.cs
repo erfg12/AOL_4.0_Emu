@@ -308,6 +308,11 @@ namespace aol.Forms
             if (Properties.Settings.Default.fullScreen)
                 WindowState = FormWindowState.Maximized;
 
+            chat.irc.IrcClient.OnDebugMessage += chat.debugOutputCallback;
+            chat.irc.IrcClient.OnMessageReceived += chat.chatOutputCallback;
+            chat.irc.IrcClient.OnRawMessageReceived += chat.rawOutputCallback;
+            chat.irc.IrcClient.OnUserListReceived += chat.userListCallback;
+
             preferencesToolStripMenuItem.Enabled = false;
 
             findDropDown.SelectedIndex = 0; // default find text selected
@@ -555,7 +560,6 @@ namespace aol.Forms
         {
             foreach (Form frm in MdiChildren)
             {
-                //frm.Dispose();
                 Debug.WriteLine("Closing " + frm.Text);
                 frm.Close();
             }
@@ -574,8 +578,11 @@ namespace aol.Forms
 
             if (chat.irc.IsClientRunning())
             {
-                buddies_online.shuttingDown = true;
                 chat.irc.StopClient();
+                //chat.irc.IrcClient.WriteIrc("QUIT");
+                //chat.irc.IrcClient.QuitConnect();
+                //chat.irc.IrcClient.StopClient();
+
             }
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
