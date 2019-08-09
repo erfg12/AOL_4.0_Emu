@@ -198,9 +198,17 @@
             this.AddTopWindowToFPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goToKeywordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.myShortcutsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.moreFavoritesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.internetMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.internetConnectionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
+            this.GoToTheWebMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchTheWebMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newsgroupsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ftpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -237,6 +245,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.myFavoritesContextMenuStrip.SuspendLayout();
+            this.internetMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -692,6 +701,7 @@
             this.internet_btn.Size = new System.Drawing.Size(55, 38);
             this.internet_btn.TabIndex = 7;
             this.internet_btn.TabStop = false;
+            this.internet_btn.Click += new System.EventHandler(this.Internet_btn_Click);
             // 
             // channels_btn
             // 
@@ -1635,22 +1645,75 @@
             this.toolStripSeparator27.Name = "toolStripSeparator27";
             this.toolStripSeparator27.Size = new System.Drawing.Size(260, 6);
             // 
-            // toolStripSeparator28
-            // 
-            this.toolStripSeparator28.Name = "toolStripSeparator28";
-            this.toolStripSeparator28.Size = new System.Drawing.Size(260, 6);
-            // 
             // myShortcutsMenuItem
             // 
             this.myShortcutsMenuItem.Name = "myShortcutsMenuItem";
             this.myShortcutsMenuItem.Size = new System.Drawing.Size(263, 22);
             this.myShortcutsMenuItem.Text = "My Shortcuts";
             // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(260, 6);
+            // 
             // moreFavoritesMenuItem
             // 
             this.moreFavoritesMenuItem.Name = "moreFavoritesMenuItem";
             this.moreFavoritesMenuItem.Size = new System.Drawing.Size(263, 22);
             this.moreFavoritesMenuItem.Text = "More Favorites...";
+            // 
+            // internetMenuStrip
+            // 
+            this.internetMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.internetConnectionMenuItem,
+            this.toolStripSeparator29,
+            this.GoToTheWebMenuItem,
+            this.searchTheWebMenuItem,
+            this.toolStripSeparator30,
+            this.newsgroupsMenuItem,
+            this.ftpMenuItem});
+            this.internetMenuStrip.Name = "internetMenuStrip";
+            this.internetMenuStrip.Size = new System.Drawing.Size(181, 126);
+            // 
+            // internetConnectionMenuItem
+            // 
+            this.internetConnectionMenuItem.Name = "internetConnectionMenuItem";
+            this.internetConnectionMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.internetConnectionMenuItem.Text = "Internet Connection";
+            // 
+            // toolStripSeparator29
+            // 
+            this.toolStripSeparator29.Name = "toolStripSeparator29";
+            this.toolStripSeparator29.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator30
+            // 
+            this.toolStripSeparator30.Name = "toolStripSeparator30";
+            this.toolStripSeparator30.Size = new System.Drawing.Size(177, 6);
+            // 
+            // GoToTheWebMenuItem
+            // 
+            this.GoToTheWebMenuItem.Name = "GoToTheWebMenuItem";
+            this.GoToTheWebMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.GoToTheWebMenuItem.Text = "Go to the Web";
+            // 
+            // searchTheWebMenuItem
+            // 
+            this.searchTheWebMenuItem.Name = "searchTheWebMenuItem";
+            this.searchTheWebMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.searchTheWebMenuItem.Text = "Search the Web";
+            // 
+            // newsgroupsMenuItem
+            // 
+            this.newsgroupsMenuItem.Name = "newsgroupsMenuItem";
+            this.newsgroupsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newsgroupsMenuItem.Text = "Newsgroups";
+            // 
+            // ftpMenuItem
+            // 
+            this.ftpMenuItem.Name = "ftpMenuItem";
+            this.ftpMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ftpMenuItem.Text = "FTP";
             // 
             // main
             // 
@@ -1713,6 +1776,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.myFavoritesContextMenuStrip.ResumeLayout(false);
+            this.internetMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1889,6 +1953,14 @@
         private System.Windows.Forms.ToolStripMenuItem myShortcutsMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator28;
         private System.Windows.Forms.ToolStripMenuItem moreFavoritesMenuItem;
+        private System.Windows.Forms.ContextMenuStrip internetMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem internetConnectionMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator29;
+        private System.Windows.Forms.ToolStripMenuItem GoToTheWebMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchTheWebMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
+        private System.Windows.Forms.ToolStripMenuItem newsgroupsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ftpMenuItem;
     }
 }
 

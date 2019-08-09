@@ -106,6 +106,10 @@ namespace aol.Classes
                 //Debug.WriteLine("user is alive!!");
                 buddyStatus[info[3]] = true;
             }
+            else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + accForm.tmpUsername + " :       Registered"))
+            {
+                irc.SendMessageToChannel("IDENTIFY " + accForm.tmpPassword, "NickServ");
+            }
             else if (args.Message.Contains(" JOIN :#"))
             {
                 Debug.WriteLine("Getting users list from IRC server");
@@ -149,6 +153,10 @@ namespace aol.Classes
         public static void debugOutputCallback(object source, IrcDebugMessageEventArgs args)
         {
             Debug.WriteLine(args.Type + " | " + args.Message);
+            if (args.Message == "STARTING LISTENER!")
+            {
+                irc.SendMessageToChannel("INFO " + accForm.tmpUsername, "NickServ"); // send a request to see if our username is registered
+            }
         }
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
@@ -156,17 +164,18 @@ namespace aol.Classes
             Debug.WriteLine("Creating user list");
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
-                if (!users.ContainsKey(usersPerChannel.Key))
+                string channel = usersPerChannel.Key.ToLower();
+                if (!users.ContainsKey(channel))
                 {
-                    Debug.WriteLine("Creating users key " + usersPerChannel.Key);
-                    users.Add(usersPerChannel.Key.Replace("#",""), args.UsersPerChannel[usersPerChannel.Key]);
+                    Debug.WriteLine("Creating users key " + channel);
+                    users.Add(channel.Replace("#",""), args.UsersPerChannel[usersPerChannel.Key]);
                     continue;
                 }
                 // check if offline user is still in list
                 for (int i = 0; i < users[usersPerChannel.Key].Count; i++)
                 {
-                    if (!usersPerChannel.Value.Contains(users[usersPerChannel.Key][i]))
-                        users[usersPerChannel.Key].Remove(users[usersPerChannel.Key][i]);
+                    if (!usersPerChannel.Value.Contains(users[channel][i]))
+                        users[channel].Remove(users[channel][i]);
                 }
                 // if user is not in list, add them
                 for (int i = 0; i < usersPerChannel.Value.Count; i++)
@@ -174,8 +183,8 @@ namespace aol.Classes
                     if (usersPerChannel.Value[i] == "") // there's always 1 empty user for some reason
                         continue;
                     //Debug.WriteLine("[UL]: " + user);
-                    if (!users[usersPerChannel.Key].Contains(usersPerChannel.Value[i]))
-                        users[usersPerChannel.Key].Add(usersPerChannel.Value[i]);
+                    if (!users[channel].Contains(usersPerChannel.Value[i]))
+                        users[channel].Add(usersPerChannel.Value[i]);
                 }
             }
         }

@@ -129,7 +129,7 @@ namespace aol.Forms
 
         private void chanListView_DoubleClick(object sender, EventArgs e)
         {
-            chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToString());
+            chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToLower());
             cr.Owner = this;
             cr.MdiParent = MdiParent;
             cr.Show();
@@ -177,7 +177,7 @@ namespace aol.Forms
                 {
                     if (chanListView.SelectedItems.Count <= 0)
                         continue;
-                    chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToString());
+                    chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToLower());
                     cr.Owner = this;
                     cr.MdiParent = MdiParent;
                     cr.Show();

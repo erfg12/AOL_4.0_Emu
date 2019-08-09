@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -121,17 +122,22 @@ namespace aol.Forms
 
             EmailID = emailID;
             Text = subject;
-            mailViewer.DocumentText = email.readEmail(EmailID);
-            if (mailViewer.DocumentText.Contains("msg NickServ"))
+            string tmpString = email.readEmail(EmailID);
+            mailViewer.DocumentText = tmpString;
+            if (tmpString.Contains("msg NickServ"))
             {
-                registerNickserv(mailViewer.DocumentText);
+                Debug.WriteLine("Found NickServ code for IRC chatrooms.");
+                registerNickserv(tmpString);
             }
         }
 
         public void registerNickserv(string m)
         {
-            MatchCollection matches = Regex.Matches(m, "NickServ (.*) \"", RegexOptions.Singleline);
-            chat.irc.SendMessageToChannel(matches[1].Value, "NickServ");
+            var match = Regex.Match(m, "NickServ CONFIRM (.*?) \"", RegexOptions.Singleline);
+            string register = match.Groups[1].Value;
+            Debug.WriteLine("nickserv code = \"" + register + "\"");
+            chat.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
+            MessageBox.Show("Your username has been registered successfully! You can now access restricted chatrooms!");
         }
         #endregion
 

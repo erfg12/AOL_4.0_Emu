@@ -651,6 +651,17 @@ namespace aol.Forms
             }
         }
 
+        private void Internet_btn_Click(object sender, EventArgs e)
+        {
+            if (!internetMenuStrip.Visible)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                internetMenuStrip.Show(ptLowerLeft);
+            }
+        }
+
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mailbox mb = new mailbox();
