@@ -611,6 +611,9 @@ namespace aol.Forms
 
         private void readMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             mailbox mb = new mailbox();
             mb.Owner = (Form)this;
             mb.MdiParent = this;
@@ -619,6 +622,9 @@ namespace aol.Forms
 
         private void read_mail_btn_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             mailbox mb = new mailbox();
             mb.Owner = (Form)this;
             mb.MdiParent = this;
@@ -627,6 +633,9 @@ namespace aol.Forms
 
         private void write_mail_button_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             write_mail wmf = new write_mail();
             wmf.Owner = (Form)this;
             wmf.MdiParent = this;
@@ -635,6 +644,9 @@ namespace aol.Forms
 
         private void mailCenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             mailbox mb = new mailbox();
             mb.Owner = (Form)this;
             mb.MdiParent = this;
@@ -643,6 +655,9 @@ namespace aol.Forms
 
         private void writeMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             write_mail wmf = new write_mail();
             wmf.Owner = (Form)this;
             wmf.MdiParent = this;
@@ -733,6 +748,9 @@ namespace aol.Forms
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             mailbox mb = new mailbox();
             mb.Owner = (Form)this;
             mb.MdiParent = this;
@@ -741,6 +759,9 @@ namespace aol.Forms
 
         private void sentMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
             mailbox mb = new mailbox();
             mb.Owner = (Form)this;
             mb.MdiParent = this;
