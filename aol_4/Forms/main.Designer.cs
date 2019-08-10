@@ -31,13 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.mie_badge = new System.Windows.Forms.PictureBox();
-            this.findDropDown = new System.Windows.Forms.ComboBox();
-            this.homeBtn = new System.Windows.Forms.PictureBox();
-            this.reloadBtn = new System.Windows.Forms.PictureBox();
-            this.stopBtn = new System.Windows.Forms.PictureBox();
-            this.forwardBtn = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.PictureBox();
             this.addrBox = new System.Windows.Forms.ComboBox();
             this.keywordBtn = new System.Windows.Forms.Button();
             this.goBtn = new System.Windows.Forms.Button();
@@ -64,20 +57,6 @@
             this.closeForm = new System.Windows.Forms.ToolStripMenuItem();
             this.getMdiChildURL = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.my_files_btn = new System.Windows.Forms.PictureBox();
-            this.mail_center_btn = new System.Windows.Forms.PictureBox();
-            this.write_mail_button = new System.Windows.Forms.PictureBox();
-            this.read_mail_btn = new System.Windows.Forms.PictureBox();
-            this.print_page_btn = new System.Windows.Forms.PictureBox();
-            this.my_aol_btn = new System.Windows.Forms.PictureBox();
-            this.favorites_btn = new System.Windows.Forms.PictureBox();
-            this.internet_btn = new System.Windows.Forms.PictureBox();
-            this.channels_btn = new System.Windows.Forms.PictureBox();
-            this.people_btn = new System.Windows.Forms.PictureBox();
-            this.quotes_btn = new System.Windows.Forms.PictureBox();
-            this.perks_btn = new System.Windows.Forms.PictureBox();
-            this.weather_btn = new System.Windows.Forms.PictureBox();
-            this.loadingIcon = new System.Windows.Forms.PictureBox();
             this.channelsContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aOLTodayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -184,12 +163,6 @@
             this.stockPortfoliosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reminderServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsProfilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mainTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
             this.cursorTimer = new System.Windows.Forms.Timer(this.components);
             this.checkMail = new System.Windows.Forms.Timer(this.components);
             this.myFavoritesContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -204,23 +177,85 @@
             this.internetMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.internetConnectionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
             this.GoToTheWebMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchTheWebMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
             this.newsgroupsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ftpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.peopleConnectionStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chatNowStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findaChatMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startYourOwnChatStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AOLLiveStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewBuddyStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendMsgtoPagerStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchAOLDirMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LocalMemberStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getMemberProfStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iWhitePgsStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator32 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator33 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator34 = new System.Windows.Forms.ToolStripSeparator();
+            this.findMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.findCentralMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator35 = new System.Windows.Forms.ToolStripSeparator();
+            this.finditonaolMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findonTheWebMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aolChanMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator36 = new System.Windows.Forms.ToolStripSeparator();
+            this.softwareMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chatsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aolMembersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iNetWhitePagesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aolAccessNumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aolHelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findBtn = new System.Windows.Forms.Button();
+            this.my_files_btn = new System.Windows.Forms.PictureBox();
+            this.mail_center_btn = new System.Windows.Forms.PictureBox();
+            this.write_mail_button = new System.Windows.Forms.PictureBox();
+            this.read_mail_btn = new System.Windows.Forms.PictureBox();
+            this.print_page_btn = new System.Windows.Forms.PictureBox();
+            this.my_aol_btn = new System.Windows.Forms.PictureBox();
+            this.favorites_btn = new System.Windows.Forms.PictureBox();
+            this.internet_btn = new System.Windows.Forms.PictureBox();
+            this.channels_btn = new System.Windows.Forms.PictureBox();
+            this.people_btn = new System.Windows.Forms.PictureBox();
+            this.quotes_btn = new System.Windows.Forms.PictureBox();
+            this.perks_btn = new System.Windows.Forms.PictureBox();
+            this.weather_btn = new System.Windows.Forms.PictureBox();
+            this.loadingIcon = new System.Windows.Forms.PictureBox();
+            this.mie_badge = new System.Windows.Forms.PictureBox();
+            this.homeBtn = new System.Windows.Forms.PictureBox();
+            this.reloadBtn = new System.Windows.Forms.PictureBox();
+            this.stopBtn = new System.Windows.Forms.PictureBox();
+            this.forwardBtn = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.miniBtn = new System.Windows.Forms.Button();
+            this.maxBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.fileContextMenuStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.channelsContextMenuStrip.SuspendLayout();
+            this.editContextMenuStrip.SuspendLayout();
+            this.windowContextMenuStrip.SuspendLayout();
+            this.helpContextMenuStrip.SuspendLayout();
+            this.mailCenterContextMenuStrip.SuspendLayout();
+            this.myFilesContextMenuStrip.SuspendLayout();
+            this.myAOLContextMenuStrip.SuspendLayout();
+            this.myFavoritesContextMenuStrip.SuspendLayout();
+            this.internetMenuStrip.SuspendLayout();
+            this.peopleMenuStrip.SuspendLayout();
+            this.findMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.my_files_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mail_center_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.write_mail_button)).BeginInit();
@@ -235,17 +270,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingIcon)).BeginInit();
-            this.channelsContextMenuStrip.SuspendLayout();
-            this.editContextMenuStrip.SuspendLayout();
-            this.windowContextMenuStrip.SuspendLayout();
-            this.helpContextMenuStrip.SuspendLayout();
-            this.mailCenterContextMenuStrip.SuspendLayout();
-            this.myFilesContextMenuStrip.SuspendLayout();
-            this.myAOLContextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.myFavoritesContextMenuStrip.SuspendLayout();
-            this.internetMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -254,8 +286,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(188)))), ((int)(((byte)(187)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.findBtn);
             this.panel2.Controls.Add(this.mie_badge);
-            this.panel2.Controls.Add(this.findDropDown);
             this.panel2.Controls.Add(this.homeBtn);
             this.panel2.Controls.Add(this.reloadBtn);
             this.panel2.Controls.Add(this.stopBtn);
@@ -269,83 +301,6 @@
             this.panel2.Size = new System.Drawing.Size(797, 26);
             this.panel2.TabIndex = 8;
             // 
-            // mie_badge
-            // 
-            this.mie_badge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mie_badge.Location = new System.Drawing.Point(740, 3);
-            this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
-            this.mie_badge.Name = "mie_badge";
-            this.mie_badge.Size = new System.Drawing.Size(59, 21);
-            this.mie_badge.TabIndex = 16;
-            this.mie_badge.TabStop = false;
-            // 
-            // findDropDown
-            // 
-            this.findDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.findDropDown.FormattingEnabled = true;
-            this.findDropDown.Items.AddRange(new object[] {
-            "Find"});
-            this.findDropDown.Location = new System.Drawing.Point(138, 3);
-            this.findDropDown.Name = "findDropDown";
-            this.findDropDown.Size = new System.Drawing.Size(57, 21);
-            this.findDropDown.TabIndex = 15;
-            // 
-            // homeBtn
-            // 
-            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.homeBtn.Image = global::aol.Properties.Resources.home_btn_enabled;
-            this.homeBtn.Location = new System.Drawing.Point(107, 4);
-            this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(27, 20);
-            this.homeBtn.TabIndex = 14;
-            this.homeBtn.TabStop = false;
-            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
-            // 
-            // reloadBtn
-            // 
-            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reloadBtn.Image = global::aol.Properties.Resources.reload_btn;
-            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
-            this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
-            this.reloadBtn.TabIndex = 13;
-            this.reloadBtn.TabStop = false;
-            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
-            // 
-            // stopBtn
-            // 
-            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopBtn.Image = global::aol.Properties.Resources.stop_btn1;
-            this.stopBtn.Location = new System.Drawing.Point(52, 4);
-            this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(27, 20);
-            this.stopBtn.TabIndex = 12;
-            this.stopBtn.TabStop = false;
-            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
-            // 
-            // forwardBtn
-            // 
-            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forwardBtn.Image = global::aol.Properties.Resources.forward_btn1;
-            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
-            this.forwardBtn.Name = "forwardBtn";
-            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
-            this.forwardBtn.TabIndex = 11;
-            this.forwardBtn.TabStop = false;
-            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
-            // 
-            // backBtn
-            // 
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Image = global::aol.Properties.Resources.back_btn1;
-            this.backBtn.Location = new System.Drawing.Point(4, 4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(25, 20);
-            this.backBtn.TabIndex = 10;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
-            // 
             // addrBox
             // 
             this.addrBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -353,9 +308,9 @@
             this.addrBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.addrBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.addrBox.FormattingEnabled = true;
-            this.addrBox.Location = new System.Drawing.Point(201, 3);
+            this.addrBox.Location = new System.Drawing.Point(192, 3);
             this.addrBox.Name = "addrBox";
-            this.addrBox.Size = new System.Drawing.Size(438, 21);
+            this.addrBox.Size = new System.Drawing.Size(447, 21);
             this.addrBox.TabIndex = 9;
             this.addrBox.Text = "Type Keyword or Web Address here and click Go";
             this.addrBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyDown_1);
@@ -373,6 +328,7 @@
             this.keywordBtn.TabIndex = 8;
             this.keywordBtn.Text = "Keyword";
             this.keywordBtn.UseVisualStyleBackColor = true;
+            this.keywordBtn.Click += new System.EventHandler(this.KeywordBtn_Click);
             // 
             // goBtn
             // 
@@ -480,81 +436,81 @@
             this.stopIncomingTextToolStripMenuItem,
             this.closeForm});
             this.fileContextMenuStrip.Name = "fileContextMenuStrip";
-            this.fileContextMenuStrip.Size = new System.Drawing.Size(239, 242);
+            this.fileContextMenuStrip.Size = new System.Drawing.Size(238, 242);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.openToolStripMenuItem.Text = "Open...";
             // 
             // openPictureGalleryToolStripMenuItem
             // 
             this.openPictureGalleryToolStripMenuItem.Name = "openPictureGalleryToolStripMenuItem";
-            this.openPictureGalleryToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.openPictureGalleryToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.openPictureGalleryToolStripMenuItem.Text = "Open Picture Gallery...";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(235, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(234, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // saveToPersonalFilingCabinetToolStripMenuItem
             // 
             this.saveToPersonalFilingCabinetToolStripMenuItem.Name = "saveToPersonalFilingCabinetToolStripMenuItem";
-            this.saveToPersonalFilingCabinetToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.saveToPersonalFilingCabinetToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.saveToPersonalFilingCabinetToolStripMenuItem.Text = "Save To Personal Filing Cabinet";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(235, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(234, 6);
             // 
             // printSetupToolStripMenuItem
             // 
             this.printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
-            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.printSetupToolStripMenuItem.Text = "Print Setup...";
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.printToolStripMenuItem.Text = "Print...";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(235, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(234, 6);
             // 
             // stopIncomingTextToolStripMenuItem
             // 
             this.stopIncomingTextToolStripMenuItem.Name = "stopIncomingTextToolStripMenuItem";
-            this.stopIncomingTextToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.stopIncomingTextToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.stopIncomingTextToolStripMenuItem.Text = "Stop Incoming Text";
             // 
             // closeForm
             // 
             this.closeForm.Name = "closeForm";
-            this.closeForm.Size = new System.Drawing.Size(238, 22);
+            this.closeForm.Size = new System.Drawing.Size(237, 22);
             this.closeForm.Text = "Exit";
             this.closeForm.Click += new System.EventHandler(this.closeForm_Click);
             // 
@@ -607,169 +563,6 @@
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // my_files_btn
-            // 
-            this.my_files_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.my_files_btn.Image = global::aol.Properties.Resources.my_files_icon;
-            this.my_files_btn.Location = new System.Drawing.Point(205, 0);
-            this.my_files_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.my_files_btn.Name = "my_files_btn";
-            this.my_files_btn.Size = new System.Drawing.Size(60, 38);
-            this.my_files_btn.TabIndex = 4;
-            this.my_files_btn.TabStop = false;
-            this.my_files_btn.Click += new System.EventHandler(this.my_files_btn_Click);
-            // 
-            // mail_center_btn
-            // 
-            this.mail_center_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mail_center_btn.Image = global::aol.Properties.Resources.mail_center_icon;
-            this.mail_center_btn.Location = new System.Drawing.Point(87, 0);
-            this.mail_center_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.mail_center_btn.Name = "mail_center_btn";
-            this.mail_center_btn.Size = new System.Drawing.Size(73, 38);
-            this.mail_center_btn.TabIndex = 2;
-            this.mail_center_btn.TabStop = false;
-            this.mail_center_btn.Click += new System.EventHandler(this.mail_center_btn_Click);
-            // 
-            // write_mail_button
-            // 
-            this.write_mail_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.write_mail_button.Image = global::aol.Properties.Resources.write_icon;
-            this.write_mail_button.Location = new System.Drawing.Point(41, 0);
-            this.write_mail_button.Margin = new System.Windows.Forms.Padding(0);
-            this.write_mail_button.Name = "write_mail_button";
-            this.write_mail_button.Size = new System.Drawing.Size(46, 38);
-            this.write_mail_button.TabIndex = 1;
-            this.write_mail_button.TabStop = false;
-            this.write_mail_button.Click += new System.EventHandler(this.write_mail_button_Click);
-            // 
-            // read_mail_btn
-            // 
-            this.read_mail_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.read_mail_btn.Image = ((System.Drawing.Image)(resources.GetObject("read_mail_btn.Image")));
-            this.read_mail_btn.Location = new System.Drawing.Point(0, 0);
-            this.read_mail_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.read_mail_btn.Name = "read_mail_btn";
-            this.read_mail_btn.Size = new System.Drawing.Size(41, 38);
-            this.read_mail_btn.TabIndex = 0;
-            this.read_mail_btn.TabStop = false;
-            this.read_mail_btn.Click += new System.EventHandler(this.read_mail_btn_Click);
-            // 
-            // print_page_btn
-            // 
-            this.print_page_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.print_page_btn.Image = global::aol.Properties.Resources.print_icon;
-            this.print_page_btn.Location = new System.Drawing.Point(160, 0);
-            this.print_page_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.print_page_btn.Name = "print_page_btn";
-            this.print_page_btn.Size = new System.Drawing.Size(45, 38);
-            this.print_page_btn.TabIndex = 3;
-            this.print_page_btn.TabStop = false;
-            // 
-            // my_aol_btn
-            // 
-            this.my_aol_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.my_aol_btn.Image = global::aol.Properties.Resources.my_aol_icon;
-            this.my_aol_btn.Location = new System.Drawing.Point(265, 0);
-            this.my_aol_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.my_aol_btn.Name = "my_aol_btn";
-            this.my_aol_btn.Size = new System.Drawing.Size(57, 38);
-            this.my_aol_btn.TabIndex = 5;
-            this.my_aol_btn.TabStop = false;
-            this.my_aol_btn.Click += new System.EventHandler(this.my_aol_btn_Click);
-            // 
-            // favorites_btn
-            // 
-            this.favorites_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.favorites_btn.Image = global::aol.Properties.Resources.favorites_icon;
-            this.favorites_btn.Location = new System.Drawing.Point(322, 0);
-            this.favorites_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.favorites_btn.Name = "favorites_btn";
-            this.favorites_btn.Size = new System.Drawing.Size(62, 38);
-            this.favorites_btn.TabIndex = 6;
-            this.favorites_btn.TabStop = false;
-            this.favorites_btn.Click += new System.EventHandler(this.Favorites_btn_Click);
-            // 
-            // internet_btn
-            // 
-            this.internet_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.internet_btn.Image = global::aol.Properties.Resources.internet_icon;
-            this.internet_btn.Location = new System.Drawing.Point(384, 0);
-            this.internet_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.internet_btn.Name = "internet_btn";
-            this.internet_btn.Size = new System.Drawing.Size(55, 38);
-            this.internet_btn.TabIndex = 7;
-            this.internet_btn.TabStop = false;
-            this.internet_btn.Click += new System.EventHandler(this.Internet_btn_Click);
-            // 
-            // channels_btn
-            // 
-            this.channels_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.channels_btn.Image = global::aol.Properties.Resources.channels_icon;
-            this.channels_btn.Location = new System.Drawing.Point(439, 0);
-            this.channels_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.channels_btn.Name = "channels_btn";
-            this.channels_btn.Size = new System.Drawing.Size(62, 38);
-            this.channels_btn.TabIndex = 8;
-            this.channels_btn.TabStop = false;
-            this.channels_btn.Click += new System.EventHandler(this.pictureBox10_Click);
-            // 
-            // people_btn
-            // 
-            this.people_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.people_btn.Image = global::aol.Properties.Resources.people_icon;
-            this.people_btn.Location = new System.Drawing.Point(501, 0);
-            this.people_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.people_btn.Name = "people_btn";
-            this.people_btn.Size = new System.Drawing.Size(82, 38);
-            this.people_btn.TabIndex = 9;
-            this.people_btn.TabStop = false;
-            // 
-            // quotes_btn
-            // 
-            this.quotes_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.quotes_btn.Image = global::aol.Properties.Resources.quotes_icon;
-            this.quotes_btn.Location = new System.Drawing.Point(583, 0);
-            this.quotes_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.quotes_btn.Name = "quotes_btn";
-            this.quotes_btn.Size = new System.Drawing.Size(54, 38);
-            this.quotes_btn.TabIndex = 10;
-            this.quotes_btn.TabStop = false;
-            // 
-            // perks_btn
-            // 
-            this.perks_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.perks_btn.Image = global::aol.Properties.Resources.perks_icon;
-            this.perks_btn.Location = new System.Drawing.Point(637, 0);
-            this.perks_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.perks_btn.Name = "perks_btn";
-            this.perks_btn.Size = new System.Drawing.Size(47, 38);
-            this.perks_btn.TabIndex = 11;
-            this.perks_btn.TabStop = false;
-            // 
-            // weather_btn
-            // 
-            this.weather_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.weather_btn.Image = global::aol.Properties.Resources.weather_icon;
-            this.weather_btn.Location = new System.Drawing.Point(684, 0);
-            this.weather_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.weather_btn.Name = "weather_btn";
-            this.weather_btn.Size = new System.Drawing.Size(64, 38);
-            this.weather_btn.TabIndex = 12;
-            this.weather_btn.TabStop = false;
-            // 
-            // loadingIcon
-            // 
-            this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
-            this.loadingIcon.Enabled = false;
-            this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
-            this.loadingIcon.Location = new System.Drawing.Point(751, 0);
-            this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.loadingIcon.Name = "loadingIcon";
-            this.loadingIcon.Size = new System.Drawing.Size(46, 38);
-            this.loadingIcon.TabIndex = 13;
-            this.loadingIcon.TabStop = false;
             // 
             // channelsContextMenuStrip
             // 
@@ -958,81 +751,81 @@
             this.toolStripSeparator11,
             this.capturePictureToolStripMenuItem});
             this.editContextMenuStrip.Name = "editContextMenuStrip";
-            this.editContextMenuStrip.Size = new System.Drawing.Size(190, 242);
+            this.editContextMenuStrip.Size = new System.Drawing.Size(189, 242);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.editToolStripMenuItem.Text = "Undo";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(185, 6);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(185, 6);
             // 
             // findInTopWindowToolStripMenuItem
             // 
             this.findInTopWindowToolStripMenuItem.Name = "findInTopWindowToolStripMenuItem";
-            this.findInTopWindowToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.findInTopWindowToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.findInTopWindowToolStripMenuItem.Text = "Find in Top Window...";
             // 
             // spellCheckToolStripMenuItem
             // 
             this.spellCheckToolStripMenuItem.Name = "spellCheckToolStripMenuItem";
-            this.spellCheckToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.spellCheckToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.spellCheckToolStripMenuItem.Text = "Spell Check";
             // 
             // dictionaryToolStripMenuItem
             // 
             this.dictionaryToolStripMenuItem.Name = "dictionaryToolStripMenuItem";
-            this.dictionaryToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.dictionaryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.dictionaryToolStripMenuItem.Text = "Dictionary";
             // 
             // thesaurusToolStripMenuItem
             // 
             this.thesaurusToolStripMenuItem.Name = "thesaurusToolStripMenuItem";
-            this.thesaurusToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.thesaurusToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.thesaurusToolStripMenuItem.Text = "Thesaurus";
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(185, 6);
             // 
             // capturePictureToolStripMenuItem
             // 
             this.capturePictureToolStripMenuItem.Name = "capturePictureToolStripMenuItem";
-            this.capturePictureToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.capturePictureToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.capturePictureToolStripMenuItem.Text = "Capture Picture";
             // 
             // windowContextMenuStrip
@@ -1322,59 +1115,59 @@
             this.toolStripSeparator22,
             this.logManagerToolStripMenuItem});
             this.myFilesContextMenuStrip.Name = "myFilesContextMenuStrip";
-            this.myFilesContextMenuStrip.Size = new System.Drawing.Size(239, 170);
+            this.myFilesContextMenuStrip.Size = new System.Drawing.Size(238, 170);
             // 
             // personalFilingCabinetToolStripMenuItem
             // 
             this.personalFilingCabinetToolStripMenuItem.Name = "personalFilingCabinetToolStripMenuItem";
-            this.personalFilingCabinetToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.personalFilingCabinetToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.personalFilingCabinetToolStripMenuItem.Text = "Personal Filing Cabinet";
             // 
             // saveToPersonalFilingCabinetToolStripMenuItem1
             // 
             this.saveToPersonalFilingCabinetToolStripMenuItem1.Name = "saveToPersonalFilingCabinetToolStripMenuItem1";
-            this.saveToPersonalFilingCabinetToolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
+            this.saveToPersonalFilingCabinetToolStripMenuItem1.Size = new System.Drawing.Size(237, 22);
             this.saveToPersonalFilingCabinetToolStripMenuItem1.Text = "Save To Personal Filing Cabinet";
             // 
             // toolStripSeparator21
             // 
             this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(235, 6);
+            this.toolStripSeparator21.Size = new System.Drawing.Size(234, 6);
             // 
             // offlineMailToolStripMenuItem
             // 
             this.offlineMailToolStripMenuItem.Name = "offlineMailToolStripMenuItem";
-            this.offlineMailToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.offlineMailToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.offlineMailToolStripMenuItem.Text = "Offline Mail";
             // 
             // downloadManagerToolStripMenuItem
             // 
             this.downloadManagerToolStripMenuItem.Name = "downloadManagerToolStripMenuItem";
-            this.downloadManagerToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.downloadManagerToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.downloadManagerToolStripMenuItem.Text = "Download Manager";
             this.downloadManagerToolStripMenuItem.Click += new System.EventHandler(this.downloadManagerToolStripMenuItem_Click);
             // 
             // myWebPageToolStripMenuItem
             // 
             this.myWebPageToolStripMenuItem.Name = "myWebPageToolStripMenuItem";
-            this.myWebPageToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.myWebPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.myWebPageToolStripMenuItem.Text = "My Web Page";
             // 
             // newsgroupsToolStripMenuItem
             // 
             this.newsgroupsToolStripMenuItem.Name = "newsgroupsToolStripMenuItem";
-            this.newsgroupsToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.newsgroupsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.newsgroupsToolStripMenuItem.Text = "Offline Newsgroups";
             // 
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(235, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(234, 6);
             // 
             // logManagerToolStripMenuItem
             // 
             this.logManagerToolStripMenuItem.Name = "logManagerToolStripMenuItem";
-            this.logManagerToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.logManagerToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.logManagerToolStripMenuItem.Text = "Log Manager";
             // 
             // myAOLContextMenuStrip
@@ -1493,6 +1286,577 @@
             this.newsProfilesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.newsProfilesToolStripMenuItem.Text = "News Profiles";
             // 
+            // cursorTimer
+            // 
+            this.cursorTimer.Enabled = true;
+            this.cursorTimer.Interval = 10;
+            this.cursorTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // checkMail
+            // 
+            this.checkMail.Interval = 2500;
+            this.checkMail.Tick += new System.EventHandler(this.checkMail_Tick);
+            // 
+            // myFavoritesContextMenuStrip
+            // 
+            this.myFavoritesContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.favoritePlacesMenuItem,
+            this.toolStripSeparator26,
+            this.AddTopWindowToFPMenuItem,
+            this.goToKeywordMenuItem,
+            this.toolStripSeparator27,
+            this.myShortcutsMenuItem,
+            this.toolStripSeparator28,
+            this.moreFavoritesMenuItem});
+            this.myFavoritesContextMenuStrip.Name = "myFavoritesContextMenuStrip";
+            this.myFavoritesContextMenuStrip.Size = new System.Drawing.Size(262, 132);
+            // 
+            // favoritePlacesMenuItem
+            // 
+            this.favoritePlacesMenuItem.Name = "favoritePlacesMenuItem";
+            this.favoritePlacesMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.favoritePlacesMenuItem.Text = "Favorite Places";
+            // 
+            // toolStripSeparator26
+            // 
+            this.toolStripSeparator26.Name = "toolStripSeparator26";
+            this.toolStripSeparator26.Size = new System.Drawing.Size(258, 6);
+            // 
+            // AddTopWindowToFPMenuItem
+            // 
+            this.AddTopWindowToFPMenuItem.Name = "AddTopWindowToFPMenuItem";
+            this.AddTopWindowToFPMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.AddTopWindowToFPMenuItem.Text = "Add Top Window To Favorite Places";
+            // 
+            // goToKeywordMenuItem
+            // 
+            this.goToKeywordMenuItem.Name = "goToKeywordMenuItem";
+            this.goToKeywordMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.goToKeywordMenuItem.Text = "Go To Keyword...";
+            // 
+            // toolStripSeparator27
+            // 
+            this.toolStripSeparator27.Name = "toolStripSeparator27";
+            this.toolStripSeparator27.Size = new System.Drawing.Size(258, 6);
+            // 
+            // myShortcutsMenuItem
+            // 
+            this.myShortcutsMenuItem.Name = "myShortcutsMenuItem";
+            this.myShortcutsMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.myShortcutsMenuItem.Text = "My Shortcuts";
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(258, 6);
+            // 
+            // moreFavoritesMenuItem
+            // 
+            this.moreFavoritesMenuItem.Name = "moreFavoritesMenuItem";
+            this.moreFavoritesMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.moreFavoritesMenuItem.Text = "More Favorites...";
+            // 
+            // internetMenuStrip
+            // 
+            this.internetMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.internetConnectionMenuItem,
+            this.toolStripSeparator29,
+            this.GoToTheWebMenuItem,
+            this.searchTheWebMenuItem,
+            this.toolStripSeparator30,
+            this.newsgroupsMenuItem,
+            this.ftpMenuItem});
+            this.internetMenuStrip.Name = "internetMenuStrip";
+            this.internetMenuStrip.Size = new System.Drawing.Size(181, 126);
+            // 
+            // internetConnectionMenuItem
+            // 
+            this.internetConnectionMenuItem.Name = "internetConnectionMenuItem";
+            this.internetConnectionMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.internetConnectionMenuItem.Text = "Internet Connection";
+            // 
+            // toolStripSeparator29
+            // 
+            this.toolStripSeparator29.Name = "toolStripSeparator29";
+            this.toolStripSeparator29.Size = new System.Drawing.Size(177, 6);
+            // 
+            // GoToTheWebMenuItem
+            // 
+            this.GoToTheWebMenuItem.Name = "GoToTheWebMenuItem";
+            this.GoToTheWebMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.GoToTheWebMenuItem.Text = "Go to the Web";
+            // 
+            // searchTheWebMenuItem
+            // 
+            this.searchTheWebMenuItem.Name = "searchTheWebMenuItem";
+            this.searchTheWebMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.searchTheWebMenuItem.Text = "Search the Web";
+            // 
+            // toolStripSeparator30
+            // 
+            this.toolStripSeparator30.Name = "toolStripSeparator30";
+            this.toolStripSeparator30.Size = new System.Drawing.Size(177, 6);
+            // 
+            // newsgroupsMenuItem
+            // 
+            this.newsgroupsMenuItem.Name = "newsgroupsMenuItem";
+            this.newsgroupsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newsgroupsMenuItem.Text = "Newsgroups";
+            // 
+            // ftpMenuItem
+            // 
+            this.ftpMenuItem.Name = "ftpMenuItem";
+            this.ftpMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ftpMenuItem.Text = "FTP";
+            // 
+            // peopleMenuStrip
+            // 
+            this.peopleMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.peopleConnectionStripMenuItem,
+            this.toolStripSeparator31,
+            this.chatNowStripMenuItem,
+            this.findaChatMenuItem,
+            this.startYourOwnChatStripMenuItem,
+            this.toolStripSeparator32,
+            this.AOLLiveStripMenuItem,
+            this.toolStripSeparator33,
+            this.imMenuItem,
+            this.viewBuddyStripMenuItem,
+            this.sendMsgtoPagerStripMenuItem,
+            this.toolStripSeparator34,
+            this.searchAOLDirMenuItem,
+            this.LocalMemberStripMenuItem,
+            this.getMemberProfStripMenuItem,
+            this.iWhitePgsStripMenuItem});
+            this.peopleMenuStrip.Name = "peopleMenuStrip";
+            this.peopleMenuStrip.Size = new System.Drawing.Size(235, 292);
+            // 
+            // peopleConnectionStripMenuItem
+            // 
+            this.peopleConnectionStripMenuItem.Name = "peopleConnectionStripMenuItem";
+            this.peopleConnectionStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.peopleConnectionStripMenuItem.Text = "People Connection";
+            // 
+            // chatNowStripMenuItem
+            // 
+            this.chatNowStripMenuItem.Name = "chatNowStripMenuItem";
+            this.chatNowStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.chatNowStripMenuItem.Text = "Chat Now";
+            // 
+            // findaChatMenuItem
+            // 
+            this.findaChatMenuItem.Name = "findaChatMenuItem";
+            this.findaChatMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.findaChatMenuItem.Text = "Find a Chat";
+            // 
+            // startYourOwnChatStripMenuItem
+            // 
+            this.startYourOwnChatStripMenuItem.Name = "startYourOwnChatStripMenuItem";
+            this.startYourOwnChatStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.startYourOwnChatStripMenuItem.Text = "Start Your Own Chat";
+            // 
+            // AOLLiveStripMenuItem
+            // 
+            this.AOLLiveStripMenuItem.Name = "AOLLiveStripMenuItem";
+            this.AOLLiveStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.AOLLiveStripMenuItem.Text = "AOL Live";
+            // 
+            // imMenuItem
+            // 
+            this.imMenuItem.Name = "imMenuItem";
+            this.imMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.imMenuItem.Text = "Instant Message";
+            // 
+            // viewBuddyStripMenuItem
+            // 
+            this.viewBuddyStripMenuItem.Name = "viewBuddyStripMenuItem";
+            this.viewBuddyStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.viewBuddyStripMenuItem.Text = "View Buddy List";
+            // 
+            // sendMsgtoPagerStripMenuItem
+            // 
+            this.sendMsgtoPagerStripMenuItem.Name = "sendMsgtoPagerStripMenuItem";
+            this.sendMsgtoPagerStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.sendMsgtoPagerStripMenuItem.Text = "Send Message to Pager";
+            // 
+            // searchAOLDirMenuItem
+            // 
+            this.searchAOLDirMenuItem.Name = "searchAOLDirMenuItem";
+            this.searchAOLDirMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.searchAOLDirMenuItem.Text = "Search AOL Member Directory";
+            // 
+            // LocalMemberStripMenuItem
+            // 
+            this.LocalMemberStripMenuItem.Name = "LocalMemberStripMenuItem";
+            this.LocalMemberStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.LocalMemberStripMenuItem.Text = "Locate AOL Member Online";
+            // 
+            // getMemberProfStripMenuItem
+            // 
+            this.getMemberProfStripMenuItem.Name = "getMemberProfStripMenuItem";
+            this.getMemberProfStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.getMemberProfStripMenuItem.Text = "Get AOL Member Profile";
+            // 
+            // iWhitePgsStripMenuItem
+            // 
+            this.iWhitePgsStripMenuItem.Name = "iWhitePgsStripMenuItem";
+            this.iWhitePgsStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.iWhitePgsStripMenuItem.Text = "Internet White Pages";
+            // 
+            // toolStripSeparator31
+            // 
+            this.toolStripSeparator31.Name = "toolStripSeparator31";
+            this.toolStripSeparator31.Size = new System.Drawing.Size(231, 6);
+            // 
+            // toolStripSeparator32
+            // 
+            this.toolStripSeparator32.Name = "toolStripSeparator32";
+            this.toolStripSeparator32.Size = new System.Drawing.Size(231, 6);
+            // 
+            // toolStripSeparator33
+            // 
+            this.toolStripSeparator33.Name = "toolStripSeparator33";
+            this.toolStripSeparator33.Size = new System.Drawing.Size(231, 6);
+            // 
+            // toolStripSeparator34
+            // 
+            this.toolStripSeparator34.Name = "toolStripSeparator34";
+            this.toolStripSeparator34.Size = new System.Drawing.Size(231, 6);
+            // 
+            // findMenuStrip
+            // 
+            this.findMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.findCentralMenuItem,
+            this.toolStripSeparator35,
+            this.finditonaolMenuItem,
+            this.findonTheWebMenuItem,
+            this.aolChanMenuItem,
+            this.toolStripSeparator36,
+            this.softwareMenuItem,
+            this.chatsMenuItem,
+            this.aolMembersMenuItem,
+            this.iNetWhitePagesMenuItem,
+            this.aolAccessNumsMenuItem,
+            this.aolHelpMenuItem});
+            this.findMenuStrip.Name = "findMenuStrip";
+            this.findMenuStrip.Size = new System.Drawing.Size(189, 236);
+            // 
+            // findCentralMenuItem
+            // 
+            this.findCentralMenuItem.Name = "findCentralMenuItem";
+            this.findCentralMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.findCentralMenuItem.Text = "Find Central";
+            // 
+            // toolStripSeparator35
+            // 
+            this.toolStripSeparator35.Name = "toolStripSeparator35";
+            this.toolStripSeparator35.Size = new System.Drawing.Size(185, 6);
+            // 
+            // finditonaolMenuItem
+            // 
+            this.finditonaolMenuItem.Name = "finditonaolMenuItem";
+            this.finditonaolMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.finditonaolMenuItem.Text = "Find it on AOL";
+            // 
+            // findonTheWebMenuItem
+            // 
+            this.findonTheWebMenuItem.Name = "findonTheWebMenuItem";
+            this.findonTheWebMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.findonTheWebMenuItem.Text = "Find it on the Web";
+            // 
+            // aolChanMenuItem
+            // 
+            this.aolChanMenuItem.Name = "aolChanMenuItem";
+            this.aolChanMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aolChanMenuItem.Text = "AOL Channel Guide";
+            // 
+            // toolStripSeparator36
+            // 
+            this.toolStripSeparator36.Name = "toolStripSeparator36";
+            this.toolStripSeparator36.Size = new System.Drawing.Size(185, 6);
+            // 
+            // softwareMenuItem
+            // 
+            this.softwareMenuItem.Name = "softwareMenuItem";
+            this.softwareMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.softwareMenuItem.Text = "Software";
+            // 
+            // chatsMenuItem
+            // 
+            this.chatsMenuItem.Name = "chatsMenuItem";
+            this.chatsMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.chatsMenuItem.Text = "Chats";
+            // 
+            // aolMembersMenuItem
+            // 
+            this.aolMembersMenuItem.Name = "aolMembersMenuItem";
+            this.aolMembersMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aolMembersMenuItem.Text = "AOL Members";
+            // 
+            // iNetWhitePagesMenuItem
+            // 
+            this.iNetWhitePagesMenuItem.Name = "iNetWhitePagesMenuItem";
+            this.iNetWhitePagesMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.iNetWhitePagesMenuItem.Text = "Internet White Pages";
+            // 
+            // aolAccessNumsMenuItem
+            // 
+            this.aolAccessNumsMenuItem.Name = "aolAccessNumsMenuItem";
+            this.aolAccessNumsMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aolAccessNumsMenuItem.Text = "AOL Access Numbers";
+            // 
+            // aolHelpMenuItem
+            // 
+            this.aolHelpMenuItem.Name = "aolHelpMenuItem";
+            this.aolHelpMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aolHelpMenuItem.Text = "AOL Help";
+            // 
+            // findBtn
+            // 
+            this.findBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findBtn.Location = new System.Drawing.Point(141, 3);
+            this.findBtn.Name = "findBtn";
+            this.findBtn.Size = new System.Drawing.Size(49, 21);
+            this.findBtn.TabIndex = 16;
+            this.findBtn.Text = "Find ▼";
+            this.findBtn.UseVisualStyleBackColor = true;
+            this.findBtn.Click += new System.EventHandler(this.FindBtn_Click);
+            // 
+            // my_files_btn
+            // 
+            this.my_files_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.my_files_btn.Image = global::aol.Properties.Resources.my_files_icon;
+            this.my_files_btn.Location = new System.Drawing.Point(205, 0);
+            this.my_files_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.my_files_btn.Name = "my_files_btn";
+            this.my_files_btn.Size = new System.Drawing.Size(60, 38);
+            this.my_files_btn.TabIndex = 4;
+            this.my_files_btn.TabStop = false;
+            this.my_files_btn.Click += new System.EventHandler(this.my_files_btn_Click);
+            // 
+            // mail_center_btn
+            // 
+            this.mail_center_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mail_center_btn.Image = global::aol.Properties.Resources.mail_center_icon;
+            this.mail_center_btn.Location = new System.Drawing.Point(87, 0);
+            this.mail_center_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.mail_center_btn.Name = "mail_center_btn";
+            this.mail_center_btn.Size = new System.Drawing.Size(73, 38);
+            this.mail_center_btn.TabIndex = 2;
+            this.mail_center_btn.TabStop = false;
+            this.mail_center_btn.Click += new System.EventHandler(this.mail_center_btn_Click);
+            // 
+            // write_mail_button
+            // 
+            this.write_mail_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.write_mail_button.Image = global::aol.Properties.Resources.write_icon;
+            this.write_mail_button.Location = new System.Drawing.Point(41, 0);
+            this.write_mail_button.Margin = new System.Windows.Forms.Padding(0);
+            this.write_mail_button.Name = "write_mail_button";
+            this.write_mail_button.Size = new System.Drawing.Size(46, 38);
+            this.write_mail_button.TabIndex = 1;
+            this.write_mail_button.TabStop = false;
+            this.write_mail_button.Click += new System.EventHandler(this.write_mail_button_Click);
+            // 
+            // read_mail_btn
+            // 
+            this.read_mail_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.read_mail_btn.Image = global::aol.Properties.Resources.nomail_icon;
+            this.read_mail_btn.InitialImage = global::aol.Properties.Resources.nomail_icon;
+            this.read_mail_btn.Location = new System.Drawing.Point(0, 0);
+            this.read_mail_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.read_mail_btn.Name = "read_mail_btn";
+            this.read_mail_btn.Size = new System.Drawing.Size(41, 38);
+            this.read_mail_btn.TabIndex = 0;
+            this.read_mail_btn.TabStop = false;
+            this.read_mail_btn.Click += new System.EventHandler(this.read_mail_btn_Click);
+            // 
+            // print_page_btn
+            // 
+            this.print_page_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.print_page_btn.Image = global::aol.Properties.Resources.print_icon;
+            this.print_page_btn.Location = new System.Drawing.Point(160, 0);
+            this.print_page_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.print_page_btn.Name = "print_page_btn";
+            this.print_page_btn.Size = new System.Drawing.Size(45, 38);
+            this.print_page_btn.TabIndex = 3;
+            this.print_page_btn.TabStop = false;
+            // 
+            // my_aol_btn
+            // 
+            this.my_aol_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.my_aol_btn.Image = global::aol.Properties.Resources.my_aol_icon;
+            this.my_aol_btn.Location = new System.Drawing.Point(265, 0);
+            this.my_aol_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.my_aol_btn.Name = "my_aol_btn";
+            this.my_aol_btn.Size = new System.Drawing.Size(57, 38);
+            this.my_aol_btn.TabIndex = 5;
+            this.my_aol_btn.TabStop = false;
+            this.my_aol_btn.Click += new System.EventHandler(this.my_aol_btn_Click);
+            // 
+            // favorites_btn
+            // 
+            this.favorites_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.favorites_btn.Image = global::aol.Properties.Resources.favorites_icon;
+            this.favorites_btn.Location = new System.Drawing.Point(322, 0);
+            this.favorites_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.favorites_btn.Name = "favorites_btn";
+            this.favorites_btn.Size = new System.Drawing.Size(62, 38);
+            this.favorites_btn.TabIndex = 6;
+            this.favorites_btn.TabStop = false;
+            this.favorites_btn.Click += new System.EventHandler(this.Favorites_btn_Click);
+            // 
+            // internet_btn
+            // 
+            this.internet_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.internet_btn.Image = global::aol.Properties.Resources.internet_icon;
+            this.internet_btn.Location = new System.Drawing.Point(384, 0);
+            this.internet_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.internet_btn.Name = "internet_btn";
+            this.internet_btn.Size = new System.Drawing.Size(55, 38);
+            this.internet_btn.TabIndex = 7;
+            this.internet_btn.TabStop = false;
+            this.internet_btn.Click += new System.EventHandler(this.Internet_btn_Click);
+            // 
+            // channels_btn
+            // 
+            this.channels_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.channels_btn.Image = global::aol.Properties.Resources.channels_icon;
+            this.channels_btn.Location = new System.Drawing.Point(439, 0);
+            this.channels_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.channels_btn.Name = "channels_btn";
+            this.channels_btn.Size = new System.Drawing.Size(62, 38);
+            this.channels_btn.TabIndex = 8;
+            this.channels_btn.TabStop = false;
+            this.channels_btn.Click += new System.EventHandler(this.pictureBox10_Click);
+            // 
+            // people_btn
+            // 
+            this.people_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.people_btn.Image = global::aol.Properties.Resources.people_icon;
+            this.people_btn.Location = new System.Drawing.Point(501, 0);
+            this.people_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.people_btn.Name = "people_btn";
+            this.people_btn.Size = new System.Drawing.Size(82, 38);
+            this.people_btn.TabIndex = 9;
+            this.people_btn.TabStop = false;
+            this.people_btn.Click += new System.EventHandler(this.People_btn_Click);
+            // 
+            // quotes_btn
+            // 
+            this.quotes_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.quotes_btn.Image = global::aol.Properties.Resources.quotes_icon;
+            this.quotes_btn.Location = new System.Drawing.Point(583, 0);
+            this.quotes_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.quotes_btn.Name = "quotes_btn";
+            this.quotes_btn.Size = new System.Drawing.Size(54, 38);
+            this.quotes_btn.TabIndex = 10;
+            this.quotes_btn.TabStop = false;
+            this.quotes_btn.Click += new System.EventHandler(this.Quotes_btn_Click);
+            // 
+            // perks_btn
+            // 
+            this.perks_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.perks_btn.Image = global::aol.Properties.Resources.perks_icon;
+            this.perks_btn.Location = new System.Drawing.Point(637, 0);
+            this.perks_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.perks_btn.Name = "perks_btn";
+            this.perks_btn.Size = new System.Drawing.Size(47, 38);
+            this.perks_btn.TabIndex = 11;
+            this.perks_btn.TabStop = false;
+            this.perks_btn.Click += new System.EventHandler(this.Perks_btn_Click);
+            // 
+            // weather_btn
+            // 
+            this.weather_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.weather_btn.Image = global::aol.Properties.Resources.weather_icon;
+            this.weather_btn.Location = new System.Drawing.Point(684, 0);
+            this.weather_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.weather_btn.Name = "weather_btn";
+            this.weather_btn.Size = new System.Drawing.Size(64, 38);
+            this.weather_btn.TabIndex = 12;
+            this.weather_btn.TabStop = false;
+            this.weather_btn.Click += new System.EventHandler(this.Weather_btn_Click);
+            // 
+            // loadingIcon
+            // 
+            this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Enabled = false;
+            this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
+            this.loadingIcon.Location = new System.Drawing.Point(751, 0);
+            this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.loadingIcon.Name = "loadingIcon";
+            this.loadingIcon.Size = new System.Drawing.Size(46, 38);
+            this.loadingIcon.TabIndex = 13;
+            this.loadingIcon.TabStop = false;
+            // 
+            // mie_badge
+            // 
+            this.mie_badge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mie_badge.Location = new System.Drawing.Point(740, 3);
+            this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
+            this.mie_badge.Name = "mie_badge";
+            this.mie_badge.Size = new System.Drawing.Size(59, 21);
+            this.mie_badge.TabIndex = 16;
+            this.mie_badge.TabStop = false;
+            // 
+            // homeBtn
+            // 
+            this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.homeBtn.Image = global::aol.Properties.Resources.home_btn_enabled;
+            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Name = "homeBtn";
+            this.homeBtn.Size = new System.Drawing.Size(27, 20);
+            this.homeBtn.TabIndex = 14;
+            this.homeBtn.TabStop = false;
+            this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
+            // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reloadBtn.Image = global::aol.Properties.Resources.reload_btn;
+            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(28, 20);
+            this.reloadBtn.TabIndex = 13;
+            this.reloadBtn.TabStop = false;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click_1);
+            // 
+            // stopBtn
+            // 
+            this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopBtn.Image = global::aol.Properties.Resources.stop_btn1;
+            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Name = "stopBtn";
+            this.stopBtn.Size = new System.Drawing.Size(27, 20);
+            this.stopBtn.TabIndex = 12;
+            this.stopBtn.TabStop = false;
+            this.stopBtn.Click += new System.EventHandler(this.stopBtn_Click);
+            // 
+            // forwardBtn
+            // 
+            this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forwardBtn.Image = global::aol.Properties.Resources.forward_btn1;
+            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Name = "forwardBtn";
+            this.forwardBtn.Size = new System.Drawing.Size(25, 20);
+            this.forwardBtn.TabIndex = 11;
+            this.forwardBtn.TabStop = false;
+            this.forwardBtn.Click += new System.EventHandler(this.forwardBtn_Click_1);
+            // 
+            // backBtn
+            // 
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Image = global::aol.Properties.Resources.back_btn1;
+            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(25, 20);
+            this.backBtn.TabIndex = 10;
+            this.backBtn.TabStop = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1592,129 +1956,6 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // cursorTimer
-            // 
-            this.cursorTimer.Enabled = true;
-            this.cursorTimer.Interval = 10;
-            this.cursorTimer.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // checkMail
-            // 
-            this.checkMail.Interval = 2500;
-            this.checkMail.Tick += new System.EventHandler(this.checkMail_Tick);
-            // 
-            // myFavoritesContextMenuStrip
-            // 
-            this.myFavoritesContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.favoritePlacesMenuItem,
-            this.toolStripSeparator26,
-            this.AddTopWindowToFPMenuItem,
-            this.goToKeywordMenuItem,
-            this.toolStripSeparator27,
-            this.myShortcutsMenuItem,
-            this.toolStripSeparator28,
-            this.moreFavoritesMenuItem});
-            this.myFavoritesContextMenuStrip.Name = "myFavoritesContextMenuStrip";
-            this.myFavoritesContextMenuStrip.Size = new System.Drawing.Size(264, 132);
-            // 
-            // favoritePlacesMenuItem
-            // 
-            this.favoritePlacesMenuItem.Name = "favoritePlacesMenuItem";
-            this.favoritePlacesMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.favoritePlacesMenuItem.Text = "Favorite Places";
-            // 
-            // toolStripSeparator26
-            // 
-            this.toolStripSeparator26.Name = "toolStripSeparator26";
-            this.toolStripSeparator26.Size = new System.Drawing.Size(260, 6);
-            // 
-            // AddTopWindowToFPMenuItem
-            // 
-            this.AddTopWindowToFPMenuItem.Name = "AddTopWindowToFPMenuItem";
-            this.AddTopWindowToFPMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.AddTopWindowToFPMenuItem.Text = "Add Top Window To Favorite Places";
-            // 
-            // goToKeywordMenuItem
-            // 
-            this.goToKeywordMenuItem.Name = "goToKeywordMenuItem";
-            this.goToKeywordMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.goToKeywordMenuItem.Text = "Go To Keyword...";
-            // 
-            // toolStripSeparator27
-            // 
-            this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(260, 6);
-            // 
-            // myShortcutsMenuItem
-            // 
-            this.myShortcutsMenuItem.Name = "myShortcutsMenuItem";
-            this.myShortcutsMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.myShortcutsMenuItem.Text = "My Shortcuts";
-            // 
-            // toolStripSeparator28
-            // 
-            this.toolStripSeparator28.Name = "toolStripSeparator28";
-            this.toolStripSeparator28.Size = new System.Drawing.Size(260, 6);
-            // 
-            // moreFavoritesMenuItem
-            // 
-            this.moreFavoritesMenuItem.Name = "moreFavoritesMenuItem";
-            this.moreFavoritesMenuItem.Size = new System.Drawing.Size(263, 22);
-            this.moreFavoritesMenuItem.Text = "More Favorites...";
-            // 
-            // internetMenuStrip
-            // 
-            this.internetMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.internetConnectionMenuItem,
-            this.toolStripSeparator29,
-            this.GoToTheWebMenuItem,
-            this.searchTheWebMenuItem,
-            this.toolStripSeparator30,
-            this.newsgroupsMenuItem,
-            this.ftpMenuItem});
-            this.internetMenuStrip.Name = "internetMenuStrip";
-            this.internetMenuStrip.Size = new System.Drawing.Size(181, 126);
-            // 
-            // internetConnectionMenuItem
-            // 
-            this.internetConnectionMenuItem.Name = "internetConnectionMenuItem";
-            this.internetConnectionMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.internetConnectionMenuItem.Text = "Internet Connection";
-            // 
-            // toolStripSeparator29
-            // 
-            this.toolStripSeparator29.Name = "toolStripSeparator29";
-            this.toolStripSeparator29.Size = new System.Drawing.Size(177, 6);
-            // 
-            // toolStripSeparator30
-            // 
-            this.toolStripSeparator30.Name = "toolStripSeparator30";
-            this.toolStripSeparator30.Size = new System.Drawing.Size(177, 6);
-            // 
-            // GoToTheWebMenuItem
-            // 
-            this.GoToTheWebMenuItem.Name = "GoToTheWebMenuItem";
-            this.GoToTheWebMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.GoToTheWebMenuItem.Text = "Go to the Web";
-            // 
-            // searchTheWebMenuItem
-            // 
-            this.searchTheWebMenuItem.Name = "searchTheWebMenuItem";
-            this.searchTheWebMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.searchTheWebMenuItem.Text = "Search the Web";
-            // 
-            // newsgroupsMenuItem
-            // 
-            this.newsgroupsMenuItem.Name = "newsgroupsMenuItem";
-            this.newsgroupsMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newsgroupsMenuItem.Text = "Newsgroups";
-            // 
-            // ftpMenuItem
-            // 
-            this.ftpMenuItem.Name = "ftpMenuItem";
-            this.ftpMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ftpMenuItem.Text = "FTP";
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1738,12 +1979,6 @@
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -1751,6 +1986,17 @@
             this.toolStrip1.PerformLayout();
             this.fileContextMenuStrip.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.channelsContextMenuStrip.ResumeLayout(false);
+            this.editContextMenuStrip.ResumeLayout(false);
+            this.windowContextMenuStrip.ResumeLayout(false);
+            this.helpContextMenuStrip.ResumeLayout(false);
+            this.mailCenterContextMenuStrip.ResumeLayout(false);
+            this.myFilesContextMenuStrip.ResumeLayout(false);
+            this.myAOLContextMenuStrip.ResumeLayout(false);
+            this.myFavoritesContextMenuStrip.ResumeLayout(false);
+            this.internetMenuStrip.ResumeLayout(false);
+            this.peopleMenuStrip.ResumeLayout(false);
+            this.findMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.my_files_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mail_center_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.write_mail_button)).EndInit();
@@ -1765,18 +2011,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.perks_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weather_btn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingIcon)).EndInit();
-            this.channelsContextMenuStrip.ResumeLayout(false);
-            this.editContextMenuStrip.ResumeLayout(false);
-            this.windowContextMenuStrip.ResumeLayout(false);
-            this.helpContextMenuStrip.ResumeLayout(false);
-            this.mailCenterContextMenuStrip.ResumeLayout(false);
-            this.myFilesContextMenuStrip.ResumeLayout(false);
-            this.myAOLContextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reloadBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stopBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forwardBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.myFavoritesContextMenuStrip.ResumeLayout(false);
-            this.internetMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1821,7 +2064,6 @@
         private System.Windows.Forms.PictureBox stopBtn;
         private System.Windows.Forms.PictureBox reloadBtn;
         private System.Windows.Forms.PictureBox homeBtn;
-        private System.Windows.Forms.ComboBox findDropDown;
         private System.Windows.Forms.PictureBox mie_badge;
         private System.Windows.Forms.ContextMenuStrip channelsContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem aOLTodayToolStripMenuItem;
@@ -1961,6 +2203,37 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator30;
         private System.Windows.Forms.ToolStripMenuItem newsgroupsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ftpMenuItem;
+        private System.Windows.Forms.ContextMenuStrip peopleMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem peopleConnectionStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator31;
+        private System.Windows.Forms.ToolStripMenuItem chatNowStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findaChatMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startYourOwnChatStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator32;
+        private System.Windows.Forms.ToolStripMenuItem AOLLiveStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator33;
+        private System.Windows.Forms.ToolStripMenuItem imMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewBuddyStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendMsgtoPagerStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator34;
+        private System.Windows.Forms.ToolStripMenuItem searchAOLDirMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LocalMemberStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getMemberProfStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iWhitePgsStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip findMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem findCentralMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator35;
+        private System.Windows.Forms.ToolStripMenuItem finditonaolMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findonTheWebMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aolChanMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator36;
+        private System.Windows.Forms.ToolStripMenuItem softwareMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chatsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aolMembersMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iNetWhitePagesMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aolAccessNumsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aolHelpMenuItem;
+        private System.Windows.Forms.Button findBtn;
     }
 }
 

@@ -317,8 +317,6 @@ namespace aol.Forms
 
             preferencesToolStripMenuItem.Enabled = false;
 
-            findDropDown.SelectedIndex = 0; // default find text selected
-
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(backBtn, "Back");
             toolTip1.SetToolTip(forwardBtn, "Forward");
@@ -391,6 +389,9 @@ namespace aol.Forms
 
         private void addrBox_KeyDown_1(object sender, KeyEventArgs e)
         {
+            if (accForm.tmpUsername == "")
+                return;
+
             if (addrBox.Text.Length <= 3)
                 newWindow = true;
 
@@ -404,6 +405,9 @@ namespace aol.Forms
 
         private void goBtn_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "")
+                return;
+
             GoToURL();
         }
 
@@ -481,6 +485,9 @@ namespace aol.Forms
         // channels button
         private void pictureBox10_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "")
+                return;
+
             if (!channelsContextMenuStrip.Visible)
             {
                 PictureBox btnSender = (PictureBox)sender;
@@ -579,19 +586,21 @@ namespace aol.Forms
             accForm.tmpLocation = "";
 
             if (chat.irc.IsClientRunning())
-            {
                 chat.irc.StopClient();
-                //chat.irc.IrcClient.WriteIrc("QUIT");
-                //chat.irc.IrcClient.QuitConnect();
-                //chat.irc.IrcClient.StopClient();
-
-            }
 
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.Stream = Properties.Resources.Goodbye;
             player.Play();
 
             Thread.Sleep(1000);
+
+            internet_btn.Image = Properties.Resources.internet_icon;
+            channels_btn.Image = Properties.Resources.channels_icon;
+            people_btn.Image = Properties.Resources.people_icon;
+            quotes_btn.Image = Properties.Resources.quotes_icon;
+            perks_btn.Image = Properties.Resources.perks_icon;
+            weather_btn.Image = Properties.Resources.weather_icon;
+            preferencesToolStripMenuItem.Enabled = false; // settings holds email info
         }
 
         private void signOffBtn_Click(object sender, EventArgs e)
@@ -653,6 +662,9 @@ namespace aol.Forms
 
         private void Internet_btn_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "")
+                return;
+
             if (!internetMenuStrip.Visible)
             {
                 PictureBox btnSender = (PictureBox)sender;
@@ -660,6 +672,63 @@ namespace aol.Forms
                 ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
                 internetMenuStrip.Show(ptLowerLeft);
             }
+        }
+
+        private void People_btn_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+
+            if (!peopleMenuStrip.Visible)
+            {
+                PictureBox btnSender = (PictureBox)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                peopleMenuStrip.Show(ptLowerLeft);
+            }
+        }
+
+        private void FindBtn_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+
+            if (!findMenuStrip.Visible)
+            {
+                Button btnSender = (Button)sender;
+                Point ptLowerLeft = new Point(0, btnSender.Height);
+                ptLowerLeft = btnSender.PointToScreen(ptLowerLeft);
+                findMenuStrip.Show(ptLowerLeft);
+            }
+        }
+
+        private void KeywordBtn_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+
+            keyword kw = new keyword();
+            kw.Owner = (Form)this;
+            kw.MdiParent = this;
+            kw.Show();
+        }
+
+        private void Quotes_btn_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+        }
+
+        private void Perks_btn_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+        }
+
+        private void Weather_btn_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)

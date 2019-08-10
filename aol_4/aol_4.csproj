@@ -109,6 +109,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\chat.cs" />
@@ -169,6 +170,12 @@
     </Compile>
     <Compile Include="Forms\instant_message.Designer.cs">
       <DependentUpon>instant_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\keyword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\keyword.Designer.cs">
+      <DependentUpon>keyword.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\main.cs">
       <SubType>Form</SubType>
@@ -240,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\instant_message.resx">
       <DependentUpon>instant_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\keyword.resx">
+      <DependentUpon>keyword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\main.resx">
       <DependentUpon>main.cs</DependentUpon>
