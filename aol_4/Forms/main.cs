@@ -773,7 +773,8 @@ namespace aol.Forms
             if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest") // prevent crash on sign off
                 return;
 
-            read_mail_btn.Image = Properties.Resources.nomail_icon;
+            if (!email.youGotMail)
+                read_mail_btn.Image = Properties.Resources.nomail_icon;
             Thread thread = new Thread(new ThreadStart(CheckEmail));
             thread.Start();
             //Debug.WriteLine("Checking for new mail");

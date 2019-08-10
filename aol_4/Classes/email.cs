@@ -65,7 +65,9 @@ namespace aol.Classes
                     return true;
                 }
                 else
+                {
                     Debug.WriteLine("[MAIL] nothing new");
+                }
 
                 client.Disconnect(true);
 
