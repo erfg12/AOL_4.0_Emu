@@ -220,6 +220,9 @@ namespace aol.Forms
 
         public void GoToURL()
         {
+            if (addrBox.Text == "Type Keyword or Web Address here and click Go")
+                return;
+
             try
             {
                 if (!newWindow)

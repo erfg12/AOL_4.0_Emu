@@ -149,7 +149,13 @@ namespace aol.Forms
                 lIt.Tag = entry.Key;
                 lIt.Text = entry.Value;
                 //Debug.WriteLine("[MAIL] Adding NEW Key(tag):" + entry.Key + " Value(text):" + entry.Value);
-                newListView.Invoke(new MethodInvoker(delegate { newListView.Items.Add(lIt); }));
+                try
+                {
+                    newListView.Invoke(new MethodInvoker(delegate { newListView.Items.Add(lIt); }));
+                } catch
+                {
+                    Debug.WriteLine("Prevented a crash from closing mailbox before we could load the items in.");
+                }
             }
             foreach (KeyValuePair<string, string> entry in email.emailsOld)
             {

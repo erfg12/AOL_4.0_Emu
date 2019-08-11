@@ -84,6 +84,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.71.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleIRCLib, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleIRCLib.2.2.1\lib\netstandard2.0\SimpleIRCLib.dll</HintPath>
     </Reference>
@@ -110,10 +113,14 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeatherNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WeatherNet.2.1\lib\WeatherNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\chat.cs" />
     <Compile Include="Classes\email.cs" />
+    <Compile Include="Classes\location.cs" />
     <Compile Include="Classes\RestAPI.cs" />
     <Compile Include="Forms\account.cs">
       <SubType>Form</SubType>
@@ -195,6 +202,12 @@
     <Compile Include="Forms\mailbox.Designer.cs">
       <DependentUpon>mailbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\pictures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\pictures.Designer.cs">
+      <DependentUpon>pictures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\read_mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\mailbox.resx">
       <DependentUpon>mailbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\pictures.resx">
+      <DependentUpon>pictures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\read_mail.resx">
       <DependentUpon>read_mail.cs</DependentUpon>
@@ -390,9 +406,9 @@
     <None Include="Resources\dialup_pic3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\youve_got_mail_icon.png" />
     <None Include="Resources\youGotmail.wav" />
     <None Include="Resources\yougotmail.bmp" />
-    <None Include="Resources\youve_got_mail_icon.png" />
     <None Include="Resources\back_btn1.png" />
     <None Include="Resources\forward_btn1.png" />
     <None Include="Resources\channels_background.png" />

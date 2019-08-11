@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aol.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeatherNet;
+using WeatherNet.Clients;
 
 namespace aol.Forms
 {
@@ -123,6 +126,13 @@ namespace aol.Forms
                     cl.MdiParent = MdiParent;
                     cl.Show();
                 }
+                if (r.Contains(e.Location) && rects.IndexOf(r) == 3) // pictures
+                {
+                    pictures p = new pictures();
+                    p.Owner = this;
+                    p.MdiParent = MdiParent;
+                    p.Show();
+                }
             }
         }
 
@@ -162,6 +172,9 @@ namespace aol.Forms
             rects.Add(new Rectangle(5, 80, 98, 50)); // 0 mailbox
             rects.Add(new Rectangle(5, 180, 98, 50)); // 1 channels
             rects.Add(new Rectangle(5, 224, 98, 50)); // 2 chat_list
+            rects.Add(new Rectangle(5, 124, 98, 50)); // 3 pictures
+
+            temperatureLabel.Text = location.getWeather();
         }
 
         public home_menu()

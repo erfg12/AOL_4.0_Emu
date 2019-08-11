@@ -122,6 +122,7 @@ namespace aol.Forms
 
             EmailID = emailID;
             Text = subject;
+            mainTitle.Text = subject;
             string tmpString = email.readEmail(EmailID);
             mailViewer.DocumentText = tmpString;
             if (tmpString.Contains("msg NickServ"))
@@ -172,7 +173,7 @@ namespace aol.Forms
 
         private void miniBtn_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
