@@ -43,9 +43,11 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pplQty = new System.Windows.Forms.Label();
+            this.chatSendBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chatSendBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // messageTextBox
@@ -185,6 +187,7 @@
             this.usersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.users});
             this.usersListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.usersListView.HideSelection = false;
             this.usersListView.Location = new System.Drawing.Point(487, 102);
             this.usersListView.Name = "usersListView";
             this.usersListView.Size = new System.Drawing.Size(176, 177);
@@ -223,11 +226,23 @@
             this.pplQty.TabIndex = 9;
             this.pplQty.Text = "#";
             // 
+            // chatSendBtn
+            // 
+            this.chatSendBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chatSendBtn.Image = ((System.Drawing.Image)(resources.GetObject("chatSendBtn.Image")));
+            this.chatSendBtn.Location = new System.Drawing.Point(426, 415);
+            this.chatSendBtn.Name = "chatSendBtn";
+            this.chatSendBtn.Size = new System.Drawing.Size(50, 20);
+            this.chatSendBtn.TabIndex = 10;
+            this.chatSendBtn.TabStop = false;
+            this.chatSendBtn.Click += new System.EventHandler(this.ChatSendBtn_Click);
+            // 
             // chatroom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 449);
+            this.Controls.Add(this.chatSendBtn);
             this.Controls.Add(this.pplQty);
             this.Controls.Add(this.usersListView);
             this.Controls.Add(this.chatRoomTextBox);
@@ -246,6 +261,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chatSendBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +283,6 @@
         private System.Windows.Forms.ColumnHeader users;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label pplQty;
+        private System.Windows.Forms.PictureBox chatSendBtn;
     }
 }

@@ -212,6 +212,7 @@ namespace aol.Forms
                     }));
                 } catch {
                     Debug.WriteLine("BGWorker1 usersListView crashed.");
+                    break;
                 }
                 Thread.Sleep(500);
             }
@@ -282,6 +283,11 @@ namespace aol.Forms
                 }
             }
             Cursor = Cursors.Default;
+        }
+
+        private void ChatSendBtn_Click(object sender, EventArgs e)
+        {
+            sendMsg();
         }
 
         private void chatroom_Load(object sender, EventArgs e)
