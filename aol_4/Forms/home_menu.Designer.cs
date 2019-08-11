@@ -37,6 +37,7 @@
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.temperatureLabel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -45,7 +46,7 @@
             // todayLabel
             // 
             this.todayLabel.AutoSize = true;
-            this.todayLabel.BackColor = System.Drawing.Color.Transparent;
+            this.todayLabel.BackColor = System.Drawing.Color.LemonChiffon;
             this.todayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.todayLabel.Location = new System.Drawing.Point(253, 47);
             this.todayLabel.Name = "todayLabel";
@@ -166,12 +167,26 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // temperatureLabel
+            // 
+            this.temperatureLabel.BackColor = System.Drawing.Color.Snow;
+            this.temperatureLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.temperatureLabel.HideSelection = false;
+            this.temperatureLabel.Location = new System.Drawing.Point(166, 131);
+            this.temperatureLabel.Name = "temperatureLabel";
+            this.temperatureLabel.ReadOnly = true;
+            this.temperatureLabel.Size = new System.Drawing.Size(80, 13);
+            this.temperatureLabel.TabIndex = 6;
+            this.temperatureLabel.TabStop = false;
+            this.temperatureLabel.Text = "Temperature";
+            // 
             // home_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(197)))));
             this.ClientSize = new System.Drawing.Size(491, 292);
+            this.Controls.Add(this.temperatureLabel);
             this.Controls.Add(this.todayLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -204,5 +219,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label todayLabel;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox temperatureLabel;
     }
 }
