@@ -747,6 +747,19 @@ namespace aol.Forms
         {
             if (accForm.tmpUsername == "")
                 return;
+
+            weather w = new weather();
+            w.Owner = (Form)this;
+            w.MdiParent = this;
+            w.Show();
+        }
+
+        private void ChatNowStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chat_list cl = new chat_list();
+            cl.Owner = this;
+            cl.MdiParent = this;
+            cl.Show();
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)

@@ -214,6 +214,12 @@
     <Compile Include="Forms\read_mail.Designer.cs">
       <DependentUpon>read_mail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\weather.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\weather.Designer.cs">
+      <DependentUpon>weather.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\write_mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\read_mail.resx">
       <DependentUpon>read_mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\weather.resx">
+      <DependentUpon>weather.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\write_mail.resx">
       <DependentUpon>write_mail.cs</DependentUpon>

@@ -80,7 +80,7 @@ namespace aol.Classes
             return tmpList;
         }
 
-        public static string getWeather()
+        public static string getCurrentWeather()
         {
             ClientSettings.ApiUrl = "http://api.openweathermap.org/data/2.5";
             ClientSettings.ApiKey = "d8f6deea88bb177513cc8a14cf629020";
@@ -93,6 +93,19 @@ namespace aol.Classes
             var t2 = Math.Round(result.Item.Temp);
 
             return t + " " + t2.ToString();
+        }
+
+        public static List<string> getForecastWeather()
+        {
+            ClientSettings.ApiUrl = "http://api.openweathermap.org/data/2.5";
+            ClientSettings.ApiKey = "d8f6deea88bb177513cc8a14cf629020";
+
+            List<string> cityDat = getCityState();
+
+            var result = SixteenDaysForecast.GetByCityName(cityDat[0], cityDat[1], 7);
+
+            var t = result.Items;
+            return null;
         }
     }
 }
