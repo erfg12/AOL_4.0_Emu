@@ -384,7 +384,6 @@
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.WebBrowser mailViewer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button helpBtn;
@@ -401,5 +400,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.WebBrowser mailViewer;
     }
 }

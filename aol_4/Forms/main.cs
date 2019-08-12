@@ -762,6 +762,16 @@ namespace aol.Forms
             cl.Show();
         }
 
+        private void Print_page_btn_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild is Browse)
+                ((Browse)ActiveMdiChild).browser.Print();
+            else if (ActiveMdiChild is read_mail)
+                ((read_mail)ActiveMdiChild).mailViewer.Print();
+            else
+                MessageBox.Show("Sorry, you can only print mail or web pages.");
+        }
+
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
