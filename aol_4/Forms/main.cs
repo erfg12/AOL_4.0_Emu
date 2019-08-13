@@ -380,9 +380,12 @@ namespace aol.Forms
                         mie_badge.Image = Properties.Resources.mie_badge;
                     }
                 }
-                else
+                else // if we're not selecting a browser window
                 {
                     mie_badge.Image = null;
+                    loadingIcon.Enabled = false;
+                    loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
+                    loadingIcon.Image = loadingIcon.Image;
                 }
             } catch
             {

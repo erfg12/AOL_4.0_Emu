@@ -187,6 +187,7 @@
             this.goToPics.Name = "goToPics";
             this.goToPics.Size = new System.Drawing.Size(296, 28);
             this.goToPics.TabIndex = 5;
+            this.goToPics.TabStop = false;
             this.goToPics.Text = "Go To You\'ve Got Pictures NOW!";
             this.goToPics.UseVisualStyleBackColor = true;
             // 
@@ -197,8 +198,10 @@
             this.textBox1.Location = new System.Drawing.Point(12, 210);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(124, 65);
             this.textBox1.TabIndex = 6;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Print a copy of Show Me\r\nHow --the easiest way to\r\nlearn about \"You\'ve Got Pictur" +
     "es.\"";
             // 
@@ -209,8 +212,10 @@
             this.textBox2.Location = new System.Drawing.Point(482, 120);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(124, 65);
             this.textBox2.TabIndex = 7;
+            this.textBox2.TabStop = false;
             this.textBox2.Text = "Click Here to receive a list\r\nof participating photo\r\ndevelopers.";
             // 
             // textBox3
@@ -220,8 +225,10 @@
             this.textBox3.Location = new System.Drawing.Point(481, 199);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(133, 65);
             this.textBox3.TabIndex = 8;
+            this.textBox3.TabStop = false;
             this.textBox3.Text = "Click Here to see a sample\r\nalbum. Now you can\r\nshare personalized\r\nalbums just l" +
     "ike this.";
             // 
@@ -271,6 +278,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(15, 120);
             this.Name = "pictures";
             this.Text = "pictures";
             this.Load += new System.EventHandler(this.Pictures_Load);
