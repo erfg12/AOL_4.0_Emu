@@ -604,6 +604,7 @@ namespace aol.Forms
             perks_btn.Image = Properties.Resources.perks_icon;
             weather_btn.Image = Properties.Resources.weather_icon;
             preferencesToolStripMenuItem.Enabled = false; // settings holds email info
+            email.youGotMail = false;
         }
 
         private void signOffBtn_Click(object sender, EventArgs e)
