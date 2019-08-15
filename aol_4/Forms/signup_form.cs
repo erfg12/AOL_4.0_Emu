@@ -86,6 +86,9 @@ namespace aol.Forms
             {
                 MessageBox.Show("Account has been created. Welcome!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
+            } else
+            {
+                MessageBox.Show("Account creation has failed for an unknown reason." + Environment.NewLine + "Please email support@aolemu.com", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -104,8 +107,15 @@ namespace aol.Forms
                 {
                     string fn = RestAPI.getAccInfo("fullname", user, pass);
                     int code = sqlite_accounts.createAcc(user, fn);
+                    List<string> tmpBuddies = sqlite_accounts.getBuddyList(user, pass);
+
                     if (code == 0)
-                    { // store in sqlite db for reference
+                    {
+                        foreach (var t in RestAPI.getBuddyList(user, pass))
+                        {
+                            if (!tmpBuddies.Contains(t)) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
+                                sqlite_accounts.addBuddy(t.ToString());
+                        }
                         MessageBox.Show("Account has been added. Welcome back!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Close();
                     }

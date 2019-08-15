@@ -260,9 +260,9 @@ namespace aol.Forms
             return good;
         }
 
-        public static List<string> getBuddyList()
+        public static List<string> getBuddyList(string user = "", string pass = "")
         {
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id", user, pass));
             List<string> buddies = new List<string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();

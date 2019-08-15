@@ -112,6 +112,16 @@ namespace aol.Forms
             return "";
         }
 
+        public static IList<string> getBuddyList(string user, string pass)
+        {
+            pass = CreateMD5(pass);
+
+            var data = getData("fetch", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
+            if ((string)data.SelectToken("content[0].msg") == "success")
+                return data.SelectToken("content[0].buddies").Select(s => (string)s).ToList();
+            return null;
+        }
+
         /// <summary>
         /// Updates the full name of the account holder in the rest api db and the sqlite db. This can only be done after login.
         /// </summary>

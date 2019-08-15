@@ -325,7 +325,8 @@ namespace aol.Forms
             shuttingDown = false; // reset on re-login
             foreach (string b in sqlite_accounts.getBuddyList())
             {
-                chat.buddyStatus.Add(b, false); // offline by default
+                if (!chat.buddyStatus.ContainsKey(b))
+                    chat.buddyStatus.Add(b, false); // offline by default
             }
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();
