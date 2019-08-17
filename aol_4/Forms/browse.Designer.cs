@@ -31,12 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Browse));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.favoriteBtn = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.toolStripContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.favoriteBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -62,6 +64,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.favoriteBtn);
             this.panel1.Controls.Add(this.titleLabel);
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
@@ -73,6 +76,17 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // favoriteBtn
+            // 
+            this.favoriteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.favoriteBtn.Image = ((System.Drawing.Image)(resources.GetObject("favoriteBtn.Image")));
+            this.favoriteBtn.Location = new System.Drawing.Point(700, 0);
+            this.favoriteBtn.Name = "favoriteBtn";
+            this.favoriteBtn.Size = new System.Drawing.Size(16, 17);
+            this.favoriteBtn.TabIndex = 4;
+            this.favoriteBtn.TabStop = false;
+            this.favoriteBtn.Click += new System.EventHandler(this.FavoriteBtn_Click);
             // 
             // titleLabel
             // 
@@ -160,6 +174,7 @@
             this.toolStripContainer1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.favoriteBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -172,6 +187,7 @@
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.PictureBox favoriteBtn;
     }
 }
 

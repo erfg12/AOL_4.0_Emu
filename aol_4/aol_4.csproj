@@ -453,6 +453,7 @@
     <Content Include="aol_icon_4_Bnk_icon.ico" />
     <None Include="Resources\accountsdb.bmp" />
     <None Include="Resources\dial-up-modem.wav" />
+    <None Include="Resources\favorite_btn.png" />
     <Content Include="Resources\Goodbye.wav" />
     <None Include="Resources\stop_btn_enabled.png" />
     <None Include="Resources\stop_btn1.png" />
@@ -470,6 +471,8 @@
     <None Include="Resources\quotes_icon_enabled.png" />
     <None Include="Resources\mie_badge.png" />
     <None Include="Resources\right_icon1.png" />
+    <None Include="Resources\restore_btn.png" />
+    <None Include="Resources\maximize_disabled_btn.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>

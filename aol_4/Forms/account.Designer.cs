@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accForm));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mainTitle = new System.Windows.Forms.Label();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.leftBanner = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.screenName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,115 +40,15 @@
             this.passBox = new System.Windows.Forms.TextBox();
             this.passLabel = new System.Windows.Forms.Label();
             this.accCheck = new System.Windows.Forms.Timer(this.components);
+            this.leftBanner = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.closeBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.mainTitle);
-            this.panel1.Controls.Add(this.miniBtn);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.maxBtn);
-            this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 18);
-            this.panel1.TabIndex = 4;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
-            // mainTitle
-            // 
-            this.mainTitle.AutoSize = true;
-            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
-            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(26, 2);
-            this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(45, 13);
-            this.mainTitle.TabIndex = 10;
-            this.mainTitle.Text = "Sign On";
-            // 
-            // miniBtn
-            // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(321, 1);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(18, 16);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(4, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // maxBtn
-            // 
-            this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.maxBtn.Enabled = false;
-            this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(339, 1);
-            this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.maxBtn.Name = "maxBtn";
-            this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(18, 16);
-            this.maxBtn.TabIndex = 1;
-            this.maxBtn.UseVisualStyleBackColor = false;
-            // 
-            // closeBtn
-            // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(359, 1);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(18, 16);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            // 
-            // leftBanner
-            // 
-            this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
-            this.leftBanner.Location = new System.Drawing.Point(2, 18);
-            this.leftBanner.Name = "leftBanner";
-            this.leftBanner.Size = new System.Drawing.Size(100, 300);
-            this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.leftBanner.TabIndex = 5;
-            this.leftBanner.TabStop = false;
             // 
             // label1
             // 
@@ -269,6 +162,74 @@
             this.accCheck.Interval = 1000;
             this.accCheck.Tick += new System.EventHandler(this.accCheck_Tick);
             // 
+            // leftBanner
+            // 
+            this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
+            this.leftBanner.Location = new System.Drawing.Point(2, 18);
+            this.leftBanner.Name = "leftBanner";
+            this.leftBanner.Size = new System.Drawing.Size(100, 300);
+            this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.leftBanner.TabIndex = 5;
+            this.leftBanner.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.mainTitle);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.closeBtn);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(378, 18);
+            this.panel1.TabIndex = 4;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // mainTitle
+            // 
+            this.mainTitle.AutoSize = true;
+            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
+            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.mainTitle.Location = new System.Drawing.Point(26, 2);
+            this.mainTitle.Name = "mainTitle";
+            this.mainTitle.Size = new System.Drawing.Size(45, 13);
+            this.mainTitle.TabIndex = 10;
+            this.mainTitle.Text = "Sign On";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Location = new System.Drawing.Point(4, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.ForeColor = System.Drawing.Color.Black;
+            this.closeBtn.Location = new System.Drawing.Point(359, 1);
+            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.closeBtn.Size = new System.Drawing.Size(18, 16);
+            this.closeBtn.TabIndex = 0;
+            this.closeBtn.UseVisualStyleBackColor = false;
+            // 
             // accForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,10 +255,10 @@
             this.Text = "accForm";
             this.Load += new System.EventHandler(this.accForm_Load);
             this.Shown += new System.EventHandler(this.accForm_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,8 +267,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button miniBtn;
-        private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.PictureBox leftBanner;
         private System.Windows.Forms.Label mainTitle;

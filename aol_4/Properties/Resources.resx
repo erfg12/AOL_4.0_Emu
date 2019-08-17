@@ -625,4 +625,13 @@
   <data name="youve_got_mail_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\youve_got_mail_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="favorite_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\favorite_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maximize_disabled_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maximize_disabled_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restore_btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\restore_btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

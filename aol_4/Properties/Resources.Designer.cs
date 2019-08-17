@@ -452,6 +452,16 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap favorite_btn {
+            get {
+                object obj = ResourceManager.GetObject("favorite_btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap favorites_icon {
             get {
                 object obj = ResourceManager.GetObject("favorites_icon", resourceCulture);
@@ -564,6 +574,16 @@ namespace aol.Properties {
         internal static System.Drawing.Bitmap maximize_btn {
             get {
                 object obj = ResourceManager.GetObject("maximize_btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maximize_disabled_btn {
+            get {
+                object obj = ResourceManager.GetObject("maximize_disabled_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -704,6 +724,16 @@ namespace aol.Properties {
         internal static System.Drawing.Bitmap reload_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("reload_btn_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore_btn {
+            get {
+                object obj = ResourceManager.GetObject("restore_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

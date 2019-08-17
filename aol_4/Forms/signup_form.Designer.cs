@@ -134,7 +134,7 @@
             // 
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
+            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_disabled_btn;
             this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.maxBtn.Enabled = false;

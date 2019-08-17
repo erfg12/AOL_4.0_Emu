@@ -115,6 +115,7 @@ namespace aol.Forms
                 this.Width = wndWidth;
                 this.Height = wndHeight;
                 maximized = false;
+                maxBtn.Image = Properties.Resources.maximize_btn;
             }
             else
             {
@@ -126,6 +127,7 @@ namespace aol.Forms
                 this.Location = new Point(0, 101);
                 this.Width = Parent.Width - 4;
                 this.Height = Parent.Height - 105;
+                maxBtn.Image = Properties.Resources.restore_btn;
             }
         }
         #endregion
