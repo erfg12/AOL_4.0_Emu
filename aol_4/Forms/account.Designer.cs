@@ -99,6 +99,7 @@
             // signOnBtn
             // 
             this.signOnBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.signOnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signOnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signOnBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signOnBtn.ForeColor = System.Drawing.SystemColors.Control;
@@ -113,6 +114,7 @@
             // helpBtn
             // 
             this.helpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.helpBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpBtn.ForeColor = System.Drawing.SystemColors.Control;
@@ -126,6 +128,7 @@
             // setupBtn
             // 
             this.setupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.setupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.setupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.setupBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.setupBtn.ForeColor = System.Drawing.SystemColors.Control;
@@ -165,7 +168,7 @@
             // leftBanner
             // 
             this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
-            this.leftBanner.Location = new System.Drawing.Point(2, 18);
+            this.leftBanner.Location = new System.Drawing.Point(2, 20);
             this.leftBanner.Name = "leftBanner";
             this.leftBanner.Size = new System.Drawing.Size(100, 300);
             this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -235,7 +238,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(382, 320);
+            this.ClientSize = new System.Drawing.Size(382, 322);
             this.Controls.Add(this.passLabel);
             this.Controls.Add(this.passBox);
             this.Controls.Add(this.setupBtn);
