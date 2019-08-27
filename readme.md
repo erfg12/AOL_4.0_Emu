@@ -1,7 +1,7 @@
 AOL 4.0 rebuilt with C# Winforms and Chromium. [aolemu.com](https://aolemu.com)
 
 ## HOW TO COMPILE
-Open with VS.net, right click on the project and click "Restore Nuget Packages". Now compile the code.
+Open the .sln file with [Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16), right click on the project in VS and click "Restore Nuget Packages". Now click compile and you'll get the .exe file.
 
 ## FOR END USERS 
 Visit https://github.com/erfg12/AOL_4.0_Emu/releases and download the latest zip version.
