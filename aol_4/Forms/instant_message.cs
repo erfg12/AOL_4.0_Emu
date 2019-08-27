@@ -137,6 +137,7 @@ namespace aol.Forms
             try
             {
                 File.AppendAllText(privateLog, accForm.tmpUsername + ": " + myMessageBox.Text + '\n');
+                sendMsgSound();
             }
             catch
             {
@@ -207,6 +208,20 @@ namespace aol.Forms
             }
         }
 
+        private void receivedMsgSound()
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.Stream = Properties.Resources.imrcv;
+            player.Play();
+        }
+
+        private void sendMsgSound()
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.Stream = Properties.Resources.imsend;
+            player.Play();
+        }
+
         private void writeFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2
         {
             string lastLine = "";
@@ -225,6 +240,7 @@ namespace aol.Forms
                                     try
                                     {
                                         messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                                        receivedMsgSound();
                                     }
                                     catch
                                     {
@@ -241,6 +257,7 @@ namespace aol.Forms
                         try
                         {
                             messagesBox.AppendText(lastLine + Environment.NewLine);
+                            receivedMsgSound();
                         }
                         catch
                         {
