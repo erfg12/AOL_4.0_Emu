@@ -102,9 +102,9 @@ namespace aol.Forms
                 wndWidth = this.Width;
                 wndHeight = this.Height;
                 maximized = true;
-                this.Location = new Point(0, 101);
+                this.Location = new Point(0, 106);
                 this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 105;
+                this.Height = Parent.Height - 110;
             }
         }
         #endregion

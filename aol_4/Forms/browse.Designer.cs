@@ -79,7 +79,9 @@
             // 
             // favoriteBtn
             // 
+            this.favoriteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.favoriteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.favoriteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.favoriteBtn.Image = ((System.Drawing.Image)(resources.GetObject("favoriteBtn.Image")));
             this.favoriteBtn.Location = new System.Drawing.Point(700, 0);
             this.favoriteBtn.Name = "favoriteBtn";
