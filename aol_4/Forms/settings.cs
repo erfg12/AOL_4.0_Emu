@@ -123,5 +123,10 @@ namespace aol.Forms
             }
         }
         #endregion
+
+        private void MiniBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

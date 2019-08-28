@@ -81,9 +81,9 @@
             this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.mainTitle.Location = new System.Drawing.Point(3, 2);
             this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(106, 13);
+            this.mainTitle.Size = new System.Drawing.Size(85, 13);
             this.mainTitle.TabIndex = 11;
-            this.mainTitle.Text = "Preferences Window";
+            this.mainTitle.Text = "General Settings";
             // 
             // miniBtn
             // 
@@ -100,12 +100,13 @@
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
             this.miniBtn.UseVisualStyleBackColor = false;
+            this.miniBtn.Click += new System.EventHandler(this.MiniBtn_Click);
             // 
             // maxBtn
             // 
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
+            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_disabled_btn;
             this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.maxBtn.Enabled = false;
@@ -142,12 +143,15 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
             this.button1.Location = new System.Drawing.Point(258, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // homePageBox
@@ -184,12 +188,15 @@
             // 
             // updateFNBtn
             // 
+            this.updateFNBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.updateFNBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateFNBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.updateFNBtn.Location = new System.Drawing.Point(256, 92);
             this.updateFNBtn.Name = "updateFNBtn";
-            this.updateFNBtn.Size = new System.Drawing.Size(56, 21);
+            this.updateFNBtn.Size = new System.Drawing.Size(56, 22);
             this.updateFNBtn.TabIndex = 3;
             this.updateFNBtn.Text = "Update";
-            this.updateFNBtn.UseVisualStyleBackColor = true;
+            this.updateFNBtn.UseVisualStyleBackColor = false;
             this.updateFNBtn.Click += new System.EventHandler(this.updateFNBtn_Click);
             // 
             // label9

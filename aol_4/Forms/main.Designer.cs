@@ -239,6 +239,7 @@
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.addrBarBG = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -278,6 +279,7 @@
             this.findMenuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addrBarBG)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -296,16 +298,16 @@
             this.panel2.Controls.Add(this.addrBox);
             this.panel2.Controls.Add(this.keywordBtn);
             this.panel2.Controls.Add(this.goBtn);
-            this.panel2.Location = new System.Drawing.Point(2, 77);
+            this.panel2.Location = new System.Drawing.Point(5, 83);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(797, 26);
+            this.panel2.Size = new System.Drawing.Size(793, 25);
             this.panel2.TabIndex = 8;
             // 
             // findBtn
             // 
             this.findBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.findBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.findBtn.Location = new System.Drawing.Point(141, 3);
+            this.findBtn.Location = new System.Drawing.Point(141, 2);
             this.findBtn.Name = "findBtn";
             this.findBtn.Size = new System.Drawing.Size(49, 21);
             this.findBtn.TabIndex = 16;
@@ -316,7 +318,7 @@
             // mie_badge
             // 
             this.mie_badge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mie_badge.Location = new System.Drawing.Point(740, 3);
+            this.mie_badge.Location = new System.Drawing.Point(734, 2);
             this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
             this.mie_badge.Name = "mie_badge";
             this.mie_badge.Size = new System.Drawing.Size(59, 21);
@@ -327,7 +329,7 @@
             // 
             this.homeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeBtn.Image = global::aol.Properties.Resources.home_btn_enabled;
-            this.homeBtn.Location = new System.Drawing.Point(107, 4);
+            this.homeBtn.Location = new System.Drawing.Point(107, 3);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(27, 20);
             this.homeBtn.TabIndex = 14;
@@ -338,7 +340,7 @@
             // 
             this.reloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.reloadBtn.Image = global::aol.Properties.Resources.reload_btn;
-            this.reloadBtn.Location = new System.Drawing.Point(79, 4);
+            this.reloadBtn.Location = new System.Drawing.Point(79, 3);
             this.reloadBtn.Name = "reloadBtn";
             this.reloadBtn.Size = new System.Drawing.Size(28, 20);
             this.reloadBtn.TabIndex = 13;
@@ -350,7 +352,7 @@
             this.stopBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.stopBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.stopBtn.Image = global::aol.Properties.Resources.stop_btn1;
-            this.stopBtn.Location = new System.Drawing.Point(52, 4);
+            this.stopBtn.Location = new System.Drawing.Point(52, 3);
             this.stopBtn.Name = "stopBtn";
             this.stopBtn.Size = new System.Drawing.Size(27, 20);
             this.stopBtn.TabIndex = 12;
@@ -361,7 +363,7 @@
             // 
             this.forwardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.forwardBtn.Image = global::aol.Properties.Resources.forward_btn1;
-            this.forwardBtn.Location = new System.Drawing.Point(28, 4);
+            this.forwardBtn.Location = new System.Drawing.Point(28, 3);
             this.forwardBtn.Name = "forwardBtn";
             this.forwardBtn.Size = new System.Drawing.Size(25, 20);
             this.forwardBtn.TabIndex = 11;
@@ -372,7 +374,7 @@
             // 
             this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backBtn.Image = global::aol.Properties.Resources.back_btn1;
-            this.backBtn.Location = new System.Drawing.Point(4, 4);
+            this.backBtn.Location = new System.Drawing.Point(4, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(25, 20);
             this.backBtn.TabIndex = 10;
@@ -386,9 +388,9 @@
             this.addrBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.addrBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.addrBox.FormattingEnabled = true;
-            this.addrBox.Location = new System.Drawing.Point(192, 3);
+            this.addrBox.Location = new System.Drawing.Point(192, 2);
             this.addrBox.Name = "addrBox";
-            this.addrBox.Size = new System.Drawing.Size(447, 21);
+            this.addrBox.Size = new System.Drawing.Size(443, 21);
             this.addrBox.TabIndex = 9;
             this.addrBox.Text = "Type Keyword or Web Address here and click Go";
             this.addrBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addrBox_KeyDown_1);
@@ -400,7 +402,7 @@
             this.keywordBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.keywordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.keywordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.keywordBtn.Location = new System.Drawing.Point(680, 3);
+            this.keywordBtn.Location = new System.Drawing.Point(676, 2);
             this.keywordBtn.Name = "keywordBtn";
             this.keywordBtn.Size = new System.Drawing.Size(57, 21);
             this.keywordBtn.TabIndex = 8;
@@ -413,7 +415,7 @@
             this.goBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.goBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.goBtn.Location = new System.Drawing.Point(643, 3);
+            this.goBtn.Location = new System.Drawing.Point(639, 2);
             this.goBtn.Name = "goBtn";
             this.goBtn.Size = new System.Drawing.Size(33, 21);
             this.goBtn.TabIndex = 7;
@@ -429,7 +431,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(798, 3);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(798, 0);
             this.toolStripContainer1.Location = new System.Drawing.Point(2, 20);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(798, 21);
@@ -447,52 +449,54 @@
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(10, 2, 2, 2);
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileBtn,
             this.editBtn,
             this.windowBtn,
             this.signOffBtn,
             this.helpBtn});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(798, 18);
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(798, 25);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             // 
             // fileBtn
             // 
             this.fileBtn.Name = "fileBtn";
-            this.fileBtn.Size = new System.Drawing.Size(25, 15);
+            this.fileBtn.Size = new System.Drawing.Size(25, 22);
             this.fileBtn.Text = "File";
             this.fileBtn.Click += new System.EventHandler(this.fileBtn_Click);
             // 
             // editBtn
             // 
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(27, 15);
+            this.editBtn.Size = new System.Drawing.Size(27, 22);
             this.editBtn.Text = "Edit";
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // windowBtn
             // 
             this.windowBtn.Name = "windowBtn";
-            this.windowBtn.Size = new System.Drawing.Size(51, 15);
+            this.windowBtn.Size = new System.Drawing.Size(51, 22);
             this.windowBtn.Text = "Window";
             this.windowBtn.Click += new System.EventHandler(this.windowBtn_Click);
             // 
             // signOffBtn
             // 
             this.signOffBtn.Name = "signOffBtn";
-            this.signOffBtn.Size = new System.Drawing.Size(50, 15);
+            this.signOffBtn.Size = new System.Drawing.Size(50, 22);
             this.signOffBtn.Text = "Sign Off";
             this.signOffBtn.Click += new System.EventHandler(this.signOffBtn_Click);
             // 
             // helpBtn
             // 
             this.helpBtn.Name = "helpBtn";
-            this.helpBtn.Size = new System.Drawing.Size(32, 15);
+            this.helpBtn.Size = new System.Drawing.Size(32, 22);
             this.helpBtn.Text = "Help";
             this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
@@ -632,12 +636,12 @@
             this.tableLayoutPanel1.Controls.Add(this.weather_btn, 12, 0);
             this.tableLayoutPanel1.Controls.Add(this.loadingIcon, 14, 0);
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 39);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 43);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(797, 38);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(793, 38);
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -804,7 +808,7 @@
             this.loadingIcon.BackgroundImage = global::aol.Properties.Resources.aol_loading_image;
             this.loadingIcon.Enabled = false;
             this.loadingIcon.Image = global::aol.Properties.Resources.aol_loading_image;
-            this.loadingIcon.Location = new System.Drawing.Point(751, 0);
+            this.loadingIcon.Location = new System.Drawing.Point(747, 0);
             this.loadingIcon.Margin = new System.Windows.Forms.Padding(0);
             this.loadingIcon.Name = "loadingIcon";
             this.loadingIcon.Size = new System.Drawing.Size(46, 38);
@@ -1958,6 +1962,17 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // addrBarBG
+            // 
+            this.addrBarBG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addrBarBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addrBarBG.BackgroundImage")));
+            this.addrBarBG.Location = new System.Drawing.Point(3, 30);
+            this.addrBarBG.Name = "addrBarBG";
+            this.addrBarBG.Size = new System.Drawing.Size(797, 80);
+            this.addrBarBG.TabIndex = 15;
+            this.addrBarBG.TabStop = false;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1968,12 +1983,13 @@
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.addrBarBG);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "main";
-            this.Text = "AOL 4.0";
+            this.Text = "AOL 4.0 Emu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
@@ -2022,6 +2038,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addrBarBG)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2236,6 +2253,7 @@
         private System.Windows.Forms.ToolStripMenuItem aolAccessNumsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aolHelpMenuItem;
         private System.Windows.Forms.Button findBtn;
+        private System.Windows.Forms.PictureBox addrBarBG;
     }
 }
 

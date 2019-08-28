@@ -643,6 +643,8 @@ namespace aol.Forms
             if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
                 return;
 
+
+
             write_mail wmf = new write_mail();
             wmf.Owner = (Form)this;
             wmf.MdiParent = this;
@@ -900,7 +902,7 @@ namespace aol.Forms
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            settings sf = new settings();
+            preferences sf = new preferences();
             sf.Owner = (Form)this;
             sf.MdiParent = this;
             sf.Show();

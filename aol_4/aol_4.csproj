@@ -208,6 +208,12 @@
     <Compile Include="Forms\pictures.Designer.cs">
       <DependentUpon>pictures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\preferences.Designer.cs">
+      <DependentUpon>preferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\read_mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\pictures.resx">
       <DependentUpon>pictures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\preferences.resx">
+      <DependentUpon>preferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\read_mail.resx">
       <DependentUpon>read_mail.cs</DependentUpon>
