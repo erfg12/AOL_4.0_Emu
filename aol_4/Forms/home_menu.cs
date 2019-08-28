@@ -165,7 +165,15 @@ namespace aol.Forms
 
         }
 
-        private void home_menu_Shown(object sender, EventArgs e)
+        async Task setWeather()
+        {
+            temperatureLabel.Invoke(new MethodInvoker(delegate
+            {
+                temperatureLabel.Text = location.getCurrentWeather();
+            }));
+        }
+
+        private async void home_menu_ShownAsync(object sender, EventArgs e)
         {
             todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
             titleLabel.Text = "Welcome, " + accForm.tmpUsername;
@@ -174,7 +182,7 @@ namespace aol.Forms
             rects.Add(new Rectangle(5, 224, 98, 50)); // 2 chat_list
             rects.Add(new Rectangle(5, 124, 98, 50)); // 3 pictures
 
-            temperatureLabel.Text = location.getCurrentWeather();
+            await setWeather();
         }
 
         public home_menu()

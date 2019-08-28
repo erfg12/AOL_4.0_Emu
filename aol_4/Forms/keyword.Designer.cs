@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.closeBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.miniBtn = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.goBtn = new System.Windows.Forms.Button();
@@ -63,6 +63,19 @@
             this.panel1.Size = new System.Drawing.Size(371, 18);
             this.panel1.TabIndex = 3;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
+            this.pictureBox1.Location = new System.Drawing.Point(1, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // closeBtn
             // 
@@ -128,19 +141,6 @@
             this.titleLabel.Size = new System.Drawing.Size(48, 13);
             this.titleLabel.TabIndex = 4;
             this.titleLabel.Text = "Keyword";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(1, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -223,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Ivory;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(374, 140);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

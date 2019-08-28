@@ -236,6 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(326, 236);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.searchProvider);
@@ -253,7 +254,7 @@
             this.Name = "settings";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Preferences Window";
+            this.Text = "General Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.settings_FormClosing);
             this.Load += new System.EventHandler(this.settings_Load);
             this.Shown += new System.EventHandler(this.settings_Shown);

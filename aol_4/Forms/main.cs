@@ -199,6 +199,8 @@ namespace aol.Forms
                             addrBox.Items.Add(i);
                         }
                     }
+
+                    signOffBtn.Text = "Sign Off";
                 }
                 catch
                 {
@@ -608,10 +610,14 @@ namespace aol.Forms
             weather_btn.Image = Properties.Resources.weather_icon;
             preferencesToolStripMenuItem.Enabled = false; // settings holds email info
             email.youGotMail = false;
+            signOffBtn.Text = "Sign On";
         }
 
         private void signOffBtn_Click(object sender, EventArgs e)
         {
+            if (accForm.tmpUsername == "") // not signed in yet
+                return;
+
             SignOff();
             openAccWindow();
         }

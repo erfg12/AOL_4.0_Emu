@@ -197,7 +197,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Welcome Home Window";
-            this.Shown += new System.EventHandler(this.home_menu_Shown);
+            this.Shown += new System.EventHandler(this.home_menu_ShownAsync);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.home_menu_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.home_menu_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.home_menu_MouseMove);

@@ -489,8 +489,8 @@
             // signOffBtn
             // 
             this.signOffBtn.Name = "signOffBtn";
-            this.signOffBtn.Size = new System.Drawing.Size(50, 22);
-            this.signOffBtn.Text = "Sign Off";
+            this.signOffBtn.Size = new System.Drawing.Size(49, 22);
+            this.signOffBtn.Text = "Sign On";
             this.signOffBtn.Click += new System.EventHandler(this.signOffBtn_Click);
             // 
             // helpBtn
