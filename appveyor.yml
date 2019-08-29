@@ -10,3 +10,12 @@ after_build: 7z a nightly.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\x64\Debug\* %APP
 artifacts:
   path: nightly.zip
   name: nightly
+
+deploy:
+  - provider: GitHub
+    tag: nightly
+    release: nightly
+    description: nightly
+    auth_token:
+      secure: selr4mVDE+XfNJ6jFTKiLTbSbDe8COHTNVRsFblZDVWS5/0qAFVym/Bcy/OoHRTT
+    artifact: nightly.zip
