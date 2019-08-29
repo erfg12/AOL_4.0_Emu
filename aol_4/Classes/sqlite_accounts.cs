@@ -185,43 +185,6 @@ namespace aol.Forms
             return foundAcc;
         }
 
-        /// <summary>
-        /// Returns the users account ID. If 0, we failed to get the account.
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="pass">encrypted</param>
-        /// <returns></returns>
-        /*public static int loginAcc(string user, string pass, bool encrypt = true)
-        {
-            int foundAcc = 0;
-            //Debug.WriteLine("logging in with user:" + user + " pass:" + pass);
-            string encryptedPass = "";
-            if (encrypt)
-                encryptedPass = Encoding.Default.GetString(Hash(pass, passSalt));
-            else
-                encryptedPass = pass;
-
-            SQLiteConnection m_dbConnection = openDB();
-            m_dbConnection.Open();
-
-            string sql = "SELECT userid FROM aol_accounts WHERE username = '" + user + "' AND password = @encPass";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            command.Parameters.AddWithValue("encPass", encryptedPass);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                if (reader.GetInt32(0) > 0)
-                    foundAcc = reader.GetInt32(0);
-            }
-
-            m_dbConnection.Close();
-            //Debug.WriteLine("storing user:" + user + " pass:" + pass);
-            accForm.tmpUsername = user;
-            accForm.tmpPassword = encryptedPass;
-            return foundAcc;
-        }*/
-
-        
         public static bool addBuddy(string user)
         {
             bool good = false;

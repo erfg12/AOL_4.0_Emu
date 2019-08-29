@@ -270,17 +270,12 @@ namespace aol.Classes
                     if (item.TextBody != null)
                     {
                         rawBody = (TextPart) inbox.GetBodyPart(item.UniqueId, item.TextBody);
-                        //var html = inbox.GetBodyPart(item.UniqueId, item.TextBody);
                     }
 
                     foreach (InternetAddress rt in item.Envelope.ReplyTo)
                     {
                         reply = reply + rt.ToString() + ";";
                     }
-                    
-                    //Debug.WriteLine("[MAIL] ReplyTo: " + item.Envelope.ReplyTo.First().ToString());
-                    //Debug.WriteLine("[MAIL] Sender: " + item.Envelope.Sender.First().ToString());
-                    //Debug.WriteLine("[MAIL] From: " + item.Envelope.From.First().ToString());
                 }
 
                 client.Disconnect(true);

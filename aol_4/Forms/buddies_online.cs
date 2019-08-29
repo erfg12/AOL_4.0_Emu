@@ -63,7 +63,7 @@ namespace aol.Forms
 
             if (message.Msg == 0x84)
             {
-                var cursor = this.PointToClient(Cursor.Position);
+                var cursor = PointToClient(Cursor.Position);
 
                 if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
                 else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
@@ -91,21 +91,21 @@ namespace aol.Forms
         {
             if (maximized)
             {
-                this.Location = new Point(wndX, wndY);
-                this.Width = wndWidth;
-                this.Height = wndHeight;
+                Location = new Point(wndX, wndY);
+                Width = wndWidth;
+                Height = wndHeight;
                 maximized = false;
             }
             else
             {
-                wndX = this.Location.X;
-                wndY = this.Location.Y;
-                wndWidth = this.Width;
-                wndHeight = this.Height;
+                wndX = Location.X;
+                wndY = Location.Y;
+                wndWidth = Width;
+                wndHeight = Height;
                 maximized = true;
-                this.Location = new Point(0, 106);
-                this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 110;
+                Location = new Point(0, 106);
+                Width = Parent.Width - 4;
+                Height = Parent.Height - 110;
             }
         }
         #endregion
