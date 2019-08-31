@@ -58,10 +58,16 @@ namespace aol.Forms
 
         private void miniMax()
         {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+                maxBtn.Image = Properties.Resources.maximize_btn;
+            }
             else
-                this.WindowState = FormWindowState.Maximized;
+            {
+                WindowState = FormWindowState.Maximized;
+                maxBtn.Image = Properties.Resources.restore_btn;
+            }
 
             if (this.ActiveMdiChild != null)
             {
@@ -83,6 +89,7 @@ namespace aol.Forms
         #region shared_variables
         bool newWindow = true;
         string old_url = "";
+        public List<string> tmpHistory = new List<string>();
         #endregion
 
         #region my_functions
@@ -194,10 +201,9 @@ namespace aol.Forms
                         checkMail.Enabled = true;
                         checkMail.Start();
 
-                        foreach (string i in sqlite_accounts.getHistory())
-                        {
-                            addrBox.Items.Add(i);
-                        }
+                        reloadAddressBarHistory();
+                        if (!backgroundWorker1.IsBusy)
+                            backgroundWorker1.RunWorkerAsync();
                     }
 
                     signOffBtn.Text = "Sign Off";
@@ -218,6 +224,20 @@ namespace aol.Forms
             preferencesToolStripMenuItem.Enabled = true; // settings holds email info
 
             chat.startConnection();
+        }
+
+        public void reloadAddressBarHistory()
+        {
+            addrBox.Invoke( new MethodInvoker(delegate
+            {
+                addrBox.Items.Clear();
+                tmpHistory.Clear();
+                foreach (string i in sqlite_accounts.getHistory())
+                {
+                    addrBox.Items.Add(i);
+                    tmpHistory.Add(i);
+                }
+            }));
         }
 
         public void GoToURL()
@@ -243,7 +263,10 @@ namespace aol.Forms
                     if (accForm.tmpUsername != "Guest" && addrBox.Text.Contains("."))
                         sqlite_accounts.addHistory(addrBox.Text);
                     if (!addrBox.Items.Contains(addrBox.Text))
+                    {
                         addrBox.Items.Add(addrBox.Text);
+                        tmpHistory.Add(addrBox.Text);
+                    }
                     newWindow = false;
                 }
             }
@@ -375,6 +398,7 @@ namespace aol.Forms
                         loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
                         loadingIcon.Image = loadingIcon.Image;
                     }
+
                     if (((Browse)ActiveMdiChild).url != old_url)
                     {
                         addrBox.Text = ((Browse)this.ActiveMdiChild).url;
@@ -782,6 +806,22 @@ namespace aol.Forms
                 ((read_mail)ActiveMdiChild).mailViewer.Print();
             else
                 MessageBox.Show("Sorry, you can only print mail or web pages.");
+        }
+
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                List<string> tmpList = new List<string>();
+                tmpList.AddRange(tmpHistory);
+
+                foreach (string t in tmpList)
+                {
+                    if (!sqlite_accounts.getHistory().Contains(t))
+                        reloadAddressBarHistory();
+                }
+                Thread.Sleep(1000);
+            }
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)

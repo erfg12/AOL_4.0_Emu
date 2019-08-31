@@ -43,7 +43,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.searchProvider = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.browseHistoryList = new System.Windows.Forms.ListView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.deleteBrowserHistoryBtn = new System.Windows.Forms.Button();
+            this.DeleteAllBrowsingHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fullscreenCheckbox
@@ -70,7 +75,7 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(322, 18);
+            this.panel1.Size = new System.Drawing.Size(321, 18);
             this.panel1.TabIndex = 3;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -95,7 +100,7 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(265, 1);
+            this.miniBtn.Location = new System.Drawing.Point(264, 1);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(18, 16);
             this.miniBtn.TabIndex = 2;
@@ -113,7 +118,7 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(283, 1);
+            this.maxBtn.Location = new System.Drawing.Point(282, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -131,7 +136,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(303, 1);
+            this.closeBtn.Location = new System.Drawing.Point(302, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -146,7 +151,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(258, 201);
+            this.button1.Location = new System.Drawing.Point(257, 375);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(56, 23);
             this.button1.TabIndex = 10;
@@ -156,9 +161,11 @@
             // 
             // homePageBox
             // 
+            this.homePageBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.homePageBox.Location = new System.Drawing.Point(81, 67);
             this.homePageBox.Name = "homePageBox";
-            this.homePageBox.Size = new System.Drawing.Size(231, 20);
+            this.homePageBox.Size = new System.Drawing.Size(235, 20);
             this.homePageBox.TabIndex = 1;
             // 
             // label1
@@ -181,17 +188,20 @@
             // 
             // fullnameBox
             // 
+            this.fullnameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.fullnameBox.Location = new System.Drawing.Point(81, 93);
             this.fullnameBox.Name = "fullnameBox";
-            this.fullnameBox.Size = new System.Drawing.Size(169, 20);
+            this.fullnameBox.Size = new System.Drawing.Size(173, 20);
             this.fullnameBox.TabIndex = 2;
             // 
             // updateFNBtn
             // 
+            this.updateFNBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.updateFNBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.updateFNBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateFNBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.updateFNBtn.Location = new System.Drawing.Point(256, 92);
+            this.updateFNBtn.Location = new System.Drawing.Point(260, 92);
             this.updateFNBtn.Name = "updateFNBtn";
             this.updateFNBtn.Size = new System.Drawing.Size(56, 22);
             this.updateFNBtn.TabIndex = 3;
@@ -203,7 +213,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 210);
+            this.label9.Location = new System.Drawing.Point(12, 384);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(159, 13);
             this.label9.TabIndex = 22;
@@ -211,6 +221,8 @@
             // 
             // searchProvider
             // 
+            this.searchProvider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.searchProvider.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchProvider.FormattingEnabled = true;
             this.searchProvider.Items.AddRange(new object[] {
@@ -220,7 +232,7 @@
             "Bing"});
             this.searchProvider.Location = new System.Drawing.Point(81, 119);
             this.searchProvider.Name = "searchProvider";
-            this.searchProvider.Size = new System.Drawing.Size(231, 21);
+            this.searchProvider.Size = new System.Drawing.Size(235, 21);
             this.searchProvider.TabIndex = 23;
             // 
             // label3
@@ -232,12 +244,70 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Search:";
             // 
+            // browseHistoryList
+            // 
+            this.browseHistoryList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.browseHistoryList.FullRowSelect = true;
+            this.browseHistoryList.HideSelection = false;
+            this.browseHistoryList.Location = new System.Drawing.Point(7, 16);
+            this.browseHistoryList.Name = "browseHistoryList";
+            this.browseHistoryList.Size = new System.Drawing.Size(296, 174);
+            this.browseHistoryList.TabIndex = 25;
+            this.browseHistoryList.UseCompatibleStateImageBehavior = false;
+            this.browseHistoryList.View = System.Windows.Forms.View.List;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.DeleteAllBrowsingHistory);
+            this.groupBox1.Controls.Add(this.deleteBrowserHistoryBtn);
+            this.groupBox1.Controls.Add(this.browseHistoryList);
+            this.groupBox1.Location = new System.Drawing.Point(8, 146);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(309, 223);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Browse History";
+            // 
+            // deleteBrowserHistoryBtn
+            // 
+            this.deleteBrowserHistoryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteBrowserHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.deleteBrowserHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBrowserHistoryBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.deleteBrowserHistoryBtn.Location = new System.Drawing.Point(249, 194);
+            this.deleteBrowserHistoryBtn.Name = "deleteBrowserHistoryBtn";
+            this.deleteBrowserHistoryBtn.Size = new System.Drawing.Size(54, 23);
+            this.deleteBrowserHistoryBtn.TabIndex = 26;
+            this.deleteBrowserHistoryBtn.Text = "Delete";
+            this.deleteBrowserHistoryBtn.UseVisualStyleBackColor = false;
+            this.deleteBrowserHistoryBtn.Click += new System.EventHandler(this.DeleteBrowserHistoryBtn_Click);
+            // 
+            // DeleteAllBrowsingHistory
+            // 
+            this.DeleteAllBrowsingHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteAllBrowsingHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.DeleteAllBrowsingHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteAllBrowsingHistory.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteAllBrowsingHistory.Location = new System.Drawing.Point(7, 196);
+            this.DeleteAllBrowsingHistory.Name = "DeleteAllBrowsingHistory";
+            this.DeleteAllBrowsingHistory.Size = new System.Drawing.Size(75, 23);
+            this.DeleteAllBrowsingHistory.TabIndex = 27;
+            this.DeleteAllBrowsingHistory.Text = "Delete All";
+            this.DeleteAllBrowsingHistory.UseVisualStyleBackColor = false;
+            this.DeleteAllBrowsingHistory.Click += new System.EventHandler(this.DeleteAllBrowsingHistory_Click);
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(326, 236);
+            this.ClientSize = new System.Drawing.Size(325, 410);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.searchProvider);
             this.Controls.Add(this.label9);
@@ -251,6 +321,7 @@
             this.Controls.Add(this.fullscreenCheckbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(15, 120);
+            this.MinimumSize = new System.Drawing.Size(325, 410);
             this.Name = "settings";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -260,6 +331,7 @@
             this.Shown += new System.EventHandler(this.settings_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +354,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox searchProvider;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListView browseHistoryList;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button deleteBrowserHistoryBtn;
+        private System.Windows.Forms.Button DeleteAllBrowsingHistory;
     }
 }

@@ -240,6 +240,7 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.addrBarBG = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -1973,6 +1974,12 @@
             this.addrBarBG.TabIndex = 15;
             this.addrBarBG.TabStop = false;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2254,6 +2261,7 @@
         private System.Windows.Forms.ToolStripMenuItem aolHelpMenuItem;
         private System.Windows.Forms.Button findBtn;
         private System.Windows.Forms.PictureBox addrBarBG;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

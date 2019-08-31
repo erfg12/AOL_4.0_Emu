@@ -74,6 +74,8 @@ namespace aol.Forms
 
             searchProvider.Text = Properties.Settings.Default.searchProvider;
 
+            reloadBrowseHistory();
+
             /*if (accForm.tmpUsername != "Guest" && accForm.tmpUsername != "") {
                 // email info
                 string[] accInfo = sqlite_accounts.getEmailInfo();
@@ -86,6 +88,15 @@ namespace aol.Forms
                 smtpPort.Text = accInfo[5];
                 useSSL.Checked = checkSSL;
             }*/
+        }
+
+        private void reloadBrowseHistory()
+        {
+            browseHistoryList.Items.Clear();
+            foreach (string l in sqlite_accounts.getHistory())
+            {
+                browseHistoryList.Items.Add(l);
+            }
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -126,7 +137,25 @@ namespace aol.Forms
 
         private void MiniBtn_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void DeleteBrowserHistoryBtn_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem i in browseHistoryList.SelectedItems)
+            {
+                sqlite_accounts.deleteHistory(i.Text);
+            }
+            reloadBrowseHistory();
+        }
+
+        private void DeleteAllBrowsingHistory_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem i in browseHistoryList.Items)
+            {
+                sqlite_accounts.deleteHistory(i.Text);
+            }
+            reloadBrowseHistory();
         }
     }
 }

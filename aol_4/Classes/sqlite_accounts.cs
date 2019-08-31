@@ -104,6 +104,34 @@ namespace aol.Forms
             return history;
         }
 
+        public static List<string> deleteHistory(string url)
+        {
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            List<string> history = new List<string>();
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                //Debug.WriteLine("getting email info with id:" + userID);
+                command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "DELETE FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
+                    SQLiteDataReader reader = command.ExecuteReader();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+            }
+
+            m_dbConnection.Close();
+            return history;
+        }
+
         /// <summary>
         /// Returns 0 on success, otherwise an error number will be given.
         /// </summary>

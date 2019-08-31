@@ -263,6 +263,8 @@ namespace aol.Forms
 
         private void IMBtn_Click(object sender, EventArgs e)
         {
+            if (buddyTreeView.SelectedNode == null)
+                return;
             if (buddyTreeView.SelectedNode.Text == null)
                 return;
             if (!chat.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))

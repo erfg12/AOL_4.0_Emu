@@ -123,6 +123,8 @@
             // 
             // buddyTreeView
             // 
+            this.buddyTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buddyTreeView.Location = new System.Drawing.Point(6, 41);
             this.buddyTreeView.Name = "buddyTreeView";
             treeNode1.Checked = true;
