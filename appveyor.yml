@@ -15,7 +15,7 @@ deploy:
   - provider: GitHub
     tag: nightly
     release: nightly
-    description: nightly
+    description: Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
     auth_token:
       secure: selr4mVDE+XfNJ6jFTKiLTbSbDe8COHTNVRsFblZDVWS5/0qAFVym/Bcy/OoHRTT
     artifact: nightly.zip
