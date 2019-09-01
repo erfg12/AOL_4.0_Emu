@@ -93,7 +93,9 @@ namespace aol.Forms
         private void reloadBrowseHistory()
         {
             browseHistoryList.Items.Clear();
-            foreach (string l in sqlite_accounts.getHistory())
+            List<string> tmpHistory = sqlite_accounts.getHistory();
+            tmpHistory.Sort();
+            foreach (string l in tmpHistory)
             {
                 browseHistoryList.Items.Add(l);
             }

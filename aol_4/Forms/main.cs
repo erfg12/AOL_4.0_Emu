@@ -272,8 +272,8 @@ namespace aol.Forms
             }
             catch
             {
-                if (MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "Would you like to go to https://www.microsoft.com/en-us/download/details.aspx?id=52685 ?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
-                    Process.Start("https://support.google.com/accounts/answer/185833");
+                //if (MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "Would you like to go to https://www.microsoft.com/en-us/download/details.aspx?id=52685 ?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                //    Process.Start("https://support.google.com/accounts/answer/185833");
             }
         }
 

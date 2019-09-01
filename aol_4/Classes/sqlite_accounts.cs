@@ -44,6 +44,13 @@ namespace aol.Forms
         {
             int code = 0;
 
+            url = url.ToLower();
+            url = url.Replace("http://", "");
+            url = url.Replace("https://", "");
+
+            if (url.EndsWith("/"))
+                url = url.Remove(url.Length - 1);
+
             if (findHisory(url) > 0)
                 return 999;
 
