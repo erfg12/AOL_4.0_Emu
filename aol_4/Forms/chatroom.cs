@@ -171,49 +171,46 @@ namespace aol.Forms
                 if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
                     continue;
 
-                try
+                if (!IsHandleCreated)
+                    continue;
+
+                usersListView.Invoke(new MethodInvoker(delegate
                 {
-                    usersListView.Invoke(new MethodInvoker(delegate
+                    if (!chat.users.ContainsKey(roomname))
                     {
-                        if (!chat.users.ContainsKey(roomname))
-                        {
-                            Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
-                            return;
-                        }
-                        // remove offline users
-                        foreach (ListViewItem item in usersListView.Items)
-                        {
-                            if (!chat.users[roomname].Contains(item.Text))
-                            {
-                                usersListView.Items.Remove(item);
-                                pplCount--;
-                            }
-                        }
-                        // add online users
-                        List<string> usersList = chat.users[roomname]; // gotta declare it, so we can use it
-                        for (int i = 0; i < usersList.Count; i++)
-                        {
-                            if (usersList[i] == "")
-                                continue;
-                            if (!usersListView.Items.ContainsKey(usersList[i]))
-                            {
-                                ListViewItem lvi = new ListViewItem();
-                                lvi.Text = usersList[i];
-                                lvi.Tag = usersList[i];
-                                lvi.Name = usersList[i];
-                                usersListView.Items.Add(lvi);
-                                pplCount++;
-                            }
-                        }
-                    }));
-                    pplQty.Invoke(new MethodInvoker(delegate
+                        Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
+                        return;
+                    }
+                    // remove offline users
+                    foreach (ListViewItem item in usersListView.Items)
                     {
-                        pplQty.Text = pplCount.ToString();
-                    }));
-                } catch {
-                    Debug.WriteLine("BGWorker1 usersListView crashed.");
-                    break;
-                }
+                        if (!chat.users[roomname].Contains(item.Text))
+                        {
+                            usersListView.Items.Remove(item);
+                            pplCount--;
+                        }
+                    }
+                    // add online users
+                    List<string> usersList = chat.users[roomname]; // gotta declare it, so we can use it
+                    for (int i = 0; i < usersList.Count; i++)
+                    {
+                        if (usersList[i] == "")
+                            continue;
+                        if (!usersListView.Items.ContainsKey(usersList[i]))
+                        {
+                            ListViewItem lvi = new ListViewItem();
+                            lvi.Text = usersList[i];
+                            lvi.Tag = usersList[i];
+                            lvi.Name = usersList[i];
+                            usersListView.Items.Add(lvi);
+                            pplCount++;
+                        }
+                    }
+                }));
+                pplQty.Invoke(new MethodInvoker(delegate
+                {
+                    pplQty.Text = pplCount.ToString();
+                }));
                 Thread.Sleep(500);
             }
         }
@@ -229,7 +226,7 @@ namespace aol.Forms
 
         private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
         {
-            chat.irc.SendRawMessage("leave #" + chat.pChat);
+            chat.irc.SendRawMessage("part #" + chat.pChat);
         }
 
         private void messageTextBox_KeyDown(object sender, KeyEventArgs e)

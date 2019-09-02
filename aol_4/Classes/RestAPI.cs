@@ -57,6 +57,8 @@ namespace aol.Forms
         /// <returns></returns>
         public static bool createAccount(string user, string pass, string fn)
         {
+            if (user == "" || pass == "")
+                return false;
             string encPass = CreateMD5(pass);
             var data = getData("create", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
             string msg = (string)data.SelectToken("content[0].msg");
@@ -79,6 +81,8 @@ namespace aol.Forms
         /// <returns></returns>
         public static bool loginAccount(string user, string pass)
         {
+            if (user == "" || pass == "")
+                return false;
             string encPass = CreateMD5(pass);
             var data = getData("fetch", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
             if ((string)data.SelectToken("content[0].msg") == "success")
@@ -114,6 +118,9 @@ namespace aol.Forms
 
         public static IList<string> getBuddyList(string user, string pass)
         {
+            if (user == "" || pass == "")
+                return null;
+
             pass = CreateMD5(pass);
 
             var data = getData("fetch", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
@@ -129,6 +136,8 @@ namespace aol.Forms
         /// <returns></returns>
         public static bool updateFullName(string newfn)
         {
+            if (accForm.tmpUsername == "")
+                return false;
             var data = getData("updatefn", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
             if ((string)data.SelectToken("content[0].msg") == "success")
             {
@@ -145,6 +154,8 @@ namespace aol.Forms
         /// <returns></returns>
         public static bool updatePassword(string newpw)
         {
+            if (accForm.tmpUsername == "")
+                return false;
             newpw = Encoding.Default.GetString(sqlite_accounts.Hash(newpw, sqlite_accounts.passSalt));
             var data = getData("updatepw", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
             if ((string)data.SelectToken("content[0].msg") == "success")
@@ -162,12 +173,16 @@ namespace aol.Forms
         /// <returns></returns>
         public static bool addBuddy(string username)
         {
+            if (accForm.tmpUsername == "")
+                return false;
+
             var data = getData("addbuddy", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&buddy=" + WebUtility.UrlEncode(username));
             if ((string)data.SelectToken("content[0].msg") == "success")
             {
                 sqlite_accounts.addBuddy(username);
                 return true;
             }
+
             return false;
         }
 
@@ -178,6 +193,8 @@ namespace aol.Forms
         /// <returns></returns>
         public static bool removeBuddy(string buddyid)
         {
+            if (accForm.tmpUsername == "")
+                return false;
             var data = getData("removebuddy", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&buddyid=" + WebUtility.UrlEncode(buddyid));
             if ((string)data.SelectToken("content[0].msg") == "success")
             {

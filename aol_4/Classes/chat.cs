@@ -112,8 +112,10 @@ namespace aol.Classes
             }
             else if (args.Message.Contains(" JOIN :#"))
             {
-                Debug.WriteLine("Getting users list from IRC server");
-                irc.GetUsersInCurrentChannel(); // GetUsersInDifferentChannel("#chanName");
+                string chan = args.Message.Substring(args.Message.IndexOf(" JOIN :") + " JOIN :".Length);
+                Debug.WriteLine("Getting users list from IRC server: " + chan);
+                //irc.GetUsersInCurrentChannel();
+                irc.GetUsersInDifferentChannel(chan);
             }
             else if (args.Message.Contains(" PART #"))
             {
@@ -161,18 +163,21 @@ namespace aol.Classes
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
         {
-            Debug.WriteLine("Creating user list");
+            Debug.WriteLine("Creating user list...");
+            Debug.WriteLine("Users in channel: " + args.UsersPerChannel.Count);
+
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
                 string channel = usersPerChannel.Key.ToLower();
+                channel = channel.Replace("#", "");
                 if (!users.ContainsKey(channel))
                 {
                     Debug.WriteLine("Creating users key " + channel);
-                    users.Add(channel.Replace("#",""), args.UsersPerChannel[usersPerChannel.Key]);
+                    users.Add(channel, args.UsersPerChannel[usersPerChannel.Key]);
                     continue;
                 }
                 // check if offline user is still in list
-                for (int i = 0; i < users[usersPerChannel.Key].Count; i++)
+                for (int i = 0; i < users[channel].Count; i++)
                 {
                     if (!usersPerChannel.Value.Contains(users[channel][i]))
                         users[channel].Remove(users[channel][i]);

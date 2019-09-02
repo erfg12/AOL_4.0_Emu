@@ -117,6 +117,7 @@ namespace aol.Forms
         public bool loading = false;
         public ChromiumWebBrowser browser;
         public string url = "";
+        public string title = "";
         #endregion
 
         #region my_functions
@@ -133,6 +134,7 @@ namespace aol.Forms
             browser.AddressChanged += Browser_AddressChanged;
             toolStripContainer1.ContentPanel.Controls.Add(browser);
             browser.DownloadHandler = new DownloadHandler();
+            browser.TitleChanged += Browser_TitleChanged;
             //browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
 
             //Wait for the page to finish loading (all resources will have been loaded, rendering is likely still happening)
@@ -141,7 +143,6 @@ namespace aol.Forms
                 //Wait for the Page to finish loading
                 loading = args.IsLoading;
             };
-            
         }
 
         public string searchProvider(string query)
@@ -195,19 +196,27 @@ namespace aol.Forms
             }
         }
 
+        private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
+        {
+            title = e.Title;
+            titleLabel.Invoke(new MethodInvoker(delegate
+            {
+                titleLabel.Text = title;
+                Text = title;
+            }));
+        }
+
         private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
         {
             url = e.Address;
-            titleLabel.Invoke(new MethodInvoker(delegate
-            {
-                titleLabel.Text = url;
-                Text = url;
-            }));
         }
 
         private void FavoriteBtn_Click(object sender, EventArgs e)
         {
-
+            add_favorite af = new add_favorite(url, title);
+            af.Owner = this;
+            af.MdiParent = MdiParent;
+            af.Show();
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

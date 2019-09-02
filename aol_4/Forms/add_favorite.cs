@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace aol.Forms
 {
-    public partial class add_buddy : Form
+    public partial class add_favorite : Form
     {
         #region DLLImports
         [DllImport("user32.dll")]
@@ -74,20 +74,6 @@ namespace aol.Forms
             }
         }
 
-        private void MiniBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void MainTitle_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(Brushes.Gray, Top);
@@ -96,38 +82,51 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         public bool maximized = false;
 
-        void maxiMini()
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
-            if (maximized)
+            Close();
+        }
+
+        private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
             {
-                Location = new Point(wndX, wndY);
-                Width = wndWidth;
-                Height = wndHeight;
-                maximized = false;
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-            else
-            {
-                wndX = Location.X;
-                wndY = Location.Y;
-                wndWidth = Width;
-                wndHeight = Height;
-                maximized = true;
-                Location = new Point(0, 106);
-                Width = Parent.Width - 4;
-                Height = Parent.Height - 110;
-            }
+        }
+
+        private void MiniBtn_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
         #endregion
 
-        public add_buddy()
+        string url = "";
+        string name = "";
+        bool edit = false;
+
+        public add_favorite(string url1, string name1, bool edit1 = false)
         {
             InitializeComponent();
+            url = url1;
+            name = name1;
+            edit = edit1;
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void OkBtn_Click(object sender, EventArgs e)
         {
+            if (!edit)
+                sqlite_accounts.addFavorite(internetAddrBox.Text, placeDescBox.Text);
+            else
+                sqlite_accounts.updateFavorite(internetAddrBox.Text, placeDescBox.Text);
             Close();
         }
 
@@ -140,13 +139,12 @@ namespace aol.Forms
             }
         }
 
-        private void sendBtn_Click(object sender, EventArgs e)
+        private void Add_favorite_Shown(object sender, EventArgs e)
         {
-            if (RestAPI.addBuddy(nameTextBox.Text))
-                MessageBox.Show("Buddy Added!");
-            else
-                MessageBox.Show("Error: Buddy not added.");
-            Close();
+            placeDescBox.Text = name;
+            internetAddrBox.Text = url;
+            if (edit)
+                internetAddrBox.ReadOnly = true;
         }
     }
 }

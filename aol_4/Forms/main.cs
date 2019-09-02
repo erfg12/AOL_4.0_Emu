@@ -154,6 +154,12 @@ namespace aol.Forms
             }
         }
 
+        private void faveBtn_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button; // TEST
+            MessageBox.Show(btn.Tag.ToString());
+        }
+
         private void startProgram()
         {
             Invoke((MethodInvoker)async delegate ()
@@ -277,14 +283,9 @@ namespace aol.Forms
             }
         }
 
-        private void openBrowser(string url = "")
+        public void openBrowser(string url = "")
         {
-            string goTo = "";
-            if (url == "")
-                goTo = addrBox.Text;
-            else
-                goTo = url;
-            Form BrowseWnd = new Browse(goTo);
+            Form BrowseWnd = new Browse(url);
             BrowseWnd.Owner = (Form)this;
             BrowseWnd.MdiParent = this;
             BrowseWnd.Show();
@@ -362,7 +363,7 @@ namespace aol.Forms
 
         private void fileBtn_Click(object sender, EventArgs e)
         {
-            fileContextMenuStrip.Show(this.Location.X, this.Location.Y + 40);
+            fileContextMenuStrip.Show(this.Location.X, Location.Y + 40);
         }
 
         private void closeForm_Click(object sender, EventArgs e)
@@ -812,6 +813,7 @@ namespace aol.Forms
         {
             while (true)
             {
+                // check for new history items
                 List<string> tmpList = new List<string>();
                 tmpList.AddRange(tmpHistory);
 
@@ -822,6 +824,22 @@ namespace aol.Forms
                 }
                 Thread.Sleep(1000);
             }
+        }
+
+        private void GoToKeywordMenuItem_Click(object sender, EventArgs e)
+        {
+            keywordBtn.PerformClick();
+        }
+
+        private void FavoritePlacesMenuItem_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest")
+                return;
+
+            favorite_places fp = new favorite_places();
+            fp.Owner = (Form)this;
+            fp.MdiParent = this;
+            fp.Show();
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -855,32 +873,6 @@ namespace aol.Forms
                 read_mail_btn.Image = Properties.Resources.nomail_icon;
             Thread thread = new Thread(new ThreadStart(CheckEmail));
             thread.Start();
-            //Debug.WriteLine("Checking for new mail");
-            // FIXME - not reliable if receiving more than 1 message at a time.
-            /*if (chat.newPM != "")
-            {
-                bool foundFrm = false;
-                Debug.WriteLine("Checking for open form with username tag");
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Tag == null)
-                        continue;
-
-                    if (frm.Tag.ToString() == chat.newPM)
-                        foundFrm = true;
-                }
-
-                if (!foundFrm)
-                {
-                    Debug.WriteLine("Opening IM for user " + chat.newPM);
-                    instant_message im = new instant_message(chat.newPM);
-                    im.Owner = this;
-                    im.MdiParent = this;
-                    im.Tag = chat.newPM;
-                    im.Show();
-                }
-                chat.newPM = "";
-            }*/
         }
 
         private void mailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)

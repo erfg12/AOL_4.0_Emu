@@ -233,6 +233,7 @@
             this.iNetWhitePagesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aolAccessNumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aolHelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -240,7 +241,6 @@
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.addrBarBG = new System.Windows.Forms.PictureBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mie_badge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.homeBtn)).BeginInit();
@@ -1568,6 +1568,7 @@
             this.favoritePlacesMenuItem.Name = "favoritePlacesMenuItem";
             this.favoritePlacesMenuItem.Size = new System.Drawing.Size(261, 22);
             this.favoritePlacesMenuItem.Text = "Favorite Places";
+            this.favoritePlacesMenuItem.Click += new System.EventHandler(this.FavoritePlacesMenuItem_Click);
             // 
             // toolStripSeparator26
             // 
@@ -1585,6 +1586,7 @@
             this.goToKeywordMenuItem.Name = "goToKeywordMenuItem";
             this.goToKeywordMenuItem.Size = new System.Drawing.Size(261, 22);
             this.goToKeywordMenuItem.Text = "Go To Keyword...";
+            this.goToKeywordMenuItem.Click += new System.EventHandler(this.GoToKeywordMenuItem_Click);
             // 
             // toolStripSeparator27
             // 
@@ -1864,6 +1866,12 @@
             this.aolHelpMenuItem.Size = new System.Drawing.Size(188, 22);
             this.aolHelpMenuItem.Text = "AOL Help";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1974,12 +1982,6 @@
             this.addrBarBG.TabIndex = 15;
             this.addrBarBG.TabStop = false;
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1996,7 +1998,7 @@
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "main";
-            this.Text = "AOL 4.0 Emu";
+            this.Text = "America Online";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);

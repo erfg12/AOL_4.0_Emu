@@ -74,6 +74,129 @@ namespace aol.Forms
             return code;
         }
 
+        public static int addFavorite(string url, string URLname)
+        {
+            int code = 0;
+
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + userID + "', '" + url + "', @URLname)";
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                SQLiteParameter[] parameters = { new SQLiteParameter("URLname", URLname) };
+                command.Parameters.AddRange(parameters);
+                command.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                code = ex.ErrorCode;
+            }
+
+            m_dbConnection.Close();
+            return code;
+        }
+
+        /// <summary>
+        /// Deletes favorite from URL in SqliteDB
+        /// </summary>
+        /// <param name="url">URL to delete from favorite</param>
+        /// <returns></returns>
+        public static int deleteFavorite(string url)
+        {
+            int code = 0;
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            List<string> history = new List<string>();
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                //Debug.WriteLine("getting email info with id:" + userID);
+                command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + userID + "' AND url = '" + url + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "DELETE FROM favorites WHERE userid = '" + userID + "' AND url = '" + url + "'";
+                    SQLiteDataReader reader = command.ExecuteReader();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                code = ex.ErrorCode;
+            }
+
+            m_dbConnection.Close();
+            return code;
+        }
+
+        public static int updateFavorite(string url, string name)
+        {
+            int code = 0;
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                //Debug.WriteLine("getting email info with id:" + userID);
+                command.CommandText = "SELECT count(*) FROM favorites WHERE name = '" + name + "' AND url = '" + url + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "UPDATE favorites SET name = '" + name + "' WHERE url = '" + url + "'";
+                    SQLiteDataReader reader = command.ExecuteReader();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                code = ex.ErrorCode;
+            }
+
+            m_dbConnection.Close();
+            return code;
+        }
+
+        /// <summary>
+        /// Key = URL, Value = Name
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<string, string> getFavoritesList()
+        {
+            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            Dictionary<string, string> favorites = new Dictionary<string, string>();
+            SQLiteConnection m_dbConnection = openDB();
+            m_dbConnection.Open();
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + userID + "'";
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                if (count > 0)
+                {
+                    command.CommandText = "SELECT * FROM favorites WHERE userid = '" + userID + "'";
+
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        favorites.Add(reader["url"].ToString(), reader["name"].ToString());
+                    }
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+            }
+
+            m_dbConnection.Close();
+            return favorites;
+        }
+
         /// <summary>
         /// Get history to add to address bar drop down list
         /// </summary>
@@ -111,10 +234,10 @@ namespace aol.Forms
             return history;
         }
 
-        public static List<string> deleteHistory(string url)
+        public static int deleteHistory(string url)
         {
+            int code = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            List<string> history = new List<string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -132,11 +255,11 @@ namespace aol.Forms
             }
             catch (SQLiteException ex)
             {
-                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+                code = ex.ErrorCode;
             }
 
             m_dbConnection.Close();
-            return history;
+            return code;
         }
 
         /// <summary>
