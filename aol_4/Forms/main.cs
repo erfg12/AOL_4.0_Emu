@@ -107,6 +107,18 @@ namespace aol.Forms
             return length;
         }
 
+        public void goToChannel(string channel, int width = 736, int height = 420)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\Channels\" + channel + ".htm";
+            Debug.WriteLine(path);
+            Form BrowseWnd = new Channel(path);
+            BrowseWnd.Owner = this;
+            BrowseWnd.MdiParent = this;
+            BrowseWnd.Width = width + 6;
+            BrowseWnd.Height = height + 26;
+            BrowseWnd.Show();
+        }
+
         private void openAccWindow()
         {
             accForm acf = new accForm();
@@ -840,6 +852,11 @@ namespace aol.Forms
             fp.Owner = (Form)this;
             fp.MdiParent = this;
             fp.Show();
+        }
+
+        private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            goToChannel("kids");
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)

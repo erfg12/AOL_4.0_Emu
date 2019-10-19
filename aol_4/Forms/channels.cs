@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -46,6 +48,17 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
+        public void goToChannel (string channel, int width = 736, int height = 420)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\Channels\" + channel + ".htm";
+            Debug.WriteLine(path);
+            Form BrowseWnd = new Channel(path);
+            BrowseWnd.Owner = this;
+            BrowseWnd.MdiParent = MdiParent;
+            BrowseWnd.Width = width + 6;
+            BrowseWnd.Height = height + 26;
+            BrowseWnd.Show();
+        }
         private void titleLabel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -58,6 +71,11 @@ namespace aol.Forms
         private void channels_Shown(object sender, EventArgs e)
         {
 
+        }
+
+        private void KidsOnlyBtn_Click(object sender, EventArgs e)
+        {
+            goToChannel("kids");
         }
 
         private void channels_Load(object sender, EventArgs e)
