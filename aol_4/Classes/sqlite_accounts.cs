@@ -206,13 +206,14 @@ namespace aol.Forms
             if (RestAPI.getAccInfo("id") == "")
                 return new List<string> { null }; // error, account not found. Prevent crash.
 
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             List<string> history = new List<string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
+                int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+
                 SQLiteCommand command = new SQLiteCommand(m_dbConnection);
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "'";
@@ -231,6 +232,10 @@ namespace aol.Forms
             catch (SQLiteException ex)
             {
                 Debug.WriteLine("SQLite err " + ex.ErrorCode);
+            }
+            catch
+            {
+                Debug.WriteLine("unknown error in getHistory()");
             }
 
             m_dbConnection.Close();
