@@ -203,6 +203,9 @@ namespace aol.Forms
         /// <returns></returns>
         public static List<string> getHistory()
         {
+            if (RestAPI.getAccInfo("id") == "")
+                return new List<string> { null }; // error, account not found. Prevent crash.
+
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             List<string> history = new List<string>();
             SQLiteConnection m_dbConnection = openDB();
