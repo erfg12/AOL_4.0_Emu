@@ -74,6 +74,7 @@ namespace aol.Forms
         string roomname = "";
         int pplCount = 0;
         List<Rectangle> rects = new List<Rectangle>();
+        bool formClosing = false;
 
         #region winform_functions
         public chatroom(string channel)
@@ -174,11 +175,22 @@ namespace aol.Forms
                 if (!IsHandleCreated)
                     continue;
 
+                if (!chat.irc.IrcClient.IsConnectionEstablished() || !chat.irc.IsClientRunning())
+                {
+                    Debug.WriteLine("Client is not connected, breaking BGWorker");
+                    break;
+                }
+
+                if (formClosing)
+                    break;
+
                 usersListView.Invoke(new MethodInvoker(delegate
                 {
                     if (!chat.users.ContainsKey(roomname))
                     {
                         Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
+                        chat.irc.GetUsersInDifferentChannel("#" + roomname);
+                        //System.Threading.Thread.Sleep(2000);
                         return;
                     }
                     // remove offline users
@@ -226,6 +238,7 @@ namespace aol.Forms
 
         private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
         {
+            formClosing = true;
             chat.irc.SendRawMessage("part #" + chat.pChat);
         }
 

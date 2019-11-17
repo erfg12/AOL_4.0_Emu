@@ -89,7 +89,7 @@ namespace aol.Classes
 
         public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
         {
-            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "") // prevents crash if signing off
+            if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "" || args.Message == null) // prevents crash if signing off
                 return;
 
             Debug.WriteLine("[RO]:" + args.Message);
@@ -119,11 +119,12 @@ namespace aol.Classes
             }
             else if (args.Message.Contains(" PART #"))
             {
+                string chan = args.Message.Substring(args.Message.IndexOf(" PART :") + " PART :".Length);
                 string logpath = Application.StartupPath + @"\chatlogs";
                 string privateLog = logpath + @"\" + pChat + ".txt";
                 string[] getUN = args.Message.Split('!');
                 File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
-                irc.GetUsersInCurrentChannel(); // GetUsersInDifferentChannel("#chanName");
+                irc.GetUsersInDifferentChannel(chan); // GetUsersInDifferentChannel("#chanName");
             }
             else if(args.Message.Contains(":You need to be identified to a registered account to join this channel"))
             {
@@ -163,14 +164,17 @@ namespace aol.Classes
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
         {
-            Debug.WriteLine("Creating user list...");
+            if (args.UsersPerChannel.Count == 0)
+                return;
+
+            Debug.WriteLine("Generating user list...");
             Debug.WriteLine("Users in channel: " + args.UsersPerChannel.Count);
 
             foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
             {
                 string channel = usersPerChannel.Key.ToLower();
                 channel = channel.Replace("#", "");
-                if (!users.ContainsKey(channel))
+                if (!users.ContainsKey(channel)) // sometimes skipped?!
                 {
                     Debug.WriteLine("Creating users key " + channel);
                     users.Add(channel, args.UsersPerChannel[usersPerChannel.Key]);
