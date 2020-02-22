@@ -615,7 +615,11 @@ namespace aol.Forms
             foreach (Form frm in MdiChildren)
             {
                 Debug.WriteLine("Closing " + frm.Text);
-                frm.Close();
+                try
+                {
+                    frm.Close();
+                }
+                catch { }
             }
         }
 

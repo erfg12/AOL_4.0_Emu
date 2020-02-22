@@ -15,7 +15,7 @@ namespace aol.Forms
     {
         public static SQLiteConnection openDB()
         {
-            var pathDB = System.IO.Path.Combine(Environment.CurrentDirectory, "accounts.db");
+            var pathDB = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "accounts.db");
             try {
                 if (!System.IO.File.Exists(pathDB)) throw new Exception();
             }
