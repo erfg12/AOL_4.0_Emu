@@ -134,15 +134,15 @@ namespace aol.Forms
             // write to file
             string logpath = Application.StartupPath + @"\chatlogs";
             string privateLog = logpath + @"\PM_" + user + ".txt";
-            try
-            {
+            //try
+            //{
                 File.AppendAllText(privateLog, accForm.tmpUsername + ": " + myMessageBox.Text + '\n');
                 sendMsgSound();
-            }
-            catch
-            {
+            //}
+            //catch
+            //{
                 MessageBox.Show("ERROR: There was an issue writing to log file: " + privateLog);
-            }
+            //}
             // clear msg box
             myMessageBox.Clear();
         }
@@ -225,8 +225,8 @@ namespace aol.Forms
         private void writeFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2
         {
             string lastLine = "";
-            try
-            {
+            //try
+            //{
                 messagesBox.Invoke(new MethodInvoker(delegate
                 {
                     using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -266,10 +266,10 @@ namespace aol.Forms
                     }
                     messagesBox.ScrollToCaret();
                 }));
-            } catch
+            /*} catch
             {
                 Debug.WriteLine("ERROR: Msgbox wasn't ready. I prevented a crash.");
-            }
+            }*/
         }
 
         private void OnChanged(object source, FileSystemEventArgs e)

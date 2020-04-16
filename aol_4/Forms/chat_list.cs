@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using aol.Classes;
 
 namespace aol.Forms
 {
@@ -129,6 +130,11 @@ namespace aol.Forms
 
         private void chanListView_DoubleClick(object sender, EventArgs e)
         {
+            if (!chat.irc.IsClientRunning()) {
+                MessageBox.Show("ERROR: IRC client not running.");
+                return;
+            }
+
             chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToLower());
             cr.Owner = this;
             cr.MdiParent = MdiParent;

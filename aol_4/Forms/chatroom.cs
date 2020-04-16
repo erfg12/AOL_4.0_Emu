@@ -72,6 +72,7 @@ namespace aol.Forms
 
         string chatlog = "";
         string roomname = "";
+        string pChat = "";
         int pplCount = 0;
         List<Rectangle> rects = new List<Rectangle>();
         bool formClosing = false;
@@ -79,7 +80,7 @@ namespace aol.Forms
         #region winform_functions
         public chatroom(string channel)
         {
-            chat.pChat = channel;
+            pChat = channel;
             roomname = channel;
             string logpath = Application.StartupPath + @"\chatlogs";
             chatlog = logpath + @"\" + channel + ".txt";
@@ -109,8 +110,8 @@ namespace aol.Forms
         private void chatroom_Shown(object sender, EventArgs e)
         {
             //chat.users.Clear();
-            Text = chat.pChat + " Chatroom";
-            mainTitle.Text = chat.pChat + " Chatroom";
+            Text = pChat + " Chatroom";
+            mainTitle.Text = pChat + " Chatroom";
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();
 
@@ -122,8 +123,8 @@ namespace aol.Forms
         private void writeFileToBox(bool init = false)
         {
             string lastLine = "";
-            try
-            {
+            //try
+            //{
                 chatRoomTextBox.Invoke(new MethodInvoker(delegate
                 {
                     using (FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -143,7 +144,7 @@ namespace aol.Forms
                         chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
                     chatRoomTextBox.ScrollToCaret();
                 }));
-            } catch { Debug.WriteLine("writeFileToBox just crashed."); }
+            //} catch { Debug.WriteLine("writeFileToBox just crashed."); }
         }
 
         public void OnChanged(object source, FileSystemEventArgs e)
@@ -186,6 +187,11 @@ namespace aol.Forms
 
                 usersListView.Invoke(new MethodInvoker(delegate
                 {
+                    if (!chat.irc.IsClientRunning())
+                    {
+                        MessageBox.Show("ERROR: IRC client not connected");
+                        return;
+                    }
                     if (!chat.users.ContainsKey(roomname))
                     {
                         Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
@@ -223,7 +229,7 @@ namespace aol.Forms
                 {
                     pplQty.Text = pplCount.ToString();
                 }));
-                Thread.Sleep(500);
+                Thread.Sleep(2000);
             }
         }
 
@@ -239,7 +245,7 @@ namespace aol.Forms
         private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
         {
             formClosing = true;
-            chat.irc.SendRawMessage("part #" + chat.pChat);
+            chat.irc.SendRawMessage("part #" + pChat);
         }
 
         private void messageTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -263,10 +269,18 @@ namespace aol.Forms
 
         private void sendMsg()
         {
-            chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + chat.pChat);
+            if (!chat.irc.IsClientRunning())
+                MessageBox.Show("ERROR: IRC client is not running");
+
+            string RawMsg = "PRIVMSG " + "#" + pChat + " :" + messageTextBox.Text;
+            Debug.WriteLine(RawMsg);
+            if (!chat.irc.SendRawMessage(RawMsg))
+            {
+                MessageBox.Show("ERROR: Failed to send message!");
+            }
             // write to file
             string logpath = Application.StartupPath + @"\chatlogs";
-            string privateLog = logpath + @"\" + chat.pChat + ".txt";
+            string privateLog = logpath + @"\" + pChat + ".txt";
             File.AppendAllText(privateLog, accForm.tmpUsername + ": " + messageTextBox.Text + '\n');
             messageTextBox.Clear();
         }

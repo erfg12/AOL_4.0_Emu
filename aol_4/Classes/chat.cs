@@ -17,7 +17,6 @@ namespace aol.Classes
         private static int port = 6697;
         private static string server = "irc.snoonet.org";
         public static SimpleIRC irc = new SimpleIRC();
-        public static string pChat = "";
         public static Dictionary<string, List<string>> users = new Dictionary<string, List<string>>(); // key: channel, value: users
         public static string newPM = "";
         public static Dictionary<string, bool> buddyStatus = new Dictionary<string, bool>(); // key: name, value: online status
@@ -121,9 +120,9 @@ namespace aol.Classes
             {
                 string chan = args.Message.Substring(args.Message.IndexOf(" PART :") + " PART :".Length);
                 string logpath = Application.StartupPath + @"\chatlogs";
-                string privateLog = logpath + @"\" + pChat + ".txt";
+                //string privateLog = logpath + @"\" + pChat + ".txt";
                 string[] getUN = args.Message.Split('!');
-                File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
+                //File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
                 irc.GetUsersInDifferentChannel(chan); // GetUsersInDifferentChannel("#chanName");
             }
             else if(args.Message.Contains(":You need to be identified to a registered account to join this channel"))
@@ -131,9 +130,9 @@ namespace aol.Classes
                 // users needs to register
                 Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
                 string logpath = Application.StartupPath + @"\chatlogs";
-                string privateLog = logpath + @"\" + pChat + ".txt";
-                File.AppendAllText(privateLog, "IMPORTANT NOTICE: This is a registered users only chatroom. We will send an authentication request to the NickServ. Open an email with the subject \"Nickname registration for " + accForm.tmpUsername + "\" please." + '\n');
-                irc.SendMessageToChannel("REGISTER " + accForm.tmpPassword + " " + accForm.tmpUsername + "@aolemu.com", "NickServ");
+                //string privateLog = logpath + @"\" + pChat + ".txt";
+                //File.AppendAllText(privateLog, "IMPORTANT NOTICE: This is a registered users only chatroom. We will send an authentication request to the NickServ. Open an email with the subject \"Nickname registration for " + accForm.tmpUsername + "\" please." + '\n');
+                //irc.SendMessageToChannel("REGISTER " + accForm.tmpPassword + " " + accForm.tmpUsername + "@aolemu.com", "NickServ");
             }
             else if (args.Message.Contains("This nickname is registered and protected."))
             {

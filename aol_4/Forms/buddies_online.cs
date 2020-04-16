@@ -163,7 +163,7 @@ namespace aol.Forms
 
                 if (!chat.irc.IsClientRunning())
                 {
-                    //Debug.WriteLine("IRC buddy list not connected yet...");
+                    Debug.WriteLine("IRC buddy list not connected yet...");
                     c++;
                     if (c > 50)
                     {
@@ -171,7 +171,7 @@ namespace aol.Forms
                         chat.startConnection();
                         c = 0;
                     }
-                    Thread.Sleep(500);
+                    Thread.Sleep(5000);
                     continue;
                 }
 

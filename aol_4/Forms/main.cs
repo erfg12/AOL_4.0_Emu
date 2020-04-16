@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -174,6 +175,8 @@ namespace aol.Forms
 
         private void startProgram()
         {
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            Debug.WriteLine(System.Net.ServicePointManager.SecurityProtocol.ToString());
             Invoke((MethodInvoker)async delegate ()
             {
                 try
