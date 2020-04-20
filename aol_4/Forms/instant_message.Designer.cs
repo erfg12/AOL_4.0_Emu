@@ -38,10 +38,23 @@
             this.messagesBox = new System.Windows.Forms.RichTextBox();
             this.myMessageBox = new System.Windows.Forms.RichTextBox();
             this.sendBtn = new System.Windows.Forms.Button();
-            this.cancelBtn = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageOrSoundFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hyperlinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.smileyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tBAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -157,69 +170,146 @@
             this.messagesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.messagesBox.Location = new System.Drawing.Point(8, 27);
+            this.messagesBox.Location = new System.Drawing.Point(6, 50);
             this.messagesBox.Name = "messagesBox";
             this.messagesBox.ReadOnly = true;
-            this.messagesBox.Size = new System.Drawing.Size(513, 212);
+            this.messagesBox.Size = new System.Drawing.Size(522, 197);
             this.messagesBox.TabIndex = 4;
             this.messagesBox.Text = "";
             // 
             // myMessageBox
             // 
-            this.myMessageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.myMessageBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.myMessageBox.Location = new System.Drawing.Point(8, 271);
+            this.myMessageBox.Location = new System.Drawing.Point(6, 253);
             this.myMessageBox.Name = "myMessageBox";
-            this.myMessageBox.Size = new System.Drawing.Size(513, 57);
+            this.myMessageBox.Size = new System.Drawing.Size(522, 57);
             this.myMessageBox.TabIndex = 5;
             this.myMessageBox.Text = "";
             this.myMessageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.myMessageBox_KeyDown);
             // 
             // sendBtn
             // 
-            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sendBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.sendBtn.Location = new System.Drawing.Point(198, 334);
+            this.sendBtn.Location = new System.Drawing.Point(471, 316);
             this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(57, 23);
+            this.sendBtn.Size = new System.Drawing.Size(57, 51);
             this.sendBtn.TabIndex = 6;
             this.sendBtn.Text = "SEND";
             this.sendBtn.UseVisualStyleBackColor = false;
             this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
-            // cancelBtn
-            // 
-            this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.cancelBtn.Location = new System.Drawing.Point(261, 334);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(66, 23);
-            this.cancelBtn.TabIndex = 7;
-            this.cancelBtn.Text = "CANCEL";
-            this.cancelBtn.UseVisualStyleBackColor = false;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
-            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.menuStrip1);
+            this.panel2.Location = new System.Drawing.Point(2, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(528, 25);
+            this.panel2.TabIndex = 8;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.insertToolStripMenuItem,
+            this.peopleToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(528, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imageOrSoundFileToolStripMenuItem,
+            this.recordSoundToolStripMenuItem,
+            this.hyperlinkToolStripMenuItem,
+            this.smileyToolStripMenuItem,
+            this.textFromFileToolStripMenuItem});
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.insertToolStripMenuItem.Text = "Insert";
+            // 
+            // peopleToolStripMenuItem
+            // 
+            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.peopleToolStripMenuItem.Text = "People";
+            // 
+            // imageOrSoundFileToolStripMenuItem
+            // 
+            this.imageOrSoundFileToolStripMenuItem.Name = "imageOrSoundFileToolStripMenuItem";
+            this.imageOrSoundFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.imageOrSoundFileToolStripMenuItem.Text = "Image or Sound File...";
+            // 
+            // recordSoundToolStripMenuItem
+            // 
+            this.recordSoundToolStripMenuItem.Name = "recordSoundToolStripMenuItem";
+            this.recordSoundToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.recordSoundToolStripMenuItem.Text = "Record Sound...";
+            // 
+            // hyperlinkToolStripMenuItem
+            // 
+            this.hyperlinkToolStripMenuItem.Name = "hyperlinkToolStripMenuItem";
+            this.hyperlinkToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.hyperlinkToolStripMenuItem.Text = "Hyperlink...";
+            // 
+            // smileyToolStripMenuItem
+            // 
+            this.smileyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tBAToolStripMenuItem});
+            this.smileyToolStripMenuItem.Name = "smileyToolStripMenuItem";
+            this.smileyToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.smileyToolStripMenuItem.Text = "Smiley";
+            // 
+            // tBAToolStripMenuItem
+            // 
+            this.tBAToolStripMenuItem.Name = "tBAToolStripMenuItem";
+            this.tBAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tBAToolStripMenuItem.Text = "TBA";
+            // 
+            // textFromFileToolStripMenuItem
+            // 
+            this.textFromFileToolStripMenuItem.Name = "textFromFileToolStripMenuItem";
+            this.textFromFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.textFromFileToolStripMenuItem.Text = "Text from File...";
             // 
             // instant_message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 388);
-            this.Controls.Add(this.cancelBtn);
+            this.ClientSize = new System.Drawing.Size(533, 379);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.sendBtn);
             this.Controls.Add(this.myMessageBox);
             this.Controls.Add(this.messagesBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(5, 120);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "instant_message";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "instant_message";
@@ -228,6 +318,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -241,10 +335,21 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.RichTextBox myMessageBox;
         private System.Windows.Forms.Button sendBtn;
-        private System.Windows.Forms.Button cancelBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox messagesBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageOrSoundFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recordSoundToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hyperlinkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smileyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tBAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textFromFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem peopleToolStripMenuItem;
     }
 }

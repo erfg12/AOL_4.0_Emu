@@ -94,16 +94,17 @@ namespace aol.Classes
             Debug.WriteLine("[RO]:" + args.Message);
             string[] info = args.Message.Split(' ');
             // buddy is offline ([RO]::veronica.snoonet.org 401 erfg12 NeWaGe :No such nick/channel)
-            if (args.Message.Contains("No such nick/channel"))
+            if (args.Message.Contains("No such nick/channel")) // say this when disconnecting from server too
             {
                 //Debug.WriteLine("user is dead");
-                buddyStatus[info[3]] = false;
+                if (buddyStatus.ContainsKey(info[3].ToLower()))
+                    buddyStatus[info[3].ToLower()] = false;
             }
             // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
             else if (args.Message.Contains(" 311 " + accForm.tmpUsername))
             {
                 //Debug.WriteLine("user is alive!!");
-                buddyStatus[info[3]] = true;
+                buddyStatus[info[3].ToLower()] = true;
             }
             else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + accForm.tmpUsername + " :       Registered"))
             {
@@ -204,7 +205,7 @@ namespace aol.Classes
 
             Task taskA = new Task(() =>
             {
-                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 1000, true);
+                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 3000, true);
 
                 if (!irc.IsClientRunning())
                     irc.StartClient();

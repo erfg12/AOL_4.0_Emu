@@ -182,7 +182,7 @@ namespace aol.Forms
                     chat.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
                     buddyTreeView.Invoke(new MethodInvoker(delegate
                     {
-                        if (kvp.Value == true)
+                        if (kvp.Value == true) // remove from offline, add to online
                         {
                             //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
                             TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
@@ -228,10 +228,10 @@ namespace aol.Forms
                         buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
                     }));
 
-                    Thread.Sleep(500);
+                    Thread.Sleep(1500);
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(4000);
                 
             }
         }
@@ -286,7 +286,7 @@ namespace aol.Forms
             List<string> tmpList = new List<string>();
             foreach (KeyValuePair<string, bool> entry in chat.buddyStatus)
             {
-                tmpList.Add(entry.Key);
+                tmpList.Add(entry.Key.ToLower());
             }
             foreach (string entry in tmpList)
             {
@@ -327,8 +327,8 @@ namespace aol.Forms
             shuttingDown = false; // reset on re-login
             foreach (string b in sqlite_accounts.getBuddyList())
             {
-                if (!chat.buddyStatus.ContainsKey(b))
-                    chat.buddyStatus.Add(b, false); // offline by default
+                if (!chat.buddyStatus.ContainsKey(b.ToLower()))
+                    chat.buddyStatus.Add(b.ToLower(), false); // offline by default
             }
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();

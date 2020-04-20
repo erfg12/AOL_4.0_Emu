@@ -99,6 +99,7 @@ namespace aol.Forms
                 if (c > 20)
                 {
                     chat.startConnection();
+                    Debug.WriteLine("ERROR: Trying connection again.");
                     c = 0;
                 }
             }
@@ -125,6 +126,8 @@ namespace aol.Forms
             string lastLine = "";
             //try
             //{
+            if (chatRoomTextBox.IsHandleCreated)
+            {
                 chatRoomTextBox.Invoke(new MethodInvoker(delegate
                 {
                     using (FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -144,6 +147,7 @@ namespace aol.Forms
                         chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
                     chatRoomTextBox.ScrollToCaret();
                 }));
+            }
             //} catch { Debug.WriteLine("writeFileToBox just crashed."); }
         }
 
@@ -272,11 +276,10 @@ namespace aol.Forms
             if (!chat.irc.IsClientRunning())
                 MessageBox.Show("ERROR: IRC client is not running");
 
-            string RawMsg = "PRIVMSG " + "#" + pChat + " :" + messageTextBox.Text;
-            Debug.WriteLine(RawMsg);
-            if (!chat.irc.SendRawMessage(RawMsg))
+            if (!chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + pChat))
             {
                 MessageBox.Show("ERROR: Failed to send message!");
+                return;
             }
             // write to file
             string logpath = Application.StartupPath + @"\chatlogs";
