@@ -70,6 +70,7 @@ namespace aol.Forms
                 else
                     MessageBox.Show("SQLite error code " + code.ToString());
             }
+            Debug.WriteLine(msg);
             return false;
         }
 

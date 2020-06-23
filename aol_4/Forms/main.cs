@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -249,22 +250,27 @@ namespace aol.Forms
 
         public void reloadAddressBarHistory()
         {
-            addrBox.Invoke( new MethodInvoker(delegate
+            try
             {
-                addrBox.Items.Clear();
-                tmpHistory.Clear();
-                foreach (string i in sqlite_accounts.getHistory())
-                {
-                    addrBox.Items.Add(i);
-                    tmpHistory.Add(i);
-                }
-            }));
+                addrBox.Invoke(new MethodInvoker(delegate
+               {
+                   addrBox.Items.Clear();
+                   tmpHistory.Clear();
+                   foreach (string i in sqlite_accounts.getHistory())
+                   {
+                       addrBox.Items.Add(i);
+                       tmpHistory.Add(i);
+                   }
+               }));
+            } catch {
+                Console.WriteLine("Prevented a crash at reloadAddressBarHistory()");
+            }
         }
 
         public void GoToURL()
         {
             if (addrBox.Text == "Type Keyword or Web Address here and click Go")
-                return;
+                addrBox.Text = ""; // clear it
 
             try
             {
@@ -864,6 +870,30 @@ namespace aol.Forms
         private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             goToChannel("kids");
+        }
+
+        private void buddyListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buddies_online bo = new buddies_online();
+            bo.Owner = (Form)this;
+            bo.MdiParent = this;
+            bo.Show();
+        }
+
+        private void searchTheWebMenuItem_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+
+            GoToURL();
+        }
+
+        private void findonTheWebMenuItem_Click(object sender, EventArgs e)
+        {
+            if (accForm.tmpUsername == "")
+                return;
+
+            GoToURL();
         }
 
         private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)

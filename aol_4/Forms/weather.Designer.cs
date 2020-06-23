@@ -348,8 +348,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(100, 120);
             this.Name = "weather";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "weather";
             this.Load += new System.EventHandler(this.Weather_Load);
             this.Shown += new System.EventHandler(this.Weather_Shown);

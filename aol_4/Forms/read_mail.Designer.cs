@@ -90,6 +90,7 @@
             this.mainTitle.Size = new System.Drawing.Size(43, 13);
             this.mainTitle.TabIndex = 8;
             this.mainTitle.Text = "Subject";
+            this.mainTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // miniBtn
             // 

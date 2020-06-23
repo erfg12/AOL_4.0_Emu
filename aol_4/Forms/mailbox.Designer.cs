@@ -323,6 +323,7 @@
             this.mainTitle.Size = new System.Drawing.Size(114, 13);
             this.mainTitle.TabIndex = 8;
             this.mainTitle.Text = "Name\'s Online Mailbox";
+            this.mainTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // pictureBox1
             // 
