@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mainTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
             this.messagesBox = new System.Windows.Forms.RichTextBox();
             this.myMessageBox = new System.Windows.Forms.RichTextBox();
             this.sendBtn = new System.Windows.Forms.Button();
@@ -44,18 +37,340 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageOrSoundFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recordSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hyperlinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smileyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tBAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SmiliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frowningCtrl2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.winkingCtrl3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pStickingouttongueCtrl4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.oSurprisedCtrl5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kissingCtrl6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oYellingCtrl7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coolCtrl8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.moneymouthCtrlShift1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.footinmouthCtrlShift2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.embarrassedCtrlShift3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oInnocentCtrlShift4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.undecidedCtrlShift5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cryingCtrlShift6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dLaughingCtrlShift8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mainTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.miniBtn = new System.Windows.Forms.Button();
+            this.maxBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // messagesBox
+            // 
+            this.messagesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.messagesBox.Location = new System.Drawing.Point(6, 50);
+            this.messagesBox.Name = "messagesBox";
+            this.messagesBox.ReadOnly = true;
+            this.messagesBox.Size = new System.Drawing.Size(522, 197);
+            this.messagesBox.TabIndex = 4;
+            this.messagesBox.Text = "";
+            // 
+            // myMessageBox
+            // 
+            this.myMessageBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.myMessageBox.Location = new System.Drawing.Point(6, 253);
+            this.myMessageBox.Name = "myMessageBox";
+            this.myMessageBox.Size = new System.Drawing.Size(522, 57);
+            this.myMessageBox.TabIndex = 5;
+            this.myMessageBox.Text = "";
+            this.myMessageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.myMessageBox_KeyDown);
+            // 
+            // sendBtn
+            // 
+            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.sendBtn.Location = new System.Drawing.Point(471, 316);
+            this.sendBtn.Name = "sendBtn";
+            this.sendBtn.Size = new System.Drawing.Size(57, 51);
+            this.sendBtn.TabIndex = 6;
+            this.sendBtn.Text = "SEND";
+            this.sendBtn.UseVisualStyleBackColor = false;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.menuStrip1);
+            this.panel2.Location = new System.Drawing.Point(2, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(528, 25);
+            this.panel2.TabIndex = 8;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.insertToolStripMenuItem,
+            this.peopleToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(307, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imageOrSoundFileToolStripMenuItem,
+            this.recordSoundToolStripMenuItem,
+            this.hyperlinkToolStripMenuItem,
+            this.smileyToolStripMenuItem,
+            this.textFromFileToolStripMenuItem});
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.insertToolStripMenuItem.Text = "Insert";
+            // 
+            // imageOrSoundFileToolStripMenuItem
+            // 
+            this.imageOrSoundFileToolStripMenuItem.Name = "imageOrSoundFileToolStripMenuItem";
+            this.imageOrSoundFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.imageOrSoundFileToolStripMenuItem.Text = "Image or Sound File...";
+            // 
+            // recordSoundToolStripMenuItem
+            // 
+            this.recordSoundToolStripMenuItem.Name = "recordSoundToolStripMenuItem";
+            this.recordSoundToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.recordSoundToolStripMenuItem.Text = "Record Sound...";
+            // 
+            // hyperlinkToolStripMenuItem
+            // 
+            this.hyperlinkToolStripMenuItem.Name = "hyperlinkToolStripMenuItem";
+            this.hyperlinkToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.hyperlinkToolStripMenuItem.Text = "Hyperlink...";
+            // 
+            // smileyToolStripMenuItem
+            // 
+            this.smileyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SmiliesToolStripMenuItem,
+            this.frowningCtrl2ToolStripMenuItem,
+            this.winkingCtrl3ToolStripMenuItem,
+            this.pStickingouttongueCtrl4ToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.oSurprisedCtrl5ToolStripMenuItem,
+            this.kissingCtrl6ToolStripMenuItem,
+            this.oYellingCtrl7ToolStripMenuItem,
+            this.coolCtrl8ToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.moneymouthCtrlShift1ToolStripMenuItem,
+            this.footinmouthCtrlShift2ToolStripMenuItem,
+            this.embarrassedCtrlShift3ToolStripMenuItem,
+            this.oInnocentCtrlShift4ToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.undecidedCtrlShift5ToolStripMenuItem,
+            this.cryingCtrlShift6ToolStripMenuItem,
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem,
+            this.dLaughingCtrlShift8ToolStripMenuItem});
+            this.smileyToolStripMenuItem.Name = "smileyToolStripMenuItem";
+            this.smileyToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.smileyToolStripMenuItem.Text = "Smiley";
+            // 
+            // SmiliesToolStripMenuItem
+            // 
+            this.SmiliesToolStripMenuItem.Image = global::aol.Properties.Resources.Smiling;
+            this.SmiliesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SmiliesToolStripMenuItem.Name = "SmiliesToolStripMenuItem";
+            this.SmiliesToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.SmiliesToolStripMenuItem.Text = ":-)          Smiling                             Ctrl+1";
+            this.SmiliesToolStripMenuItem.Click += new System.EventHandler(this.SmiliesToolStripMenuItem_Click);
+            // 
+            // frowningCtrl2ToolStripMenuItem
+            // 
+            this.frowningCtrl2ToolStripMenuItem.Image = global::aol.Properties.Resources.Frowning;
+            this.frowningCtrl2ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.frowningCtrl2ToolStripMenuItem.Name = "frowningCtrl2ToolStripMenuItem";
+            this.frowningCtrl2ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.frowningCtrl2ToolStripMenuItem.Text = ":-(          Frowning                          Ctrl+2";
+            this.frowningCtrl2ToolStripMenuItem.Click += new System.EventHandler(this.frowningCtrl2ToolStripMenuItem_Click);
+            // 
+            // winkingCtrl3ToolStripMenuItem
+            // 
+            this.winkingCtrl3ToolStripMenuItem.Image = global::aol.Properties.Resources.Winking;
+            this.winkingCtrl3ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.winkingCtrl3ToolStripMenuItem.Name = "winkingCtrl3ToolStripMenuItem";
+            this.winkingCtrl3ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.winkingCtrl3ToolStripMenuItem.Text = ";-)          Winking                            Ctrl+3";
+            this.winkingCtrl3ToolStripMenuItem.Click += new System.EventHandler(this.winkingCtrl3ToolStripMenuItem_Click);
+            // 
+            // pStickingouttongueCtrl4ToolStripMenuItem
+            // 
+            this.pStickingouttongueCtrl4ToolStripMenuItem.Image = global::aol.Properties.Resources.Sticking_out_tongue;
+            this.pStickingouttongueCtrl4ToolStripMenuItem.Name = "pStickingouttongueCtrl4ToolStripMenuItem";
+            this.pStickingouttongueCtrl4ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.pStickingouttongueCtrl4ToolStripMenuItem.Text = ":-P         Sticking-out-tongue       Ctrl+4";
+            this.pStickingouttongueCtrl4ToolStripMenuItem.Click += new System.EventHandler(this.pStickingouttongueCtrl4ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(308, 6);
+            // 
+            // oSurprisedCtrl5ToolStripMenuItem
+            // 
+            this.oSurprisedCtrl5ToolStripMenuItem.Image = global::aol.Properties.Resources.Surprised;
+            this.oSurprisedCtrl5ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.oSurprisedCtrl5ToolStripMenuItem.Name = "oSurprisedCtrl5ToolStripMenuItem";
+            this.oSurprisedCtrl5ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.oSurprisedCtrl5ToolStripMenuItem.Text = "=-O       Surprised                          Ctrl+5";
+            this.oSurprisedCtrl5ToolStripMenuItem.Click += new System.EventHandler(this.oSurprisedCtrl5ToolStripMenuItem_Click);
+            // 
+            // kissingCtrl6ToolStripMenuItem
+            // 
+            this.kissingCtrl6ToolStripMenuItem.Image = global::aol.Properties.Resources.Kissing;
+            this.kissingCtrl6ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kissingCtrl6ToolStripMenuItem.Name = "kissingCtrl6ToolStripMenuItem";
+            this.kissingCtrl6ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.kissingCtrl6ToolStripMenuItem.Text = ":-*          Kissing                              Ctrl+6";
+            this.kissingCtrl6ToolStripMenuItem.Click += new System.EventHandler(this.kissingCtrl6ToolStripMenuItem_Click);
+            // 
+            // oYellingCtrl7ToolStripMenuItem
+            // 
+            this.oYellingCtrl7ToolStripMenuItem.Image = global::aol.Properties.Resources.Yelling;
+            this.oYellingCtrl7ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.oYellingCtrl7ToolStripMenuItem.Name = "oYellingCtrl7ToolStripMenuItem";
+            this.oYellingCtrl7ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.oYellingCtrl7ToolStripMenuItem.Text = ">:o        Yelling                               Ctrl+7";
+            this.oYellingCtrl7ToolStripMenuItem.Click += new System.EventHandler(this.oYellingCtrl7ToolStripMenuItem_Click);
+            // 
+            // coolCtrl8ToolStripMenuItem
+            // 
+            this.coolCtrl8ToolStripMenuItem.Image = global::aol.Properties.Resources.Cool;
+            this.coolCtrl8ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.coolCtrl8ToolStripMenuItem.Name = "coolCtrl8ToolStripMenuItem";
+            this.coolCtrl8ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.coolCtrl8ToolStripMenuItem.Text = "8-)         Cool                                  Ctrl+8";
+            this.coolCtrl8ToolStripMenuItem.Click += new System.EventHandler(this.coolCtrl8ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(308, 6);
+            // 
+            // moneymouthCtrlShift1ToolStripMenuItem
+            // 
+            this.moneymouthCtrlShift1ToolStripMenuItem.Image = global::aol.Properties.Resources.Money_mouth;
+            this.moneymouthCtrlShift1ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.moneymouthCtrlShift1ToolStripMenuItem.Name = "moneymouthCtrlShift1ToolStripMenuItem";
+            this.moneymouthCtrlShift1ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.moneymouthCtrlShift1ToolStripMenuItem.Text = ":-$         Money-mouth                 Ctrl+Shift+1";
+            this.moneymouthCtrlShift1ToolStripMenuItem.Click += new System.EventHandler(this.moneymouthCtrlShift1ToolStripMenuItem_Click);
+            // 
+            // footinmouthCtrlShift2ToolStripMenuItem
+            // 
+            this.footinmouthCtrlShift2ToolStripMenuItem.Image = global::aol.Properties.Resources.Foot_in_mouth;
+            this.footinmouthCtrlShift2ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.footinmouthCtrlShift2ToolStripMenuItem.Name = "footinmouthCtrlShift2ToolStripMenuItem";
+            this.footinmouthCtrlShift2ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.footinmouthCtrlShift2ToolStripMenuItem.Text = ":-!          Foot-in-mouth                Ctrl+Shift+2";
+            this.footinmouthCtrlShift2ToolStripMenuItem.Click += new System.EventHandler(this.footinmouthCtrlShift2ToolStripMenuItem_Click);
+            // 
+            // embarrassedCtrlShift3ToolStripMenuItem
+            // 
+            this.embarrassedCtrlShift3ToolStripMenuItem.Image = global::aol.Properties.Resources.Embarrassed;
+            this.embarrassedCtrlShift3ToolStripMenuItem.Name = "embarrassedCtrlShift3ToolStripMenuItem";
+            this.embarrassedCtrlShift3ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.embarrassedCtrlShift3ToolStripMenuItem.Text = ":-[          Embarrassed                    Ctrl+Shift+3";
+            this.embarrassedCtrlShift3ToolStripMenuItem.Click += new System.EventHandler(this.embarrassedCtrlShift3ToolStripMenuItem_Click);
+            // 
+            // oInnocentCtrlShift4ToolStripMenuItem
+            // 
+            this.oInnocentCtrlShift4ToolStripMenuItem.Image = global::aol.Properties.Resources.Innocent;
+            this.oInnocentCtrlShift4ToolStripMenuItem.Name = "oInnocentCtrlShift4ToolStripMenuItem";
+            this.oInnocentCtrlShift4ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.oInnocentCtrlShift4ToolStripMenuItem.Text = "O:-)       Innocent                           Ctrl+Shift+4";
+            this.oInnocentCtrlShift4ToolStripMenuItem.Click += new System.EventHandler(this.oInnocentCtrlShift4ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(308, 6);
+            // 
+            // undecidedCtrlShift5ToolStripMenuItem
+            // 
+            this.undecidedCtrlShift5ToolStripMenuItem.Image = global::aol.Properties.Resources.Undecided;
+            this.undecidedCtrlShift5ToolStripMenuItem.Name = "undecidedCtrlShift5ToolStripMenuItem";
+            this.undecidedCtrlShift5ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.undecidedCtrlShift5ToolStripMenuItem.Text = ":-\\          Undecided                        Ctrl+Shift+5";
+            this.undecidedCtrlShift5ToolStripMenuItem.Click += new System.EventHandler(this.undecidedCtrlShift5ToolStripMenuItem_Click);
+            // 
+            // cryingCtrlShift6ToolStripMenuItem
+            // 
+            this.cryingCtrlShift6ToolStripMenuItem.Image = global::aol.Properties.Resources.Crying;
+            this.cryingCtrlShift6ToolStripMenuItem.Name = "cryingCtrlShift6ToolStripMenuItem";
+            this.cryingCtrlShift6ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.cryingCtrlShift6ToolStripMenuItem.Text = ":\'(           Crying                               Ctrl+Shift+6";
+            this.cryingCtrlShift6ToolStripMenuItem.Click += new System.EventHandler(this.cryingCtrlShift6ToolStripMenuItem_Click);
+            // 
+            // xLipsaresealedCtrlShift7ToolStripMenuItem
+            // 
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Image = global::aol.Properties.Resources.Lips_are_sealed;
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Name = "xLipsaresealedCtrlShift7ToolStripMenuItem";
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Text = ":-X         Lips-are-sealed                Ctrl+Shift+7";
+            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Click += new System.EventHandler(this.xLipsaresealedCtrlShift7ToolStripMenuItem_Click);
+            // 
+            // dLaughingCtrlShift8ToolStripMenuItem
+            // 
+            this.dLaughingCtrlShift8ToolStripMenuItem.Image = global::aol.Properties.Resources.Laughing;
+            this.dLaughingCtrlShift8ToolStripMenuItem.Name = "dLaughingCtrlShift8ToolStripMenuItem";
+            this.dLaughingCtrlShift8ToolStripMenuItem.Size = new System.Drawing.Size(311, 22);
+            this.dLaughingCtrlShift8ToolStripMenuItem.Text = ":-D         Laughing                          Ctrl+Shift+8";
+            this.dLaughingCtrlShift8ToolStripMenuItem.Click += new System.EventHandler(this.dLaughingCtrlShift8ToolStripMenuItem_Click);
+            // 
+            // textFromFileToolStripMenuItem
+            // 
+            this.textFromFileToolStripMenuItem.Name = "textFromFileToolStripMenuItem";
+            this.textFromFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.textFromFileToolStripMenuItem.Text = "Text from File...";
+            // 
+            // peopleToolStripMenuItem
+            // 
+            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.peopleToolStripMenuItem.Text = "People";
             // 
             // panel1
             // 
@@ -145,6 +460,7 @@
             this.maxBtn.Size = new System.Drawing.Size(18, 16);
             this.maxBtn.TabIndex = 1;
             this.maxBtn.UseVisualStyleBackColor = false;
+            this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
             // 
             // closeBtn
             // 
@@ -165,138 +481,6 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // messagesBox
-            // 
-            this.messagesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.messagesBox.Location = new System.Drawing.Point(6, 50);
-            this.messagesBox.Name = "messagesBox";
-            this.messagesBox.ReadOnly = true;
-            this.messagesBox.Size = new System.Drawing.Size(522, 197);
-            this.messagesBox.TabIndex = 4;
-            this.messagesBox.Text = "";
-            // 
-            // myMessageBox
-            // 
-            this.myMessageBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.myMessageBox.Location = new System.Drawing.Point(6, 253);
-            this.myMessageBox.Name = "myMessageBox";
-            this.myMessageBox.Size = new System.Drawing.Size(522, 57);
-            this.myMessageBox.TabIndex = 5;
-            this.myMessageBox.Text = "";
-            this.myMessageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.myMessageBox_KeyDown);
-            // 
-            // sendBtn
-            // 
-            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.sendBtn.Location = new System.Drawing.Point(471, 316);
-            this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(57, 51);
-            this.sendBtn.TabIndex = 6;
-            this.sendBtn.Text = "SEND";
-            this.sendBtn.UseVisualStyleBackColor = false;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.menuStrip1);
-            this.panel2.Location = new System.Drawing.Point(2, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(528, 25);
-            this.panel2.TabIndex = 8;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.insertToolStripMenuItem,
-            this.peopleToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(528, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // insertToolStripMenuItem
-            // 
-            this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imageOrSoundFileToolStripMenuItem,
-            this.recordSoundToolStripMenuItem,
-            this.hyperlinkToolStripMenuItem,
-            this.smileyToolStripMenuItem,
-            this.textFromFileToolStripMenuItem});
-            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.insertToolStripMenuItem.Text = "Insert";
-            // 
-            // peopleToolStripMenuItem
-            // 
-            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.peopleToolStripMenuItem.Text = "People";
-            // 
-            // imageOrSoundFileToolStripMenuItem
-            // 
-            this.imageOrSoundFileToolStripMenuItem.Name = "imageOrSoundFileToolStripMenuItem";
-            this.imageOrSoundFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.imageOrSoundFileToolStripMenuItem.Text = "Image or Sound File...";
-            // 
-            // recordSoundToolStripMenuItem
-            // 
-            this.recordSoundToolStripMenuItem.Name = "recordSoundToolStripMenuItem";
-            this.recordSoundToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.recordSoundToolStripMenuItem.Text = "Record Sound...";
-            // 
-            // hyperlinkToolStripMenuItem
-            // 
-            this.hyperlinkToolStripMenuItem.Name = "hyperlinkToolStripMenuItem";
-            this.hyperlinkToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.hyperlinkToolStripMenuItem.Text = "Hyperlink...";
-            // 
-            // smileyToolStripMenuItem
-            // 
-            this.smileyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tBAToolStripMenuItem});
-            this.smileyToolStripMenuItem.Name = "smileyToolStripMenuItem";
-            this.smileyToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.smileyToolStripMenuItem.Text = "Smiley";
-            // 
-            // tBAToolStripMenuItem
-            // 
-            this.tBAToolStripMenuItem.Name = "tBAToolStripMenuItem";
-            this.tBAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tBAToolStripMenuItem.Text = "TBA";
-            // 
-            // textFromFileToolStripMenuItem
-            // 
-            this.textFromFileToolStripMenuItem.Name = "textFromFileToolStripMenuItem";
-            this.textFromFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.textFromFileToolStripMenuItem.Text = "Text from File...";
-            // 
             // instant_message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,13 +499,13 @@
             this.Text = "instant_message";
             this.Load += new System.EventHandler(this.instant_message_Load);
             this.Shown += new System.EventHandler(this.instant_message_Shown);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,8 +532,26 @@
         private System.Windows.Forms.ToolStripMenuItem recordSoundToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hyperlinkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem smileyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tBAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SmiliesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem textFromFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem peopleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frowningCtrl2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pStickingouttongueCtrl4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem winkingCtrl3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem oSurprisedCtrl5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kissingCtrl6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oYellingCtrl7ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coolCtrl8ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem moneymouthCtrlShift1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem footinmouthCtrlShift2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem embarrassedCtrlShift3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oInnocentCtrlShift4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem undecidedCtrlShift5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cryingCtrlShift6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xLipsaresealedCtrlShift7ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dLaughingCtrlShift8ToolStripMenuItem;
     }
 }

@@ -401,6 +401,26 @@ namespace aol.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cool {
+            get {
+                object obj = ResourceManager.GetObject("Cool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crying {
+            get {
+                object obj = ResourceManager.GetObject("Crying", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream dial_up_modem {
@@ -470,6 +490,16 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Embarrassed {
+            get {
+                object obj = ResourceManager.GetObject("Embarrassed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap favorite_btn {
             get {
                 object obj = ResourceManager.GetObject("favorite_btn", resourceCulture);
@@ -483,6 +513,16 @@ namespace aol.Properties {
         internal static System.Drawing.Bitmap favorites_icon {
             get {
                 object obj = ResourceManager.GetObject("favorites_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Foot_in_mouth {
+            get {
+                object obj = ResourceManager.GetObject("Foot-in-mouth", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,6 +553,16 @@ namespace aol.Properties {
         internal static System.Drawing.Bitmap forward_btn1 {
             get {
                 object obj = ResourceManager.GetObject("forward_btn1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frowning {
+            get {
+                object obj = ResourceManager.GetObject("Frowning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -577,6 +627,16 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Innocent {
+            get {
+                object obj = ResourceManager.GetObject("Innocent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap internet_icon {
             get {
                 object obj = ResourceManager.GetObject("internet_icon", resourceCulture);
@@ -590,6 +650,36 @@ namespace aol.Properties {
         internal static System.Drawing.Bitmap internet_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("internet_icon_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Kissing {
+            get {
+                object obj = ResourceManager.GetObject("Kissing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Laughing {
+            get {
+                object obj = ResourceManager.GetObject("Laughing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Lips_are_sealed {
+            get {
+                object obj = ResourceManager.GetObject("Lips-are-sealed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -640,6 +730,16 @@ namespace aol.Properties {
         internal static System.Drawing.Bitmap minimize_btn {
             get {
                 object obj = ResourceManager.GetObject("minimize_btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Money_mouth {
+            get {
+                object obj = ResourceManager.GetObject("Money-mouth", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -787,6 +887,26 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Smiling {
+            get {
+                object obj = ResourceManager.GetObject("Smiling", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sticking_out_tongue {
+            get {
+                object obj = ResourceManager.GetObject("Sticking-out-tongue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stop_btn {
             get {
                 object obj = ResourceManager.GetObject("stop_btn", resourceCulture);
@@ -817,9 +937,29 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Surprised {
+            get {
+                object obj = ResourceManager.GetObject("Surprised", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap top_bar {
             get {
                 object obj = ResourceManager.GetObject("top_bar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Undecided {
+            get {
+                object obj = ResourceManager.GetObject("Undecided", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -856,9 +996,29 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Winking {
+            get {
+                object obj = ResourceManager.GetObject("Winking", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap write_icon {
             get {
                 object obj = ResourceManager.GetObject("write_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Yelling {
+            get {
+                object obj = ResourceManager.GetObject("Yelling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

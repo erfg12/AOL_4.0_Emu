@@ -1512,7 +1512,7 @@
             // buddyListToolStripMenuItem
             // 
             this.buddyListToolStripMenuItem.Name = "buddyListToolStripMenuItem";
-            this.buddyListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buddyListToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.buddyListToolStripMenuItem.Text = "Buddy List";
             this.buddyListToolStripMenuItem.Click += new System.EventHandler(this.buddyListToolStripMenuItem_Click);
             // 
@@ -1797,7 +1797,7 @@
             this.aolAccessNumsMenuItem,
             this.aolHelpMenuItem});
             this.findMenuStrip.Name = "findMenuStrip";
-            this.findMenuStrip.Size = new System.Drawing.Size(189, 258);
+            this.findMenuStrip.Size = new System.Drawing.Size(189, 236);
             // 
             // findCentralMenuItem
             // 

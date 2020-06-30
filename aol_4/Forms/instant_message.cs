@@ -215,11 +215,96 @@ namespace aol.Forms
             player.Play();
         }
 
+        private void SmiliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-)";
+        }
+
+        private void frowningCtrl2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-(";
+        }
+
+        private void winkingCtrl3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ";-)";
+        }
+
         private void sendMsgSound()
         {
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.Stream = Properties.Resources.imsend;
             player.Play();
+        }
+
+        private void pStickingouttongueCtrl4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-P";
+        }
+
+        private void oSurprisedCtrl5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += "=-O";
+        }
+
+        private void kissingCtrl6ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-*";
+        }
+
+        private void oYellingCtrl7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ">:o";
+        }
+
+        private void coolCtrl8ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += "8-)";
+        }
+
+        private void moneymouthCtrlShift1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-$";
+        }
+
+        private void footinmouthCtrlShift2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-!";
+        }
+
+        private void embarrassedCtrlShift3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-[";
+        }
+
+        private void oInnocentCtrlShift4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += "O:-)";
+        }
+
+        private void undecidedCtrlShift5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += @":-\";
+        }
+
+        private void cryingCtrlShift6ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += @":'(";
+        }
+
+        private void xLipsaresealedCtrlShift7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-X";
+        }
+
+        private void dLaughingCtrlShift8ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            myMessageBox.Text += ":-D";
+        }
+
+        private void maxBtn_Click(object sender, EventArgs e)
+        {
+            maxiMini();
         }
 
         private void writeFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2

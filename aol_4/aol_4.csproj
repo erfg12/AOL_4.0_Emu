@@ -467,6 +467,8 @@
     <None Include="Resources\dialup_pic3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Yelling.png" />
+    <None Include="Resources\Winking.png" />
     <None Include="Resources\youve_got_mail_icon.png" />
     <None Include="Resources\youGotmail.wav" />
     <None Include="Resources\yougotmail.bmp" />
@@ -514,6 +516,11 @@
     <Content Include="Channels\kids.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Frowning.png" />
+    <None Include="Resources\Cool.png" />
+    <None Include="Resources\Foot-in-mouth.png" />
+    <None Include="Resources\Embarrassed.png" />
+    <None Include="Resources\Crying.png" />
     <Content Include="Resources\Goodbye.wav" />
     <None Include="Resources\stop_btn_enabled.png" />
     <None Include="Resources\stop_btn1.png" />
@@ -535,6 +542,15 @@
     <None Include="Resources\maximize_disabled_btn.png" />
     <None Include="Resources\imrcv.wav" />
     <None Include="Resources\imsend.wav" />
+    <None Include="Resources\Smiling.png" />
+    <None Include="Resources\Sticking-out-tongue.png" />
+    <None Include="Resources\Surprised.png" />
+    <None Include="Resources\Kissing.png" />
+    <None Include="Resources\Money-mouth.png" />
+    <None Include="Resources\Innocent.png" />
+    <None Include="Resources\Undecided.png" />
+    <None Include="Resources\Lips-are-sealed.png" />
+    <None Include="Resources\Laughing.png" />
     <Content Include="Resources\Welcome.wav" />
   </ItemGroup>
   <ItemGroup>
