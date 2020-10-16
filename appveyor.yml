@@ -5,17 +5,17 @@ configuration: Debug
 before_build:
   - nuget restore
 
-after_build: 7z a nightly.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\x64\Debug\* %APPVEYOR_BUILD_FOLDER%\accounts.db
+after_build: 7z a Build_%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\x64\Debug\* %APPVEYOR_BUILD_FOLDER%\accounts.db
 
 artifacts:
-  path: nightly.zip
-  name: nightly
+  path: Build_%PLATFORM%.zip
+  name: Build
 
 deploy:
   - provider: GitHub
-    tag: nightly
+    tag: $(APPVEYOR_BUILD_ID)
     release: Build $(APPVEYOR_REPO_COMMIT_TIMESTAMP)
     description: Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
     auth_token:
       secure: EuR30pU45tPVaOpNF9ov5buzWmQTfdgDQT69pSfz4+lh+m5K5+7eJMtz2TjTbC36
-    artifact: nightly.zip
+    artifact: Build_%PLATFORM%.zip
