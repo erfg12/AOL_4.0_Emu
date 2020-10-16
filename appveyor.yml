@@ -9,7 +9,7 @@ after_build: 7z a Build_%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\x64\Deb
 
 artifacts:
   path: Build_%PLATFORM%.zip
-  name: Build
+  name: Latest
 
 deploy:
   - provider: GitHub
