@@ -115,8 +115,14 @@ namespace aol.Classes
                     if (i.Flags == MessageFlags.Deleted) continue;
                     var message = inbox.GetMessage(i.UniqueId);
                     //Debug.WriteLine("[MAIL] new id:" + message.MessageId + " subj:" + message.Subject);
-                    if (!emailsNew.ContainsKey(message.MessageId))
-                        emailsNew.Add(message.MessageId, message.Subject);
+                    if (message.MessageId != null)
+                    {
+                        if (!emailsNew.ContainsKey(message.MessageId))
+                            emailsNew.Add(message.MessageId, message.Subject);
+                    } else
+                    {
+                        Debug.WriteLine("ERROR: Email MessageId was null.");
+                    }
                 }
 
                 // old emails
@@ -280,7 +286,13 @@ namespace aol.Classes
 
                 client.Disconnect(true);
             }
-            body = rawBody.Text.Replace(Environment.NewLine, "<br>");
+            if (rawBody != null)
+            {
+                body = rawBody.Text.Replace(Environment.NewLine, "<br>");
+            } else
+            {
+                Debug.WriteLine("ERROR: Email rawBody was null.");
+            }
             body = WebUtility.HtmlDecode(body);
 
             return body;

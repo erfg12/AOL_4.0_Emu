@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeatherNet;
@@ -165,28 +166,36 @@ namespace aol.Forms
 
         }
 
-        async Task setWeather()
+        private void StartForm()
         {
+            todayLabel.Invoke(new MethodInvoker(delegate
+            {
+                todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
+            }));
+            titleLabel.Invoke(new MethodInvoker(delegate
+            {
+                titleLabel.Text = "Welcome, " + accForm.tmpUsername;
+            }));
             temperatureLabel.Invoke(new MethodInvoker(delegate
             {
                 temperatureLabel.Text = location.getCurrentWeather();
             }));
         }
 
-        private async void home_menu_ShownAsync(object sender, EventArgs e)
+        private void home_menu_ShownAsync(object sender, EventArgs e)
         {
-            todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
-            titleLabel.Text = "Welcome, " + accForm.tmpUsername;
             rects.Add(new Rectangle(5, 80, 98, 50)); // 0 mailbox
             rects.Add(new Rectangle(5, 180, 98, 50)); // 1 channels
             rects.Add(new Rectangle(5, 224, 98, 50)); // 2 chat_list
             rects.Add(new Rectangle(5, 124, 98, 50)); // 3 pictures
 
-            await setWeather();
+            Thread thr = new Thread(StartForm);
+            thr.Start();
         }
 
         public home_menu()
         {
+            FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
         #endregion

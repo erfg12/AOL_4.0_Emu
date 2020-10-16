@@ -316,8 +316,8 @@ namespace aol.Forms
 
         public buddies_online()
         {
-            InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
+            InitializeComponent();
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
         }
@@ -325,6 +325,12 @@ namespace aol.Forms
         private void buddies_online_Shown(object sender, EventArgs e)
         {
             shuttingDown = false; // reset on re-login
+            Thread newThread = new Thread(StartList);
+            newThread.Start();
+        }
+
+        private void StartList()
+        {
             foreach (string b in sqlite_accounts.getBuddyList())
             {
                 if (!chat.buddyStatus.ContainsKey(b.ToLower()))

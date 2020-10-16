@@ -203,20 +203,22 @@ namespace aol.Classes
             if (accForm.tmpUsername == "Guest" || accForm.tmpUsername == "" || irc.IsClientRunning())
                 return;
 
-            Task taskA = new Task(() =>
+            Thread thr = new Thread(StartupIRC);
+            thr.Start();
+        }
+
+        public static void StartupIRC()
+        {
+            irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 3000, true);
+
+            if (!irc.IsClientRunning())
+                irc.StartClient();
+
+            while (!irc.IsClientRunning())
             {
-                irc.SetupIrc(server, accForm.tmpUsername, "", port, "", 3000, true);
-
-                if (!irc.IsClientRunning())
-                    irc.StartClient();
-
-                while (!irc.IsClientRunning())
-                {
-                    Debug.WriteLine("not connected yet");
-                    Thread.Sleep(250); // wait
-                }
-            });
-            taskA.Start();
+                Debug.WriteLine("not connected yet");
+                Thread.Sleep(250); // wait
+            }
         }
     }
 }

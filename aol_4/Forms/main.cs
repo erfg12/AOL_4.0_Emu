@@ -139,7 +139,8 @@ namespace aol.Forms
                     {
                         if (!MdiChildren.Any())
                         {
-                            startProgram();
+                            Thread thr = new Thread(startProgram);
+                            thr.Start();
                             break;
                         }
                     }
@@ -148,6 +149,7 @@ namespace aol.Forms
                         //Debug.WriteLine("openAccWindow() crashed");
                         break;
                     }
+                    System.Threading.Thread.Sleep(100);
                 }
             });
             taskA.Start();
@@ -206,24 +208,21 @@ namespace aol.Forms
                     // open buddies online window
                     if (accForm.tmpUsername != "Guest")
                     {
-                        buddies_online bo = new buddies_online();
-                        bo.Owner = (Form)this;
-                        bo.MdiParent = this;
-                        bo.Show();
+                        Thread thr3 = new Thread(OpenBuddyList);
+                        thr3.Start();
                     }
 
-                    // open home menu
-                    home_menu hm = new home_menu();
-                    hm.Owner = (Form)this;
-                    hm.MdiParent = this;
-                    hm.Show();
+                    Thread thr = new Thread(OpenHomeWindow);
+                    thr.Start();
 
                     if (accForm.tmpUsername != "Guest")
                     {
                         checkMail.Enabled = true;
                         checkMail.Start();
 
-                        reloadAddressBarHistory();
+                        Thread thr2 = new Thread(reloadAddressBarHistory);
+                        thr2.Start();
+
                         if (!backgroundWorker1.IsBusy)
                             backgroundWorker1.RunWorkerAsync();
                     }
@@ -248,12 +247,34 @@ namespace aol.Forms
             chat.startConnection();
         }
 
+        public void OpenBuddyList()
+        {
+            buddies_online bo = new buddies_online();
+            this.Invoke(new MethodInvoker(delegate
+            {
+                bo.Owner = (Form)this;
+                bo.MdiParent = this;
+                bo.Show();
+            }));
+        }
+
+        public void OpenHomeWindow()
+        {
+            home_menu hm = new home_menu();
+            this.Invoke(new MethodInvoker(delegate
+            {
+                hm.Owner = (Form)this;
+                hm.MdiParent = this;
+                hm.Show();
+            }));
+        }
+
         public void reloadAddressBarHistory()
         {
             try
             {
                 addrBox.Invoke(new MethodInvoker(delegate
-               {
+                {
                    addrBox.Items.Clear();
                    tmpHistory.Clear();
                    foreach (string i in sqlite_accounts.getHistory())
@@ -261,7 +282,7 @@ namespace aol.Forms
                        addrBox.Items.Add(i);
                        tmpHistory.Add(i);
                    }
-               }));
+                }));
             } catch {
                 Console.WriteLine("Prevented a crash at reloadAddressBarHistory()");
             }
