@@ -89,9 +89,15 @@ namespace aol.Classes
 
             var result = CurrentWeather.GetByCityName(cityDat[0], cityDat[1], "en", "imperial");
 
-            var t = result.Item.Title;
-            var t2 = Math.Round(result.Item.Temp);
+            string t = "";
+            double t2 = 0.0;
 
+            if (result.Item != null)
+            {
+                t = result.Item.Title;
+                t2 = Math.Round(result.Item.Temp);
+            }
+            
             return t + " " + t2.ToString();
         }
 
