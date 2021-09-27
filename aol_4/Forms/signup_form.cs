@@ -88,7 +88,7 @@ namespace aol.Forms
                 Close();
             } else
             {
-                MessageBox.Show("Account creation has failed for an unknown reason." + Environment.NewLine + "Please email support@aolemu.com", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Account creation has failed." + Environment.NewLine + "Please email support@aolemu.com", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

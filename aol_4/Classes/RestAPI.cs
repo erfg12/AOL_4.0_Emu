@@ -69,6 +69,9 @@ namespace aol.Forms
                     return true;
                 else
                     MessageBox.Show("SQLite error code " + code.ToString());
+            } else
+            {
+                MessageBox.Show("MSG: " + msg);
             }
             Debug.WriteLine(msg);
             return false;
