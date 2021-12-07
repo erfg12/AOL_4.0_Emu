@@ -134,15 +134,15 @@ namespace aol.Forms
             // write to file
             string logpath = Application.StartupPath + @"\chatlogs";
             string privateLog = logpath + @"\PM_" + user + ".txt";
-            //try
-            //{
+            try
+            {
                 File.AppendAllText(privateLog, accForm.tmpUsername + ": " + myMessageBox.Text + '\n');
                 sendMsgSound();
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
                 MessageBox.Show("ERROR: There was an issue writing to log file: " + privateLog);
-            //}
+            }
             // clear msg box
             myMessageBox.Clear();
         }
