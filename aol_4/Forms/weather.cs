@@ -79,7 +79,7 @@ namespace aol.Forms
             List<string> tmpCityState = new List<string>();
             tmpCityState = location.getCityState();
             cityStateLabel.Text = tmpCityState[0] + ", " + tmpCityState[1];
-            location.getForecastWeather(); // test
+            //location.getForecastWeather(); // test
         }
 
         private void Panel1_MouseMove_1(object sender, MouseEventArgs e)

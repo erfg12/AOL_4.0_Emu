@@ -54,27 +54,55 @@ namespace aol.Classes
             string ip = "";
             using (WebClient wc = new WebClient())
             {
-                ip = wc.DownloadString("https://ipv4.icanhazip.com/");
+                try
+                {
+                    ip = wc.DownloadString("https://ipv4.icanhazip.com/");
+                }
+                catch
+                {
+                    Console.WriteLine("Error retrieving ip from ipv4.icanhazip.com");
+                }
             }
+            if (ip.Equals(""))
+                Console.WriteLine("WARNING: There was a problem getting the client's IP! Setting some defaults.");
             return ip;
         }
 
         public static List<string> getCityState()
         {
-            string json = "";
-            string apiURL = "http://api.ipstack.com/" + getIP() + "?access_key=7d7a9198de3b50a37caf5115c63fb4ec&format=1";
-
+            string MyIP = getIP();
             List<string> tmpList = new List<string>();
+
+            // defaults
+            tmpList.Add("New York City");
+            tmpList.Add("New York");
+            tmpList.Add("10001");
+
+            if (MyIP.Equals(""))
+                return tmpList;
+
+            string json = "";
+            string AccessKey = "7d7a9198de3b50a37caf5115c63fb4ec";
+            string apiURL = "http://api.ipstack.com/" + MyIP + "?access_key=" + AccessKey + "&format=1";
 
             using (WebClient wc = new WebClient())
             {
-                json = wc.DownloadString(apiURL);
+                try
+                {
+                    json = wc.DownloadString(apiURL);
+                } 
+                catch
+                {
+                    Console.WriteLine("Error retrieving city, region_name and zip from api.ipstack.com");
+                    return tmpList;
+                }
             }
 
             JToken token = JObject.Parse(json);
 
+            tmpList.Clear(); // clear defaults
             tmpList.Add((string)token.SelectToken("city"));
-            tmpList.Add((string)token.SelectToken("region_name")); // region_code = FL
+            tmpList.Add((string)token.SelectToken("region_name"));
             tmpList.Add((string)token.SelectToken("zip"));
 
             return tmpList;
@@ -101,7 +129,7 @@ namespace aol.Classes
             return t + " " + t2.ToString();
         }
 
-        public static List<string> getForecastWeather()
+        /*public static List<string> getForecastWeather()
         {
             ClientSettings.ApiUrl = "http://api.openweathermap.org/data/2.5";
             ClientSettings.ApiKey = "d8f6deea88bb177513cc8a14cf629020";
@@ -112,6 +140,6 @@ namespace aol.Classes
 
             var t = result.Items;
             return null;
-        }
+        }*/
     }
 }
