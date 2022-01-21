@@ -7,7 +7,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherNet;
-using WeatherNet.Clients;
+using WeatherNet.Util;
+using System.Configuration;
 
 namespace aol.Classes
 {
@@ -49,6 +50,7 @@ namespace aol.Classes
 
     class location
     {
+        public static WeatherNet.Util.Api.ApiClient wn = new WeatherNet.Util.Api.ApiClient();
         public static string getIP()
         {
             string ip = "";
@@ -110,12 +112,9 @@ namespace aol.Classes
 
         public static string getCurrentWeather()
         {
-            ClientSettings.ApiUrl = "http://api.openweathermap.org/data/2.5";
-            ClientSettings.ApiKey = "d8f6deea88bb177513cc8a14cf629020";
-
             List<string> cityDat = getCityState();
 
-            var result = CurrentWeather.GetByCityName(cityDat[0], cityDat[1], "en", "imperial");
+            var result = WeatherNet.Current.GetByCityName(cityDat[0], cityDat[1], "en", "imperial");
 
             string t = "";
             double t2 = 0.0;

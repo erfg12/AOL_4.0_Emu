@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using aol.Classes;
 using CefSharp;
 using CefSharp.WinForms;
+using System.Configuration;
 
 namespace aol.Forms
 {
@@ -341,6 +342,7 @@ namespace aol.Forms
             FormBorderStyle = FormBorderStyle.None;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
+            ConfigurationManager.AppSettings.Set("APIKey", "d8f6deea88bb177513cc8a14cf629020"); // for WeatherNet
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aol_4", "aol_4\aol_4.csproj", "{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aol_4", "aol_4\aol_4.csproj", "{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C8A582E5-2AAB-4D91-AF97-5ADA6723F0E9}"
 EndProject
@@ -15,8 +15,8 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Debug|Any CPU.Build.0 = Debug|x64
+		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Debug|x64.ActiveCfg = Debug|x64
 		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Debug|x64.Build.0 = Debug|x64
 		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Release|Any CPU.ActiveCfg = Release|Any CPU
