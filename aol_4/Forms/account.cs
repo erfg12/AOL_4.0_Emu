@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,7 @@ namespace aol.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             e.Graphics.FillRectangle(Brushes.Gray, Top);
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);
@@ -42,7 +44,7 @@ namespace aol.Forms
         }
         #endregion
 
-        List<string> theAccs = sqlite_accounts.listAccounts();
+        ConcurrentBag<string> theAccs = sqlite_accounts.listAccounts();
         public static string tmpLocation = "";
         public static string tmpPassword = "";
         public static string tmpUsername = "";
@@ -148,7 +150,7 @@ namespace aol.Forms
 
         private void accCheck_Tick(object sender, EventArgs e)
         {
-            List<string> accsCheck = sqlite_accounts.listAccounts();
+            ConcurrentBag<string> accsCheck = sqlite_accounts.listAccounts();
             if (accsCheck.Count() != theAccs.Count())
             {
                 screenName.Items.Clear();

@@ -106,6 +106,7 @@ namespace aol.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             e.Graphics.FillRectangle(Brushes.Gray, Top);
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);
@@ -210,6 +211,7 @@ namespace aol.Forms
 
         private void receivedMsgSound()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.Stream = Properties.Resources.imrcv;
             player.Play();
@@ -232,6 +234,7 @@ namespace aol.Forms
 
         private void sendMsgSound()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.Stream = Properties.Resources.imsend;
             player.Play();

@@ -95,6 +95,7 @@ namespace aol.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             e.Graphics.FillRectangle(Brushes.Gray, Top);
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);

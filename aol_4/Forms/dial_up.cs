@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,7 @@ namespace aol.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             e.Graphics.FillRectangle(Brushes.Gray, Top);
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);
@@ -49,9 +51,12 @@ namespace aol.Forms
         {
             timer1.Stop();
             verbage = "Dial-Up";
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.Stream = Properties.Resources.dial_up_modem;
-            player.Play();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                player.Stream = Properties.Resources.dial_up_modem;
+                player.Play();
+            }
             await Task.Delay(25000);
             timer1.Start();
         }
@@ -77,6 +82,7 @@ namespace aol.Forms
                     pictureBox3.Visible = Visible;
                     break;
                 case 4: // play welcome audio msg and close form
+                    if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) break;
                     System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                     player.Stream = Properties.Resources.Welcome;
                     player.Play();

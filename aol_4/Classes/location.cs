@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using WeatherNet;
 using WeatherNet.Util;
 using System.Configuration;
+using System.Collections.Concurrent;
 
 namespace aol.Classes
 {
@@ -26,7 +27,7 @@ namespace aol.Classes
         public string zip;
         public string latitude;
         public string longitude;
-        public List<loc> location;
+        public ConcurrentBag<loc> location;
         public string country_flag;
         public string country_flag_emoji;
         public string country_flag_emoji_unicode;
@@ -38,7 +39,7 @@ namespace aol.Classes
     {
         public string geoname_id;
         public string capital;
-        public List<langs> languages;
+        public ConcurrentBag<langs> languages;
     }
 
     public class langs

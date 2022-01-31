@@ -110,7 +110,7 @@ namespace aol.Forms
         {
             int code = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            List<string> history = new List<string>();
+            ConcurrentBag<string> history = new ConcurrentBag<string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -542,9 +542,9 @@ namespace aol.Forms
             m_dbConnection.Close();
         }
 
-        public static List<string> listAccounts()
+        public static ConcurrentBag<string> listAccounts()
         {
-            List<string> accs = new List<string>();
+            ConcurrentBag<string> accs = new ConcurrentBag<string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 

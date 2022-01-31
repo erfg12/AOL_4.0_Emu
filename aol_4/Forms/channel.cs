@@ -74,10 +74,10 @@ namespace aol.Forms
 
         const int _ = 2;
 
-        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
@@ -86,6 +86,7 @@ namespace aol.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             e.Graphics.FillRectangle(Brushes.Gray, Top);
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);

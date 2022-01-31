@@ -162,9 +162,12 @@ namespace aol.Forms
             {
                 if (!email.youGotMail)
                 {
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                    player.Stream = Properties.Resources.youGotmail;
-                    player.Play();
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                        player.Stream = Properties.Resources.youGotmail;
+                        player.Play();
+                    }
                     read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
                     email.youGotMail = true;
                 }
@@ -440,7 +443,8 @@ namespace aol.Forms
                     else
                     {
                         loadingIcon.Enabled = false;
-                        loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
+                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                            loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
                         loadingIcon.Image = loadingIcon.Image;
                     }
 
@@ -455,7 +459,8 @@ namespace aol.Forms
                 {
                     mie_badge.Image = null;
                     loadingIcon.Enabled = false;
-                    loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                        loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
                     loadingIcon.Image = loadingIcon.Image;
                 }
             } catch
@@ -490,6 +495,7 @@ namespace aol.Forms
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
             SolidBrush brush1 = new SolidBrush(Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(102))))));
             if (e.Column == 13)
                 e.Graphics.FillRectangle(brush1, e.CellBounds);
@@ -669,9 +675,12 @@ namespace aol.Forms
             if (chat.irc.IsClientRunning())
                 chat.irc.StopClient();
 
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-            player.Stream = Properties.Resources.Goodbye;
-            player.Play();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                player.Stream = Properties.Resources.Goodbye;
+                player.Play();
+            }
 
             Thread.Sleep(1000);
 
