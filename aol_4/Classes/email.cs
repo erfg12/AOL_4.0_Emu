@@ -15,14 +15,15 @@ using System.Web;
 using System.Net;
 using MailKit.Net.Smtp;
 using System.Windows.Forms;
+using System.Collections.Concurrent;
 
 namespace aol.Classes
 {
     class email
     {
-        public static Dictionary<string, string> emailsNew = new Dictionary<string, string>();
-        public static Dictionary<string, string> emailsOld = new Dictionary<string, string>();
-        public static Dictionary<string, string> emailsSent = new Dictionary<string, string>();
+        public static ConcurrentDictionary<string, string> emailsNew = new ConcurrentDictionary<string, string>();
+        public static ConcurrentDictionary<string, string> emailsOld = new ConcurrentDictionary<string, string>();
+        public static ConcurrentDictionary<string, string> emailsSent = new ConcurrentDictionary<string, string>();
         public static string reply = "";
         public static bool youGotMail = false;
         private static string host = "mail.newagesoftware.net";
@@ -118,7 +119,7 @@ namespace aol.Classes
                     if (message.MessageId != null)
                     {
                         if (!emailsNew.ContainsKey(message.MessageId))
-                            emailsNew.Add(message.MessageId, message.Subject);
+                            emailsNew.TryAdd(message.MessageId, message.Subject);
                     } else
                     {
                         Debug.WriteLine("ERROR: Email MessageId was null.");
@@ -135,7 +136,7 @@ namespace aol.Classes
                     if (message.MessageId == null)
                         break;
                     if (!emailsOld.ContainsKey(message.MessageId))
-                        emailsOld.Add(message.MessageId, message.Subject);
+                        emailsOld.TryAdd(message.MessageId, message.Subject);
                 }
 
                 var outbox = client.GetFolder(SpecialFolder.Sent);
@@ -148,7 +149,7 @@ namespace aol.Classes
                     var message = outbox.GetMessage(i);
                     //Debug.WriteLine("[MAIL] sent id:" + message.MessageId + " subj:" + message.Subject);
                     if (!emailsSent.ContainsKey(message.MessageId))
-                        emailsSent.Add(message.MessageId, message.Subject);
+                        emailsSent.TryAdd(message.MessageId, message.Subject);
                 }
 
                 client.Disconnect(true);

@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Diagnostics;
 using aol.Classes;
 using System.Windows.Forms;
+using System.Collections.Concurrent;
 
 namespace aol.Forms
 {
@@ -165,10 +166,10 @@ namespace aol.Forms
         /// Key = URL, Value = Name
         /// </summary>
         /// <returns></returns>
-        public static Dictionary<string, string> getFavoritesList()
+        public static ConcurrentDictionary<string, string> getFavoritesList()
         {
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            Dictionary<string, string> favorites = new Dictionary<string, string>();
+            ConcurrentDictionary<string, string> favorites = new ConcurrentDictionary<string, string>();
             SQLiteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -184,7 +185,7 @@ namespace aol.Forms
                     SQLiteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        favorites.Add(reader["url"].ToString(), reader["name"].ToString());
+                        favorites.TryAdd(reader["url"].ToString(), reader["name"].ToString());
                     }
                 }
             }
@@ -377,7 +378,7 @@ namespace aol.Forms
             {
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
-                chat.buddyStatus.Add(user, false); // put them immediately into our buddy list
+                chat.buddyStatus.TryAdd(user, false); // put them immediately into our buddy list
                 good = true;
             }
             catch (SQLiteException ex)

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aol_4", "aol_4\aol_4.csproj", "{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C8A582E5-2AAB-4D91-AF97-5ADA6723F0E9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Release|x64.ActiveCfg = Release|x64
 		{4F52B604-4B49-4FEB-BBCA-B7DCA1F4D58F}.Release|x64.Build.0 = Release|x64
-		{C8A582E5-2AAB-4D91-AF97-5ADA6723F0E9}.Debug|Any CPU.ActiveCfg = Debug
-		{C8A582E5-2AAB-4D91-AF97-5ADA6723F0E9}.Debug|x64.ActiveCfg = Debug
-		{C8A582E5-2AAB-4D91-AF97-5ADA6723F0E9}.Release|Any CPU.ActiveCfg = Release
-		{C8A582E5-2AAB-4D91-AF97-5ADA6723F0E9}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

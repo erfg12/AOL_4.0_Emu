@@ -9,6 +9,7 @@ using aol.Forms;
 using SimpleIRCLib;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.Concurrent;
 
 namespace aol.Classes
 {
@@ -17,9 +18,9 @@ namespace aol.Classes
         private static int port = 6697;
         private static string server = "irc.snoonet.org";
         public static SimpleIRC irc = new SimpleIRC();
-        public static Dictionary<string, List<string>> users = new Dictionary<string, List<string>>(); // key: channel, value: users
+        public static ConcurrentDictionary<string, List<string>> users = new ConcurrentDictionary<string, List<string>>(); // key: channel, value: users
         public static string newPM = "";
-        public static Dictionary<string, bool> buddyStatus = new Dictionary<string, bool>(); // key: name, value: online status
+        public static ConcurrentDictionary<string, bool> buddyStatus = new ConcurrentDictionary<string, bool>(); // key: name, value: online status
 
         public static void downloadStatusChanged(object source, DCCEventArgs args)
         {
@@ -177,7 +178,7 @@ namespace aol.Classes
                 if (!users.ContainsKey(channel)) // sometimes skipped?!
                 {
                     Debug.WriteLine("Creating users key " + channel);
-                    users.Add(channel, args.UsersPerChannel[usersPerChannel.Key]);
+                    users.TryAdd(channel, args.UsersPerChannel[usersPerChannel.Key]);
                     continue;
                 }
                 // check if offline user is still in list

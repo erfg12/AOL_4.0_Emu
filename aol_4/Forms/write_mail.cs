@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections.Concurrent;
 
 namespace aol.Forms
 {
@@ -112,9 +113,9 @@ namespace aol.Forms
 
         #region my_functions
         // key = name, value = address
-        private Dictionary<string, string> parseSendTo(string parse)
+        private ConcurrentDictionary<string, string> parseSendTo(string parse)
         {
-            Dictionary<string, string> list = new Dictionary<string, string>();
+            ConcurrentDictionary<string, string> list = new ConcurrentDictionary<string, string>();
             string[] replaceThese = new string[] { "<", ">", "\"" };
 
             if (parse.Contains(";"))
@@ -140,17 +141,17 @@ namespace aol.Forms
                         }
                         Debug.WriteLine("[MAIL] Adding 0:" + cleanName + " 1:" + cleanAddr);
                         if (!list.ContainsKey(cleanName))
-                            list.Add(cleanName, cleanAddr);
+                            list.TryAdd(cleanName, cleanAddr);
                     }
                     else
                     {
-                        list.Add("", addr);
+                        list.TryAdd("", addr);
                     }
                 }
             }
             else
             {
-                list.Add("", parse);
+                list.TryAdd("", parse);
             }
 
             return list;

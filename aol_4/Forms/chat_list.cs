@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -77,7 +78,7 @@ namespace aol.Forms
         #endregion
 
         #region variables
-        private Dictionary<string, List<string>> categories = new Dictionary<string, List<string>>();
+        private ConcurrentDictionary<string, List<string>> categories = new ConcurrentDictionary<string, List<string>>();
         //private Dictionary<string, string> channels = new Dictionary<string, string>();
         #endregion
 
@@ -114,7 +115,7 @@ namespace aol.Forms
                         tmpChanList.Add(chanHashtag);
                     }
                     // add category name with channel list to associate with channels dictionary
-                    categories.Add(catTitle, tmpChanList);
+                    categories.TryAdd(catTitle, tmpChanList);
                 }
             }
         }

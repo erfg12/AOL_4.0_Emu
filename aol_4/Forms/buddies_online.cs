@@ -1,5 +1,6 @@
 ﻿using aol.Classes;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -210,14 +211,14 @@ namespace aol.Forms
         {
             shuttingDown = true;
             backgroundWorker1.CancelAsync();
-            List<string> tmpList = new List<string>();
+            ConcurrentDictionary<string, bool> tmpList = new ConcurrentDictionary<string, bool>();
             foreach (KeyValuePair<string, bool> entry in chat.buddyStatus)
             {
-                tmpList.Add(entry.Key.ToLower());
+                tmpList.TryAdd(entry.Key.ToLower(), entry.Value);
             }
-            foreach (string entry in tmpList)
+            foreach (KeyValuePair<string, bool> entry in tmpList)
             {
-                chat.buddyStatus.Remove(entry);
+                chat.buddyStatus.TryRemove(entry.Key, out _);
             }
         }
 
@@ -333,7 +334,7 @@ namespace aol.Forms
             foreach (string b in sqlite_accounts.getBuddyList())
             {
                 if (!chat.buddyStatus.ContainsKey(b.ToLower()))
-                    chat.buddyStatus.Add(b.ToLower(), false); // offline by default
+                    chat.buddyStatus.TryAdd(b.ToLower(), false); // offline by default
             }
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();
