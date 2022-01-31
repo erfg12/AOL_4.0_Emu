@@ -218,7 +218,8 @@ namespace aol.Forms
             }
             foreach (KeyValuePair<string, bool> entry in tmpList)
             {
-                chat.buddyStatus.TryRemove(entry.Key, out _);
+                bool MyOut;
+                chat.buddyStatus.TryRemove(entry.Key, out MyOut);
             }
         }
 
