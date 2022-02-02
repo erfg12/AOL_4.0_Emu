@@ -17,16 +17,16 @@ namespace aol.Forms
         public static SQLiteConnection openDB()
         {
             var pathDB = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "accounts.db");
-            try {
+            /*try {
                 if (!System.IO.File.Exists(pathDB)) throw new Exception();
             }
             catch
             {
                 MessageBox.Show("ERROR: SQLite DB file error.");
                 Application.Exit();
-            }
+            }*/
             //Debug.WriteLine("pageDB=" + pathDB);
-            return new SQLiteConnection("Data Source=" + pathDB + ";Version=3;");
+            return new SQLiteConnection("Data Source=" + pathDB + ";Version=3;"); // seems that this now auto creates the file if it doesn't exist.
         }
 
         public static byte[] passSalt = Encoding.ASCII.GetBytes("My$@lT!2");
@@ -191,7 +191,12 @@ namespace aol.Forms
             }
             catch (SQLiteException ex)
             {
-                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+                if (ex.ErrorCode != 1) return favorites;
+                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, name text)", "favorites"), m_dbConnection))
+                {
+                    Debug.WriteLine("Creating favorites table.");
+                    createTable.ExecuteNonQuery();
+                }
             }
 
             m_dbConnection.Close();
@@ -232,7 +237,12 @@ namespace aol.Forms
             }
             catch (SQLiteException ex)
             {
-                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+                if (ex.ErrorCode != 1) return history;
+                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, date int)", "history"), m_dbConnection))
+                {
+                    Debug.WriteLine("Creating history table.");
+                    createTable.ExecuteNonQuery();
+                }
             }
             catch
             {
@@ -369,7 +379,12 @@ namespace aol.Forms
             }
             catch (SQLiteException ex)
             {
-                Debug.WriteLine("SQLite ERR: " + ex.ErrorCode);
+                if (ex.ErrorCode != 1) return false;
+                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, buddy_name text)", "buddy_list"), m_dbConnection))
+                {
+                    Debug.WriteLine("Creating buddy_list table.");
+                    createTable.ExecuteNonQuery();
+                }
             }
 
             string sql = "INSERT INTO buddy_list (userid, buddy_name) VALUES ('" + userID + "', '" + user + "')";
@@ -416,7 +431,12 @@ namespace aol.Forms
             }
             catch (SQLiteException ex)
             {
-                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+                if (ex.ErrorCode != 1) return buddies;
+                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, buddy_name text)", "buddy_list"), m_dbConnection))
+                {
+                    Debug.WriteLine("Creating buddy_list table.");
+                    createTable.ExecuteNonQuery();
+                }
             }
 
             m_dbConnection.Close();
@@ -549,18 +569,32 @@ namespace aol.Forms
             m_dbConnection.Open();
 
             string sql = "SELECT username FROM aol_accounts";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-
-            try
+            using (SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection))
             {
-                SQLiteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                try
                 {
-                    accs.Add(reader.GetString(0));
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            accs.Add(reader.GetString(0));
+                        }
+                        reader.Close();
+                    }
+                } 
+                catch (SQLiteException ex)
+                {
+                    if (ex.ErrorCode != 1) return accs;
+                    using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, username text, fullname text)", "aol_accounts"), m_dbConnection))
+                    {
+                        Debug.WriteLine("Creating aol_accounts table.");
+                        createTable.ExecuteNonQuery();
+                    }
                 }
-            } catch { }
+            }
 
             m_dbConnection.Close();
+
             return accs;
         }
     }

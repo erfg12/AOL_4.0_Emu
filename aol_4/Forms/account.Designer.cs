@@ -53,10 +53,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(142, 112);
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(260, 215);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 15);
+            this.label1.Size = new System.Drawing.Size(195, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Select Screen Name:";
             // 
@@ -68,19 +69,21 @@
             "New User",
             "Existing Member",
             "Guest"});
-            this.screenName.Location = new System.Drawing.Point(145, 133);
+            this.screenName.Location = new System.Drawing.Point(266, 256);
+            this.screenName.Margin = new System.Windows.Forms.Padding(6);
             this.screenName.Name = "screenName";
-            this.screenName.Size = new System.Drawing.Size(185, 21);
+            this.screenName.Size = new System.Drawing.Size(336, 33);
             this.screenName.TabIndex = 0;
             this.screenName.SelectedIndexChanged += new System.EventHandler(this.screenName_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(142, 214);
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(260, 412);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 15);
+            this.label2.Size = new System.Drawing.Size(152, 21);
             this.label2.TabIndex = 8;
             this.label2.Text = "Select Location:";
             // 
@@ -91,9 +94,10 @@
             this.selectLocation.Items.AddRange(new object[] {
             "ISP/LAN Connection",
             "Dial-Up"});
-            this.selectLocation.Location = new System.Drawing.Point(145, 235);
+            this.selectLocation.Location = new System.Drawing.Point(266, 452);
+            this.selectLocation.Margin = new System.Windows.Forms.Padding(6);
             this.selectLocation.Name = "selectLocation";
-            this.selectLocation.Size = new System.Drawing.Size(185, 21);
+            this.selectLocation.Size = new System.Drawing.Size(336, 33);
             this.selectLocation.TabIndex = 2;
             // 
             // signOnBtn
@@ -101,11 +105,12 @@
             this.signOnBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.signOnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signOnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signOnBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signOnBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.signOnBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.signOnBtn.Location = new System.Drawing.Point(290, 274);
+            this.signOnBtn.Location = new System.Drawing.Point(532, 527);
+            this.signOnBtn.Margin = new System.Windows.Forms.Padding(6);
             this.signOnBtn.Name = "signOnBtn";
-            this.signOnBtn.Size = new System.Drawing.Size(66, 23);
+            this.signOnBtn.Size = new System.Drawing.Size(121, 44);
             this.signOnBtn.TabIndex = 5;
             this.signOnBtn.Text = "SIGN ON";
             this.signOnBtn.UseVisualStyleBackColor = false;
@@ -116,11 +121,12 @@
             this.helpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.helpBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.helpBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.helpBtn.Location = new System.Drawing.Point(203, 274);
+            this.helpBtn.Location = new System.Drawing.Point(372, 527);
+            this.helpBtn.Margin = new System.Windows.Forms.Padding(6);
             this.helpBtn.Name = "helpBtn";
-            this.helpBtn.Size = new System.Drawing.Size(66, 23);
+            this.helpBtn.Size = new System.Drawing.Size(121, 44);
             this.helpBtn.TabIndex = 4;
             this.helpBtn.Text = "HELP";
             this.helpBtn.UseVisualStyleBackColor = false;
@@ -130,11 +136,12 @@
             this.setupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.setupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.setupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.setupBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setupBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.setupBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.setupBtn.Location = new System.Drawing.Point(114, 274);
+            this.setupBtn.Location = new System.Drawing.Point(209, 527);
+            this.setupBtn.Margin = new System.Windows.Forms.Padding(6);
             this.setupBtn.Name = "setupBtn";
-            this.setupBtn.Size = new System.Drawing.Size(66, 23);
+            this.setupBtn.Size = new System.Drawing.Size(121, 44);
             this.setupBtn.TabIndex = 3;
             this.setupBtn.Text = "SETUP";
             this.setupBtn.UseVisualStyleBackColor = false;
@@ -142,20 +149,22 @@
             // 
             // passBox
             // 
-            this.passBox.Location = new System.Drawing.Point(145, 183);
+            this.passBox.Location = new System.Drawing.Point(266, 352);
+            this.passBox.Margin = new System.Windows.Forms.Padding(6);
             this.passBox.Name = "passBox";
             this.passBox.PasswordChar = '*';
-            this.passBox.Size = new System.Drawing.Size(185, 20);
+            this.passBox.Size = new System.Drawing.Size(336, 33);
             this.passBox.TabIndex = 1;
             this.passBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passBox_KeyDown);
             // 
             // passLabel
             // 
             this.passLabel.AutoSize = true;
-            this.passLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passLabel.Location = new System.Drawing.Point(142, 164);
+            this.passLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.passLabel.Location = new System.Drawing.Point(260, 315);
+            this.passLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.passLabel.Name = "passLabel";
-            this.passLabel.Size = new System.Drawing.Size(101, 15);
+            this.passLabel.Size = new System.Drawing.Size(155, 21);
             this.passLabel.TabIndex = 14;
             this.passLabel.Text = "Enter Password:";
             // 
@@ -167,11 +176,13 @@
             // 
             // leftBanner
             // 
+            this.leftBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
-            this.leftBanner.Location = new System.Drawing.Point(2, 20);
+            this.leftBanner.Location = new System.Drawing.Point(4, 38);
+            this.leftBanner.Margin = new System.Windows.Forms.Padding(6);
             this.leftBanner.Name = "leftBanner";
-            this.leftBanner.Size = new System.Drawing.Size(100, 300);
-            this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.leftBanner.Size = new System.Drawing.Size(193, 580);
+            this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.leftBanner.TabIndex = 5;
             this.leftBanner.TabStop = false;
             // 
@@ -185,9 +196,10 @@
             this.panel1.Controls.Add(this.mainTitle);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 18);
+            this.panel1.Size = new System.Drawing.Size(693, 35);
             this.panel1.TabIndex = 4;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -196,9 +208,10 @@
             this.mainTitle.AutoSize = true;
             this.mainTitle.BackColor = System.Drawing.Color.Transparent;
             this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(26, 2);
+            this.mainTitle.Location = new System.Drawing.Point(48, 4);
+            this.mainTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(45, 13);
+            this.mainTitle.Size = new System.Drawing.Size(79, 25);
             this.mainTitle.TabIndex = 10;
             this.mainTitle.Text = "Sign On";
             // 
@@ -209,9 +222,10 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
             this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(4, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(7, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
@@ -220,25 +234,25 @@
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
             this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(359, 1);
+            this.closeBtn.Location = new System.Drawing.Point(658, 2);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(18, 16);
+            this.closeBtn.Size = new System.Drawing.Size(33, 31);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             // 
             // accForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(382, 322);
+            this.ClientSize = new System.Drawing.Size(700, 619);
             this.Controls.Add(this.passLabel);
             this.Controls.Add(this.passBox);
             this.Controls.Add(this.setupBtn);
@@ -251,7 +265,8 @@
             this.Controls.Add(this.leftBanner);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(215, 170);
+            this.Location = new System.Drawing.Point(375, 250);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "accForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

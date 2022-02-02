@@ -20,5 +20,8 @@
     <Setting Name="searchProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Dogpile</Value>
     </Setting>
+    <Setting Name="APIKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d8f6deea88bb177513cc8a14cf629020</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

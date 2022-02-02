@@ -72,9 +72,10 @@
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(580, 18);
+            this.panel1.Size = new System.Drawing.Size(1063, 35);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
@@ -85,9 +86,10 @@
             this.mainTitle.AutoSize = true;
             this.mainTitle.BackColor = System.Drawing.Color.Transparent;
             this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(3, 2);
+            this.mainTitle.Location = new System.Drawing.Point(6, 4);
+            this.mainTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(43, 13);
+            this.mainTitle.Size = new System.Drawing.Size(74, 25);
             this.mainTitle.TabIndex = 8;
             this.mainTitle.Text = "Subject";
             this.mainTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -97,14 +99,15 @@
             this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
             this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(524, 1);
+            this.miniBtn.Location = new System.Drawing.Point(961, 2);
+            this.miniBtn.Margin = new System.Windows.Forms.Padding(6);
             this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(18, 16);
+            this.miniBtn.Size = new System.Drawing.Size(33, 31);
             this.miniBtn.TabIndex = 2;
             this.miniBtn.UseVisualStyleBackColor = false;
             this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
@@ -114,16 +117,16 @@
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
             this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(542, 1);
+            this.maxBtn.Location = new System.Drawing.Point(994, 2);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(18, 16);
+            this.maxBtn.Size = new System.Drawing.Size(33, 31);
             this.maxBtn.TabIndex = 1;
             this.maxBtn.UseVisualStyleBackColor = false;
             this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
@@ -133,16 +136,16 @@
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
             this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(562, 1);
+            this.closeBtn.Location = new System.Drawing.Point(1030, 2);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(18, 16);
+            this.closeBtn.Size = new System.Drawing.Size(33, 31);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -152,20 +155,23 @@
             this.mailViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mailViewer.Location = new System.Drawing.Point(1, 1);
-            this.mailViewer.MinimumSize = new System.Drawing.Size(20, 20);
+            this.mailViewer.Location = new System.Drawing.Point(2, 2);
+            this.mailViewer.Margin = new System.Windows.Forms.Padding(6);
+            this.mailViewer.MinimumSize = new System.Drawing.Size(37, 38);
             this.mailViewer.Name = "mailViewer";
-            this.mailViewer.Size = new System.Drawing.Size(490, 336);
+            this.mailViewer.Size = new System.Drawing.Size(898, 646);
             this.mailViewer.TabIndex = 5;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(454, 376);
+            this.pictureBox1.Location = new System.Drawing.Point(806, 723);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 23);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.Size = new System.Drawing.Size(89, 44);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -173,10 +179,11 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(337, 376);
+            this.pictureBox2.Location = new System.Drawing.Point(618, 723);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 23);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.Size = new System.Drawing.Size(90, 44);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
@@ -186,9 +193,10 @@
             this.helpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.helpBtn.Location = new System.Drawing.Point(515, 377);
+            this.helpBtn.Location = new System.Drawing.Point(944, 725);
+            this.helpBtn.Margin = new System.Windows.Forms.Padding(6);
             this.helpBtn.Name = "helpBtn";
-            this.helpBtn.Size = new System.Drawing.Size(55, 23);
+            this.helpBtn.Size = new System.Drawing.Size(101, 44);
             this.helpBtn.TabIndex = 9;
             this.helpBtn.Text = "Help";
             this.helpBtn.UseVisualStyleBackColor = false;
@@ -199,9 +207,10 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(263, 376);
+            this.button1.Location = new System.Drawing.Point(482, 723);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 23);
+            this.button1.Size = new System.Drawing.Size(101, 44);
             this.button1.TabIndex = 10;
             this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = false;
@@ -210,9 +219,10 @@
             // 
             this.curID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.curID.AutoSize = true;
-            this.curID.Location = new System.Drawing.Point(393, 381);
+            this.curID.Location = new System.Drawing.Point(720, 733);
+            this.curID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.curID.Name = "curID";
-            this.curID.Size = new System.Drawing.Size(13, 13);
+            this.curID.Size = new System.Drawing.Size(22, 25);
             this.curID.TabIndex = 11;
             this.curID.Text = "1";
             // 
@@ -220,9 +230,10 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(406, 381);
+            this.label1.Location = new System.Drawing.Point(744, 733);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(29, 25);
             this.label1.TabIndex = 12;
             this.label1.Text = "of";
             // 
@@ -230,9 +241,10 @@
             // 
             this.totalQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.totalQty.AutoSize = true;
-            this.totalQty.Location = new System.Drawing.Point(421, 381);
+            this.totalQty.Location = new System.Drawing.Point(772, 733);
+            this.totalQty.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.totalQty.Name = "totalQty";
-            this.totalQty.Size = new System.Drawing.Size(13, 13);
+            this.totalQty.Size = new System.Drawing.Size(22, 25);
             this.totalQty.TabIndex = 13;
             this.totalQty.Text = "1";
             // 
@@ -241,10 +253,11 @@
             this.replyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.replyButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.replyButton.Image = ((System.Drawing.Image)(resources.GetObject("replyButton.Image")));
-            this.replyButton.Location = new System.Drawing.Point(528, 30);
+            this.replyButton.Location = new System.Drawing.Point(959, 58);
+            this.replyButton.Margin = new System.Windows.Forms.Padding(6);
             this.replyButton.Name = "replyButton";
-            this.replyButton.Size = new System.Drawing.Size(37, 37);
-            this.replyButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.replyButton.Size = new System.Drawing.Size(75, 75);
+            this.replyButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.replyButton.TabIndex = 14;
             this.replyButton.TabStop = false;
             this.replyButton.Click += new System.EventHandler(this.replyButton_Click);
@@ -253,10 +266,11 @@
             // 
             this.forwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.forwardButton.Image = ((System.Drawing.Image)(resources.GetObject("forwardButton.Image")));
-            this.forwardButton.Location = new System.Drawing.Point(528, 96);
+            this.forwardButton.Location = new System.Drawing.Point(959, 179);
+            this.forwardButton.Margin = new System.Windows.Forms.Padding(6);
             this.forwardButton.Name = "forwardButton";
-            this.forwardButton.Size = new System.Drawing.Size(36, 36);
-            this.forwardButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.forwardButton.Size = new System.Drawing.Size(75, 75);
+            this.forwardButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.forwardButton.TabIndex = 15;
             this.forwardButton.TabStop = false;
             // 
@@ -264,10 +278,11 @@
             // 
             this.replyAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.replyAllButton.Image = ((System.Drawing.Image)(resources.GetObject("replyAllButton.Image")));
-            this.replyAllButton.Location = new System.Drawing.Point(528, 159);
+            this.replyAllButton.Location = new System.Drawing.Point(959, 300);
+            this.replyAllButton.Margin = new System.Windows.Forms.Padding(6);
             this.replyAllButton.Name = "replyAllButton";
-            this.replyAllButton.Size = new System.Drawing.Size(36, 36);
-            this.replyAllButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.replyAllButton.Size = new System.Drawing.Size(75, 75);
+            this.replyAllButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.replyAllButton.TabIndex = 16;
             this.replyAllButton.TabStop = false;
             // 
@@ -275,10 +290,11 @@
             // 
             this.addressBookButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addressBookButton.Image = ((System.Drawing.Image)(resources.GetObject("addressBookButton.Image")));
-            this.addressBookButton.Location = new System.Drawing.Point(528, 230);
+            this.addressBookButton.Location = new System.Drawing.Point(959, 436);
+            this.addressBookButton.Margin = new System.Windows.Forms.Padding(6);
             this.addressBookButton.Name = "addressBookButton";
-            this.addressBookButton.Size = new System.Drawing.Size(36, 36);
-            this.addressBookButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.addressBookButton.Size = new System.Drawing.Size(75, 75);
+            this.addressBookButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.addressBookButton.TabIndex = 17;
             this.addressBookButton.TabStop = false;
             // 
@@ -286,9 +302,10 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(530, 70);
+            this.label2.Location = new System.Drawing.Point(972, 139);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(57, 25);
             this.label2.TabIndex = 18;
             this.label2.Text = "Reply";
             // 
@@ -296,9 +313,10 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(525, 135);
+            this.label3.Location = new System.Drawing.Point(962, 260);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(81, 25);
             this.label3.TabIndex = 19;
             this.label3.Text = "Forward";
             // 
@@ -306,9 +324,10 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(523, 198);
+            this.label4.Location = new System.Drawing.Point(959, 381);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(84, 25);
             this.label4.TabIndex = 20;
             this.label4.Text = "Reply All";
             // 
@@ -316,9 +335,10 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(512, 269);
+            this.label5.Location = new System.Drawing.Point(939, 517);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.Size = new System.Drawing.Size(118, 25);
             this.label5.TabIndex = 21;
             this.label5.Text = "Add Address";
             // 
@@ -329,17 +349,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.mailViewer);
-            this.panel2.Location = new System.Drawing.Point(12, 30);
+            this.panel2.Location = new System.Drawing.Point(22, 58);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 340);
+            this.panel2.Size = new System.Drawing.Size(906, 652);
             this.panel2.TabIndex = 22;
             // 
             // read_mail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(582, 411);
+            this.ClientSize = new System.Drawing.Size(1067, 790);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -358,7 +379,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(15, 120);
+            this.Location = new System.Drawing.Point(15, 220);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "read_mail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Read Mail";

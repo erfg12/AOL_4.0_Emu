@@ -19,6 +19,7 @@ using aol.Classes;
 using CefSharp;
 using CefSharp.WinForms;
 using System.Configuration;
+using Microsoft.Win32;
 
 namespace aol.Forms
 {
@@ -410,7 +411,7 @@ namespace aol.Forms
 
         private void fileBtn_Click(object sender, EventArgs e)
         {
-            fileContextMenuStrip.Show(this.Location.X, Location.Y + 40);
+            fileContextMenuStrip.Show(this.Location.X, Location.Y + 70);
         }
 
         private void closeForm_Click(object sender, EventArgs e)
@@ -600,17 +601,17 @@ namespace aol.Forms
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            editContextMenuStrip.Show(this.Location.X + 28, this.Location.Y + 40);
+            editContextMenuStrip.Show(this.Location.X + 28, this.Location.Y + 70);
         }
 
         private void windowBtn_Click(object sender, EventArgs e)
         {
-            windowContextMenuStrip.Show(this.Location.X + 54, this.Location.Y + 40);
+            windowContextMenuStrip.Show(this.Location.X + 54, this.Location.Y + 70);
         }
 
         private void helpBtn_Click(object sender, EventArgs e)
         {
-            helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + 40);
+            helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + 70);
         }
         
         private void mail_center_btn_Click(object sender, EventArgs e)

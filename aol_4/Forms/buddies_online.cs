@@ -296,7 +296,8 @@ namespace aol.Forms
 
             Thread.Sleep(4000);
 
-            backgroundWorker1.RunWorkerAsync(); // check again
+            if (!backgroundWorker1.IsBusy)
+                backgroundWorker1.RunWorkerAsync(); // check again
         }
 
         private void miniBtn_Click(object sender, EventArgs e)

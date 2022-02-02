@@ -48,7 +48,7 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
-        public void goToChannel (string channel, int width = 736, int height = 420)
+        public void goToChannel (string channel, int width = 1105, int height = 650)
         {
             string path = Directory.GetCurrentDirectory() + @"\Channels\" + channel + ".htm";
             Debug.WriteLine(path);

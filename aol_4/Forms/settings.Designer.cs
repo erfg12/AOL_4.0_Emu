@@ -45,8 +45,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.browseHistoryList = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.deleteBrowserHistoryBtn = new System.Windows.Forms.Button();
             this.DeleteAllBrowsingHistory = new System.Windows.Forms.Button();
+            this.deleteBrowserHistoryBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,9 +54,10 @@
             // fullscreenCheckbox
             // 
             this.fullscreenCheckbox.AutoSize = true;
-            this.fullscreenCheckbox.Location = new System.Drawing.Point(8, 36);
+            this.fullscreenCheckbox.Location = new System.Drawing.Point(15, 69);
+            this.fullscreenCheckbox.Margin = new System.Windows.Forms.Padding(6);
             this.fullscreenCheckbox.Name = "fullscreenCheckbox";
-            this.fullscreenCheckbox.Size = new System.Drawing.Size(104, 17);
+            this.fullscreenCheckbox.Size = new System.Drawing.Size(173, 29);
             this.fullscreenCheckbox.TabIndex = 0;
             this.fullscreenCheckbox.Text = "Start Full Screen";
             this.fullscreenCheckbox.UseVisualStyleBackColor = true;
@@ -73,9 +74,10 @@
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 18);
+            this.panel1.Size = new System.Drawing.Size(588, 35);
             this.panel1.TabIndex = 3;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -84,9 +86,10 @@
             this.mainTitle.AutoSize = true;
             this.mainTitle.BackColor = System.Drawing.Color.Transparent;
             this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(3, 2);
+            this.mainTitle.Location = new System.Drawing.Point(6, 4);
+            this.mainTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(85, 13);
+            this.mainTitle.Size = new System.Drawing.Size(150, 25);
             this.mainTitle.TabIndex = 11;
             this.mainTitle.Text = "General Settings";
             // 
@@ -95,14 +98,15 @@
             this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
             this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(264, 1);
+            this.miniBtn.Location = new System.Drawing.Point(484, 2);
+            this.miniBtn.Margin = new System.Windows.Forms.Padding(6);
             this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(18, 16);
+            this.miniBtn.Size = new System.Drawing.Size(33, 31);
             this.miniBtn.TabIndex = 2;
             this.miniBtn.UseVisualStyleBackColor = false;
             this.miniBtn.Click += new System.EventHandler(this.MiniBtn_Click);
@@ -112,17 +116,17 @@
             this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
             this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_disabled_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.maxBtn.Enabled = false;
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(282, 1);
+            this.maxBtn.Location = new System.Drawing.Point(517, 2);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(18, 16);
+            this.maxBtn.Size = new System.Drawing.Size(33, 31);
             this.maxBtn.TabIndex = 1;
             this.maxBtn.UseVisualStyleBackColor = false;
             // 
@@ -131,16 +135,16 @@
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
             this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(302, 1);
+            this.closeBtn.Location = new System.Drawing.Point(554, 2);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(18, 16);
+            this.closeBtn.Size = new System.Drawing.Size(33, 31);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -151,9 +155,10 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(257, 375);
+            this.button1.Location = new System.Drawing.Point(471, 721);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
+            this.button1.Size = new System.Drawing.Size(103, 44);
             this.button1.TabIndex = 10;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = false;
@@ -163,26 +168,29 @@
             // 
             this.homePageBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.homePageBox.Location = new System.Drawing.Point(81, 67);
+            this.homePageBox.Location = new System.Drawing.Point(148, 129);
+            this.homePageBox.Margin = new System.Windows.Forms.Padding(6);
             this.homePageBox.Name = "homePageBox";
-            this.homePageBox.Size = new System.Drawing.Size(235, 20);
+            this.homePageBox.Size = new System.Drawing.Size(428, 33);
             this.homePageBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 70);
+            this.label1.Location = new System.Drawing.Point(16, 135);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(112, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Home Page:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 96);
+            this.label2.Location = new System.Drawing.Point(33, 185);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(101, 25);
             this.label2.TabIndex = 8;
             this.label2.Text = "Full Name:";
             // 
@@ -190,9 +198,10 @@
             // 
             this.fullnameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fullnameBox.Location = new System.Drawing.Point(81, 93);
+            this.fullnameBox.Location = new System.Drawing.Point(148, 179);
+            this.fullnameBox.Margin = new System.Windows.Forms.Padding(6);
             this.fullnameBox.Name = "fullnameBox";
-            this.fullnameBox.Size = new System.Drawing.Size(173, 20);
+            this.fullnameBox.Size = new System.Drawing.Size(314, 33);
             this.fullnameBox.TabIndex = 2;
             // 
             // updateFNBtn
@@ -201,9 +210,10 @@
             this.updateFNBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.updateFNBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateFNBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.updateFNBtn.Location = new System.Drawing.Point(260, 92);
+            this.updateFNBtn.Location = new System.Drawing.Point(477, 177);
+            this.updateFNBtn.Margin = new System.Windows.Forms.Padding(6);
             this.updateFNBtn.Name = "updateFNBtn";
-            this.updateFNBtn.Size = new System.Drawing.Size(56, 22);
+            this.updateFNBtn.Size = new System.Drawing.Size(103, 42);
             this.updateFNBtn.TabIndex = 3;
             this.updateFNBtn.Text = "Update";
             this.updateFNBtn.UseVisualStyleBackColor = false;
@@ -213,9 +223,10 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 384);
+            this.label9.Location = new System.Drawing.Point(22, 738);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 13);
+            this.label9.Size = new System.Drawing.Size(282, 25);
             this.label9.TabIndex = 22;
             this.label9.Text = "Settings are saved automatically";
             // 
@@ -230,17 +241,19 @@
             "Google",
             "Yahoo",
             "Bing"});
-            this.searchProvider.Location = new System.Drawing.Point(81, 119);
+            this.searchProvider.Location = new System.Drawing.Point(148, 229);
+            this.searchProvider.Margin = new System.Windows.Forms.Padding(6);
             this.searchProvider.Name = "searchProvider";
-            this.searchProvider.Size = new System.Drawing.Size(235, 21);
+            this.searchProvider.Size = new System.Drawing.Size(428, 33);
             this.searchProvider.TabIndex = 23;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 122);
+            this.label3.Location = new System.Drawing.Point(57, 235);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(73, 25);
             this.label3.TabIndex = 24;
             this.label3.Text = "Search:";
             // 
@@ -250,10 +263,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.browseHistoryList.FullRowSelect = true;
-            this.browseHistoryList.HideSelection = false;
-            this.browseHistoryList.Location = new System.Drawing.Point(7, 16);
+            this.browseHistoryList.Location = new System.Drawing.Point(13, 31);
+            this.browseHistoryList.Margin = new System.Windows.Forms.Padding(6);
             this.browseHistoryList.Name = "browseHistoryList";
-            this.browseHistoryList.Size = new System.Drawing.Size(296, 174);
+            this.browseHistoryList.Size = new System.Drawing.Size(539, 331);
             this.browseHistoryList.TabIndex = 25;
             this.browseHistoryList.UseCompatibleStateImageBehavior = false;
             this.browseHistoryList.View = System.Windows.Forms.View.List;
@@ -266,26 +279,14 @@
             this.groupBox1.Controls.Add(this.DeleteAllBrowsingHistory);
             this.groupBox1.Controls.Add(this.deleteBrowserHistoryBtn);
             this.groupBox1.Controls.Add(this.browseHistoryList);
-            this.groupBox1.Location = new System.Drawing.Point(8, 146);
+            this.groupBox1.Location = new System.Drawing.Point(15, 281);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 223);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(566, 429);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Browse History";
-            // 
-            // deleteBrowserHistoryBtn
-            // 
-            this.deleteBrowserHistoryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteBrowserHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.deleteBrowserHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBrowserHistoryBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.deleteBrowserHistoryBtn.Location = new System.Drawing.Point(249, 194);
-            this.deleteBrowserHistoryBtn.Name = "deleteBrowserHistoryBtn";
-            this.deleteBrowserHistoryBtn.Size = new System.Drawing.Size(54, 23);
-            this.deleteBrowserHistoryBtn.TabIndex = 26;
-            this.deleteBrowserHistoryBtn.Text = "Delete";
-            this.deleteBrowserHistoryBtn.UseVisualStyleBackColor = false;
-            this.deleteBrowserHistoryBtn.Click += new System.EventHandler(this.DeleteBrowserHistoryBtn_Click);
             // 
             // DeleteAllBrowsingHistory
             // 
@@ -293,20 +294,36 @@
             this.DeleteAllBrowsingHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
             this.DeleteAllBrowsingHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteAllBrowsingHistory.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteAllBrowsingHistory.Location = new System.Drawing.Point(7, 196);
+            this.DeleteAllBrowsingHistory.Location = new System.Drawing.Point(13, 377);
+            this.DeleteAllBrowsingHistory.Margin = new System.Windows.Forms.Padding(6);
             this.DeleteAllBrowsingHistory.Name = "DeleteAllBrowsingHistory";
-            this.DeleteAllBrowsingHistory.Size = new System.Drawing.Size(75, 23);
+            this.DeleteAllBrowsingHistory.Size = new System.Drawing.Size(138, 44);
             this.DeleteAllBrowsingHistory.TabIndex = 27;
             this.DeleteAllBrowsingHistory.Text = "Delete All";
             this.DeleteAllBrowsingHistory.UseVisualStyleBackColor = false;
             this.DeleteAllBrowsingHistory.Click += new System.EventHandler(this.DeleteAllBrowsingHistory_Click);
             // 
+            // deleteBrowserHistoryBtn
+            // 
+            this.deleteBrowserHistoryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteBrowserHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
+            this.deleteBrowserHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBrowserHistoryBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.deleteBrowserHistoryBtn.Location = new System.Drawing.Point(456, 373);
+            this.deleteBrowserHistoryBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.deleteBrowserHistoryBtn.Name = "deleteBrowserHistoryBtn";
+            this.deleteBrowserHistoryBtn.Size = new System.Drawing.Size(99, 44);
+            this.deleteBrowserHistoryBtn.TabIndex = 26;
+            this.deleteBrowserHistoryBtn.Text = "Delete";
+            this.deleteBrowserHistoryBtn.UseVisualStyleBackColor = false;
+            this.deleteBrowserHistoryBtn.Click += new System.EventHandler(this.DeleteBrowserHistoryBtn_Click);
+            // 
             // settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(325, 410);
+            this.ClientSize = new System.Drawing.Size(596, 788);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.searchProvider);
@@ -320,8 +337,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.fullscreenCheckbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(15, 120);
-            this.MinimumSize = new System.Drawing.Size(325, 410);
+            this.Location = new System.Drawing.Point(15, 220);
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MinimumSize = new System.Drawing.Size(596, 788);
             this.Name = "settings";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

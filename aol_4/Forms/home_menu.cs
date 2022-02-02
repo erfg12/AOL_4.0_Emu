@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -43,10 +44,10 @@ namespace aol.Forms
 
         const int _ = 2;
 
-        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -55,6 +56,14 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+
+            /*Graphics g = e.Graphics;
+            foreach (Rectangle rect in rects)
+            {
+                Pen pen = new Pen(Color.Black, 5);
+                //pen.Alignment = PenAlignment.Inset;
+                g.DrawRectangle(pen, rect);
+            }*/
         }
         #endregion
 
@@ -184,10 +193,10 @@ namespace aol.Forms
 
         private void home_menu_ShownAsync(object sender, EventArgs e)
         {
-            rects.Add(new Rectangle(5, 80, 98, 50)); // 0 mailbox
-            rects.Add(new Rectangle(5, 180, 98, 50)); // 1 channels
-            rects.Add(new Rectangle(5, 224, 98, 50)); // 2 chat_list
-            rects.Add(new Rectangle(5, 124, 98, 50)); // 3 pictures
+            rects.Add(new Rectangle(5, 155, 175, 80)); // 0 mailbox
+            rects.Add(new Rectangle(5, 335, 175, 80)); // 1 channels
+            rects.Add(new Rectangle(5, 425, 175, 80)); // 2 chat_list
+            rects.Add(new Rectangle(5, 250, 175, 80)); // 3 pictures
 
             Thread thr = new Thread(StartForm);
             thr.Start();

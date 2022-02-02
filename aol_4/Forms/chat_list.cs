@@ -103,7 +103,10 @@ namespace aol.Forms
                     List<string> tmpChanList = new List<string>();
                     ListViewItem lIt = new ListViewItem();
                     lIt.Text = catTitle;
-                    catListView.Invoke(new MethodInvoker(delegate { catListView.Items.Add(lIt); }));
+                    try
+                    {
+                        catListView.Invoke(new MethodInvoker(delegate { catListView.Items.Add(lIt); }));
+                    } catch { }
                     // add channels
                     foreach (Match m2 in Regex.Matches(m.Value, "<a href=\"(.*?)</a>", RegexOptions.Singleline))
                     {
