@@ -205,6 +205,11 @@ namespace aol.Forms
         public home_menu()
         {
             FormBorderStyle = FormBorderStyle.None;
+            Form frm = this.MdiParent;
+            if (frm != null)
+            {
+                this.Location = new Point((frm.Width / 2) - (this.Width / 2), (frm.Height / 2) - (this.Height / 2));
+            }
             InitializeComponent();
         }
         #endregion

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aol.Classes;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +75,7 @@ namespace aol.Forms
 
         private void accForm_Shown(object sender, EventArgs e)
         {
+            location.CenterWindow(this);
             if (screenName.Items.Contains(Properties.Settings.Default.lastAcc))
                 screenName.Text = Properties.Settings.Default.lastAcc;
             else

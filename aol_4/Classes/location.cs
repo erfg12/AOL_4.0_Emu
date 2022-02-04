@@ -10,6 +10,8 @@ using WeatherNet;
 using WeatherNet.Util;
 using System.Configuration;
 using System.Collections.Concurrent;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace aol.Classes
 {
@@ -127,6 +129,17 @@ namespace aol.Classes
             }
             
             return t + " " + t2.ToString();
+        }
+
+        /// <summary>
+        /// Must be called after form is shown
+        /// </summary>
+        /// <param name="f">the form to center</param>
+        public static void CenterWindow(Form f)
+        {
+            Form ParentForm = f.MdiParent;
+            if (ParentForm != null)
+                f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height / 2) - (f.Height / 2));
         }
 
         /*public static List<string> getForecastWeather()

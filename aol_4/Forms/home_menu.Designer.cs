@@ -48,10 +48,10 @@
             this.todayLabel.AutoSize = true;
             this.todayLabel.BackColor = System.Drawing.Color.LemonChiffon;
             this.todayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.todayLabel.Location = new System.Drawing.Point(464, 90);
-            this.todayLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.todayLabel.Location = new System.Drawing.Point(295, 54);
+            this.todayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.todayLabel.Name = "todayLabel";
-            this.todayLabel.Size = new System.Drawing.Size(43, 17);
+            this.todayLabel.Size = new System.Drawing.Size(28, 12);
             this.todayLabel.TabIndex = 4;
             this.todayLabel.Text = "today";
             // 
@@ -62,10 +62,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 39);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(893, 519);
+            this.pictureBox1.Size = new System.Drawing.Size(568, 311);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -84,10 +84,10 @@
             this.panel1.Controls.Add(this.miniBtn);
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
+            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(893, 35);
+            this.panel1.Size = new System.Drawing.Size(568, 21);
             this.panel1.TabIndex = 2;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
@@ -100,10 +100,10 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Image = global::aol.Properties.Resources.aol_icon_4;
             this.pictureBox2.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox2.Location = new System.Drawing.Point(4, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 35);
+            this.pictureBox2.Size = new System.Drawing.Size(21, 21);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
@@ -112,10 +112,10 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(44, 4);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.titleLabel.Location = new System.Drawing.Point(28, 2);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(154, 25);
+            this.titleLabel.Size = new System.Drawing.Size(98, 15);
             this.titleLabel.TabIndex = 3;
             this.titleLabel.Text = "Welcome, Name!";
             this.titleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseMove);
@@ -130,10 +130,10 @@
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(788, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.miniBtn.Location = new System.Drawing.Point(501, 1);
+            this.miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(33, 31);
+            this.miniBtn.Size = new System.Drawing.Size(21, 19);
             this.miniBtn.TabIndex = 2;
             this.miniBtn.UseVisualStyleBackColor = false;
             this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
@@ -149,11 +149,11 @@
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(821, 2);
+            this.maxBtn.Location = new System.Drawing.Point(522, 1);
             this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
             this.maxBtn.Name = "maxBtn";
             this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(33, 31);
+            this.maxBtn.Size = new System.Drawing.Size(21, 19);
             this.maxBtn.TabIndex = 1;
             this.maxBtn.UseVisualStyleBackColor = false;
             this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
@@ -168,11 +168,11 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(858, 2);
+            this.closeBtn.Location = new System.Drawing.Point(546, 1);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(33, 31);
+            this.closeBtn.Size = new System.Drawing.Size(21, 19);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -182,28 +182,27 @@
             this.temperatureLabel.BackColor = System.Drawing.Color.Snow;
             this.temperatureLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.temperatureLabel.HideSelection = false;
-            this.temperatureLabel.Location = new System.Drawing.Point(304, 252);
-            this.temperatureLabel.Margin = new System.Windows.Forms.Padding(6);
+            this.temperatureLabel.Location = new System.Drawing.Point(193, 151);
+            this.temperatureLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.temperatureLabel.Name = "temperatureLabel";
             this.temperatureLabel.ReadOnly = true;
-            this.temperatureLabel.Size = new System.Drawing.Size(147, 26);
+            this.temperatureLabel.Size = new System.Drawing.Size(94, 16);
             this.temperatureLabel.TabIndex = 6;
             this.temperatureLabel.TabStop = false;
             this.temperatureLabel.Text = "Temperature";
             // 
             // home_menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(197)))));
-            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.ClientSize = new System.Drawing.Size(573, 337);
             this.Controls.Add(this.temperatureLabel);
             this.Controls.Add(this.todayLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(250, 300);
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "home_menu";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
