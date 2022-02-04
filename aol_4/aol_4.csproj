@@ -66,10 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.10" />
-    <PackageReference Include="CefSharp.WinForms.NETCore" Version="97.1.12" />
-    <PackageReference Include="MailKit" Version="3.1.0" />
+    <PackageReference Include="CefSharp.WinForms.NETCore" Version="97.1.61" />
+    <PackageReference Include="MailKit" Version="3.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="ServiceStack.Text" Version="5.13.2" />
+    <PackageReference Include="ServiceStack.Text" Version="6.0.2" />
     <PackageReference Include="SimpleIRCLib" Version="2.2.1" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
@@ -95,5 +95,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="97.1.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="97.1.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="97.1.6" />
   </ItemGroup>
 </Project>

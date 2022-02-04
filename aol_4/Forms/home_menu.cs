@@ -193,6 +193,8 @@ namespace aol.Forms
 
         private void home_menu_ShownAsync(object sender, EventArgs e)
         {
+            location.PositionWindow(this);
+
             rects.Add(new Rectangle(5, 155, 175, 80)); // 0 mailbox
             rects.Add(new Rectangle(5, 335, 175, 80)); // 1 channels
             rects.Add(new Rectangle(5, 425, 175, 80)); // 2 chat_list
@@ -205,11 +207,6 @@ namespace aol.Forms
         public home_menu()
         {
             FormBorderStyle = FormBorderStyle.None;
-            Form frm = this.MdiParent;
-            if (frm != null)
-            {
-                this.Location = new Point((frm.Width / 2) - (this.Width / 2), (frm.Height / 2) - (this.Height / 2));
-            }
             InitializeComponent();
         }
         #endregion

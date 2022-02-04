@@ -75,7 +75,7 @@ namespace aol.Forms
 
         private void accForm_Shown(object sender, EventArgs e)
         {
-            location.CenterWindow(this);
+            location.PositionWindow(this);
             if (screenName.Items.Contains(Properties.Settings.Default.lastAcc))
                 screenName.Text = Properties.Settings.Default.lastAcc;
             else

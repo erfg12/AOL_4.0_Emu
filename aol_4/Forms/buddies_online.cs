@@ -307,7 +307,7 @@ namespace aol.Forms
 
         private void maxBtn_Click(object sender, EventArgs e)
         {
-            maxiMini();
+            //maxiMini();
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -325,6 +325,7 @@ namespace aol.Forms
 
         private void buddies_online_Shown(object sender, EventArgs e)
         {
+            location.PositionWindow(this, 1);
             shuttingDown = false; // reset on re-login
             buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
             buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
