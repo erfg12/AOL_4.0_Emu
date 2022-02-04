@@ -94,6 +94,7 @@ namespace aol.Forms
         bool newWindow = true;
         string old_url = "";
         public List<string> tmpHistory = new List<string>();
+        bool formClosing = false;
         #endregion
 
         #region my_functions
@@ -563,6 +564,7 @@ namespace aol.Forms
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            formClosing = true;
             SignOff();
         }
 
@@ -668,13 +670,13 @@ namespace aol.Forms
                 return;
 
             DisposeAllButThis();
-
+            
             accForm.tmpUsername = "";
             accForm.tmpPassword = "";
             accForm.tmpLocation = "";
 
             if (chat.irc.IsClientRunning())
-                chat.irc.StopClient();
+                chat.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
 
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -871,6 +873,8 @@ namespace aol.Forms
         {
             while (true)
             {
+                if (formClosing)
+                    break;
                 // check for new history items
                 List<string> tmpList = new List<string>();
                 tmpList.AddRange(tmpHistory);
