@@ -54,10 +54,10 @@
             // 
             this.messageTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.messageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.messageTextBox.Location = new System.Drawing.Point(24, 796);
+            this.messageTextBox.Location = new System.Drawing.Point(31, 803);
             this.messageTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(748, 30);
+            this.messageTextBox.Size = new System.Drawing.Size(738, 30);
             this.messageTextBox.TabIndex = 3;
             this.messageTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageTextBox_KeyDown);
             // 
@@ -244,6 +244,7 @@
             this.chatSendBtn.Margin = new System.Windows.Forms.Padding(6);
             this.chatSendBtn.Name = "chatSendBtn";
             this.chatSendBtn.Size = new System.Drawing.Size(92, 38);
+            this.chatSendBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.chatSendBtn.TabIndex = 10;
             this.chatSendBtn.TabStop = false;
             this.chatSendBtn.Click += new System.EventHandler(this.ChatSendBtn_Click);

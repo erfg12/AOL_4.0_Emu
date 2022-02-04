@@ -165,10 +165,10 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(16, 204);
+            this.searchTextBox.Location = new System.Drawing.Point(30, 206);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(268, 33);
+            this.searchTextBox.Size = new System.Drawing.Size(251, 33);
             this.searchTextBox.TabIndex = 3;
             // 
             // catListView

@@ -313,7 +313,7 @@
             this.findBtn.Location = new System.Drawing.Point(258, 4);
             this.findBtn.Margin = new System.Windows.Forms.Padding(6);
             this.findBtn.Name = "findBtn";
-            this.findBtn.Size = new System.Drawing.Size(90, 32);
+            this.findBtn.Size = new System.Drawing.Size(90, 34);
             this.findBtn.TabIndex = 16;
             this.findBtn.Text = "Find ▼";
             this.findBtn.UseVisualStyleBackColor = true;
@@ -325,7 +325,7 @@
             this.mie_badge.Location = new System.Drawing.Point(1346, 4);
             this.mie_badge.Margin = new System.Windows.Forms.Padding(0);
             this.mie_badge.Name = "mie_badge";
-            this.mie_badge.Size = new System.Drawing.Size(104, 32);
+            this.mie_badge.Size = new System.Drawing.Size(104, 34);
             this.mie_badge.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mie_badge.TabIndex = 16;
             this.mie_badge.TabStop = false;
@@ -337,7 +337,7 @@
             this.homeBtn.Location = new System.Drawing.Point(199, 4);
             this.homeBtn.Margin = new System.Windows.Forms.Padding(6);
             this.homeBtn.Name = "homeBtn";
-            this.homeBtn.Size = new System.Drawing.Size(50, 32);
+            this.homeBtn.Size = new System.Drawing.Size(50, 34);
             this.homeBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.homeBtn.TabIndex = 14;
             this.homeBtn.TabStop = false;
@@ -350,7 +350,7 @@
             this.reloadBtn.Location = new System.Drawing.Point(148, 6);
             this.reloadBtn.Margin = new System.Windows.Forms.Padding(6);
             this.reloadBtn.Name = "reloadBtn";
-            this.reloadBtn.Size = new System.Drawing.Size(46, 30);
+            this.reloadBtn.Size = new System.Drawing.Size(46, 34);
             this.reloadBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.reloadBtn.TabIndex = 13;
             this.reloadBtn.TabStop = false;
@@ -364,7 +364,7 @@
             this.stopBtn.Location = new System.Drawing.Point(95, 6);
             this.stopBtn.Margin = new System.Windows.Forms.Padding(6);
             this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(49, 31);
+            this.stopBtn.Size = new System.Drawing.Size(49, 34);
             this.stopBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.stopBtn.TabIndex = 12;
             this.stopBtn.TabStop = false;
@@ -421,7 +421,7 @@
             this.keywordBtn.Location = new System.Drawing.Point(1239, 4);
             this.keywordBtn.Margin = new System.Windows.Forms.Padding(6);
             this.keywordBtn.Name = "keywordBtn";
-            this.keywordBtn.Size = new System.Drawing.Size(104, 32);
+            this.keywordBtn.Size = new System.Drawing.Size(104, 34);
             this.keywordBtn.TabIndex = 8;
             this.keywordBtn.Text = "Keyword";
             this.keywordBtn.UseVisualStyleBackColor = true;
@@ -435,7 +435,7 @@
             this.goBtn.Location = new System.Drawing.Point(1172, 4);
             this.goBtn.Margin = new System.Windows.Forms.Padding(6);
             this.goBtn.Name = "goBtn";
-            this.goBtn.Size = new System.Drawing.Size(60, 32);
+            this.goBtn.Size = new System.Drawing.Size(60, 34);
             this.goBtn.TabIndex = 7;
             this.goBtn.Text = "Go";
             this.goBtn.UseVisualStyleBackColor = true;
