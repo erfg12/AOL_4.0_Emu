@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aol.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,10 +42,10 @@ namespace aol.Forms
 
         const int _ = 2;
 
-        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
-        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         #endregion
 
         #region winform_functions
@@ -70,7 +71,7 @@ namespace aol.Forms
 
         private void channels_Shown(object sender, EventArgs e)
         {
-
+            location.PositionWindow(this);
         }
 
         private void KidsOnlyBtn_Click(object sender, EventArgs e)

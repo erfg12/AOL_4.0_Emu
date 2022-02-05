@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -17,9 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using aol.Classes;
 using CefSharp;
-using CefSharp.WinForms;
 using System.Configuration;
-using Microsoft.Win32;
 
 namespace aol.Forms
 {
@@ -191,9 +186,6 @@ namespace aol.Forms
                 try
                 {
                     if (this == null)
-                        return;
-
-                    if (Handle == null)
                         return;
 
                     if (IsWindow(Handle) == false)

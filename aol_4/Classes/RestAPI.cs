@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Http;
 
 namespace aol.Forms
 {
@@ -16,18 +17,21 @@ namespace aol.Forms
     {
         private static JObject getData(string request, string postVals)
         {
-            var client = new WebClient();
-            string response = "{\"content\": [{ \"msg\": \"ERROR\" }]}";
-            client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+            var client = new HttpClient();
+            Task<HttpResponseMessage> response;
+            //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
             try
             {
-                response = client.UploadString("https://aolemu.com/api?" + request, "POST", postVals);
+                var stringContent = new StringContent(postVals, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                response = client.PostAsync("https://aolemu.com/api?" + request, stringContent);
             }
             catch
             {
                 MessageBox.Show("Error connecting to aolemu.com");
+                return JObject.Parse("{\"content\": [{ \"msg\": \"ERROR\" }]}");
             }
-            return JObject.Parse(response);
+            //Debug.WriteLine(response.Result.Content.ReadAsStringAsync().Result);
+            return JObject.Parse(response.Result.Content.ReadAsStringAsync().Result);
         }
 
         private static string CreateMD5(string input)
@@ -94,6 +98,9 @@ namespace aol.Forms
                 accForm.tmpUsername = user;
                 accForm.tmpPassword = encPass;
                 return true;
+            } else
+            {
+                MessageBox.Show("Account either doesn't exist, or incorrect password.");
             }
             return false;
         }

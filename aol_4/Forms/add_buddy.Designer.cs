@@ -44,7 +44,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(22, 90);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(334, 33);
             this.nameTextBox.TabIndex = 6;
@@ -65,7 +65,7 @@
             this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.sendBtn.Location = new System.Drawing.Point(370, 88);
-            this.sendBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.sendBtn.Margin = new System.Windows.Forms.Padding(6);
             this.sendBtn.Name = "sendBtn";
             this.sendBtn.Size = new System.Drawing.Size(104, 44);
             this.sendBtn.TabIndex = 8;
@@ -86,7 +86,7 @@
             this.panel1.Controls.Add(this.maxBtn);
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(480, 35);
             this.panel1.TabIndex = 5;
@@ -116,7 +116,7 @@
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
             this.miniBtn.Location = new System.Drawing.Point(376, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.miniBtn.Margin = new System.Windows.Forms.Padding(6);
             this.miniBtn.Name = "miniBtn";
             this.miniBtn.Size = new System.Drawing.Size(33, 31);
             this.miniBtn.TabIndex = 2;
@@ -131,7 +131,7 @@
             this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
             this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
             this.pictureBox1.Location = new System.Drawing.Point(7, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(33, 35);
             this.pictureBox1.TabIndex = 9;
@@ -186,10 +186,11 @@
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "add_buddy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Budy";
+            this.Shown += new System.EventHandler(this.add_buddy_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

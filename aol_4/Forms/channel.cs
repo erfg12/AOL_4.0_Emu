@@ -194,6 +194,7 @@ namespace aol.Forms
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+            location.PositionWindow(this);
             ToolTip toolTip1 = new ToolTip();
             toolTip1.SetToolTip(this.closeBtn, "Close Window");
             toolTip1.SetToolTip(this.maxBtn, "Maximize Window");

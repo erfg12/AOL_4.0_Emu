@@ -94,7 +94,12 @@ namespace aol.Forms
             }
             catch (SQLiteException ex)
             {
-                code = ex.ErrorCode;
+                if (ex.ErrorCode != 1) return code;
+                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, name text)", "favorites"), m_dbConnection))
+                {
+                    Debug.WriteLine("Creating favorites table.");
+                    createTable.ExecuteNonQuery();
+                }
             }
 
             m_dbConnection.Close();

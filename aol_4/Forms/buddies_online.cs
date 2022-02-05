@@ -43,10 +43,10 @@ namespace aol.Forms
 
         const int _ = 2;
 
-        Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
+        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
+        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
@@ -321,6 +321,7 @@ namespace aol.Forms
             InitializeComponent();
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
+            StartList(); // get buddy list
         }
 
         private void buddies_online_Shown(object sender, EventArgs e)
@@ -329,8 +330,6 @@ namespace aol.Forms
             shuttingDown = false; // reset on re-login
             buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
             buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
-            Thread newThread = new Thread(StartList);
-            newThread.Start();
         }
 
         private void StartList()

@@ -22,6 +22,8 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <CefSharpBuildAction>Content</CefSharpBuildAction>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <OutputPath>bin\x64\Debug\</OutputPath>
@@ -66,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BouncyCastle.NetCore" Version="1.8.10" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="97.1.61" />
     <PackageReference Include="CefSharp.WinForms.NETCore" Version="97.1.61" />
     <PackageReference Include="MailKit" Version="3.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

@@ -12,6 +12,7 @@ using System.Configuration;
 using System.Collections.Concurrent;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Net.Http;
 
 namespace aol.Classes
 {
@@ -75,8 +76,8 @@ namespace aol.Classes
 
         public static List<string> getCityState()
         {
-            string MyIP = getIP();
             List<string> tmpList = new List<string>();
+            string MyIP = getIP();
 
             // defaults
             tmpList.Add("New York City");
@@ -86,15 +87,15 @@ namespace aol.Classes
             if (MyIP.Equals(""))
                 return tmpList;
 
-            string json = "";
+            /*Task<string> json;
             string AccessKey = "7d7a9198de3b50a37caf5115c63fb4ec";
             string apiURL = "http://api.ipstack.com/" + MyIP + "?access_key=" + AccessKey + "&format=1";
 
-            using (WebClient wc = new WebClient())
+            using (HttpClient wc = new HttpClient())
             {
                 try
                 {
-                    json = wc.DownloadString(apiURL);
+                    json = wc.GetStringAsync(apiURL);
                 } 
                 catch
                 {
@@ -103,12 +104,12 @@ namespace aol.Classes
                 }
             }
 
-            JToken token = JObject.Parse(json);
+            JToken token = JObject.Parse(json.Content.ReadAsStringAsync());
 
             tmpList.Clear(); // clear defaults
             tmpList.Add((string)token.SelectToken("city"));
             tmpList.Add((string)token.SelectToken("region_name"));
-            tmpList.Add((string)token.SelectToken("zip"));
+            tmpList.Add((string)token.SelectToken("zip"));*/
 
             return tmpList;
         }
@@ -135,7 +136,7 @@ namespace aol.Classes
         /// Must be called after form is shown
         /// </summary>
         /// <param name="f">the form to center</param>
-        /// <param name="position">0 = center, 1 = right</param>
+        /// <param name="position">0 = center, 1 = right, 2 = bottom</param>
         public static void PositionWindow(Form f, int position = 0)
         {
             Form ParentForm = f.MdiParent;
@@ -148,6 +149,9 @@ namespace aol.Classes
                         break;
                     case 1:
                         f.Location = new Point((ParentForm.Width) - (f.Width + 10), (ParentForm.Height / 2) - (f.Height / 2));
+                        break;
+                    case 2:
+                        f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height) - (f.Height + 10));
                         break;
                     default:
                         break;
