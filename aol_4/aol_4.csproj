@@ -22,22 +22,16 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <WarningLevel>3</WarningLevel>
-    <NoWarn>CS0108,CS0414</NoWarn>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+    <PlatformTarget Condition="'$(PlatformTarget)' == ''">x64</PlatformTarget>
+    <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>aol_icon_4_Bnk_icon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <StartupObject>aol.Forms.Program</StartupObject>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Update="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
     <Content Include="aol_icon_4_Bnk_icon.ico" />
     <Content Include="Channels\kids.htm">
@@ -95,14 +89,5 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="97.1.6" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="97.1.6" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="97.1.6" />
   </ItemGroup>
 </Project>
