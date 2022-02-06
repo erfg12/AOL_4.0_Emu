@@ -6,10 +6,10 @@ configuration: Release
 before_build:
   - nuget restore
 
-after_build: 7z a Build_%PLATFORM%.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Debug\net6.0-windows\* %APPVEYOR_BUILD_FOLDER%\accounts.db
+after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Release\net6.0-windows\* %APPVEYOR_BUILD_FOLDER%\accounts.db
 
 artifacts:
-  path: Build_%PLATFORM%.zip
+  path: Build.zip
   name: Latest
 
 deploy:
@@ -19,4 +19,4 @@ deploy:
     description: Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
     auth_token:
       secure: EuR30pU45tPVaOpNF9ov5buzWmQTfdgDQT69pSfz4+lh+m5K5+7eJMtz2TjTbC36
-    artifact: Build_%PLATFORM%.zip
+    artifact: Build.zip
