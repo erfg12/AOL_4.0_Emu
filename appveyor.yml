@@ -6,7 +6,7 @@ configuration: Release
 before_build:
   - nuget restore
 
-after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Debug\net6.0-windows\* %APPVEYOR_BUILD_FOLDER%\accounts.db
+after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Release\net6.0-windows\* %APPVEYOR_BUILD_FOLDER%\accounts.db
 
 artifacts:
   path: Build.zip
