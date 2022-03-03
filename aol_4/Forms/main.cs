@@ -508,25 +508,25 @@ namespace aol.Forms
         private void backBtn_Click_1(object sender, EventArgs e)
         {
             if (ActiveMdiChild is Browse)
-                ((Browse)ActiveMdiChild).browser.Back();
+                ((Browse)ActiveMdiChild).wv2.GoBack();
         }
 
         private void forwardBtn_Click_1(object sender, EventArgs e)
         {
             if (ActiveMdiChild is Browse)
-                ((Browse)ActiveMdiChild).browser.Forward();
+                ((Browse)ActiveMdiChild).wv2.GoForward();
         }
 
         private void stopBtn_Click(object sender, EventArgs e)
         {
             if (ActiveMdiChild is Browse)
-                ((Browse)ActiveMdiChild).browser.Stop();
+                ((Browse)ActiveMdiChild).wv2.Stop();
         }
 
         private void reloadBtn_Click_1(object sender, EventArgs e)
         {
             if (ActiveMdiChild is Browse)
-                ((Browse)ActiveMdiChild).browser.Reload();
+                ((Browse)ActiveMdiChild).wv2.Reload();
         }
 
         private void homeBtn_Click(object sender, EventArgs e)
@@ -854,7 +854,7 @@ namespace aol.Forms
         private void Print_page_btn_Click(object sender, EventArgs e)
         {
             if (ActiveMdiChild is Browse)
-                ((Browse)ActiveMdiChild).browser.Print();
+                ((Browse)ActiveMdiChild).wv2.ExecuteScriptAsync("window.print();");
             else if (ActiveMdiChild is read_mail)
                 ((read_mail)ActiveMdiChild).mailViewer.Print();
             else

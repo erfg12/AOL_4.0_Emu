@@ -6,7 +6,7 @@ using System;
 
 namespace CefSharp.Example
 {
-    public class DownloadHandler : IDownloadHandler
+    /*public class DownloadHandler : IDownloadHandler
     {
         public event EventHandler<DownloadItem> OnBeforeDownloadFired;
 
@@ -29,5 +29,5 @@ namespace CefSharp.Example
         {
             OnDownloadUpdatedFired?.Invoke(this, downloadItem);
         }
-    }
+    }*/
 }

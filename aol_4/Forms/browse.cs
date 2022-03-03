@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
-using CefSharp.Example;
 using aol.Classes;
+using Microsoft.Web.WebView2;
+using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.WinForms;
 
 namespace aol.Forms
 {
@@ -116,21 +117,20 @@ namespace aol.Forms
 
         #region public_variables
         public bool loading = false;
-        public ChromiumWebBrowser browser;
+        //public ChromiumWebBrowser browser;
+        public WebView2 wv2 = null;
         public string url = "";
         public string title = "";
         #endregion
 
         #region my_functions
-        public void InitBrowser(string url)
+        public void InitBrowser(string urlArg)
         {
-            var settings = new CefSettings();
-            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            if (!Cef.IsInitialized) Cef.Initialize(settings);
-            if (url == "") url = "https://www.google.com";
-            if (!url.Contains("."))
-                url = searchProvider(url);
-            browser = new ChromiumWebBrowser(url);
+            //var settings = new CefSettings();
+            //settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
+            //if (!Cef.IsInitialized) Cef.Initialize(settings);
+            
+            /*browser = new ChromiumWebBrowser(url);
             browser.Dock = DockStyle.Fill;
             browser.AddressChanged += Browser_AddressChanged;
             toolStripContainer1.ContentPanel.Controls.Add(browser);
@@ -143,7 +143,7 @@ namespace aol.Forms
             {
                 //Wait for the Page to finish loading
                 loading = args.IsLoading;
-            };
+            };*/
         }
 
         public string searchProvider(string query)
@@ -169,16 +169,27 @@ namespace aol.Forms
 
         public void goToUrl(string url)
         {
-            browser.Load(url);
+            //browser.Load(url);
+            WebView.Source = new Uri(url);
         }
 
-        public Browse(string url = "")
+        public Browse(string urlArg = "")
         {
             InitializeComponent();
+            InitializeAsync();
+
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            InitBrowser(url);
+
+            if (urlArg == "") url = "https://www.google.com";
+            if (!urlArg.Contains("."))
+                url = searchProvider(urlArg);
+            else
+                url = urlArg.StartsWith("https://") ? urlArg : urlArg = "https://" + urlArg;
+
+            wv2 = WebView;
+            WebView.Source = new Uri(url);
         }
         #endregion
 
@@ -186,6 +197,12 @@ namespace aol.Forms
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        async void InitializeAsync()
+        {
+            await WebView.EnsureCoreWebView2Async(null);
+            WebView.CoreWebView2.WebMessageReceived += UpdateAddressBar;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -197,7 +214,7 @@ namespace aol.Forms
             }
         }
 
-        private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
+        /*private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
         {
             title = e.Title;
             titleLabel.Invoke(new MethodInvoker(delegate
@@ -210,6 +227,11 @@ namespace aol.Forms
         private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
         {
             url = e.Address;
+        }*/
+
+        void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        {
+            url = e.TryGetWebMessageAsString();
         }
 
         private void FavoriteBtn_Click(object sender, EventArgs e)
@@ -218,6 +240,11 @@ namespace aol.Forms
             af.Owner = this;
             af.MdiParent = MdiParent;
             af.Show();
+        }
+
+        private void WebView_VisibleChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
