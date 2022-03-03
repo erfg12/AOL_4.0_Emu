@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
-using CefSharp.Example;
 using aol.Classes;
+using Microsoft.Web.WebView2;
+using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.WinForms;
 
 namespace aol.Forms
 {
@@ -96,37 +96,15 @@ namespace aol.Forms
 
         #region public_variables
         public bool loading = false;
-        public ChromiumWebBrowser browser;
         public string url = "";
         public string title = "";
         #endregion
 
         #region my_functions
-        public void InitBrowser(string url)
-        {
-            var settings = new CefSettings();
-            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            if (!Cef.IsInitialized) Cef.Initialize(settings);
-            if (url == "") url = "https://www.google.com";
-            browser = new ChromiumWebBrowser(url);
-            browser.Dock = DockStyle.Fill;
-            browser.AddressChanged += Browser_AddressChanged;
-            toolStripContainer1.ContentPanel.Controls.Add(browser);
-            browser.DownloadHandler = new DownloadHandler();
-            browser.TitleChanged += Browser_TitleChanged;
-            //browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
-
-            //Wait for the page to finish loading (all resources will have been loaded, rendering is likely still happening)
-            browser.LoadingStateChanged += (sender, args) =>
-            {
-                //Wait for the Page to finish loading
-                loading = args.IsLoading;
-            };
-        }
 
         public void goToUrl(string url)
         {
-            browser.Load(url);
+            WebView.Source = new Uri(url);
         }
 
         public Channel(string url = "")
@@ -135,7 +113,12 @@ namespace aol.Forms
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            InitBrowser(url);
+            WebView.Source = new Uri(url);
+        }
+
+        async void InitializeAsync()
+        {
+            await WebView.EnsureCoreWebView2Async(null);
         }
         #endregion
 
@@ -152,21 +135,6 @@ namespace aol.Forms
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
-        {
-            title = e.Title;
-            titleLabel.Invoke(new MethodInvoker(delegate
-            {
-                titleLabel.Text = title;
-                Text = title;
-            }));
-        }
-
-        private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
-        {
-            url = e.Address;
         }
 
         private void FavoriteBtn_Click(object sender, EventArgs e)

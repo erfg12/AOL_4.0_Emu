@@ -30,13 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Browse));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.panel1 = new System.Windows.Forms.Panel();
             this.favoriteBtn = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.miniBtn = new System.Windows.Forms.Button();
             this.maxBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WebView)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.favoriteBtn)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +52,7 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.WebView);
             this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(6);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1423, 799);
             this.toolStripContainer1.ContentPanel.UseWaitCursor = true;
@@ -58,6 +62,22 @@
             this.toolStripContainer1.Size = new System.Drawing.Size(1423, 824);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // WebView
+            // 
+            this.WebView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WebView.CreationProperties = null;
+            this.WebView.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.WebView.Location = new System.Drawing.Point(0, 0);
+            this.WebView.Name = "WebView";
+            this.WebView.Size = new System.Drawing.Size(1420, 799);
+            this.WebView.Source = new System.Uri("https://google.com", System.UriKind.Absolute);
+            this.WebView.TabIndex = 0;
+            this.WebView.UseWaitCursor = true;
+            this.WebView.ZoomFactor = 1D;
+            this.WebView.VisibleChanged += new System.EventHandler(this.WebView_VisibleChanged);
             // 
             // panel1
             // 
@@ -114,7 +134,6 @@
             this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
             this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
             this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.miniBtn.ForeColor = System.Drawing.Color.Black;
@@ -132,7 +151,6 @@
             this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
             this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
             this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.maxBtn.ForeColor = System.Drawing.Color.Black;
@@ -151,7 +169,6 @@
             this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
             this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.Black;
@@ -181,8 +198,10 @@
             this.Text = "browser";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WebView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.favoriteBtn)).EndInit();
@@ -199,6 +218,7 @@
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox favoriteBtn;
+        private Microsoft.Web.WebView2.WinForms.WebView2 WebView;
     }
 }
 
