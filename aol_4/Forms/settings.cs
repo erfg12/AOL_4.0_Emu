@@ -70,6 +70,8 @@ namespace aol.Forms
         {
             location.PositionWindow(this);
             homePageBox.Text = Properties.Settings.Default.homeSite;
+            cityBox.Text = Properties.Settings.Default.city;
+            countryBox.Text = Properties.Settings.Default.country;
             //saveWndP.Checked = Properties.Settings.Default.windowSize;
             fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
             fullnameBox.Text = sqlite_accounts.getFullName();
@@ -128,6 +130,10 @@ namespace aol.Forms
             {
                 if (homePageBox.Text.Length > 4) // make sure it's not blank
                     Properties.Settings.Default.homeSite = homePageBox.Text;
+                if (cityBox.Text.Length > 0)
+                    Properties.Settings.Default.city = cityBox.Text;
+                if (countryBox.Text.Length > 0)
+                    Properties.Settings.Default.country = countryBox.Text;
 
                 Properties.Settings.Default.searchProvider = searchProvider.Text;
 

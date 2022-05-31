@@ -23,5 +23,11 @@
     <Setting Name="APIKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">d8f6deea88bb177513cc8a14cf629020</Value>
     </Setting>
+    <Setting Name="city" Type="System.String" Scope="User">
+      <Value Profile="(Default)">New York</Value>
+    </Setting>
+    <Setting Name="country" Type="System.String" Scope="User">
+      <Value Profile="(Default)">US</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

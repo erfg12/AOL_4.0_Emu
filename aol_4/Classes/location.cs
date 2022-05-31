@@ -116,9 +116,9 @@ namespace aol.Classes
 
         public static string getCurrentWeather()
         {
-            List<string> cityDat = getCityState();
+            //List<string> cityDat = getCityState();
 
-            var result = WeatherNet.Current.GetByCityName(cityDat[0], cityDat[1], "en", "imperial");
+            var result = WeatherNet.Current.GetByCityName(Properties.Settings.Default.city, Properties.Settings.Default.country, "en", "imperial");
 
             string t = "";
             double t2 = 0.0;
