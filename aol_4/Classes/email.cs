@@ -26,7 +26,7 @@ namespace aol.Classes
         public static ConcurrentDictionary<string, string> emailsSent = new ConcurrentDictionary<string, string>();
         public static string reply = "";
         public static bool youGotMail = false;
-        private static string host = "mail.newagesoftware.net";
+        private static string host = "ns65v.stableserver.net";
         private static int imapPort = 993;
         private static int smtpPort = 465;
 
