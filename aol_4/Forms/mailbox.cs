@@ -338,6 +338,7 @@ namespace aol.Forms
 
         private void mailbox_Shown(object sender, EventArgs e)
         {
+            location.PositionWindow(this, 0, 55);
             Thread thread = new Thread(new ThreadStart(GetEmail));
             thread.Start();
             Text = accForm.tmpUsername + "'s Online Mailbox";

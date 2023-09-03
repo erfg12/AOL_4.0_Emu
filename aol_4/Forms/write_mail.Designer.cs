@@ -29,431 +29,425 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(write_mail));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.mainTitle = new System.Windows.Forms.Label();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.sendToBox = new System.Windows.Forms.TextBox();
-            this.copyToBox = new System.Windows.Forms.TextBox();
-            this.subjectBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.messageBox = new System.Windows.Forms.TextBox();
-            this.helpBtn = new System.Windows.Forms.Button();
-            this.attachmentsButton = new System.Windows.Forms.Button();
-            this.requestReceiptCheckbox = new System.Windows.Forms.CheckBox();
-            this.sendButton = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.sendLaterButton = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.addressBookButton = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.mailExtrasButton = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sendButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sendLaterButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressBookButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mailExtrasButton)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            mainTitle = new System.Windows.Forms.Label();
+            miniBtn = new System.Windows.Forms.Button();
+            maxBtn = new System.Windows.Forms.Button();
+            closeBtn = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            sendToBox = new System.Windows.Forms.TextBox();
+            copyToBox = new System.Windows.Forms.TextBox();
+            subjectBox = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            messageBox = new System.Windows.Forms.TextBox();
+            helpBtn = new System.Windows.Forms.Button();
+            attachmentsButton = new System.Windows.Forms.Button();
+            requestReceiptCheckbox = new System.Windows.Forms.CheckBox();
+            sendButton = new System.Windows.Forms.PictureBox();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            sendLaterButton = new System.Windows.Forms.PictureBox();
+            label8 = new System.Windows.Forms.Label();
+            addressBookButton = new System.Windows.Forms.PictureBox();
+            label9 = new System.Windows.Forms.Label();
+            mailExtrasButton = new System.Windows.Forms.PictureBox();
+            label10 = new System.Windows.Forms.Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sendButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sendLaterButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)addressBookButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mailExtrasButton).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.mainTitle);
-            this.panel1.Controls.Add(this.miniBtn);
-            this.panel1.Controls.Add(this.maxBtn);
-            this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1225, 35);
-            this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.BackgroundImage = Properties.Resources.top_bar;
+            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(mainTitle);
+            panel1.Controls.Add(miniBtn);
+            panel1.Controls.Add(maxBtn);
+            panel1.Controls.Add(closeBtn);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(780, 21);
+            panel1.TabIndex = 5;
+            panel1.Paint += panel1_Paint;
+            panel1.DoubleClick += panel1_DoubleClick;
+            panel1.MouseMove += panel1_MouseMove;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(4, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.aol_icon_4;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.aol_icon_4;
+            pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
+            pictureBox1.Location = new System.Drawing.Point(3, -1);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(21, 21);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // mainTitle
             // 
-            this.mainTitle.AutoSize = true;
-            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
-            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(42, 6);
-            this.mainTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(100, 25);
-            this.mainTitle.TabIndex = 8;
-            this.mainTitle.Text = "Write Mail";
+            mainTitle.AutoSize = true;
+            mainTitle.BackColor = System.Drawing.Color.Transparent;
+            mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            mainTitle.Location = new System.Drawing.Point(27, 4);
+            mainTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            mainTitle.Name = "mainTitle";
+            mainTitle.Size = new System.Drawing.Size(61, 15);
+            mainTitle.TabIndex = 8;
+            mainTitle.Text = "Write Mail";
             // 
             // miniBtn
             // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(1122, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(33, 31);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
-            this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
+            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
+            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            miniBtn.ForeColor = System.Drawing.Color.Black;
+            miniBtn.Location = new System.Drawing.Point(714, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Name = "miniBtn";
+            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.TabIndex = 2;
+            miniBtn.UseVisualStyleBackColor = false;
+            miniBtn.Click += miniBtn_Click;
             // 
             // maxBtn
             // 
-            this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(1155, 2);
-            this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.maxBtn.Name = "maxBtn";
-            this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(33, 31);
-            this.maxBtn.TabIndex = 1;
-            this.maxBtn.UseVisualStyleBackColor = false;
-            this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
+            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            maxBtn.ForeColor = System.Drawing.Color.Black;
+            maxBtn.Location = new System.Drawing.Point(735, 1);
+            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.Name = "maxBtn";
+            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.TabIndex = 1;
+            maxBtn.UseVisualStyleBackColor = false;
+            maxBtn.Click += maxBtn_Click;
             // 
             // closeBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(1192, 2);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(33, 31);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.BackgroundImage = Properties.Resources.close_btn;
+            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            closeBtn.ForeColor = System.Drawing.Color.Black;
+            closeBtn.Location = new System.Drawing.Point(759, 1);
+            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.Name = "closeBtn";
+            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.TabIndex = 0;
+            closeBtn.UseVisualStyleBackColor = false;
+            closeBtn.Click += closeBtn_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(16, 52);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Send";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(10, 31);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(41, 17);
+            label1.TabIndex = 6;
+            label1.Text = "Send";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(578, 52);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Copy";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(368, 31);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(40, 17);
+            label2.TabIndex = 7;
+            label2.Text = "Copy";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(38, 87);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "To";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(24, 52);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(25, 17);
+            label3.TabIndex = 8;
+            label3.Text = "To";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(596, 88);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "To";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(379, 53);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(25, 17);
+            label4.TabIndex = 9;
+            label4.Text = "To";
             // 
             // sendToBox
             // 
-            this.sendToBox.Location = new System.Drawing.Point(90, 52);
-            this.sendToBox.Margin = new System.Windows.Forms.Padding(6);
-            this.sendToBox.Multiline = true;
-            this.sendToBox.Name = "sendToBox";
-            this.sendToBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.sendToBox.Size = new System.Drawing.Size(446, 175);
-            this.sendToBox.TabIndex = 10;
+            sendToBox.Location = new System.Drawing.Point(57, 31);
+            sendToBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sendToBox.Multiline = true;
+            sendToBox.Name = "sendToBox";
+            sendToBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            sendToBox.Size = new System.Drawing.Size(285, 107);
+            sendToBox.TabIndex = 10;
             // 
             // copyToBox
             // 
-            this.copyToBox.Location = new System.Drawing.Point(649, 52);
-            this.copyToBox.Margin = new System.Windows.Forms.Padding(6);
-            this.copyToBox.Multiline = true;
-            this.copyToBox.Name = "copyToBox";
-            this.copyToBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.copyToBox.Size = new System.Drawing.Size(446, 175);
-            this.copyToBox.TabIndex = 11;
+            copyToBox.Location = new System.Drawing.Point(413, 31);
+            copyToBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            copyToBox.Multiline = true;
+            copyToBox.Name = "copyToBox";
+            copyToBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            copyToBox.Size = new System.Drawing.Size(285, 107);
+            copyToBox.TabIndex = 11;
             // 
             // subjectBox
             // 
-            this.subjectBox.Location = new System.Drawing.Point(128, 242);
-            this.subjectBox.Margin = new System.Windows.Forms.Padding(6);
-            this.subjectBox.Name = "subjectBox";
-            this.subjectBox.Size = new System.Drawing.Size(966, 33);
-            this.subjectBox.TabIndex = 12;
+            subjectBox.Location = new System.Drawing.Point(81, 145);
+            subjectBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            subjectBox.Name = "subjectBox";
+            subjectBox.Size = new System.Drawing.Size(616, 23);
+            subjectBox.TabIndex = 12;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(20, 242);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 25);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Subject";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label5.Location = new System.Drawing.Point(13, 145);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(55, 17);
+            label5.TabIndex = 13;
+            label5.Text = "Subject";
             // 
             // messageBox
             // 
-            this.messageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.messageBox.Location = new System.Drawing.Point(90, 338);
-            this.messageBox.Margin = new System.Windows.Forms.Padding(6);
-            this.messageBox.Multiline = true;
-            this.messageBox.Name = "messageBox";
-            this.messageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.messageBox.Size = new System.Drawing.Size(1005, 339);
-            this.messageBox.TabIndex = 14;
+            messageBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            messageBox.Location = new System.Drawing.Point(57, 203);
+            messageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            messageBox.Multiline = true;
+            messageBox.Name = "messageBox";
+            messageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            messageBox.Size = new System.Drawing.Size(641, 205);
+            messageBox.TabIndex = 14;
             // 
             // helpBtn
             // 
-            this.helpBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.helpBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.helpBtn.Location = new System.Drawing.Point(1111, 702);
-            this.helpBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.helpBtn.Name = "helpBtn";
-            this.helpBtn.Size = new System.Drawing.Size(101, 44);
-            this.helpBtn.TabIndex = 15;
-            this.helpBtn.Text = "Help";
-            this.helpBtn.UseVisualStyleBackColor = false;
+            helpBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            helpBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
+            helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            helpBtn.ForeColor = System.Drawing.SystemColors.Control;
+            helpBtn.Location = new System.Drawing.Point(707, 421);
+            helpBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            helpBtn.Name = "helpBtn";
+            helpBtn.Size = new System.Drawing.Size(64, 26);
+            helpBtn.TabIndex = 15;
+            helpBtn.Text = "Help";
+            helpBtn.UseVisualStyleBackColor = false;
             // 
             // attachmentsButton
             // 
-            this.attachmentsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.attachmentsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.attachmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.attachmentsButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.attachmentsButton.Location = new System.Drawing.Point(26, 702);
-            this.attachmentsButton.Margin = new System.Windows.Forms.Padding(6);
-            this.attachmentsButton.Name = "attachmentsButton";
-            this.attachmentsButton.Size = new System.Drawing.Size(147, 44);
-            this.attachmentsButton.TabIndex = 16;
-            this.attachmentsButton.Text = "Attachments";
-            this.attachmentsButton.UseVisualStyleBackColor = false;
+            attachmentsButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            attachmentsButton.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
+            attachmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            attachmentsButton.ForeColor = System.Drawing.SystemColors.Control;
+            attachmentsButton.Location = new System.Drawing.Point(17, 421);
+            attachmentsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            attachmentsButton.Name = "attachmentsButton";
+            attachmentsButton.Size = new System.Drawing.Size(94, 26);
+            attachmentsButton.TabIndex = 16;
+            attachmentsButton.Text = "Attachments";
+            attachmentsButton.UseVisualStyleBackColor = false;
             // 
             // requestReceiptCheckbox
             // 
-            this.requestReceiptCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.requestReceiptCheckbox.AutoSize = true;
-            this.requestReceiptCheckbox.Location = new System.Drawing.Point(694, 706);
-            this.requestReceiptCheckbox.Margin = new System.Windows.Forms.Padding(6);
-            this.requestReceiptCheckbox.Name = "requestReceiptCheckbox";
-            this.requestReceiptCheckbox.Size = new System.Drawing.Size(412, 29);
-            this.requestReceiptCheckbox.TabIndex = 17;
-            this.requestReceiptCheckbox.Text = "Request \"Return Receipt\" from AOL members";
-            this.requestReceiptCheckbox.UseVisualStyleBackColor = true;
+            requestReceiptCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            requestReceiptCheckbox.AutoSize = true;
+            requestReceiptCheckbox.Location = new System.Drawing.Point(438, 422);
+            requestReceiptCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            requestReceiptCheckbox.Name = "requestReceiptCheckbox";
+            requestReceiptCheckbox.Size = new System.Drawing.Size(266, 19);
+            requestReceiptCheckbox.TabIndex = 17;
+            requestReceiptCheckbox.Text = "Request \"Return Receipt\" from AOL members";
+            requestReceiptCheckbox.UseVisualStyleBackColor = true;
             // 
             // sendButton
             // 
-            this.sendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.sendButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sendButton.Image = ((System.Drawing.Image)(resources.GetObject("sendButton.Image")));
-            this.sendButton.Location = new System.Drawing.Point(1126, 54);
-            this.sendButton.Margin = new System.Windows.Forms.Padding(6);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(75, 75);
-            this.sendButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sendButton.TabIndex = 18;
-            this.sendButton.TabStop = false;
-            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            sendButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            sendButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            sendButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            sendButton.Image = (System.Drawing.Image)resources.GetObject("sendButton.Image");
+            sendButton.Location = new System.Drawing.Point(717, 32);
+            sendButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sendButton.Name = "sendButton";
+            sendButton.Size = new System.Drawing.Size(48, 45);
+            sendButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            sendButton.TabIndex = 18;
+            sendButton.TabStop = false;
+            sendButton.Click += sendButton_Click;
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1109, 131);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 25);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Send Now";
+            label6.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(706, 79);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(61, 15);
+            label6.TabIndex = 19;
+            label6.Text = "Send Now";
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1106, 254);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 25);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Send Later";
+            label7.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(704, 152);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(62, 15);
+            label7.TabIndex = 21;
+            label7.Text = "Send Later";
             // 
             // sendLaterButton
             // 
-            this.sendLaterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendLaterButton.Image = ((System.Drawing.Image)(resources.GetObject("sendLaterButton.Image")));
-            this.sendLaterButton.Location = new System.Drawing.Point(1126, 177);
-            this.sendLaterButton.Margin = new System.Windows.Forms.Padding(6);
-            this.sendLaterButton.Name = "sendLaterButton";
-            this.sendLaterButton.Size = new System.Drawing.Size(75, 75);
-            this.sendLaterButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sendLaterButton.TabIndex = 20;
-            this.sendLaterButton.TabStop = false;
+            sendLaterButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            sendLaterButton.Image = (System.Drawing.Image)resources.GetObject("sendLaterButton.Image");
+            sendLaterButton.Location = new System.Drawing.Point(717, 106);
+            sendLaterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sendLaterButton.Name = "sendLaterButton";
+            sendLaterButton.Size = new System.Drawing.Size(48, 45);
+            sendLaterButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            sendLaterButton.TabIndex = 20;
+            sendLaterButton.TabStop = false;
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1116, 375);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 25);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Address";
+            label8.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(710, 225);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(49, 15);
+            label8.TabIndex = 23;
+            label8.Text = "Address";
             // 
             // addressBookButton
             // 
-            this.addressBookButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressBookButton.Image = ((System.Drawing.Image)(resources.GetObject("addressBookButton.Image")));
-            this.addressBookButton.Location = new System.Drawing.Point(1126, 298);
-            this.addressBookButton.Margin = new System.Windows.Forms.Padding(6);
-            this.addressBookButton.Name = "addressBookButton";
-            this.addressBookButton.Size = new System.Drawing.Size(75, 75);
-            this.addressBookButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.addressBookButton.TabIndex = 22;
-            this.addressBookButton.TabStop = false;
+            addressBookButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            addressBookButton.Image = (System.Drawing.Image)resources.GetObject("addressBookButton.Image");
+            addressBookButton.Location = new System.Drawing.Point(717, 179);
+            addressBookButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            addressBookButton.Name = "addressBookButton";
+            addressBookButton.Size = new System.Drawing.Size(48, 45);
+            addressBookButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            addressBookButton.TabIndex = 22;
+            addressBookButton.TabStop = false;
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1128, 402);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 25);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Book";
+            label9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(718, 241);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(34, 15);
+            label9.TabIndex = 24;
+            label9.Text = "Book";
             // 
             // mailExtrasButton
             // 
-            this.mailExtrasButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mailExtrasButton.Image = ((System.Drawing.Image)(resources.GetObject("mailExtrasButton.Image")));
-            this.mailExtrasButton.Location = new System.Drawing.Point(1124, 440);
-            this.mailExtrasButton.Margin = new System.Windows.Forms.Padding(6);
-            this.mailExtrasButton.Name = "mailExtrasButton";
-            this.mailExtrasButton.Size = new System.Drawing.Size(75, 75);
-            this.mailExtrasButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mailExtrasButton.TabIndex = 25;
-            this.mailExtrasButton.TabStop = false;
+            mailExtrasButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            mailExtrasButton.Image = (System.Drawing.Image)resources.GetObject("mailExtrasButton.Image");
+            mailExtrasButton.Location = new System.Drawing.Point(715, 264);
+            mailExtrasButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            mailExtrasButton.Name = "mailExtrasButton";
+            mailExtrasButton.Size = new System.Drawing.Size(48, 45);
+            mailExtrasButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            mailExtrasButton.TabIndex = 25;
+            mailExtrasButton.TabStop = false;
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1106, 523);
-            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 25);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Mail Extras";
+            label10.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(704, 314);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(64, 15);
+            label10.TabIndex = 26;
+            label10.Text = "Mail Extras";
             // 
             // write_mail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(253)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1234, 769);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.mailExtrasButton);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.addressBookButton);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.sendLaterButton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.sendButton);
-            this.Controls.Add(this.requestReceiptCheckbox);
-            this.Controls.Add(this.attachmentsButton);
-            this.Controls.Add(this.helpBtn);
-            this.Controls.Add(this.messageBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.subjectBox);
-            this.Controls.Add(this.copyToBox);
-            this.Controls.Add(this.sendToBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(15, 220);
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "write_mail";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Write Mail";
-            this.Load += new System.EventHandler(this.write_mail_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sendButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sendLaterButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressBookButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mailExtrasButton)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(255, 253, 241);
+            ClientSize = new System.Drawing.Size(785, 461);
+            Controls.Add(label10);
+            Controls.Add(mailExtrasButton);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(addressBookButton);
+            Controls.Add(label7);
+            Controls.Add(sendLaterButton);
+            Controls.Add(label6);
+            Controls.Add(sendButton);
+            Controls.Add(requestReceiptCheckbox);
+            Controls.Add(attachmentsButton);
+            Controls.Add(helpBtn);
+            Controls.Add(messageBox);
+            Controls.Add(label5);
+            Controls.Add(subjectBox);
+            Controls.Add(copyToBox);
+            Controls.Add(sendToBox);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Location = new System.Drawing.Point(15, 220);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "write_mail";
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "Write Mail";
+            Load += write_mail_Load;
+            Shown += write_mail_Shown;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sendButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sendLaterButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)addressBookButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mailExtrasButton).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

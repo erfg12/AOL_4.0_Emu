@@ -222,5 +222,10 @@ namespace aol.Forms
 
         }
         #endregion
+
+        private void write_mail_Shown(object sender, EventArgs e)
+        {
+            location.PositionWindow(this, 0, 55);
+        }
     }
 }

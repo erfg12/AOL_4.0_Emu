@@ -143,9 +143,9 @@ namespace aol.Forms
 
         private void chat_list_Shown(object sender, EventArgs e)
         {
-            location.PositionWindow(this);
-            rects.Add(new Rectangle(165, 367, 62, 23)); // 0 join channel
-            rects.Add(new Rectangle(155, 85, 54, 23)); // 1 search button
+            location.PositionWindow(this, 0, 50);
+            rects.Add(new Rectangle(195, 427, 62, 23)); // 0 join channel
+            rects.Add(new Rectangle(185, 95, 54, 23)); // 1 search button
         }
 
         private void catListView_SelectedIndexChanged(object sender, EventArgs e)
