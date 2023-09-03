@@ -66,9 +66,9 @@ namespace aol.Forms
                 wndWidth = this.Width;
                 wndHeight = this.Height;
                 maximized = true;
-                this.Location = new Point(0, 106);
+                this.Location = new Point(0, 116);
                 this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 110;
+                this.Height = Parent.Height - 120;
                 maxBtn.Image = Properties.Resources.restore_btn;
             }
         }

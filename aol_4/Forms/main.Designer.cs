@@ -1767,6 +1767,7 @@
             // panel1
             // 
             panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             panel1.BackColor = System.Drawing.Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
             panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

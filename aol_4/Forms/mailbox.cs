@@ -85,29 +85,6 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
         }
 
-        private void miniMax()
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
-
-            if (this.ActiveMdiChild != null)
-            {
-                bool resize = false;
-                if (this.ActiveMdiChild is Browse && ((Browse)ActiveMdiChild).maximized)
-                    resize = true;
-                if (this.ActiveMdiChild is buddies_online && ((buddies_online)ActiveMdiChild).maximized)
-                    resize = true;
-
-                if (resize)
-                {
-                    this.ActiveMdiChild.Width = this.Width - 4;
-                    this.ActiveMdiChild.Height = this.Height - 110;
-                }
-            }
-        }
-
         private void maxiMini()
         {
             if (maximized)
@@ -125,9 +102,9 @@ namespace aol.Forms
                 wndWidth = this.Width;
                 wndHeight = this.Height;
                 maximized = true;
-                this.Location = new Point(0, 106);
+                this.Location = new Point(0, 116);
                 this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 110;
+                this.Height = Parent.Height - 120;
                 maxBtn.Image = Properties.Resources.restore_btn;
             }
         }
