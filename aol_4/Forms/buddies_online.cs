@@ -143,7 +143,71 @@ namespace aol.Forms
         // TO-DO: this is dumb, make a thread
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(1500);
+            while (true)
+            {
+                Thread.Sleep(1500);
+                int online = 0;
+                int offline = 0;
+
+                if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest" || shuttingDown || !CheckIRCRunning())
+                    return;
+
+                foreach (KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
+                {
+                    chat.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
+                    buddyTreeView.Invoke(new MethodInvoker(delegate
+                    {
+                        if (kvp.Value == true) // remove from offline, add to online
+                        {
+                            //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
+                            TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
+                            if (nodes.Length > 0)
+                            {
+                                buddyTreeView.Nodes.Remove(nodes[0]);
+                                offline--;
+                            }
+                            TreeNode[] nodes2 = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
+                            if (nodes2.Length <= 0)
+                            {
+                                TreeNode ntn = new TreeNode();
+                                ntn.Text = kvp.Key;
+                                ntn.Name = kvp.Key;
+                                ntn.Tag = kvp.Key;
+                                buddyTreeView.Nodes[0].Nodes.Add(ntn);
+                                online++;
+                                buddyTreeView.Nodes[0].Expand();
+                            }
+                        }
+                        else
+                        {
+                            //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
+                            TreeNode[] nodes = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
+                            if (nodes.Length > 0)
+                            {
+                                buddyTreeView.Nodes.Remove(nodes[0]);
+                                online--;
+                            }
+                            TreeNode[] nodes2 = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
+                            if (nodes2.Length <= 0)
+                            {
+                                TreeNode ntn = new TreeNode();
+                                ntn.Text = kvp.Key;
+                                ntn.Name = kvp.Key;
+                                ntn.Tag = kvp.Key;
+                                buddyTreeView.Nodes[1].Nodes.Add(ntn);
+                                offline++;
+                                buddyTreeView.Nodes[1].Expand();
+                            }
+                        }
+                        buddyTreeView.Nodes[0].Text = "Online " + online.ToString() + "/" + total.ToString();
+                        buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
+                    }));
+                }
+
+                total = chat.buddyStatus.Count();
+
+                Thread.Sleep(4000);
+            }
         }
 
         public bool CheckIRCRunning()
@@ -231,73 +295,7 @@ namespace aol.Forms
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            int online = 0;
-            int offline = 0;
-
-            if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest" || shuttingDown)
-                return;
-
-            if (!CheckIRCRunning())
-                backgroundWorker1.RunWorkerAsync();
-
-            foreach (KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
-            {
-                chat.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
-                buddyTreeView.Invoke(new MethodInvoker(delegate
-                {
-                    if (kvp.Value == true) // remove from offline, add to online
-                    {
-                        //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
-                        TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
-                        if (nodes.Length > 0)
-                        {
-                            buddyTreeView.Nodes.Remove(nodes[0]);
-                            offline--;
-                        }
-                        TreeNode[] nodes2 = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
-                        if (nodes2.Length <= 0)
-                        {
-                            TreeNode ntn = new TreeNode();
-                            ntn.Text = kvp.Key;
-                            ntn.Name = kvp.Key;
-                            ntn.Tag = kvp.Key;
-                            buddyTreeView.Nodes[0].Nodes.Add(ntn);
-                            online++;
-                            buddyTreeView.Nodes[0].Expand();
-                        }
-                    }
-                    else
-                    {
-                        //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
-                        TreeNode[] nodes = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
-                        if (nodes.Length > 0)
-                        {
-                            buddyTreeView.Nodes.Remove(nodes[0]);
-                            online--;
-                        }
-                        TreeNode[] nodes2 = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
-                        if (nodes2.Length <= 0)
-                        {
-                            TreeNode ntn = new TreeNode();
-                            ntn.Text = kvp.Key;
-                            ntn.Name = kvp.Key;
-                            ntn.Tag = kvp.Key;
-                            buddyTreeView.Nodes[1].Nodes.Add(ntn);
-                            offline++;
-                            buddyTreeView.Nodes[1].Expand();
-                        }
-                    }
-                    buddyTreeView.Nodes[0].Text = "Online " + online.ToString() + "/" + total.ToString();
-                    buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
-                }));
-            }
-
-            total = chat.buddyStatus.Count();
-
-            Thread.Sleep(4000);
-
-            if (!backgroundWorker1.IsBusy)
-                backgroundWorker1.RunWorkerAsync(); // check again
+            // not firing?
         }
 
         private void miniBtn_Click(object sender, EventArgs e)
