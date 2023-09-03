@@ -195,10 +195,10 @@ namespace aol.Forms
         {
             location.PositionWindow(this);
 
-            rects.Add(new Rectangle(5, 75, 175, 60)); // 0 mailbox
-            rects.Add(new Rectangle(5, 195, 175, 60)); // 1 channels
-            rects.Add(new Rectangle(5, 255, 175, 60)); // 2 chat_list
-            rects.Add(new Rectangle(5, 130, 175, 60)); // 3 pictures
+            rects.Add(new Rectangle(5, 75, 100, 60)); // 0 mailbox
+            rects.Add(new Rectangle(5, 195, 100, 60)); // 1 channels
+            rects.Add(new Rectangle(5, 255, 100, 60)); // 2 chat_list
+            rects.Add(new Rectangle(5, 130, 100, 60)); // 3 pictures
 
             Thread thr = new Thread(StartForm);
             thr.Start();

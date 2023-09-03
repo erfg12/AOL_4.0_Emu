@@ -90,6 +90,7 @@ namespace aol.Forms
         string old_url = "";
         public List<string> tmpHistory = new List<string>();
         bool formClosing = false;
+        int topMenuPadding = 42;
         #endregion
 
         #region my_functions
@@ -404,7 +405,7 @@ namespace aol.Forms
 
         private void fileBtn_Click(object sender, EventArgs e)
         {
-            fileContextMenuStrip.Show(this.Location.X, Location.Y + 70);
+            fileContextMenuStrip.Show(this.Location.X, Location.Y + topMenuPadding);
         }
 
         private void closeForm_Click(object sender, EventArgs e)
@@ -595,17 +596,17 @@ namespace aol.Forms
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            editContextMenuStrip.Show(this.Location.X + 28, this.Location.Y + 70);
+            editContextMenuStrip.Show(this.Location.X + 28, this.Location.Y + topMenuPadding);
         }
 
         private void windowBtn_Click(object sender, EventArgs e)
         {
-            windowContextMenuStrip.Show(this.Location.X + 54, this.Location.Y + 70);
+            windowContextMenuStrip.Show(this.Location.X + 54, this.Location.Y + topMenuPadding);
         }
 
         private void helpBtn_Click(object sender, EventArgs e)
         {
-            helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + 70);
+            helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + topMenuPadding);
         }
         
         private void mail_center_btn_Click(object sender, EventArgs e)

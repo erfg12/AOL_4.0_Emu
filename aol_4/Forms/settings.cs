@@ -68,7 +68,7 @@ namespace aol.Forms
 
         private void settings_Shown(object sender, EventArgs e)
         {
-            location.PositionWindow(this);
+            location.PositionWindow(this, 0, 50);
             homePageBox.Text = Properties.Settings.Default.homeSite;
             cityBox.Text = Properties.Settings.Default.city;
             countryBox.Text = Properties.Settings.Default.country;
