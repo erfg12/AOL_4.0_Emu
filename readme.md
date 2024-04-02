@@ -14,8 +14,8 @@ Visit https://github.com/erfg12/AOL_4.0_Emu/releases and download the latest zip
 
 ## SAMPLE SCREENSHOTS
 
-![](https://media.discordapp.net/attachments/376865174570926090/504482148716249128/Capture.PNG)
+![welcome screen](Capture.PNG)
 
 Here's a compressed animated gif of the dial up, loading animation and MIE badge:
 
-![](https://media.discordapp.net/attachments/376865174570926090/505471134163009536/aol_loading_image.gif?width=969&height=606)
+![loading gif](aol_loading_image.gif)
