@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows10.0.22000.0</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <PlatformName>windows</PlatformName>
     <OutputType>WinExe</OutputType>
     <RootNamespace>aol</RootNamespace>
     <AssemblyName>aol</AssemblyName>
@@ -20,7 +21,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
+    <UseWindowsForms>True</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
     <CefSharpBuildAction>Content</CefSharpBuildAction>
@@ -38,7 +39,22 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <StartupObject>aol.Forms.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>1701;1702;ca1416</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>full</DebugType>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>1701;1702;ca1416</NoWarn>
+  </PropertyGroup>
+	<ItemGroup>
+		<SupportedPlatform Include="Windows" />
+	</ItemGroup>
   <ItemGroup>
     <None Remove="Resources\200px-America_Online_logo.svg.png" />
     <None Remove="Resources\accountsdb.bmp" />
@@ -313,5 +329,11 @@
     <Content Update="C:\Users\jakefliss\.nuget\packages\stub.system.data.sqlite.core.netframework\1.0.118\buildTransitive\net46\..\..\build\net46\x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EditorConfigFiles Remove="\\Mac\Home\Documents\GitHub\AOL_4.0_Emu\aol_4\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="\\Mac\Home\Documents\GitHub\AOL_4.0_Emu\aol_4\.editorconfig" />
   </ItemGroup>
 </Project>
