@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
+using Microsoft.Data.Sqlite;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using aol.Classes;
@@ -14,19 +13,20 @@ namespace aol.Forms
 {
     class sqlite_accounts
     {
-        public static SQLiteConnection openDB()
+        public static SqliteConnection openDB()
         {
             var pathDB = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "accounts.db");
-            /*try {
-                if (!System.IO.File.Exists(pathDB)) throw new Exception();
-            }
-            catch
-            {
-                MessageBox.Show("ERROR: SQLite DB file error.");
-                Application.Exit();
-            }*/
+            //try {
+            //    if (!System.IO.File.Exists(pathDB)) throw new Exception();
+            //    Debug.WriteLine("accounts.db file exists");
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("ERROR: Sqlite DB file error.");
+            //    Application.Exit();
+            //}
             //Debug.WriteLine("pageDB=" + pathDB);
-            return new SQLiteConnection("Data Source=" + pathDB + ";Version=3;"); // seems that this now auto creates the file if it doesn't exist.
+            return new SqliteConnection("Data Source=" + pathDB + ";"); // seems that this now auto creates the file if it doesn't exist.
         }
 
         public static byte[] passSalt = Encoding.ASCII.GetBytes("My$@lT!2");
@@ -56,17 +56,17 @@ namespace aol.Forms
                 return 999;
 
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
             long timeStamp = DateTime.Now.ToFileTime();
             string sql = "INSERT INTO history (userid, url, date) VALUES ('" + userID + "', '" + url + "', '" + timeStamp + "')";
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 code = ex.ErrorCode;
             }
@@ -80,22 +80,22 @@ namespace aol.Forms
             int code = 0;
 
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + userID + "', '" + url + "', @URLname)";
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                SQLiteParameter[] parameters = { new SQLiteParameter("URLname", URLname) };
+                SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+                SqliteParameter[] parameters = { new SqliteParameter("URLname", URLname) };
                 command.Parameters.AddRange(parameters);
                 command.ExecuteNonQuery();
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 if (ex.ErrorCode != 1) return code;
-                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, name text)", "favorites"), m_dbConnection))
+                using (SqliteCommand createTable = new SqliteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, name text)", "favorites"), m_dbConnection))
                 {
                     Debug.WriteLine("Creating favorites table.");
                     createTable.ExecuteNonQuery();
@@ -116,22 +116,22 @@ namespace aol.Forms
             int code = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             ConcurrentBag<string> history = new ConcurrentBag<string>();
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + userID + "' AND url = '" + url + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
                     command.CommandText = "DELETE FROM favorites WHERE userid = '" + userID + "' AND url = '" + url + "'";
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 code = ex.ErrorCode;
             }
@@ -143,22 +143,22 @@ namespace aol.Forms
         public static int updateFavorite(string url, string name)
         {
             int code = 0;
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM favorites WHERE name = '" + name + "' AND url = '" + url + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
                     command.CommandText = "UPDATE favorites SET name = '" + name + "' WHERE url = '" + url + "'";
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 code = ex.ErrorCode;
             }
@@ -175,29 +175,29 @@ namespace aol.Forms
         {
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             ConcurrentDictionary<string, string> favorites = new ConcurrentDictionary<string, string>();
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + userID + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
                     command.CommandText = "SELECT * FROM favorites WHERE userid = '" + userID + "'";
 
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         favorites.TryAdd(reader["url"].ToString(), reader["name"].ToString());
                     }
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 if (ex.ErrorCode != 1) return favorites;
-                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, name text)", "favorites"), m_dbConnection))
+                using (SqliteCommand createTable = new SqliteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, name text)", "favorites"), m_dbConnection))
                 {
                     Debug.WriteLine("Creating favorites table.");
                     createTable.ExecuteNonQuery();
@@ -218,14 +218,14 @@ namespace aol.Forms
                 return new List<string> { null }; // error, account not found. Prevent crash.
 
             List<string> history = new List<string>();
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
                 int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
 
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
@@ -233,17 +233,17 @@ namespace aol.Forms
                 {
                     command.CommandText = "SELECT * FROM history WHERE userid = '" + userID + "'";
 
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         history.Add(reader["url"].ToString());
                     }
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 if (ex.ErrorCode != 1) return history;
-                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, date int)", "history"), m_dbConnection))
+                using (SqliteCommand createTable = new SqliteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(id int, userid int, url text, date int)", "history"), m_dbConnection))
                 {
                     Debug.WriteLine("Creating history table.");
                     createTable.ExecuteNonQuery();
@@ -262,22 +262,22 @@ namespace aol.Forms
         {
             int code = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
                     command.CommandText = "DELETE FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 code = ex.ErrorCode;
             }
@@ -299,18 +299,18 @@ namespace aol.Forms
             if (findAcc(user) > 0)
                 return 999;
 
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
             string sql = "INSERT INTO aol_accounts (username, fullname) VALUES ('" + user + "', @fullname)";
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-                SQLiteParameter[] parameters = { new SQLiteParameter("fullname", fullname) };
+                SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+                SqliteParameter[] parameters = { new SqliteParameter("fullname", fullname) };
                 command.Parameters.AddRange(parameters);
                 command.ExecuteNonQuery();
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 code = ex.ErrorCode;
             }
@@ -328,12 +328,12 @@ namespace aol.Forms
         {
             int foundHistory = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             string sql = "SELECT * FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+            SqliteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 foundHistory++;
@@ -351,12 +351,12 @@ namespace aol.Forms
         public static int findAcc(string user)
         {
             int foundAcc = 0;
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             string sql = "SELECT userid FROM aol_accounts WHERE username = '" + user + "'";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+            SqliteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 if (reader.GetInt32(0) > 0)
@@ -371,21 +371,21 @@ namespace aol.Forms
         {
             bool good = false;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand cmd = new SQLiteCommand(m_dbConnection);
+                SqliteCommand cmd = new SqliteCommand { Connection = m_dbConnection };
                 cmd.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "' AND buddy_name = '" + user + "'";
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 if (count > 0)
                     return false; // user already exists
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 if (ex.ErrorCode != 1) return false;
-                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, buddy_name text)", "buddy_list"), m_dbConnection))
+                using (SqliteCommand createTable = new SqliteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, buddy_name text)", "buddy_list"), m_dbConnection))
                 {
                     Debug.WriteLine("Creating buddy_list table.");
                     createTable.ExecuteNonQuery();
@@ -396,14 +396,14 @@ namespace aol.Forms
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
                 chat.buddyStatus.TryAdd(user, false); // put them immediately into our buddy list
                 good = true;
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
-                Debug.WriteLine("SQLite ERR: " + ex.ErrorCode);
+                Debug.WriteLine("Sqlite ERR: " + ex.ErrorCode);
             }
 
             m_dbConnection.Close();
@@ -414,12 +414,12 @@ namespace aol.Forms
         {
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id", user, pass));
             List<string> buddies = new List<string>();
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
@@ -427,17 +427,17 @@ namespace aol.Forms
                 {
                     command.CommandText = "SELECT * FROM buddy_list WHERE userid = '" + userID + "'";
 
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         buddies.Add(reader["buddy_name"].ToString());
                     }
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 if (ex.ErrorCode != 1) return buddies;
-                using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, buddy_name text)", "buddy_list"), m_dbConnection))
+                using (SqliteCommand createTable = new SqliteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, buddy_name text)", "buddy_list"), m_dbConnection))
                 {
                     Debug.WriteLine("Creating buddy_list table.");
                     createTable.ExecuteNonQuery();
@@ -453,12 +453,12 @@ namespace aol.Forms
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             //Debug.WriteLine("tmpUsername:" + tmpUsername + " tmpPassword:" + tmpPassword + " userID:" + userID);
             string[] info = new string[7];
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
                 command.CommandText = "SELECT count(*) FROM email_accounts WHERE user_id = '" + userID + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
@@ -466,7 +466,7 @@ namespace aol.Forms
                 {
                     command.CommandText = "SELECT * FROM email_accounts WHERE user_id = '" + userID + "'";
 
-                    SQLiteDataReader reader = command.ExecuteReader();
+                    SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         info[0] = reader["address"].ToString();
@@ -484,9 +484,9 @@ namespace aol.Forms
                     info = new string[] { "", "", "", "993", "", "465", "1" };
                 }
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
-                Debug.WriteLine("SQLite err " + ex.ErrorCode);
+                Debug.WriteLine("Sqlite err " + ex.ErrorCode);
             }
 
             m_dbConnection.Close();
@@ -498,12 +498,12 @@ namespace aol.Forms
             int code = 0;
             int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
             Debug.WriteLine("userID:" + userID);
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(m_dbConnection);
+                SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
 
                 command.CommandText = "SELECT count(*) FROM email_accounts WHERE user_id = '" + userID + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
@@ -521,7 +521,7 @@ namespace aol.Forms
                 command.Parameters.AddWithValue("encPass", pass);
                 command.ExecuteNonQuery();
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 code = ex.ErrorCode;
             }
@@ -533,12 +533,12 @@ namespace aol.Forms
         public static string getFullName()
         {
             string foundFN = "";
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + accForm.tmpUsername + "'";
-            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+            SqliteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 foundFN = reader.GetString(0);
@@ -550,16 +550,16 @@ namespace aol.Forms
 
         public static void updateFullName(string fullname)
         {
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
             string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + accForm.tmpUsername + "'";
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();
             }
-            catch (SQLiteException ex)
+            catch (SqliteException ex)
             {
                 Console.WriteLine("updateFullName error " + ex.ErrorCode);
             }
@@ -570,15 +570,15 @@ namespace aol.Forms
         public static ConcurrentBag<string> listAccounts()
         {
             ConcurrentBag<string> accs = new ConcurrentBag<string>();
-            SQLiteConnection m_dbConnection = openDB();
+            SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
             string sql = "SELECT username FROM aol_accounts";
-            using (SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection))
+            using (SqliteCommand command = new SqliteCommand(sql, m_dbConnection))
             {
                 try
                 {
-                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    using (SqliteDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -587,10 +587,10 @@ namespace aol.Forms
                         reader.Close();
                     }
                 } 
-                catch (SQLiteException ex)
+                catch (SqliteException ex)
                 {
                     if (ex.ErrorCode != 1) return accs;
-                    using (SQLiteCommand createTable = new SQLiteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, username text, fullname text)", "aol_accounts"), m_dbConnection))
+                    using (SqliteCommand createTable = new SqliteCommand(string.Format("CREATE TABLE IF NOT EXISTS {0}(userid int, username text, fullname text)", "aol_accounts"), m_dbConnection))
                     {
                         Debug.WriteLine("Creating aol_accounts table.");
                         createTable.ExecuteNonQuery();
