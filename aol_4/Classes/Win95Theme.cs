@@ -83,6 +83,7 @@ namespace aol.Forms
             }
         }
 
+        // for main
         public void miniMax(Button maxBtn)
         {
             if (WindowState == FormWindowState.Maximized)
@@ -106,8 +107,8 @@ namespace aol.Forms
 
                 if (resize)
                 {
-                    this.ActiveMdiChild.Width = this.Width - 4;
-                    this.ActiveMdiChild.Height = this.Height - 110;
+                    this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3);
+                    this.ActiveMdiChild.Height = this.Height - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 127);
                 }
             }
         }
@@ -130,8 +131,8 @@ namespace aol.Forms
                 wndHeight = this.Height;
                 maximized = true;
                 this.Location = new Point(0, 116);
-                this.Width = Parent.Width - 4;
-                this.Height = Parent.Height - 120;
+                this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3);
+                this.Height = Parent.Height - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 127);
                 maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
         }
