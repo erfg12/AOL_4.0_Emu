@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace aol.Forms
 {
-    public partial class Win95Theme: Form
+    public partial class Win95Theme : Form
     {
         #region DLLImports
         [DllImport("user32.dll")]
@@ -34,6 +34,14 @@ namespace aol.Forms
         int wndWidth = 0;
         int wndHeight = 0;
         public bool maximized = false;
+        int paddingTop_100 = 117;
+        int paddingTop_125 = 157;
+        int paddingTop_150 = 195;
+        int paddingTop_175 = 234;
+        int paddingTop_200 = 250;
+        int paddingTop_225 = 290;
+        int paddingTop_250 = 320;
+        int paddingTop_300 = 375;
 
         private const int
             HTLEFT = 10,
@@ -108,7 +116,7 @@ namespace aol.Forms
                 if (resize)
                 {
                     this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3);
-                    this.ActiveMdiChild.Height = this.Height - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 127);
+                    this.ActiveMdiChild.Height = this.Height - getTopPadding() - 5;
                 }
             }
         }
@@ -131,8 +139,9 @@ namespace aol.Forms
                 wndHeight = this.Height;
                 maximized = true;
                 this.Location = new Point(0, 116);
+                var t = GetDisplayScaleFactor(this.Handle);
                 this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3);
-                this.Height = Parent.Height - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 127);
+                this.Height = Parent.Height - getTopPadding() - 5;
                 maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
         }
@@ -175,16 +184,31 @@ namespace aol.Forms
             this.Move += WindowMoved;
         }
 
+        private int getTopPadding() 
+        {
+            var t = GetDisplayScaleFactor(this.Handle);
+            int ret = paddingTop_100;
+            if (t <= 1.00) ret = paddingTop_100;
+            else if (t <= 1.25) ret = paddingTop_125;
+            else if (t <= 1.50) ret = paddingTop_150;
+            else if (t <= 1.75) ret = paddingTop_175;
+            else if (t <= 2.00) ret = paddingTop_200;
+            else if (t <= 2.25) ret = paddingTop_225;
+            else if (t <= 2.50) ret = paddingTop_250;
+            else if (t <= 3.00) ret = paddingTop_300;
+            return Convert.ToInt32(ret);
+        }
+
         // prevent window from moving too high up
         private void WindowMoved(object sender, EventArgs e)
         {
             if (this.Name != "main" && Parent != null)
             {
-                int paddingTop = Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 125);
-                if (this.Location.Y < this.Parent.Location.Y + paddingTop)
+                int paddingTopCalc = getTopPadding();
+                if (this.Location.Y < this.Parent.Location.Y + paddingTopCalc)
                 {
                     int LocX = this.Location.X;
-                    this.Location = new Point(LocX, Parent.Location.Y + paddingTop);
+                    this.Location = new Point(LocX, Parent.Location.Y + paddingTopCalc);
                     return;
                 }
             }
