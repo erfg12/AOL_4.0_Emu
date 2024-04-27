@@ -154,7 +154,7 @@
     <value>399, 56</value>
   </metadata>
   <metadata name="checkMail.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>515, 56</value>
+    <value>502, 98</value>
   </metadata>
   <metadata name="myFavoritesContextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>2008, 37</value>
@@ -163,7 +163,7 @@
     <value>970, 48</value>
   </metadata>
   <metadata name="peopleMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1213, 57</value>
+    <value>1212, 90</value>
   </metadata>
   <metadata name="findMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1496, 46</value>
@@ -175,13 +175,13 @@
   <data name="addrBarBG.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAZCAYAAAAmNZ4aAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        mQAADpkBKi42KwAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAABLSURBVEhL
-        xcghAQAgEAAxOtGJ/g2eArMcYmZr7TNfMAvMArPALDALzAKzwCwwC8wCs8AsMAvMArPALDALzAKzwCww
-        C8wCs8B87swFJEarjbXnIc4AAAAASUVORK5CYII=
+        mQAADpkBKi42KwAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAABBSURBVEhL
+        Y2AwTvs/IHhALAV5dtRiuoUA3SxCT8SjFtMtBOhm0WgcjwY13UKAbhaNpurRoKZbCNDNotFUPVBBDQAk
+        RquNFVFIngAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>96</value>
+    <value>179</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -13,78 +13,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using aol.Classes;
-using CefSharp;
 using System.Configuration;
 
 namespace aol.Forms
 {
-    public partial class main : Form
+    public partial class main : Win95Theme
     {
-        #region DLLImports
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
-
-        [DllImport("winmm.dll")]
-        private static extern uint mciSendString(string command, StringBuilder returnValue, int returnLength, IntPtr winHandle);
-
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool IsWindow(IntPtr hWnd);
-        #endregion
-
-        #region win95_theme
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        private const int cGrip = 16;
-        private const int cCaption = 32;
-
-        Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
-        Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }
-        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - padding, this.ClientSize.Height - padding, padding, padding); } }
-
-        private const int
-            HTLEFT = 10,
-            HTRIGHT = 11,
-            HTTOP = 12,
-            HTTOPLEFT = 13,
-            HTTOPRIGHT = 14,
-            HTBOTTOM = 15,
-            HTBOTTOMLEFT = 16,
-            HTBOTTOMRIGHT = 17;
-
-        private void miniMax()
-        {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-                maxBtn.Image = Properties.Resources.maximize_btn;
-            }
-            else
-            {
-                WindowState = FormWindowState.Maximized;
-                maxBtn.Image = Properties.Resources.restore_btn;
-            }
-
-            if (this.ActiveMdiChild != null)
-            {
-                bool resize = false;
-                if (this.ActiveMdiChild is Browse && ((Browse)ActiveMdiChild).maximized)
-                    resize = true;
-                if (this.ActiveMdiChild is buddies_online && ((buddies_online)ActiveMdiChild).maximized)
-                    resize = true;
-
-                if (resize)
-                {
-                    this.ActiveMdiChild.Width = this.Width - 4;
-                    this.ActiveMdiChild.Height = this.Height - 110;
-                }
-            }
-        }
-        #endregion
-
         #region shared_variables
         bool newWindow = true;
         string old_url = "";
@@ -364,7 +298,7 @@ namespace aol.Forms
 
         private void maxBtn_Click(object sender, EventArgs e)
         {
-            miniMax();
+            miniMax(maxBtn);
         }
 
         private void miniBtn_Click(object sender, EventArgs e)
@@ -1037,7 +971,7 @@ namespace aol.Forms
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            miniMax();
+            miniMax(maxBtn);
         }
         #endregion
     }

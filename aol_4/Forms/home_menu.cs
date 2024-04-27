@@ -1,87 +1,24 @@
 ﻿using aol.Classes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WeatherNet;
 
 namespace aol.Forms
 {
-    public partial class home_menu : Form
+    public partial class home_menu : Win95Theme
     {
-        #region DLLImports
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
-        #endregion
-
-        #region win95_theme
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        private const int cGrip = 16;
-        private const int cCaption = 32;
-
-        private const int
-            HTLEFT = 10,
-            HTRIGHT = 11,
-            HTTOP = 12,
-            HTTOPLEFT = 13,
-            HTTOPRIGHT = 14,
-            HTBOTTOM = 15,
-            HTBOTTOMLEFT = 16,
-            HTBOTTOMRIGHT = 17;
-
-        const int _ = 2;
-
-        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-            e.Graphics.FillRectangle(Brushes.Gray, Top);
-            e.Graphics.FillRectangle(Brushes.Gray, Left);
-            e.Graphics.FillRectangle(Brushes.Gray, Right);
-            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-
-            /*Graphics g = e.Graphics;
-            foreach (Rectangle rect in rects)
-            {
-                Pen pen = new Pen(Color.Black, 5);
-                //pen.Alignment = PenAlignment.Inset;
-                g.DrawRectangle(pen, rect);
-            }*/
-        }
-        #endregion
-
-        #region winform_functions
         List<Rectangle> rects = new List<Rectangle>();
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
 
         private void home_menu_MouseDown(object sender, MouseEventArgs e)
@@ -91,19 +28,20 @@ namespace aol.Forms
 
         private void home_menu_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void home_menu_MouseMove(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             foreach (Rectangle r in rects)
             {
-                if (r.Contains(e.Location)) {
+                if (r.Contains(e.Location))
+                {
                     Cursor = Cursors.Hand;
                     return;
                 }
@@ -148,11 +86,7 @@ namespace aol.Forms
 
         private void titleLabel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -209,6 +143,6 @@ namespace aol.Forms
             FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
-        #endregion
+
     }
 }

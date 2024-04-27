@@ -1,77 +1,21 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using aol.Classes;
 
 namespace aol.Forms
 {
-    public partial class chat_list : Form
+    public partial class chat_list : Win95Theme
     {
-        #region DLLImports
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
-        #endregion
-
-        #region win95_theme
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        private const int cGrip = 16;
-        private const int cCaption = 32;
-
-        private const int
-            HTLEFT = 10,
-            HTRIGHT = 11,
-            HTTOP = 12,
-            HTTOPLEFT = 13,
-            HTTOPRIGHT = 14,
-            HTBOTTOM = 15,
-            HTBOTTOMLEFT = 16,
-            HTBOTTOMRIGHT = 17;
-
-        const int _ = 2;
-
-        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
-
-        Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
-
-        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
-        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
-
-        Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-            e.Graphics.FillRectangle(Brushes.Gray, Top);
-            e.Graphics.FillRectangle(Brushes.Gray, Left);
-            e.Graphics.FillRectangle(Brushes.Gray, Right);
-            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-        }
-
         private void maxBtn_Click(object sender, EventArgs e)
         {
 
         }
-        #endregion
 
         #region variables
         private ConcurrentDictionary<string, List<string>> categories = new ConcurrentDictionary<string, List<string>>();
@@ -156,11 +100,7 @@ namespace aol.Forms
 
         private void mainTitle_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
 
         private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
@@ -227,11 +167,7 @@ namespace aol.Forms
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
 
         private void chat_list_Load(object sender, EventArgs e)
