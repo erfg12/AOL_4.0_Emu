@@ -20,28 +20,6 @@ namespace aol.Forms
         #endregion
 
         #region my_functions
-        public void InitBrowser(string urlArg)
-        {
-            //var settings = new CefSettings();
-            //settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            //if (!Cef.IsInitialized) Cef.Initialize(settings);
-            
-            /*browser = new ChromiumWebBrowser(url);
-            browser.Dock = DockStyle.Fill;
-            browser.AddressChanged += Browser_AddressChanged;
-            toolStripContainer1.ContentPanel.Controls.Add(browser);
-            browser.DownloadHandler = new DownloadHandler();
-            browser.TitleChanged += Browser_TitleChanged;
-            //browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
-
-            //Wait for the page to finish loading (all resources will have been loaded, rendering is likely still happening)
-            browser.LoadingStateChanged += (sender, args) =>
-            {
-                //Wait for the Page to finish loading
-                loading = args.IsLoading;
-            };*/
-        }
-
         public string searchProvider(string query)
         {
             if (Properties.Settings.Default.searchProvider == "Dogpile")
@@ -114,35 +92,25 @@ namespace aol.Forms
         {
             await WebView.EnsureCoreWebView2Async(null);
             WebView.CoreWebView2.WebMessageReceived += UpdateAddressBar;
+            WebView.CoreWebView2.DocumentTitleChanged += DocumentTitleChanged;
+            //this.Text = wv2.CoreWebView2.DocumentTitle;
+            //BrowserWindowTitleLabel.Text = title;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
-
-        /*private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
-        {
-            title = e.Title;
-            titleLabel.Invoke(new MethodInvoker(delegate
-            {
-                titleLabel.Text = title;
-                Text = title;
-            }));
-        }
-
-        private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
-        {
-            url = e.Address;
-        }*/
 
         void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs e)
         {
             url = e.TryGetWebMessageAsString();
+        }
+
+        private void DocumentTitleChanged(object sender, object e)
+        {
+            this.Text = wv2.CoreWebView2.DocumentTitle;
+            BrowserWindowTitleLabel.Text = this.Text;
         }
 
         private void FavoriteBtn_Click(object sender, EventArgs e)

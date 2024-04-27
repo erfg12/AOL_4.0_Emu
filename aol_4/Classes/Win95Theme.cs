@@ -153,14 +153,6 @@ namespace aol.Forms
             e.Graphics.FillRectangle(Brushes.Gray, Left);
             e.Graphics.FillRectangle(Brushes.Gray, Right);
             e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-
-            /*Graphics g = e.Graphics;
-            foreach (Rectangle rect in rects)
-            {
-                Pen pen = new Pen(Color.Black, 5);
-                //pen.Alignment = PenAlignment.Inset;
-                g.DrawRectangle(pen, rect);
-            }*/
         }
 
         public float GetDisplayScaleFactor(IntPtr windowHandle)
