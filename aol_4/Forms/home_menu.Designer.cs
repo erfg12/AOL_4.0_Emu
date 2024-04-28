@@ -38,9 +38,19 @@
             maxBtn = new System.Windows.Forms.Button();
             closeBtn = new System.Windows.Forms.Button();
             temperatureLabel = new System.Windows.Forms.TextBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            mailCenterBtn = new System.Windows.Forms.PictureBox();
+            YouveGotPicturesBtn = new System.Windows.Forms.PictureBox();
+            aolChannelsBtn = new System.Windows.Forms.PictureBox();
+            chatBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mailCenterBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)YouveGotPicturesBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)aolChannelsBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chatBtn).BeginInit();
             SuspendLayout();
             // 
             // todayLabel
@@ -48,10 +58,10 @@
             todayLabel.AutoSize = true;
             todayLabel.BackColor = System.Drawing.Color.LemonChiffon;
             todayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-            todayLabel.Location = new System.Drawing.Point(548, 115);
-            todayLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            todayLabel.Location = new System.Drawing.Point(422, 90);
+            todayLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             todayLabel.Name = "todayLabel";
-            todayLabel.Size = new System.Drawing.Size(54, 22);
+            todayLabel.Size = new System.Drawing.Size(43, 17);
             todayLabel.TabIndex = 4;
             todayLabel.Text = "today";
             // 
@@ -60,10 +70,10 @@
             pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(6, 49);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            pictureBox1.Location = new System.Drawing.Point(184, 38);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(1055, 663);
+            pictureBox1.Size = new System.Drawing.Size(630, 520);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -81,10 +91,10 @@
             panel1.Controls.Add(miniBtn);
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
-            panel1.Location = new System.Drawing.Point(6, 4);
-            panel1.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            panel1.Location = new System.Drawing.Point(5, 3);
+            panel1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1055, 45);
+            panel1.Size = new System.Drawing.Size(812, 35);
             panel1.TabIndex = 2;
             panel1.MouseClick += panel1_MouseClick;
             panel1.MouseDoubleClick += panel1_MouseDoubleClick;
@@ -97,10 +107,10 @@
             pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             pictureBox2.Image = Properties.Resources.aol_icon_4;
             pictureBox2.InitialImage = Properties.Resources.aol_icon_4;
-            pictureBox2.Location = new System.Drawing.Point(7, 0);
-            pictureBox2.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            pictureBox2.Location = new System.Drawing.Point(5, 0);
+            pictureBox2.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(39, 45);
+            pictureBox2.Size = new System.Drawing.Size(30, 35);
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
@@ -109,10 +119,10 @@
             titleLabel.AutoSize = true;
             titleLabel.BackColor = System.Drawing.Color.Transparent;
             titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(52, 4);
-            titleLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            titleLabel.Location = new System.Drawing.Point(40, 3);
+            titleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(196, 32);
+            titleLabel.Size = new System.Drawing.Size(146, 25);
             titleLabel.TabIndex = 3;
             titleLabel.Text = "Welcome, Name!";
             titleLabel.MouseMove += titleLabel_MouseMove;
@@ -126,10 +136,10 @@
             miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(930, 2);
-            miniBtn.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            miniBtn.Location = new System.Drawing.Point(715, 2);
+            miniBtn.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(39, 41);
+            miniBtn.Size = new System.Drawing.Size(30, 32);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += miniBtn_Click;
@@ -144,11 +154,11 @@
             maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(969, 2);
+            maxBtn.Location = new System.Drawing.Point(745, 2);
             maxBtn.Margin = new System.Windows.Forms.Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(39, 41);
+            maxBtn.Size = new System.Drawing.Size(30, 32);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
             maxBtn.Click += maxBtn_Click;
@@ -162,11 +172,11 @@
             closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(1014, 2);
+            closeBtn.Location = new System.Drawing.Point(780, 2);
             closeBtn.Margin = new System.Windows.Forms.Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(39, 41);
+            closeBtn.Size = new System.Drawing.Size(30, 32);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += closeBtn_Click;
@@ -176,27 +186,94 @@
             temperatureLabel.BackColor = System.Drawing.Color.Snow;
             temperatureLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             temperatureLabel.HideSelection = false;
-            temperatureLabel.Location = new System.Drawing.Point(358, 322);
-            temperatureLabel.Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            temperatureLabel.Location = new System.Drawing.Point(275, 252);
+            temperatureLabel.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             temperatureLabel.Name = "temperatureLabel";
             temperatureLabel.ReadOnly = true;
-            temperatureLabel.Size = new System.Drawing.Size(175, 32);
+            temperatureLabel.Size = new System.Drawing.Size(135, 24);
             temperatureLabel.TabIndex = 6;
             temperatureLabel.TabStop = false;
             temperatureLabel.Text = "Temperature";
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = (System.Drawing.Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox3.Location = new System.Drawing.Point(5, 38);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(180, 153);
+            pictureBox3.TabIndex = 7;
+            pictureBox3.TabStop = false;
+            // 
+            // mailCenterBtn
+            // 
+            mailCenterBtn.BackgroundImage = (System.Drawing.Image)resources.GetObject("mailCenterBtn.BackgroundImage");
+            mailCenterBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            mailCenterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            mailCenterBtn.Location = new System.Drawing.Point(5, 190);
+            mailCenterBtn.Name = "mailCenterBtn";
+            mailCenterBtn.Size = new System.Drawing.Size(180, 89);
+            mailCenterBtn.TabIndex = 8;
+            mailCenterBtn.TabStop = false;
+            mailCenterBtn.Click += mailCenterBtn_Click;
+            mailCenterBtn.MouseHover += mailCenterBtn_MouseHover;
+            // 
+            // YouveGotPicturesBtn
+            // 
+            YouveGotPicturesBtn.BackgroundImage = (System.Drawing.Image)resources.GetObject("YouveGotPicturesBtn.BackgroundImage");
+            YouveGotPicturesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            YouveGotPicturesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            YouveGotPicturesBtn.Location = new System.Drawing.Point(5, 279);
+            YouveGotPicturesBtn.Name = "YouveGotPicturesBtn";
+            YouveGotPicturesBtn.Size = new System.Drawing.Size(180, 87);
+            YouveGotPicturesBtn.TabIndex = 9;
+            YouveGotPicturesBtn.TabStop = false;
+            YouveGotPicturesBtn.Click += YouveGotPicturesBtn_Click;
+            YouveGotPicturesBtn.MouseHover += YouveGotPicturesBtn_MouseHover;
+            // 
+            // aolChannelsBtn
+            // 
+            aolChannelsBtn.BackgroundImage = (System.Drawing.Image)resources.GetObject("aolChannelsBtn.BackgroundImage");
+            aolChannelsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            aolChannelsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            aolChannelsBtn.Location = new System.Drawing.Point(5, 366);
+            aolChannelsBtn.Name = "aolChannelsBtn";
+            aolChannelsBtn.Size = new System.Drawing.Size(180, 99);
+            aolChannelsBtn.TabIndex = 10;
+            aolChannelsBtn.TabStop = false;
+            aolChannelsBtn.Click += aolChannelsBtn_Click;
+            aolChannelsBtn.MouseHover += aolChannelsBtn_MouseHover;
+            // 
+            // chatBtn
+            // 
+            chatBtn.BackgroundImage = (System.Drawing.Image)resources.GetObject("chatBtn.BackgroundImage");
+            chatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            chatBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            chatBtn.Location = new System.Drawing.Point(5, 465);
+            chatBtn.Name = "chatBtn";
+            chatBtn.Size = new System.Drawing.Size(180, 93);
+            chatBtn.TabIndex = 11;
+            chatBtn.TabStop = false;
+            chatBtn.Click += chatBtn_Click;
+            chatBtn.MouseHover += chatBtn_MouseHover;
+            // 
             // home_menu
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(247, 247, 197);
-            ClientSize = new System.Drawing.Size(1064, 719);
+            ClientSize = new System.Drawing.Size(818, 562);
+            Controls.Add(chatBtn);
+            Controls.Add(aolChannelsBtn);
+            Controls.Add(YouveGotPicturesBtn);
+            Controls.Add(mailCenterBtn);
+            Controls.Add(pictureBox3);
             Controls.Add(temperatureLabel);
             Controls.Add(todayLabel);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Margin = new System.Windows.Forms.Padding(7, 9, 7, 9);
+            Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             Name = "home_menu";
             ShowIcon = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -210,6 +287,11 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mailCenterBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)YouveGotPicturesBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)aolChannelsBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chatBtn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -225,5 +307,10 @@
         private System.Windows.Forms.Label todayLabel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox temperatureLabel;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox mailCenterBtn;
+        private System.Windows.Forms.PictureBox YouveGotPicturesBtn;
+        private System.Windows.Forms.PictureBox aolChannelsBtn;
+        private System.Windows.Forms.PictureBox chatBtn;
     }
 }

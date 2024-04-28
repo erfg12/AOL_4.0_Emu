@@ -13,15 +13,11 @@ namespace aol.Forms
         #endregion
 
         #region my_functions
-
-        public void goToUrl(string url)
-        {
-            WebView.Source = new Uri(url);
-        }
-
-        public Channel(string url = "")
+        public Channel(string url = "", string title = "")
         {
             InitializeComponent();
+            this.Text = title;
+            labelTitle.Text = title;
             this.FormBorderStyle = FormBorderStyle.None;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
@@ -42,11 +38,7 @@ namespace aol.Forms
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
 
         private void FavoriteBtn_Click(object sender, EventArgs e)
@@ -83,11 +75,7 @@ namespace aol.Forms
 
         private void titleLabel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            MoveWindow(sender, e);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
