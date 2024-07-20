@@ -58,7 +58,7 @@ namespace aol.Classes
 
                     if (frm.Tag.ToString() == newPM)
                         foundFrm = true;
-                }
+                } 
 
                 if (!foundFrm)
                 {
