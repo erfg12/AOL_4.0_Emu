@@ -45,7 +45,8 @@ namespace aol.Forms
                     try
                     {
                         catListView.Invoke(new MethodInvoker(delegate { catListView.Items.Add(lIt); }));
-                    } catch { }
+                    }
+                    catch { }
                     // add channels
                     foreach (Match m2 in Regex.Matches(m.Value, "<a href=\"(.*?)</a>", RegexOptions.Singleline))
                     {
@@ -65,8 +66,6 @@ namespace aol.Forms
         #endregion
 
         #region winform_functions
-        List<Rectangle> rects = new List<Rectangle>();
-
         public chat_list()
         {
             InitializeComponent();
@@ -74,7 +73,8 @@ namespace aol.Forms
 
         private void chanListView_DoubleClick(object sender, EventArgs e)
         {
-            if (!chat.irc.IsClientRunning()) {
+            if (!chat.irc.IsClientRunning())
+            {
                 MessageBox.Show("ERROR: IRC client not running.");
                 return;
             }
@@ -88,8 +88,6 @@ namespace aol.Forms
         private void chat_list_Shown(object sender, EventArgs e)
         {
             location.PositionWindow(this, 0, 50);
-            rects.Add(new Rectangle(195, 427, 62, 23)); // 0 join channel
-            rects.Add(new Rectangle(185, 95, 54, 23)); // 1 search button
         }
 
         private void catListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,31 +103,12 @@ namespace aol.Forms
 
         private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
         {
-            foreach (Rectangle r in rects)
-            {
-                if (r.Contains(e.Location))
-                {
-                    Cursor = Cursors.Hand;
-                    return;
-                }
-            }
-            Cursor = Cursors.Default;
+
         }
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
-            foreach (Rectangle r in rects)
-            {
-                if (r.Contains(e.Location) && rects.IndexOf(r) == 0) // join channel
-                {
-                    if (chanListView.SelectedItems.Count <= 0)
-                        continue;
-                    chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToLower());
-                    cr.Owner = this;
-                    cr.MdiParent = MdiParent;
-                    cr.Show();
-                }
-            }
+
         }
 
         private void catListView_MouseClick(object sender, MouseEventArgs e)
@@ -140,14 +119,14 @@ namespace aol.Forms
             {
                 ListViewItem lIt2 = new ListViewItem();
                 lIt2.Tag = chan;
-                lIt2.Text = chan.Replace("#","");
+                lIt2.Text = chan.Replace("#", "");
                 chanListView.Items.Add(lIt2);
             }
         }
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void miniBtn_Click(object sender, EventArgs e)
@@ -176,5 +155,20 @@ namespace aol.Forms
             thread.Start();
         }
         #endregion
+
+        private void goChatBtn_Click(object sender, EventArgs e)
+        {
+            if (chanListView.SelectedItems.Count <= 0)
+                return;
+            chatroom cr = new chatroom(chanListView.SelectedItems[0].Text.ToLower());
+            cr.Owner = this;
+            cr.MdiParent = MdiParent;
+            cr.Show();
+        }
+
+        private void searchBtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

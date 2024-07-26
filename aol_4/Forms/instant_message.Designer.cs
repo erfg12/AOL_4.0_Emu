@@ -28,498 +28,461 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.messagesBox = new System.Windows.Forms.RichTextBox();
-            this.myMessageBox = new System.Windows.Forms.RichTextBox();
-            this.sendBtn = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageOrSoundFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recordSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hyperlinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.smileyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SmiliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.frowningCtrl2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.winkingCtrl3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pStickingouttongueCtrl4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.oSurprisedCtrl5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kissingCtrl6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oYellingCtrl7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.coolCtrl8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.moneymouthCtrlShift1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.footinmouthCtrlShift2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.embarrassedCtrlShift3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oInnocentCtrlShift4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.undecidedCtrlShift5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cryingCtrlShift6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dLaughingCtrlShift8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mainTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            messagesBox = new System.Windows.Forms.RichTextBox();
+            myMessageBox = new System.Windows.Forms.RichTextBox();
+            sendBtn = new System.Windows.Forms.Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            panel2 = new System.Windows.Forms.Panel();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            imageOrSoundFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            recordSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            hyperlinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            smileyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            SmiliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            frowningCtrl2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            winkingCtrl3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            pStickingouttongueCtrl4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            oSurprisedCtrl5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            kissingCtrl6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            oYellingCtrl7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            coolCtrl8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            moneymouthCtrlShift1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            footinmouthCtrlShift2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            embarrassedCtrlShift3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            oInnocentCtrlShift4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            undecidedCtrlShift5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cryingCtrlShift6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            xLipsaresealedCtrlShift7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            dLaughingCtrlShift8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            textFromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            panel1 = new System.Windows.Forms.Panel();
+            mainTitle = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            titleLabel = new System.Windows.Forms.Label();
+            miniBtn = new System.Windows.Forms.Button();
+            maxBtn = new System.Windows.Forms.Button();
+            closeBtn = new System.Windows.Forms.Button();
+            panel2.SuspendLayout();
+            menuStrip1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // messagesBox
             // 
-            this.messagesBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.messagesBox.Location = new System.Drawing.Point(11, 96);
-            this.messagesBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.messagesBox.Name = "messagesBox";
-            this.messagesBox.ReadOnly = true;
-            this.messagesBox.Size = new System.Drawing.Size(954, 375);
-            this.messagesBox.TabIndex = 4;
-            this.messagesBox.Text = "";
+            messagesBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            messagesBox.Location = new System.Drawing.Point(8, 77);
+            messagesBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            messagesBox.Name = "messagesBox";
+            messagesBox.ReadOnly = true;
+            messagesBox.Size = new System.Drawing.Size(695, 301);
+            messagesBox.TabIndex = 4;
+            messagesBox.Text = "";
             // 
             // myMessageBox
             // 
-            this.myMessageBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.myMessageBox.Location = new System.Drawing.Point(11, 487);
-            this.myMessageBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.myMessageBox.Name = "myMessageBox";
-            this.myMessageBox.Size = new System.Drawing.Size(954, 106);
-            this.myMessageBox.TabIndex = 5;
-            this.myMessageBox.Text = "";
-            this.myMessageBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.myMessageBox_KeyDown);
+            myMessageBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            myMessageBox.Location = new System.Drawing.Point(8, 390);
+            myMessageBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            myMessageBox.Name = "myMessageBox";
+            myMessageBox.Size = new System.Drawing.Size(695, 86);
+            myMessageBox.TabIndex = 5;
+            myMessageBox.Text = "";
+            myMessageBox.KeyDown += myMessageBox_KeyDown;
             // 
             // sendBtn
             // 
-            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(109)))), ((int)(((byte)(170)))));
-            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.sendBtn.Location = new System.Drawing.Point(864, 608);
-            this.sendBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(104, 98);
-            this.sendBtn.TabIndex = 6;
-            this.sendBtn.Text = "SEND";
-            this.sendBtn.UseVisualStyleBackColor = false;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
+            sendBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            sendBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
+            sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            sendBtn.ForeColor = System.Drawing.SystemColors.Control;
+            sendBtn.Location = new System.Drawing.Point(628, 486);
+            sendBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            sendBtn.Name = "sendBtn";
+            sendBtn.Size = new System.Drawing.Size(76, 78);
+            sendBtn.TabIndex = 6;
+            sendBtn.Text = "SEND";
+            sendBtn.UseVisualStyleBackColor = false;
+            sendBtn.Click += sendBtn_Click;
             // 
             // backgroundWorker1
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.menuStrip1);
-            this.panel2.Location = new System.Drawing.Point(4, 42);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(968, 42);
-            this.panel2.TabIndex = 8;
+            panel2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel2.Controls.Add(menuStrip1);
+            panel2.Location = new System.Drawing.Point(3, 34);
+            panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(704, 34);
+            panel2.TabIndex = 8;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.insertToolStripMenuItem,
-            this.peopleToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(290, 37);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, insertToolStripMenuItem, peopleToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            menuStrip1.Size = new System.Drawing.Size(232, 30);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 29);
-            this.fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            fileToolStripMenuItem.Text = "File";
             // 
             // editToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(60, 29);
-            this.editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            editToolStripMenuItem.Text = "Edit";
             // 
             // insertToolStripMenuItem
             // 
-            this.insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imageOrSoundFileToolStripMenuItem,
-            this.recordSoundToolStripMenuItem,
-            this.hyperlinkToolStripMenuItem,
-            this.smileyToolStripMenuItem,
-            this.textFromFileToolStripMenuItem});
-            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
-            this.insertToolStripMenuItem.Text = "Insert";
+            insertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { imageOrSoundFileToolStripMenuItem, recordSoundToolStripMenuItem, hyperlinkToolStripMenuItem, smileyToolStripMenuItem, textFromFileToolStripMenuItem });
+            insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            insertToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            insertToolStripMenuItem.Text = "Insert";
             // 
             // imageOrSoundFileToolStripMenuItem
             // 
-            this.imageOrSoundFileToolStripMenuItem.Name = "imageOrSoundFileToolStripMenuItem";
-            this.imageOrSoundFileToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.imageOrSoundFileToolStripMenuItem.Text = "Image or Sound File...";
+            imageOrSoundFileToolStripMenuItem.Name = "imageOrSoundFileToolStripMenuItem";
+            imageOrSoundFileToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            imageOrSoundFileToolStripMenuItem.Text = "Image or Sound File...";
             // 
             // recordSoundToolStripMenuItem
             // 
-            this.recordSoundToolStripMenuItem.Name = "recordSoundToolStripMenuItem";
-            this.recordSoundToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.recordSoundToolStripMenuItem.Text = "Record Sound...";
+            recordSoundToolStripMenuItem.Name = "recordSoundToolStripMenuItem";
+            recordSoundToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            recordSoundToolStripMenuItem.Text = "Record Sound...";
             // 
             // hyperlinkToolStripMenuItem
             // 
-            this.hyperlinkToolStripMenuItem.Name = "hyperlinkToolStripMenuItem";
-            this.hyperlinkToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.hyperlinkToolStripMenuItem.Text = "Hyperlink...";
+            hyperlinkToolStripMenuItem.Name = "hyperlinkToolStripMenuItem";
+            hyperlinkToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            hyperlinkToolStripMenuItem.Text = "Hyperlink...";
             // 
             // smileyToolStripMenuItem
             // 
-            this.smileyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SmiliesToolStripMenuItem,
-            this.frowningCtrl2ToolStripMenuItem,
-            this.winkingCtrl3ToolStripMenuItem,
-            this.pStickingouttongueCtrl4ToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.oSurprisedCtrl5ToolStripMenuItem,
-            this.kissingCtrl6ToolStripMenuItem,
-            this.oYellingCtrl7ToolStripMenuItem,
-            this.coolCtrl8ToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.moneymouthCtrlShift1ToolStripMenuItem,
-            this.footinmouthCtrlShift2ToolStripMenuItem,
-            this.embarrassedCtrlShift3ToolStripMenuItem,
-            this.oInnocentCtrlShift4ToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.undecidedCtrlShift5ToolStripMenuItem,
-            this.cryingCtrlShift6ToolStripMenuItem,
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem,
-            this.dLaughingCtrlShift8ToolStripMenuItem});
-            this.smileyToolStripMenuItem.Name = "smileyToolStripMenuItem";
-            this.smileyToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.smileyToolStripMenuItem.Text = "Smiley";
+            smileyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { SmiliesToolStripMenuItem, frowningCtrl2ToolStripMenuItem, winkingCtrl3ToolStripMenuItem, pStickingouttongueCtrl4ToolStripMenuItem, toolStripSeparator1, oSurprisedCtrl5ToolStripMenuItem, kissingCtrl6ToolStripMenuItem, oYellingCtrl7ToolStripMenuItem, coolCtrl8ToolStripMenuItem, toolStripSeparator2, moneymouthCtrlShift1ToolStripMenuItem, footinmouthCtrlShift2ToolStripMenuItem, embarrassedCtrlShift3ToolStripMenuItem, oInnocentCtrlShift4ToolStripMenuItem, toolStripSeparator3, undecidedCtrlShift5ToolStripMenuItem, cryingCtrlShift6ToolStripMenuItem, xLipsaresealedCtrlShift7ToolStripMenuItem, dLaughingCtrlShift8ToolStripMenuItem });
+            smileyToolStripMenuItem.Name = "smileyToolStripMenuItem";
+            smileyToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            smileyToolStripMenuItem.Text = "Smiley";
             // 
             // SmiliesToolStripMenuItem
             // 
-            this.SmiliesToolStripMenuItem.Image = global::aol.Properties.Resources.Smiling;
-            this.SmiliesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SmiliesToolStripMenuItem.Name = "SmiliesToolStripMenuItem";
-            this.SmiliesToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.SmiliesToolStripMenuItem.Text = ":-)          Smiling                             Ctrl+1";
-            this.SmiliesToolStripMenuItem.Click += new System.EventHandler(this.SmiliesToolStripMenuItem_Click);
+            SmiliesToolStripMenuItem.Image = Properties.Resources.Smiling;
+            SmiliesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            SmiliesToolStripMenuItem.Name = "SmiliesToolStripMenuItem";
+            SmiliesToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            SmiliesToolStripMenuItem.Text = ":-)          Smiling                             Ctrl+1";
+            SmiliesToolStripMenuItem.Click += SmiliesToolStripMenuItem_Click;
             // 
             // frowningCtrl2ToolStripMenuItem
             // 
-            this.frowningCtrl2ToolStripMenuItem.Image = global::aol.Properties.Resources.Frowning;
-            this.frowningCtrl2ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.frowningCtrl2ToolStripMenuItem.Name = "frowningCtrl2ToolStripMenuItem";
-            this.frowningCtrl2ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.frowningCtrl2ToolStripMenuItem.Text = ":-(          Frowning                          Ctrl+2";
-            this.frowningCtrl2ToolStripMenuItem.Click += new System.EventHandler(this.frowningCtrl2ToolStripMenuItem_Click);
+            frowningCtrl2ToolStripMenuItem.Image = Properties.Resources.Frowning;
+            frowningCtrl2ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            frowningCtrl2ToolStripMenuItem.Name = "frowningCtrl2ToolStripMenuItem";
+            frowningCtrl2ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            frowningCtrl2ToolStripMenuItem.Text = ":-(          Frowning                          Ctrl+2";
+            frowningCtrl2ToolStripMenuItem.Click += frowningCtrl2ToolStripMenuItem_Click;
             // 
             // winkingCtrl3ToolStripMenuItem
             // 
-            this.winkingCtrl3ToolStripMenuItem.Image = global::aol.Properties.Resources.Winking;
-            this.winkingCtrl3ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.winkingCtrl3ToolStripMenuItem.Name = "winkingCtrl3ToolStripMenuItem";
-            this.winkingCtrl3ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.winkingCtrl3ToolStripMenuItem.Text = ";-)          Winking                            Ctrl+3";
-            this.winkingCtrl3ToolStripMenuItem.Click += new System.EventHandler(this.winkingCtrl3ToolStripMenuItem_Click);
+            winkingCtrl3ToolStripMenuItem.Image = Properties.Resources.Winking;
+            winkingCtrl3ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            winkingCtrl3ToolStripMenuItem.Name = "winkingCtrl3ToolStripMenuItem";
+            winkingCtrl3ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            winkingCtrl3ToolStripMenuItem.Text = ";-)          Winking                            Ctrl+3";
+            winkingCtrl3ToolStripMenuItem.Click += winkingCtrl3ToolStripMenuItem_Click;
             // 
             // pStickingouttongueCtrl4ToolStripMenuItem
             // 
-            this.pStickingouttongueCtrl4ToolStripMenuItem.Image = global::aol.Properties.Resources.Sticking_out_tongue;
-            this.pStickingouttongueCtrl4ToolStripMenuItem.Name = "pStickingouttongueCtrl4ToolStripMenuItem";
-            this.pStickingouttongueCtrl4ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.pStickingouttongueCtrl4ToolStripMenuItem.Text = ":-P         Sticking-out-tongue       Ctrl+4";
-            this.pStickingouttongueCtrl4ToolStripMenuItem.Click += new System.EventHandler(this.pStickingouttongueCtrl4ToolStripMenuItem_Click);
+            pStickingouttongueCtrl4ToolStripMenuItem.Image = Properties.Resources.Sticking_out_tongue;
+            pStickingouttongueCtrl4ToolStripMenuItem.Name = "pStickingouttongueCtrl4ToolStripMenuItem";
+            pStickingouttongueCtrl4ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            pStickingouttongueCtrl4ToolStripMenuItem.Text = ":-P         Sticking-out-tongue       Ctrl+4";
+            pStickingouttongueCtrl4ToolStripMenuItem.Click += pStickingouttongueCtrl4ToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(495, 6);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new System.Drawing.Size(393, 6);
             // 
             // oSurprisedCtrl5ToolStripMenuItem
             // 
-            this.oSurprisedCtrl5ToolStripMenuItem.Image = global::aol.Properties.Resources.Surprised;
-            this.oSurprisedCtrl5ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.oSurprisedCtrl5ToolStripMenuItem.Name = "oSurprisedCtrl5ToolStripMenuItem";
-            this.oSurprisedCtrl5ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.oSurprisedCtrl5ToolStripMenuItem.Text = "=-O       Surprised                          Ctrl+5";
-            this.oSurprisedCtrl5ToolStripMenuItem.Click += new System.EventHandler(this.oSurprisedCtrl5ToolStripMenuItem_Click);
+            oSurprisedCtrl5ToolStripMenuItem.Image = Properties.Resources.Surprised;
+            oSurprisedCtrl5ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            oSurprisedCtrl5ToolStripMenuItem.Name = "oSurprisedCtrl5ToolStripMenuItem";
+            oSurprisedCtrl5ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            oSurprisedCtrl5ToolStripMenuItem.Text = "=-O       Surprised                          Ctrl+5";
+            oSurprisedCtrl5ToolStripMenuItem.Click += oSurprisedCtrl5ToolStripMenuItem_Click;
             // 
             // kissingCtrl6ToolStripMenuItem
             // 
-            this.kissingCtrl6ToolStripMenuItem.Image = global::aol.Properties.Resources.Kissing;
-            this.kissingCtrl6ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kissingCtrl6ToolStripMenuItem.Name = "kissingCtrl6ToolStripMenuItem";
-            this.kissingCtrl6ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.kissingCtrl6ToolStripMenuItem.Text = ":-*          Kissing                              Ctrl+6";
-            this.kissingCtrl6ToolStripMenuItem.Click += new System.EventHandler(this.kissingCtrl6ToolStripMenuItem_Click);
+            kissingCtrl6ToolStripMenuItem.Image = Properties.Resources.Kissing;
+            kissingCtrl6ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            kissingCtrl6ToolStripMenuItem.Name = "kissingCtrl6ToolStripMenuItem";
+            kissingCtrl6ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            kissingCtrl6ToolStripMenuItem.Text = ":-*          Kissing                              Ctrl+6";
+            kissingCtrl6ToolStripMenuItem.Click += kissingCtrl6ToolStripMenuItem_Click;
             // 
             // oYellingCtrl7ToolStripMenuItem
             // 
-            this.oYellingCtrl7ToolStripMenuItem.Image = global::aol.Properties.Resources.Yelling;
-            this.oYellingCtrl7ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.oYellingCtrl7ToolStripMenuItem.Name = "oYellingCtrl7ToolStripMenuItem";
-            this.oYellingCtrl7ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.oYellingCtrl7ToolStripMenuItem.Text = ">:o        Yelling                               Ctrl+7";
-            this.oYellingCtrl7ToolStripMenuItem.Click += new System.EventHandler(this.oYellingCtrl7ToolStripMenuItem_Click);
+            oYellingCtrl7ToolStripMenuItem.Image = Properties.Resources.Yelling;
+            oYellingCtrl7ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            oYellingCtrl7ToolStripMenuItem.Name = "oYellingCtrl7ToolStripMenuItem";
+            oYellingCtrl7ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            oYellingCtrl7ToolStripMenuItem.Text = ">:o        Yelling                               Ctrl+7";
+            oYellingCtrl7ToolStripMenuItem.Click += oYellingCtrl7ToolStripMenuItem_Click;
             // 
             // coolCtrl8ToolStripMenuItem
             // 
-            this.coolCtrl8ToolStripMenuItem.Image = global::aol.Properties.Resources.Cool;
-            this.coolCtrl8ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.coolCtrl8ToolStripMenuItem.Name = "coolCtrl8ToolStripMenuItem";
-            this.coolCtrl8ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.coolCtrl8ToolStripMenuItem.Text = "8-)         Cool                                  Ctrl+8";
-            this.coolCtrl8ToolStripMenuItem.Click += new System.EventHandler(this.coolCtrl8ToolStripMenuItem_Click);
+            coolCtrl8ToolStripMenuItem.Image = Properties.Resources.Cool;
+            coolCtrl8ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            coolCtrl8ToolStripMenuItem.Name = "coolCtrl8ToolStripMenuItem";
+            coolCtrl8ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            coolCtrl8ToolStripMenuItem.Text = "8-)         Cool                                  Ctrl+8";
+            coolCtrl8ToolStripMenuItem.Click += coolCtrl8ToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(495, 6);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new System.Drawing.Size(393, 6);
             // 
             // moneymouthCtrlShift1ToolStripMenuItem
             // 
-            this.moneymouthCtrlShift1ToolStripMenuItem.Image = global::aol.Properties.Resources.Money_mouth;
-            this.moneymouthCtrlShift1ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.moneymouthCtrlShift1ToolStripMenuItem.Name = "moneymouthCtrlShift1ToolStripMenuItem";
-            this.moneymouthCtrlShift1ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.moneymouthCtrlShift1ToolStripMenuItem.Text = ":-$         Money-mouth                 Ctrl+Shift+1";
-            this.moneymouthCtrlShift1ToolStripMenuItem.Click += new System.EventHandler(this.moneymouthCtrlShift1ToolStripMenuItem_Click);
+            moneymouthCtrlShift1ToolStripMenuItem.Image = Properties.Resources.Money_mouth;
+            moneymouthCtrlShift1ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            moneymouthCtrlShift1ToolStripMenuItem.Name = "moneymouthCtrlShift1ToolStripMenuItem";
+            moneymouthCtrlShift1ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            moneymouthCtrlShift1ToolStripMenuItem.Text = ":-$         Money-mouth                 Ctrl+Shift+1";
+            moneymouthCtrlShift1ToolStripMenuItem.Click += moneymouthCtrlShift1ToolStripMenuItem_Click;
             // 
             // footinmouthCtrlShift2ToolStripMenuItem
             // 
-            this.footinmouthCtrlShift2ToolStripMenuItem.Image = global::aol.Properties.Resources.Foot_in_mouth;
-            this.footinmouthCtrlShift2ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.footinmouthCtrlShift2ToolStripMenuItem.Name = "footinmouthCtrlShift2ToolStripMenuItem";
-            this.footinmouthCtrlShift2ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.footinmouthCtrlShift2ToolStripMenuItem.Text = ":-!          Foot-in-mouth                Ctrl+Shift+2";
-            this.footinmouthCtrlShift2ToolStripMenuItem.Click += new System.EventHandler(this.footinmouthCtrlShift2ToolStripMenuItem_Click);
+            footinmouthCtrlShift2ToolStripMenuItem.Image = Properties.Resources.Foot_in_mouth;
+            footinmouthCtrlShift2ToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            footinmouthCtrlShift2ToolStripMenuItem.Name = "footinmouthCtrlShift2ToolStripMenuItem";
+            footinmouthCtrlShift2ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            footinmouthCtrlShift2ToolStripMenuItem.Text = ":-!          Foot-in-mouth                Ctrl+Shift+2";
+            footinmouthCtrlShift2ToolStripMenuItem.Click += footinmouthCtrlShift2ToolStripMenuItem_Click;
             // 
             // embarrassedCtrlShift3ToolStripMenuItem
             // 
-            this.embarrassedCtrlShift3ToolStripMenuItem.Image = global::aol.Properties.Resources.Embarrassed;
-            this.embarrassedCtrlShift3ToolStripMenuItem.Name = "embarrassedCtrlShift3ToolStripMenuItem";
-            this.embarrassedCtrlShift3ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.embarrassedCtrlShift3ToolStripMenuItem.Text = ":-[          Embarrassed                    Ctrl+Shift+3";
-            this.embarrassedCtrlShift3ToolStripMenuItem.Click += new System.EventHandler(this.embarrassedCtrlShift3ToolStripMenuItem_Click);
+            embarrassedCtrlShift3ToolStripMenuItem.Image = Properties.Resources.Embarrassed;
+            embarrassedCtrlShift3ToolStripMenuItem.Name = "embarrassedCtrlShift3ToolStripMenuItem";
+            embarrassedCtrlShift3ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            embarrassedCtrlShift3ToolStripMenuItem.Text = ":-[          Embarrassed                    Ctrl+Shift+3";
+            embarrassedCtrlShift3ToolStripMenuItem.Click += embarrassedCtrlShift3ToolStripMenuItem_Click;
             // 
             // oInnocentCtrlShift4ToolStripMenuItem
             // 
-            this.oInnocentCtrlShift4ToolStripMenuItem.Image = global::aol.Properties.Resources.Innocent;
-            this.oInnocentCtrlShift4ToolStripMenuItem.Name = "oInnocentCtrlShift4ToolStripMenuItem";
-            this.oInnocentCtrlShift4ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.oInnocentCtrlShift4ToolStripMenuItem.Text = "O:-)       Innocent                           Ctrl+Shift+4";
-            this.oInnocentCtrlShift4ToolStripMenuItem.Click += new System.EventHandler(this.oInnocentCtrlShift4ToolStripMenuItem_Click);
+            oInnocentCtrlShift4ToolStripMenuItem.Image = Properties.Resources.Innocent;
+            oInnocentCtrlShift4ToolStripMenuItem.Name = "oInnocentCtrlShift4ToolStripMenuItem";
+            oInnocentCtrlShift4ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            oInnocentCtrlShift4ToolStripMenuItem.Text = "O:-)       Innocent                           Ctrl+Shift+4";
+            oInnocentCtrlShift4ToolStripMenuItem.Click += oInnocentCtrlShift4ToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(495, 6);
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new System.Drawing.Size(393, 6);
             // 
             // undecidedCtrlShift5ToolStripMenuItem
             // 
-            this.undecidedCtrlShift5ToolStripMenuItem.Image = global::aol.Properties.Resources.Undecided;
-            this.undecidedCtrlShift5ToolStripMenuItem.Name = "undecidedCtrlShift5ToolStripMenuItem";
-            this.undecidedCtrlShift5ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.undecidedCtrlShift5ToolStripMenuItem.Text = ":-\\          Undecided                        Ctrl+Shift+5";
-            this.undecidedCtrlShift5ToolStripMenuItem.Click += new System.EventHandler(this.undecidedCtrlShift5ToolStripMenuItem_Click);
+            undecidedCtrlShift5ToolStripMenuItem.Image = Properties.Resources.Undecided;
+            undecidedCtrlShift5ToolStripMenuItem.Name = "undecidedCtrlShift5ToolStripMenuItem";
+            undecidedCtrlShift5ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            undecidedCtrlShift5ToolStripMenuItem.Text = ":-\\          Undecided                        Ctrl+Shift+5";
+            undecidedCtrlShift5ToolStripMenuItem.Click += undecidedCtrlShift5ToolStripMenuItem_Click;
             // 
             // cryingCtrlShift6ToolStripMenuItem
             // 
-            this.cryingCtrlShift6ToolStripMenuItem.Image = global::aol.Properties.Resources.Crying;
-            this.cryingCtrlShift6ToolStripMenuItem.Name = "cryingCtrlShift6ToolStripMenuItem";
-            this.cryingCtrlShift6ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.cryingCtrlShift6ToolStripMenuItem.Text = ":\'(           Crying                               Ctrl+Shift+6";
-            this.cryingCtrlShift6ToolStripMenuItem.Click += new System.EventHandler(this.cryingCtrlShift6ToolStripMenuItem_Click);
+            cryingCtrlShift6ToolStripMenuItem.Image = Properties.Resources.Crying;
+            cryingCtrlShift6ToolStripMenuItem.Name = "cryingCtrlShift6ToolStripMenuItem";
+            cryingCtrlShift6ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            cryingCtrlShift6ToolStripMenuItem.Text = ":'(           Crying                               Ctrl+Shift+6";
+            cryingCtrlShift6ToolStripMenuItem.Click += cryingCtrlShift6ToolStripMenuItem_Click;
             // 
             // xLipsaresealedCtrlShift7ToolStripMenuItem
             // 
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Image = global::aol.Properties.Resources.Lips_are_sealed;
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Name = "xLipsaresealedCtrlShift7ToolStripMenuItem";
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Text = ":-X         Lips-are-sealed                Ctrl+Shift+7";
-            this.xLipsaresealedCtrlShift7ToolStripMenuItem.Click += new System.EventHandler(this.xLipsaresealedCtrlShift7ToolStripMenuItem_Click);
+            xLipsaresealedCtrlShift7ToolStripMenuItem.Image = Properties.Resources.Lips_are_sealed;
+            xLipsaresealedCtrlShift7ToolStripMenuItem.Name = "xLipsaresealedCtrlShift7ToolStripMenuItem";
+            xLipsaresealedCtrlShift7ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            xLipsaresealedCtrlShift7ToolStripMenuItem.Text = ":-X         Lips-are-sealed                Ctrl+Shift+7";
+            xLipsaresealedCtrlShift7ToolStripMenuItem.Click += xLipsaresealedCtrlShift7ToolStripMenuItem_Click;
             // 
             // dLaughingCtrlShift8ToolStripMenuItem
             // 
-            this.dLaughingCtrlShift8ToolStripMenuItem.Image = global::aol.Properties.Resources.Laughing;
-            this.dLaughingCtrlShift8ToolStripMenuItem.Name = "dLaughingCtrlShift8ToolStripMenuItem";
-            this.dLaughingCtrlShift8ToolStripMenuItem.Size = new System.Drawing.Size(498, 34);
-            this.dLaughingCtrlShift8ToolStripMenuItem.Text = ":-D         Laughing                          Ctrl+Shift+8";
-            this.dLaughingCtrlShift8ToolStripMenuItem.Click += new System.EventHandler(this.dLaughingCtrlShift8ToolStripMenuItem_Click);
+            dLaughingCtrlShift8ToolStripMenuItem.Image = Properties.Resources.Laughing;
+            dLaughingCtrlShift8ToolStripMenuItem.Name = "dLaughingCtrlShift8ToolStripMenuItem";
+            dLaughingCtrlShift8ToolStripMenuItem.Size = new System.Drawing.Size(396, 26);
+            dLaughingCtrlShift8ToolStripMenuItem.Text = ":-D         Laughing                          Ctrl+Shift+8";
+            dLaughingCtrlShift8ToolStripMenuItem.Click += dLaughingCtrlShift8ToolStripMenuItem_Click;
             // 
             // textFromFileToolStripMenuItem
             // 
-            this.textFromFileToolStripMenuItem.Name = "textFromFileToolStripMenuItem";
-            this.textFromFileToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.textFromFileToolStripMenuItem.Text = "Text from File...";
+            textFromFileToolStripMenuItem.Name = "textFromFileToolStripMenuItem";
+            textFromFileToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            textFromFileToolStripMenuItem.Text = "Text from File...";
             // 
             // peopleToolStripMenuItem
             // 
-            this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(85, 29);
-            this.peopleToolStripMenuItem.Text = "People";
+            peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
+            peopleToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            peopleToolStripMenuItem.Text = "People";
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.mainTitle);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.titleLabel);
-            this.panel1.Controls.Add(this.miniBtn);
-            this.panel1.Controls.Add(this.maxBtn);
-            this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(970, 35);
-            this.panel1.TabIndex = 3;
-            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.BackgroundImage = Properties.Resources.top_bar;
+            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.Controls.Add(mainTitle);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(titleLabel);
+            panel1.Controls.Add(miniBtn);
+            panel1.Controls.Add(maxBtn);
+            panel1.Controls.Add(closeBtn);
+            panel1.Location = new System.Drawing.Point(3, 3);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(705, 28);
+            panel1.TabIndex = 3;
+            panel1.DoubleClick += panel1_DoubleClick;
+            panel1.MouseMove += panel1_MouseMove;
             // 
             // mainTitle
             // 
-            this.mainTitle.AutoSize = true;
-            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
-            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(44, 6);
-            this.mainTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(148, 25);
-            this.mainTitle.TabIndex = 12;
-            this.mainTitle.Text = "Instant Message";
+            mainTitle.AutoSize = true;
+            mainTitle.BackColor = System.Drawing.Color.Transparent;
+            mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            mainTitle.Location = new System.Drawing.Point(32, 5);
+            mainTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            mainTitle.Name = "mainTitle";
+            mainTitle.Size = new System.Drawing.Size(115, 20);
+            mainTitle.TabIndex = 12;
+            mainTitle.Text = "Instant Message";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.aol_icon_4;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.aol_icon_4;
+            pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
+            pictureBox1.Location = new System.Drawing.Point(3, 0);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(24, 28);
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(6, 6);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(0, 25);
-            this.titleLabel.TabIndex = 3;
+            titleLabel.AutoSize = true;
+            titleLabel.BackColor = System.Drawing.Color.Transparent;
+            titleLabel.ForeColor = System.Drawing.Color.White;
+            titleLabel.Location = new System.Drawing.Point(4, 5);
+            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new System.Drawing.Size(0, 20);
+            titleLabel.TabIndex = 3;
             // 
             // miniBtn
             // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(865, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(33, 31);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
-            this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
+            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
+            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = System.Drawing.Color.Black;
+            miniBtn.Location = new System.Drawing.Point(629, 2);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            miniBtn.Name = "miniBtn";
+            miniBtn.Size = new System.Drawing.Size(24, 25);
+            miniBtn.TabIndex = 2;
+            miniBtn.UseVisualStyleBackColor = false;
+            miniBtn.Click += miniBtn_Click;
             // 
             // maxBtn
             // 
-            this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(898, 2);
-            this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.maxBtn.Name = "maxBtn";
-            this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(33, 31);
-            this.maxBtn.TabIndex = 1;
-            this.maxBtn.UseVisualStyleBackColor = false;
-            this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
+            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = System.Drawing.Color.Black;
+            maxBtn.Location = new System.Drawing.Point(653, 2);
+            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.Name = "maxBtn";
+            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            maxBtn.Size = new System.Drawing.Size(24, 25);
+            maxBtn.TabIndex = 1;
+            maxBtn.UseVisualStyleBackColor = false;
+            maxBtn.Click += maxBtn_Click;
             // 
             // closeBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(935, 2);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(33, 31);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.BackgroundImage = Properties.Resources.close_btn;
+            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = System.Drawing.Color.Black;
+            closeBtn.Location = new System.Drawing.Point(680, 2);
+            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.Name = "closeBtn";
+            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            closeBtn.Size = new System.Drawing.Size(24, 25);
+            closeBtn.TabIndex = 0;
+            closeBtn.UseVisualStyleBackColor = false;
+            closeBtn.Click += closeBtn_Click;
             // 
             // instant_message
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 729);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.sendBtn);
-            this.Controls.Add(this.myMessageBox);
-            this.Controls.Add(this.messagesBox);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(5, 120);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "instant_message";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "instant_message";
-            this.Load += new System.EventHandler(this.instant_message_Load);
-            this.Shown += new System.EventHandler(this.instant_message_Shown);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(711, 583);
+            Controls.Add(panel2);
+            Controls.Add(sendBtn);
+            Controls.Add(myMessageBox);
+            Controls.Add(messagesBox);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Location = new System.Drawing.Point(5, 120);
+            MainMenuStrip = menuStrip1;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            Name = "instant_message";
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "instant_message";
+            Load += instant_message_Load;
+            Shown += instant_message_Shown;
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

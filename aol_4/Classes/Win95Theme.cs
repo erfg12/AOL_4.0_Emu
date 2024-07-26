@@ -169,7 +169,6 @@ namespace aol.Forms
         }
         #endregion
 
-        public List<Rectangle> rects = new List<Rectangle>();
 
         public Win95Theme()
         {
