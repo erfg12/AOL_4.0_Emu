@@ -22,6 +22,7 @@ namespace aol.Forms
         string roomname = "";
         string pChat = "";
         int pplCount = 0;
+        FileSystemWatcher watch = null;
         List<Rectangle> rects = new List<Rectangle>();
         bool formClosing = false;
 
@@ -53,6 +54,8 @@ namespace aol.Forms
             }
             chat.irc.SendRawMessage("join #" + channel);
 
+            keepReading();
+
             InitializeComponent();
         }
 
@@ -62,12 +65,15 @@ namespace aol.Forms
             //chat.users.Clear();
             Text = pChat + " Chatroom";
             mainTitle.Text = pChat + " Chatroom";
+
+            writeFileToBox(true);
+            
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();
 
-            rects.Add(new Rectangle(423, 467, 54, 23)); // 0 send button
-            rects.Add(new Rectangle(532, 265, 39, 50)); // 1 buddy info
-            rects.Add(new Rectangle(574, 265, 39, 50)); // 2 ignore user
+            //rects.Add(new Rectangle(423, 467, 54, 23)); // 0 send button
+            //rects.Add(new Rectangle(532, 265, 39, 50)); // 1 buddy info
+            //rects.Add(new Rectangle(574, 265, 39, 50)); // 2 ignore user
         }
 
         private void writeFileToBox(bool init = false)
@@ -96,30 +102,35 @@ namespace aol.Forms
                         chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
                     chatRoomTextBox.ScrollToCaret();
                 }));
+            } else
+            {
+                Debug.WriteLine("[ERROR] handle creation failed?");
             }
             //} catch { Debug.WriteLine("writeFileToBox just crashed."); }
         }
 
         public void OnChanged(object source, FileSystemEventArgs e)
         {
-            writeFileToBox();
+            if (e.ChangeType == WatcherChangeTypes.Changed)
+            {
+                Debug.WriteLine($"Changed: {e.FullPath}");
+                writeFileToBox();
+            }
         }
 
-        public void keepReading()
+        private void keepReading()
         {
-            var watch = new FileSystemWatcher();
+            watch = new FileSystemWatcher();
             watch.Path = Path.GetDirectoryName(chatlog);
             watch.Filter = Path.GetFileName(chatlog);
             watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
             watch.Changed += new FileSystemEventHandler(OnChanged);
             watch.EnableRaisingEvents = true;
+            Debug.WriteLine($"watching {chatlog} for changes");
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            writeFileToBox(true);
-            keepReading();
-
             // keep users list up to date
             while (true)
             {

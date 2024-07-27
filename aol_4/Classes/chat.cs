@@ -165,7 +165,7 @@ namespace aol.Classes
 
         public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
         {
-            if (args.UsersPerChannel.Count == 0)
+            if (args.UsersPerChannel.Count <= 0)
                 return;
 
             Debug.WriteLine("Generating user list...");
@@ -178,7 +178,8 @@ namespace aol.Classes
                 if (!users.ContainsKey(channel)) // sometimes skipped?!
                 {
                     Debug.WriteLine("Creating users key " + channel);
-                    users.TryAdd(channel, args.UsersPerChannel[usersPerChannel.Key]);
+                    if (args.UsersPerChannel.ContainsKey(usersPerChannel.Key))
+                        users.TryAdd(channel, args.UsersPerChannel[usersPerChannel.Key]);
                     continue;
                 }
                 // check if offline user is still in list

@@ -65,12 +65,13 @@
             // chatRoomTextBox
             // 
             chatRoomTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            chatRoomTextBox.BackColor = System.Drawing.Color.White;
             chatRoomTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            chatRoomTextBox.Location = new System.Drawing.Point(17, 35);
+            chatRoomTextBox.Location = new System.Drawing.Point(23, 40);
             chatRoomTextBox.Margin = new System.Windows.Forms.Padding(5);
             chatRoomTextBox.Name = "chatRoomTextBox";
             chatRoomTextBox.ReadOnly = true;
-            chatRoomTextBox.Size = new System.Drawing.Size(620, 547);
+            chatRoomTextBox.Size = new System.Drawing.Size(614, 540);
             chatRoomTextBox.TabIndex = 6;
             chatRoomTextBox.Text = "";
             // 
@@ -190,10 +191,10 @@
             usersListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             usersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { users });
             usersListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            usersListView.Location = new System.Drawing.Point(649, 157);
+            usersListView.Location = new System.Drawing.Point(652, 159);
             usersListView.Margin = new System.Windows.Forms.Padding(5);
             usersListView.Name = "usersListView";
-            usersListView.Size = new System.Drawing.Size(233, 271);
+            usersListView.Size = new System.Drawing.Size(230, 269);
             usersListView.TabIndex = 7;
             usersListView.UseCompatibleStateImageBehavior = false;
             usersListView.View = System.Windows.Forms.View.Details;

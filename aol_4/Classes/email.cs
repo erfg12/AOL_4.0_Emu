@@ -62,10 +62,10 @@ namespace aol.Classes
                     Debug.WriteLine("[MAIL] YOU'VE GOT NEW MAIL!!");
                     return true;
                 }
-                else
-                {
-                    Debug.WriteLine("[MAIL] nothing new");
-                }
+                //else
+                //{
+                //    Debug.WriteLine("[MAIL] nothing new");
+                //}
 
                 client.Disconnect(true);
 
