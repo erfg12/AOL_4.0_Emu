@@ -14,6 +14,7 @@ namespace aol.Forms
         #region public_variables
         string privateLog = "";
         string user = "";
+        FileSystemWatcher watch = null;
         #endregion
 
         #region winform_functions
@@ -268,7 +269,7 @@ namespace aol.Forms
         {
             try
             {
-                var watch = new FileSystemWatcher();
+                watch = new FileSystemWatcher();
                 watch.Path = Path.GetDirectoryName(privateLog);
                 watch.Filter = Path.GetFileName(privateLog);
                 watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
