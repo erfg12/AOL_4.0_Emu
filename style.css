@@ -1,0 +1,74 @@
+a {
+    text-decoration:none;
+}
+.main_container {
+    width:100%;height:100%;margin:0px 0px 0xp 0xp;padding:0px 0px 0px 0px;position:absolute;top:0px;left:0px;font-family:arial;min-height:600px;
+    overflow:auto;
+    min-width:800px;
+}
+.side_navbar {
+    background-color:#69F;width:150px;float:left;text-align:center;height:100%;
+}
+.bluebar {
+    width:86%;background-color:#0046A3;color:white;font-size:11px;margin-left:auto;margin-right:auto;
+    margin-top:20px;
+    
+}
+.navbtn {
+    height:22px;border-bottom:thin solid blue;color:white;text-shadow: 0px 0px 3px black;font-size:12px;font-weight:bold;padding-top:10px;width:86%;
+    margin-left:auto;margin-right:auto;
+}
+.hlight {
+    color: blue !important;
+    text-shadow: 0px 0px 3px white !important;
+}
+.topbanner {
+    height:26px;color:white;text-shadow: 0px 0px 2px black;font-size:14px;padding-top:10px;
+}
+.trynow {
+    color: yellow;
+    text-shadow: 0px 0px 3px black;
+    font-size:28px;
+    font-weight:bold;
+}
+.notaff {
+    border-top:thin solid blue;
+    height:22px;color:white;text-shadow: 0px 0px 3px black;font-size:12px;font-weight:bold;padding-top:10px;width:86%;
+    margin-left:auto;margin-right:auto;
+}
+.tn_small {
+    font-size:16px !important;
+}
+.subprint {
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    font-size:12px;
+    font-weight:bold;
+    padding: 10px 0px 10px 0px;
+}
+.tn_padding {
+    padding-top:10px;
+}
+.content {
+    padding:10px;
+    float:left;
+    width:600px;
+}
+.header_section {
+    border-bottom:thin solid darkblue;
+    width:600px;
+}
+.header {
+    color:maroon;
+    font-weight:bold;
+    border-bottom:thick solid darkblue;
+    width:180px;
+    height:15px;
+}
+.other {
+    text-decoration:underline;
+    color:blue;
+}
+p {
+    font-size:14px;
+}
