@@ -73,22 +73,24 @@ namespace aol.Forms
 
         protected override void WndProc(ref Message message)
         {
-            base.WndProc(ref message);
-
-            if (message.Msg == 0x84)
+            if (!DesignMode)
             {
-                var cursor = this.PointToClient(Cursor.Position);
+                if (message.Msg == 0x84)
+                {
+                    var cursor = this.PointToClient(Cursor.Position);
 
-                if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
-                else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
-                else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
-                else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
+                    if (TopLeft.Contains(cursor)) message.Result = (IntPtr)HTTOPLEFT;
+                    else if (TopRight.Contains(cursor)) message.Result = (IntPtr)HTTOPRIGHT;
+                    else if (BottomLeft.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMLEFT;
+                    else if (BottomRight.Contains(cursor)) message.Result = (IntPtr)HTBOTTOMRIGHT;
 
-                else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
-                else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
-                else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
-                else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+                    else if (Top.Contains(cursor)) message.Result = (IntPtr)HTTOP;
+                    else if (Left.Contains(cursor)) message.Result = (IntPtr)HTLEFT;
+                    else if (Right.Contains(cursor)) message.Result = (IntPtr)HTRIGHT;
+                    else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
+                }
             }
+            base.WndProc(ref message);
         }
 
         // for main
@@ -148,11 +150,15 @@ namespace aol.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-            e.Graphics.FillRectangle(Brushes.Gray, Top);
-            e.Graphics.FillRectangle(Brushes.Gray, Left);
-            e.Graphics.FillRectangle(Brushes.Gray, Right);
-            e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+            base.OnPaint(e);
+            if (!DesignMode)
+            {
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+                e.Graphics.FillRectangle(Brushes.Gray, Top);
+                e.Graphics.FillRectangle(Brushes.Gray, Left);
+                e.Graphics.FillRectangle(Brushes.Gray, Right);
+                e.Graphics.FillRectangle(Brushes.Gray, Bottom);
+            }
         }
 
         public float GetDisplayScaleFactor(IntPtr windowHandle)
@@ -172,7 +178,8 @@ namespace aol.Forms
 
         public Win95Theme()
         {
-            this.Move += WindowMoved;
+            //InitializeComponents();
+            //this.Move += WindowMoved;
         }
 
         private int getTopPadding() 
