@@ -3,6 +3,17 @@ skip_tags: true
 platform: Any CPU
 configuration: Release
 
+branches:
+  only:
+    - master
+
+skip_commits:
+  message: /\[skip ci\]|\[ci skip\]/
+
+pull_requests:
+  do_not_increment_build_number: true
+  enabled: false
+
 before_build:
   - nuget restore
 
