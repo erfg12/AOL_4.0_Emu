@@ -29,490 +29,486 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignupForm));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.mainTitle = new System.Windows.Forms.Label();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.newAOL = new System.Windows.Forms.RadioButton();
-            this.oldAOL = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.nextBtn = new System.Windows.Forms.PictureBox();
-            this.leftBanner = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cancelBtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.recoverUser = new System.Windows.Forms.TextBox();
-            this.recoverPass = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.password = new System.Windows.Forms.TextBox();
-            this.fullname = new System.Windows.Forms.TextBox();
-            this.username = new System.Windows.Forms.TextBox();
-            this.backBtn = new System.Windows.Forms.PictureBox();
-            this.registerBtn = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nextBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registerBtn)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            mainTitle = new System.Windows.Forms.Label();
+            miniBtn = new System.Windows.Forms.Button();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            maxBtn = new System.Windows.Forms.Button();
+            closeBtn = new System.Windows.Forms.Button();
+            newAOL = new System.Windows.Forms.RadioButton();
+            oldAOL = new System.Windows.Forms.RadioButton();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            nextBtn = new System.Windows.Forms.PictureBox();
+            leftBanner = new System.Windows.Forms.PictureBox();
+            label3 = new System.Windows.Forms.Label();
+            cancelBtn = new System.Windows.Forms.Button();
+            label4 = new System.Windows.Forms.Label();
+            recoverUser = new System.Windows.Forms.TextBox();
+            recoverPass = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            panel2 = new System.Windows.Forms.Panel();
+            panel3 = new System.Windows.Forms.Panel();
+            label13 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            password = new System.Windows.Forms.TextBox();
+            fullname = new System.Windows.Forms.TextBox();
+            username = new System.Windows.Forms.TextBox();
+            backBtn = new System.Windows.Forms.PictureBox();
+            registerBtn = new System.Windows.Forms.PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nextBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)leftBanner).BeginInit();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)backBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)registerBtn).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.mainTitle);
-            this.panel1.Controls.Add(this.miniBtn);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.maxBtn);
-            this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1045, 35);
-            this.panel1.TabIndex = 5;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.BackgroundImage = Properties.Resources.top_bar;
+            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.Controls.Add(mainTitle);
+            panel1.Controls.Add(miniBtn);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(maxBtn);
+            panel1.Controls.Add(closeBtn);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(665, 21);
+            panel1.TabIndex = 5;
+            panel1.MouseMove += panel1_MouseMove;
             // 
             // mainTitle
             // 
-            this.mainTitle.AutoSize = true;
-            this.mainTitle.BackColor = System.Drawing.Color.Transparent;
-            this.mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.mainTitle.Location = new System.Drawing.Point(48, 4);
-            this.mainTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.mainTitle.Name = "mainTitle";
-            this.mainTitle.Size = new System.Drawing.Size(268, 25);
-            this.mainTitle.TabIndex = 10;
-            this.mainTitle.Text = "Create Your AOL Account Now";
+            mainTitle.AutoSize = true;
+            mainTitle.BackColor = System.Drawing.Color.Transparent;
+            mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            mainTitle.Location = new System.Drawing.Point(31, 2);
+            mainTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            mainTitle.Name = "mainTitle";
+            mainTitle.Size = new System.Drawing.Size(170, 15);
+            mainTitle.TabIndex = 10;
+            mainTitle.Text = "Create Your AOL Account Now";
             // 
             // miniBtn
             // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(940, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(33, 31);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
+            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
+            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = System.Drawing.Color.Black;
+            miniBtn.Location = new System.Drawing.Point(598, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Name = "miniBtn";
+            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.TabIndex = 2;
+            miniBtn.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(7, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.aol_icon_4;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.aol_icon_4;
+            pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
+            pictureBox1.Location = new System.Drawing.Point(4, -1);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(21, 21);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // maxBtn
             // 
-            this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_disabled_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.maxBtn.Enabled = false;
-            this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(974, 2);
-            this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.maxBtn.Name = "maxBtn";
-            this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(33, 31);
-            this.maxBtn.TabIndex = 1;
-            this.maxBtn.UseVisualStyleBackColor = false;
+            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_disabled_btn;
+            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            maxBtn.Enabled = false;
+            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = System.Drawing.Color.Black;
+            maxBtn.Location = new System.Drawing.Point(620, 1);
+            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.Name = "maxBtn";
+            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.TabIndex = 1;
+            maxBtn.UseVisualStyleBackColor = false;
             // 
             // closeBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(1010, 2);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(33, 31);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.BackgroundImage = Properties.Resources.close_btn;
+            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = System.Drawing.Color.Black;
+            closeBtn.Location = new System.Drawing.Point(643, 1);
+            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.Name = "closeBtn";
+            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.TabIndex = 0;
+            closeBtn.UseVisualStyleBackColor = false;
+            closeBtn.Click += closeBtn_Click;
             // 
             // newAOL
             // 
-            this.newAOL.AutoSize = true;
-            this.newAOL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.newAOL.Location = new System.Drawing.Point(44, 133);
-            this.newAOL.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.newAOL.Name = "newAOL";
-            this.newAOL.Size = new System.Drawing.Size(532, 23);
-            this.newAOL.TabIndex = 6;
-            this.newAOL.Text = "Yes, I would like a NEW AOL e-email address and Screen Name!";
-            this.newAOL.UseVisualStyleBackColor = true;
+            newAOL.AutoSize = true;
+            newAOL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            newAOL.Location = new System.Drawing.Point(28, 80);
+            newAOL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            newAOL.Name = "newAOL";
+            newAOL.Size = new System.Drawing.Size(370, 18);
+            newAOL.TabIndex = 6;
+            newAOL.Text = "Yes, I would like a NEW AOL e-email address and Screen Name!";
+            newAOL.UseVisualStyleBackColor = true;
             // 
             // oldAOL
             // 
-            this.oldAOL.AutoSize = true;
-            this.oldAOL.Checked = true;
-            this.oldAOL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.oldAOL.Location = new System.Drawing.Point(44, 212);
-            this.oldAOL.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.oldAOL.Name = "oldAOL";
-            this.oldAOL.Size = new System.Drawing.Size(602, 23);
-            this.oldAOL.TabIndex = 7;
-            this.oldAOL.TabStop = true;
-            this.oldAOL.Text = "No, I already have an AOL account or e-email address and Screen Name.";
-            this.oldAOL.UseVisualStyleBackColor = true;
+            oldAOL.AutoSize = true;
+            oldAOL.Checked = true;
+            oldAOL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            oldAOL.Location = new System.Drawing.Point(28, 127);
+            oldAOL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            oldAOL.Name = "oldAOL";
+            oldAOL.Size = new System.Drawing.Size(418, 18);
+            oldAOL.TabIndex = 7;
+            oldAOL.TabStop = true;
+            oldAOL.Text = "No, I already have an AOL account or e-email address and Screen Name.";
+            oldAOL.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(16, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(445, 36);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Create Your AOL Account Now";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial", 16F);
+            label1.Location = new System.Drawing.Point(10, 9);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(307, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Create Your AOL Account Now";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(24, 81);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(446, 19);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Select which of the following statements applies to you:";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            label2.Location = new System.Drawing.Point(15, 49);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(316, 14);
+            label2.TabIndex = 9;
+            label2.Text = "Select which of the following statements applies to you:";
             // 
             // nextBtn
             // 
-            this.nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nextBtn.Image = ((System.Drawing.Image)(resources.GetObject("nextBtn.Image")));
-            this.nextBtn.Location = new System.Drawing.Point(764, 512);
-            this.nextBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(79, 46);
-            this.nextBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.nextBtn.TabIndex = 10;
-            this.nextBtn.TabStop = false;
-            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
+            nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nextBtn.Image = (System.Drawing.Image)resources.GetObject("nextBtn.Image");
+            nextBtn.Location = new System.Drawing.Point(486, 307);
+            nextBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            nextBtn.Name = "nextBtn";
+            nextBtn.Size = new System.Drawing.Size(50, 28);
+            nextBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            nextBtn.TabIndex = 10;
+            nextBtn.TabStop = false;
+            nextBtn.Click += nextBtn_Click;
             // 
             // leftBanner
             // 
-            this.leftBanner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.leftBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.leftBanner.Image = ((System.Drawing.Image)(resources.GetObject("leftBanner.Image")));
-            this.leftBanner.Location = new System.Drawing.Point(4, 35);
-            this.leftBanner.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.leftBanner.Name = "leftBanner";
-            this.leftBanner.Size = new System.Drawing.Size(187, 577);
-            this.leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.leftBanner.TabIndex = 11;
-            this.leftBanner.TabStop = false;
+            leftBanner.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            leftBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            leftBanner.Image = (System.Drawing.Image)resources.GetObject("leftBanner.Image");
+            leftBanner.Location = new System.Drawing.Point(3, 21);
+            leftBanner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            leftBanner.Name = "leftBanner";
+            leftBanner.Size = new System.Drawing.Size(119, 346);
+            leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            leftBanner.TabIndex = 11;
+            leftBanner.TabStop = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(38, 171);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(627, 19);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Click this button if you do not have an AOL Screen Name or an existing AOL accoun" +
-    "t.";
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial", 8.25F);
+            label3.Location = new System.Drawing.Point(24, 103);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(416, 14);
+            label3.TabIndex = 12;
+            label3.Text = "Click this button if you do not have an AOL Screen Name or an existing AOL account.";
             // 
             // cancelBtn
             // 
-            this.cancelBtn.FlatAppearance.BorderSize = 0;
-            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cancelBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cancelBtn.Location = new System.Drawing.Point(37, 512);
-            this.cancelBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(97, 44);
-            this.cancelBtn.TabIndex = 13;
-            this.cancelBtn.Text = "Cancel";
-            this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            cancelBtn.FlatAppearance.BorderSize = 0;
+            cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            cancelBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            cancelBtn.Location = new System.Drawing.Point(24, 307);
+            cancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.Size = new System.Drawing.Size(62, 26);
+            cancelBtn.TabIndex = 13;
+            cancelBtn.Text = "Cancel";
+            cancelBtn.UseVisualStyleBackColor = true;
+            cancelBtn.Click += cancelBtn_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(38, 252);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(575, 19);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Click this button if you are already an AOL member and have a Screen Name.";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 8.25F);
+            label4.Location = new System.Drawing.Point(24, 151);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(378, 14);
+            label4.TabIndex = 14;
+            label4.Text = "Click this button if you are already an AOL member and have a Screen Name.";
             // 
             // recoverUser
             // 
-            this.recoverUser.Location = new System.Drawing.Point(490, 288);
-            this.recoverUser.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.recoverUser.Name = "recoverUser";
-            this.recoverUser.Size = new System.Drawing.Size(308, 33);
-            this.recoverUser.TabIndex = 15;
+            recoverUser.Location = new System.Drawing.Point(312, 173);
+            recoverUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            recoverUser.MaxLength = 30;
+            recoverUser.Name = "recoverUser";
+            recoverUser.Size = new System.Drawing.Size(197, 23);
+            recoverUser.TabIndex = 15;
             // 
             // recoverPass
             // 
-            this.recoverPass.Location = new System.Drawing.Point(490, 331);
-            this.recoverPass.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.recoverPass.Name = "recoverPass";
-            this.recoverPass.Size = new System.Drawing.Size(308, 33);
-            this.recoverPass.TabIndex = 16;
+            recoverPass.Location = new System.Drawing.Point(312, 199);
+            recoverPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            recoverPass.MaxLength = 30;
+            recoverPass.Name = "recoverPass";
+            recoverPass.Size = new System.Drawing.Size(197, 23);
+            recoverPass.TabIndex = 16;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(145, 294);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(261, 19);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Type your Screen Name in here:";
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            label5.Location = new System.Drawing.Point(92, 176);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(182, 14);
+            label5.TabIndex = 17;
+            label5.Text = "Type your Screen Name in here:";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(172, 337);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(236, 19);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Please enter your Password:";
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            label6.Location = new System.Drawing.Point(109, 202);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(167, 14);
+            label6.TabIndex = 18;
+            label6.Text = "Please enter your Password:";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(38, 375);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(592, 19);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Tip: You can have up to seven active screen names on your AOL account. If you";
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 8.25F);
+            label7.Location = new System.Drawing.Point(24, 225);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(397, 14);
+            label7.TabIndex = 19;
+            label7.Text = "Tip: You can have up to seven active screen names on your AOL account. If you";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(38, 400);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(563, 19);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "would like to add a screen name, sign in with your existing screen name and";
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Arial", 8.25F);
+            label8.Location = new System.Drawing.Point(24, 240);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(376, 14);
+            label8.TabIndex = 20;
+            label8.Text = "would like to add a screen name, sign in with your existing screen name and";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(38, 425);
-            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(303, 19);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "password and go to myaccount.aol.com.";
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 8.25F);
+            label9.Location = new System.Drawing.Point(24, 255);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(204, 14);
+            label9.TabIndex = 21;
+            label9.Text = "password and go to myaccount.aol.com.";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(38, 463);
-            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 19);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Click Next to continue.";
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Arial", 8.25F);
+            label10.Location = new System.Drawing.Point(24, 278);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(113, 14);
+            label10.TabIndex = 22;
+            label10.Text = "Click Next to continue.";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.nextBtn);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.newAOL);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.oldAOL);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.recoverPass);
-            this.panel2.Controls.Add(this.cancelBtn);
-            this.panel2.Controls.Add(this.recoverUser);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(187, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(862, 575);
-            this.panel2.TabIndex = 23;
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(nextBtn);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(newAOL);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(oldAOL);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(recoverPass);
+            panel2.Controls.Add(cancelBtn);
+            panel2.Controls.Add(recoverUser);
+            panel2.Controls.Add(label4);
+            panel2.Location = new System.Drawing.Point(119, 22);
+            panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(549, 345);
+            panel2.TabIndex = 23;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.password);
-            this.panel3.Controls.Add(this.fullname);
-            this.panel3.Controls.Add(this.username);
-            this.panel3.Controls.Add(this.backBtn);
-            this.panel3.Controls.Add(this.registerBtn);
-            this.panel3.Location = new System.Drawing.Point(187, 40);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(862, 569);
-            this.panel3.TabIndex = 23;
+            panel3.Controls.Add(label13);
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(password);
+            panel3.Controls.Add(fullname);
+            panel3.Controls.Add(username);
+            panel3.Controls.Add(backBtn);
+            panel3.Controls.Add(registerBtn);
+            panel3.Location = new System.Drawing.Point(119, 24);
+            panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(549, 341);
+            panel3.TabIndex = 23;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(260, 302);
-            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 25);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Password:";
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(165, 181);
+            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(60, 15);
+            label13.TabIndex = 7;
+            label13.Text = "Password:";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(258, 202);
-            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 25);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Full Name:";
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(164, 121);
+            label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(64, 15);
+            label12.TabIndex = 6;
+            label12.Text = "Full Name:";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(258, 106);
-            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 25);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Username:";
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(164, 64);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(63, 15);
+            label11.TabIndex = 5;
+            label11.Text = "Username:";
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(264, 333);
-            this.password.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(332, 33);
-            this.password.TabIndex = 4;
+            password.Location = new System.Drawing.Point(168, 200);
+            password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            password.Name = "password";
+            password.Size = new System.Drawing.Size(213, 23);
+            password.TabIndex = 4;
             // 
             // fullname
             // 
-            this.fullname.Location = new System.Drawing.Point(264, 235);
-            this.fullname.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.fullname.Name = "fullname";
-            this.fullname.Size = new System.Drawing.Size(332, 33);
-            this.fullname.TabIndex = 3;
+            fullname.Location = new System.Drawing.Point(168, 141);
+            fullname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            fullname.Name = "fullname";
+            fullname.Size = new System.Drawing.Size(213, 23);
+            fullname.TabIndex = 3;
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(264, 137);
-            this.username.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(332, 33);
-            this.username.TabIndex = 2;
+            username.Location = new System.Drawing.Point(168, 82);
+            username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            username.Name = "username";
+            username.Size = new System.Drawing.Size(213, 23);
+            username.TabIndex = 2;
             // 
             // backBtn
             // 
-            this.backBtn.Image = ((System.Drawing.Image)(resources.GetObject("backBtn.Image")));
-            this.backBtn.Location = new System.Drawing.Point(22, 498);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(39, 23);
-            this.backBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.backBtn.TabIndex = 1;
-            this.backBtn.TabStop = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            backBtn.Image = (System.Drawing.Image)resources.GetObject("backBtn.Image");
+            backBtn.Location = new System.Drawing.Point(14, 299);
+            backBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            backBtn.Name = "backBtn";
+            backBtn.Size = new System.Drawing.Size(39, 23);
+            backBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            backBtn.TabIndex = 1;
+            backBtn.TabStop = false;
+            backBtn.Click += backBtn_Click;
             // 
             // registerBtn
             // 
-            this.registerBtn.Image = ((System.Drawing.Image)(resources.GetObject("registerBtn.Image")));
-            this.registerBtn.Location = new System.Drawing.Point(764, 512);
-            this.registerBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.registerBtn.Name = "registerBtn";
-            this.registerBtn.Size = new System.Drawing.Size(40, 23);
-            this.registerBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.registerBtn.TabIndex = 0;
-            this.registerBtn.TabStop = false;
-            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
+            registerBtn.Image = (System.Drawing.Image)resources.GetObject("registerBtn.Image");
+            registerBtn.Location = new System.Drawing.Point(486, 307);
+            registerBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            registerBtn.Name = "registerBtn";
+            registerBtn.Size = new System.Drawing.Size(40, 23);
+            registerBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            registerBtn.TabIndex = 0;
+            registerBtn.TabStop = false;
+            registerBtn.Click += registerBtn_Click;
             // 
-            // signup_form
+            // SignupForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 615);
-            this.Controls.Add(this.leftBanner);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(100, 150);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "signup_form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "signup_form";
-            this.Shown += new System.EventHandler(this.signup_form_Shown);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nextBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leftBanner)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.backBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registerBtn)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(669, 369);
+            Controls.Add(leftBanner);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
+            Controls.Add(panel3);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Location = new System.Drawing.Point(100, 150);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "SignupForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "signup_form";
+            Shown += signup_form_Shown;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nextBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)leftBanner).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)backBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)registerBtn).EndInit();
+            ResumeLayout(false);
 
         }
 

@@ -68,6 +68,7 @@
             screenName.Items.AddRange(new object[] { "New User", "Existing Member", "Guest" });
             screenName.Location = new System.Drawing.Point(169, 154);
             screenName.Margin = new System.Windows.Forms.Padding(4);
+            screenName.MaxLength = 30;
             screenName.Name = "screenName";
             screenName.Size = new System.Drawing.Size(215, 23);
             screenName.TabIndex = 0;
@@ -146,6 +147,7 @@
             // 
             passBox.Location = new System.Drawing.Point(169, 211);
             passBox.Margin = new System.Windows.Forms.Padding(4);
+            passBox.MaxLength = 30;
             passBox.Name = "passBox";
             passBox.PasswordChar = '*';
             passBox.Size = new System.Drawing.Size(215, 23);
