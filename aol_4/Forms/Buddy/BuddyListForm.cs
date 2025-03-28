@@ -11,7 +11,6 @@ namespace aol.Forms;
 public partial class BuddyListForm : Win95Theme
 {
     int total = 0;
-    bool shuttingDown = false;
 
     public BuddyListForm()
     {
@@ -104,7 +103,6 @@ public partial class BuddyListForm : Win95Theme
 
     private void Buddies_online_FormClosing(object sender, FormClosingEventArgs e)
     {
-        shuttingDown = true;
         ConcurrentDictionary<string, bool> tmpList = new ConcurrentDictionary<string, bool>();
         foreach (KeyValuePair<string, bool> entry in ChatClass.buddyStatus)
         {
@@ -139,14 +137,13 @@ public partial class BuddyListForm : Win95Theme
 
     private void buddies_online_Shown(object sender, EventArgs e)
     {
-        //FormBorderStyle = FormBorderStyle.None;
-        //DoubleBuffered = true;
-        //SetStyle(ControlStyles.ResizeRedraw, true);
+        FormBorderStyle = FormBorderStyle.None;
+        DoubleBuffered = true;
+        SetStyle(ControlStyles.ResizeRedraw, true);
         StartList(); // get buddy list
         UpdateTimer.Start();
 
         LocationClass.PositionWindow(this, 1);
-        shuttingDown = false; // reset on re-login
         buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
         buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
     }
@@ -170,7 +167,7 @@ public partial class BuddyListForm : Win95Theme
         int online = 0;
         int offline = 0;
 
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest" || shuttingDown || !CheckIRCRunning())
+        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest" || !CheckIRCRunning())
             return;
 
         foreach (KeyValuePair<string, bool> kvp in ChatClass.buddyStatus.ToList())

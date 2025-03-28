@@ -16,7 +16,7 @@ using aol.Classes;
 using System.Configuration;
 
 namespace aol.Forms;
-public partial class MainForm : Form//Win95Theme
+public partial class MainForm : Win95Theme
 {
     bool newWindow = true;
     string old_url = "";
@@ -137,12 +137,10 @@ public partial class MainForm : Form//Win95Theme
                 // open buddies online window
                 if (AccountClass.tmpUsername != "Guest")
                 {
-                    Thread thr3 = new Thread(OpenBuddyList);
-                    thr3.Start();
+                    OpenBuddyList();
                 }
 
-                Thread thr = new Thread(OpenHomeWindow);
-                thr.Start();
+                OpenHomeWindow();
 
                 if (AccountClass.tmpUsername != "Guest")
                 {
@@ -294,7 +292,7 @@ public partial class MainForm : Form//Win95Theme
 
     private void maxBtn_Click(object sender, EventArgs e)
     {
-        miniMax(maxBtn);
+        //miniMax(maxBtn);
     }
 
     private void miniBtn_Click(object sender, EventArgs e)

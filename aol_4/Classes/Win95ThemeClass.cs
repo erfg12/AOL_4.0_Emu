@@ -112,8 +112,8 @@ namespace aol.Classes
                 bool resize = false;
                 if (this.ActiveMdiChild is BrowserForm && ((BrowserForm)ActiveMdiChild).maximized)
                     resize = true;
-                if (this.ActiveMdiChild is BuddyListForm && ((BuddyListForm)ActiveMdiChild).maximized)
-                    resize = true;
+                //if (this.ActiveMdiChild is BuddyListForm && ((BuddyListForm)ActiveMdiChild).maximized)
+                //    resize = true;
 
                 if (resize)
                 {
