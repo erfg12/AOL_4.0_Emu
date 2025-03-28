@@ -219,10 +219,10 @@
     <EmbeddedResource Include="Resources\forward_btn1.png" />
     <EmbeddedResource Include="Resources\forward_btn2.png" />
     <EmbeddedResource Include="Resources\Frowning.png" />
-    <Content Include="Channels\kids.htm">
+    <Content Include="Channels\Kids\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Channels\kids.png">
+    <Content Include="Channels\Kids\layout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Resources\Goodbye.wav" />
