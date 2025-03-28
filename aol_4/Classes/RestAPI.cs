@@ -6,32 +6,32 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace aol.Forms
 {
     class RestAPI
     {
-        private static JObject getData(string request, string postVals)
+        private static async Task<JObject> getData(string request, HttpMethod method, string queryParams)
         {
             var client = new HttpClient();
-            Task<HttpResponseMessage> response;
-            //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+            HttpResponseMessage response;
             try
             {
-                var stringContent = new StringContent(postVals, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
-                response = client.PostAsync("https://aolemu.com/api?" + request, stringContent);
+                var requestMsg = new HttpRequestMessage(method, $"https://api.aolemu.com/{request}?{queryParams}") { };
+                var httpResponse = await client.SendAsync(requestMsg);
+                response = httpResponse;
             }
             catch
             {
                 MessageBox.Show("Error connecting to aolemu.com");
                 return JObject.Parse("{\"content\": [{ \"msg\": \"ERROR\" }]}");
             }
-            //Debug.WriteLine(response.Result.Content.ReadAsStringAsync().Result);
-            return JObject.Parse(response.Result.Content.ReadAsStringAsync().Result);
+            return JObject.Parse(await response.Content.ReadAsStringAsync());
         }
 
         private static string CreateMD5(string input)
@@ -59,25 +59,24 @@ namespace aol.Forms
         /// <param name="pass">Unencrypted password.</param>
         /// <param name="fn">Full name of the account holder.</param>
         /// <returns></returns>
-        public static bool createAccount(string user, string pass, string fn)
+        public static async Task<bool> createAccount(string user, string pass, string fn)
         {
             if (user == "" || pass == "")
                 return false;
             string encPass = CreateMD5(pass);
-            var data = getData("create", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
-            string msg = (string)data.SelectToken("content[0].msg");
-            if (msg == "success")
+            var data = await getData("Account", HttpMethod.Post, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
+            var userApi = data.ToObject<userAPI>();
+            if (userApi.account != null)
             {
-                int code = sqlite_accounts.createAcc(user, fn);
+                int code = sqlite_accounts.createAcc(user, userApi.account.id, fn);
                 if (code == 0)
                     return true;
                 else
                     MessageBox.Show("SQLite error code " + code.ToString());
             } else
             {
-                MessageBox.Show("MSG: " + msg);
+                MessageBox.Show("MSG: " + userApi.message);
             }
-            Debug.WriteLine(msg);
             return false;
         }
 
@@ -87,20 +86,21 @@ namespace aol.Forms
         /// <param name="user">Account username. Do not provide the email address.</param>
         /// <param name="pass">Unencrypted password must be provided.</param>
         /// <returns></returns>
-        public static bool loginAccount(string user, string pass)
+        public static async Task<bool> loginAccount(string user, string pass)
         {
             if (user == "" || pass == "")
                 return false;
             string encPass = CreateMD5(pass);
-            var data = getData("fetch", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
-            if ((string)data.SelectToken("content[0].msg") == "success")
+            var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
+            string msg = (string)data.SelectToken("message");
+            if (!string.IsNullOrEmpty(msg)) // message = error msg
+            {
+                MessageBox.Show("Account either doesn't exist, or incorrect password.");
+            } else
             {
                 accForm.tmpUsername = user;
                 accForm.tmpPassword = encPass;
                 return true;
-            } else
-            {
-                MessageBox.Show("Account either doesn't exist, or incorrect password.");
             }
             return false;
         }
@@ -112,7 +112,7 @@ namespace aol.Forms
         /// <param name="user">OPTIONAL: If using prior to login, you need to provide a username/password</param>
         /// <param name="pass">OPTIONAL: If using prior to login, you need to provide a username/password</param>
         /// <returns></returns>
-        public static string getAccInfo(string token, string user = "", string pass = "")
+        public static async Task<userAPI> getAccInfo(string user = "", string pass = "")
         {
             if (user == "")
                 user = accForm.tmpUsername;
@@ -121,23 +121,19 @@ namespace aol.Forms
             else
                 pass = CreateMD5(pass);
 
-            var data = getData("fetch", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
-            if ((string)data.SelectToken("content[0].msg") == "success")
-                return (string)data.SelectToken("content[0]." + token);
-            return "";
+            var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
+            return data.ToObject<userAPI>();
         }
 
-        public static IList<string> getBuddyList(string user, string pass)
+        public static async Task<IList<userAPI.Buddies>> getBuddyList(string user, string pass)
         {
             if (user == "" || pass == "")
                 return null;
 
             pass = CreateMD5(pass);
 
-            var data = getData("fetch", "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
-            if ((string)data.SelectToken("content[0].msg") == "success")
-                return data.SelectToken("content[0].buddies").Select(s => (string)s).ToList();
-            return null;
+            var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
+            return data.ToObject<userAPI>().buddies;
         }
 
         /// <summary>
@@ -145,11 +141,11 @@ namespace aol.Forms
         /// </summary>
         /// <param name="newfn">New full name for the account holder.</param>
         /// <returns></returns>
-        public static bool updateFullName(string newfn)
+        public static async Task<bool> updateFullName(string newfn)
         {
             if (accForm.tmpUsername == "")
                 return false;
-            var data = getData("updatefn", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
+            var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
             if ((string)data.SelectToken("content[0].msg") == "success")
             {
                 sqlite_accounts.updateFullName(newfn);
@@ -163,12 +159,12 @@ namespace aol.Forms
         /// </summary>
         /// <param name="newpw">New account password. Provide this unencrypted.</param>
         /// <returns></returns>
-        public static bool updatePassword(string newpw)
+        public static async Task<bool> updatePassword(string newpw)
         {
             if (accForm.tmpUsername == "")
                 return false;
             newpw = Encoding.Default.GetString(sqlite_accounts.Hash(newpw, sqlite_accounts.passSalt));
-            var data = getData("updatepw", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
+            var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
             if ((string)data.SelectToken("content[0].msg") == "success")
             {
                 // needs SQLite cmd
@@ -182,15 +178,16 @@ namespace aol.Forms
         /// </summary>
         /// <param name="username">Buddy's username</param>
         /// <returns></returns>
-        public static bool addBuddy(string username)
+        public static async Task<bool> addBuddy(string username)
         {
             if (accForm.tmpUsername == "")
                 return false;
 
-            var data = getData("addbuddy", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&buddy=" + WebUtility.UrlEncode(username));
-            if ((string)data.SelectToken("content[0].msg") == "success")
+            var data = await getData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
+            var buddyData = data.ToObject<userAPI.Buddies>();
+            if (buddyData.id != null) // message = error msg
             {
-                sqlite_accounts.addBuddy(username);
+                await sqlite_accounts.addBuddy(buddyData.id, buddyData.username);
                 return true;
             }
 
@@ -202,12 +199,13 @@ namespace aol.Forms
         /// </summary>
         /// <param name="buddyid"></param>
         /// <returns></returns>
-        public static bool removeBuddy(string buddyid)
+        public static async Task<bool> removeBuddy(string buddyid)
         {
             if (accForm.tmpUsername == "")
                 return false;
-            var data = getData("removebuddy", "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&buddyid=" + WebUtility.UrlEncode(buddyid));
-            if ((string)data.SelectToken("content[0].msg") == "success")
+            var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(accForm.tmpUsername) + "&pass=" + WebUtility.UrlEncode(accForm.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid));
+            string msg = (string)data.SelectToken("message");
+            if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
             {
                 // needs SQLite cmd
                 return true;
@@ -215,4 +213,5 @@ namespace aol.Forms
             return false;
         }
     }
+
 }

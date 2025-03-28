@@ -311,6 +311,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Update="accounts.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -91,12 +91,12 @@ namespace aol.Forms
             af.Show();
         }
 
-        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private async void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
                 // check for new favorite items
-                foreach (KeyValuePair<string, string> t in sqlite_accounts.getFavoritesList())
+                foreach (KeyValuePair<string, string> t in await sqlite_accounts.getFavoritesList())
                 {
                     if (!fpTreeView.Nodes[0].Nodes.ContainsKey(t.Key))
                         reloadFavorites();
@@ -107,11 +107,11 @@ namespace aol.Forms
 
         private void reloadFavorites()
         {
-            fpTreeView.Invoke(new MethodInvoker(delegate
+            fpTreeView.Invoke(new MethodInvoker(async () =>
             {
                 fpTreeView.Nodes[0].Nodes.Clear();
 
-                foreach (KeyValuePair<string, string> t in sqlite_accounts.getFavoritesList())
+                foreach (KeyValuePair<string, string> t in await sqlite_accounts.getFavoritesList())
                 {
                     TreeNode ntn = new TreeNode();
                     ntn.Text = t.Value;

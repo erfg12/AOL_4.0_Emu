@@ -53,7 +53,7 @@ namespace aol.Forms
                 this.ActiveControl = passBox;
         }
 
-        private void signOnBtn_Click(object sender, EventArgs e)
+        private async void signOnBtn_Click(object sender, EventArgs e)
         {
             tmpLocation = selectLocation.Text;
 
@@ -74,7 +74,7 @@ namespace aol.Forms
             }
             else
             {
-                if (RestAPI.loginAccount(screenName.Text, passBox.Text))
+                if (await RestAPI.loginAccount(screenName.Text, passBox.Text))
                     Close();
             }
         }

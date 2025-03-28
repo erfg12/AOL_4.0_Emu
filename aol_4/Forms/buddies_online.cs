@@ -230,12 +230,12 @@ namespace aol.Forms
             buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
         }
 
-        private void StartList()
+        private async void StartList()
         {
-            foreach (string b in sqlite_accounts.getBuddyList())
+            foreach (var b in await sqlite_accounts.getBuddyList())
             {
-                if (!chat.buddyStatus.ContainsKey(b.ToLower()))
-                    chat.buddyStatus.TryAdd(b.ToLower(), false); // offline by default
+                if (!chat.buddyStatus.ContainsKey(b.username.ToLower()))
+                    chat.buddyStatus.TryAdd(b.username.ToLower(), false); // offline by default
             }
             if (!backgroundWorker1.IsBusy)
                 backgroundWorker1.RunWorkerAsync();

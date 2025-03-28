@@ -65,10 +65,10 @@ namespace aol.Forms
             }*/
         }
 
-        private void reloadBrowseHistory()
+        private async void reloadBrowseHistory()
         {
             browseHistoryList.Items.Clear();
-            List<string> tmpHistory = sqlite_accounts.getHistory();
+            List<string> tmpHistory = await sqlite_accounts.getHistory();
             tmpHistory.Sort();
             foreach (string l in tmpHistory)
             {
@@ -87,7 +87,7 @@ namespace aol.Forms
 
         private void updateFNBtn_Click(object sender, EventArgs e)
         {
-            RestAPI.updateFullName(fullnameBox.Text);
+            //RestAPI.updateFullName(fullnameBox.Text);
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

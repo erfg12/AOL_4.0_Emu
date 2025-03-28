@@ -44,9 +44,9 @@ namespace aol.Forms
             }
         }
 
-        private void sendBtn_Click(object sender, EventArgs e)
+        private async void sendBtn_Click(object sender, EventArgs e)
         {
-            if (RestAPI.addBuddy(nameTextBox.Text))
+            if (await RestAPI.addBuddy(nameTextBox.Text))
                 MessageBox.Show("Buddy Added!");
             else
                 MessageBox.Show("Error: Buddy not added.");

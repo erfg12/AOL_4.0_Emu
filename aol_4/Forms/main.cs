@@ -206,14 +206,16 @@ namespace aol.Forms
         {
             try
             {
-                addrBox.Invoke(new MethodInvoker(delegate
+                addrBox.Invoke(new MethodInvoker(async () =>
                 {
                    addrBox.Items.Clear();
                    tmpHistory.Clear();
-                   foreach (string i in sqlite_accounts.getHistory())
+                   foreach (string i in await sqlite_accounts.getHistory())
                    {
-                       addrBox.Items.Add(i);
-                       tmpHistory.Add(i);
+                        if (string.IsNullOrEmpty(i))
+                            continue;
+                        addrBox.Items.Add(i);
+                        tmpHistory.Add(i);
                    }
                 }));
             } catch {
@@ -796,7 +798,7 @@ namespace aol.Forms
                 MessageBox.Show("Sorry, you can only print mail or web pages.");
         }
 
-        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private async void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -808,7 +810,7 @@ namespace aol.Forms
 
                 foreach (string t in tmpList)
                 {
-                    if (!sqlite_accounts.getHistory().Contains(t))
+                    if (!(await sqlite_accounts.getHistory()).Contains(t))
                         reloadAddressBarHistory();
                 }
                 Thread.Sleep(1000);

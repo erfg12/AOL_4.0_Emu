@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Diagnostics;
 using aol.Classes;
 using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace aol.Forms
 {
@@ -40,7 +41,7 @@ namespace aol.Forms
         /// </summary>
         /// <param name="url">Address bar URL</param>
         /// <returns></returns>
-        public static int addHistory(string url)
+        public static async Task<int> addHistory(string url)
         {
             int code = 0;
 
@@ -51,10 +52,10 @@ namespace aol.Forms
             if (url.EndsWith("/"))
                 url = url.Remove(url.Length - 1);
 
-            if (findHisory(url) > 0)
+            if (await findHisory(url) > 0)
                 return 999;
 
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
             long timeStamp = DateTime.Now.ToFileTime();
@@ -74,11 +75,11 @@ namespace aol.Forms
             return code;
         }
 
-        public static int addFavorite(string url, string URLname)
+        public static async Task<int> addFavorite(string url, string URLname)
         {
             int code = 0;
 
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -110,10 +111,10 @@ namespace aol.Forms
         /// </summary>
         /// <param name="url">URL to delete from favorite</param>
         /// <returns></returns>
-        public static int deleteFavorite(string url)
+        public static async Task<int> deleteFavorite(string url)
         {
             int code = 0;
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             ConcurrentBag<string> history = new ConcurrentBag<string>();
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
@@ -170,9 +171,9 @@ namespace aol.Forms
         /// Key = URL, Value = Name
         /// </summary>
         /// <returns></returns>
-        public static ConcurrentDictionary<string, string> getFavoritesList()
+        public static async Task<ConcurrentDictionary<string, string>> getFavoritesList()
         {
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             ConcurrentDictionary<string, string> favorites = new ConcurrentDictionary<string, string>();
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
@@ -211,9 +212,9 @@ namespace aol.Forms
         /// Get history to add to address bar drop down list
         /// </summary>
         /// <returns></returns>
-        public static List<string> getHistory()
+        public static async Task<List<string>> getHistory()
         {
-            if (RestAPI.getAccInfo("id") == "")
+            if ((await RestAPI.getAccInfo()).account != null)
                 return new List<string> { null }; // error, account not found. Prevent crash.
 
             List<string> history = new List<string>();
@@ -222,7 +223,7 @@ namespace aol.Forms
 
             try
             {
-                int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+                int userID = (await RestAPI.getAccInfo()).account.id;
 
                 SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
@@ -257,10 +258,10 @@ namespace aol.Forms
             return history;
         }
 
-        public static int deleteHistory(string url)
+        public static async Task<int> deleteHistory(string url)
         {
             int code = 0;
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = (await RestAPI.getAccInfo()).account.id;
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -291,7 +292,7 @@ namespace aol.Forms
         /// <param name="user"></param>
         /// <param name="pass">encrypted</param>
         /// <returns></returns>
-        public static int createAcc(string user, string fullname)
+        public static int createAcc(string user, int userId, string fullname)
         {
             int code = 0;
 
@@ -300,7 +301,7 @@ namespace aol.Forms
 
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
-            string sql = "INSERT INTO aol_accounts (username, fullname) VALUES ('" + user + "', @fullname)";
+            string sql = "INSERT INTO aol_accounts (userid, username, fullname) VALUES ('" + userId + "', '" + user + "', @fullname)";
 
             try
             {
@@ -323,10 +324,10 @@ namespace aol.Forms
         /// </summary>
         /// <param name="url">URL</param>
         /// <returns></returns>
-        public static int findHisory(string url)
+        public static async Task<int> findHisory(string url)
         {
             int foundHistory = 0;
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = (await RestAPI.getAccInfo()).account.id;
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -366,10 +367,10 @@ namespace aol.Forms
             return foundAcc;
         }
 
-        public static bool addBuddy(string user)
+        public static async Task<bool> addBuddy(int buddyId, string user)
         {
             bool good = false;
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = (await RestAPI.getAccInfo()).account.id;
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -391,7 +392,7 @@ namespace aol.Forms
                 }
             }
 
-            string sql = "INSERT INTO buddy_list (userid, buddy_name) VALUES ('" + userID + "', '" + user + "')";
+            string sql = "INSERT INTO buddy_list (id, userid, buddy_name) VALUES ('" + buddyId + "', '" + userID + "', '" + user + "')";
 
             try
             {
@@ -409,10 +410,10 @@ namespace aol.Forms
             return good;
         }
 
-        public static List<string> getBuddyList(string user = "", string pass = "")
+        public static async Task<List<userAPI.Buddies>> getBuddyList(string user = "", string pass = "")
         {
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id", user, pass));
-            List<string> buddies = new List<string>();
+            int userID = (await RestAPI.getAccInfo()).account.id;
+            List<userAPI.Buddies> buddies = new();
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -429,7 +430,8 @@ namespace aol.Forms
                     SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        buddies.Add(reader["buddy_name"].ToString());
+                        var buddy = new userAPI.Buddies() { id = (int)reader["id"], userid = (int)reader["userid"], username = (string)reader["buddy_name"] };
+                        buddies.Add(buddy);
                     }
                 }
             }
@@ -492,10 +494,10 @@ namespace aol.Forms
             return info;
         }*/
 
-        public static int emailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
+        public static async Task<int> emailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
         {
             int code = 0;
-            int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
+            int userID = (await RestAPI.getAccInfo()).account.id;
             Debug.WriteLine("userID:" + userID);
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
