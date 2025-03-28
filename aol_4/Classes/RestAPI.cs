@@ -100,6 +100,7 @@ namespace aol.Forms
             {
                 accForm.tmpUsername = user;
                 accForm.tmpPassword = encPass;
+                accForm.accountInfo = data.ToObject<userAPI>(); // store account info in accForm for later use
                 return true;
             }
             return false;
@@ -122,7 +123,8 @@ namespace aol.Forms
                 pass = CreateMD5(pass);
 
             var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
-            return data.ToObject<userAPI>();
+            var t = data.ToObject<userAPI>();
+            return t;
         }
 
         public static async Task<IList<userAPI.Buddies>> getBuddyList(string user, string pass)

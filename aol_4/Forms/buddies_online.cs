@@ -50,7 +50,7 @@ namespace aol.Forms
                 int offline = 0;
 
                 if (accForm.tmpUsername == "" || accForm.tmpUsername == "Guest" || shuttingDown || !CheckIRCRunning())
-                    return;
+                    continue;
 
                 foreach (KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
                 {
@@ -232,7 +232,7 @@ namespace aol.Forms
 
         private async void StartList()
         {
-            foreach (var b in await sqlite_accounts.getBuddyList())
+            foreach (var b in sqlite_accounts.getBuddyList())
             {
                 if (!chat.buddyStatus.ContainsKey(b.username.ToLower()))
                     chat.buddyStatus.TryAdd(b.username.ToLower(), false); // offline by default

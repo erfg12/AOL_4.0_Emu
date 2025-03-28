@@ -21,6 +21,7 @@ namespace aol.Forms
         public static string tmpLocation = "";
         public static string tmpPassword = "";
         public static string tmpUsername = "";
+        public static userAPI accountInfo { get; set; }
 
         #region winform_functions
         public accForm()

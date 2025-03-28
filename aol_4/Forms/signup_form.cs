@@ -67,7 +67,7 @@ namespace aol.Forms
                 {
                     var userApi = await RestAPI.getAccInfo();
                     int code = sqlite_accounts.createAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
-                    List<userAPI.Buddies> tmpBuddies = await sqlite_accounts.getBuddyList(userApi.account.username, pass);
+                    List<userAPI.Buddies> tmpBuddies = sqlite_accounts.getBuddyList(userApi.account.username, pass);
 
                     if (code == 0)
                     {

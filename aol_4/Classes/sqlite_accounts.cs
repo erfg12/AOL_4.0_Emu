@@ -55,11 +55,11 @@ namespace aol.Forms
             if (await findHisory(url) > 0)
                 return 999;
 
-            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
+            //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
             long timeStamp = DateTime.Now.ToFileTime();
-            string sql = "INSERT INTO history (userid, url, date) VALUES ('" + userID + "', '" + url + "', '" + timeStamp + "')";
+            string sql = "INSERT INTO history (userid, url, date) VALUES ('" + accForm.accountInfo.account.id + "', '" + url + "', '" + timeStamp + "')";
 
             try
             {
@@ -79,11 +79,11 @@ namespace aol.Forms
         {
             int code = 0;
 
-            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
+            //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
-            string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + userID + "', '" + url + "', @URLname)";
+            string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + accForm.accountInfo.account.id + "', '" + url + "', @URLname)";
 
             try
             {
@@ -114,7 +114,7 @@ namespace aol.Forms
         public static async Task<int> deleteFavorite(string url)
         {
             int code = 0;
-            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
+            //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             ConcurrentBag<string> history = new ConcurrentBag<string>();
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
@@ -123,11 +123,11 @@ namespace aol.Forms
             {
                 SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
-                command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + userID + "' AND url = '" + url + "'";
+                command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + accForm.accountInfo.account.id + "' AND url = '" + url + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
-                    command.CommandText = "DELETE FROM favorites WHERE userid = '" + userID + "' AND url = '" + url + "'";
+                    command.CommandText = "DELETE FROM favorites WHERE userid = '" + accForm.accountInfo.account.id + "' AND url = '" + url + "'";
                     SqliteDataReader reader = command.ExecuteReader();
                 }
             }
@@ -173,7 +173,7 @@ namespace aol.Forms
         /// <returns></returns>
         public static async Task<ConcurrentDictionary<string, string>> getFavoritesList()
         {
-            int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
+            //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
             ConcurrentDictionary<string, string> favorites = new ConcurrentDictionary<string, string>();
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
@@ -181,11 +181,11 @@ namespace aol.Forms
             try
             {
                 SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
-                command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + userID + "'";
+                command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + accForm.accountInfo.account.id + "'";
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 if (count > 0)
                 {
-                    command.CommandText = "SELECT * FROM favorites WHERE userid = '" + userID + "'";
+                    command.CommandText = "SELECT * FROM favorites WHERE userid = '" + accForm.accountInfo.account.id + "'";
 
                     SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -214,7 +214,8 @@ namespace aol.Forms
         /// <returns></returns>
         public static async Task<List<string>> getHistory()
         {
-            if ((await RestAPI.getAccInfo()).account != null)
+            //var accInfo = await RestAPI.getAccInfo();
+            if (accForm.accountInfo != null)
                 return new List<string> { null }; // error, account not found. Prevent crash.
 
             List<string> history = new List<string>();
@@ -223,7 +224,7 @@ namespace aol.Forms
 
             try
             {
-                int userID = (await RestAPI.getAccInfo()).account.id;
+                int userID = accForm.accountInfo.account.id;
 
                 SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
                 //Debug.WriteLine("getting email info with id:" + userID);
@@ -261,7 +262,7 @@ namespace aol.Forms
         public static async Task<int> deleteHistory(string url)
         {
             int code = 0;
-            int userID = (await RestAPI.getAccInfo()).account.id;
+            int userID = accForm.accountInfo.account.id;
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -327,7 +328,7 @@ namespace aol.Forms
         public static async Task<int> findHisory(string url)
         {
             int foundHistory = 0;
-            int userID = (await RestAPI.getAccInfo()).account.id;
+            int userID = accForm.accountInfo.account.id;
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -370,7 +371,7 @@ namespace aol.Forms
         public static async Task<bool> addBuddy(int buddyId, string user)
         {
             bool good = false;
-            int userID = (await RestAPI.getAccInfo()).account.id;
+            int userID = accForm.accountInfo.account.id;
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
 
@@ -410,9 +411,10 @@ namespace aol.Forms
             return good;
         }
 
-        public static async Task<List<userAPI.Buddies>> getBuddyList(string user = "", string pass = "")
+        public static List<userAPI.Buddies> getBuddyList(string user = "", string pass = "")
         {
-            int userID = (await RestAPI.getAccInfo()).account.id;
+            //var accInfo = await RestAPI.getAccInfo();
+            int userID = accForm.accountInfo.account.id;
             List<userAPI.Buddies> buddies = new();
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
@@ -430,7 +432,7 @@ namespace aol.Forms
                     SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        var buddy = new userAPI.Buddies() { id = (int)reader["id"], userid = (int)reader["userid"], username = (string)reader["buddy_name"] };
+                        var buddy = new userAPI.Buddies() { id = Convert.ToInt32(reader["id"]), userid = Convert.ToInt32(reader["userid"]), username = (string)reader["buddy_name"] };
                         buddies.Add(buddy);
                     }
                 }
@@ -497,7 +499,7 @@ namespace aol.Forms
         public static async Task<int> emailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
         {
             int code = 0;
-            int userID = (await RestAPI.getAccInfo()).account.id;
+            int userID = accForm.accountInfo.account.id;
             Debug.WriteLine("userID:" + userID);
             SqliteConnection m_dbConnection = openDB();
             m_dbConnection.Open();
