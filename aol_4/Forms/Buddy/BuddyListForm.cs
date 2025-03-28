@@ -167,7 +167,7 @@ public partial class BuddyListForm : Win95Theme
         int online = 0;
         int offline = 0;
 
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest" || !CheckIRCRunning())
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest" || !CheckIRCRunning())
             return;
 
         foreach (KeyValuePair<string, bool> kvp in ChatClass.buddyStatus.ToList())

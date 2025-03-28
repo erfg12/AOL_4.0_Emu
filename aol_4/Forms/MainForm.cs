@@ -50,38 +50,12 @@ public partial class MainForm : Win95Theme
         BrowseWnd.Show();
     }
 
-    private void openAccWindow()
+    private async Task openAccWindow()
     {
         accForm acf = new accForm();
         acf.Owner = (Form)this;
         acf.MdiParent = this;
         acf.Show();
-
-        if (MdiChildren.Length <= 0)
-            return;
-
-        Task taskA = new Task(() =>
-        {
-            while (true)
-            {
-                try
-                {
-                    if (!MdiChildren.Any())
-                    {
-                        Thread thr = new Thread(startProgram);
-                        thr.Start();
-                        break;
-                    }
-                }
-                catch
-                {
-                    //Debug.WriteLine("openAccWindow() crashed");
-                    break;
-                }
-                System.Threading.Thread.Sleep(100);
-            }
-        });
-        taskA.Start();
     }
 
     private void CheckEmail()
@@ -108,59 +82,9 @@ public partial class MainForm : Win95Theme
         MessageBox.Show(btn.Tag.ToString());
     }
 
-    private void startProgram()
+    public void startProgram()
     {
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-        Debug.WriteLine(System.Net.ServicePointManager.SecurityProtocol.ToString());
-        Invoke((MethodInvoker)async delegate ()
-        {
-            try
-            {
-                if (this == null)
-                    return;
-
-                if (IsWindow(Handle) == false)
-                    return;
-
-                // open fake dial up window
-                DialUpForm du = new DialUpForm();
-                du.Owner = (Form)this;
-                du.MdiParent = this;
-                du.Show();
-
-                // wait for dial up to finish
-                if (AccountClass.tmpLocation == "Dial-Up")
-                    await Task.Delay(TimeSpan.FromSeconds(26));
-                else
-                    await Task.Delay(TimeSpan.FromSeconds(1));
-
-                // open buddies online window
-                if (AccountClass.tmpUsername != "Guest")
-                {
-                    OpenBuddyList();
-                }
-
-                OpenHomeWindow();
-
-                if (AccountClass.tmpUsername != "Guest")
-                {
-                    checkMail.Enabled = true;
-                    checkMail.Start();
-
-                    Thread thr2 = new Thread(reloadAddressBarHistory);
-                    thr2.Start();
-
-                    if (!backgroundWorker1.IsBusy)
-                        backgroundWorker1.RunWorkerAsync();
-                }
-
-                signOffBtn.Text = "Sign Off";
-            }
-            catch
-            {
-                return; // object was disposed
-            }
-        });
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
         // enable buttons
         internet_btn.Image = Properties.Resources.internet_icon_enabled;
@@ -200,20 +124,19 @@ public partial class MainForm : Win95Theme
     {
         try
         {
-            addrBox.Invoke(new MethodInvoker(async () =>
+            addrBox.Items.Clear();
+            tmpHistory.Clear();
+            foreach (string i in SqliteAccountsClass.getHistory())
             {
-               addrBox.Items.Clear();
-               tmpHistory.Clear();
-               foreach (string i in await SqliteAccountsClass.getHistory())
-               {
-                    if (string.IsNullOrEmpty(i))
-                        continue;
-                    addrBox.Items.Add(i);
-                    tmpHistory.Add(i);
-               }
-            }));
-        } catch {
-            Console.WriteLine("Prevented a crash at reloadAddressBarHistory()");
+                if (string.IsNullOrEmpty(i))
+                    continue;
+                addrBox.Items.Add(i);
+                tmpHistory.Add(i);
+            }
+        }
+        catch
+        {
+            Debug.WriteLine("Prevented a crash at reloadAddressBarHistory()");
         }
     }
 
@@ -237,7 +160,7 @@ public partial class MainForm : Win95Theme
             else
             {
                 openBrowser(addrBox.Text);
-                if (AccountClass.tmpUsername != "Guest" && addrBox.Text.Contains("."))
+                if (Account.tmpUsername != "Guest" && addrBox.Text.Contains("."))
                     SqliteAccountsClass.addHistory(addrBox.Text);
                 if (!addrBox.Items.Contains(addrBox.Text))
                 {
@@ -300,7 +223,7 @@ public partial class MainForm : Win95Theme
         WindowState = FormWindowState.Minimized;
     }
 
-    private void Form1_Shown(object sender, EventArgs e)
+    private async void Form1_Shown(object sender, EventArgs e)
     {
         Debug.WriteLine("ClientSize Width:" + ClientSize.Width);
         Debug.WriteLine("ClientSize Height:" + ClientSize.Height);
@@ -328,7 +251,7 @@ public partial class MainForm : Win95Theme
         toolTip1.SetToolTip(favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
         // open account form window
-        openAccWindow();
+        await openAccWindow();
     }
 
     private void fileBtn_Click(object sender, EventArgs e)
@@ -394,7 +317,7 @@ public partial class MainForm : Win95Theme
 
     private void addrBox_KeyDown_1(object sender, KeyEventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         if (addrBox.Text.Length <= 3)
@@ -410,7 +333,7 @@ public partial class MainForm : Win95Theme
 
     private void goBtn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         GoToURL();
@@ -492,7 +415,7 @@ public partial class MainForm : Win95Theme
     // channels button
     private void pictureBox10_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         if (!channelsContextMenuStrip.Visible)
@@ -587,14 +510,14 @@ public partial class MainForm : Win95Theme
 
     private void SignOff()
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         DisposeAllButThis();
         
-        AccountClass.tmpUsername = "";
-        AccountClass.tmpPassword = "";
-        AccountClass.tmpLocation = "";
+        Account.tmpUsername = "";
+        Account.tmpPassword = "";
+        Account.tmpLocation = "";
 
         if (ChatClass.irc.IsClientRunning())
             ChatClass.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
@@ -619,18 +542,18 @@ public partial class MainForm : Win95Theme
         signOffBtn.Text = "Sign On";
     }
 
-    private void signOffBtn_Click(object sender, EventArgs e)
+    private async void signOffBtn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "") // not signed in yet
+        if (Account.tmpUsername == "") // not signed in yet
             return;
 
         SignOff();
-        openAccWindow();
+        await openAccWindow();
     }
 
     private void readMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         MailboxForm mb = new MailboxForm();
@@ -641,7 +564,7 @@ public partial class MainForm : Win95Theme
 
     private void read_mail_btn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         MailboxForm mb = new MailboxForm();
@@ -652,7 +575,7 @@ public partial class MainForm : Win95Theme
 
     private void write_mail_button_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
 
@@ -665,7 +588,7 @@ public partial class MainForm : Win95Theme
 
     private void mailCenterToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         MailboxForm mb = new MailboxForm();
@@ -676,7 +599,7 @@ public partial class MainForm : Win95Theme
 
     private void writeMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         MailWriteForm wmf = new MailWriteForm();
@@ -698,7 +621,7 @@ public partial class MainForm : Win95Theme
 
     private void Internet_btn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         if (!internetMenuStrip.Visible)
@@ -712,7 +635,7 @@ public partial class MainForm : Win95Theme
 
     private void People_btn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         if (!peopleMenuStrip.Visible)
@@ -726,7 +649,7 @@ public partial class MainForm : Win95Theme
 
     private void FindBtn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         if (!findMenuStrip.Visible)
@@ -740,7 +663,7 @@ public partial class MainForm : Win95Theme
 
     private void KeywordBtn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         KeywordForm kw = new KeywordForm();
@@ -751,19 +674,19 @@ public partial class MainForm : Win95Theme
 
     private void Quotes_btn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
     }
 
     private void Perks_btn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
     }
 
     private void Weather_btn_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         WeatherForm w = new WeatherForm();
@@ -802,7 +725,7 @@ public partial class MainForm : Win95Theme
 
             foreach (string t in tmpList)
             {
-                if (!(await SqliteAccountsClass.getHistory()).Contains(t))
+                if (!SqliteAccountsClass.getHistory().Contains(t))
                     reloadAddressBarHistory();
             }
             Thread.Sleep(1000);
@@ -816,7 +739,7 @@ public partial class MainForm : Win95Theme
 
     private void FavoritePlacesMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         FavoritePlacesForm fp = new FavoritePlacesForm();
@@ -840,7 +763,7 @@ public partial class MainForm : Win95Theme
 
     private void searchTheWebMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         GoToURL();
@@ -848,7 +771,7 @@ public partial class MainForm : Win95Theme
 
     private void findonTheWebMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return;
 
         GoToURL();
@@ -856,7 +779,7 @@ public partial class MainForm : Win95Theme
 
     private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         MailboxForm mb = new MailboxForm();
@@ -867,7 +790,7 @@ public partial class MainForm : Win95Theme
 
     private void sentMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return;
 
         MailboxForm mb = new MailboxForm();
@@ -878,7 +801,7 @@ public partial class MainForm : Win95Theme
 
     private void checkMail_Tick(object sender, EventArgs e)
     {
-        if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest") // prevent crash on sign off
+        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest") // prevent crash on sign off
             return;
 
         if (!MailClass.youGotMail)

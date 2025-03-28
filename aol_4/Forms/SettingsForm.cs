@@ -42,10 +42,13 @@ public partial class SettingsForm : Win95Theme
         reloadBrowseHistory();
     }
 
-    private async void reloadBrowseHistory()
+    private void reloadBrowseHistory()
     {
+        if (Account.tmpUsername == "Guest" || Account.tmpUsername == "")
+            return;
+
         browseHistoryList.Items.Clear();
-        List<string> tmpHistory = await SqliteAccountsClass.getHistory();
+        List<string> tmpHistory = SqliteAccountsClass.getHistory();
         tmpHistory.Sort();
         foreach (string l in tmpHistory)
         {
@@ -74,7 +77,7 @@ public partial class SettingsForm : Win95Theme
 
     private void settings_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (AccountClass.tmpUsername != "Guest" && AccountClass.tmpUsername != "")
+        if (Account.tmpUsername != "Guest" && Account.tmpUsername != "")
         {
             if (homePageBox.Text.Length > 4) // make sure it's not blank
                 Properties.Settings.Default.homeSite = homePageBox.Text;

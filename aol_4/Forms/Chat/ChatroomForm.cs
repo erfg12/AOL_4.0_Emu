@@ -126,7 +126,7 @@ public partial class ChatroomForm : Win95Theme
         // keep users list up to date
         while (true)
         {
-            if (AccountClass.tmpUsername == "" || AccountClass.tmpUsername == "Guest")
+            if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
                 continue;
 
             if (!IsHandleCreated)
@@ -236,7 +236,7 @@ public partial class ChatroomForm : Win95Theme
         // write to file
         string logpath = Application.StartupPath + @"\chatlogs";
         string privateLog = logpath + @"\" + pChat + ".txt";
-        File.AppendAllText(privateLog, AccountClass.tmpUsername + ": " + messageTextBox.Text + '\n');
+        File.AppendAllText(privateLog, Account.tmpUsername + ": " + messageTextBox.Text + '\n');
         messageTextBox.Clear();
     }
 

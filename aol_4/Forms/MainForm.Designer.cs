@@ -1959,7 +1959,6 @@
         private System.Windows.Forms.ToolStripLabel fileBtn;
         private System.Windows.Forms.ToolStripLabel editBtn;
         private System.Windows.Forms.ToolStripLabel windowBtn;
-        private System.Windows.Forms.ToolStripLabel signOffBtn;
         private System.Windows.Forms.ToolStripLabel helpBtn;
         private System.Windows.Forms.ContextMenuStrip fileContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem closeForm;
@@ -2108,7 +2107,6 @@
         private System.Windows.Forms.ToolStripMenuItem newsProfilesToolStripMenuItem;
         private System.Windows.Forms.Timer cursorTimer;
         public System.Windows.Forms.PictureBox read_mail_btn;
-        private System.Windows.Forms.Timer checkMail;
         private System.Windows.Forms.ContextMenuStrip myFavoritesContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem favoritePlacesMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator26;
@@ -2158,7 +2156,9 @@
         private System.Windows.Forms.ToolStripMenuItem aolHelpMenuItem;
         private System.Windows.Forms.Button findBtn;
         private System.Windows.Forms.PictureBox addrBarBG;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.Timer checkMail;
+        public System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.ToolStripLabel signOffBtn;
     }
 }
 

@@ -86,7 +86,7 @@ public partial class HomeMenuForm : Win95Theme
         }));
         titleLabel.Invoke(new MethodInvoker(delegate
         {
-            titleLabel.Text = "Welcome, " + AccountClass.tmpUsername;
+            titleLabel.Text = "Welcome, " + Account.tmpUsername;
         }));
         temperatureLabel.Invoke(new MethodInvoker(delegate
         {

@@ -42,7 +42,7 @@ class MailClass
 
             try
             {
-                client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+                client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
             }
             catch
             {
@@ -70,7 +70,7 @@ class MailClass
 
     public static void getEmail()
     {
-        if (AccountClass.tmpUsername == "Guest" || AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "Guest" || Account.tmpUsername == "")
             return;
 
         using (var client = new ImapClient())
@@ -89,7 +89,7 @@ class MailClass
 
             try
             {
-                client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+                client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
             }
             catch
             {
@@ -155,7 +155,7 @@ class MailClass
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             client.Connect(host, imapPort, true);
-            client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
 
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadWrite);
@@ -181,7 +181,7 @@ class MailClass
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             client.Connect(host, imapPort, true);
-            client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
 
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadWrite);
@@ -198,7 +198,7 @@ class MailClass
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             client.Connect(host, imapPort, true);
-            client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
 
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadWrite);
@@ -211,7 +211,7 @@ class MailClass
     public static void sendEmail(string toName, string toAddress, string subject, string body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(SqliteAccountsClass.getFullName(), AccountClass.tmpUsername +"@aolemu.com"));
+        message.From.Add(new MailboxAddress(SqliteAccountsClass.getFullName(), Account.tmpUsername +"@aolemu.com"));
         message.To.Add(new MailboxAddress(toName, toAddress));
         message.Subject = subject;
 
@@ -225,7 +225,7 @@ class MailClass
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             client.Connect(host, smtpPort, true);
-            client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
 
             client.Send(message);
             client.Disconnect(true);
@@ -237,7 +237,7 @@ class MailClass
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
             client.Connect(host, imapPort, true);
-            client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
 
             var folderSend = client.GetFolder(SpecialFolder.Sent);
             folderSend.Append(message, MessageFlags.Seen);
@@ -256,7 +256,7 @@ class MailClass
             reply = ""; // clear before we start
 
             client.Connect(host, imapPort, true);
-            client.Authenticate(AccountClass.tmpUsername + "@aolemu.com", AccountClass.tmpPassword);
+            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword);
 
             var inbox = client.Inbox;
             inbox.Open(FolderAccess.ReadOnly);

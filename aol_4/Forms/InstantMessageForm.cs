@@ -32,7 +32,7 @@ public partial class InstantMessageForm : Win95Theme
         string privateLog = logpath + @"\PM_" + user + ".txt";
         try
         {
-            File.AppendAllText(privateLog, AccountClass.tmpUsername + ": " + myMessageBox.Text + '\n');
+            File.AppendAllText(privateLog, Account.tmpUsername + ": " + myMessageBox.Text + '\n');
             sendMsgSound();
         }
         catch

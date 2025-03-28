@@ -9,15 +9,15 @@ namespace aol.Forms;
 public partial class accForm : Win95Theme
 {
     ConcurrentBag<string> theAccs = SqliteAccountsClass.listAccounts();
-    
+
     public accForm()
     {
         InitializeComponent();
     }
-    
+
     private void accForm_Load(object sender, EventArgs e)
     {
-        foreach(string entry in SqliteAccountsClass.listAccounts())
+        foreach (string entry in SqliteAccountsClass.listAccounts())
         {
             screenName.Items.Add(entry);
         }
@@ -43,9 +43,9 @@ public partial class accForm : Win95Theme
     private async void signOnBtn_Click(object sender, EventArgs e)
     {
         Cursor.Current = Cursors.WaitCursor;
-        AccountClass.tmpLocation = selectLocation.Text;
+        Account.tmpLocation = selectLocation.Text;
 
-        Properties.Settings.Default.connType = AccountClass.tmpLocation;
+        Properties.Settings.Default.connType = Account.tmpLocation;
         Properties.Settings.Default.Save();
 
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
@@ -57,7 +57,7 @@ public partial class accForm : Win95Theme
         }
         else if (screenName.Text == "Guest")
         {
-            AccountClass.tmpUsername = "Guest";
+            Account.tmpUsername = "Guest";
             Cursor.Current = Cursors.Default;
             Close();
         }
@@ -123,5 +123,14 @@ public partial class accForm : Win95Theme
             }
             theAccs = accsCheck; // update to stop refresh
         }
+    }
+
+    private void accForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        // start fake dial up/log in
+        DialUpForm du = new DialUpForm();
+        du.Owner = (Form)this.MdiParent;
+        du.MdiParent = this.MdiParent;
+        du.Show();
     }
 }

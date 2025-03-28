@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ public partial class DialUpForm : Form
         InitializeComponent();
         TopLevel = true;
         Focus();
-        if (AccountClass.tmpLocation == "Dial-Up")
+        if (Account.tmpLocation == "Dial-Up")
             verbage = "Dial-Up";
     }
 
@@ -62,7 +63,7 @@ public partial class DialUpForm : Form
             case 1: // pretend to connect to server
                 pictureBox1.Visible = Visible;
                 statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
-                if (AccountClass.tmpLocation == "Dial-Up")
+                if (Account.tmpLocation == "Dial-Up")
                     await dialUp();
                 break;
             case 2: // pretend to check password
@@ -83,5 +84,39 @@ public partial class DialUpForm : Form
                 break;
         }
         i++;
+    }
+
+    private async void DialUpForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        var mainForm = (MainForm)this.MdiParent;
+
+        HomeMenuForm hm = new HomeMenuForm()
+        {
+            Owner = mainForm,
+            MdiParent = mainForm
+        };
+        hm.Show();
+
+        if (Account.tmpUsername != "Guest")
+        {
+            mainForm.checkMail.Enabled = true;
+            mainForm.checkMail.Start();
+
+            BuddyListForm bo = new BuddyListForm()
+            {
+                Owner = mainForm,
+                MdiParent = mainForm
+            };
+            bo.Show();
+
+            mainForm.reloadAddressBarHistory();
+        }
+
+        if (!mainForm.backgroundWorker1.IsBusy)
+            mainForm.backgroundWorker1.RunWorkerAsync();
+
+        mainForm.signOffBtn.Text = "Sign Off";
+
+        mainForm.startProgram();
     }
 }

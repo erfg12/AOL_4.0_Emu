@@ -57,7 +57,7 @@ class SqliteAccountsClass
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
         long timeStamp = DateTime.Now.ToFileTime();
-        string sql = "INSERT INTO history (userid, url, date) VALUES ('" + AccountClass.accountInfo.account.id + "', '" + url + "', '" + timeStamp + "')";
+        string sql = "INSERT INTO history (userid, url, date) VALUES ('" + Account.accountInfo.account.id + "', '" + url + "', '" + timeStamp + "')";
 
         try
         {
@@ -81,7 +81,7 @@ class SqliteAccountsClass
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
 
-        string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + AccountClass.accountInfo.account.id + "', '" + url + "', @URLname)";
+        string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + Account.accountInfo.account.id + "', '" + url + "', @URLname)";
 
         try
         {
@@ -121,11 +121,11 @@ class SqliteAccountsClass
         {
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
             //Debug.WriteLine("getting email info with id:" + userID);
-            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + AccountClass.accountInfo.account.id + "' AND url = '" + url + "'";
+            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "' AND url = '" + url + "'";
             int count = Convert.ToInt32(command.ExecuteScalar());
             if (count > 0)
             {
-                command.CommandText = "DELETE FROM favorites WHERE userid = '" + AccountClass.accountInfo.account.id + "' AND url = '" + url + "'";
+                command.CommandText = "DELETE FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "' AND url = '" + url + "'";
                 SqliteDataReader reader = command.ExecuteReader();
             }
         }
@@ -179,11 +179,11 @@ class SqliteAccountsClass
         try
         {
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
-            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + AccountClass.accountInfo.account.id + "'";
+            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "'";
             int count = Convert.ToInt32(command.ExecuteScalar());
             if (count > 0)
             {
-                command.CommandText = "SELECT * FROM favorites WHERE userid = '" + AccountClass.accountInfo.account.id + "'";
+                command.CommandText = "SELECT * FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "'";
 
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -210,10 +210,10 @@ class SqliteAccountsClass
     /// Get history to add to address bar drop down list
     /// </summary>
     /// <returns></returns>
-    public static async Task<List<string>> getHistory()
+    public static List<string> getHistory()
     {
         //var accInfo = await RestAPI.getAccInfo();
-        if (AccountClass.accountInfo != null)
+        if (Account.accountInfo != null)
             return new List<string> { null }; // error, account not found. Prevent crash.
 
         List<string> history = new List<string>();
@@ -222,7 +222,7 @@ class SqliteAccountsClass
 
         try
         {
-            int userID = AccountClass.accountInfo.account.id;
+            int userID = Account.accountInfo.account.id;
 
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
             //Debug.WriteLine("getting email info with id:" + userID);
@@ -260,7 +260,7 @@ class SqliteAccountsClass
     public static async Task<int> deleteHistory(string url)
     {
         int code = 0;
-        int userID = AccountClass.accountInfo.account.id;
+        int userID = Account.accountInfo.account.id;
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
 
@@ -326,7 +326,7 @@ class SqliteAccountsClass
     public static async Task<int> findHisory(string url)
     {
         int foundHistory = 0;
-        int userID = AccountClass.accountInfo.account.id;
+        int userID = Account.accountInfo.account.id;
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
 
@@ -369,7 +369,7 @@ class SqliteAccountsClass
     public static async Task<bool> addBuddy(int buddyId, string user)
     {
         bool good = false;
-        int userID = AccountClass.accountInfo.account.id;
+        int userID = Account.accountInfo.account.id;
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
 
@@ -412,7 +412,7 @@ class SqliteAccountsClass
     public static List<userAPI.Buddies> getBuddyList(string user = "", string pass = "")
     {
         //var accInfo = await RestAPI.getAccInfo();
-        int userID = AccountClass.accountInfo.account.id;
+        int userID = Account.accountInfo.account.id;
         List<userAPI.Buddies> buddies = new();
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
@@ -497,7 +497,7 @@ class SqliteAccountsClass
     public static async Task<int> emailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
     {
         int code = 0;
-        int userID = AccountClass.accountInfo.account.id;
+        int userID = Account.accountInfo.account.id;
         Debug.WriteLine("userID:" + userID);
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
@@ -537,7 +537,7 @@ class SqliteAccountsClass
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
 
-        string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + AccountClass.tmpUsername + "'";
+        string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + Account.tmpUsername + "'";
         SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
         SqliteDataReader reader = command.ExecuteReader();
         while (reader.Read())
@@ -553,7 +553,7 @@ class SqliteAccountsClass
     {
         SqliteConnection m_dbConnection = openDB();
         m_dbConnection.Open();
-        string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + AccountClass.tmpUsername + "'";
+        string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + Account.tmpUsername + "'";
 
         try
         {

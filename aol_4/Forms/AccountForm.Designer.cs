@@ -67,7 +67,7 @@
             screenName.FormattingEnabled = true;
             screenName.Items.AddRange(new object[] { "New User", "Existing Member", "Guest" });
             screenName.Location = new System.Drawing.Point(169, 154);
-            screenName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            screenName.Margin = new System.Windows.Forms.Padding(4);
             screenName.Name = "screenName";
             screenName.Size = new System.Drawing.Size(215, 23);
             screenName.TabIndex = 0;
@@ -90,7 +90,7 @@
             selectLocation.FormattingEnabled = true;
             selectLocation.Items.AddRange(new object[] { "ISP/LAN Connection", "Dial-Up" });
             selectLocation.Location = new System.Drawing.Point(169, 271);
-            selectLocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            selectLocation.Margin = new System.Windows.Forms.Padding(4);
             selectLocation.Name = "selectLocation";
             selectLocation.Size = new System.Drawing.Size(215, 23);
             selectLocation.TabIndex = 2;
@@ -103,7 +103,7 @@
             signOnBtn.Font = new System.Drawing.Font("Arial", 8.25F);
             signOnBtn.ForeColor = System.Drawing.SystemColors.Control;
             signOnBtn.Location = new System.Drawing.Point(339, 316);
-            signOnBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            signOnBtn.Margin = new System.Windows.Forms.Padding(4);
             signOnBtn.Name = "signOnBtn";
             signOnBtn.Size = new System.Drawing.Size(77, 26);
             signOnBtn.TabIndex = 5;
@@ -119,7 +119,7 @@
             helpBtn.Font = new System.Drawing.Font("Arial", 8.25F);
             helpBtn.ForeColor = System.Drawing.SystemColors.Control;
             helpBtn.Location = new System.Drawing.Point(237, 316);
-            helpBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            helpBtn.Margin = new System.Windows.Forms.Padding(4);
             helpBtn.Name = "helpBtn";
             helpBtn.Size = new System.Drawing.Size(77, 26);
             helpBtn.TabIndex = 4;
@@ -134,7 +134,7 @@
             setupBtn.Font = new System.Drawing.Font("Arial", 8.25F);
             setupBtn.ForeColor = System.Drawing.SystemColors.Control;
             setupBtn.Location = new System.Drawing.Point(133, 316);
-            setupBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            setupBtn.Margin = new System.Windows.Forms.Padding(4);
             setupBtn.Name = "setupBtn";
             setupBtn.Size = new System.Drawing.Size(77, 26);
             setupBtn.TabIndex = 3;
@@ -145,7 +145,7 @@
             // passBox
             // 
             passBox.Location = new System.Drawing.Point(169, 211);
-            passBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            passBox.Margin = new System.Windows.Forms.Padding(4);
             passBox.Name = "passBox";
             passBox.PasswordChar = '*';
             passBox.Size = new System.Drawing.Size(215, 23);
@@ -174,7 +174,7 @@
             leftBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             leftBanner.Image = (System.Drawing.Image)resources.GetObject("leftBanner.Image");
             leftBanner.Location = new System.Drawing.Point(1, 22);
-            leftBanner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            leftBanner.Margin = new System.Windows.Forms.Padding(4);
             leftBanner.Name = "leftBanner";
             leftBanner.Size = new System.Drawing.Size(123, 348);
             leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -191,7 +191,7 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(closeBtn);
             panel1.Location = new System.Drawing.Point(1, 1);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(443, 21);
             panel1.TabIndex = 4;
@@ -217,7 +217,7 @@
             pictureBox1.Image = Properties.Resources.aol_icon_4;
             pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
             pictureBox1.Location = new System.Drawing.Point(4, -1);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(21, 21);
             pictureBox1.TabIndex = 9;
@@ -259,11 +259,12 @@
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Location = new System.Drawing.Point(375, 250);
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Margin = new System.Windows.Forms.Padding(4);
             Name = "accForm";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "accForm";
+            FormClosing += accForm_FormClosing;
             Load += accForm_Load;
             Shown += accForm_Shown;
             ((System.ComponentModel.ISupportInitialize)leftBanner).EndInit();

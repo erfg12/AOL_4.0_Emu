@@ -92,9 +92,9 @@ class RestAPIClass
             MessageBox.Show("Account either doesn't exist, or incorrect password.");
         } else
         {
-            AccountClass.tmpUsername = user;
-            AccountClass.tmpPassword = encPass;
-            AccountClass.accountInfo = data.ToObject<userAPI>(); // store account info in accForm for later use
+            Account.tmpUsername = user;
+            Account.tmpPassword = encPass;
+            Account.accountInfo = data.ToObject<userAPI>(); // store account info in accForm for later use
             return true;
         }
         return false;
@@ -110,9 +110,9 @@ class RestAPIClass
     public static async Task<userAPI> getAccInfo(string user = "", string pass = "")
     {
         if (user == "")
-            user = AccountClass.tmpUsername;
+            user = Account.tmpUsername;
         if (pass == "")
-            pass = AccountClass.tmpPassword;
+            pass = Account.tmpPassword;
         else
             pass = CreateMD5(pass);
 
@@ -139,9 +139,9 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> updateFullName(string newfn)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return false;
-        var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(AccountClass.tmpUsername) + "&pass=" + WebUtility.UrlEncode(AccountClass.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
+        var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
             SqliteAccountsClass.updateFullName(newfn);
@@ -157,10 +157,10 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> updatePassword(string newpw)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return false;
         newpw = Encoding.Default.GetString(SqliteAccountsClass.Hash(newpw, SqliteAccountsClass.passSalt));
-        var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(AccountClass.tmpUsername) + "&pass=" + WebUtility.UrlEncode(AccountClass.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
+        var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
             // needs SQLite cmd
@@ -176,10 +176,10 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> addBuddy(string username)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return false;
 
-        var data = await getData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(AccountClass.tmpUsername) + "&pass=" + WebUtility.UrlEncode(AccountClass.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
+        var data = await getData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
         var buddyData = data.ToObject<userAPI.Buddies>();
         if (buddyData.id != null) // message = error msg
         {
@@ -197,9 +197,9 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> removeBuddy(string buddyid)
     {
-        if (AccountClass.tmpUsername == "")
+        if (Account.tmpUsername == "")
             return false;
-        var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(AccountClass.tmpUsername) + "&pass=" + WebUtility.UrlEncode(AccountClass.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid));
+        var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid));
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {

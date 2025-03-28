@@ -214,8 +214,8 @@ namespace aol.Forms
             LocationClass.PositionWindow(this, 0, 55);
             Thread thread = new Thread(new ThreadStart(GetEmail));
             thread.Start();
-            Text = AccountClass.tmpUsername + "'s Online Mailbox";
-            mainTitle.Text = AccountClass.tmpUsername + "'s Online Mailbox";
+            Text = Account.tmpUsername + "'s Online Mailbox";
+            mainTitle.Text = Account.tmpUsername + "'s Online Mailbox";
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
