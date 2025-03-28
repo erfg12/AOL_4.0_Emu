@@ -86,7 +86,7 @@ public partial class DialUpForm : Form
         i++;
     }
 
-    private async void DialUpForm_FormClosing(object sender, FormClosingEventArgs e)
+    private void DialUpForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         var mainForm = (MainForm)this.MdiParent;
 
@@ -112,8 +112,7 @@ public partial class DialUpForm : Form
             mainForm.reloadAddressBarHistory();
         }
 
-        if (!mainForm.backgroundWorker1.IsBusy)
-            mainForm.backgroundWorker1.RunWorkerAsync();
+        mainForm.reloadAddressBarHistory();
 
         mainForm.signOffBtn.Text = "Sign Off";
 

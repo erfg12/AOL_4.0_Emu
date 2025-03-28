@@ -16,7 +16,7 @@ public partial class ChatroomForm : Win95Theme
     string pChat = "";
     int pplCount = 0;
     FileSystemWatcher watch = null;
-    List<Rectangle> rects = new List<Rectangle>();
+    List<Rectangle> rects = new();
     bool formClosing = false;
 
     public ChatroomForm(string channel)
@@ -126,7 +126,7 @@ public partial class ChatroomForm : Win95Theme
         // keep users list up to date
         while (true)
         {
-            if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
+            if (!Account.SignedIn())
                 continue;
 
             if (!IsHandleCreated)

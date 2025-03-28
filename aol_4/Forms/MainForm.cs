@@ -20,8 +20,7 @@ public partial class MainForm : Win95Theme
 {
     bool newWindow = true;
     string old_url = "";
-    public List<string> tmpHistory = new List<string>();
-    bool formClosing = false;
+    public List<string> tmpHistory = new();
     int topMenuPadding = 42;
 
     public static int GetSoundLength(string fileName)
@@ -50,11 +49,13 @@ public partial class MainForm : Win95Theme
         BrowseWnd.Show();
     }
 
-    private async Task openAccWindow()
+    private void openAccWindow()
     {
-        accForm acf = new accForm();
-        acf.Owner = (Form)this;
-        acf.MdiParent = this;
+        accForm acf = new accForm()
+        {
+            Owner = (Form)this,
+            MdiParent = this
+        };
         acf.Show();
     }
 
@@ -145,36 +146,28 @@ public partial class MainForm : Win95Theme
         if (addrBox.Text == "Type Keyword or Web Address here and click Go")
             addrBox.Text = ""; // clear it
 
-        //try
-        //{
-            if (!newWindow)
-            {
-                if (ActiveMdiChild is BrowserForm)
-                    ((BrowserForm)ActiveMdiChild).goToUrl(addrBox.Text);
-                else // we don't have a browser window selected, open a new one anyways
-                {
-                    openBrowser(addrBox.Text);
-                    newWindow = false;
-                }
-            }
-            else
+        if (!newWindow)
+        {
+            if (ActiveMdiChild is BrowserForm)
+                ((BrowserForm)ActiveMdiChild).goToUrl(addrBox.Text);
+            else // we don't have a browser window selected, open a new one anyways
             {
                 openBrowser(addrBox.Text);
-                if (Account.tmpUsername != "Guest" && addrBox.Text.Contains("."))
-                    SqliteAccountsClass.addHistory(addrBox.Text);
-                if (!addrBox.Items.Contains(addrBox.Text))
-                {
-                    addrBox.Items.Add(addrBox.Text);
-                    tmpHistory.Add(addrBox.Text);
-                }
                 newWindow = false;
             }
-        //}
-        //catch
-        //{
-            //if (MessageBox.Show("GoToURL() function crashed!" + Environment.NewLine + "Please install VC++ 2015 Redistributable!" + Environment.NewLine + "Would you like to go to https://www.microsoft.com/en-us/download/details.aspx?id=52685 ?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
-            //    Process.Start("https://support.google.com/accounts/answer/185833");
-        //}
+        }
+        else
+        {
+            openBrowser(addrBox.Text);
+            if (Account.tmpUsername != "Guest" && addrBox.Text.Contains("."))
+                SqliteAccountsClass.addHistory(addrBox.Text);
+            if (!addrBox.Items.Contains(addrBox.Text))
+            {
+                addrBox.Items.Add(addrBox.Text);
+                tmpHistory.Add(addrBox.Text);
+            }
+            newWindow = false;
+        }
     }
 
     public void openBrowser(string url = "")
@@ -194,7 +187,7 @@ public partial class MainForm : Win95Theme
         ConfigurationManager.AppSettings.Set("APIKey", "d8f6deea88bb177513cc8a14cf629020"); // for WeatherNet
     }
 
-    private void Form1_Load(object sender, EventArgs e)
+    private void MainForm_Load(object sender, EventArgs e)
     {
 
     }
@@ -223,7 +216,7 @@ public partial class MainForm : Win95Theme
         WindowState = FormWindowState.Minimized;
     }
 
-    private async void Form1_Shown(object sender, EventArgs e)
+    private void MainForm_Shown(object sender, EventArgs e)
     {
         Debug.WriteLine("ClientSize Width:" + ClientSize.Width);
         Debug.WriteLine("ClientSize Height:" + ClientSize.Height);
@@ -251,7 +244,7 @@ public partial class MainForm : Win95Theme
         toolTip1.SetToolTip(favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
         // open account form window
-        await openAccWindow();
+        openAccWindow();
     }
 
     private void fileBtn_Click(object sender, EventArgs e)
@@ -264,7 +257,7 @@ public partial class MainForm : Win95Theme
         Close();
     }
 
-    private void Form1_MdiChildActivate(object sender, EventArgs e)
+    private void MainForm_MdiChildActivate(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
         {
@@ -275,7 +268,7 @@ public partial class MainForm : Win95Theme
             backBtn.Image = Properties.Resources.back_btn_enabled;
         }
     }
-    
+
     private void getMdiChildURL_Tick(object sender, EventArgs e)
     {
         try
@@ -309,7 +302,8 @@ public partial class MainForm : Win95Theme
                     loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
                 loadingIcon.Image = loadingIcon.Image;
             }
-        } catch
+        }
+        catch
         {
             MessageBox.Show("getMdiChildURL_Tick() function crashed!");
         }
@@ -317,7 +311,7 @@ public partial class MainForm : Win95Theme
 
     private void addrBox_KeyDown_1(object sender, KeyEventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         if (addrBox.Text.Length <= 3)
@@ -333,7 +327,7 @@ public partial class MainForm : Win95Theme
 
     private void goBtn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         GoToURL();
@@ -354,7 +348,7 @@ public partial class MainForm : Win95Theme
 
     private void addrBox_KeyUp_1(object sender, KeyEventArgs e)
     {
-        
+
     }
 
     private void backBtn_Click_1(object sender, EventArgs e)
@@ -406,16 +400,15 @@ public partial class MainForm : Win95Theme
             addrBox.Text = "";
     }
 
-    private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        formClosing = true;
         SignOff();
     }
 
     // channels button
     private void pictureBox10_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         if (!channelsContextMenuStrip.Visible)
@@ -459,7 +452,7 @@ public partial class MainForm : Win95Theme
     {
         helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + topMenuPadding);
     }
-    
+
     private void mail_center_btn_Click(object sender, EventArgs e)
     {
         if (!mailCenterContextMenuStrip.Visible)
@@ -470,7 +463,7 @@ public partial class MainForm : Win95Theme
             mailCenterContextMenuStrip.Show(ptLowerLeft);
         }
     }
-    
+
     private void my_files_btn_Click(object sender, EventArgs e)
     {
         if (!myFilesContextMenuStrip.Visible)
@@ -482,12 +475,12 @@ public partial class MainForm : Win95Theme
         }
     }
 
-    private void Form1_SizeChanged(object sender, EventArgs e)
+    private void MainForm_SizeChanged(object sender, EventArgs e)
     {
         // doesnt trigger
     }
 
-    private void Form1_MouseMove(object sender, MouseEventArgs e)
+    private void MainForm_MouseMove(object sender, MouseEventArgs e)
     {
         // doesnt trigger
     }
@@ -510,11 +503,11 @@ public partial class MainForm : Win95Theme
 
     private void SignOff()
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         DisposeAllButThis();
-        
+
         Account.tmpUsername = "";
         Account.tmpPassword = "";
         Account.tmpLocation = "";
@@ -542,18 +535,18 @@ public partial class MainForm : Win95Theme
         signOffBtn.Text = "Sign On";
     }
 
-    private async void signOffBtn_Click(object sender, EventArgs e)
+    private void signOffBtn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "") // not signed in yet
-            return;
-
-        SignOff();
-        await openAccWindow();
+        if (Account.SignedIn())
+        {
+            SignOff();
+            openAccWindow();
+        }
     }
 
     private void readMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
+        if (!Account.SignedIn())
             return;
 
         MailboxForm mb = new MailboxForm();
@@ -564,48 +557,46 @@ public partial class MainForm : Win95Theme
 
     private void read_mail_btn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-        MailboxForm mb = new MailboxForm();
-        mb.Owner = (Form)this;
-        mb.MdiParent = this;
-        mb.Show();
+        if (Account.SignedIn())
+        {
+            MailboxForm mb = new MailboxForm();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
     }
 
     private void write_mail_button_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-
-
-        MailWriteForm wmf = new MailWriteForm();
-        wmf.Owner = (Form)this;
-        wmf.MdiParent = this;
-        wmf.Show();
+        if (Account.SignedIn())
+        {
+            MailWriteForm wmf = new MailWriteForm();
+            wmf.Owner = (Form)this;
+            wmf.MdiParent = this;
+            wmf.Show();
+        }
     }
 
     private void mailCenterToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-        MailboxForm mb = new MailboxForm();
-        mb.Owner = (Form)this;
-        mb.MdiParent = this;
-        mb.Show();
+        if (Account.SignedIn())
+        {
+            MailboxForm mb = new MailboxForm();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
     }
 
     private void writeMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-        MailWriteForm wmf = new MailWriteForm();
-        wmf.Owner = (Form)this;
-        wmf.MdiParent = this;
-        wmf.Show();
+        if (Account.SignedIn())
+        {
+            MailWriteForm wmf = new MailWriteForm();
+            wmf.Owner = (Form)this;
+            wmf.MdiParent = this;
+            wmf.Show();
+        }
     }
 
     private void Favorites_btn_Click(object sender, EventArgs e)
@@ -621,7 +612,7 @@ public partial class MainForm : Win95Theme
 
     private void Internet_btn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         if (!internetMenuStrip.Visible)
@@ -635,7 +626,7 @@ public partial class MainForm : Win95Theme
 
     private void People_btn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         if (!peopleMenuStrip.Visible)
@@ -649,7 +640,7 @@ public partial class MainForm : Win95Theme
 
     private void FindBtn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         if (!findMenuStrip.Visible)
@@ -663,7 +654,7 @@ public partial class MainForm : Win95Theme
 
     private void KeywordBtn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         KeywordForm kw = new KeywordForm();
@@ -674,19 +665,19 @@ public partial class MainForm : Win95Theme
 
     private void Quotes_btn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
     }
 
     private void Perks_btn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
     }
 
     private void Weather_btn_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         WeatherForm w = new WeatherForm();
@@ -713,25 +704,6 @@ public partial class MainForm : Win95Theme
             MessageBox.Show("Sorry, you can only print mail or web pages.");
     }
 
-    private async void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-    {
-        while (true)
-        {
-            if (formClosing)
-                break;
-            // check for new history items
-            List<string> tmpList = new List<string>();
-            tmpList.AddRange(tmpHistory);
-
-            foreach (string t in tmpList)
-            {
-                if (!SqliteAccountsClass.getHistory().Contains(t))
-                    reloadAddressBarHistory();
-            }
-            Thread.Sleep(1000);
-        }
-    }
-
     private void GoToKeywordMenuItem_Click(object sender, EventArgs e)
     {
         keywordBtn.PerformClick();
@@ -739,13 +711,13 @@ public partial class MainForm : Win95Theme
 
     private void FavoritePlacesMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-        FavoritePlacesForm fp = new FavoritePlacesForm();
-        fp.Owner = (Form)this;
-        fp.MdiParent = this;
-        fp.Show();
+        if (Account.SignedIn())
+        {
+            FavoritePlacesForm fp = new FavoritePlacesForm();
+            fp.Owner = (Form)this;
+            fp.MdiParent = this;
+            fp.Show();
+        }
     }
 
     private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -763,7 +735,7 @@ public partial class MainForm : Win95Theme
 
     private void searchTheWebMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         GoToURL();
@@ -771,7 +743,7 @@ public partial class MainForm : Win95Theme
 
     private void findonTheWebMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         GoToURL();
@@ -779,42 +751,44 @@ public partial class MainForm : Win95Theme
 
     private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-        MailboxForm mb = new MailboxForm();
-        mb.Owner = (Form)this;
-        mb.MdiParent = this;
-        mb.Show();
+        if (Account.SignedIn())
+        {
+            MailboxForm mb = new MailboxForm();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
     }
 
     private void sentMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
-            return;
-
-        MailboxForm mb = new MailboxForm();
-        mb.Owner = (Form)this;
-        mb.MdiParent = this;
-        mb.Show();
+        if (Account.SignedIn())
+        {
+            MailboxForm mb = new MailboxForm();
+            mb.Owner = (Form)this;
+            mb.MdiParent = this;
+            mb.Show();
+        }
     }
 
     private void checkMail_Tick(object sender, EventArgs e)
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest") // prevent crash on sign off
-            return;
-
-        if (!MailClass.youGotMail)
-            read_mail_btn.Image = Properties.Resources.nomail_icon;
-        Thread thread = new Thread(new ThreadStart(CheckEmail));
-        thread.Start();
+        if (Account.SignedIn())
+        {
+            if (!MailClass.youGotMail)
+                read_mail_btn.Image = Properties.Resources.nomail_icon;
+            Thread thread = new Thread(new ThreadStart(CheckEmail));
+            thread.Start();
+        }
     }
 
     private void mailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        SettingsForm sf = new SettingsForm();
-        sf.Owner = (Form)this;
-        sf.MdiParent = this;
+        SettingsForm sf = new SettingsForm()
+        {
+            Owner = (Form)this,
+            MdiParent = this
+        };
         sf.Show();
     }
 
@@ -861,7 +835,7 @@ public partial class MainForm : Win95Theme
             Height = Cursor.Position.Y - Location.Y;
         }
     }
-    
+
     private void my_aol_btn_Click(object sender, EventArgs e)
     {
         if (!myAOLContextMenuStrip.Visible)

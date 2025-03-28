@@ -23,7 +23,7 @@ class RestAPIClass
         catch
         {
             MessageBox.Show("Error connecting to aolemu.com");
-            return JObject.Parse("{\"content\": [{ \"msg\": \"ERROR\" }]}");
+            return JObject.Parse("{\"message\": \"Error connecting to aolemu.com\" }");
         }
         return JObject.Parse(await response.Content.ReadAsStringAsync());
     }
@@ -139,8 +139,9 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> updateFullName(string newfn)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return false;
+
         var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
@@ -157,7 +158,7 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> updatePassword(string newpw)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return false;
         newpw = Encoding.Default.GetString(SqliteAccountsClass.Hash(newpw, SqliteAccountsClass.passSalt));
         var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
@@ -176,7 +177,7 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> addBuddy(string username)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return false;
 
         var data = await getData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
@@ -197,8 +198,9 @@ class RestAPIClass
     /// <returns></returns>
     public static async Task<bool> removeBuddy(string buddyid)
     {
-        if (Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return false;
+
         var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid));
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))

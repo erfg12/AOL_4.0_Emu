@@ -233,7 +233,6 @@
             iNetWhitePagesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             aolAccessNumsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             aolHelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             TopPanel = new System.Windows.Forms.Panel();
             mainTitle = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -1760,12 +1759,6 @@
             aolHelpMenuItem.Size = new System.Drawing.Size(188, 22);
             aolHelpMenuItem.Text = "AOL Help";
             // 
-            // backgroundWorker1
-            // 
-            backgroundWorker1.WorkerReportsProgress = true;
-            backgroundWorker1.WorkerSupportsCancellation = true;
-            backgroundWorker1.DoWork += BackgroundWorker1_DoWork;
-            // 
             // TopPanel
             // 
             TopPanel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
@@ -1895,12 +1888,12 @@
             MinimumSize = new System.Drawing.Size(934, 618);
             Name = "MainForm";
             Text = "America Online";
-            FormClosing += Form1_FormClosing;
-            Load += Form1_Load;
-            MdiChildActivate += Form1_MdiChildActivate;
-            Shown += Form1_Shown;
-            SizeChanged += Form1_SizeChanged;
-            MouseMove += Form1_MouseMove;
+            FormClosing += MainForm_FormClosing;
+            Load += MainForm_Load;
+            MdiChildActivate += MainForm_MdiChildActivate;
+            Shown += MainForm_Shown;
+            SizeChanged += MainForm_SizeChanged;
+            MouseMove += MainForm_MouseMove;
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)mie_badge).EndInit();
             ((System.ComponentModel.ISupportInitialize)homeBtn).EndInit();
@@ -2157,7 +2150,6 @@
         private System.Windows.Forms.Button findBtn;
         private System.Windows.Forms.PictureBox addrBarBG;
         public System.Windows.Forms.Timer checkMail;
-        public System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.ToolStripLabel signOffBtn;
     }
 }
