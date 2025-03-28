@@ -5,7 +5,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class ChatroomListForm : Win95Theme
@@ -66,7 +66,7 @@ public partial class ChatroomListForm : Win95Theme
 
     private void chanListView_DoubleClick(object sender, EventArgs e)
     {
-        if (!ChatClass.irc.IsClientRunning())
+        if (!ChatService.irc.IsClientRunning())
         {
             MessageBox.Show("ERROR: IRC client not running.");
             return;
@@ -80,7 +80,7 @@ public partial class ChatroomListForm : Win95Theme
 
     private void chat_list_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this, 0, 50);
+        LocationService.PositionWindow(this, 0, 50);
     }
 
     private void catListView_SelectedIndexChanged(object sender, EventArgs e)

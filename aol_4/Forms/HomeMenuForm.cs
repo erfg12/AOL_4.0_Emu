@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -90,13 +90,13 @@ public partial class HomeMenuForm : Win95Theme
         }));
         temperatureLabel.Invoke(new MethodInvoker(delegate
         {
-            temperatureLabel.Text = LocationClass.getCurrentWeather();
+            temperatureLabel.Text = LocationService.getCurrentWeather();
         }));
     }
 
     private void home_menu_ShownAsync(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
 
         Thread thr = new Thread(StartForm);
         thr.Start();

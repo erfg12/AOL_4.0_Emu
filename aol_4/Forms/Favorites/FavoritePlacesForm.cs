@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class FavoritePlacesForm : Win95Theme
@@ -65,7 +65,7 @@ public partial class FavoritePlacesForm : Win95Theme
         if (fpTreeView.SelectedNode.Tag == null)
             return;
 
-        SqliteAccountsClass.deleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
+        SqliteAccountsService.deleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
         fpTreeView.SelectedNode.Remove();
     }
 
@@ -89,7 +89,7 @@ public partial class FavoritePlacesForm : Win95Theme
         while (true)
         {
             // check for new favorite items
-            foreach (KeyValuePair<string, string> t in await SqliteAccountsClass.getFavoritesList())
+            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.getFavoritesList())
             {
                 if (!fpTreeView.Nodes[0].Nodes.ContainsKey(t.Key))
                     reloadFavorites();
@@ -104,7 +104,7 @@ public partial class FavoritePlacesForm : Win95Theme
         {
             fpTreeView.Nodes[0].Nodes.Clear();
 
-            foreach (KeyValuePair<string, string> t in await SqliteAccountsClass.getFavoritesList())
+            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.getFavoritesList())
             {
                 TreeNode ntn = new TreeNode();
                 ntn.Text = t.Value;

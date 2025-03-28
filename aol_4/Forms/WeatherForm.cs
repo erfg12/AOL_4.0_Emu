@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -24,7 +24,7 @@ public partial class WeatherForm : Win95Theme
     private void Weather_Shown(object sender, EventArgs e)
     {
         List<string> tmpCityState = new List<string>();
-        tmpCityState = LocationClass.getCityState();
+        tmpCityState = LocationService.getCityState();
         cityStateLabel.Text = tmpCityState[0] + ", " + tmpCityState[1];
         //location.getForecastWeather(); // test
     }

@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,8 +20,8 @@ namespace aol.Forms
 
         private void GetEmail()
         {
-            MailClass.getEmail();
-            foreach (KeyValuePair<string, string> entry in MailClass.emailsNew)
+            MailService.getEmail();
+            foreach (KeyValuePair<string, string> entry in MailService.emailsNew)
             {
                 ListViewItem lIt = new ListViewItem();
                 lIt.Tag = entry.Key;
@@ -35,7 +35,7 @@ namespace aol.Forms
                     Debug.WriteLine("Prevented a crash from closing mailbox before we could load the items in.");
                 }
             }
-            foreach (KeyValuePair<string, string> entry in MailClass.emailsOld)
+            foreach (KeyValuePair<string, string> entry in MailService.emailsOld)
             {
                 ListViewItem lIt = new ListViewItem();
                 lIt.Tag = entry.Key;
@@ -49,7 +49,7 @@ namespace aol.Forms
 
                 }
             }
-            foreach (KeyValuePair<string, string> entry in MailClass.emailsSent)
+            foreach (KeyValuePair<string, string> entry in MailService.emailsSent)
             {
                 ListViewItem lIt = new ListViewItem();
                 lIt.Tag = entry.Key;
@@ -67,14 +67,14 @@ namespace aol.Forms
             if (newListView.SelectedItems.Count <= 0)
                 return;
 
-            MailClass.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
+            MailService.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
             lIt.Text = newListView.SelectedItems[0].Text;
             oldListView.Items.Add(lIt);
             newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
             if (newListView.Items.Count == 0)
-                MailClass.youGotMail = false;
+                MailService.youGotMail = false;
         }
 
         private void openReadEmail(string subject, string emailID)
@@ -129,11 +129,11 @@ namespace aol.Forms
                     return;
                 }
 
-                MailClass.deleteEmail(newListView.SelectedItems[0].Tag.ToString());
+                MailService.deleteEmail(newListView.SelectedItems[0].Tag.ToString());
                 newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
-                Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + MailClass.youGotMail);
+                Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + MailService.youGotMail);
                 if (newListView.Items.Count == 0)
-                    MailClass.youGotMail = false;
+                    MailService.youGotMail = false;
             }
             else if (oldListView.Visible)
             {
@@ -143,7 +143,7 @@ namespace aol.Forms
                     return;
                 }
 
-                MailClass.deleteEmail(oldListView.SelectedItems[0].Tag.ToString());
+                MailService.deleteEmail(oldListView.SelectedItems[0].Tag.ToString());
                 oldListView.Items.RemoveAt(oldListView.SelectedItems[0].Index);
             }
             else if (sentListView.Visible)
@@ -154,7 +154,7 @@ namespace aol.Forms
                     return;
                 }
 
-                MailClass.deleteEmail(sentListView.SelectedItems[0].Tag.ToString());
+                MailService.deleteEmail(sentListView.SelectedItems[0].Tag.ToString());
                 sentListView.Items.RemoveAt(sentListView.SelectedItems[0].Index);
             }
             MessageBox.Show("Email has been deleted.");
@@ -170,7 +170,7 @@ namespace aol.Forms
 
             if (oldListView.Visible) // only works on old emails
             {
-                MailClass.markAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
+                MailService.markAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
                 ListViewItem lIt = new ListViewItem();
                 lIt.Tag = oldListView.SelectedItems[0].Tag.ToString();
                 lIt.Text = oldListView.SelectedItems[0].Text;
@@ -211,7 +211,7 @@ namespace aol.Forms
 
         private void mailbox_Shown(object sender, EventArgs e)
         {
-            LocationClass.PositionWindow(this, 0, 55);
+            LocationService.PositionWindow(this, 0, 55);
             Thread thread = new Thread(new ThreadStart(GetEmail));
             thread.Start();
             Text = Account.tmpUsername + "'s Online Mailbox";

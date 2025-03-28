@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class ChannelViewForm : Win95Theme
@@ -55,7 +55,7 @@ public partial class ChannelViewForm : Win95Theme
 
     private void Form1_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
         ToolTip toolTip1 = new ToolTip();
         toolTip1.SetToolTip(this.closeBtn, "Close Window");
         toolTip1.SetToolTip(this.maxBtn, "Maximize Window");

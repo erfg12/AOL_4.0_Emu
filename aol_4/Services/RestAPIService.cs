@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 
-namespace aol.Classes;
-class RestAPIClass
+namespace aol.Services;
+class RestAPIService
 {
     private static async Task<JObject> getData(string request, HttpMethod method, string queryParams)
     {
@@ -62,7 +62,7 @@ class RestAPIClass
         var userApi = data.ToObject<userAPI>();
         if (userApi.account != null)
         {
-            int code = SqliteAccountsClass.createAcc(user, userApi.account.id, fn);
+            int code = SqliteAccountsService.createAcc(user, userApi.account.id, fn);
             if (code == 0)
                 return true;
             else
@@ -145,7 +145,7 @@ class RestAPIClass
         var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
-            SqliteAccountsClass.updateFullName(newfn);
+            SqliteAccountsService.updateFullName(newfn);
             return true;
         }
         return false;
@@ -160,7 +160,7 @@ class RestAPIClass
     {
         if (!Account.SignedIn())
             return false;
-        newpw = Encoding.Default.GetString(SqliteAccountsClass.Hash(newpw, SqliteAccountsClass.passSalt));
+        newpw = Encoding.Default.GetString(SqliteAccountsService.Hash(newpw, SqliteAccountsService.passSalt));
         var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
@@ -184,7 +184,7 @@ class RestAPIClass
         var buddyData = data.ToObject<userAPI.Buddies>();
         if (buddyData.id != null) // message = error msg
         {
-            await SqliteAccountsClass.addBuddy(buddyData.id, buddyData.username);
+            await SqliteAccountsService.addBuddy(buddyData.id, buddyData.username);
             return true;
         }
 

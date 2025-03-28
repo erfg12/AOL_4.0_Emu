@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,11 +41,12 @@ public partial class SignupForm : Win95Theme
             return;
         }
 
-        if (await RestAPIClass.createAccount(username.Text, password.Text, fullname.Text))
+        if (await RestAPIService.createAccount(username.Text, password.Text, fullname.Text))
         {
             MessageBox.Show("Account has been created. Welcome!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
-        } else
+        }
+        else
         {
             MessageBox.Show("Account creation has failed." + Environment.NewLine + "Please email support@aolemu.com", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -63,18 +64,18 @@ public partial class SignupForm : Win95Theme
         {
             string user = recoverUser.Text;
             string pass = recoverPass.Text;
-            if (await RestAPIClass.loginAccount(user, pass))
+            if (await RestAPIService.loginAccount(user, pass))
             {
-                var userApi = await RestAPIClass.getAccInfo();
-                int code = SqliteAccountsClass.createAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
-                List<userAPI.Buddies> tmpBuddies = SqliteAccountsClass.getBuddyList(userApi.account.username, pass);
+                var userApi = await RestAPIService.getAccInfo();
+                int code = SqliteAccountsService.createAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
+                List<userAPI.Buddies> tmpBuddies = SqliteAccountsService.getBuddyList(userApi.account.username, pass);
 
                 if (code == 0)
                 {
-                    foreach (var t in await RestAPIClass.getBuddyList(userApi.account.username, pass))
+                    foreach (var t in await RestAPIService.getBuddyList(userApi.account.username, pass))
                     {
                         if (!tmpBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            await SqliteAccountsClass.addBuddy(t.id, t.username);
+                            await SqliteAccountsService.addBuddy(t.id, t.username);
                     }
                     MessageBox.Show("Account has been added. Welcome back!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cursor.Current = Cursors.Default;
@@ -96,8 +97,30 @@ public partial class SignupForm : Win95Theme
 
     private void signup_form_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
         panel3.SendToBack();
         panel2.BringToFront();
+    }
+
+    private void recoverUser_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if (!char.IsLetterOrDigit(e.KeyChar) &&
+        e.KeyChar != '_' &&
+        e.KeyChar != '-' &&
+        !char.IsControl(e.KeyChar))
+        {
+            e.Handled = true;
+        }
+    }
+
+    private void recoverPass_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if (!char.IsLetterOrDigit(e.KeyChar) &&
+        e.KeyChar != '_' &&
+        e.KeyChar != '-' &&
+        !char.IsControl(e.KeyChar))
+        {
+            e.Handled = true;
+        }
     }
 }

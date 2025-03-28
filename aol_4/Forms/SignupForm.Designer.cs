@@ -84,7 +84,7 @@
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
             panel1.Location = new System.Drawing.Point(3, 2);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(665, 21);
             panel1.TabIndex = 5;
@@ -112,7 +112,7 @@
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
             miniBtn.Location = new System.Drawing.Point(598, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
@@ -126,7 +126,7 @@
             pictureBox1.Image = Properties.Resources.aol_icon_4;
             pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
             pictureBox1.Location = new System.Drawing.Point(4, -1);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(21, 21);
             pictureBox1.TabIndex = 9;
@@ -173,7 +173,7 @@
             newAOL.AutoSize = true;
             newAOL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
             newAOL.Location = new System.Drawing.Point(28, 80);
-            newAOL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            newAOL.Margin = new System.Windows.Forms.Padding(4);
             newAOL.Name = "newAOL";
             newAOL.Size = new System.Drawing.Size(370, 18);
             newAOL.TabIndex = 6;
@@ -186,7 +186,7 @@
             oldAOL.Checked = true;
             oldAOL.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
             oldAOL.Location = new System.Drawing.Point(28, 127);
-            oldAOL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            oldAOL.Margin = new System.Windows.Forms.Padding(4);
             oldAOL.Name = "oldAOL";
             oldAOL.Size = new System.Drawing.Size(418, 18);
             oldAOL.TabIndex = 7;
@@ -221,7 +221,7 @@
             nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             nextBtn.Image = (System.Drawing.Image)resources.GetObject("nextBtn.Image");
             nextBtn.Location = new System.Drawing.Point(486, 307);
-            nextBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            nextBtn.Margin = new System.Windows.Forms.Padding(4);
             nextBtn.Name = "nextBtn";
             nextBtn.Size = new System.Drawing.Size(50, 28);
             nextBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -235,7 +235,7 @@
             leftBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             leftBanner.Image = (System.Drawing.Image)resources.GetObject("leftBanner.Image");
             leftBanner.Location = new System.Drawing.Point(3, 21);
-            leftBanner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            leftBanner.Margin = new System.Windows.Forms.Padding(4);
             leftBanner.Name = "leftBanner";
             leftBanner.Size = new System.Drawing.Size(119, 346);
             leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -260,7 +260,7 @@
             cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             cancelBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             cancelBtn.Location = new System.Drawing.Point(24, 307);
-            cancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            cancelBtn.Margin = new System.Windows.Forms.Padding(4);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new System.Drawing.Size(62, 26);
             cancelBtn.TabIndex = 13;
@@ -282,20 +282,22 @@
             // recoverUser
             // 
             recoverUser.Location = new System.Drawing.Point(312, 173);
-            recoverUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            recoverUser.Margin = new System.Windows.Forms.Padding(4);
             recoverUser.MaxLength = 30;
             recoverUser.Name = "recoverUser";
             recoverUser.Size = new System.Drawing.Size(197, 23);
             recoverUser.TabIndex = 15;
+            recoverUser.KeyPress += recoverUser_KeyPress;
             // 
             // recoverPass
             // 
             recoverPass.Location = new System.Drawing.Point(312, 199);
-            recoverPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            recoverPass.Margin = new System.Windows.Forms.Padding(4);
             recoverPass.MaxLength = 30;
             recoverPass.Name = "recoverPass";
             recoverPass.Size = new System.Drawing.Size(197, 23);
             recoverPass.TabIndex = 16;
+            recoverPass.KeyPress += recoverPass_KeyPress;
             // 
             // label5
             // 
@@ -382,7 +384,7 @@
             panel2.Controls.Add(recoverUser);
             panel2.Controls.Add(label4);
             panel2.Location = new System.Drawing.Point(119, 22);
-            panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel2.Margin = new System.Windows.Forms.Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(549, 345);
             panel2.TabIndex = 23;
@@ -398,7 +400,7 @@
             panel3.Controls.Add(backBtn);
             panel3.Controls.Add(registerBtn);
             panel3.Location = new System.Drawing.Point(119, 24);
-            panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel3.Margin = new System.Windows.Forms.Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(549, 341);
             panel3.TabIndex = 23;
@@ -436,7 +438,7 @@
             // password
             // 
             password.Location = new System.Drawing.Point(168, 200);
-            password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            password.Margin = new System.Windows.Forms.Padding(4);
             password.Name = "password";
             password.Size = new System.Drawing.Size(213, 23);
             password.TabIndex = 4;
@@ -444,7 +446,7 @@
             // fullname
             // 
             fullname.Location = new System.Drawing.Point(168, 141);
-            fullname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            fullname.Margin = new System.Windows.Forms.Padding(4);
             fullname.Name = "fullname";
             fullname.Size = new System.Drawing.Size(213, 23);
             fullname.TabIndex = 3;
@@ -452,7 +454,7 @@
             // username
             // 
             username.Location = new System.Drawing.Point(168, 82);
-            username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            username.Margin = new System.Windows.Forms.Padding(4);
             username.Name = "username";
             username.Size = new System.Drawing.Size(213, 23);
             username.TabIndex = 2;
@@ -461,7 +463,7 @@
             // 
             backBtn.Image = (System.Drawing.Image)resources.GetObject("backBtn.Image");
             backBtn.Location = new System.Drawing.Point(14, 299);
-            backBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            backBtn.Margin = new System.Windows.Forms.Padding(4);
             backBtn.Name = "backBtn";
             backBtn.Size = new System.Drawing.Size(39, 23);
             backBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -473,7 +475,7 @@
             // 
             registerBtn.Image = (System.Drawing.Image)resources.GetObject("registerBtn.Image");
             registerBtn.Location = new System.Drawing.Point(486, 307);
-            registerBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            registerBtn.Margin = new System.Windows.Forms.Padding(4);
             registerBtn.Name = "registerBtn";
             registerBtn.Size = new System.Drawing.Size(40, 23);
             registerBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -492,7 +494,7 @@
             Controls.Add(panel3);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Location = new System.Drawing.Point(100, 150);
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Margin = new System.Windows.Forms.Padding(4);
             Name = "SignupForm";
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "signup_form";

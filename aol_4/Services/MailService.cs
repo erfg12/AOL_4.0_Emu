@@ -10,8 +10,8 @@ using MailKit.Net.Smtp;
 using System.Windows.Forms;
 using System.Collections.Concurrent;
 
-namespace aol.Classes;
-class MailClass
+namespace aol.Services;
+class MailService
 {
     public static ConcurrentDictionary<string, string> emailsNew = new ConcurrentDictionary<string, string>();
     public static ConcurrentDictionary<string, string> emailsOld = new ConcurrentDictionary<string, string>();
@@ -211,7 +211,7 @@ class MailClass
     public static void sendEmail(string toName, string toAddress, string subject, string body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(SqliteAccountsClass.getFullName(), Account.tmpUsername +"@aolemu.com"));
+        message.From.Add(new MailboxAddress(SqliteAccountsService.getFullName(), Account.tmpUsername +"@aolemu.com"));
         message.To.Add(new MailboxAddress(toName, toAddress));
         message.Subject = subject;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
 
@@ -133,7 +133,7 @@ public partial class BrowserForm : Win95Theme
 
     private void Form1_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this, 2);
+        LocationService.PositionWindow(this, 2);
         ToolTip toolTip1 = new ToolTip();
         toolTip1.SetToolTip(this.closeBtn, "Close Window");
         toolTip1.SetToolTip(this.maxBtn, "Maximize Window");

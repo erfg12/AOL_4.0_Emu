@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class DialUpForm : Form

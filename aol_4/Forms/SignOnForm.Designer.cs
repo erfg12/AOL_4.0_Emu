@@ -73,6 +73,7 @@
             screenName.Size = new System.Drawing.Size(215, 23);
             screenName.TabIndex = 0;
             screenName.SelectedIndexChanged += screenName_SelectedIndexChanged;
+            screenName.KeyPress += screenName_KeyPress;
             // 
             // label2
             // 

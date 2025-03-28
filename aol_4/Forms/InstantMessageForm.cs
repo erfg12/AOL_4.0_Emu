@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -16,7 +16,7 @@ public partial class InstantMessageForm : Win95Theme
 
     private void instant_message_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
         Text = user + " Instant Message";
         mainTitle.Text = user + " Instant Message";
         if (!backgroundWorker1.IsBusy)
@@ -26,7 +26,7 @@ public partial class InstantMessageForm : Win95Theme
     private void sendBtn_Click(object sender, EventArgs e)
     {
         // send to server
-        ChatClass.irc.SendMessageToChannel(myMessageBox.Text, user);
+        ChatService.irc.SendMessageToChannel(myMessageBox.Text, user);
         // write to file
         string logpath = Application.StartupPath + @"\chatlogs";
         string privateLog = logpath + @"\PM_" + user + ".txt";

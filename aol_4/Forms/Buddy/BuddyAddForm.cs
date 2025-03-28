@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Windows.Forms;
 
@@ -21,7 +21,7 @@ public partial class BuddyAddForm : Win95Theme
 
     private void add_buddy_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
     }
 
     public BuddyAddForm()
@@ -45,7 +45,7 @@ public partial class BuddyAddForm : Win95Theme
 
     private async void sendBtn_Click(object sender, EventArgs e)
     {
-        if (await RestAPIClass.addBuddy(nameTextBox.Text))
+        if (await RestAPIService.addBuddy(nameTextBox.Text))
             MessageBox.Show("Buddy Added!");
         else
             MessageBox.Show("Error: Buddy not added.");

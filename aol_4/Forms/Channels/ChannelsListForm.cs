@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using ServiceStack;
 using System;
 using System.Diagnostics;
@@ -27,7 +27,7 @@ public partial class ChannelsListForm : Win95Theme
 
     private void channels_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
     }
 
     private void KidsOnlyBtn_Click(object sender, EventArgs e)

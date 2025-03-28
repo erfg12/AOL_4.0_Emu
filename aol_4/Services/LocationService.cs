@@ -5,7 +5,7 @@ using System.Collections.Concurrent;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace aol.Classes;
+namespace aol.Services;
 public class wData
 {
     public string ip;
@@ -42,7 +42,7 @@ public class langs
     public string native;
 }
 
-class LocationClass
+class LocationService
 {
     public static WeatherNet.Util.Api.ApiClient wn = new WeatherNet.Util.Api.ApiClient();
     public static string getIP()

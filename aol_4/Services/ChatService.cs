@@ -7,8 +7,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Concurrent;
 
-namespace aol.Classes;
-class ChatClass
+namespace aol.Services;
+class ChatService
 {
     private static int port = 6697;
     private static string server = "irc.snoonet.org";

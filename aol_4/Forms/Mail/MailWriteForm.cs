@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -95,7 +95,7 @@ public partial class MailWriteForm : Win95Theme
         // parse <name> "address"; format
         foreach (KeyValuePair<string, string> entry in parseSendTo(sendToBox.Text))
         {
-            MailClass.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
+            MailService.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
         }
         MessageBox.Show("Your email has been sent!");
         Close();
@@ -113,6 +113,6 @@ public partial class MailWriteForm : Win95Theme
 
     private void write_mail_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this, 0, 55);
+        LocationService.PositionWindow(this, 0, 55);
     }
 }

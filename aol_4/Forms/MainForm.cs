@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 using System.Configuration;
 
 namespace aol.Forms;
@@ -61,9 +61,9 @@ public partial class MainForm : Win95Theme
 
     private void CheckEmail()
     {
-        if (MailClass.checkNewEmail())
+        if (MailService.checkNewEmail())
         {
-            if (!MailClass.youGotMail)
+            if (!MailService.youGotMail)
             {
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
@@ -72,7 +72,7 @@ public partial class MainForm : Win95Theme
                     player.Play();
                 }
                 read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
-                MailClass.youGotMail = true;
+                MailService.youGotMail = true;
             }
         }
     }
@@ -96,7 +96,7 @@ public partial class MainForm : Win95Theme
         weather_btn.Image = Properties.Resources.weather_icon_enabled;
         preferencesToolStripMenuItem.Enabled = true; // settings holds email info
 
-        ChatClass.startConnection();
+        ChatService.startConnection();
     }
 
     public void OpenBuddyList()
@@ -127,7 +127,7 @@ public partial class MainForm : Win95Theme
         {
             addrBox.Items.Clear();
             tmpHistory.Clear();
-            foreach (string i in SqliteAccountsClass.getHistory())
+            foreach (string i in SqliteAccountsService.getHistory())
             {
                 if (string.IsNullOrEmpty(i))
                     continue;
@@ -160,7 +160,7 @@ public partial class MainForm : Win95Theme
         {
             openBrowser(addrBox.Text);
             if (Account.tmpUsername != "Guest" && addrBox.Text.Contains("."))
-                SqliteAccountsClass.addHistory(addrBox.Text);
+                SqliteAccountsService.addHistory(addrBox.Text);
             if (!addrBox.Items.Contains(addrBox.Text))
             {
                 addrBox.Items.Add(addrBox.Text);
@@ -223,12 +223,12 @@ public partial class MainForm : Win95Theme
         if (Properties.Settings.Default.fullScreen)
             WindowState = FormWindowState.Maximized;
 
-        ChatClass.irc.IrcClient.OnDebugMessage += ChatClass.debugOutputCallback;
-        ChatClass.irc.IrcClient.OnMessageReceived += ChatClass.chatOutputCallback;
-        ChatClass.irc.IrcClient.OnRawMessageReceived += ChatClass.rawOutputCallback;
-        ChatClass.irc.IrcClient.OnUserListReceived += ChatClass.userListCallback;
+        ChatService.irc.IrcClient.OnDebugMessage += ChatService.debugOutputCallback;
+        ChatService.irc.IrcClient.OnMessageReceived += ChatService.chatOutputCallback;
+        ChatService.irc.IrcClient.OnRawMessageReceived += ChatService.rawOutputCallback;
+        ChatService.irc.IrcClient.OnUserListReceived += ChatService.userListCallback;
         //chat.irc.DccClient.OnDccDebugMessage += chat.dccDebugCallback;
-        ChatClass.irc.DccClient.OnDccEvent += ChatClass.downloadStatusChanged;
+        ChatService.irc.DccClient.OnDccEvent += ChatService.downloadStatusChanged;
 
         preferencesToolStripMenuItem.Enabled = false;
 
@@ -512,8 +512,8 @@ public partial class MainForm : Win95Theme
         Account.tmpPassword = "";
         Account.tmpLocation = "";
 
-        if (ChatClass.irc.IsClientRunning())
-            ChatClass.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
+        if (ChatService.irc.IsClientRunning())
+            ChatService.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -531,7 +531,7 @@ public partial class MainForm : Win95Theme
         perks_btn.Image = Properties.Resources.perks_icon;
         weather_btn.Image = Properties.Resources.weather_icon;
         preferencesToolStripMenuItem.Enabled = false; // settings holds email info
-        MailClass.youGotMail = false;
+        MailService.youGotMail = false;
         signOffBtn.Text = "Sign On";
     }
 
@@ -775,7 +775,7 @@ public partial class MainForm : Win95Theme
     {
         if (Account.SignedIn())
         {
-            if (!MailClass.youGotMail)
+            if (!MailService.youGotMail)
                 read_mail_btn.Image = Properties.Resources.nomail_icon;
             Thread thread = new Thread(new ThreadStart(CheckEmail));
             thread.Start();

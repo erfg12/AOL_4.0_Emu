@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -44,14 +44,14 @@ public partial class BuddyListForm : Win95Theme
     public bool CheckIRCRunning()
     {
         int c = 0;
-        if (!ChatClass.irc.IsClientRunning())
+        if (!ChatService.irc.IsClientRunning())
         {
             Debug.WriteLine("IRC buddy list not connected yet...");
             c++;
             if (c > 50)
             {
                 Debug.WriteLine("IRC reconnecting");
-                ChatClass.startConnection();
+                ChatService.startConnection();
                 c = 0;
             }
             Thread.Sleep(5000);
@@ -73,9 +73,9 @@ public partial class BuddyListForm : Win95Theme
     {
         if (buddyTreeView.SelectedNode.Text == null)
             return;
-        if (!ChatClass.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
+        if (!ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
-        if (ChatClass.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
+        if (ChatService.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
         {
             InstantMessageForm im = new InstantMessageForm(buddyTreeView.SelectedNode.Text);
             im.Owner = this;
@@ -89,9 +89,9 @@ public partial class BuddyListForm : Win95Theme
     {
         if (buddyTreeView.SelectedNode == null || buddyTreeView.SelectedNode.Text == null)
             return;
-        if (!ChatClass.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
+        if (!ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
-        if (ChatClass.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
+        if (ChatService.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
         {
             InstantMessageForm im = new InstantMessageForm(buddyTreeView.SelectedNode.Text);
             im.Owner = this;
@@ -104,14 +104,14 @@ public partial class BuddyListForm : Win95Theme
     private void Buddies_online_FormClosing(object sender, FormClosingEventArgs e)
     {
         ConcurrentDictionary<string, bool> tmpList = new ConcurrentDictionary<string, bool>();
-        foreach (KeyValuePair<string, bool> entry in ChatClass.buddyStatus)
+        foreach (KeyValuePair<string, bool> entry in ChatService.buddyStatus)
         {
             tmpList.TryAdd(entry.Key.ToLower(), entry.Value);
         }
         foreach (KeyValuePair<string, bool> entry in tmpList)
         {
             bool MyOut;
-            ChatClass.buddyStatus.TryRemove(entry.Key, out MyOut);
+            ChatService.buddyStatus.TryRemove(entry.Key, out MyOut);
         }
     }
 
@@ -143,17 +143,17 @@ public partial class BuddyListForm : Win95Theme
         StartList(); // get buddy list
         UpdateTimer.Start();
 
-        LocationClass.PositionWindow(this, 1);
+        LocationService.PositionWindow(this, 1);
         buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
         buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
     }
 
     private void StartList()
     {
-        foreach (var b in SqliteAccountsClass.getBuddyList())
+        foreach (var b in SqliteAccountsService.getBuddyList())
         {
-            if (!ChatClass.buddyStatus.ContainsKey(b.username.ToLower()))
-                ChatClass.buddyStatus.TryAdd(b.username.ToLower(), false); // offline by default
+            if (!ChatService.buddyStatus.ContainsKey(b.username.ToLower()))
+                ChatService.buddyStatus.TryAdd(b.username.ToLower(), false); // offline by default
         }
     }
 
@@ -170,9 +170,9 @@ public partial class BuddyListForm : Win95Theme
         if (Account.tmpUsername == "" || Account.tmpUsername == "Guest" || !CheckIRCRunning())
             return;
 
-        foreach (KeyValuePair<string, bool> kvp in ChatClass.buddyStatus.ToList())
+        foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())
         {
-            ChatClass.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
+            ChatService.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
           
                 if (kvp.Value == true) // remove from offline, add to online
                 {
@@ -221,7 +221,7 @@ public partial class BuddyListForm : Win95Theme
             
         }
 
-        total = ChatClass.buddyStatus.Count();
+        total = ChatService.buddyStatus.Count();
 
     }
 }

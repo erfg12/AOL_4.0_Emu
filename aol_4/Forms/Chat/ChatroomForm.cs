@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,19 +32,19 @@ public partial class ChatroomForm : Win95Theme
             File.Create(chatlog).Dispose();
 
         int c = 0;
-        while (!ChatClass.irc.IsClientRunning())
+        while (!ChatService.irc.IsClientRunning())
         {
             Debug.WriteLine("not connected yet");
             Thread.Sleep(500); // wait 1/2 sec
             c++;
             if (c > 20)
             {
-                ChatClass.startConnection();
+                ChatService.startConnection();
                 Debug.WriteLine("ERROR: Trying connection again.");
                 c = 0;
             }
         }
-        ChatClass.irc.SendRawMessage("join #" + channel);
+        ChatService.irc.SendRawMessage("join #" + channel);
 
         keepReading();
 
@@ -53,7 +53,7 @@ public partial class ChatroomForm : Win95Theme
 
     private void chatroom_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
         //chat.users.Clear();
         Text = pChat + " Chatroom";
         mainTitle.Text = pChat + " Chatroom";
@@ -132,7 +132,7 @@ public partial class ChatroomForm : Win95Theme
             if (!IsHandleCreated)
                 continue;
 
-            if (!ChatClass.irc.IrcClient.IsConnectionEstablished() || !ChatClass.irc.IsClientRunning())
+            if (!ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
             {
                 Debug.WriteLine("Client is not connected, breaking BGWorker");
                 break;
@@ -143,29 +143,29 @@ public partial class ChatroomForm : Win95Theme
 
             usersListView.Invoke(new MethodInvoker(delegate
             {
-                if (!ChatClass.irc.IsClientRunning())
+                if (!ChatService.irc.IsClientRunning())
                 {
                     MessageBox.Show("ERROR: IRC client not connected");
                     return;
                 }
-                if (!ChatClass.users.ContainsKey(roomname))
+                if (!ChatService.users.ContainsKey(roomname))
                 {
                     Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
-                    ChatClass.irc.GetUsersInDifferentChannel("#" + roomname);
+                    ChatService.irc.GetUsersInDifferentChannel("#" + roomname);
                     //System.Threading.Thread.Sleep(2000);
                     return;
                 }
                 // remove offline users
                 foreach (ListViewItem item in usersListView.Items)
                 {
-                    if (!ChatClass.users[roomname].Contains(item.Text))
+                    if (!ChatService.users[roomname].Contains(item.Text))
                     {
                         usersListView.Items.Remove(item);
                         pplCount--;
                     }
                 }
                 // add online users
-                List<string> usersList = ChatClass.users[roomname]; // gotta declare it, so we can use it
+                List<string> usersList = ChatService.users[roomname]; // gotta declare it, so we can use it
                 for (int i = 0; i < usersList.Count; i++)
                 {
                     if (usersList[i] == "")
@@ -201,7 +201,7 @@ public partial class ChatroomForm : Win95Theme
     private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
-        ChatClass.irc.SendRawMessage("part #" + pChat);
+        ChatService.irc.SendRawMessage("part #" + pChat);
     }
 
     private void messageTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -225,10 +225,10 @@ public partial class ChatroomForm : Win95Theme
 
     private void sendMsg()
     {
-        if (!ChatClass.irc.IsClientRunning())
+        if (!ChatService.irc.IsClientRunning())
             MessageBox.Show("ERROR: IRC client is not running");
 
-        if (!ChatClass.irc.SendMessageToChannel(messageTextBox.Text, "#" + pChat))
+        if (!ChatService.irc.SendMessageToChannel(messageTextBox.Text, "#" + pChat))
         {
             MessageBox.Show("ERROR: Failed to send message!");
             return;

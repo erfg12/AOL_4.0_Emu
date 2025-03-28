@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class FavoritesAddForm : Win95Theme
@@ -42,9 +42,9 @@ public partial class FavoritesAddForm : Win95Theme
     private void OkBtn_Click(object sender, EventArgs e)
     {
         if (!edit)
-            SqliteAccountsClass.addFavorite(internetAddrBox.Text, placeDescBox.Text);
+            SqliteAccountsService.addFavorite(internetAddrBox.Text, placeDescBox.Text);
         else
-            SqliteAccountsClass.updateFavorite(internetAddrBox.Text, placeDescBox.Text);
+            SqliteAccountsService.updateFavorite(internetAddrBox.Text, placeDescBox.Text);
         Close();
     }
 
@@ -59,7 +59,7 @@ public partial class FavoritesAddForm : Win95Theme
 
     private void Add_favorite_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
         placeDescBox.Text = name;
         internetAddrBox.Text = url;
         if (edit)

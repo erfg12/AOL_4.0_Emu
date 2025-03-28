@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace aol.Forms;
 public partial class accForm : Win95Theme
 {
-    ConcurrentBag<string> theAccs = SqliteAccountsClass.listAccounts();
+    ConcurrentBag<string> theAccs = SqliteAccountsService.listAccounts();
 
     public accForm()
     {
@@ -17,7 +17,7 @@ public partial class accForm : Win95Theme
 
     private void accForm_Load(object sender, EventArgs e)
     {
-        foreach (string entry in SqliteAccountsClass.listAccounts())
+        foreach (string entry in SqliteAccountsService.listAccounts())
         {
             screenName.Items.Add(entry);
         }
@@ -30,7 +30,7 @@ public partial class accForm : Win95Theme
 
     private void accForm_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this);
+        LocationService.PositionWindow(this);
         if (screenName.Items.Contains(Properties.Settings.Default.lastAcc))
             screenName.Text = Properties.Settings.Default.lastAcc;
         else
@@ -63,7 +63,7 @@ public partial class accForm : Win95Theme
         }
         else
         {
-            if (await RestAPIClass.loginAccount(screenName.Text, passBox.Text))
+            if (await RestAPIService.loginAccount(screenName.Text, passBox.Text))
             {
                 Cursor.Current = Cursors.Default;
                 Close();
@@ -110,14 +110,14 @@ public partial class accForm : Win95Theme
 
     private void accCheck_Tick(object sender, EventArgs e)
     {
-        ConcurrentBag<string> accsCheck = SqliteAccountsClass.listAccounts();
+        ConcurrentBag<string> accsCheck = SqliteAccountsService.listAccounts();
         if (accsCheck.Count() != theAccs.Count())
         {
             screenName.Items.Clear();
             screenName.Items.Add("Guest");
             screenName.Items.Add("Existing Member");
             screenName.Items.Add("New User");
-            foreach (string entry in SqliteAccountsClass.listAccounts())
+            foreach (string entry in SqliteAccountsService.listAccounts())
             {
                 screenName.Items.Add(entry);
             }
@@ -132,5 +132,16 @@ public partial class accForm : Win95Theme
         du.Owner = (Form)this.MdiParent;
         du.MdiParent = this.MdiParent;
         du.Show();
+    }
+
+    private void screenName_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if (!char.IsLetterOrDigit(e.KeyChar) &&
+        e.KeyChar != '_' &&
+        e.KeyChar != '-' &&
+        !char.IsControl(e.KeyChar))
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -3,9 +3,8 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using aol.Forms;
 
-namespace aol.Classes
+namespace aol.Forms
 {
     public partial class Win95Theme: Form
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class SettingsForm : Win95Theme
@@ -30,12 +30,12 @@ public partial class SettingsForm : Win95Theme
 
     private void settings_Shown(object sender, EventArgs e)
     {
-        LocationClass.PositionWindow(this, 0, 50);
+        LocationService.PositionWindow(this, 0, 50);
         homePageBox.Text = Properties.Settings.Default.homeSite;
         cityBox.Text = Properties.Settings.Default.city;
         countryBox.Text = Properties.Settings.Default.country;
         fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
-        fullnameBox.Text = SqliteAccountsClass.getFullName();
+        fullnameBox.Text = SqliteAccountsService.getFullName();
 
         searchProvider.Text = Properties.Settings.Default.searchProvider;
 
@@ -48,7 +48,7 @@ public partial class SettingsForm : Win95Theme
             return;
 
         browseHistoryList.Items.Clear();
-        List<string> tmpHistory = SqliteAccountsClass.getHistory();
+        List<string> tmpHistory = SqliteAccountsService.getHistory();
         tmpHistory.Sort();
         foreach (string l in tmpHistory)
         {
@@ -105,7 +105,7 @@ public partial class SettingsForm : Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.SelectedItems)
         {
-            SqliteAccountsClass.deleteHistory(i.Text);
+            SqliteAccountsService.deleteHistory(i.Text);
         }
         reloadBrowseHistory();
     }
@@ -114,7 +114,7 @@ public partial class SettingsForm : Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.Items)
         {
-            SqliteAccountsClass.deleteHistory(i.Text);
+            SqliteAccountsService.deleteHistory(i.Text);
         }
         reloadBrowseHistory();
     }

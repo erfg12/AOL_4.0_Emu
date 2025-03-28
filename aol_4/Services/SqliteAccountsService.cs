@@ -8,8 +8,8 @@ using System.Diagnostics;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
-namespace aol.Classes;
-class SqliteAccountsClass
+namespace aol.Services;
+class SqliteAccountsService
 {
     public static SqliteConnection openDB()
     {
@@ -397,7 +397,7 @@ class SqliteAccountsClass
         {
             SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
             command.ExecuteNonQuery();
-            ChatClass.buddyStatus.TryAdd(user, false); // put them immediately into our buddy list
+            ChatService.buddyStatus.TryAdd(user, false); // put them immediately into our buddy list
             good = true;
         }
         catch (SqliteException ex)

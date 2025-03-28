@@ -1,4 +1,4 @@
-﻿namespace aol.Classes;
+﻿namespace aol.Services;
 
 /// <summary>
 /// This is a static class, and these variables can be shared around the program.

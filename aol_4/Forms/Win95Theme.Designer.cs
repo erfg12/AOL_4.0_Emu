@@ -1,4 +1,4 @@
-﻿namespace aol.Classes
+﻿namespace aol.Forms
 {
     partial class Win95Theme
     {

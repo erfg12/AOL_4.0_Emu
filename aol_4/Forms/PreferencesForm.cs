@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using aol.Classes;
+using aol.Services;
 
 namespace aol.Forms;
 public partial class PreferencesForm : Win95Theme

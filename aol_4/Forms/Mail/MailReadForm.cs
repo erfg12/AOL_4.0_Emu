@@ -1,4 +1,4 @@
-﻿using aol.Classes;
+﻿using aol.Services;
 using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
@@ -22,7 +22,7 @@ namespace aol.Forms
             EmailID = emailID;
             Text = subject;
             mainTitle.Text = subject;
-            string tmpString = MailClass.readEmail(EmailID);
+            string tmpString = MailService.readEmail(EmailID);
             mailViewer.DocumentText = tmpString;
             if (tmpString.Contains("msg NickServ"))
             {
@@ -36,7 +36,7 @@ namespace aol.Forms
             var match = Regex.Match(m, "NickServ CONFIRM (.*?) \"", RegexOptions.Singleline);
             string register = match.Groups[1].Value;
             Debug.WriteLine("nickserv code = \"" + register + "\"");
-            ChatClass.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
+            ChatService.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
             MessageBox.Show("Your username has been registered successfully! You can now access restricted chatrooms!");
         }
 
@@ -47,7 +47,7 @@ namespace aol.Forms
 
         private void replyButton_Click(object sender, EventArgs e)
         {
-            MailWriteForm wmf = new MailWriteForm(MailClass.reply, "Re:" + Text);
+            MailWriteForm wmf = new MailWriteForm(MailService.reply, "Re:" + Text);
             wmf.Owner = this;
             wmf.MdiParent = MdiParent;
             wmf.Show();
