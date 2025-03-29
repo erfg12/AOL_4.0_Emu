@@ -115,12 +115,6 @@ public partial class SignupForm : Win95Theme
 
     private void recoverPass_KeyPress(object sender, KeyPressEventArgs e)
     {
-        if (!char.IsLetterOrDigit(e.KeyChar) &&
-        e.KeyChar != '_' &&
-        e.KeyChar != '-' &&
-        !char.IsControl(e.KeyChar))
-        {
-            e.Handled = true;
-        }
+
     }
 }

@@ -44,7 +44,7 @@ public partial class SettingsForm : Win95Theme
 
     private void reloadBrowseHistory()
     {
-        if (Account.tmpUsername == "Guest" || Account.tmpUsername == "")
+        if (!Account.SignedIn())
             return;
 
         browseHistoryList.Items.Clear();
