@@ -75,7 +75,7 @@ public partial class SignupForm : Win95Theme
                     foreach (var t in await RestAPIService.getBuddyList(userApi.account.username, pass))
                     {
                         if (!tmpBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            await SqliteAccountsService.addBuddy(t.id, t.username);
+                            SqliteAccountsService.addBuddy(t.id, t.username);
                     }
                     MessageBox.Show("Account has been added. Welcome back!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cursor.Current = Cursors.Default;

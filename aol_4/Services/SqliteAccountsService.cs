@@ -39,7 +39,7 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="url">Address bar URL</param>
     /// <returns></returns>
-    public static async Task<int> addHistory(string url)
+    public static int addHistory(string url)
     {
         int code = 0;
 
@@ -50,7 +50,7 @@ class SqliteAccountsService
         if (url.EndsWith("/"))
             url = url.Remove(url.Length - 1);
 
-        if (await findHisory(url) > 0)
+        if (findHisory(url) > 0)
             return 999;
 
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
@@ -73,7 +73,7 @@ class SqliteAccountsService
         return code;
     }
 
-    public static async Task<int> addFavorite(string url, string URLname)
+    public static int addFavorite(string url, string URLname)
     {
         int code = 0;
 
@@ -109,7 +109,7 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="url">URL to delete from favorite</param>
     /// <returns></returns>
-    public static async Task<int> deleteFavorite(string url)
+    public static int deleteFavorite(string url)
     {
         int code = 0;
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
@@ -257,7 +257,7 @@ class SqliteAccountsService
         return history;
     }
 
-    public static async Task<int> deleteHistory(string url)
+    public static int deleteHistory(string url)
     {
         int code = 0;
         int userID = Account.accountInfo.account.id;
@@ -323,7 +323,7 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="url">URL</param>
     /// <returns></returns>
-    public static async Task<int> findHisory(string url)
+    public static int findHisory(string url)
     {
         int foundHistory = 0;
         int userID = Account.accountInfo.account.id;
@@ -366,8 +366,11 @@ class SqliteAccountsService
         return foundAcc;
     }
 
-    public static async Task<bool> addBuddy(int buddyId, string user)
+    public static bool addBuddy(int buddyId, string user)
     {
+        if (user == null)
+            return false;
+
         bool good = false;
         int userID = Account.accountInfo.account.id;
         SqliteConnection m_dbConnection = openDB();
@@ -398,6 +401,31 @@ class SqliteAccountsService
             SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
             command.ExecuteNonQuery();
             ChatService.buddyStatus.TryAdd(user, false); // put them immediately into our buddy list
+            good = true;
+        }
+        catch (SqliteException ex)
+        {
+            Debug.WriteLine("Sqlite ERR: " + ex.ErrorCode);
+        }
+
+        m_dbConnection.Close();
+        return good;
+    }
+
+    public static bool removeBuddy(int buddyId, string user)
+    {
+        bool good = false;
+        int userID = Account.accountInfo.account.id;
+        SqliteConnection m_dbConnection = openDB();
+        m_dbConnection.Open();
+
+        string sql = $"DELETE FROM buddy_list WHERE id = '{buddyId}' AND userid = '{userID}'";
+
+        try
+        {
+            SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+            command.ExecuteNonQuery();
+            ChatService.buddyStatus.TryRemove(user, out _); // remove them from our buddy list
             good = true;
         }
         catch (SqliteException ex)

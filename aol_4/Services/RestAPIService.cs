@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace aol.Services;
 class RestAPIService
@@ -16,7 +17,9 @@ class RestAPIService
         HttpResponseMessage response;
         try
         {
-            var requestMsg = new HttpRequestMessage(method, $"https://api.aolemu.com/{request}?{queryParams}") { };
+            var url = $"https://api.aolemu.com/{request}?{queryParams}";
+            Debug.WriteLine($"Calling METHOD:{method} URL:{url}");
+            var requestMsg = new HttpRequestMessage(method, url) { };
             var httpResponse = await client.SendAsync(requestMsg);
             response = httpResponse;
         }
@@ -182,9 +185,9 @@ class RestAPIService
 
         var data = await getData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
         var buddyData = data.ToObject<userAPI.Buddies>();
-        if (buddyData.id != null) // message = error msg
+        if (buddyData?.id != null && buddyData.id > 0) // message = error msg
         {
-            await SqliteAccountsService.addBuddy(buddyData.id, buddyData.username);
+            SqliteAccountsService.addBuddy(buddyData.id, buddyData.username);
             return true;
         }
 
@@ -196,16 +199,16 @@ class RestAPIService
     /// </summary>
     /// <param name="buddyid"></param>
     /// <returns></returns>
-    public static async Task<bool> removeBuddy(string buddyid)
+    public static async Task<bool> removeBuddy(int buddyid, string buddyName)
     {
         if (!Account.SignedIn())
             return false;
 
-        var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid));
+        var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {
-            // needs SQLite cmd
+            SqliteAccountsService.removeBuddy(buddyid, buddyName);
             return true;
         }
         return false;

@@ -11,6 +11,7 @@ namespace aol.Forms;
 public partial class BuddyListForm : Win95Theme
 {
     int total = 0;
+    userAPI.Buddies selectedBuddy;
 
     public BuddyListForm()
     {
@@ -172,56 +173,88 @@ public partial class BuddyListForm : Win95Theme
 
         foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())
         {
+            if (string.IsNullOrEmpty(kvp.Key))
+                continue;
+
             ChatService.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
-          
-                if (kvp.Value == true) // remove from offline, add to online
+
+            if (kvp.Value == true) // remove from offline, add to online
+            {
+                //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
+                TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
+                if (nodes.Length > 0)
                 {
-                    //Debug.WriteLine("[BUD] " + kvp.Key + " is online");
-                    TreeNode[] nodes = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
-                    if (nodes.Length > 0)
-                    {
-                        buddyTreeView.Nodes.Remove(nodes[0]);
-                        offline--;
-                    }
-                    TreeNode[] nodes2 = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
-                    if (nodes2.Length <= 0)
-                    {
-                        TreeNode ntn = new TreeNode();
-                        ntn.Text = kvp.Key;
-                        ntn.Name = kvp.Key;
-                        ntn.Tag = kvp.Key;
-                        buddyTreeView.Nodes[0].Nodes.Add(ntn);
-                        online++;
-                        buddyTreeView.Nodes[0].Expand();
-                    }
+                    buddyTreeView.Nodes.Remove(nodes[0]);
+                    offline--;
                 }
-                else
+                TreeNode[] nodes2 = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
+                if (nodes2.Length <= 0)
                 {
-                    //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
-                    TreeNode[] nodes = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
-                    if (nodes.Length > 0)
-                    {
-                        buddyTreeView.Nodes.Remove(nodes[0]);
-                        online--;
-                    }
-                    TreeNode[] nodes2 = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
-                    if (nodes2.Length <= 0)
-                    {
-                        TreeNode ntn = new TreeNode();
-                        ntn.Text = kvp.Key;
-                        ntn.Name = kvp.Key;
-                        ntn.Tag = kvp.Key;
-                        buddyTreeView.Nodes[1].Nodes.Add(ntn);
-                        offline++;
-                        buddyTreeView.Nodes[1].Expand();
-                    }
+                    TreeNode ntn = new TreeNode();
+                    ntn.Text = kvp.Key;
+                    ntn.Name = kvp.Key;
+                    ntn.Tag = kvp.Key;
+                    buddyTreeView.Nodes[0].Nodes.Add(ntn);
+                    online++;
+                    buddyTreeView.Nodes[0].Expand();
                 }
-                buddyTreeView.Nodes[0].Text = "Online " + online.ToString() + "/" + total.ToString();
-                buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
-            
+            }
+            else
+            {
+                //Debug.WriteLine("[BUD] " + kvp.Key + " is offline");
+                TreeNode[] nodes = buddyTreeView.Nodes[0].Nodes.Find(kvp.Key, true);
+                if (nodes.Length > 0)
+                {
+                    buddyTreeView.Nodes.Remove(nodes[0]);
+                    online--;
+                }
+                TreeNode[] nodes2 = buddyTreeView.Nodes[1].Nodes.Find(kvp.Key, true);
+                if (nodes2.Length <= 0)
+                {
+                    TreeNode ntn = new TreeNode();
+                    ntn.Text = kvp.Key;
+                    ntn.Name = kvp.Key;
+                    ntn.Tag = kvp.Key;
+                    buddyTreeView.Nodes[1].Nodes.Add(ntn);
+                    offline++;
+                    buddyTreeView.Nodes[1].Expand();
+                }
+            }
+            buddyTreeView.Nodes[0].Text = "Online " + online.ToString() + "/" + total.ToString();
+            buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
+
         }
 
         total = ChatService.buddyStatus.Count();
 
+    }
+
+    private void buddyTreeView_MouseUp(object sender, MouseEventArgs e)
+    {
+        if (e.Button == MouseButtons.Right)
+        {
+            TreeNode node = buddyTreeView.GetNodeAt(e.X, e.Y);
+            if (node != null)
+            {
+                buddyTreeView.SelectedNode = node;
+                buddyContextMenuStrip.Show(buddyTreeView, e.Location);
+
+                selectedBuddy = SqliteAccountsService.getBuddyList().Where(x => x.username.Equals(node.Text)).First();
+                Debug.WriteLine($"Right-clicked buddy {selectedBuddy.username} with ID: {selectedBuddy.id}");
+            }
+        }
+    }
+
+    private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        var result = MessageBox.Show($"Are you sure you want to delete buddy {selectedBuddy.username}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (result == DialogResult.Yes)
+        {
+            if (await RestAPIService.removeBuddy(selectedBuddy.id, selectedBuddy.username))
+                MessageBox.Show($"Buddy {selectedBuddy.username} has been removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show($"Buddy {selectedBuddy.username} was not removed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

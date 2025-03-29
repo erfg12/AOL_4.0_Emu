@@ -48,11 +48,14 @@
             miniBtn = new System.Windows.Forms.Button();
             titleLabel = new System.Windows.Forms.Label();
             UpdateTimer = new System.Windows.Forms.Timer(components);
+            buddyContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(components);
+            deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)setupBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)IMBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             TopPanel.SuspendLayout();
+            buddyContextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // buddiesLabel
@@ -140,6 +143,7 @@
             buddyTreeView.Size = new System.Drawing.Size(155, 186);
             buddyTreeView.TabIndex = 15;
             buddyTreeView.MouseDoubleClick += buddyTreeView_MouseDoubleClick;
+            buddyTreeView.MouseUp += buddyTreeView_MouseUp;
             // 
             // pictureBox4
             // 
@@ -283,6 +287,19 @@
             UpdateTimer.Interval = 2000;
             UpdateTimer.Tick += UpdateTimer_Tick;
             // 
+            // buddyContextMenuStrip
+            // 
+            buddyContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { deleteToolStripMenuItem });
+            buddyContextMenuStrip.Name = "buddyContextMenuStrip";
+            buddyContextMenuStrip.Size = new System.Drawing.Size(181, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
             // BuddyListForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -318,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             TopPanel.ResumeLayout(false);
             TopPanel.PerformLayout();
+            buddyContextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -341,5 +359,7 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TreeView buddyTreeView;
         private System.Windows.Forms.Timer UpdateTimer;
+        private System.Windows.Forms.ContextMenuStrip buddyContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
