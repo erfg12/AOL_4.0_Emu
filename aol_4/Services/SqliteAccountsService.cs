@@ -581,7 +581,7 @@ class SqliteAccountsService
             {
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         accs.Add(reader.GetString(0));
                     }

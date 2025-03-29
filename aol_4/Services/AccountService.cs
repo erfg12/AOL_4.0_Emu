@@ -15,6 +15,6 @@ class Account
         if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
             return false;
 
-        return accountInfo.account != null;
+        return accountInfo?.account != null;
     }
 }
