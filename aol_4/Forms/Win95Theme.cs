@@ -52,19 +52,19 @@ namespace aol.Forms
             HTBOTTOMLEFT = 16,
             HTBOTTOMRIGHT = 17;
 
-        const int _ = 2;
+        const int widthHeight = 2;
 
-        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-        new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
+        new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, widthHeight); } }
+        new Rectangle Left { get { return new Rectangle(0, 0, widthHeight, this.ClientSize.Height); } }
+        new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - widthHeight, this.ClientSize.Width, widthHeight); } }
+        new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - widthHeight, 0, widthHeight, this.ClientSize.Height); } }
 
         private bool resizeR, resizeD, resizeB = false;
         const int padding = 5;
 
-        Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
-        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
-        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
+        Rectangle TopLeft { get { return new Rectangle(0, 0, widthHeight, widthHeight); } }
+        Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - widthHeight, 0, widthHeight, widthHeight); } }
+        Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - widthHeight, widthHeight, widthHeight); } }
         //Rectangle BottomRight { get { return new Rectangle(this.ClientSize.Width - _, this.ClientSize.Height - _, _, _); } }
         public Rectangle FormBottom { get { return new Rectangle(padding, this.ClientSize.Height - padding, this.ClientSize.Width - (padding * 2), padding); } }
         public Rectangle FormRight { get { return new Rectangle(this.ClientSize.Width - padding, padding, padding, this.ClientSize.Height - (padding * 2)); } }

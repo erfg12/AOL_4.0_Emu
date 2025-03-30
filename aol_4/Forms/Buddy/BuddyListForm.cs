@@ -12,6 +12,7 @@ public partial class BuddyListForm : Win95Theme
 {
     int total = 0;
     userAPI.Buddies selectedBuddy;
+    TreeNode selectedNode;
 
     public BuddyListForm()
     {
@@ -240,6 +241,7 @@ public partial class BuddyListForm : Win95Theme
                 buddyContextMenuStrip.Show(buddyTreeView, e.Location);
 
                 selectedBuddy = SqliteAccountsService.getBuddyList().Where(x => x.username.Equals(node.Text)).First();
+                selectedNode = node;
                 Debug.WriteLine($"Right-clicked buddy {selectedBuddy.username} with ID: {selectedBuddy.id}");
             }
         }
@@ -252,7 +254,12 @@ public partial class BuddyListForm : Win95Theme
         if (result == DialogResult.Yes)
         {
             if (await RestAPIService.removeBuddy(selectedBuddy.id, selectedBuddy.username))
+            {
+                selectedNode.Remove();
                 MessageBox.Show($"Buddy {selectedBuddy.username} has been removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                selectedBuddy = null;
+                selectedNode = null;
+            }
             else
                 MessageBox.Show($"Buddy {selectedBuddy.username} was not removed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

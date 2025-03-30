@@ -17,7 +17,10 @@ class RestAPIService
         HttpResponseMessage response;
         try
         {
-            var url = $"https://api.aolemu.com/{request}?{queryParams}";
+            var domain = "https://api.aolemu.com";
+            if (Environment.GetEnvironmentVariable("local_api") != null && Environment.GetEnvironmentVariable("local_api") == "1")
+                domain = "https://localhost:7207";
+            var url = $"{domain}/{request}?{queryParams}"; // api.aolemu.com
             Debug.WriteLine($"Calling METHOD:{method} URL:{url}");
             var requestMsg = new HttpRequestMessage(method, url) { };
             var httpResponse = await client.SendAsync(requestMsg);
