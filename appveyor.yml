@@ -10,10 +10,6 @@ branches:
 skip_commits:
   message: /\[skip ci\]|\[ci skip\]/
 
-pull_requests:
-  do_not_increment_build_number: true
-  enabled: false
-
 before_build:
   - nuget restore
 
