@@ -235,6 +235,9 @@ public partial class BuddyListForm : Win95Theme
             TreeNode node = buddyTreeView.GetNodeAt(e.X, e.Y);
             if (node != null)
             {
+                if (node.Text.Contains("Online ") || node.Text.Contains("Offline "))
+                    return;
+
                 buddyTreeView.SelectedNode = node;
                 buddyContextMenuStrip.Show(buddyTreeView, e.Location);
 
@@ -247,6 +250,9 @@ public partial class BuddyListForm : Win95Theme
 
     private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
     {
+        if (selectedBuddy == null || selectedNode == null)
+            return;
+
         var result = MessageBox.Show($"Are you sure you want to delete buddy {selectedBuddy.username}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
         if (result == DialogResult.Yes)
