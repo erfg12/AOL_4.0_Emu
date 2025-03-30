@@ -219,10 +219,10 @@
     <EmbeddedResource Include="Resources\forward_btn1.png" />
     <EmbeddedResource Include="Resources\forward_btn2.png" />
     <EmbeddedResource Include="Resources\Frowning.png" />
-    <Content Include="Channels\kids.htm">
+    <Content Include="Channels\Kids\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Channels\kids.png">
+    <Content Include="Channels\Kids\layout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Resources\Goodbye.wav" />
@@ -289,8 +289,11 @@
     <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
     <PackageReference Include="MailKit" Version="4.5.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.4" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2478.35" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3124.44" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Sentry" Version="5.4.0" />
     <PackageReference Include="ServiceStack.Text" Version="8.2.2" />
     <PackageReference Include="SimpleIRCLib" Version="2.2.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
@@ -311,6 +314,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Update="accounts.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
