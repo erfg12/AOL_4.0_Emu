@@ -197,7 +197,7 @@ class ChatService
 
     public static void startConnection()
     {
-        if (Account.tmpUsername == "Guest" || Account.tmpUsername == "" || irc.IsClientRunning())
+        if (!Account.SignedIn() || irc.IsClientRunning())
             return;
 
         Thread thr = new Thread(StartupIRC);

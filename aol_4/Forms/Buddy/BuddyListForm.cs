@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace aol.Forms;
@@ -43,7 +44,7 @@ public partial class BuddyListForm : Win95Theme
         ab.Show();
     }
 
-    public bool CheckIRCRunning()
+    public async Task<bool> CheckIRCRunning()
     {
         int c = 0;
         if (!ChatService.irc.IsClientRunning())
@@ -56,7 +57,7 @@ public partial class BuddyListForm : Win95Theme
                 ChatService.startConnection();
                 c = 0;
             }
-            Thread.Sleep(5000);
+            await Task.Delay(5000);
             return false;
         }
         return true;
@@ -139,11 +140,8 @@ public partial class BuddyListForm : Win95Theme
 
     private void buddies_online_Shown(object sender, EventArgs e)
     {
-        FormBorderStyle = FormBorderStyle.None;
-        DoubleBuffered = true;
         SetStyle(ControlStyles.ResizeRedraw, true);
         StartList(); // get buddy list
-        UpdateTimer.Start();
 
         LocationService.PositionWindow(this, 1);
         buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
@@ -164,12 +162,12 @@ public partial class BuddyListForm : Win95Theme
 
     }
 
-    private void UpdateTimer_Tick(object sender, EventArgs e)
+    private async void UpdateTimer_Tick(object sender, EventArgs e)
     {
         int online = 0;
         int offline = 0;
 
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest" || !CheckIRCRunning())
+        if (!Account.SignedIn() || !await CheckIRCRunning())
             return;
 
         foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())

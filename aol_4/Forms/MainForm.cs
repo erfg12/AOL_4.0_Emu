@@ -208,7 +208,7 @@ public partial class MainForm : Win95Theme
 
     private void maxBtn_Click(object sender, EventArgs e)
     {
-        //miniMax(maxBtn);
+        miniMax(maxBtn);
     }
 
     private void miniBtn_Click(object sender, EventArgs e)

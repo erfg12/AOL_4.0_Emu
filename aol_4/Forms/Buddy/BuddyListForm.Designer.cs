@@ -291,12 +291,12 @@
             // 
             buddyContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { deleteToolStripMenuItem });
             buddyContextMenuStrip.Name = "buddyContextMenuStrip";
-            buddyContextMenuStrip.Size = new System.Drawing.Size(181, 48);
+            buddyContextMenuStrip.Size = new System.Drawing.Size(108, 26);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
