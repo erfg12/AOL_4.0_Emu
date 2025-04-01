@@ -24,7 +24,7 @@ public partial class SignupForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void backBtn_Click(object sender, EventArgs e)
@@ -116,5 +116,10 @@ public partial class SignupForm : Win95Theme
     private void recoverPass_KeyPress(object sender, KeyPressEventArgs e)
     {
 
+    }
+
+    private void SignupForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

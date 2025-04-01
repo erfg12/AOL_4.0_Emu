@@ -52,13 +52,13 @@
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(WebView);
-            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1294, 798);
+            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(906, 479);
             toolStripContainer1.ContentPanel.UseWaitCursor = true;
-            toolStripContainer1.Location = new System.Drawing.Point(4, 42);
-            toolStripContainer1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            toolStripContainer1.Location = new System.Drawing.Point(3, 25);
+            toolStripContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new System.Drawing.Size(1294, 823);
+            toolStripContainer1.Size = new System.Drawing.Size(906, 494);
             toolStripContainer1.TabIndex = 0;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -69,8 +69,9 @@
             WebView.CreationProperties = null;
             WebView.DefaultBackgroundColor = System.Drawing.Color.White;
             WebView.Location = new System.Drawing.Point(0, 0);
+            WebView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             WebView.Name = "WebView";
-            WebView.Size = new System.Drawing.Size(1291, 798);
+            WebView.Size = new System.Drawing.Size(904, 479);
             WebView.Source = new System.Uri("https://google.com", System.UriKind.Absolute);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
@@ -90,10 +91,10 @@
             panel1.Controls.Add(miniBtn);
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
-            panel1.Location = new System.Drawing.Point(4, 3);
-            panel1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1294, 35);
+            panel1.Size = new System.Drawing.Size(906, 21);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             panel1.MouseDoubleClick += panel1_MouseDoubleClick;
@@ -104,9 +105,10 @@
             BrowserWindowTitleLabel.AutoSize = true;
             BrowserWindowTitleLabel.BackColor = System.Drawing.Color.Transparent;
             BrowserWindowTitleLabel.ForeColor = System.Drawing.SystemColors.Window;
-            BrowserWindowTitleLabel.Location = new System.Drawing.Point(0, 4);
+            BrowserWindowTitleLabel.Location = new System.Drawing.Point(0, 2);
+            BrowserWindowTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             BrowserWindowTitleLabel.Name = "BrowserWindowTitleLabel";
-            BrowserWindowTitleLabel.Size = new System.Drawing.Size(84, 25);
+            BrowserWindowTitleLabel.Size = new System.Drawing.Size(56, 15);
             BrowserWindowTitleLabel.TabIndex = 5;
             BrowserWindowTitleLabel.Text = "loading...";
             // 
@@ -117,10 +119,10 @@
             favoriteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             favoriteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             favoriteBtn.Image = (System.Drawing.Image)resources.GetObject("favoriteBtn.Image");
-            favoriteBtn.Location = new System.Drawing.Point(1166, 0);
-            favoriteBtn.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            favoriteBtn.Location = new System.Drawing.Point(816, 0);
+            favoriteBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             favoriteBtn.Name = "favoriteBtn";
-            favoriteBtn.Size = new System.Drawing.Size(26, 33);
+            favoriteBtn.Size = new System.Drawing.Size(18, 20);
             favoriteBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             favoriteBtn.TabIndex = 4;
             favoriteBtn.TabStop = false;
@@ -131,10 +133,10 @@
             titleLabel.AutoSize = true;
             titleLabel.BackColor = System.Drawing.Color.Transparent;
             titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(6, 7);
-            titleLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            titleLabel.Location = new System.Drawing.Point(4, 4);
+            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(0, 25);
+            titleLabel.Size = new System.Drawing.Size(0, 15);
             titleLabel.TabIndex = 3;
             titleLabel.MouseMove += titleLabel_MouseMove;
             // 
@@ -147,10 +149,10 @@
             miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(1199, 2);
-            miniBtn.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            miniBtn.Location = new System.Drawing.Point(839, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(30, 32);
+            miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += miniBtn_Click;
@@ -164,11 +166,11 @@
             maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(1229, 2);
+            maxBtn.Location = new System.Drawing.Point(860, 1);
             maxBtn.Margin = new System.Windows.Forms.Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(30, 32);
+            maxBtn.Size = new System.Drawing.Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
             maxBtn.Click += maxBtn_Click;
@@ -182,33 +184,34 @@
             closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(1261, 2);
+            closeBtn.Location = new System.Drawing.Point(883, 1);
             closeBtn.Margin = new System.Windows.Forms.Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(30, 32);
+            closeBtn.Size = new System.Drawing.Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += closeBtn_Click;
             // 
-            // Browse
+            // BrowserForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size(1300, 870);
+            ClientSize = new System.Drawing.Size(910, 522);
             Controls.Add(panel1);
             Controls.Add(toolStripContainer1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Location = new System.Drawing.Point(5, 210);
-            Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            Name = "Browse";
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "BrowserForm";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "browser";
             Load += Form1_Load;
             Shown += Form1_Shown;
+            LocationChanged += BrowserForm_LocationChanged;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();

@@ -27,7 +27,7 @@ public partial class ChannelViewForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void FavoriteBtn_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ public partial class ChannelViewForm : Win95Theme
 
     private void titleLabel_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void panel1_Paint(object sender, PaintEventArgs e)
@@ -75,5 +75,10 @@ public partial class ChannelViewForm : Win95Theme
     private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
     {
         maxiMini(maxBtn);
+    }
+
+    private void ChannelViewForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

@@ -32,13 +32,13 @@
             toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
             panel1 = new System.Windows.Forms.Panel();
+            labelTitle = new System.Windows.Forms.Label();
             pictureBox22 = new System.Windows.Forms.PictureBox();
             favoriteBtn = new System.Windows.Forms.PictureBox();
             titleLabel = new System.Windows.Forms.Label();
             miniBtn = new System.Windows.Forms.Button();
             maxBtn = new System.Windows.Forms.Button();
             closeBtn = new System.Windows.Forms.Button();
-            labelTitle = new System.Windows.Forms.Label();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)WebView).BeginInit();
@@ -54,13 +54,13 @@
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(WebView);
-            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1294, 852);
+            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
+            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(906, 501);
             toolStripContainer1.ContentPanel.UseWaitCursor = true;
-            toolStripContainer1.Location = new System.Drawing.Point(4, 42);
-            toolStripContainer1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            toolStripContainer1.Location = new System.Drawing.Point(3, 25);
+            toolStripContainer1.Margin = new System.Windows.Forms.Padding(4);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new System.Drawing.Size(1294, 877);
+            toolStripContainer1.Size = new System.Drawing.Size(906, 526);
             toolStripContainer1.TabIndex = 0;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -69,9 +69,11 @@
             WebView.AllowExternalDrop = true;
             WebView.CreationProperties = null;
             WebView.DefaultBackgroundColor = System.Drawing.Color.White;
-            WebView.Location = new System.Drawing.Point(-1, 2);
+            WebView.Dock = System.Windows.Forms.DockStyle.Fill;
+            WebView.Location = new System.Drawing.Point(0, 0);
+            WebView.Margin = new System.Windows.Forms.Padding(2);
             WebView.Name = "WebView";
-            WebView.Size = new System.Drawing.Size(1293, 850);
+            WebView.Size = new System.Drawing.Size(906, 501);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
             WebView.ZoomFactor = 1D;
@@ -89,14 +91,26 @@
             panel1.Controls.Add(miniBtn);
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
-            panel1.Location = new System.Drawing.Point(4, 4);
-            panel1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1294, 35);
+            panel1.Size = new System.Drawing.Size(906, 21);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             panel1.MouseDoubleClick += panel1_MouseDoubleClick;
             panel1.MouseMove += panel1_MouseMove;
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.BackColor = System.Drawing.Color.Transparent;
+            labelTitle.ForeColor = System.Drawing.Color.White;
+            labelTitle.Location = new System.Drawing.Point(32, 3);
+            labelTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new System.Drawing.Size(56, 15);
+            labelTitle.TabIndex = 11;
+            labelTitle.Text = "loading...";
             // 
             // pictureBox22
             // 
@@ -105,10 +119,10 @@
             pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             pictureBox22.Image = Properties.Resources.aol_icon_4;
             pictureBox22.InitialImage = Properties.Resources.aol_icon_4;
-            pictureBox22.Location = new System.Drawing.Point(4, -2);
-            pictureBox22.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            pictureBox22.Location = new System.Drawing.Point(3, -1);
+            pictureBox22.Margin = new System.Windows.Forms.Padding(4);
             pictureBox22.Name = "pictureBox22";
-            pictureBox22.Size = new System.Drawing.Size(30, 35);
+            pictureBox22.Size = new System.Drawing.Size(21, 21);
             pictureBox22.TabIndex = 10;
             pictureBox22.TabStop = false;
             // 
@@ -119,10 +133,10 @@
             favoriteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             favoriteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             favoriteBtn.Image = (System.Drawing.Image)resources.GetObject("favoriteBtn.Image");
-            favoriteBtn.Location = new System.Drawing.Point(1166, 0);
-            favoriteBtn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            favoriteBtn.Location = new System.Drawing.Point(816, 0);
+            favoriteBtn.Margin = new System.Windows.Forms.Padding(4);
             favoriteBtn.Name = "favoriteBtn";
-            favoriteBtn.Size = new System.Drawing.Size(26, 33);
+            favoriteBtn.Size = new System.Drawing.Size(18, 20);
             favoriteBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             favoriteBtn.TabIndex = 4;
             favoriteBtn.TabStop = false;
@@ -133,10 +147,10 @@
             titleLabel.AutoSize = true;
             titleLabel.BackColor = System.Drawing.Color.Transparent;
             titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(35, 6);
-            titleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            titleLabel.Location = new System.Drawing.Point(24, 4);
+            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(0, 25);
+            titleLabel.Size = new System.Drawing.Size(0, 15);
             titleLabel.TabIndex = 3;
             titleLabel.MouseMove += titleLabel_MouseMove;
             // 
@@ -149,10 +163,10 @@
             miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(1198, 2);
-            miniBtn.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            miniBtn.Location = new System.Drawing.Point(839, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(30, 31);
+            miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += miniBtn_Click;
@@ -166,11 +180,11 @@
             maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(1228, 2);
+            maxBtn.Location = new System.Drawing.Point(860, 1);
             maxBtn.Margin = new System.Windows.Forms.Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(30, 31);
+            maxBtn.Size = new System.Drawing.Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
             // 
@@ -183,43 +197,33 @@
             closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(1262, 2);
+            closeBtn.Location = new System.Drawing.Point(883, 1);
             closeBtn.Margin = new System.Windows.Forms.Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(30, 31);
+            closeBtn.Size = new System.Drawing.Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += closeBtn_Click;
             // 
-            // labelTitle
+            // ChannelViewForm
             // 
-            labelTitle.AutoSize = true;
-            labelTitle.BackColor = System.Drawing.Color.Transparent;
-            labelTitle.ForeColor = System.Drawing.Color.White;
-            labelTitle.Location = new System.Drawing.Point(46, 5);
-            labelTitle.Name = "labelTitle";
-            labelTitle.Size = new System.Drawing.Size(84, 25);
-            labelTitle.TabIndex = 11;
-            labelTitle.Text = "loading...";
-            // 
-            // Channel
-            // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1300, 923);
+            ClientSize = new System.Drawing.Size(910, 554);
             Controls.Add(panel1);
             Controls.Add(toolStripContainer1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Location = new System.Drawing.Point(5, 210);
-            Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            Name = "Channel";
+            Margin = new System.Windows.Forms.Padding(4);
+            Name = "ChannelViewForm";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "browser";
             Load += Form1_Load;
             Shown += Form1_Shown;
+            LocationChanged += ChannelViewForm_LocationChanged;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();

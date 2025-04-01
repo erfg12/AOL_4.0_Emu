@@ -17,12 +17,12 @@ public partial class PicturesForm : Win95Theme
 
     private void Panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
 
@@ -34,5 +34,10 @@ public partial class PicturesForm : Win95Theme
     private void Pictures_Load(object sender, EventArgs e)
     {
 
+    }
+
+    private void PicturesForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

@@ -30,335 +30,329 @@
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Favorite Places");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FavoritePlacesForm));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.fpTreeView = new System.Windows.Forms.TreeView();
-            this.goBtn = new System.Windows.Forms.PictureBox();
-            this.newBtn = new System.Windows.Forms.PictureBox();
-            this.editBtn = new System.Windows.Forms.PictureBox();
-            this.deleteBtn = new System.Windows.Forms.PictureBox();
-            this.saveRplcBtn = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.goBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deleteBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveRplcBtn)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            closeBtn = new System.Windows.Forms.Button();
+            maxBtn = new System.Windows.Forms.Button();
+            miniBtn = new System.Windows.Forms.Button();
+            titleLabel = new System.Windows.Forms.Label();
+            fpTreeView = new System.Windows.Forms.TreeView();
+            goBtn = new System.Windows.Forms.PictureBox();
+            newBtn = new System.Windows.Forms.PictureBox();
+            editBtn = new System.Windows.Forms.PictureBox();
+            deleteBtn = new System.Windows.Forms.PictureBox();
+            saveRplcBtn = new System.Windows.Forms.PictureBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)goBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)newBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)editBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)deleteBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)saveRplcBtn).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Controls.Add(this.maxBtn);
-            this.panel1.Controls.Add(this.miniBtn);
-            this.panel1.Controls.Add(this.titleLabel);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 35);
-            this.panel1.TabIndex = 4;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.BackgroundImage = Properties.Resources.top_bar;
+            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(closeBtn);
+            panel1.Controls.Add(maxBtn);
+            panel1.Controls.Add(miniBtn);
+            panel1.Controls.Add(titleLabel);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(224, 21);
+            panel1.TabIndex = 4;
+            panel1.MouseMove += Panel1_MouseMove;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox1.Location = new System.Drawing.Point(2, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.aol_icon_4;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.aol_icon_4;
+            pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
+            pictureBox1.Location = new System.Drawing.Point(1, -1);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(21, 21);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // closeBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(317, 2);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(33, 31);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.BackgroundImage = Properties.Resources.close_btn;
+            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = System.Drawing.Color.Black;
+            closeBtn.Location = new System.Drawing.Point(202, 1);
+            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.Name = "closeBtn";
+            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.TabIndex = 0;
+            closeBtn.UseVisualStyleBackColor = false;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // maxBtn
             // 
-            this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(280, 2);
-            this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.maxBtn.Name = "maxBtn";
-            this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(33, 31);
-            this.maxBtn.TabIndex = 1;
-            this.maxBtn.UseVisualStyleBackColor = false;
-            this.maxBtn.Click += new System.EventHandler(this.MaxBtn_Click);
+            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = System.Drawing.Color.Black;
+            maxBtn.Location = new System.Drawing.Point(178, 1);
+            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.Name = "maxBtn";
+            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.TabIndex = 1;
+            maxBtn.UseVisualStyleBackColor = false;
+            maxBtn.Click += MaxBtn_Click;
             // 
             // miniBtn
             // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(248, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(33, 31);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
-            this.miniBtn.Click += new System.EventHandler(this.MiniBtn_Click);
+            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
+            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = System.Drawing.Color.Black;
+            miniBtn.Location = new System.Drawing.Point(158, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Name = "miniBtn";
+            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.TabIndex = 2;
+            miniBtn.UseVisualStyleBackColor = false;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(37, 4);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(136, 25);
-            this.titleLabel.TabIndex = 4;
-            this.titleLabel.Text = "Favorite Places";
-            this.titleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TitleLabel_MouseMove);
+            titleLabel.AutoSize = true;
+            titleLabel.BackColor = System.Drawing.Color.Transparent;
+            titleLabel.ForeColor = System.Drawing.Color.White;
+            titleLabel.Location = new System.Drawing.Point(24, 2);
+            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new System.Drawing.Size(85, 15);
+            titleLabel.TabIndex = 4;
+            titleLabel.Text = "Favorite Places";
+            titleLabel.MouseMove += TitleLabel_MouseMove;
             // 
             // fpTreeView
             // 
-            this.fpTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fpTreeView.Location = new System.Drawing.Point(15, 52);
-            this.fpTreeView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.fpTreeView.Name = "fpTreeView";
+            fpTreeView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            fpTreeView.Location = new System.Drawing.Point(10, 31);
+            fpTreeView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            fpTreeView.Name = "fpTreeView";
             treeNode1.Name = "favorite_places";
             treeNode1.Text = "Favorite Places";
-            this.fpTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.fpTreeView.Size = new System.Drawing.Size(325, 548);
-            this.fpTreeView.TabIndex = 5;
-            this.fpTreeView.DoubleClick += new System.EventHandler(this.FpTreeView_DoubleClick);
+            fpTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] { treeNode1 });
+            fpTreeView.Size = new System.Drawing.Size(208, 330);
+            fpTreeView.TabIndex = 5;
+            fpTreeView.DoubleClick += FpTreeView_DoubleClick;
             // 
             // goBtn
             // 
-            this.goBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.goBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.goBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.goBtn.Image = ((System.Drawing.Image)(resources.GetObject("goBtn.Image")));
-            this.goBtn.Location = new System.Drawing.Point(15, 615);
-            this.goBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.goBtn.Name = "goBtn";
-            this.goBtn.Size = new System.Drawing.Size(40, 42);
-            this.goBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.goBtn.TabIndex = 6;
-            this.goBtn.TabStop = false;
-            this.goBtn.Click += new System.EventHandler(this.GoBtn_Click);
+            goBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            goBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            goBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            goBtn.Image = (System.Drawing.Image)resources.GetObject("goBtn.Image");
+            goBtn.Location = new System.Drawing.Point(10, 369);
+            goBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            goBtn.Name = "goBtn";
+            goBtn.Size = new System.Drawing.Size(25, 25);
+            goBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            goBtn.TabIndex = 6;
+            goBtn.TabStop = false;
+            goBtn.Click += GoBtn_Click;
             // 
             // newBtn
             // 
-            this.newBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.newBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.newBtn.Image = ((System.Drawing.Image)(resources.GetObject("newBtn.Image")));
-            this.newBtn.Location = new System.Drawing.Point(86, 615);
-            this.newBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.newBtn.Name = "newBtn";
-            this.newBtn.Size = new System.Drawing.Size(40, 42);
-            this.newBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.newBtn.TabIndex = 7;
-            this.newBtn.TabStop = false;
-            this.newBtn.Click += new System.EventHandler(this.NewBtn_Click);
+            newBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            newBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            newBtn.Image = (System.Drawing.Image)resources.GetObject("newBtn.Image");
+            newBtn.Location = new System.Drawing.Point(55, 369);
+            newBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            newBtn.Name = "newBtn";
+            newBtn.Size = new System.Drawing.Size(25, 25);
+            newBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            newBtn.TabIndex = 7;
+            newBtn.TabStop = false;
+            newBtn.Click += NewBtn_Click;
             // 
             // editBtn
             // 
-            this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
-            this.editBtn.Location = new System.Drawing.Point(156, 615);
-            this.editBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(40, 42);
-            this.editBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.editBtn.TabIndex = 8;
-            this.editBtn.TabStop = false;
-            this.editBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            editBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            editBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            editBtn.Image = (System.Drawing.Image)resources.GetObject("editBtn.Image");
+            editBtn.Location = new System.Drawing.Point(99, 369);
+            editBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            editBtn.Name = "editBtn";
+            editBtn.Size = new System.Drawing.Size(25, 25);
+            editBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            editBtn.TabIndex = 8;
+            editBtn.TabStop = false;
+            editBtn.Click += EditBtn_Click;
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
-            this.deleteBtn.Location = new System.Drawing.Point(229, 615);
-            this.deleteBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(40, 42);
-            this.deleteBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.deleteBtn.TabIndex = 9;
-            this.deleteBtn.TabStop = false;
-            this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            deleteBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            deleteBtn.Image = (System.Drawing.Image)resources.GetObject("deleteBtn.Image");
+            deleteBtn.Location = new System.Drawing.Point(146, 369);
+            deleteBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new System.Drawing.Size(25, 25);
+            deleteBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            deleteBtn.TabIndex = 9;
+            deleteBtn.TabStop = false;
+            deleteBtn.Click += DeleteBtn_Click;
             // 
             // saveRplcBtn
             // 
-            this.saveRplcBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveRplcBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveRplcBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveRplcBtn.Image")));
-            this.saveRplcBtn.Location = new System.Drawing.Point(301, 615);
-            this.saveRplcBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.saveRplcBtn.Name = "saveRplcBtn";
-            this.saveRplcBtn.Size = new System.Drawing.Size(40, 42);
-            this.saveRplcBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.saveRplcBtn.TabIndex = 10;
-            this.saveRplcBtn.TabStop = false;
+            saveRplcBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            saveRplcBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            saveRplcBtn.Image = (System.Drawing.Image)resources.GetObject("saveRplcBtn.Image");
+            saveRplcBtn.Location = new System.Drawing.Point(192, 369);
+            saveRplcBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            saveRplcBtn.Name = "saveRplcBtn";
+            saveRplcBtn.Size = new System.Drawing.Size(25, 25);
+            saveRplcBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            saveRplcBtn.TabIndex = 10;
+            saveRplcBtn.TabStop = false;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(15, 660);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 17);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Go";
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            label1.Location = new System.Drawing.Point(10, 396);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(21, 13);
+            label1.TabIndex = 11;
+            label1.Text = "Go";
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(81, 662);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 17);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "New";
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            label2.Location = new System.Drawing.Point(52, 397);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(28, 13);
+            label2.TabIndex = 12;
+            label2.Text = "New";
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(152, 662);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 17);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Edit";
+            label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            label3.Location = new System.Drawing.Point(97, 397);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(25, 13);
+            label3.TabIndex = 13;
+            label3.Text = "Edit";
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(214, 662);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Delete";
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            label4.Location = new System.Drawing.Point(136, 397);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(38, 13);
+            label4.TabIndex = 14;
+            label4.Text = "Delete";
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(292, 662);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 17);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Save/";
+            label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            label5.Location = new System.Drawing.Point(186, 397);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(35, 13);
+            label5.TabIndex = 15;
+            label5.Text = "Save/";
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(284, 687);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 16);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Replace";
+            label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
+            label6.Location = new System.Drawing.Point(181, 412);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(39, 12);
+            label6.TabIndex = 16;
+            label6.Text = "Replace";
             // 
             // backgroundWorker1
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
+            backgroundWorker1.DoWork += BackgroundWorker1_DoWork;
             // 
-            // favorite_places
+            // FavoritePlacesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Ivory;
-            this.ClientSize = new System.Drawing.Size(359, 715);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.saveRplcBtn);
-            this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.editBtn);
-            this.Controls.Add(this.newBtn);
-            this.Controls.Add(this.goBtn);
-            this.Controls.Add(this.fpTreeView);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(15, 150);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.MinimumSize = new System.Drawing.Size(359, 715);
-            this.Name = "favorite_places";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "favorite_places";
-            this.Shown += new System.EventHandler(this.Favorite_places_Shown);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.goBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deleteBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saveRplcBtn)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.Ivory;
+            ClientSize = new System.Drawing.Size(228, 429);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(saveRplcBtn);
+            Controls.Add(deleteBtn);
+            Controls.Add(editBtn);
+            Controls.Add(newBtn);
+            Controls.Add(goBtn);
+            Controls.Add(fpTreeView);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Location = new System.Drawing.Point(15, 150);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            MinimumSize = new System.Drawing.Size(228, 429);
+            Name = "FavoritePlacesForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "favorite_places";
+            Shown += Favorite_places_Shown;
+            LocationChanged += FavoritePlacesForm_LocationChanged;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)goBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)newBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)editBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)deleteBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)saveRplcBtn).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

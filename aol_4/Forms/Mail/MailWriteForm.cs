@@ -87,7 +87,7 @@ public partial class MailWriteForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void sendButton_Click(object sender, EventArgs e)
@@ -114,5 +114,10 @@ public partial class MailWriteForm : Win95Theme
     private void write_mail_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this, 0, 55);
+    }
+
+    private void MailWriteForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

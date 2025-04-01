@@ -36,4 +36,9 @@ public partial class PreferencesForm : Win95Theme
     {
         InitializeComponent();
     }
+
+    private void PreferencesForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
+    }
 }

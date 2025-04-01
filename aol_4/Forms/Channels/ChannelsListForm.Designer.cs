@@ -28,494 +28,491 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.localBtn = new System.Windows.Forms.PictureBox();
-            this.kidsOnlyBtn = new System.Windows.Forms.PictureBox();
-            this.familiesBtn = new System.Windows.Forms.PictureBox();
-            this.healthBtn = new System.Windows.Forms.PictureBox();
-            this.shoppingBtn = new System.Windows.Forms.PictureBox();
-            this.lifestylesBtn = new System.Windows.Forms.PictureBox();
-            this.interestsBtn = new System.Windows.Forms.PictureBox();
-            this.gamesBtn = new System.Windows.Forms.PictureBox();
-            this.entertainmentBtn = new System.Windows.Forms.PictureBox();
-            this.researchLearnBtn = new System.Windows.Forms.PictureBox();
-            this.computingBtn = new System.Windows.Forms.PictureBox();
-            this.workPlaceBtn = new System.Windows.Forms.PictureBox();
-            this.personalFinanceBtn = new System.Windows.Forms.PictureBox();
-            this.internationalBtn = new System.Windows.Forms.PictureBox();
-            this.travelBtn = new System.Windows.Forms.PictureBox();
-            this.influenceBtn = new System.Windows.Forms.PictureBox();
-            this.sportsBtn = new System.Windows.Forms.PictureBox();
-            this.newsBtn = new System.Windows.Forms.PictureBox();
-            this.aolTodayBtn = new System.Windows.Forms.PictureBox();
-            this.searchBtn = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.miniBtn = new System.Windows.Forms.Button();
-            this.maxBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.localBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kidsOnlyBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familiesBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healthBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifestylesBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.interestsBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gamesBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entertainmentBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.researchLearnBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.computingBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workPlaceBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalFinanceBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internationalBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.travelBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.influenceBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sportsBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newsBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aolTodayBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            this.SuspendLayout();
+            localBtn = new System.Windows.Forms.PictureBox();
+            kidsOnlyBtn = new System.Windows.Forms.PictureBox();
+            familiesBtn = new System.Windows.Forms.PictureBox();
+            healthBtn = new System.Windows.Forms.PictureBox();
+            shoppingBtn = new System.Windows.Forms.PictureBox();
+            lifestylesBtn = new System.Windows.Forms.PictureBox();
+            interestsBtn = new System.Windows.Forms.PictureBox();
+            gamesBtn = new System.Windows.Forms.PictureBox();
+            entertainmentBtn = new System.Windows.Forms.PictureBox();
+            researchLearnBtn = new System.Windows.Forms.PictureBox();
+            computingBtn = new System.Windows.Forms.PictureBox();
+            workPlaceBtn = new System.Windows.Forms.PictureBox();
+            personalFinanceBtn = new System.Windows.Forms.PictureBox();
+            internationalBtn = new System.Windows.Forms.PictureBox();
+            travelBtn = new System.Windows.Forms.PictureBox();
+            influenceBtn = new System.Windows.Forms.PictureBox();
+            sportsBtn = new System.Windows.Forms.PictureBox();
+            newsBtn = new System.Windows.Forms.PictureBox();
+            aolTodayBtn = new System.Windows.Forms.PictureBox();
+            searchBtn = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            panel1 = new System.Windows.Forms.Panel();
+            pictureBox22 = new System.Windows.Forms.PictureBox();
+            titleLabel = new System.Windows.Forms.Label();
+            miniBtn = new System.Windows.Forms.Button();
+            maxBtn = new System.Windows.Forms.Button();
+            closeBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)localBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kidsOnlyBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)familiesBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)healthBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)shoppingBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lifestylesBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)interestsBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gamesBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)entertainmentBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)researchLearnBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)computingBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)workPlaceBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)personalFinanceBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)internationalBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)travelBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)influenceBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)sportsBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)newsBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)aolTodayBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)searchBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox22).BeginInit();
+            SuspendLayout();
             // 
             // localBtn
             // 
-            this.localBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.localBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.localBtn.Image = global::aol.Properties.Resources.channels_local_btn;
-            this.localBtn.Location = new System.Drawing.Point(640, 625);
-            this.localBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.localBtn.Name = "localBtn";
-            this.localBtn.Size = new System.Drawing.Size(302, 67);
-            this.localBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.localBtn.TabIndex = 24;
-            this.localBtn.TabStop = false;
+            localBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            localBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            localBtn.Image = Properties.Resources.channels_local_btn;
+            localBtn.Location = new System.Drawing.Point(407, 375);
+            localBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            localBtn.Name = "localBtn";
+            localBtn.Size = new System.Drawing.Size(192, 40);
+            localBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            localBtn.TabIndex = 24;
+            localBtn.TabStop = false;
             // 
             // kidsOnlyBtn
             // 
-            this.kidsOnlyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.kidsOnlyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.kidsOnlyBtn.Image = global::aol.Properties.Resources.channels_kids_only_btn;
-            this.kidsOnlyBtn.Location = new System.Drawing.Point(640, 546);
-            this.kidsOnlyBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.kidsOnlyBtn.Name = "kidsOnlyBtn";
-            this.kidsOnlyBtn.Size = new System.Drawing.Size(302, 67);
-            this.kidsOnlyBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.kidsOnlyBtn.TabIndex = 23;
-            this.kidsOnlyBtn.TabStop = false;
-            this.kidsOnlyBtn.Click += new System.EventHandler(this.KidsOnlyBtn_Click);
+            kidsOnlyBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            kidsOnlyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            kidsOnlyBtn.Image = Properties.Resources.channels_kids_only_btn;
+            kidsOnlyBtn.Location = new System.Drawing.Point(407, 328);
+            kidsOnlyBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            kidsOnlyBtn.Name = "kidsOnlyBtn";
+            kidsOnlyBtn.Size = new System.Drawing.Size(192, 40);
+            kidsOnlyBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            kidsOnlyBtn.TabIndex = 23;
+            kidsOnlyBtn.TabStop = false;
+            kidsOnlyBtn.Click += KidsOnlyBtn_Click;
             // 
             // familiesBtn
             // 
-            this.familiesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.familiesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.familiesBtn.Image = global::aol.Properties.Resources.channels_families_btn;
-            this.familiesBtn.Location = new System.Drawing.Point(640, 467);
-            this.familiesBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.familiesBtn.Name = "familiesBtn";
-            this.familiesBtn.Size = new System.Drawing.Size(302, 67);
-            this.familiesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.familiesBtn.TabIndex = 22;
-            this.familiesBtn.TabStop = false;
+            familiesBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            familiesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            familiesBtn.Image = Properties.Resources.channels_families_btn;
+            familiesBtn.Location = new System.Drawing.Point(407, 280);
+            familiesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            familiesBtn.Name = "familiesBtn";
+            familiesBtn.Size = new System.Drawing.Size(192, 40);
+            familiesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            familiesBtn.TabIndex = 22;
+            familiesBtn.TabStop = false;
             // 
             // healthBtn
             // 
-            this.healthBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.healthBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.healthBtn.Image = global::aol.Properties.Resources.channels_health_btn;
-            this.healthBtn.Location = new System.Drawing.Point(640, 388);
-            this.healthBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.healthBtn.Name = "healthBtn";
-            this.healthBtn.Size = new System.Drawing.Size(302, 67);
-            this.healthBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.healthBtn.TabIndex = 21;
-            this.healthBtn.TabStop = false;
+            healthBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            healthBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            healthBtn.Image = Properties.Resources.channels_health_btn;
+            healthBtn.Location = new System.Drawing.Point(407, 233);
+            healthBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            healthBtn.Name = "healthBtn";
+            healthBtn.Size = new System.Drawing.Size(192, 40);
+            healthBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            healthBtn.TabIndex = 21;
+            healthBtn.TabStop = false;
             // 
             // shoppingBtn
             // 
-            this.shoppingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.shoppingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.shoppingBtn.Image = global::aol.Properties.Resources.channels_shopping_btn;
-            this.shoppingBtn.Location = new System.Drawing.Point(640, 310);
-            this.shoppingBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.shoppingBtn.Name = "shoppingBtn";
-            this.shoppingBtn.Size = new System.Drawing.Size(302, 67);
-            this.shoppingBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.shoppingBtn.TabIndex = 20;
-            this.shoppingBtn.TabStop = false;
+            shoppingBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            shoppingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            shoppingBtn.Image = Properties.Resources.channels_shopping_btn;
+            shoppingBtn.Location = new System.Drawing.Point(407, 186);
+            shoppingBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            shoppingBtn.Name = "shoppingBtn";
+            shoppingBtn.Size = new System.Drawing.Size(192, 40);
+            shoppingBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            shoppingBtn.TabIndex = 20;
+            shoppingBtn.TabStop = false;
             // 
             // lifestylesBtn
             // 
-            this.lifestylesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.lifestylesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lifestylesBtn.Image = global::aol.Properties.Resources.channels_lifestyles_btn;
-            this.lifestylesBtn.Location = new System.Drawing.Point(640, 231);
-            this.lifestylesBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.lifestylesBtn.Name = "lifestylesBtn";
-            this.lifestylesBtn.Size = new System.Drawing.Size(302, 67);
-            this.lifestylesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.lifestylesBtn.TabIndex = 19;
-            this.lifestylesBtn.TabStop = false;
+            lifestylesBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            lifestylesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            lifestylesBtn.Image = Properties.Resources.channels_lifestyles_btn;
+            lifestylesBtn.Location = new System.Drawing.Point(407, 139);
+            lifestylesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            lifestylesBtn.Name = "lifestylesBtn";
+            lifestylesBtn.Size = new System.Drawing.Size(192, 40);
+            lifestylesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            lifestylesBtn.TabIndex = 19;
+            lifestylesBtn.TabStop = false;
             // 
             // interestsBtn
             // 
-            this.interestsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.interestsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.interestsBtn.Image = global::aol.Properties.Resources.channels_interests_btn;
-            this.interestsBtn.Location = new System.Drawing.Point(640, 152);
-            this.interestsBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.interestsBtn.Name = "interestsBtn";
-            this.interestsBtn.Size = new System.Drawing.Size(302, 67);
-            this.interestsBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.interestsBtn.TabIndex = 18;
-            this.interestsBtn.TabStop = false;
+            interestsBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            interestsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            interestsBtn.Image = Properties.Resources.channels_interests_btn;
+            interestsBtn.Location = new System.Drawing.Point(407, 91);
+            interestsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            interestsBtn.Name = "interestsBtn";
+            interestsBtn.Size = new System.Drawing.Size(192, 40);
+            interestsBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            interestsBtn.TabIndex = 18;
+            interestsBtn.TabStop = false;
             // 
             // gamesBtn
             // 
-            this.gamesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.gamesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gamesBtn.Image = global::aol.Properties.Resources.channels_games_btn;
-            this.gamesBtn.Location = new System.Drawing.Point(640, 73);
-            this.gamesBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.gamesBtn.Name = "gamesBtn";
-            this.gamesBtn.Size = new System.Drawing.Size(302, 67);
-            this.gamesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gamesBtn.TabIndex = 17;
-            this.gamesBtn.TabStop = false;
+            gamesBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            gamesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            gamesBtn.Image = Properties.Resources.channels_games_btn;
+            gamesBtn.Location = new System.Drawing.Point(407, 44);
+            gamesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gamesBtn.Name = "gamesBtn";
+            gamesBtn.Size = new System.Drawing.Size(192, 40);
+            gamesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            gamesBtn.TabIndex = 17;
+            gamesBtn.TabStop = false;
             // 
             // entertainmentBtn
             // 
-            this.entertainmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.entertainmentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.entertainmentBtn.Image = global::aol.Properties.Resources.channels_entertainment_btn;
-            this.entertainmentBtn.Location = new System.Drawing.Point(326, 625);
-            this.entertainmentBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.entertainmentBtn.Name = "entertainmentBtn";
-            this.entertainmentBtn.Size = new System.Drawing.Size(302, 67);
-            this.entertainmentBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.entertainmentBtn.TabIndex = 16;
-            this.entertainmentBtn.TabStop = false;
+            entertainmentBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            entertainmentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            entertainmentBtn.Image = Properties.Resources.channels_entertainment_btn;
+            entertainmentBtn.Location = new System.Drawing.Point(207, 375);
+            entertainmentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            entertainmentBtn.Name = "entertainmentBtn";
+            entertainmentBtn.Size = new System.Drawing.Size(192, 40);
+            entertainmentBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            entertainmentBtn.TabIndex = 16;
+            entertainmentBtn.TabStop = false;
             // 
             // researchLearnBtn
             // 
-            this.researchLearnBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.researchLearnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.researchLearnBtn.Image = global::aol.Properties.Resources.channels_research_and_learn_btn;
-            this.researchLearnBtn.Location = new System.Drawing.Point(326, 546);
-            this.researchLearnBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.researchLearnBtn.Name = "researchLearnBtn";
-            this.researchLearnBtn.Size = new System.Drawing.Size(302, 67);
-            this.researchLearnBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.researchLearnBtn.TabIndex = 15;
-            this.researchLearnBtn.TabStop = false;
+            researchLearnBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            researchLearnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            researchLearnBtn.Image = Properties.Resources.channels_research_and_learn_btn;
+            researchLearnBtn.Location = new System.Drawing.Point(207, 328);
+            researchLearnBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            researchLearnBtn.Name = "researchLearnBtn";
+            researchLearnBtn.Size = new System.Drawing.Size(192, 40);
+            researchLearnBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            researchLearnBtn.TabIndex = 15;
+            researchLearnBtn.TabStop = false;
             // 
             // computingBtn
             // 
-            this.computingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.computingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.computingBtn.Image = global::aol.Properties.Resources.channels_computing_btn;
-            this.computingBtn.Location = new System.Drawing.Point(326, 467);
-            this.computingBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.computingBtn.Name = "computingBtn";
-            this.computingBtn.Size = new System.Drawing.Size(302, 67);
-            this.computingBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.computingBtn.TabIndex = 14;
-            this.computingBtn.TabStop = false;
+            computingBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            computingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            computingBtn.Image = Properties.Resources.channels_computing_btn;
+            computingBtn.Location = new System.Drawing.Point(207, 280);
+            computingBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            computingBtn.Name = "computingBtn";
+            computingBtn.Size = new System.Drawing.Size(192, 40);
+            computingBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            computingBtn.TabIndex = 14;
+            computingBtn.TabStop = false;
             // 
             // workPlaceBtn
             // 
-            this.workPlaceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.workPlaceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.workPlaceBtn.Image = global::aol.Properties.Resources.channels_workplace_btn;
-            this.workPlaceBtn.Location = new System.Drawing.Point(326, 388);
-            this.workPlaceBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.workPlaceBtn.Name = "workPlaceBtn";
-            this.workPlaceBtn.Size = new System.Drawing.Size(302, 67);
-            this.workPlaceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.workPlaceBtn.TabIndex = 13;
-            this.workPlaceBtn.TabStop = false;
+            workPlaceBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            workPlaceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            workPlaceBtn.Image = Properties.Resources.channels_workplace_btn;
+            workPlaceBtn.Location = new System.Drawing.Point(207, 233);
+            workPlaceBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            workPlaceBtn.Name = "workPlaceBtn";
+            workPlaceBtn.Size = new System.Drawing.Size(192, 40);
+            workPlaceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            workPlaceBtn.TabIndex = 13;
+            workPlaceBtn.TabStop = false;
             // 
             // personalFinanceBtn
             // 
-            this.personalFinanceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.personalFinanceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.personalFinanceBtn.Image = global::aol.Properties.Resources.channels_personal_finance_btn;
-            this.personalFinanceBtn.Location = new System.Drawing.Point(326, 310);
-            this.personalFinanceBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.personalFinanceBtn.Name = "personalFinanceBtn";
-            this.personalFinanceBtn.Size = new System.Drawing.Size(302, 67);
-            this.personalFinanceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.personalFinanceBtn.TabIndex = 12;
-            this.personalFinanceBtn.TabStop = false;
+            personalFinanceBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            personalFinanceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            personalFinanceBtn.Image = Properties.Resources.channels_personal_finance_btn;
+            personalFinanceBtn.Location = new System.Drawing.Point(207, 186);
+            personalFinanceBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            personalFinanceBtn.Name = "personalFinanceBtn";
+            personalFinanceBtn.Size = new System.Drawing.Size(192, 40);
+            personalFinanceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            personalFinanceBtn.TabIndex = 12;
+            personalFinanceBtn.TabStop = false;
             // 
             // internationalBtn
             // 
-            this.internationalBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.internationalBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.internationalBtn.Image = global::aol.Properties.Resources.channels_international_btn;
-            this.internationalBtn.Location = new System.Drawing.Point(326, 231);
-            this.internationalBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.internationalBtn.Name = "internationalBtn";
-            this.internationalBtn.Size = new System.Drawing.Size(302, 67);
-            this.internationalBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.internationalBtn.TabIndex = 11;
-            this.internationalBtn.TabStop = false;
+            internationalBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            internationalBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            internationalBtn.Image = Properties.Resources.channels_international_btn;
+            internationalBtn.Location = new System.Drawing.Point(207, 139);
+            internationalBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            internationalBtn.Name = "internationalBtn";
+            internationalBtn.Size = new System.Drawing.Size(192, 40);
+            internationalBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            internationalBtn.TabIndex = 11;
+            internationalBtn.TabStop = false;
             // 
             // travelBtn
             // 
-            this.travelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.travelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.travelBtn.Image = global::aol.Properties.Resources.channels_travel_btn;
-            this.travelBtn.Location = new System.Drawing.Point(326, 152);
-            this.travelBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.travelBtn.Name = "travelBtn";
-            this.travelBtn.Size = new System.Drawing.Size(302, 67);
-            this.travelBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.travelBtn.TabIndex = 10;
-            this.travelBtn.TabStop = false;
+            travelBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            travelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            travelBtn.Image = Properties.Resources.channels_travel_btn;
+            travelBtn.Location = new System.Drawing.Point(207, 91);
+            travelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            travelBtn.Name = "travelBtn";
+            travelBtn.Size = new System.Drawing.Size(192, 40);
+            travelBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            travelBtn.TabIndex = 10;
+            travelBtn.TabStop = false;
             // 
             // influenceBtn
             // 
-            this.influenceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.influenceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.influenceBtn.Image = global::aol.Properties.Resources.channels_influence_btn;
-            this.influenceBtn.Location = new System.Drawing.Point(326, 73);
-            this.influenceBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.influenceBtn.Name = "influenceBtn";
-            this.influenceBtn.Size = new System.Drawing.Size(302, 67);
-            this.influenceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.influenceBtn.TabIndex = 9;
-            this.influenceBtn.TabStop = false;
+            influenceBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            influenceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            influenceBtn.Image = Properties.Resources.channels_influence_btn;
+            influenceBtn.Location = new System.Drawing.Point(207, 44);
+            influenceBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            influenceBtn.Name = "influenceBtn";
+            influenceBtn.Size = new System.Drawing.Size(192, 40);
+            influenceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            influenceBtn.TabIndex = 9;
+            influenceBtn.TabStop = false;
             // 
             // sportsBtn
             // 
-            this.sportsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.sportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sportsBtn.Image = global::aol.Properties.Resources.channels_sports_btn;
-            this.sportsBtn.Location = new System.Drawing.Point(18, 625);
-            this.sportsBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.sportsBtn.Name = "sportsBtn";
-            this.sportsBtn.Size = new System.Drawing.Size(302, 67);
-            this.sportsBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sportsBtn.TabIndex = 8;
-            this.sportsBtn.TabStop = false;
+            sportsBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            sportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            sportsBtn.Image = Properties.Resources.channels_sports_btn;
+            sportsBtn.Location = new System.Drawing.Point(11, 375);
+            sportsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sportsBtn.Name = "sportsBtn";
+            sportsBtn.Size = new System.Drawing.Size(192, 40);
+            sportsBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            sportsBtn.TabIndex = 8;
+            sportsBtn.TabStop = false;
             // 
             // newsBtn
             // 
-            this.newsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.newsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.newsBtn.Image = global::aol.Properties.Resources.channels_news_btn;
-            this.newsBtn.Location = new System.Drawing.Point(18, 546);
-            this.newsBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.newsBtn.Name = "newsBtn";
-            this.newsBtn.Size = new System.Drawing.Size(302, 67);
-            this.newsBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.newsBtn.TabIndex = 7;
-            this.newsBtn.TabStop = false;
+            newsBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            newsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            newsBtn.Image = Properties.Resources.channels_news_btn;
+            newsBtn.Location = new System.Drawing.Point(11, 328);
+            newsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            newsBtn.Name = "newsBtn";
+            newsBtn.Size = new System.Drawing.Size(192, 40);
+            newsBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            newsBtn.TabIndex = 7;
+            newsBtn.TabStop = false;
             // 
             // aolTodayBtn
             // 
-            this.aolTodayBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.aolTodayBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aolTodayBtn.Image = global::aol.Properties.Resources.channels_aol_today_btn;
-            this.aolTodayBtn.Location = new System.Drawing.Point(18, 467);
-            this.aolTodayBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.aolTodayBtn.Name = "aolTodayBtn";
-            this.aolTodayBtn.Size = new System.Drawing.Size(302, 67);
-            this.aolTodayBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.aolTodayBtn.TabIndex = 6;
-            this.aolTodayBtn.TabStop = false;
+            aolTodayBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            aolTodayBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            aolTodayBtn.Image = Properties.Resources.channels_aol_today_btn;
+            aolTodayBtn.Location = new System.Drawing.Point(11, 280);
+            aolTodayBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            aolTodayBtn.Name = "aolTodayBtn";
+            aolTodayBtn.Size = new System.Drawing.Size(192, 40);
+            aolTodayBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            aolTodayBtn.TabIndex = 6;
+            aolTodayBtn.TabStop = false;
             // 
             // searchBtn
             // 
-            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(240)))));
-            this.searchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBtn.Image = global::aol.Properties.Resources.channels_search;
-            this.searchBtn.Location = new System.Drawing.Point(31, 390);
-            this.searchBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(246, 65);
-            this.searchBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.searchBtn.TabIndex = 5;
-            this.searchBtn.TabStop = false;
+            searchBtn.BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
+            searchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            searchBtn.Image = Properties.Resources.channels_search;
+            searchBtn.Location = new System.Drawing.Point(20, 234);
+            searchBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            searchBtn.Name = "searchBtn";
+            searchBtn.Size = new System.Drawing.Size(157, 39);
+            searchBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            searchBtn.TabIndex = 5;
+            searchBtn.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::aol.Properties.Resources.channels_background;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 38);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(970, 679);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.Image = Properties.Resources.channels_background;
+            pictureBox1.Location = new System.Drawing.Point(4, 23);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(617, 407);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BackgroundImage = global::aol.Properties.Resources.top_bar;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox22);
-            this.panel1.Controls.Add(this.titleLabel);
-            this.panel1.Controls.Add(this.miniBtn);
-            this.panel1.Controls.Add(this.maxBtn);
-            this.panel1.Controls.Add(this.closeBtn);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(972, 35);
-            this.panel1.TabIndex = 3;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panel1.BackColor = System.Drawing.Color.White;
+            panel1.BackgroundImage = Properties.Resources.top_bar;
+            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.Controls.Add(pictureBox22);
+            panel1.Controls.Add(titleLabel);
+            panel1.Controls.Add(miniBtn);
+            panel1.Controls.Add(maxBtn);
+            panel1.Controls.Add(closeBtn);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(619, 21);
+            panel1.TabIndex = 3;
+            panel1.MouseMove += panel1_MouseMove;
             // 
             // pictureBox22
             // 
-            this.pictureBox22.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox22.BackgroundImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox22.Image = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox22.InitialImage = global::aol.Properties.Resources.aol_icon_4;
-            this.pictureBox22.Location = new System.Drawing.Point(4, 0);
-            this.pictureBox22.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(33, 35);
-            this.pictureBox22.TabIndex = 9;
-            this.pictureBox22.TabStop = false;
+            pictureBox22.BackColor = System.Drawing.Color.Transparent;
+            pictureBox22.BackgroundImage = Properties.Resources.aol_icon_4;
+            pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox22.Image = Properties.Resources.aol_icon_4;
+            pictureBox22.InitialImage = Properties.Resources.aol_icon_4;
+            pictureBox22.Location = new System.Drawing.Point(3, 0);
+            pictureBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox22.Name = "pictureBox22";
+            pictureBox22.Size = new System.Drawing.Size(21, 21);
+            pictureBox22.TabIndex = 9;
+            pictureBox22.TabStop = false;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(42, 6);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(90, 25);
-            this.titleLabel.TabIndex = 3;
-            this.titleLabel.Text = "Channels";
-            this.titleLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseMove);
+            titleLabel.AutoSize = true;
+            titleLabel.BackColor = System.Drawing.Color.Transparent;
+            titleLabel.ForeColor = System.Drawing.Color.White;
+            titleLabel.Location = new System.Drawing.Point(27, 4);
+            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new System.Drawing.Size(56, 15);
+            titleLabel.TabIndex = 3;
+            titleLabel.Text = "Channels";
+            titleLabel.MouseMove += titleLabel_MouseMove;
             // 
             // miniBtn
             // 
-            this.miniBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miniBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.miniBtn.BackgroundImage = global::aol.Properties.Resources.minimize_btn;
-            this.miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.miniBtn.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.miniBtn.ForeColor = System.Drawing.Color.Black;
-            this.miniBtn.Location = new System.Drawing.Point(867, 2);
-            this.miniBtn.Margin = new System.Windows.Forms.Padding(6);
-            this.miniBtn.Name = "miniBtn";
-            this.miniBtn.Size = new System.Drawing.Size(33, 31);
-            this.miniBtn.TabIndex = 2;
-            this.miniBtn.UseVisualStyleBackColor = false;
-            this.miniBtn.Click += new System.EventHandler(this.miniBtn_Click);
+            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
+            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = System.Drawing.Color.Black;
+            miniBtn.Location = new System.Drawing.Point(552, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Name = "miniBtn";
+            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.TabIndex = 2;
+            miniBtn.UseVisualStyleBackColor = false;
+            miniBtn.Click += miniBtn_Click;
             // 
             // maxBtn
             // 
-            this.maxBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maxBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.maxBtn.BackgroundImage = global::aol.Properties.Resources.maximize_btn;
-            this.maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maxBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.maxBtn.Enabled = false;
-            this.maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maxBtn.ForeColor = System.Drawing.Color.Black;
-            this.maxBtn.Location = new System.Drawing.Point(900, 2);
-            this.maxBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.maxBtn.Name = "maxBtn";
-            this.maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.maxBtn.Size = new System.Drawing.Size(33, 31);
-            this.maxBtn.TabIndex = 1;
-            this.maxBtn.UseVisualStyleBackColor = false;
-            this.maxBtn.Click += new System.EventHandler(this.maxBtn_Click);
+            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            maxBtn.Enabled = false;
+            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = System.Drawing.Color.Black;
+            maxBtn.Location = new System.Drawing.Point(573, 1);
+            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.Name = "maxBtn";
+            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.TabIndex = 1;
+            maxBtn.UseVisualStyleBackColor = false;
+            maxBtn.Click += maxBtn_Click;
             // 
             // closeBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.closeBtn.BackgroundImage = global::aol.Properties.Resources.close_btn;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.closeBtn.ForeColor = System.Drawing.Color.Black;
-            this.closeBtn.Location = new System.Drawing.Point(937, 2);
-            this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.closeBtn.Size = new System.Drawing.Size(33, 31);
-            this.closeBtn.TabIndex = 0;
-            this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.BackgroundImage = Properties.Resources.close_btn;
+            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = System.Drawing.Color.Black;
+            closeBtn.Location = new System.Drawing.Point(596, 1);
+            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.Name = "closeBtn";
+            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.TabIndex = 0;
+            closeBtn.UseVisualStyleBackColor = false;
+            closeBtn.Click += closeBtn_Click;
             // 
-            // channels
+            // ChannelsListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 721);
-            this.Controls.Add(this.localBtn);
-            this.Controls.Add(this.kidsOnlyBtn);
-            this.Controls.Add(this.familiesBtn);
-            this.Controls.Add(this.healthBtn);
-            this.Controls.Add(this.shoppingBtn);
-            this.Controls.Add(this.lifestylesBtn);
-            this.Controls.Add(this.interestsBtn);
-            this.Controls.Add(this.gamesBtn);
-            this.Controls.Add(this.entertainmentBtn);
-            this.Controls.Add(this.researchLearnBtn);
-            this.Controls.Add(this.computingBtn);
-            this.Controls.Add(this.workPlaceBtn);
-            this.Controls.Add(this.personalFinanceBtn);
-            this.Controls.Add(this.internationalBtn);
-            this.Controls.Add(this.travelBtn);
-            this.Controls.Add(this.influenceBtn);
-            this.Controls.Add(this.sportsBtn);
-            this.Controls.Add(this.newsBtn);
-            this.Controls.Add(this.aolTodayBtn);
-            this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(50, 220);
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "channels";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "channels";
-            this.Load += new System.EventHandler(this.channels_Load);
-            this.Shown += new System.EventHandler(this.channels_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.localBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kidsOnlyBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familiesBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healthBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifestylesBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.interestsBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gamesBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entertainmentBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.researchLearnBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.computingBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workPlaceBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalFinanceBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.internationalBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.travelBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.influenceBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sportsBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newsBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aolTodayBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(623, 433);
+            Controls.Add(localBtn);
+            Controls.Add(kidsOnlyBtn);
+            Controls.Add(familiesBtn);
+            Controls.Add(healthBtn);
+            Controls.Add(shoppingBtn);
+            Controls.Add(lifestylesBtn);
+            Controls.Add(interestsBtn);
+            Controls.Add(gamesBtn);
+            Controls.Add(entertainmentBtn);
+            Controls.Add(researchLearnBtn);
+            Controls.Add(computingBtn);
+            Controls.Add(workPlaceBtn);
+            Controls.Add(personalFinanceBtn);
+            Controls.Add(internationalBtn);
+            Controls.Add(travelBtn);
+            Controls.Add(influenceBtn);
+            Controls.Add(sportsBtn);
+            Controls.Add(newsBtn);
+            Controls.Add(aolTodayBtn);
+            Controls.Add(searchBtn);
+            Controls.Add(pictureBox1);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Location = new System.Drawing.Point(50, 220);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "ChannelsListForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "channels";
+            Load += channels_Load;
+            Shown += channels_Shown;
+            LocationChanged += ChannelsListForm_LocationChanged;
+            ((System.ComponentModel.ISupportInitialize)localBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kidsOnlyBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)familiesBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)healthBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)shoppingBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lifestylesBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)interestsBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gamesBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)entertainmentBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)researchLearnBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)computingBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)workPlaceBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)personalFinanceBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)internationalBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)travelBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)influenceBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)sportsBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)newsBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)aolTodayBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)searchBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox22).EndInit();
+            ResumeLayout(false);
 
         }
 

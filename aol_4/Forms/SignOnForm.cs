@@ -144,4 +144,9 @@ public partial class accForm : Win95Theme
             e.Handled = true;
         }
     }
+
+    private void accForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
+    }
 }

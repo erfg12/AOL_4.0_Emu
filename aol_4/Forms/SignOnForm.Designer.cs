@@ -270,6 +270,7 @@
             FormClosing += accForm_FormClosing;
             Load += accForm_Load;
             Shown += accForm_Shown;
+            LocationChanged += accForm_LocationChanged;
             ((System.ComponentModel.ISupportInitialize)leftBanner).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

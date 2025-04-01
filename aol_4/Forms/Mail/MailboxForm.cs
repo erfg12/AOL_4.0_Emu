@@ -30,7 +30,8 @@ namespace aol.Forms
                 try
                 {
                     newListView.Invoke(new MethodInvoker(delegate { newListView.Items.Add(lIt); }));
-                } catch
+                }
+                catch
                 {
                     Debug.WriteLine("Prevented a crash from closing mailbox before we could load the items in.");
                 }
@@ -44,7 +45,8 @@ namespace aol.Forms
                 try
                 {
                     oldListView.Invoke(new MethodInvoker(delegate { oldListView.Items.Add(lIt); }));
-                } catch
+                }
+                catch
                 {
 
                 }
@@ -58,7 +60,8 @@ namespace aol.Forms
                 try
                 {
                     sentListView.Invoke(new MethodInvoker(delegate { sentListView.Items.Add(lIt); }));
-                } catch { }
+                }
+                catch { }
             }
         }
 
@@ -260,6 +263,11 @@ namespace aol.Forms
             }
 
             openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
+        }
+
+        private void MailboxForm_LocationChanged(object sender, EventArgs e)
+        {
+            OnLocationChanged(sender, e);
         }
     }
 }

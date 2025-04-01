@@ -25,7 +25,7 @@ public partial class ChatroomForm : Win95Theme
         roomname = channel;
         string logpath = Application.StartupPath + @"\chatlogs";
         chatlog = logpath + @"\" + channel + ".txt";
-        
+
         if (!Directory.Exists(logpath))
             Directory.CreateDirectory(logpath);
         if (!File.Exists(chatlog))
@@ -59,7 +59,7 @@ public partial class ChatroomForm : Win95Theme
         mainTitle.Text = pChat + " Chatroom";
 
         writeFileToBox(true);
-        
+
         if (!backgroundWorker1.IsBusy)
             backgroundWorker1.RunWorkerAsync();
 
@@ -94,7 +94,8 @@ public partial class ChatroomForm : Win95Theme
                     chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
                 chatRoomTextBox.ScrollToCaret();
             }));
-        } else
+        }
+        else
         {
             Debug.WriteLine("[ERROR] handle creation failed?");
         }
@@ -276,7 +277,7 @@ public partial class ChatroomForm : Win95Theme
 
     private void sendBtn_Click(object sender, EventArgs e)
     {
-        
+
     }
 
     private void miniBtn_Click(object sender, EventArgs e)
@@ -306,5 +307,10 @@ public partial class ChatroomForm : Win95Theme
     private void maxBtn_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void ChatroomForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

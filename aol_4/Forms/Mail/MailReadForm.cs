@@ -80,12 +80,17 @@ namespace aol.Forms
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            MoveWindow(sender, e);
+            MoveWindow(sender, e, maxBtn);
         }
 
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
             maxiMini(maxBtn);
+        }
+
+        private void MailReadForm_LocationChanged(object sender, EventArgs e)
+        {
+            OnLocationChanged(sender, e);
         }
     }
 }

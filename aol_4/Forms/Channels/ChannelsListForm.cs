@@ -1,28 +1,13 @@
 ﻿using aol.Services;
-using ServiceStack;
 using System;
-using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 
 namespace aol.Forms;
 public partial class ChannelsListForm : Win95Theme
 {
-    public void goToChannel (string channel, int width = 1105, int height = 650)
-    {
-        string title = $"{channel.ToTitleCase()} Channel";
-        string path = Directory.GetCurrentDirectory() + @"\Channels\" + channel + ".htm";
-        Debug.WriteLine(path);
-        Form BrowseWnd = new ChannelViewForm(path, title);
-        BrowseWnd.Owner = this;
-        BrowseWnd.MdiParent = MdiParent;
-        BrowseWnd.Width = width + 6;
-        BrowseWnd.Height = height + 26;
-        BrowseWnd.Show();
-    }
     private void titleLabel_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void channels_Shown(object sender, EventArgs e)
@@ -32,12 +17,12 @@ public partial class ChannelsListForm : Win95Theme
 
     private void KidsOnlyBtn_Click(object sender, EventArgs e)
     {
-        goToChannel("kids");
+        MainForm.goToChannel("kids", this, MdiParent);
     }
 
     private void channels_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     public ChannelsListForm()
@@ -62,6 +47,11 @@ public partial class ChannelsListForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
+    }
+
+    private void ChannelsListForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

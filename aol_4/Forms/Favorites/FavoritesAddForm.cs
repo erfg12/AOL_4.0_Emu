@@ -19,7 +19,7 @@ public partial class FavoritesAddForm : Win95Theme
 
     private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void MiniBtn_Click(object sender, EventArgs e)
@@ -64,5 +64,10 @@ public partial class FavoritesAddForm : Win95Theme
         internetAddrBox.Text = url;
         if (edit)
             internetAddrBox.ReadOnly = true;
+    }
+
+    private void FavoritesAddForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

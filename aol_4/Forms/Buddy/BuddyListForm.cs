@@ -268,4 +268,9 @@ public partial class BuddyListForm : Win95Theme
                 MessageBox.Show($"Buddy {selectedBuddy.username} was not removed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
+    private void BuddyListForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
+    }
 }

@@ -69,7 +69,7 @@
             panel1.Controls.Add(miniBtn);
             panel1.Controls.Add(titleLabel);
             panel1.Location = new System.Drawing.Point(1, 1);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(643, 21);
             panel1.TabIndex = 4;
@@ -83,7 +83,7 @@
             pictureBox3.Image = Properties.Resources.aol_icon_4;
             pictureBox3.InitialImage = Properties.Resources.aol_icon_4;
             pictureBox3.Location = new System.Drawing.Point(4, -1);
-            pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new System.Drawing.Size(21, 21);
             pictureBox3.TabIndex = 10;
@@ -134,7 +134,7 @@
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
             miniBtn.Location = new System.Drawing.Point(577, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
@@ -204,7 +204,7 @@
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new System.Drawing.Point(11, 104);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(308, 279);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -216,7 +216,7 @@
             pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             pictureBox2.Image = (System.Drawing.Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new System.Drawing.Point(326, 104);
-            pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(308, 279);
             pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -368,13 +368,14 @@
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Location = new System.Drawing.Point(100, 220);
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Margin = new System.Windows.Forms.Padding(4);
             Name = "WeatherForm";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "weather";
             Load += Weather_Load;
             Shown += Weather_Shown;
+            LocationChanged += WeatherForm_LocationChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

@@ -64,10 +64,10 @@
             panel1.Controls.Add(miniBtn);
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
-            panel1.Location = new System.Drawing.Point(3, 3);
-            panel1.Margin = new System.Windows.Forms.Padding(5);
+            panel1.Location = new System.Drawing.Point(3, 2);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(805, 28);
+            panel1.Size = new System.Drawing.Size(704, 21);
             panel1.TabIndex = 2;
             panel1.MouseDoubleClick += panel1_MouseDoubleClick;
             panel1.MouseMove += panel1_MouseMove;
@@ -77,10 +77,10 @@
             mainTitle.AutoSize = true;
             mainTitle.BackColor = System.Drawing.Color.Transparent;
             mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            mainTitle.Location = new System.Drawing.Point(33, 5);
-            mainTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            mainTitle.Location = new System.Drawing.Point(29, 4);
+            mainTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             mainTitle.Name = "mainTitle";
-            mainTitle.Size = new System.Drawing.Size(101, 20);
+            mainTitle.Size = new System.Drawing.Size(82, 15);
             mainTitle.TabIndex = 10;
             mainTitle.Text = "Chatroom List";
             mainTitle.MouseMove += mainTitle_MouseMove;
@@ -92,10 +92,10 @@
             pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             pictureBox1.Image = Properties.Resources.aol_icon_4;
             pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
-            pictureBox1.Location = new System.Drawing.Point(5, 0);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+            pictureBox1.Location = new System.Drawing.Point(4, 0);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(24, 28);
+            pictureBox1.Size = new System.Drawing.Size(21, 21);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
@@ -104,10 +104,10 @@
             titleLabel.AutoSize = true;
             titleLabel.BackColor = System.Drawing.Color.Transparent;
             titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(5, 5);
-            titleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            titleLabel.Location = new System.Drawing.Point(4, 4);
+            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(0, 20);
+            titleLabel.Size = new System.Drawing.Size(0, 15);
             titleLabel.TabIndex = 3;
             // 
             // miniBtn
@@ -119,10 +119,10 @@
             miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(729, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(5);
+            miniBtn.Location = new System.Drawing.Point(638, 1);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(24, 25);
+            miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += miniBtn_Click;
@@ -136,11 +136,11 @@
             maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(753, 1);
+            maxBtn.Location = new System.Drawing.Point(659, 1);
             maxBtn.Margin = new System.Windows.Forms.Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(24, 25);
+            maxBtn.Size = new System.Drawing.Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
             maxBtn.Click += maxBtn_Click;
@@ -154,11 +154,11 @@
             closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(779, 1);
+            closeBtn.Location = new System.Drawing.Point(682, 1);
             closeBtn.Margin = new System.Windows.Forms.Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(24, 25);
+            closeBtn.Size = new System.Drawing.Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += closeBtn_Click;
@@ -167,10 +167,10 @@
             // 
             searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             searchTextBox.Font = new System.Drawing.Font("Segoe UI", 8F);
-            searchTextBox.Location = new System.Drawing.Point(20, 170);
-            searchTextBox.Margin = new System.Windows.Forms.Padding(5);
+            searchTextBox.Location = new System.Drawing.Point(18, 128);
+            searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new System.Drawing.Size(185, 18);
+            searchTextBox.Size = new System.Drawing.Size(162, 15);
             searchTextBox.TabIndex = 3;
             // 
             // catListView
@@ -179,11 +179,11 @@
             catListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { category_column });
             catListView.FullRowSelect = true;
             catListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            catListView.Location = new System.Drawing.Point(24, 344);
-            catListView.Margin = new System.Windows.Forms.Padding(5);
+            catListView.Location = new System.Drawing.Point(21, 258);
+            catListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             catListView.MultiSelect = false;
             catListView.Name = "catListView";
-            catListView.Size = new System.Drawing.Size(187, 266);
+            catListView.Size = new System.Drawing.Size(164, 200);
             catListView.TabIndex = 7;
             catListView.UseCompatibleStateImageBehavior = false;
             catListView.View = System.Windows.Forms.View.Details;
@@ -200,10 +200,10 @@
             chanListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             chanListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { channels });
             chanListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            chanListView.Location = new System.Drawing.Point(230, 344);
-            chanListView.Margin = new System.Windows.Forms.Padding(5);
+            chanListView.Location = new System.Drawing.Point(201, 258);
+            chanListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             chanListView.Name = "chanListView";
-            chanListView.Size = new System.Drawing.Size(306, 243);
+            chanListView.Size = new System.Drawing.Size(268, 182);
             chanListView.TabIndex = 8;
             chanListView.UseCompatibleStateImageBehavior = false;
             chanListView.View = System.Windows.Forms.View.Details;
@@ -218,10 +218,10 @@
             // 
             pictureBox2.BackgroundImage = (System.Drawing.Image)resources.GetObject("pictureBox2.BackgroundImage");
             pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox2.Location = new System.Drawing.Point(3, 31);
-            pictureBox2.Margin = new System.Windows.Forms.Padding(5);
+            pictureBox2.Location = new System.Drawing.Point(3, 23);
+            pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(805, 643);
+            pictureBox2.Size = new System.Drawing.Size(704, 482);
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
             pictureBox2.MouseClick += pictureBox2_MouseClick;
@@ -232,10 +232,10 @@
             roomsIn.AutoSize = true;
             roomsIn.BackColor = System.Drawing.Color.FromArgb(201, 229, 248);
             roomsIn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            roomsIn.Location = new System.Drawing.Point(357, 317);
-            roomsIn.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            roomsIn.Location = new System.Drawing.Point(312, 238);
+            roomsIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             roomsIn.Name = "roomsIn";
-            roomsIn.Size = new System.Drawing.Size(15, 20);
+            roomsIn.Size = new System.Drawing.Size(13, 15);
             roomsIn.TabIndex = 10;
             roomsIn.Text = "''";
             // 
@@ -244,9 +244,10 @@
             goChatBtn.BackgroundImage = (System.Drawing.Image)resources.GetObject("goChatBtn.BackgroundImage");
             goChatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             goChatBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            goChatBtn.Location = new System.Drawing.Point(219, 600);
+            goChatBtn.Location = new System.Drawing.Point(192, 450);
+            goChatBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             goChatBtn.Name = "goChatBtn";
-            goChatBtn.Size = new System.Drawing.Size(97, 34);
+            goChatBtn.Size = new System.Drawing.Size(85, 26);
             goChatBtn.TabIndex = 11;
             goChatBtn.TabStop = false;
             goChatBtn.Click += goChatBtn_Click;
@@ -256,18 +257,19 @@
             searchBtn.BackgroundImage = (System.Drawing.Image)resources.GetObject("searchBtn.BackgroundImage");
             searchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             searchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            searchBtn.Location = new System.Drawing.Point(212, 162);
+            searchBtn.Location = new System.Drawing.Point(186, 122);
+            searchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             searchBtn.Name = "searchBtn";
-            searchBtn.Size = new System.Drawing.Size(83, 35);
+            searchBtn.Size = new System.Drawing.Size(73, 26);
             searchBtn.TabIndex = 12;
             searchBtn.TabStop = false;
             searchBtn.Click += searchBtn_Click_1;
             // 
-            // chat_list
+            // ChatroomListForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(811, 675);
+            ClientSize = new System.Drawing.Size(710, 506);
             Controls.Add(searchBtn);
             Controls.Add(goChatBtn);
             Controls.Add(roomsIn);
@@ -278,12 +280,13 @@
             Controls.Add(pictureBox2);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Location = new System.Drawing.Point(10, 245);
-            Margin = new System.Windows.Forms.Padding(5);
-            Name = "chat_list";
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Name = "ChatroomListForm";
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "chat_list";
             Load += chat_list_Load;
             Shown += chat_list_Shown;
+            LocationChanged += ChatroomListForm_LocationChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

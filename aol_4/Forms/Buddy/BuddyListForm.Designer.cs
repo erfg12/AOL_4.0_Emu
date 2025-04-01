@@ -329,6 +329,7 @@
             FormClosing += Buddies_online_FormClosing;
             Load += buddies_online_Load;
             Shown += buddies_online_Shown;
+            LocationChanged += BuddyListForm_LocationChanged;
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)setupBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)IMBtn).EndInit();

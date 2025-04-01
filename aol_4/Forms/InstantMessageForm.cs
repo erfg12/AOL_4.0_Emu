@@ -47,7 +47,7 @@ public partial class InstantMessageForm : Win95Theme
     {
         myMessageBox.Clear();
     }
-    
+
     public InstantMessageForm(string u)
     {
         string logpath = Application.StartupPath + @"\chatlogs";
@@ -58,7 +58,8 @@ public partial class InstantMessageForm : Win95Theme
         {
             if (!Directory.Exists(logpath))
                 Directory.CreateDirectory(logpath);
-        } catch
+        }
+        catch
         {
             MessageBox.Show("ERROR: There was an issue creating log directory: " + logpath);
         }
@@ -67,7 +68,8 @@ public partial class InstantMessageForm : Win95Theme
         {
             if (!File.Exists(privateLog))
                 File.Create(privateLog).Dispose();
-        } catch
+        }
+        catch
         {
             MessageBox.Show("ERROR: There was an issue creating log file: " + privateLog);
         }
@@ -77,7 +79,7 @@ public partial class InstantMessageForm : Win95Theme
 
     private void instant_message_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     private void panel1_DoubleClick(object sender, EventArgs e)
@@ -210,45 +212,45 @@ public partial class InstantMessageForm : Win95Theme
         string lastLine = "";
         //try
         //{
-            messagesBox.Invoke(new MethodInvoker(delegate
+        messagesBox.Invoke(new MethodInvoker(delegate
+        {
+            using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (StreamReader sr = new StreamReader(file))
                 {
-                    using (StreamReader sr = new StreamReader(file))
+                    while (!sr.EndOfStream)
                     {
-                        while (!sr.EndOfStream)
+                        if (init)
                         {
-                            if (init)
+                            try
                             {
-                                try
-                                {
-                                    messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
-                                    receivedMsgSound();
-                                }
-                                catch
-                                {
-                                    Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[1].");
-                                }
+                                messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                                receivedMsgSound();
                             }
-                            else
-                                lastLine = sr.ReadLine();
+                            catch
+                            {
+                                Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[1].");
+                            }
                         }
+                        else
+                            lastLine = sr.ReadLine();
                     }
                 }
-                if (!init)
+            }
+            if (!init)
+            {
+                try
                 {
-                    try
-                    {
-                        messagesBox.AppendText(lastLine + Environment.NewLine);
-                        receivedMsgSound();
-                    }
-                    catch
-                    {
-                        Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[2].");
-                    }
+                    messagesBox.AppendText(lastLine + Environment.NewLine);
+                    receivedMsgSound();
                 }
-                messagesBox.ScrollToCaret();
-            }));
+                catch
+                {
+                    Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[2].");
+                }
+            }
+            messagesBox.ScrollToCaret();
+        }));
         /*} catch
         {
             Debug.WriteLine("ERROR: Msgbox wasn't ready. I prevented a crash.");
@@ -271,7 +273,8 @@ public partial class InstantMessageForm : Win95Theme
             watch.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite;
             watch.Changed += new FileSystemEventHandler(OnChanged);
             watch.EnableRaisingEvents = true;
-        } catch
+        }
+        catch
         {
             MessageBox.Show("ERROR: keepReading function has crashed.");
         }
@@ -292,5 +295,10 @@ public partial class InstantMessageForm : Win95Theme
     private void closeBtn_Click(object sender, EventArgs e)
     {
         Close();
+    }
+
+    private void InstantMessageForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

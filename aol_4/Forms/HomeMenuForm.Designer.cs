@@ -285,6 +285,7 @@
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "Welcome Home Window";
             Shown += home_menu_ShownAsync;
+            LocationChanged += HomeMenuForm_LocationChanged;
             MouseClick += home_menu_MouseClick;
             MouseDown += home_menu_MouseDown;
             MouseMove += home_menu_MouseMove;

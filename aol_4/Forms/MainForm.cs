@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using aol.Services;
 using System.Configuration;
+using ServiceStack;
 
 namespace aol.Forms;
 public partial class MainForm : Win95Theme
@@ -35,18 +36,6 @@ public partial class MainForm : Win95Theme
         int.TryParse(lengthBuf.ToString(), out length);
 
         return length;
-    }
-
-    public void goToChannel(string channel, int width = 736, int height = 420)
-    {
-        string path = Directory.GetCurrentDirectory() + @"\Channels\" + channel + ".htm";
-        Debug.WriteLine(path);
-        Form BrowseWnd = new ChannelViewForm(path);
-        BrowseWnd.Owner = this;
-        BrowseWnd.MdiParent = this;
-        BrowseWnd.Width = width + 6;
-        BrowseWnd.Height = height + 26;
-        BrowseWnd.Show();
     }
 
     private void openAccWindow()
@@ -81,6 +70,18 @@ public partial class MainForm : Win95Theme
     {
         var btn = sender as Button; // TEST
         MessageBox.Show(btn.Tag.ToString());
+    }
+
+    public static void goToChannel(string channel, Form owner, Form mdiParent, int width = 736, int height = 422)
+    {
+        string title = $"{channel.ToTitleCase()} Channel";
+        string path = $"{Directory.GetCurrentDirectory()}\\Channels\\{channel}\\index.html";
+        Form BrowseWnd = new ChannelViewForm(path, title);
+        BrowseWnd.Owner = owner;
+        BrowseWnd.MdiParent = mdiParent;
+        BrowseWnd.Width = width + 6;
+        BrowseWnd.Height = height + 26;
+        BrowseWnd.Show();
     }
 
     public void startProgram()
@@ -722,7 +723,7 @@ public partial class MainForm : Win95Theme
 
     private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        goToChannel("kids");
+        goToChannel("kids", this, this);
     }
 
     private void buddyListToolStripMenuItem_Click(object sender, EventArgs e)

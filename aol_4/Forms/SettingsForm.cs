@@ -118,4 +118,9 @@ public partial class SettingsForm : Win95Theme
         }
         reloadBrowseHistory();
     }
+
+    private void SettingsForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
+    }
 }

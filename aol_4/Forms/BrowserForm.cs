@@ -89,7 +89,7 @@ public partial class BrowserForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs e)
@@ -113,7 +113,7 @@ public partial class BrowserForm : Win95Theme
 
     private void WebView_VisibleChanged(object sender, EventArgs e)
     {
-        
+
     }
 
     private void closeBtn_Click(object sender, EventArgs e)
@@ -157,5 +157,10 @@ public partial class BrowserForm : Win95Theme
     private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
     {
         maxiMini(maxBtn);
+    }
+
+    private void BrowserForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

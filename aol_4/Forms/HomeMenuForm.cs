@@ -17,7 +17,7 @@ public partial class HomeMenuForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void home_menu_MouseDown(object sender, MouseEventArgs e)
@@ -55,7 +55,7 @@ public partial class HomeMenuForm : Win95Theme
 
     private void titleLabel_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void closeBtn_Click(object sender, EventArgs e)
@@ -158,5 +158,10 @@ public partial class HomeMenuForm : Win95Theme
     private void chatBtn_MouseHover(object sender, EventArgs e)
     {
 
+    }
+
+    private void HomeMenuForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

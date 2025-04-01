@@ -76,7 +76,7 @@
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
             panel1.Location = new System.Drawing.Point(3, 2);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(780, 21);
             panel1.TabIndex = 5;
@@ -92,7 +92,7 @@
             pictureBox1.Image = Properties.Resources.aol_icon_4;
             pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
             pictureBox1.Location = new System.Drawing.Point(3, -1);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(21, 21);
             pictureBox1.TabIndex = 10;
@@ -117,10 +117,10 @@
             miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
             miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
             miniBtn.Location = new System.Drawing.Point(714, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
@@ -134,7 +134,7 @@
             maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
             maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = System.Drawing.Color.Black;
             maxBtn.Location = new System.Drawing.Point(735, 1);
             maxBtn.Margin = new System.Windows.Forms.Padding(0);
@@ -152,7 +152,7 @@
             closeBtn.BackgroundImage = Properties.Resources.close_btn;
             closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = System.Drawing.Color.Black;
             closeBtn.Location = new System.Drawing.Point(759, 1);
             closeBtn.Margin = new System.Windows.Forms.Padding(0);
@@ -166,7 +166,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             label1.Location = new System.Drawing.Point(10, 31);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -177,7 +177,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             label2.Location = new System.Drawing.Point(368, 31);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -188,7 +188,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             label3.Location = new System.Drawing.Point(24, 52);
             label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label3.Name = "label3";
@@ -199,7 +199,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             label4.Location = new System.Drawing.Point(379, 53);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -210,7 +210,7 @@
             // sendToBox
             // 
             sendToBox.Location = new System.Drawing.Point(57, 31);
-            sendToBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sendToBox.Margin = new System.Windows.Forms.Padding(4);
             sendToBox.Multiline = true;
             sendToBox.Name = "sendToBox";
             sendToBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -220,7 +220,7 @@
             // copyToBox
             // 
             copyToBox.Location = new System.Drawing.Point(413, 31);
-            copyToBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            copyToBox.Margin = new System.Windows.Forms.Padding(4);
             copyToBox.Multiline = true;
             copyToBox.Name = "copyToBox";
             copyToBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -230,7 +230,7 @@
             // subjectBox
             // 
             subjectBox.Location = new System.Drawing.Point(81, 145);
-            subjectBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            subjectBox.Margin = new System.Windows.Forms.Padding(4);
             subjectBox.Name = "subjectBox";
             subjectBox.Size = new System.Drawing.Size(616, 23);
             subjectBox.TabIndex = 12;
@@ -238,7 +238,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             label5.Location = new System.Drawing.Point(13, 145);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
@@ -250,7 +250,7 @@
             // 
             messageBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             messageBox.Location = new System.Drawing.Point(57, 203);
-            messageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            messageBox.Margin = new System.Windows.Forms.Padding(4);
             messageBox.Multiline = true;
             messageBox.Name = "messageBox";
             messageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -264,7 +264,7 @@
             helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             helpBtn.ForeColor = System.Drawing.SystemColors.Control;
             helpBtn.Location = new System.Drawing.Point(707, 421);
-            helpBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            helpBtn.Margin = new System.Windows.Forms.Padding(4);
             helpBtn.Name = "helpBtn";
             helpBtn.Size = new System.Drawing.Size(64, 26);
             helpBtn.TabIndex = 15;
@@ -278,7 +278,7 @@
             attachmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             attachmentsButton.ForeColor = System.Drawing.SystemColors.Control;
             attachmentsButton.Location = new System.Drawing.Point(17, 421);
-            attachmentsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            attachmentsButton.Margin = new System.Windows.Forms.Padding(4);
             attachmentsButton.Name = "attachmentsButton";
             attachmentsButton.Size = new System.Drawing.Size(94, 26);
             attachmentsButton.TabIndex = 16;
@@ -290,7 +290,7 @@
             requestReceiptCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             requestReceiptCheckbox.AutoSize = true;
             requestReceiptCheckbox.Location = new System.Drawing.Point(438, 422);
-            requestReceiptCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            requestReceiptCheckbox.Margin = new System.Windows.Forms.Padding(4);
             requestReceiptCheckbox.Name = "requestReceiptCheckbox";
             requestReceiptCheckbox.Size = new System.Drawing.Size(266, 19);
             requestReceiptCheckbox.TabIndex = 17;
@@ -304,7 +304,7 @@
             sendButton.Cursor = System.Windows.Forms.Cursors.Hand;
             sendButton.Image = (System.Drawing.Image)resources.GetObject("sendButton.Image");
             sendButton.Location = new System.Drawing.Point(717, 32);
-            sendButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sendButton.Margin = new System.Windows.Forms.Padding(4);
             sendButton.Name = "sendButton";
             sendButton.Size = new System.Drawing.Size(48, 45);
             sendButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -339,7 +339,7 @@
             sendLaterButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             sendLaterButton.Image = (System.Drawing.Image)resources.GetObject("sendLaterButton.Image");
             sendLaterButton.Location = new System.Drawing.Point(717, 106);
-            sendLaterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            sendLaterButton.Margin = new System.Windows.Forms.Padding(4);
             sendLaterButton.Name = "sendLaterButton";
             sendLaterButton.Size = new System.Drawing.Size(48, 45);
             sendLaterButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -362,7 +362,7 @@
             addressBookButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             addressBookButton.Image = (System.Drawing.Image)resources.GetObject("addressBookButton.Image");
             addressBookButton.Location = new System.Drawing.Point(717, 179);
-            addressBookButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            addressBookButton.Margin = new System.Windows.Forms.Padding(4);
             addressBookButton.Name = "addressBookButton";
             addressBookButton.Size = new System.Drawing.Size(48, 45);
             addressBookButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,7 +385,7 @@
             mailExtrasButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             mailExtrasButton.Image = (System.Drawing.Image)resources.GetObject("mailExtrasButton.Image");
             mailExtrasButton.Location = new System.Drawing.Point(715, 264);
-            mailExtrasButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            mailExtrasButton.Margin = new System.Windows.Forms.Padding(4);
             mailExtrasButton.Name = "mailExtrasButton";
             mailExtrasButton.Size = new System.Drawing.Size(48, 45);
             mailExtrasButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -399,11 +399,11 @@
             label10.Location = new System.Drawing.Point(704, 314);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(64, 15);
+            label10.Size = new System.Drawing.Size(63, 15);
             label10.TabIndex = 26;
             label10.Text = "Mail Extras";
             // 
-            // write_mail
+            // MailWriteForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -433,12 +433,13 @@
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Location = new System.Drawing.Point(15, 220);
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            Name = "write_mail";
+            Margin = new System.Windows.Forms.Padding(4);
+            Name = "MailWriteForm";
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "Write Mail";
             Load += write_mail_Load;
             Shown += write_mail_Shown;
+            LocationChanged += MailWriteForm_LocationChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema 
+    Microsoft ResX Schema
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-    
+
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -121,10 +121,10 @@
   <data name="favoriteBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAB2SURBVDhP
-        nYwBDoAwCAN5o/+PX8FVwQwEhruki0I5YmaTAZ5+ouMuRqCHW4L56LdAHpMu0u8feFKBLOTvoZh9hycd
-        d3QXzQC+R+xAi/NBNNP+SC2IkgrASjL3QwHIJL6bCoCXRL1SAFSSdZYCUO1bgopXsB/iC8MY602Dbwr8
-        AAAAAElFTkSuQmCC
+        DAAACwwBP0AiyAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAABxSURBVDhP
+        pZBRDoAwCEM5o/ePV8FgUjOhMMQm3UehbzpRVVktInb0zcpdvQAojgBr6TMg/NMEMFUKYF9SZDE85biN
+        GcuQhwfE4lpgWRvAnAI6EH9hAGDgi76MPQoweQjbKwEmQLKdLcBUzVuASg/gjy/DGOtNuArCYgAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

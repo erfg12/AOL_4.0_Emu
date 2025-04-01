@@ -7,7 +7,7 @@ public partial class KeywordForm : Win95Theme
 {
     private void Panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -23,5 +23,10 @@ public partial class KeywordForm : Win95Theme
     public KeywordForm()
     {
         InitializeComponent();
+    }
+
+    private void KeywordForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

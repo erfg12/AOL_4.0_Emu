@@ -499,6 +499,7 @@
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "signup_form";
             Shown += signup_form_Shown;
+            LocationChanged += SignupForm_LocationChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

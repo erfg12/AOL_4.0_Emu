@@ -18,7 +18,7 @@ public partial class WeatherForm : Win95Theme
 
     private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void Weather_Shown(object sender, EventArgs e)
@@ -31,7 +31,7 @@ public partial class WeatherForm : Win95Theme
 
     private void Panel1_MouseMove_1(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
 
@@ -43,5 +43,10 @@ public partial class WeatherForm : Win95Theme
     private void Weather_Load(object sender, EventArgs e)
     {
 
+    }
+
+    private void WeatherForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }

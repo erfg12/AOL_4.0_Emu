@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -116,12 +117,16 @@ namespace aol.Forms
 
                 if (resize)
                 {
-                    this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3);
+                    this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
                     this.ActiveMdiChild.Height = this.Height - getTopPadding() - 5;
                 }
             }
         }
 
+        /// <summary>
+        /// Maximize or restore button
+        /// </summary>
+        /// <param name="maxBtn"></param>
         public void maxiMini(Button maxBtn)
         {
             if (maximized)
@@ -141,7 +146,7 @@ namespace aol.Forms
                 maximized = true;
                 this.Location = new Point(0, 116);
                 var t = GetDisplayScaleFactor(this.Handle);
-                this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3);
+                this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
                 this.Height = Parent.Height - getTopPadding() - 5;
                 maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
@@ -195,26 +200,26 @@ namespace aol.Forms
             return Convert.ToInt32(ret);
         }
 
-        // prevent window from moving too high up
-        private void WindowMoved(object sender, EventArgs e)
+        public void OnLocationChanged(object sender,  EventArgs e)
         {
-            if (this.Name != "main" && Parent != null)
+            if (this.Name != "main" && MdiParent != null) // prevent window from moving too high up
             {
                 int paddingTopCalc = getTopPadding();
-                if (this.Location.Y < this.Parent.Location.Y + paddingTopCalc)
+                if (this.Location.Y < paddingTopCalc)
                 {
                     int LocX = this.Location.X;
-                    this.Location = new Point(LocX, Parent.Location.Y + paddingTopCalc);
-                    return;
+                    this.Location = new Point(LocX, paddingTopCalc);
                 }
             }
         }
 
         // allow moving a window if we're trying to drag it
-        public void MoveWindow(object sender, MouseEventArgs e)
+        public void MoveWindow(object sender, MouseEventArgs e, Button maxBtn = null)
         {
             if (e.Button == MouseButtons.Left)
             {
+                if (maximized && maxBtn != null)
+                    maxiMini(maxBtn);
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }

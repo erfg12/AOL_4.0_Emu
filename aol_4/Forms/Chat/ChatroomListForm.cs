@@ -91,7 +91,7 @@ public partial class ChatroomListForm : Win95Theme
 
     private void mainTitle_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
@@ -139,7 +139,7 @@ public partial class ChatroomListForm : Win95Theme
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-        MoveWindow(sender, e);
+        MoveWindow(sender, e, maxBtn);
     }
 
     private void chat_list_Load(object sender, EventArgs e)
@@ -161,5 +161,10 @@ public partial class ChatroomListForm : Win95Theme
     private void searchBtn_Click_1(object sender, EventArgs e)
     {
 
+    }
+
+    private void ChatroomListForm_LocationChanged(object sender, EventArgs e)
+    {
+        OnLocationChanged(sender, e);
     }
 }
