@@ -16,10 +16,10 @@ before_build:
 build_script:
   - dotnet publish aol_4/aol_4.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
 
-after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\windows\Release\net*\win-x64\publish\*
+after_build: 7z a AOL_4.0_Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\windows\Release\net*\win-x64\publish\aol.exe
 
 artifacts:
-  path: Build.zip
+  path: AOL_4.0_Build.zip
   name: Latest
 
 deploy:
@@ -31,4 +31,4 @@ deploy:
       %APPVEYOR_REPO_COMMIT_MESSAGE%
     auth_token:
       secure: EuR30pU45tPVaOpNF9ov5buzWmQTfdgDQT69pSfz4+lh+m5K5+7eJMtz2TjTbC36
-    artifact: Build.zip
+    artifact: AOL_4.0_Build.zip
