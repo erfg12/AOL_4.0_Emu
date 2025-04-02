@@ -16,7 +16,7 @@ before_build:
 build_script:
   - dotnet publish aol_4/aol_4.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
 
-after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Release\net*\win-x64\publish\*
+after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\windows\Release\net*\win-x64\publish\*
 
 artifacts:
   path: Build.zip
