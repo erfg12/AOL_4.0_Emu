@@ -13,7 +13,10 @@ skip_commits:
 before_build:
   - nuget restore
 
-after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Windows\Release\net8.0-windows10.0.22621.0\*
+build_script:
+  - dotnet publish aol_4/aol_4.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
+
+after_build: 7z a Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\Release\net*\win-x64\publish\*
 
 artifacts:
   path: Build.zip
@@ -25,7 +28,7 @@ deploy:
     release: Build $(APPVEYOR_REPO_COMMIT_TIMESTAMP)
     description: | 
       Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
-      %APPVEYOR_REPO_COMMIT_MESSAGE%%APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED%
+      %APPVEYOR_REPO_COMMIT_MESSAGE%
     auth_token:
       secure: EuR30pU45tPVaOpNF9ov5buzWmQTfdgDQT69pSfz4+lh+m5K5+7eJMtz2TjTbC36
     artifact: Build.zip
