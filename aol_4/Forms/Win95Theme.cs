@@ -107,6 +107,11 @@ namespace aol.Forms
                 maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
 
+            ResizeMaximizedChildren();
+        }
+
+        public void ResizeMaximizedChildren()
+        {
             if (this.ActiveMdiChild != null)
             {
                 bool resize = false;
@@ -121,6 +126,16 @@ namespace aol.Forms
                     this.ActiveMdiChild.Height = this.Height - getTopPadding() - 5;
                 }
             }
+        }
+
+        public void OpenMsgBox(string title, string message)
+        {
+            MsgBoxForm msgBox = new MsgBoxForm(title, message);
+            Form MainForm = Application.OpenForms["MainForm"];
+            msgBox.Owner = MainForm;
+            msgBox.MdiParent = MainForm;
+            msgBox.Location = new Point((MainForm.Width - msgBox.Width) / 2, (MainForm.Height - msgBox.Height) / 2);
+            msgBox.Show();
         }
 
         /// <summary>

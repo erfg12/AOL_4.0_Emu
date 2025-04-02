@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using System.Diagnostics;
+using Sentry;
 
 namespace aol.Services;
 class RestAPIService
@@ -15,6 +16,8 @@ class RestAPIService
     {
         var client = new HttpClient();
         HttpResponseMessage response;
+        string content;
+
         try
         {
             var domain = "https://api.aolemu.com";
@@ -24,14 +27,23 @@ class RestAPIService
             Debug.WriteLine($"Calling METHOD:{method} URL:{url}");
             var requestMsg = new HttpRequestMessage(method, url) { };
             var httpResponse = await client.SendAsync(requestMsg);
+            httpResponse.EnsureSuccessStatusCode();
             response = httpResponse;
+
+            content = await response.Content.ReadAsStringAsync();
+            if (string.IsNullOrEmpty(content) || !content.Trim().StartsWith("{") || !content.Trim().EndsWith("}"))
+                throw new Exception($"Bad Json Data");
         }
-        catch
+        catch (Exception ex)
         {
-            MessageBox.Show("Error connecting to aolemu.com");
-            return JObject.Parse("{\"message\": \"Error connecting to aolemu.com\" }");
+            MessageBox.Show("Server Error");
+            ex.Data.Add("errorMsg", "Server Error");
+            ex.Data.Add("url", $"/{request}?{queryParams}");
+            SentrySdk.CaptureException(ex);
+            return JObject.Parse("{\"message\": \"Server Error\" }");
         }
-        return JObject.Parse(await response.Content.ReadAsStringAsync());
+
+        return JObject.Parse(content);
     }
 
     private static string CreateMD5(string input)

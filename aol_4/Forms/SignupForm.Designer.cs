@@ -219,6 +219,7 @@
             // nextBtn
             // 
             nextBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            nextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             nextBtn.Image = (System.Drawing.Image)resources.GetObject("nextBtn.Image");
             nextBtn.Location = new System.Drawing.Point(486, 307);
             nextBtn.Margin = new System.Windows.Forms.Padding(4);

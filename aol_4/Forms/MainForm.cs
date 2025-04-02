@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using aol.Services;
 using System.Configuration;
 using ServiceStack;
+using System.Security.Policy;
 
 namespace aol.Forms;
 public partial class MainForm : Win95Theme
@@ -478,7 +479,7 @@ public partial class MainForm : Win95Theme
 
     private void MainForm_SizeChanged(object sender, EventArgs e)
     {
-        // doesnt trigger
+        ResizeMaximizedChildren();
     }
 
     private void MainForm_MouseMove(object sender, MouseEventArgs e)
