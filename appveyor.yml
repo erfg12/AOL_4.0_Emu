@@ -23,7 +23,9 @@ deploy:
   - provider: GitHub
     tag: $(APPVEYOR_BUILD_ID)
     release: Build $(APPVEYOR_REPO_COMMIT_TIMESTAMP)
-    description: Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
+    description: | 
+      Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
+      %APPVEYOR_REPO_COMMIT_MESSAGE%%APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED%
     auth_token:
       secure: EuR30pU45tPVaOpNF9ov5buzWmQTfdgDQT69pSfz4+lh+m5K5+7eJMtz2TjTbC36
     artifact: Build.zip
