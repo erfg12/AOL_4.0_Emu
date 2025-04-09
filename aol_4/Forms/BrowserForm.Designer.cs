@@ -52,11 +52,11 @@
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(WebView);
-            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(906, 479);
+            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
+            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(906, 469);
             toolStripContainer1.ContentPanel.UseWaitCursor = true;
             toolStripContainer1.Location = new System.Drawing.Point(3, 25);
-            toolStripContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            toolStripContainer1.Margin = new System.Windows.Forms.Padding(4);
             toolStripContainer1.Name = "toolStripContainer1";
             toolStripContainer1.Size = new System.Drawing.Size(906, 494);
             toolStripContainer1.TabIndex = 0;
@@ -69,9 +69,9 @@
             WebView.CreationProperties = null;
             WebView.DefaultBackgroundColor = System.Drawing.Color.White;
             WebView.Location = new System.Drawing.Point(0, 0);
-            WebView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            WebView.Margin = new System.Windows.Forms.Padding(2);
             WebView.Name = "WebView";
-            WebView.Size = new System.Drawing.Size(904, 479);
+            WebView.Size = new System.Drawing.Size(904, 469);
             WebView.Source = new System.Uri("https://google.com", System.UriKind.Absolute);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
@@ -92,7 +92,7 @@
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
             panel1.Location = new System.Drawing.Point(3, 2);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(906, 21);
             panel1.TabIndex = 1;
@@ -120,7 +120,7 @@
             favoriteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             favoriteBtn.Image = (System.Drawing.Image)resources.GetObject("favoriteBtn.Image");
             favoriteBtn.Location = new System.Drawing.Point(816, 0);
-            favoriteBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            favoriteBtn.Margin = new System.Windows.Forms.Padding(4);
             favoriteBtn.Name = "favoriteBtn";
             favoriteBtn.Size = new System.Drawing.Size(18, 20);
             favoriteBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +150,7 @@
             miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = System.Drawing.Color.Black;
             miniBtn.Location = new System.Drawing.Point(839, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.Margin = new System.Windows.Forms.Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
@@ -204,13 +204,13 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Location = new System.Drawing.Point(5, 210);
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            Margin = new System.Windows.Forms.Padding(4);
             Name = "BrowserForm";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "browser";
-            Load += Form1_Load;
-            Shown += Form1_Shown;
+            Load += BrowserForm_Load;
+            Shown += BrowserForm_Shown;
             LocationChanged += BrowserForm_LocationChanged;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
@@ -231,8 +231,8 @@
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox favoriteBtn;
-        private Microsoft.Web.WebView2.WinForms.WebView2 WebView;
         private System.Windows.Forms.Label BrowserWindowTitleLabel;
+        public Microsoft.Web.WebView2.WinForms.WebView2 WebView;
     }
 }
 

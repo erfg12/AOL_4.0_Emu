@@ -1,9 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class BuddyAddForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class BuddyAddForm : _Win95Theme
 {
     private void MiniBtn_Click(object sender, EventArgs e)
     {

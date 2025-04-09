@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace aol.Forms
 {
-    public partial class Win95Theme: Form
+    public partial class _Win95Theme: Form
     {
         #region DLLImports
         [DllImport("user32.dll")]
@@ -194,7 +194,7 @@ namespace aol.Forms
         }
         #endregion
 
-        public Win95Theme()
+        public _Win95Theme()
         {
             InitializeComponent();
             //this.Move += WindowMoved;

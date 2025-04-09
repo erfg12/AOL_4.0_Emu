@@ -1,12 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Collections.Concurrent;
-
-namespace aol.Forms;
-public partial class MailWriteForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class MailWriteForm : _Win95Theme
 {
     // key = name, value = address
     private ConcurrentDictionary<string, string> parseSendTo(string parse)
@@ -97,7 +90,7 @@ public partial class MailWriteForm : Win95Theme
         {
             MailService.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
         }
-        MessageBox.Show("Your email has been sent!");
+        OpenMsgBox("INFO", "Your email has been sent!");
         Close();
     }
 

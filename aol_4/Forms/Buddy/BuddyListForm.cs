@@ -1,15 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class BuddyListForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class BuddyListForm : _Win95Theme
 {
     int total = 0;
     userAPI.Buddies selectedBuddy;
@@ -38,10 +28,7 @@ public partial class BuddyListForm : Win95Theme
 
     private void setupBtn_Click(object sender, EventArgs e)
     {
-        BuddyAddForm ab = new BuddyAddForm();
-        ab.Owner = this;
-        ab.MdiParent = MdiParent;
-        ab.Show();
+        MDIHelper.OpenForm<BuddyAddForm>(MdiParent);
     }
 
     public async Task<bool> CheckIRCRunning()
@@ -74,10 +61,9 @@ public partial class BuddyListForm : Win95Theme
 
     private void buddyTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
     {
-        if (buddyTreeView.SelectedNode.Text == null)
+        if (buddyTreeView.SelectedNode.Text == null || !ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
-        if (!ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
-            return;
+
         if (ChatService.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
         {
             InstantMessageForm im = new InstantMessageForm(buddyTreeView.SelectedNode.Text);
@@ -90,10 +76,9 @@ public partial class BuddyListForm : Win95Theme
 
     private void IMBtn_Click(object sender, EventArgs e)
     {
-        if (buddyTreeView.SelectedNode == null || buddyTreeView.SelectedNode.Text == null)
+        if (buddyTreeView.SelectedNode == null || buddyTreeView.SelectedNode.Text == null || !ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
-        if (!ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
-            return;
+
         if (ChatService.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
         {
             InstantMessageForm im = new InstantMessageForm(buddyTreeView.SelectedNode.Text);
@@ -175,7 +160,7 @@ public partial class BuddyListForm : Win95Theme
             if (string.IsNullOrEmpty(kvp.Key))
                 continue;
 
-            ChatService.irc.SendRawMessage("whois " + kvp.Key); // send whois command, this will populate the buddyStatus dictionary
+            ChatService.irc.SendRawMessage($"whois {kvp.Key}"); // send whois command, this will populate the buddyStatus dictionary
 
             if (kvp.Value == true) // remove from offline, add to online
             {
@@ -219,8 +204,8 @@ public partial class BuddyListForm : Win95Theme
                     buddyTreeView.Nodes[1].Expand();
                 }
             }
-            buddyTreeView.Nodes[0].Text = "Online " + online.ToString() + "/" + total.ToString();
-            buddyTreeView.Nodes[1].Text = "Offline " + offline.ToString() + "/" + total.ToString();
+            buddyTreeView.Nodes[0].Text = $"Online {online}/{total}";
+            buddyTreeView.Nodes[1].Text = $"Offline {offline}/{total}";
 
         }
 

@@ -213,7 +213,7 @@ class SqliteAccountsService
     public static List<string> getHistory()
     {
         //var accInfo = await RestAPI.getAccInfo();
-        if (Account.accountInfo != null)
+        if (Account.accountInfo == null)
             return new List<string> { null }; // error, account not found. Prevent crash.
 
         List<string> history = new List<string>();

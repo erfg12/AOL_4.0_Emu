@@ -1,8 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class PicturesForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class PicturesForm : _Win95Theme
 {
     private void CloseBtn_Click(object sender, EventArgs e)
     {

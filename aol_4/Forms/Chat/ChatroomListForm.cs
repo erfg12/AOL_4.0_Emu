@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Net;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class ChatroomListForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class ChatroomListForm : _Win95Theme
 {
+    private ConcurrentDictionary<string, List<string>> categories = new();
+
     private void maxBtn_Click(object sender, EventArgs e)
     {
 
     }
-
-    private ConcurrentDictionary<string, List<string>> categories = new ConcurrentDictionary<string, List<string>>();
-    //private Dictionary<string, string> channels = new Dictionary<string, string>();
 
     public static string StripHTML(string input)
     {
@@ -25,38 +15,38 @@ public partial class ChatroomListForm : Win95Theme
 
     private void getChannels()
     {
-        using (WebClient client = new WebClient())
-        {
-            string content = client.DownloadString("https://snoonet.org/community/");
-            foreach (Match m in Regex.Matches(content, "<h2>(.*?)</table>", RegexOptions.Singleline))
-            {
-                string catTitle = StripHTML(Regex.Match(m.Value, "<h2>(.*?)</h2>").Groups[0].Value);
-                if (catTitle == "Communities of Snoonet")
-                    continue;
+        using WebClient client = new();
 
-                List<string> tmpChanList = new List<string>();
-                ListViewItem lIt = new ListViewItem();
-                lIt.Text = catTitle;
-                try
-                {
-                    catListView.Invoke(new MethodInvoker(delegate { catListView.Items.Add(lIt); }));
-                }
-                catch { }
-                // add channels
-                foreach (Match m2 in Regex.Matches(m.Value, "<a href=\"(.*?)</a>", RegexOptions.Singleline))
-                {
-                    string chanHashtag = Regex.Match(m2.Value, "\">(.*?)</a>", RegexOptions.IgnoreCase | RegexOptions.Singleline).Groups[1].Value;
-                    chanHashtag = Regex.Replace(chanHashtag, @"\s+", string.Empty); // clean channel name
-                    if (!chanHashtag.Contains("#"))
-                        continue;
-                    if (chanHashtag == "#top")
-                        continue;
-                    tmpChanList.Add(chanHashtag);
-                }
-                // add category name with channel list to associate with channels dictionary
-                categories.TryAdd(catTitle, tmpChanList);
+        string content = client.DownloadString("https://snoonet.org/community/");
+        foreach (Match m in Regex.Matches(content, "<h2>(.*?)</table>", RegexOptions.Singleline))
+        {
+            string catTitle = StripHTML(Regex.Match(m.Value, "<h2>(.*?)</h2>").Groups[0].Value);
+            if (catTitle == "Communities of Snoonet")
+                continue;
+
+            List<string> tmpChanList = new List<string>();
+            ListViewItem lIt = new ListViewItem();
+            lIt.Text = catTitle;
+            try
+            {
+                catListView.Invoke(new MethodInvoker(delegate { catListView.Items.Add(lIt); }));
             }
+            catch { }
+            // add channels
+            foreach (Match m2 in Regex.Matches(m.Value, "<a href=\"(.*?)</a>", RegexOptions.Singleline))
+            {
+                string chanHashtag = Regex.Match(m2.Value, "\">(.*?)</a>", RegexOptions.IgnoreCase | RegexOptions.Singleline).Groups[1].Value;
+                chanHashtag = Regex.Replace(chanHashtag, @"\s+", string.Empty); // clean channel name
+                if (!chanHashtag.Contains("#"))
+                    continue;
+                if (chanHashtag == "#top")
+                    continue;
+                tmpChanList.Add(chanHashtag);
+            }
+            // add category name with channel list to associate with channels dictionary
+            categories.TryAdd(catTitle, tmpChanList);
         }
+
     }
 
     public ChatroomListForm()
@@ -68,7 +58,7 @@ public partial class ChatroomListForm : Win95Theme
     {
         if (!ChatService.irc.IsClientRunning())
         {
-            MessageBox.Show("ERROR: IRC client not running.");
+            OpenMsgBox("ERROR", "IRC client not running.");
             return;
         }
 
@@ -92,16 +82,6 @@ public partial class ChatroomListForm : Win95Theme
     private void mainTitle_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
-    }
-
-    private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
-    {
-
-    }
-
-    private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
-    {
-
     }
 
     private void catListView_MouseClick(object sender, MouseEventArgs e)
@@ -132,11 +112,6 @@ public partial class ChatroomListForm : Win95Theme
         Close();
     }
 
-    private void SearchBtn_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
@@ -158,7 +133,7 @@ public partial class ChatroomListForm : Win95Theme
         cr.Show();
     }
 
-    private void searchBtn_Click_1(object sender, EventArgs e)
+    private void searchBtn_Click(object sender, EventArgs e)
     {
 
     }

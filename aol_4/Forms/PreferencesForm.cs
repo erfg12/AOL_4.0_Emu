@@ -1,9 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class PreferencesForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class PreferencesForm : _Win95Theme
 {
     private void MiniBtn_Click(object sender, EventArgs e)
     {

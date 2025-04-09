@@ -1,9 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class ChannelsListForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class ChannelsListForm : _Win95Theme
 {
     private void titleLabel_MouseMove(object sender, MouseEventArgs e)
     {

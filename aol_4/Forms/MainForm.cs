@@ -1,24 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using aol.Services;
-using System.Configuration;
-using ServiceStack;
-using System.Security.Policy;
-
-namespace aol.Forms;
-public partial class MainForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class MainForm : _Win95Theme
 {
     bool newWindow = true;
     string old_url = "";
@@ -39,31 +20,16 @@ public partial class MainForm : Win95Theme
         return length;
     }
 
-    private void openAccWindow()
-    {
-        accForm acf = new accForm()
-        {
-            Owner = (Form)this,
-            MdiParent = this
-        };
-        acf.Show();
-    }
-
     private void CheckEmail()
     {
-        if (MailService.checkNewEmail())
+        if (MailService.checkNewEmail() && !MailService.youGotMail)
         {
-            if (!MailService.youGotMail)
-            {
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                {
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer();
-                    player.Stream = Properties.Resources.youGotmail;
-                    player.Play();
-                }
-                read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
-                MailService.youGotMail = true;
-            }
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.Stream = Properties.Resources.youGotmail;
+            player.Play();
+
+            read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
+            MailService.youGotMail = true;
         }
     }
 
@@ -101,28 +67,6 @@ public partial class MainForm : Win95Theme
         ChatService.startConnection();
     }
 
-    public void OpenBuddyList()
-    {
-        BuddyListForm bo = new BuddyListForm();
-        this.Invoke(new MethodInvoker(delegate
-        {
-            bo.Owner = (Form)this;
-            bo.MdiParent = this;
-            bo.Show();
-        }));
-    }
-
-    public void OpenHomeWindow()
-    {
-        HomeMenuForm hm = new HomeMenuForm();
-        this.Invoke(new MethodInvoker(delegate
-        {
-            hm.Owner = (Form)this;
-            hm.MdiParent = this;
-            hm.Show();
-        }));
-    }
-
     public void reloadAddressBarHistory()
     {
         try
@@ -137,9 +81,9 @@ public partial class MainForm : Win95Theme
                 tmpHistory.Add(i);
             }
         }
-        catch
+        catch (Exception ex)
         {
-            Debug.WriteLine("Prevented a crash at reloadAddressBarHistory()");
+            Debug.WriteLine("Error in reloadAddressBarHistory() " + ex.Message);
         }
     }
 
@@ -161,7 +105,7 @@ public partial class MainForm : Win95Theme
         else
         {
             openBrowser(addrBox.Text);
-            if (Account.tmpUsername != "Guest" && addrBox.Text.Contains("."))
+            if (Account.SignedIn() && addrBox.Text.Contains("."))
                 SqliteAccountsService.addHistory(addrBox.Text);
             if (!addrBox.Items.Contains(addrBox.Text))
             {
@@ -174,16 +118,12 @@ public partial class MainForm : Win95Theme
 
     public void openBrowser(string url = "")
     {
-        Form BrowseWnd = new BrowserForm(url);
-        BrowseWnd.Owner = (Form)this;
-        BrowseWnd.MdiParent = this;
-        BrowseWnd.Show();
+        MDIHelper.OpenForm(() => new BrowserForm(url), this);
     }
 
     public MainForm()
     {
         InitializeComponent();
-        FormBorderStyle = FormBorderStyle.None;
         DoubleBuffered = true;
         SetStyle(ControlStyles.ResizeRedraw, true);
         ConfigurationManager.AppSettings.Set("APIKey", "d8f6deea88bb177513cc8a14cf629020"); // for WeatherNet
@@ -246,7 +186,7 @@ public partial class MainForm : Win95Theme
         toolTip1.SetToolTip(favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
         // open account form window
-        openAccWindow();
+        MDIHelper.OpenForm<accForm>(this);
     }
 
     private void fileBtn_Click(object sender, EventArgs e)
@@ -356,25 +296,25 @@ public partial class MainForm : Win95Theme
     private void backBtn_Click_1(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
-            ((BrowserForm)ActiveMdiChild).wv2.GoBack();
+            ((BrowserForm)ActiveMdiChild).WebView.GoBack();
     }
 
     private void forwardBtn_Click_1(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
-            ((BrowserForm)ActiveMdiChild).wv2.GoForward();
+            ((BrowserForm)ActiveMdiChild).WebView.GoForward();
     }
 
     private void stopBtn_Click(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
-            ((BrowserForm)ActiveMdiChild).wv2.Stop();
+            ((BrowserForm)ActiveMdiChild).WebView.Stop();
     }
 
     private void reloadBtn_Click_1(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
-            ((BrowserForm)ActiveMdiChild).wv2.Reload();
+            ((BrowserForm)ActiveMdiChild).WebView.Reload();
     }
 
     private void homeBtn_Click(object sender, EventArgs e)
@@ -433,11 +373,7 @@ public partial class MainForm : Win95Theme
 
     private void aOLTodayToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        // open home menu
-        HomeMenuForm hm = new HomeMenuForm();
-        hm.Owner = (Form)this;
-        hm.MdiParent = this;
-        hm.Show();
+        MDIHelper.OpenForm<HomeMenuForm>(this);
     }
 
     private void editBtn_Click(object sender, EventArgs e)
@@ -542,63 +478,38 @@ public partial class MainForm : Win95Theme
         if (Account.SignedIn())
         {
             SignOff();
-            openAccWindow();
+            MDIHelper.OpenForm<accForm>(this);
         }
     }
 
     private void readMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
-        MailboxForm mb = new MailboxForm();
-        mb.Owner = (Form)this;
-        mb.MdiParent = this;
-        mb.Show();
+        if (Account.SignedIn())
+            MDIHelper.OpenForm<MailboxForm>(this);
     }
 
     private void read_mail_btn_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            MailboxForm mb = new MailboxForm();
-            mb.Owner = (Form)this;
-            mb.MdiParent = this;
-            mb.Show();
-        }
+            MDIHelper.OpenForm<MailboxForm>(this);
     }
 
     private void write_mail_button_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            MailWriteForm wmf = new MailWriteForm();
-            wmf.Owner = (Form)this;
-            wmf.MdiParent = this;
-            wmf.Show();
-        }
+            MDIHelper.OpenForm(() => new MailWriteForm(), this);
     }
 
     private void mailCenterToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            MailboxForm mb = new MailboxForm();
-            mb.Owner = (Form)this;
-            mb.MdiParent = this;
-            mb.Show();
-        }
+            MDIHelper.OpenForm<MailboxForm>(this);
     }
 
     private void writeMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            MailWriteForm wmf = new MailWriteForm();
-            wmf.Owner = (Form)this;
-            wmf.MdiParent = this;
-            wmf.Show();
-        }
+            MDIHelper.OpenForm(() => new MailWriteForm(), this);
     }
 
     private void Favorites_btn_Click(object sender, EventArgs e)
@@ -614,10 +525,7 @@ public partial class MainForm : Win95Theme
 
     private void Internet_btn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
-        if (!internetMenuStrip.Visible)
+        if (Account.SignedIn() && !internetMenuStrip.Visible)
         {
             PictureBox btnSender = (PictureBox)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -628,10 +536,7 @@ public partial class MainForm : Win95Theme
 
     private void People_btn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
-        if (!peopleMenuStrip.Visible)
+        if (Account.SignedIn() && !peopleMenuStrip.Visible)
         {
             PictureBox btnSender = (PictureBox)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -642,10 +547,7 @@ public partial class MainForm : Win95Theme
 
     private void FindBtn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
-        if (!findMenuStrip.Visible)
+        if (Account.SignedIn() && !findMenuStrip.Visible)
         {
             Button btnSender = (Button)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -656,13 +558,8 @@ public partial class MainForm : Win95Theme
 
     private void KeywordBtn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
-        KeywordForm kw = new KeywordForm();
-        kw.Owner = (Form)this;
-        kw.MdiParent = this;
-        kw.Show();
+        if (Account.SignedIn())
+            MDIHelper.OpenForm<KeywordForm>(this);
     }
 
     private void Quotes_btn_Click(object sender, EventArgs e)
@@ -679,9 +576,6 @@ public partial class MainForm : Win95Theme
 
     private void Weather_btn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
         WeatherForm w = new WeatherForm();
         w.Owner = (Form)this;
         w.MdiParent = this;
@@ -690,20 +584,17 @@ public partial class MainForm : Win95Theme
 
     private void ChatNowStripMenuItem_Click(object sender, EventArgs e)
     {
-        ChatroomListForm cl = new ChatroomListForm();
-        cl.Owner = this;
-        cl.MdiParent = this;
-        cl.Show();
+        MDIHelper.OpenForm<ChatroomListForm>(this);
     }
 
     private void Print_page_btn_Click(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
-            ((BrowserForm)ActiveMdiChild).wv2.ExecuteScriptAsync("window.print();");
+            ((BrowserForm)ActiveMdiChild).WebView.ExecuteScriptAsync("window.print();");
         else if (ActiveMdiChild is MailReadForm)
             ((MailReadForm)ActiveMdiChild).mailViewer.Print();
         else
-            MessageBox.Show("Sorry, you can only print mail or web pages.");
+            OpenMsgBox("ERROR", "Sorry, you can only print mail or web pages.");
     }
 
     private void GoToKeywordMenuItem_Click(object sender, EventArgs e)
@@ -714,12 +605,7 @@ public partial class MainForm : Win95Theme
     private void FavoritePlacesMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            FavoritePlacesForm fp = new FavoritePlacesForm();
-            fp.Owner = (Form)this;
-            fp.MdiParent = this;
-            fp.Show();
-        }
+            MDIHelper.OpenForm<FavoritePlacesForm>(this);
     }
 
     private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -729,48 +615,30 @@ public partial class MainForm : Win95Theme
 
     private void buddyListToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        BuddyListForm bo = new BuddyListForm();
-        bo.Owner = (Form)this;
-        bo.MdiParent = this;
-        bo.Show();
+        if (Account.SignedIn())
+            MDIHelper.OpenForm<BuddyListForm>(this);
     }
 
     private void searchTheWebMenuItem_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
         GoToURL();
     }
 
     private void findonTheWebMenuItem_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
         GoToURL();
     }
 
     private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            MailboxForm mb = new MailboxForm();
-            mb.Owner = (Form)this;
-            mb.MdiParent = this;
-            mb.Show();
-        }
+            MDIHelper.OpenForm<MailboxForm>(this);
     }
 
     private void sentMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
-        {
-            MailboxForm mb = new MailboxForm();
-            mb.Owner = (Form)this;
-            mb.MdiParent = this;
-            mb.Show();
-        }
+            MDIHelper.OpenForm<MailboxForm>(this);
     }
 
     private void checkMail_Tick(object sender, EventArgs e)
@@ -851,10 +719,7 @@ public partial class MainForm : Win95Theme
 
     private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        PreferencesForm sf = new PreferencesForm();
-        sf.Owner = (Form)this;
-        sf.MdiParent = this;
-        sf.Show();
+        MDIHelper.OpenForm<PreferencesForm>(this);
     }
 
     private void downloadManagerToolStripMenuItem_Click(object sender, EventArgs e)

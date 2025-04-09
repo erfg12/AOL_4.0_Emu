@@ -1,9 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class FavoritesAddForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class FavoritesAddForm : _Win95Theme
 {
     private void CancelBtn_Click(object sender, EventArgs e)
     {

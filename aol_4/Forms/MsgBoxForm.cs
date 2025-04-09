@@ -1,13 +1,12 @@
-﻿using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class MsgBoxForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class MsgBoxForm : _Win95Theme
 {
     public MsgBoxForm(string title, string msg)
     {
         InitializeComponent();
 
         titleLabel.Text = title;
+        this.Text = title;
         richTextBox.Text = msg;
     }
 

@@ -1,15 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Threading;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class ChatroomForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class ChatroomForm : _Win95Theme
 {
     string chatlog = "";
     string roomname = "";
@@ -62,44 +52,26 @@ public partial class ChatroomForm : Win95Theme
 
         if (!backgroundWorker1.IsBusy)
             backgroundWorker1.RunWorkerAsync();
-
-        //rects.Add(new Rectangle(423, 467, 54, 23)); // 0 send button
-        //rects.Add(new Rectangle(532, 265, 39, 50)); // 1 buddy info
-        //rects.Add(new Rectangle(574, 265, 39, 50)); // 2 ignore user
     }
 
     private void writeFileToBox(bool init = false)
     {
         string lastLine = "";
-        //try
-        //{
-        if (chatRoomTextBox.IsHandleCreated)
+
+        using FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+        using StreamReader sr = new StreamReader(file);
+
+        while (!sr.EndOfStream)
         {
-            chatRoomTextBox.Invoke(new MethodInvoker(delegate
-            {
-                using (FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                {
-                    using (StreamReader sr = new StreamReader(file))
-                    {
-                        while (!sr.EndOfStream)
-                        {
-                            if (init)
-                                chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
-                            else
-                                lastLine = sr.ReadLine();
-                        }
-                    }
-                }
-                if (!init)
-                    chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
-                chatRoomTextBox.ScrollToCaret();
-            }));
+            if (init)
+                chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
+            else
+                lastLine = sr.ReadLine();
         }
-        else
-        {
-            Debug.WriteLine("[ERROR] handle creation failed?");
-        }
-        //} catch { Debug.WriteLine("writeFileToBox just crashed."); }
+
+        if (!init)
+            chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
+        chatRoomTextBox.ScrollToCaret();
     }
 
     public void OnChanged(object source, FileSystemEventArgs e)

@@ -1,11 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class SignupForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class SignupForm : _Win95Theme
 {
     public SignupForm()
     {

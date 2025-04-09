@@ -1,14 +1,6 @@
-﻿using System;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class ChannelViewForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class ChannelViewForm : _Win95Theme
 {
-    public bool loading = false;
-    public string url = "";
-    public string title = "";
-
     public ChannelViewForm(string url = "", string title = "")
     {
         InitializeComponent();
@@ -32,10 +24,7 @@ public partial class ChannelViewForm : Win95Theme
 
     private void FavoriteBtn_Click(object sender, EventArgs e)
     {
-        FavoritesAddForm af = new FavoritesAddForm(url, title);
-        af.Owner = this;
-        af.MdiParent = MdiParent;
-        af.Show();
+
     }
 
     private void closeBtn_Click(object sender, EventArgs e)

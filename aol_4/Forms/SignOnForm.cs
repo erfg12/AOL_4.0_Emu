@@ -1,12 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Collections.Concurrent;
-using System.Diagnostics;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class accForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class accForm : _Win95Theme
 {
     ConcurrentBag<string> theAccs = SqliteAccountsService.listAccounts();
 
@@ -50,10 +43,7 @@ public partial class accForm : Win95Theme
 
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
         {
-            SignupForm suf = new SignupForm();
-            suf.Owner = this;
-            suf.MdiParent = MdiParent;
-            suf.Show();
+            MDIHelper.OpenForm<SignupForm>(MdiParent);
         }
         else if (screenName.Text == "Guest")
         {
@@ -73,10 +63,7 @@ public partial class accForm : Win95Theme
 
     private void setupBtn_Click(object sender, EventArgs e)
     {
-        SignupForm suf = new SignupForm();
-        suf.Owner = this;
-        suf.MdiParent = MdiParent;
-        suf.Show();
+        MDIHelper.OpenForm<SignupForm>(MdiParent);
     }
 
     private void screenName_SelectedIndexChanged(object sender, EventArgs e)
@@ -127,11 +114,7 @@ public partial class accForm : Win95Theme
 
     private void accForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        // start fake dial up/log in
-        DialUpForm du = new DialUpForm();
-        du.Owner = (Form)this.MdiParent;
-        du.MdiParent = this.MdiParent;
-        du.Show();
+        MDIHelper.OpenForm<DialUpForm>(MdiParent);
     }
 
     private void screenName_KeyPress(object sender, KeyPressEventArgs e)

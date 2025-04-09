@@ -1,6 +1,6 @@
 ﻿namespace aol.Forms
 {
-    partial class Win95Theme
+    partial class _Win95Theme
     {
         /// <summary>
         /// Required designer variable.

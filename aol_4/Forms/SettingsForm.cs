@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class SettingsForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class SettingsForm : _Win95Theme
 {
-    #region winform_functions
     public SettingsForm()
     {
         InitializeComponent();
@@ -94,7 +88,6 @@ public partial class SettingsForm : Win95Theme
             //sqlite_accounts.emailAcc(emailAddress.Text, emailPassword.Text, imapServer.Text, Convert.ToInt32(imapPort.Text), smtpServer.Text, Convert.ToInt32(smtpPort.Text), ssl);
         }
     }
-    #endregion
 
     private void MiniBtn_Click(object sender, EventArgs e)
     {

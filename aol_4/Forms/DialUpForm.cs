@@ -1,31 +1,8 @@
-﻿using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class DialUpForm : Form
+﻿namespace aol.Forms;
+public partial class DialUpForm : _Win95Theme
 {
-    #region win95_theme
-    int _ = 2;
-
-    new Rectangle Top { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
-    new Rectangle Left { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-    new Rectangle Bottom { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
-    new Rectangle Right { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
-
-    protected override void OnPaint(PaintEventArgs e)
-    {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-        e.Graphics.FillRectangle(Brushes.Gray, Top);
-        e.Graphics.FillRectangle(Brushes.Gray, Left);
-        e.Graphics.FillRectangle(Brushes.Gray, Right);
-        e.Graphics.FillRectangle(Brushes.Gray, Bottom);
-    }
-    #endregion
+    string verbage = "TCP/IP";
+    int dialUpStep = 0;
 
     public DialUpForm()
     {
@@ -35,9 +12,6 @@ public partial class DialUpForm : Form
         if (Account.tmpLocation == "Dial-Up")
             verbage = "Dial-Up";
     }
-
-    string verbage = "TCP/IP";
-    int i = 0;
 
     async Task dialUp()
     {
@@ -55,7 +29,7 @@ public partial class DialUpForm : Form
 
     private async void timer1_Tick(object sender, EventArgs e)
     {
-        switch (i)
+        switch (dialUpStep)
         {
             case 0: // pretend to initialize the modem
                 statusLabel.Text = "Step 1: Looking for AOL via " + verbage + "...";
@@ -83,7 +57,7 @@ public partial class DialUpForm : Form
             default:
                 break;
         }
-        i++;
+        dialUpStep++;
     }
 
     private void DialUpForm_FormClosing(object sender, FormClosingEventArgs e)

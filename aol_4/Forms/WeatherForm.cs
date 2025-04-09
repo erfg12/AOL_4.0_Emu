@@ -1,10 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class WeatherForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class WeatherForm : _Win95Theme
 {
     private void MiniBtn_Click_1(object sender, EventArgs e)
     {

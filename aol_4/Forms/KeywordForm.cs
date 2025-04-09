@@ -1,9 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class KeywordForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class KeywordForm : _Win95Theme
 {
     private void Panel1_MouseMove(object sender, MouseEventArgs e)
     {

@@ -1,14 +1,5 @@
-﻿using aol.Services;
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Windows.Forms;
-
-namespace aol.Forms;
-public partial class InstantMessageForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class InstantMessageForm : _Win95Theme
 {
     string privateLog = "";
     string user = "";
@@ -37,7 +28,7 @@ public partial class InstantMessageForm : Win95Theme
         }
         catch
         {
-            MessageBox.Show("ERROR: There was an issue writing to log file: " + privateLog);
+            OpenMsgBox("ERROR", "There was an issue writing to log file: " + privateLog);
         }
         // clear msg box
         myMessageBox.Clear();
@@ -61,7 +52,8 @@ public partial class InstantMessageForm : Win95Theme
         }
         catch
         {
-            MessageBox.Show("ERROR: There was an issue creating log directory: " + logpath);
+            OpenMsgBox("ERROR", "There was an issue creating log directory: " + logpath);
+
         }
 
         try
@@ -71,7 +63,7 @@ public partial class InstantMessageForm : Win95Theme
         }
         catch
         {
-            MessageBox.Show("ERROR: There was an issue creating log file: " + privateLog);
+            OpenMsgBox("ERROR", "There was an issue creating log file: " + privateLog);
         }
 
         InitializeComponent();

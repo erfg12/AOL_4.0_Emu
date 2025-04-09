@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Threading;
-using System.Windows.Forms;
-using aol.Services;
-
-namespace aol.Forms;
-public partial class FavoritePlacesForm : Win95Theme
+﻿namespace aol.Forms;
+public partial class FavoritePlacesForm : _Win95Theme
 {
     private void MiniBtn_Click(object sender, EventArgs e)
     {
@@ -35,34 +28,20 @@ public partial class FavoritePlacesForm : Win95Theme
 
     private void goToURL()
     {
-        if (fpTreeView.SelectedNode == null)
-            return;
-        if (fpTreeView.SelectedNode.Text == null)
-            return;
-        if (fpTreeView.SelectedNode.Tag == null)
+        if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
-        Form BrowseWnd = new BrowserForm(fpTreeView.SelectedNode.Tag.ToString());
-        BrowseWnd.Owner = (Form)MdiParent;
-        BrowseWnd.MdiParent = MdiParent;
-        BrowseWnd.Show();
+        MDIHelper.OpenForm(() => new BrowserForm(fpTreeView.SelectedNode.Tag.ToString()), MdiParent);
     }
 
     private void NewBtn_Click(object sender, EventArgs e)
     {
-        FavoritesAddForm af = new FavoritesAddForm("", "");
-        af.Owner = this;
-        af.MdiParent = MdiParent;
-        af.Show();
+        MDIHelper.OpenForm(() => new FavoritesAddForm("",""), MdiParent);
     }
 
     private void DeleteBtn_Click(object sender, EventArgs e)
     {
-        if (fpTreeView.SelectedNode == null)
-            return;
-        if (fpTreeView.SelectedNode.Text == null)
-            return;
-        if (fpTreeView.SelectedNode.Tag == null)
+        if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
         SqliteAccountsService.deleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
@@ -71,17 +50,10 @@ public partial class FavoritePlacesForm : Win95Theme
 
     private void EditBtn_Click(object sender, EventArgs e)
     {
-        if (fpTreeView.SelectedNode == null)
-            return;
-        if (fpTreeView.SelectedNode.Text == null)
-            return;
-        if (fpTreeView.SelectedNode.Tag == null)
+        if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
-        FavoritesAddForm af = new FavoritesAddForm(fpTreeView.SelectedNode.Tag.ToString(), fpTreeView.SelectedNode.Text, true);
-        af.Owner = this;
-        af.MdiParent = MdiParent;
-        af.Show();
+        MDIHelper.OpenForm(() => new FavoritesAddForm(fpTreeView.SelectedNode.Tag.ToString(), fpTreeView.SelectedNode.Text, true), MdiParent);
     }
 
     private async void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
