@@ -31,25 +31,6 @@ public partial class BuddyListForm : _Win95Theme
         MDIHelper.OpenForm<BuddyAddForm>(MdiParent);
     }
 
-    public async Task<bool> CheckIRCRunning()
-    {
-        int c = 0;
-        if (!ChatService.irc.IsClientRunning())
-        {
-            Debug.WriteLine("IRC buddy list not connected yet...");
-            c++;
-            if (c > 50)
-            {
-                Debug.WriteLine("IRC reconnecting");
-                ChatService.startConnection();
-                c = 0;
-            }
-            await Task.Delay(5000);
-            return false;
-        }
-        return true;
-    }
-
     private void titleLabel_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
@@ -113,11 +94,6 @@ public partial class BuddyListForm : _Win95Theme
         WindowState = FormWindowState.Minimized;
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
-    {
-        //maxiMini();
-    }
-
     private void closeBtn_Click(object sender, EventArgs e)
     {
         Close();
@@ -142,17 +118,12 @@ public partial class BuddyListForm : _Win95Theme
         }
     }
 
-    private void buddies_online_Load(object sender, EventArgs e)
-    {
-
-    }
-
     private async void UpdateTimer_Tick(object sender, EventArgs e)
     {
         int online = 0;
         int offline = 0;
 
-        if (!Account.SignedIn() || !await CheckIRCRunning())
+        if (!Account.SignedIn() || !await ChatService.CheckIRCRunning())
             return;
 
         foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())

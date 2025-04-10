@@ -19,3 +19,8 @@ global using System.Configuration;
 global using ServiceStack;
 global using System.ComponentModel;
 global using System.Text.RegularExpressions;
+global using aol.Forms;
+global using SimpleIRCLib;
+global using Newtonsoft.Json.Linq;
+global using System.Net.Http;
+global using Sentry;

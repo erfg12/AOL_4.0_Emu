@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Collections.Concurrent;
-using System.Windows.Forms;
-using System.Drawing;
-
-namespace aol.Services;
+﻿namespace aol.Services;
 public class wData
 {
     public string ip;

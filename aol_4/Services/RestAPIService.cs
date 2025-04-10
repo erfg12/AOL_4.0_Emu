@@ -1,15 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net.Http;
-using System.Diagnostics;
-using Sentry;
-
-namespace aol.Services;
+﻿namespace aol.Services;
 class RestAPIService
 {
     private static async Task<JObject> getData(string request, HttpMethod method, string queryParams)

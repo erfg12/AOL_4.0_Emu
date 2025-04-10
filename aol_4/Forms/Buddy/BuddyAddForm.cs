@@ -42,9 +42,9 @@ public partial class BuddyAddForm : _Win95Theme
     private async void sendBtn_Click(object sender, EventArgs e)
     {
         if (await RestAPIService.addBuddy(nameTextBox.Text))
-            MessageBox.Show("Buddy Added!");
+            OpenMsgBox("INFO", "Buddy Added!");
         else
-            MessageBox.Show("Error: Buddy not added.");
+            OpenMsgBox("ERROR", "There was a problem adding buddy.");
         Close();
     }
 }

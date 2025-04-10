@@ -1,13 +1,8 @@
-﻿using System;
-using System.Linq;
-using MailKit.Net.Imap;
+﻿using MailKit.Net.Imap;
 using MailKit;
 using MimeKit;
 using MailKit.Search;
-using System.Diagnostics;
-using System.Net;
 using MailKit.Net.Smtp;
-using System.Collections.Concurrent;
 
 namespace aol.Services;
 class MailService

@@ -206,29 +206,27 @@ public partial class InstantMessageForm : _Win95Theme
         //{
         messagesBox.Invoke(new MethodInvoker(delegate
         {
-            using (FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using StreamReader sr = new StreamReader(file);
+
+            while (!sr.EndOfStream)
             {
-                using (StreamReader sr = new StreamReader(file))
+                if (init)
                 {
-                    while (!sr.EndOfStream)
+                    try
                     {
-                        if (init)
-                        {
-                            try
-                            {
-                                messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
-                                receivedMsgSound();
-                            }
-                            catch
-                            {
-                                Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[1].");
-                            }
-                        }
-                        else
-                            lastLine = sr.ReadLine();
+                        messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                        receivedMsgSound();
+                    }
+                    catch
+                    {
+                        Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[1].");
                     }
                 }
+                else
+                    lastLine = sr.ReadLine();
             }
+
             if (!init)
             {
                 try

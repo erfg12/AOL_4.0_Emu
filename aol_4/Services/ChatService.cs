@@ -1,18 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
-using aol.Forms;
-using SimpleIRCLib;
-using System.IO;
-using System.Windows.Forms;
-using System.Collections.Concurrent;
-
-namespace aol.Services;
+﻿namespace aol.Services;
 class ChatService
 {
     private static int port = 6697;
     private static string server = "irc.snoonet.org";
-    public static SimpleIRC irc = new SimpleIRC();
+    public static SimpleIRC irc = new();
     public static ConcurrentDictionary<string, List<string>> users = new(); // key: channel, value: users
     public static string newPM = "";
     public static ConcurrentDictionary<string, bool> buddyStatus = new(); // key: name, value: online status
@@ -22,6 +13,25 @@ class ChatService
         Debug.WriteLine("DOWNLOAD STATUS: " + args.Status);
         Debug.WriteLine("DOWNLOAD FILENAME: " + args.FileName);
         Debug.WriteLine("DOWNLOAD PROGRESS: " + args.Progress + "%");
+    }
+
+    public static async Task<bool> CheckIRCRunning()
+    {
+        int c = 0;
+        if (!ChatService.irc.IsClientRunning())
+        {
+            Debug.WriteLine("IRC buddy list not connected yet...");
+            c++;
+            if (c > 50)
+            {
+                Debug.WriteLine("IRC reconnecting");
+                ChatService.startConnection();
+                c = 0;
+            }
+            await Task.Delay(5000);
+            return false;
+        }
+        return true;
     }
 
     public static void chatOutputCallback(object source, IrcReceivedEventArgs args)

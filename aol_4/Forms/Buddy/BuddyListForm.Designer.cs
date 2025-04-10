@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Buddies 0/0");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Offline 0/0");
-            buddiesLabel = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            buddyTreeView = new System.Windows.Forms.TreeView();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            setupBtn = new System.Windows.Forms.PictureBox();
-            IMBtn = new System.Windows.Forms.PictureBox();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            TopPanel = new System.Windows.Forms.Panel();
-            closeBtn = new System.Windows.Forms.Button();
-            maxBtn = new System.Windows.Forms.Button();
-            miniBtn = new System.Windows.Forms.Button();
-            titleLabel = new System.Windows.Forms.Label();
+            components = new Container();
+            TreeNode treeNode1 = new TreeNode("Buddies 0/0");
+            TreeNode treeNode2 = new TreeNode("Offline 0/0");
+            buddiesLabel = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label1 = new Label();
+            buddyTreeView = new TreeView();
+            pictureBox4 = new PictureBox();
+            setupBtn = new PictureBox();
+            IMBtn = new PictureBox();
+            pictureBox1 = new PictureBox();
+            TopPanel = new Panel();
+            closeBtn = new Button();
+            maxBtn = new Button();
+            miniBtn = new Button();
+            titleLabel = new Label();
             UpdateTimer = new System.Windows.Forms.Timer(components);
-            buddyContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(components);
-            deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)setupBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)IMBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            buddyContextMenuStrip = new ContextMenuStrip(components);
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            ((ISupportInitialize)pictureBox4).BeginInit();
+            ((ISupportInitialize)setupBtn).BeginInit();
+            ((ISupportInitialize)IMBtn).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             TopPanel.SuspendLayout();
             buddyContextMenuStrip.SuspendLayout();
             SuspendLayout();
@@ -61,77 +61,77 @@
             // buddiesLabel
             // 
             buddiesLabel.AutoSize = true;
-            buddiesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            buddiesLabel.Location = new System.Drawing.Point(4, 26);
-            buddiesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            buddiesLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            buddiesLabel.Location = new Point(4, 26);
+            buddiesLabel.Margin = new Padding(4, 0, 4, 0);
             buddiesLabel.Name = "buddiesLabel";
-            buddiesLabel.Size = new System.Drawing.Size(105, 15);
+            buddiesLabel.Size = new Size(105, 15);
             buddiesLabel.TabIndex = 8;
             buddiesLabel.Text = "Buddies Online";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = System.Drawing.Color.Transparent;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-            label2.Location = new System.Drawing.Point(4, 269);
-            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label2.Location = new Point(4, 269);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(33, 12);
+            label2.Size = new Size(33, 12);
             label2.TabIndex = 9;
             label2.Text = "Locate";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-            label3.Location = new System.Drawing.Point(52, 269);
-            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label3.Location = new Point(52, 269);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(17, 12);
+            label3.Size = new Size(17, 12);
             label3.TabIndex = 10;
             label3.Text = "IM";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-            label4.Location = new System.Drawing.Point(88, 269);
-            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label4.Location = new Point(88, 269);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(29, 12);
+            label4.Size = new Size(29, 12);
             label4.TabIndex = 11;
             label4.Text = "Setup";
             // 
             // label5
             // 
-            label5.BackColor = System.Drawing.Color.Transparent;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-            label5.Location = new System.Drawing.Point(130, 269);
-            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label5.MinimumSize = new System.Drawing.Size(35, 0);
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label5.Location = new Point(130, 269);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.MinimumSize = new Size(35, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(36, 35);
+            label5.Size = new Size(36, 35);
             label5.TabIndex = 12;
             label5.Text = "Buddy Chat";
             // 
             // label1
             // 
-            label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            label1.Location = new System.Drawing.Point(4, 304);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            label1.Location = new Point(4, 304);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(125, 13);
+            label1.Size = new Size(125, 13);
             label1.TabIndex = 13;
             label1.Text = "Keyword: BuddyView";
             // 
             // buddyTreeView
             // 
-            buddyTreeView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            buddyTreeView.Location = new System.Drawing.Point(7, 47);
-            buddyTreeView.Margin = new System.Windows.Forms.Padding(4);
+            buddyTreeView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            buddyTreeView.Location = new Point(7, 47);
+            buddyTreeView.Margin = new Padding(4);
             buddyTreeView.Name = "buddyTreeView";
             treeNode1.Checked = true;
             treeNode1.Name = "onlineBuddies";
@@ -139,131 +139,130 @@
             treeNode2.Checked = true;
             treeNode2.Name = "offlineBuddies";
             treeNode2.Text = "Offline 0/0";
-            buddyTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] { treeNode1, treeNode2 });
-            buddyTreeView.Size = new System.Drawing.Size(155, 186);
+            buddyTreeView.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode2 });
+            buddyTreeView.Size = new Size(155, 186);
             buddyTreeView.TabIndex = 15;
             buddyTreeView.MouseDoubleClick += buddyTreeView_MouseDoubleClick;
             buddyTreeView.MouseUp += buddyTreeView_MouseUp;
             // 
             // pictureBox4
             // 
-            pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = Properties.Resources.buddiesonline_buddychat_btn;
-            pictureBox4.Location = new System.Drawing.Point(132, 238);
-            pictureBox4.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox4.Location = new Point(132, 238);
+            pictureBox4.Margin = new Padding(0);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(29, 29);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox4.Size = new Size(29, 29);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 7;
             pictureBox4.TabStop = false;
             // 
             // setupBtn
             // 
             setupBtn.BackgroundImage = Properties.Resources.buddiesonline_setup_btn;
-            setupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            setupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            setupBtn.Location = new System.Drawing.Point(90, 238);
-            setupBtn.Margin = new System.Windows.Forms.Padding(0);
+            setupBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            setupBtn.Cursor = Cursors.Hand;
+            setupBtn.Location = new Point(90, 238);
+            setupBtn.Margin = new Padding(0);
             setupBtn.Name = "setupBtn";
-            setupBtn.Size = new System.Drawing.Size(29, 29);
-            setupBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            setupBtn.Size = new Size(29, 29);
+            setupBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             setupBtn.TabIndex = 6;
             setupBtn.TabStop = false;
             setupBtn.Click += setupBtn_Click;
             // 
             // IMBtn
             // 
-            IMBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            IMBtn.Cursor = Cursors.Hand;
             IMBtn.Image = Properties.Resources.buddiesonline_IM_btn;
-            IMBtn.Location = new System.Drawing.Point(49, 238);
-            IMBtn.Margin = new System.Windows.Forms.Padding(0);
+            IMBtn.Location = new Point(49, 238);
+            IMBtn.Margin = new Padding(0);
             IMBtn.Name = "IMBtn";
-            IMBtn.Size = new System.Drawing.Size(29, 29);
-            IMBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            IMBtn.Size = new Size(29, 29);
+            IMBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             IMBtn.TabIndex = 5;
             IMBtn.TabStop = false;
             IMBtn.Click += IMBtn_Click;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Properties.Resources.buddiesonline_locate_btn;
-            pictureBox1.Location = new System.Drawing.Point(10, 238);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox1.Location = new Point(10, 238);
+            pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(29, 29);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(29, 29);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // TopPanel
             // 
-            TopPanel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            TopPanel.BackColor = System.Drawing.Color.White;
+            TopPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TopPanel.BackColor = Color.White;
             TopPanel.BackgroundImage = Properties.Resources.top_bar;
-            TopPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            TopPanel.BackgroundImageLayout = ImageLayout.Stretch;
             TopPanel.Controls.Add(closeBtn);
             TopPanel.Controls.Add(maxBtn);
             TopPanel.Controls.Add(miniBtn);
             TopPanel.Controls.Add(titleLabel);
-            TopPanel.Location = new System.Drawing.Point(2, 2);
-            TopPanel.Margin = new System.Windows.Forms.Padding(4);
+            TopPanel.Location = new Point(2, 2);
+            TopPanel.Margin = new Padding(4);
             TopPanel.Name = "TopPanel";
-            TopPanel.Size = new System.Drawing.Size(165, 21);
+            TopPanel.Size = new Size(165, 21);
             TopPanel.TabIndex = 2;
             TopPanel.MouseDoubleClick += panel1_MouseDoubleClick;
             TopPanel.MouseMove += panel1_MouseMove;
             // 
             // closeBtn
             // 
-            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closeBtn.BackColor = SystemColors.Control;
             closeBtn.BackgroundImage = Properties.Resources.close_btn;
-            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(144, 1);
-            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            closeBtn.FlatStyle = FlatStyle.Flat;
+            closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = Color.Black;
+            closeBtn.Location = new Point(144, 1);
+            closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
-            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.RightToLeft = RightToLeft.No;
+            closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += closeBtn_Click;
             // 
             // maxBtn
             // 
-            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            maxBtn.BackColor = SystemColors.Control;
             maxBtn.BackgroundImage = Properties.Resources.maximize_disabled_btn;
-            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(120, 1);
-            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            maxBtn.FlatStyle = FlatStyle.Flat;
+            maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = Color.Black;
+            maxBtn.Location = new Point(120, 1);
+            maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
-            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.RightToLeft = RightToLeft.No;
+            maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += maxBtn_Click;
             // 
             // miniBtn
             // 
-            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            miniBtn.BackColor = SystemColors.Control;
             miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
-            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(99, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4);
+            miniBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            miniBtn.FlatStyle = FlatStyle.Flat;
+            miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = Color.Black;
+            miniBtn.Location = new Point(99, 1);
+            miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += miniBtn_Click;
@@ -271,12 +270,12 @@
             // titleLabel
             // 
             titleLabel.AutoSize = true;
-            titleLabel.BackColor = System.Drawing.Color.Transparent;
-            titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(0, 2);
-            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            titleLabel.BackColor = Color.Transparent;
+            titleLabel.ForeColor = Color.White;
+            titleLabel.Location = new Point(0, 2);
+            titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(109, 15);
+            titleLabel.Size = new Size(109, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "Buddy List Window";
             titleLabel.MouseMove += titleLabel_MouseMove;
@@ -289,23 +288,23 @@
             // 
             // buddyContextMenuStrip
             // 
-            buddyContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { deleteToolStripMenuItem });
+            buddyContextMenuStrip.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem });
             buddyContextMenuStrip.Name = "buddyContextMenuStrip";
-            buddyContextMenuStrip.Size = new System.Drawing.Size(108, 26);
+            buddyContextMenuStrip.Size = new Size(108, 26);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            deleteToolStripMenuItem.Size = new Size(107, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // BuddyListForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.Ivory;
-            ClientSize = new System.Drawing.Size(169, 323);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Ivory;
+            ClientSize = new Size(169, 323);
             Controls.Add(buddyTreeView);
             Controls.Add(label1);
             Controls.Add(label5);
@@ -318,22 +317,21 @@
             Controls.Add(IMBtn);
             Controls.Add(pictureBox1);
             Controls.Add(TopPanel);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Location = new System.Drawing.Point(1157, 220);
-            Margin = new System.Windows.Forms.Padding(4);
-            MinimumSize = new System.Drawing.Size(169, 323);
+            FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(1157, 220);
+            Margin = new Padding(4);
+            MinimumSize = new Size(169, 323);
             Name = "BuddyListForm";
             ShowIcon = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            StartPosition = FormStartPosition.Manual;
             Text = "Buddy List Window";
             FormClosing += Buddies_online_FormClosing;
-            Load += buddies_online_Load;
             Shown += buddies_online_Shown;
             LocationChanged += BuddyListForm_LocationChanged;
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)setupBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)IMBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox4).EndInit();
+            ((ISupportInitialize)setupBtn).EndInit();
+            ((ISupportInitialize)IMBtn).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
             TopPanel.ResumeLayout(false);
             TopPanel.PerformLayout();
             buddyContextMenuStrip.ResumeLayout(false);

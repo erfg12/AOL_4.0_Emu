@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 using System.Security.Cryptography;
-using System.Diagnostics;
-using System.Collections.Concurrent;
-using System.Threading.Tasks;
 
 namespace aol.Services;
 class SqliteAccountsService
