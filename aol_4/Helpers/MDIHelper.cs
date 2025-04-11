@@ -9,7 +9,6 @@ class MDIHelper
     public static void OpenForm<T>(Form parentForm) where T : Form, new()
     {
         T form = new T();
-        form.Owner = parentForm;
         form.MdiParent = parentForm;
         form.Show();
     }
@@ -22,7 +21,6 @@ class MDIHelper
     public static void OpenForm(Func<Form> formFactory, Form mdiParent)
     {
         Form form = formFactory();
-        form.Owner = mdiParent;
         form.MdiParent = mdiParent;
         form.Show();
     }

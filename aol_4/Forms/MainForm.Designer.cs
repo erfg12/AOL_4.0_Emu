@@ -1956,7 +1956,6 @@
         private System.Windows.Forms.Timer getMdiChildURL;
         private System.Windows.Forms.Button keywordBtn;
         private System.Windows.Forms.Button goBtn;
-        private System.Windows.Forms.ComboBox addrBox;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox write_mail_button;
@@ -1977,7 +1976,6 @@
         private System.Windows.Forms.PictureBox stopBtn;
         private System.Windows.Forms.PictureBox reloadBtn;
         private System.Windows.Forms.PictureBox homeBtn;
-        private System.Windows.Forms.PictureBox mie_badge;
         private System.Windows.Forms.ContextMenuStrip channelsContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem aOLTodayToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -2149,6 +2147,8 @@
         private System.Windows.Forms.PictureBox addrBarBG;
         public System.Windows.Forms.Timer checkMail;
         public System.Windows.Forms.ToolStripLabel signOffBtn;
+        public ComboBox addrBox;
+        public PictureBox mie_badge;
     }
 }
 

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
-
-namespace aol.Forms
+﻿namespace aol.Forms
 {
     public partial class _Win95Theme: Form
     {
@@ -93,8 +86,11 @@ namespace aol.Forms
             base.WndProc(ref message);
         }
 
-        // for main
-        public void miniMax(Button maxBtn)
+        /// <summary>
+        /// Maximize or restore button for MainForm
+        /// </summary>
+        /// <param name="maxBtn">button to swap images on</param>
+        public void MiniMax(Button maxBtn)
         {
             if (WindowState == FormWindowState.Maximized)
             {
@@ -110,6 +106,9 @@ namespace aol.Forms
             ResizeMaximizedChildren();
         }
 
+        /// <summary>
+        /// When MainForm is maximized, resize maximized child windows
+        /// </summary>
         public void ResizeMaximizedChildren()
         {
             if (this.ActiveMdiChild != null)
@@ -123,11 +122,16 @@ namespace aol.Forms
                 if (resize)
                 {
                     this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                    this.ActiveMdiChild.Height = this.Height - getTopPadding() - 5;
+                    this.ActiveMdiChild.Height = this.Height - GetTopPadding() - 5;
                 }
             }
         }
 
+        /// <summary>
+        /// Open a message box with Windows 95 theme
+        /// </summary>
+        /// <param name="title">Messagebox title</param>
+        /// <param name="message">Messagebox message</param>
         public void OpenMsgBox(string title, string message)
         {
             MsgBoxForm msgBox = new MsgBoxForm(title, message);
@@ -141,7 +145,7 @@ namespace aol.Forms
         /// <summary>
         /// Maximize or restore button
         /// </summary>
-        /// <param name="maxBtn"></param>
+        /// <param name="maxBtn">button to swap images on</param>
         public void MaxiMini(Button maxBtn)
         {
             if (maximized)
@@ -162,7 +166,7 @@ namespace aol.Forms
                 this.Location = new Point(0, 116);
                 var t = GetDisplayScaleFactor(this.Handle);
                 this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                this.Height = Parent.Height - getTopPadding() - 5;
+                this.Height = Parent.Height - GetTopPadding() - 5;
                 maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
         }
@@ -197,10 +201,13 @@ namespace aol.Forms
         public _Win95Theme()
         {
             InitializeComponent();
-            //this.Move += WindowMoved;
         }
 
-        private int getTopPadding()
+        /// <summary>
+        /// Get top bar padding based on display scale factor
+        /// </summary>
+        /// <returns>padding amount</returns>
+        private int GetTopPadding()
         {
             var t = GetDisplayScaleFactor(this.Handle);
             int ret = paddingTop_100;
@@ -215,11 +222,16 @@ namespace aol.Forms
             return Convert.ToInt32(ret);
         }
 
+        /// <summary>
+        /// Prevent MDI children from moving too high up
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnLocationChanged(object sender,  EventArgs e)
         {
-            if (this.Name != "main" && MdiParent != null) // prevent window from moving too high up
+            if (this.Name != "main" && MdiParent != null)
             {
-                int paddingTopCalc = getTopPadding();
+                int paddingTopCalc = GetTopPadding();
                 if (this.Location.Y < paddingTopCalc)
                 {
                     int LocX = this.Location.X;
@@ -228,7 +240,12 @@ namespace aol.Forms
             }
         }
 
-        // allow moving a window if we're trying to drag it
+        /// <summary>
+        /// Move the window when the title bar is clicked and dragged
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="maxBtn"></param>
         public void MoveWindow(object sender, MouseEventArgs e, Button maxBtn = null)
         {
             if (e.Button == MouseButtons.Left)

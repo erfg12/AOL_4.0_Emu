@@ -150,7 +150,7 @@ public partial class MainForm : _Win95Theme
 
     private void MaxBtn_Click(object sender, EventArgs e)
     {
-        miniMax(maxBtn);
+        MiniMax(maxBtn);
     }
 
     private void MiniBtn_Click(object sender, EventArgs e)
@@ -224,14 +224,12 @@ public partial class MainForm : _Win95Theme
                 else
                 {
                     loadingIcon.Enabled = false;
-                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                        loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
+                    loadingIcon.Image.SelectActiveFrame(new FrameDimension(loadingIcon.Image.FrameDimensionsList[0]), 0);
                     loadingIcon.Image = loadingIcon.Image;
                 }
 
-                if (((BrowserForm)ActiveMdiChild).url != old_url)
+                if (((BrowserForm)ActiveMdiChild).url != null && ((BrowserForm)ActiveMdiChild).url != old_url)
                 {
-                    addrBox.Text = ((BrowserForm)this.ActiveMdiChild).url;
                     old_url = addrBox.Text = ((BrowserForm)this.ActiveMdiChild).url;
                     mie_badge.Image = Properties.Resources.mie_badge;
                 }
@@ -718,6 +716,6 @@ public partial class MainForm : _Win95Theme
 
     private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
     {
-        miniMax(maxBtn);
+        MiniMax(maxBtn);
     }
 }

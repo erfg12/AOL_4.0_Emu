@@ -109,6 +109,8 @@
             BrowserWindowTitleLabel.Size = new Size(56, 15);
             BrowserWindowTitleLabel.TabIndex = 5;
             BrowserWindowTitleLabel.Text = "loading...";
+            BrowserWindowTitleLabel.MouseDoubleClick += TitleBar_MouseDoubleClick;
+            BrowserWindowTitleLabel.MouseMove += TitleBar_MouseMove;
             // 
             // favoriteBtn
             // 
@@ -209,6 +211,7 @@
             Text = "browser";
             Shown += BrowserForm_Shown;
             LocationChanged += BrowserForm_LocationChanged;
+            Enter += BrowserForm_Enter;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
