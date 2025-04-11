@@ -72,8 +72,8 @@
             screenName.Name = "screenName";
             screenName.Size = new System.Drawing.Size(215, 23);
             screenName.TabIndex = 0;
-            screenName.SelectedIndexChanged += screenName_SelectedIndexChanged;
-            screenName.KeyPress += screenName_KeyPress;
+            screenName.SelectedIndexChanged += ScreenName_SelectedIndexChanged;
+            screenName.KeyPress += ScreenName_KeyPress;
             // 
             // label2
             // 
@@ -111,7 +111,7 @@
             signOnBtn.TabIndex = 5;
             signOnBtn.Text = "SIGN ON";
             signOnBtn.UseVisualStyleBackColor = false;
-            signOnBtn.Click += signOnBtn_Click;
+            signOnBtn.Click += SignOnBtn_Click;
             // 
             // helpBtn
             // 
@@ -142,7 +142,7 @@
             setupBtn.TabIndex = 3;
             setupBtn.Text = "SETUP";
             setupBtn.UseVisualStyleBackColor = false;
-            setupBtn.Click += setupBtn_Click;
+            setupBtn.Click += SetupBtn_Click;
             // 
             // passBox
             // 
@@ -153,7 +153,7 @@
             passBox.PasswordChar = '*';
             passBox.Size = new System.Drawing.Size(215, 23);
             passBox.TabIndex = 1;
-            passBox.KeyDown += passBox_KeyDown;
+            passBox.KeyDown += PassBox_KeyDown;
             // 
             // passLabel
             // 
@@ -170,7 +170,7 @@
             // 
             accCheck.Enabled = true;
             accCheck.Interval = 1000;
-            accCheck.Tick += accCheck_Tick;
+            accCheck.Tick += AccCheck_Tick;
             // 
             // leftBanner
             // 
@@ -198,7 +198,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(443, 21);
             panel1.TabIndex = 4;
-            panel1.MouseMove += panel1_MouseMove;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // mainTitle
             // 
@@ -267,10 +267,10 @@
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "accForm";
-            FormClosing += accForm_FormClosing;
-            Load += accForm_Load;
-            Shown += accForm_Shown;
-            LocationChanged += accForm_LocationChanged;
+            FormClosing += AccForm_FormClosing;
+            Load += AccForm_Load;
+            Shown += AccForm_Shown;
+            LocationChanged += AccForm_LocationChanged;
             ((System.ComponentModel.ISupportInitialize)leftBanner).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -6,28 +6,28 @@ public partial class SignupForm : _Win95Theme
         InitializeComponent();
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void cancelBtn_Click(object sender, EventArgs e)
+    private void CancelBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void backBtn_Click(object sender, EventArgs e)
+    private void BackBtn_Click(object sender, EventArgs e)
     {
         panel2.BringToFront();
         panel3.SendToBack();
     }
 
-    private async void registerBtn_Click(object sender, EventArgs e)
+    private async void RegisterBtn_Click(object sender, EventArgs e)
     {
         if (username.Text == "Guest")
         {
@@ -35,7 +35,7 @@ public partial class SignupForm : _Win95Theme
             return;
         }
 
-        if (await RestAPIService.createAccount(username.Text, password.Text, fullname.Text))
+        if (await RestAPIService.CreateAccount(username.Text, password.Text, fullname.Text))
         {
             OpenMsgBox("SUCCESS", "Account has been created. Welcome!");
             Close();
@@ -46,7 +46,7 @@ public partial class SignupForm : _Win95Theme
         }
     }
 
-    private async void nextBtn_Click(object sender, EventArgs e)
+    private async void NextBtn_Click(object sender, EventArgs e)
     {
         this.Cursor = Cursors.WaitCursor;
         if (newAOL.Checked)
@@ -58,18 +58,18 @@ public partial class SignupForm : _Win95Theme
         {
             string user = recoverUser.Text;
             string pass = recoverPass.Text;
-            if (await RestAPIService.loginAccount(user, pass))
+            if (await RestAPIService.LoginAccount(user, pass))
             {
                 var userApi = Account.accountInfo;
-                int code = SqliteAccountsService.createAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
-                List<userAPI.Buddies> tmpBuddies = SqliteAccountsService.getBuddyList(userApi.account.username, pass);
+                int code = SqliteAccountsService.CreateAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
+                List<UserAPI.Buddies> tmpBuddies = SqliteAccountsService.GetBuddyList(userApi.account.username, pass);
 
                 if (code == 0)
                 {
                     foreach (var t in Account.accountInfo.buddies)
                     {
                         if (!tmpBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            SqliteAccountsService.addBuddy(t.id, t.username);
+                            SqliteAccountsService.AddBuddy(t.id, t.username);
                     }
                     OpenMsgBox("SUCCESS", "Account has been added. Welcome back!");
                     this.Cursor = Cursors.Default;
@@ -89,14 +89,14 @@ public partial class SignupForm : _Win95Theme
         this.Cursor = Cursors.Default;
     }
 
-    private void signup_form_Shown(object sender, EventArgs e)
+    private void SignupForm_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
         panel3.SendToBack();
         panel2.BringToFront();
     }
 
-    private void recoverUser_KeyPress(object sender, KeyPressEventArgs e)
+    private void RecoverUser_KeyPress(object sender, KeyPressEventArgs e)
     {
         if (!char.IsLetterOrDigit(e.KeyChar) &&
         e.KeyChar != '_' &&
@@ -105,11 +105,6 @@ public partial class SignupForm : _Win95Theme
         {
             e.Handled = true;
         }
-    }
-
-    private void recoverPass_KeyPress(object sender, KeyPressEventArgs e)
-    {
-
     }
 
     private void SignupForm_LocationChanged(object sender, EventArgs e)

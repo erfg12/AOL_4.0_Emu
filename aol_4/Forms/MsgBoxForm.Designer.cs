@@ -54,7 +54,7 @@
             closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // maxBtn
             // 
@@ -72,7 +72,7 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += maxBtn_Click;
+            maxBtn.Click += MaxBtn_Click;
             // 
             // miniBtn
             // 
@@ -89,7 +89,7 @@
             miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
-            miniBtn.Click += miniBtn_Click;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // panel1
             // 
@@ -106,7 +106,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(289, 21);
             panel1.TabIndex = 4;
-            panel1.MouseMove += panel1_MouseMove;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // titleLabel
             // 
@@ -119,7 +119,7 @@
             titleLabel.Size = new Size(49, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "MsgBox";
-            titleLabel.MouseMove += titleLabel_MouseMove;
+            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
             // richTextBox
             // 
@@ -149,7 +149,7 @@
             okBtn.TabIndex = 6;
             okBtn.Text = "OK";
             okBtn.UseVisualStyleBackColor = false;
-            okBtn.Click += okBtn_Click;
+            okBtn.Click += OkBtn_Click;
             // 
             // MsgBoxForm
             // 

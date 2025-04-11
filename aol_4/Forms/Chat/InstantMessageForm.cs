@@ -24,7 +24,7 @@ public partial class InstantMessageForm : _Win95Theme
         try
         {
             File.AppendAllText(privateLog, Account.tmpUsername + ": " + myMessageBox.Text + '\n');
-            sendMsgSound();
+            SendMsgSound();
         }
         catch
         {
@@ -69,17 +69,12 @@ public partial class InstantMessageForm : _Win95Theme
         InitializeComponent();
     }
 
-    private void instant_message_Load(object sender, EventArgs e)
+    private void TitleBar_DoubleClick(object sender, EventArgs e)
     {
-
+        MaxiMini(maxBtn);
     }
 
-    private void panel1_DoubleClick(object sender, EventArgs e)
-    {
-        maxiMini(maxBtn);
-    }
-
-    private void myMessageBox_KeyDown(object sender, KeyEventArgs e)
+    private void MyMessageBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
         {
@@ -89,7 +84,7 @@ public partial class InstantMessageForm : _Win95Theme
         }
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -98,7 +93,7 @@ public partial class InstantMessageForm : _Win95Theme
         }
     }
 
-    private void receivedMsgSound()
+    private void ReceivedMsgSound()
     {
         if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
@@ -111,17 +106,17 @@ public partial class InstantMessageForm : _Win95Theme
         myMessageBox.Text += ":-)";
     }
 
-    private void frowningCtrl2ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void FrowningCtrl2ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-(";
     }
 
-    private void winkingCtrl3ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void WinkingCtrl3ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ";-)";
     }
 
-    private void sendMsgSound()
+    private void SendMsgSound()
     {
         if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
@@ -129,82 +124,82 @@ public partial class InstantMessageForm : _Win95Theme
         player.Play();
     }
 
-    private void pStickingouttongueCtrl4ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void PStickingouttongueCtrl4ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-P";
     }
 
-    private void oSurprisedCtrl5ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void OSurprisedCtrl5ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += "=-O";
     }
 
-    private void kissingCtrl6ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void KissingCtrl6ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-*";
     }
 
-    private void oYellingCtrl7ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void OYellingCtrl7ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ">:o";
     }
 
-    private void coolCtrl8ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void CoolCtrl8ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += "8-)";
     }
 
-    private void moneymouthCtrlShift1ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void MoneymouthCtrlShift1ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-$";
     }
 
-    private void footinmouthCtrlShift2ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void FootinmouthCtrlShift2ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-!";
     }
 
-    private void embarrassedCtrlShift3ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void EmbarrassedCtrlShift3ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-[";
     }
 
-    private void oInnocentCtrlShift4ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void OInnocentCtrlShift4ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += "O:-)";
     }
 
-    private void undecidedCtrlShift5ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void UndecidedCtrlShift5ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += @":-\";
     }
 
-    private void cryingCtrlShift6ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void CryingCtrlShift6ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += @":'(";
     }
 
-    private void xLipsaresealedCtrlShift7ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void XLipsaresealedCtrlShift7ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-X";
     }
 
-    private void dLaughingCtrlShift8ToolStripMenuItem_Click(object sender, EventArgs e)
+    private void DLaughingCtrlShift8ToolStripMenuItem_Click(object sender, EventArgs e)
     {
         myMessageBox.Text += ":-D";
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
+    private void MaxBtn_Click(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void writeFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2
+    private void WriteFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2
     {
         string lastLine = "";
-        //try
-        //{
-        messagesBox.Invoke(new MethodInvoker(delegate
+        try
+        {
+            messagesBox.Invoke(new MethodInvoker(delegate
         {
             using FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using StreamReader sr = new StreamReader(file);
@@ -216,7 +211,7 @@ public partial class InstantMessageForm : _Win95Theme
                     try
                     {
                         messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
-                        receivedMsgSound();
+                        ReceivedMsgSound();
                     }
                     catch
                     {
@@ -232,7 +227,7 @@ public partial class InstantMessageForm : _Win95Theme
                 try
                 {
                     messagesBox.AppendText(lastLine + Environment.NewLine);
-                    receivedMsgSound();
+                    ReceivedMsgSound();
                 }
                 catch
                 {
@@ -241,19 +236,20 @@ public partial class InstantMessageForm : _Win95Theme
             }
             messagesBox.ScrollToCaret();
         }));
-        /*} catch
+        }
+        catch
         {
             Debug.WriteLine("ERROR: Msgbox wasn't ready. I prevented a crash.");
-        }*/
+        }
     }
 
     private void OnChanged(object source, FileSystemEventArgs e)
     {
         Debug.WriteLine("onchanged");
-        writeFileToBox();
+        WriteFileToBox();
     }
 
-    private void keepReading()
+    private void KeepReading()
     {
         try
         {
@@ -270,19 +266,19 @@ public partial class InstantMessageForm : _Win95Theme
         }
     }
 
-    private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+    private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
     {
         Thread.Sleep(1000);
-        writeFileToBox(true);
-        keepReading();
+        WriteFileToBox(true);
+        KeepReading();
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }

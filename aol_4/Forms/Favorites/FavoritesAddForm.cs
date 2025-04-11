@@ -38,13 +38,13 @@ public partial class FavoritesAddForm : _Win95Theme
     private void OkBtn_Click(object sender, EventArgs e)
     {
         if (!edit)
-            SqliteAccountsService.addFavorite(internetAddrBox.Text, placeDescBox.Text);
+            SqliteAccountsService.AddFavorite(internetAddrBox.Text, placeDescBox.Text);
         else
-            SqliteAccountsService.updateFavorite(internetAddrBox.Text, placeDescBox.Text);
+            SqliteAccountsService.UpdateFavorite(internetAddrBox.Text, placeDescBox.Text);
         Close();
     }
 
-    private void Panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -53,7 +53,7 @@ public partial class FavoritesAddForm : _Win95Theme
         }
     }
 
-    private void Add_favorite_Shown(object sender, EventArgs e)
+    private void AddFavorite_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
         placeDescBox.Text = name;

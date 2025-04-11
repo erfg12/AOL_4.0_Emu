@@ -38,7 +38,7 @@ public class langs
 class LocationService
 {
     public static WeatherNet.Util.Api.ApiClient wn = new WeatherNet.Util.Api.ApiClient();
-    public static string getIP()
+    public static string GetIP()
     {
         string ip = "";
         using (WebClient wc = new WebClient())
@@ -57,10 +57,10 @@ class LocationService
         return ip;
     }
 
-    public static List<string> getCityState()
+    public static List<string> GetCityState()
     {
         List<string> tmpList = new List<string>();
-        string MyIP = getIP();
+        string MyIP = GetIP();
 
         // defaults
         tmpList.Add("New York City");
@@ -97,7 +97,7 @@ class LocationService
         return tmpList;
     }
 
-    public static string getCurrentWeather()
+    public static string GetCurrentWeather()
     {
         //List<string> cityDat = getCityState();
 

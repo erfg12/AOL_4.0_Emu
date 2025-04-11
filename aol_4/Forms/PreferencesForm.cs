@@ -11,7 +11,7 @@ public partial class PreferencesForm : _Win95Theme
         Close();
     }
 
-    private void Panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {

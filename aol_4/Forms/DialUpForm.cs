@@ -13,7 +13,7 @@ public partial class DialUpForm : _Win95Theme
             verbage = "Dial-Up";
     }
 
-    async Task dialUp()
+    async Task DialUp()
     {
         timer1.Stop();
         verbage = "Dial-Up";
@@ -27,7 +27,7 @@ public partial class DialUpForm : _Win95Theme
         timer1.Start();
     }
 
-    private async void timer1_Tick(object sender, EventArgs e)
+    private async void Timer1_Tick(object sender, EventArgs e)
     {
         switch (dialUpStep)
         {
@@ -38,7 +38,7 @@ public partial class DialUpForm : _Win95Theme
                 pictureBox1.Visible = Visible;
                 statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
                 if (Account.tmpLocation == "Dial-Up")
-                    await dialUp();
+                    await DialUp();
                 break;
             case 2: // pretend to check password
                 pictureBox2.Visible = Visible;
@@ -83,13 +83,13 @@ public partial class DialUpForm : _Win95Theme
             };
             bo.Show();
 
-            mainForm.reloadAddressBarHistory();
+            mainForm.ReloadAddressBarHistory();
         }
 
-        mainForm.reloadAddressBarHistory();
+        mainForm.ReloadAddressBarHistory();
 
         mainForm.signOffBtn.Text = "Sign Off";
 
-        mainForm.startProgram();
+        mainForm.StartProgram();
     }
 }

@@ -11,7 +11,7 @@ public partial class PicturesForm : _Win95Theme
         WindowState = FormWindowState.Minimized;
     }
 
-    private void Panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }

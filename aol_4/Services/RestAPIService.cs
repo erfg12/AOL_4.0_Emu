@@ -1,7 +1,7 @@
 ﻿namespace aol.Services;
 class RestAPIService
 {
-    private static async Task<JObject> getData(string request, HttpMethod method, string queryParams)
+    private static async Task<JObject> GetData(string request, HttpMethod method, string queryParams)
     {
         var client = new HttpClient();
         HttpResponseMessage response;
@@ -60,16 +60,16 @@ class RestAPIService
     /// <param name="pass">Unencrypted password.</param>
     /// <param name="fn">Full name of the account holder.</param>
     /// <returns></returns>
-    public static async Task<bool> createAccount(string user, string pass, string fn)
+    public static async Task<bool> CreateAccount(string user, string pass, string fn)
     {
         if (user == "" || pass == "")
             return false;
         string encPass = CreateMD5(pass);
-        var data = await getData("Account", HttpMethod.Post, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
-        var userApi = data.ToObject<userAPI>();
+        var data = await GetData("Account", HttpMethod.Post, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
+        var userApi = data.ToObject<UserAPI>();
         if (userApi.account != null)
         {
-            int code = SqliteAccountsService.createAcc(user, userApi.account.id, fn);
+            int code = SqliteAccountsService.CreateAcc(user, userApi.account.id, fn);
             if (code == 0)
                 return true;
             else
@@ -87,12 +87,12 @@ class RestAPIService
     /// <param name="user">Account username. Do not provide the email address.</param>
     /// <param name="pass">Unencrypted password must be provided.</param>
     /// <returns></returns>
-    public static async Task<bool> loginAccount(string user, string pass)
+    public static async Task<bool> LoginAccount(string user, string pass)
     {
         if (user == "" || pass == "")
             return false;
         string encPass = CreateMD5(pass);
-        var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
+        var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg)) // message = error msg
         {
@@ -101,7 +101,7 @@ class RestAPIService
         {
             Account.tmpUsername = user;
             Account.tmpPassword = encPass;
-            Account.accountInfo = data.ToObject<userAPI>(); // store account info in accForm for later use
+            Account.accountInfo = data.ToObject<UserAPI>(); // store account info in accForm for later use
             return true;
         }
         return false;
@@ -114,7 +114,7 @@ class RestAPIService
     /// <param name="user">OPTIONAL: If using prior to login, you need to provide a username/password</param>
     /// <param name="pass">OPTIONAL: If using prior to login, you need to provide a username/password</param>
     /// <returns></returns>
-    public static async Task<userAPI> getAccInfo(string user = "", string pass = "")
+    public static async Task<UserAPI> GetAccInfo(string user = "", string pass = "")
     {
         if (user == "")
             user = Account.tmpUsername;
@@ -123,20 +123,20 @@ class RestAPIService
         else
             pass = CreateMD5(pass);
 
-        var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
-        var t = data.ToObject<userAPI>();
+        var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
+        var t = data.ToObject<UserAPI>();
         return t;
     }
 
-    public static async Task<IList<userAPI.Buddies>> getBuddyList(string user, string pass)
+    public static async Task<IList<UserAPI.Buddies>> GetBuddyList(string user, string pass)
     {
         if (user == "" || pass == "")
             return null;
 
         pass = CreateMD5(pass);
 
-        var data = await getData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
-        return data.ToObject<userAPI>().buddies;
+        var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
+        return data.ToObject<UserAPI>().buddies;
     }
 
     /// <summary>
@@ -144,15 +144,15 @@ class RestAPIService
     /// </summary>
     /// <param name="newfn">New full name for the account holder.</param>
     /// <returns></returns>
-    public static async Task<bool> updateFullName(string newfn)
+    public static async Task<bool> UpdateFullName(string newfn)
     {
         if (!Account.SignedIn())
             return false;
 
-        var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
+        var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
-            SqliteAccountsService.updateFullName(newfn);
+            SqliteAccountsService.UpdateFullName(newfn);
             return true;
         }
         return false;
@@ -163,12 +163,12 @@ class RestAPIService
     /// </summary>
     /// <param name="newpw">New account password. Provide this unencrypted.</param>
     /// <returns></returns>
-    public static async Task<bool> updatePassword(string newpw)
+    public static async Task<bool> UpdatePassword(string newpw)
     {
         if (!Account.SignedIn())
             return false;
         newpw = Encoding.Default.GetString(SqliteAccountsService.Hash(newpw, SqliteAccountsService.passSalt));
-        var data = await getData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
+        var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
             // needs SQLite cmd
@@ -182,16 +182,16 @@ class RestAPIService
     /// </summary>
     /// <param name="username">Buddy's username</param>
     /// <returns></returns>
-    public static async Task<bool> addBuddy(string username)
+    public static async Task<bool> AddBuddy(string username)
     {
         if (!Account.SignedIn())
             return false;
 
-        var data = await getData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
-        var buddyData = data.ToObject<userAPI.Buddies>();
+        var data = await GetData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
+        var buddyData = data.ToObject<UserAPI.Buddies>();
         if (buddyData?.id != null && buddyData.id > 0) // message = error msg
         {
-            SqliteAccountsService.addBuddy(buddyData.id, buddyData.username);
+            SqliteAccountsService.AddBuddy(buddyData.id, buddyData.username);
             return true;
         }
 
@@ -203,16 +203,16 @@ class RestAPIService
     /// </summary>
     /// <param name="buddyid"></param>
     /// <returns></returns>
-    public static async Task<bool> removeBuddy(int buddyid, string buddyName)
+    public static async Task<bool> RemoveBuddy(int buddyid, string buddyName)
     {
         if (!Account.SignedIn())
             return false;
 
-        var data = await getData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
+        var data = await GetData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {
-            SqliteAccountsService.removeBuddy(buddyid, buddyName);
+            SqliteAccountsService.RemoveBuddy(buddyid, buddyName);
             return true;
         }
         return false;

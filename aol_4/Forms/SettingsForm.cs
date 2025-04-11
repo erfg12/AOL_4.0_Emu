@@ -12,37 +12,32 @@ public partial class SettingsForm : _Win95Theme
         Properties.Settings.Default.Save();
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void CloseBlueBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void settings_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void settings_Shown(object sender, EventArgs e)
+    private void Settings_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this, 0, 50);
         homePageBox.Text = Properties.Settings.Default.homeSite;
         cityBox.Text = Properties.Settings.Default.city;
         countryBox.Text = Properties.Settings.Default.country;
         fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
-        fullnameBox.Text = SqliteAccountsService.getFullName();
+        fullnameBox.Text = SqliteAccountsService.GetFullName();
 
         searchProvider.Text = Properties.Settings.Default.searchProvider;
 
-        reloadBrowseHistory();
+        ReloadBrowseHistory();
     }
 
-    private void reloadBrowseHistory()
+    private void ReloadBrowseHistory()
     {
         if (!Account.SignedIn())
             return;
 
         browseHistoryList.Items.Clear();
-        List<string> tmpHistory = SqliteAccountsService.getHistory();
+        List<string> tmpHistory = SqliteAccountsService.GetHistory();
         tmpHistory.Sort();
         foreach (string l in tmpHistory)
         {
@@ -50,7 +45,7 @@ public partial class SettingsForm : _Win95Theme
         }
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -59,17 +54,17 @@ public partial class SettingsForm : _Win95Theme
         }
     }
 
-    private void updateFNBtn_Click(object sender, EventArgs e)
+    private void UpdateFNBtn_Click(object sender, EventArgs e)
     {
         //RestAPI.updateFullName(fullnameBox.Text);
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void settings_FormClosing(object sender, FormClosingEventArgs e)
+    private void Settings_FormClosing(object sender, FormClosingEventArgs e)
     {
         if (Account.tmpUsername != "Guest" && Account.tmpUsername != "")
         {
@@ -98,18 +93,18 @@ public partial class SettingsForm : _Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.SelectedItems)
         {
-            SqliteAccountsService.deleteHistory(i.Text);
+            SqliteAccountsService.DeleteHistory(i.Text);
         }
-        reloadBrowseHistory();
+        ReloadBrowseHistory();
     }
 
     private void DeleteAllBrowsingHistory_Click(object sender, EventArgs e)
     {
         foreach (ListViewItem i in browseHistoryList.Items)
         {
-            SqliteAccountsService.deleteHistory(i.Text);
+            SqliteAccountsService.DeleteHistory(i.Text);
         }
-        reloadBrowseHistory();
+        ReloadBrowseHistory();
     }
 
     private void SettingsForm_LocationChanged(object sender, EventArgs e)

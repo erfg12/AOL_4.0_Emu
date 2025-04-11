@@ -2,7 +2,7 @@
 public partial class BuddyListForm : _Win95Theme
 {
     int total = 0;
-    userAPI.Buddies selectedBuddy;
+    UserAPI.Buddies selectedBuddy;
     TreeNode selectedNode;
 
     public BuddyListForm()
@@ -10,7 +10,7 @@ public partial class BuddyListForm : _Win95Theme
         InitializeComponent();
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -19,19 +19,19 @@ public partial class BuddyListForm : _Win95Theme
         }
     }
 
-    private void buddyListView_ItemCheck(object sender, ItemCheckEventArgs e)
+    private void BuddyListView_ItemCheck(object sender, ItemCheckEventArgs e)
     {
         // disable buddies label
         if (e.Index == 0)
             e.NewValue = e.CurrentValue;
     }
 
-    private void setupBtn_Click(object sender, EventArgs e)
+    private void SetupBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<BuddyAddForm>(MdiParent);
     }
 
-    private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -40,7 +40,7 @@ public partial class BuddyListForm : _Win95Theme
         }
     }
 
-    private void buddyTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
+    private void BuddyTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
     {
         if (buddyTreeView.SelectedNode.Text == null || !ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
@@ -84,22 +84,22 @@ public partial class BuddyListForm : _Win95Theme
         }
     }
 
-    private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void buddies_online_Shown(object sender, EventArgs e)
+    private void BuddiesOnline_Shown(object sender, EventArgs e)
     {
         SetStyle(ControlStyles.ResizeRedraw, true);
         StartList(); // get buddy list
@@ -111,7 +111,7 @@ public partial class BuddyListForm : _Win95Theme
 
     private void StartList()
     {
-        foreach (var b in SqliteAccountsService.getBuddyList())
+        foreach (var b in SqliteAccountsService.GetBuddyList())
         {
             if (!ChatService.buddyStatus.ContainsKey(b.username.ToLower()))
                 ChatService.buddyStatus.TryAdd(b.username.ToLower(), false); // offline by default
@@ -184,7 +184,7 @@ public partial class BuddyListForm : _Win95Theme
 
     }
 
-    private void buddyTreeView_MouseUp(object sender, MouseEventArgs e)
+    private void BuddyTreeView_MouseUp(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Right)
         {
@@ -197,14 +197,14 @@ public partial class BuddyListForm : _Win95Theme
                 buddyTreeView.SelectedNode = node;
                 buddyContextMenuStrip.Show(buddyTreeView, e.Location);
 
-                selectedBuddy = SqliteAccountsService.getBuddyList().Where(x => x.username.Equals(node.Text)).First();
+                selectedBuddy = SqliteAccountsService.GetBuddyList().Where(x => x.username.Equals(node.Text)).First();
                 selectedNode = node;
                 Debug.WriteLine($"Right-clicked buddy {selectedBuddy.username} with ID: {selectedBuddy.id}");
             }
         }
     }
 
-    private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+    private async void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (selectedBuddy == null || selectedNode == null)
             return;
@@ -213,7 +213,7 @@ public partial class BuddyListForm : _Win95Theme
 
         if (result == DialogResult.Yes)
         {
-            if (await RestAPIService.removeBuddy(selectedBuddy.id, selectedBuddy.username))
+            if (await RestAPIService.RemoveBuddy(selectedBuddy.id, selectedBuddy.username))
             {
                 selectedNode.Remove();
                 MessageBox.Show($"Buddy {selectedBuddy.username} has been removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

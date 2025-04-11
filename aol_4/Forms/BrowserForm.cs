@@ -5,7 +5,7 @@ public partial class BrowserForm : _Win95Theme
     public string url { get; set; }
     public string title { get; set; }
 
-    public void goToUrl(string url)
+    public void GoToUrl(string url)
     {
         url = BrowserHelper.GenerateURLFromString(url);
         Uri outUri;
@@ -22,12 +22,7 @@ public partial class BrowserForm : _Win95Theme
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
 
-        goToUrl(urlArg);
-    }
-
-    private void BrowserForm_Load(object sender, EventArgs e)
-    {
-
+        GoToUrl(urlArg);
     }
 
     async void InitializeAsync()
@@ -37,7 +32,7 @@ public partial class BrowserForm : _Win95Theme
         WebView.CoreWebView2.DocumentTitleChanged += DocumentTitleChanged;
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
@@ -58,22 +53,17 @@ public partial class BrowserForm : _Win95Theme
         MDIHelper.OpenForm(() => new FavoritesAddForm(url, title), MdiParent);
     }
 
-    private void WebView_VisibleChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
+    private void MaxBtn_Click(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
@@ -87,7 +77,7 @@ public partial class BrowserForm : _Win95Theme
         toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
     }
 
-    private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -96,14 +86,9 @@ public partial class BrowserForm : _Win95Theme
         }
     }
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
+    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
     {
-
-    }
-
-    private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
     private void BrowserForm_LocationChanged(object sender, EventArgs e)

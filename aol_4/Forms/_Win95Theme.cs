@@ -142,7 +142,7 @@ namespace aol.Forms
         /// Maximize or restore button
         /// </summary>
         /// <param name="maxBtn"></param>
-        public void maxiMini(Button maxBtn)
+        public void MaxiMini(Button maxBtn)
         {
             if (maximized)
             {
@@ -234,7 +234,7 @@ namespace aol.Forms
             if (e.Button == MouseButtons.Left)
             {
                 if (maximized && maxBtn != null)
-                    maxiMini(maxBtn);
+                    MaxiMini(maxBtn);
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }

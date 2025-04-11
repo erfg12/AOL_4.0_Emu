@@ -6,7 +6,6 @@ public partial class ChatroomForm : _Win95Theme
     string pChat = "";
     int pplCount = 0;
     FileSystemWatcher watch = null;
-    List<Rectangle> rects = new();
     bool formClosing = false;
 
     public ChatroomForm(string channel)
@@ -29,49 +28,52 @@ public partial class ChatroomForm : _Win95Theme
             c++;
             if (c > 20)
             {
-                ChatService.startConnection();
+                ChatService.StartConnection();
                 Debug.WriteLine("ERROR: Trying connection again.");
                 c = 0;
             }
         }
         ChatService.irc.SendRawMessage("join #" + channel);
 
-        keepReading();
+        KeepReading();
 
         InitializeComponent();
     }
 
-    private void chatroom_Shown(object sender, EventArgs e)
+    private void Chatroom_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
         //chat.users.Clear();
         Text = pChat + " Chatroom";
         mainTitle.Text = pChat + " Chatroom";
 
-        writeFileToBox(true);
+        WriteFileToBox(true);
 
         if (!backgroundWorker1.IsBusy)
             backgroundWorker1.RunWorkerAsync();
     }
 
-    private void writeFileToBox(bool init = false)
+    private void WriteFileToBox(bool init = false)
     {
         string lastLine = "";
 
         using FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
         using StreamReader sr = new StreamReader(file);
 
-        while (!sr.EndOfStream)
+        try
         {
-            if (init)
-                chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
-            else
-                lastLine = sr.ReadLine();
-        }
+            while (!sr.EndOfStream)
+            {
+                if (init)
+                    chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                else
+                    lastLine = sr.ReadLine();
+            }
 
-        if (!init)
-            chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
-        chatRoomTextBox.ScrollToCaret();
+            if (!init)
+                chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
+            chatRoomTextBox.ScrollToCaret();
+        } catch { }
     }
 
     public void OnChanged(object source, FileSystemEventArgs e)
@@ -79,11 +81,11 @@ public partial class ChatroomForm : _Win95Theme
         if (e.ChangeType == WatcherChangeTypes.Changed)
         {
             Debug.WriteLine($"Changed: {e.FullPath}");
-            writeFileToBox();
+            WriteFileToBox();
         }
     }
 
-    private void keepReading()
+    private void KeepReading()
     {
         watch = new FileSystemWatcher();
         watch.Path = Path.GetDirectoryName(chatlog);
@@ -94,25 +96,19 @@ public partial class ChatroomForm : _Win95Theme
         Debug.WriteLine($"watching {chatlog} for changes");
     }
 
-    private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+    private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
     {
         // keep users list up to date
         while (true)
         {
-            if (!Account.SignedIn())
+            if (!IsHandleCreated || !Account.SignedIn())
                 continue;
 
-            if (!IsHandleCreated)
-                continue;
-
-            if (!ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
+            if (formClosing || !ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
             {
                 Debug.WriteLine("Client is not connected, breaking BGWorker");
                 break;
             }
-
-            if (formClosing)
-                break;
 
             usersListView.Invoke(new MethodInvoker(delegate
             {
@@ -162,7 +158,7 @@ public partial class ChatroomForm : _Win95Theme
         }
     }
 
-    private void usersListView_DoubleClick(object sender, EventArgs e)
+    private void UsersListView_DoubleClick(object sender, EventArgs e)
     {
         InstantMessageForm im = new InstantMessageForm(usersListView.SelectedItems[0].Text.ToString());
         im.Owner = this;
@@ -171,23 +167,23 @@ public partial class ChatroomForm : _Win95Theme
         im.Show();
     }
 
-    private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
+    private void Chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
         ChatService.irc.SendRawMessage("part #" + pChat);
     }
 
-    private void messageTextBox_KeyDown(object sender, KeyEventArgs e)
+    private void MessageTextBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
         {
-            sendMsg();
+            SendMsg();
             e.Handled = true;
             e.SuppressKeyPress = true;
         }
     }
 
-    private void mainTitle_MouseMove(object sender, MouseEventArgs e)
+    private void MainTitle_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -196,7 +192,7 @@ public partial class ChatroomForm : _Win95Theme
         }
     }
 
-    private void sendMsg()
+    private void SendMsg()
     {
         if (!ChatService.irc.IsClientRunning())
             MessageBox.Show("ERROR: IRC client is not running");
@@ -213,72 +209,28 @@ public partial class ChatroomForm : _Win95Theme
         messageTextBox.Clear();
     }
 
-    private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
-    {
-        foreach (Rectangle r in rects)
-        {
-            if (r.Contains(e.Location) && rects.IndexOf(r) == 0) // send message
-            {
-                sendMsg();
-            }
-        }
-    }
-
-    private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
-    {
-        foreach (Rectangle r in rects)
-        {
-            if (r.Contains(e.Location))
-            {
-                Cursor = Cursors.Hand;
-                return;
-            }
-        }
-        Cursor = Cursors.Default;
-    }
-
     private void ChatSendBtn_Click(object sender, EventArgs e)
     {
-        sendMsg();
+        SendMsg();
     }
 
-    private void chatroom_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void sendBtn_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void panel1_DoubleClick(object sender, EventArgs e)
-    {
-
-    }
-
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
             ReleaseCapture();
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
-    }
-
-    private void maxBtn_Click(object sender, EventArgs e)
-    {
-
     }
 
     private void ChatroomForm_LocationChanged(object sender, EventArgs e)

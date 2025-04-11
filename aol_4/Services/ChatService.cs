@@ -8,7 +8,7 @@ class ChatService
     public static string newPM = "";
     public static ConcurrentDictionary<string, bool> buddyStatus = new(); // key: name, value: online status
 
-    public static void downloadStatusChanged(object source, DCCEventArgs args)
+    public static void DownloadStatusChanged(object source, DCCEventArgs args)
     {
         Debug.WriteLine("DOWNLOAD STATUS: " + args.Status);
         Debug.WriteLine("DOWNLOAD FILENAME: " + args.FileName);
@@ -25,7 +25,7 @@ class ChatService
             if (c > 50)
             {
                 Debug.WriteLine("IRC reconnecting");
-                ChatService.startConnection();
+                ChatService.StartConnection();
                 c = 0;
             }
             await Task.Delay(5000);
@@ -34,7 +34,7 @@ class ChatService
         return true;
     }
 
-    public static void chatOutputCallback(object source, IrcReceivedEventArgs args)
+    public static void ChatOutputCallback(object source, IrcReceivedEventArgs args)
     {
         string msg = args.User + ": " + args.Message;
         Debug.WriteLine("[CO]:" + msg);
@@ -92,7 +92,7 @@ class ChatService
         }
     }
 
-    public static void rawOutputCallback(object source, IrcRawReceivedEventArgs args)
+    public static void RawOutputCallback(object source, IrcRawReceivedEventArgs args)
     {
         if (Account.tmpUsername == "Guest" || Account.tmpUsername == "" || args.Message == null) // prevents crash if signing off
             return;
@@ -159,7 +159,7 @@ class ChatService
         }
     }
 
-    public static void debugOutputCallback(object source, IrcDebugMessageEventArgs args)
+    public static void DebugOutputCallback(object source, IrcDebugMessageEventArgs args)
     {
         Debug.WriteLine(args.Type + " | " + args.Message);
         if (args.Message == "STARTING LISTENER!")
@@ -168,7 +168,7 @@ class ChatService
         }
     }
 
-    public static void userListCallback(object source, IrcUserListReceivedEventArgs args)
+    public static void UserListCallback(object source, IrcUserListReceivedEventArgs args)
     {
         if (args.UsersPerChannel.Count <= 0)
             return;
@@ -205,7 +205,7 @@ class ChatService
         }
     }
 
-    public static void startConnection()
+    public static void StartConnection()
     {
         if (!Account.SignedIn() || irc.IsClientRunning())
             return;

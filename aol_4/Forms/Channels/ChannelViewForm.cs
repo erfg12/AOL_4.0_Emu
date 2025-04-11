@@ -12,37 +12,27 @@ public partial class ChannelViewForm : _Win95Theme
         WebView.Source = new Uri(url);
     }
 
-    private void Form1_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void FavoriteBtn_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
+    private void MaxBtn_Click(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
 
-    private void Form1_Shown(object sender, EventArgs e)
+    private void ChannelView_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
         ToolTip toolTip1 = new ToolTip();
@@ -51,19 +41,14 @@ public partial class ChannelViewForm : _Win95Theme
         toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
     }
 
-    private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
+    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
     {
-
-    }
-
-    private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
     private void ChannelViewForm_LocationChanged(object sender, EventArgs e)

@@ -369,7 +369,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(619, 21);
             panel1.TabIndex = 3;
-            panel1.MouseMove += panel1_MouseMove;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox22
             // 
@@ -396,7 +396,7 @@
             titleLabel.Size = new System.Drawing.Size(56, 15);
             titleLabel.TabIndex = 3;
             titleLabel.Text = "Channels";
-            titleLabel.MouseMove += titleLabel_MouseMove;
+            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
             // miniBtn
             // 
@@ -413,7 +413,7 @@
             miniBtn.Size = new System.Drawing.Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
-            miniBtn.Click += miniBtn_Click;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // maxBtn
             // 
@@ -432,7 +432,7 @@
             maxBtn.Size = new System.Drawing.Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += maxBtn_Click;
+            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -450,7 +450,7 @@
             closeBtn.Size = new System.Drawing.Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // ChannelsListForm
             // 
@@ -485,8 +485,8 @@
             Name = "ChannelsListForm";
             StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             Text = "channels";
-            Load += channels_Load;
-            Shown += channels_Shown;
+            Load += Channels_Load;
+            Shown += Channels_Shown;
             LocationChanged += ChannelsListForm_LocationChanged;
             ((System.ComponentModel.ISupportInitialize)localBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)kidsOnlyBtn).EndInit();

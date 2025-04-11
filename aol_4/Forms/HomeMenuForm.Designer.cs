@@ -138,7 +138,7 @@
             miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
-            miniBtn.Click += miniBtn_Click;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // maxBtn
             // 
@@ -174,7 +174,7 @@
             closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // temperatureLabel
             // 
@@ -212,7 +212,7 @@
             mailCenterBtn.Size = new Size(126, 53);
             mailCenterBtn.TabIndex = 8;
             mailCenterBtn.TabStop = false;
-            mailCenterBtn.Click += mailCenterBtn_Click;
+            mailCenterBtn.Click += MailCenterBtn_Click;
             // 
             // YouveGotPicturesBtn
             // 
@@ -238,7 +238,7 @@
             aolChannelsBtn.Size = new Size(126, 59);
             aolChannelsBtn.TabIndex = 10;
             aolChannelsBtn.TabStop = false;
-            aolChannelsBtn.Click += aolChannelsBtn_Click;
+            aolChannelsBtn.Click += AolChannelsBtn_Click;
             // 
             // chatBtn
             // 
@@ -251,7 +251,7 @@
             chatBtn.Size = new Size(126, 56);
             chatBtn.TabIndex = 11;
             chatBtn.TabStop = false;
-            chatBtn.Click += chatBtn_Click;
+            chatBtn.Click += ChatBtn_Click;
             // 
             // HomeMenuForm
             // 
@@ -275,7 +275,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.Manual;
             Text = "Welcome Home Window";
-            Shown += home_menu_ShownAsync;
+            Shown += HomeMenu_ShownAsync;
             LocationChanged += HomeMenuForm_LocationChanged;
             ((System.ComponentModel.ISupportInitialize)RightPictureBox).EndInit();
             TitleBar.ResumeLayout(false);

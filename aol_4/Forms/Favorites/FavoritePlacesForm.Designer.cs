@@ -74,7 +74,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(224, 21);
             panel1.TabIndex = 4;
-            panel1.MouseMove += Panel1_MouseMove;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox1
             // 

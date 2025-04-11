@@ -69,7 +69,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(704, 21);
             panel1.TabIndex = 2;
-            panel1.MouseDoubleClick += panel1_MouseDoubleClick;
             panel1.MouseMove += panel1_MouseMove;
             // 
             // mainTitle
@@ -143,7 +142,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += maxBtn_Click;
             // 
             // closeBtn
             // 

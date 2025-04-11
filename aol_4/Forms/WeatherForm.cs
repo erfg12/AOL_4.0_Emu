@@ -19,12 +19,12 @@ public partial class WeatherForm : _Win95Theme
     private void Weather_Shown(object sender, EventArgs e)
     {
         List<string> tmpCityState = new List<string>();
-        tmpCityState = LocationService.getCityState();
+        tmpCityState = LocationService.GetCityState();
         cityStateLabel.Text = tmpCityState[0] + ", " + tmpCityState[1];
         //location.getForecastWeather(); // test
     }
 
-    private void Panel1_MouseMove_1(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }

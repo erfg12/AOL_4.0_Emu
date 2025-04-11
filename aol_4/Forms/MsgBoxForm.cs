@@ -15,33 +15,33 @@ public partial class MsgBoxForm : _Win95Theme
         OnLocationChanged(sender, e);
     }
 
-    private void miniBtn_Click(object sender, System.EventArgs e)
+    private void MiniBtn_Click(object sender, System.EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
 
-    private void closeBtn_Click(object sender, System.EventArgs e)
+    private void CloseBtn_Click(object sender, System.EventArgs e)
     {
         Close();
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void titleLabel_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void okBtn_Click(object sender, System.EventArgs e)
+    private void OkBtn_Click(object sender, System.EventArgs e)
     {
         Close();
     }
 
-    private void maxBtn_Click(object sender, System.EventArgs e)
+    private void MaxBtn_Click(object sender, System.EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 }

@@ -3,11 +3,6 @@ public partial class ChatroomListForm : _Win95Theme
 {
     private ConcurrentDictionary<string, List<string>> categories = new();
 
-    private void maxBtn_Click(object sender, EventArgs e)
-    {
-
-    }
-
     public static string StripHTML(string input)
     {
         return Regex.Replace(input, "<.*?>", String.Empty);
@@ -95,11 +90,6 @@ public partial class ChatroomListForm : _Win95Theme
             lIt2.Text = chan.Replace("#", "");
             chanListView.Items.Add(lIt2);
         }
-    }
-
-    private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-
     }
 
     private void miniBtn_Click(object sender, EventArgs e)

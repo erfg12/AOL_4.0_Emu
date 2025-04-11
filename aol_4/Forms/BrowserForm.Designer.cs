@@ -28,102 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrowserForm));
-            toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(BrowserForm));
+            toolStripContainer1 = new ToolStripContainer();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            panel1 = new System.Windows.Forms.Panel();
-            BrowserWindowTitleLabel = new System.Windows.Forms.Label();
-            favoriteBtn = new System.Windows.Forms.PictureBox();
-            titleLabel = new System.Windows.Forms.Label();
-            miniBtn = new System.Windows.Forms.Button();
-            maxBtn = new System.Windows.Forms.Button();
-            closeBtn = new System.Windows.Forms.Button();
+            panel1 = new Panel();
+            BrowserWindowTitleLabel = new Label();
+            favoriteBtn = new PictureBox();
+            titleLabel = new Label();
+            miniBtn = new Button();
+            maxBtn = new Button();
+            closeBtn = new Button();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)WebView).BeginInit();
+            ((ISupportInitialize)WebView).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)favoriteBtn).BeginInit();
+            ((ISupportInitialize)favoriteBtn).BeginInit();
             SuspendLayout();
             // 
             // toolStripContainer1
             // 
-            toolStripContainer1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            toolStripContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             // 
             // toolStripContainer1.ContentPanel
             // 
             toolStripContainer1.ContentPanel.Controls.Add(WebView);
-            toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
-            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(906, 469);
+            toolStripContainer1.ContentPanel.Margin = new Padding(4);
+            toolStripContainer1.ContentPanel.Size = new Size(906, 469);
             toolStripContainer1.ContentPanel.UseWaitCursor = true;
-            toolStripContainer1.Location = new System.Drawing.Point(3, 25);
-            toolStripContainer1.Margin = new System.Windows.Forms.Padding(4);
+            toolStripContainer1.Location = new Point(3, 25);
+            toolStripContainer1.Margin = new Padding(4);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new System.Drawing.Size(906, 494);
+            toolStripContainer1.Size = new Size(906, 494);
             toolStripContainer1.TabIndex = 0;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
             // WebView
             // 
             WebView.AllowExternalDrop = true;
-            WebView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            WebView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             WebView.CreationProperties = null;
-            WebView.DefaultBackgroundColor = System.Drawing.Color.White;
-            WebView.Location = new System.Drawing.Point(0, 0);
-            WebView.Margin = new System.Windows.Forms.Padding(2);
+            WebView.DefaultBackgroundColor = Color.White;
+            WebView.Location = new Point(0, 0);
+            WebView.Margin = new Padding(2);
             WebView.Name = "WebView";
-            WebView.Size = new System.Drawing.Size(904, 469);
-            WebView.Source = new System.Uri("https://google.com", System.UriKind.Absolute);
+            WebView.Size = new Size(904, 469);
+            WebView.Source = new Uri("https://google.com", UriKind.Absolute);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
             WebView.ZoomFactor = 1D;
-            WebView.VisibleChanged += WebView_VisibleChanged;
             // 
             // panel1
             // 
-            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = System.Drawing.Color.White;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(BrowserWindowTitleLabel);
             panel1.Controls.Add(favoriteBtn);
             panel1.Controls.Add(titleLabel);
             panel1.Controls.Add(miniBtn);
             panel1.Controls.Add(maxBtn);
             panel1.Controls.Add(closeBtn);
-            panel1.Location = new System.Drawing.Point(3, 2);
-            panel1.Margin = new System.Windows.Forms.Padding(4);
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(906, 21);
+            panel1.Size = new Size(906, 21);
             panel1.TabIndex = 1;
-            panel1.Paint += panel1_Paint;
-            panel1.MouseDoubleClick += panel1_MouseDoubleClick;
-            panel1.MouseMove += panel1_MouseMove;
+            panel1.MouseDoubleClick += TitleBar_MouseDoubleClick;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // BrowserWindowTitleLabel
             // 
             BrowserWindowTitleLabel.AutoSize = true;
-            BrowserWindowTitleLabel.BackColor = System.Drawing.Color.Transparent;
-            BrowserWindowTitleLabel.ForeColor = System.Drawing.SystemColors.Window;
-            BrowserWindowTitleLabel.Location = new System.Drawing.Point(0, 2);
-            BrowserWindowTitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            BrowserWindowTitleLabel.BackColor = Color.Transparent;
+            BrowserWindowTitleLabel.ForeColor = SystemColors.Window;
+            BrowserWindowTitleLabel.Location = new Point(0, 2);
+            BrowserWindowTitleLabel.Margin = new Padding(2, 0, 2, 0);
             BrowserWindowTitleLabel.Name = "BrowserWindowTitleLabel";
-            BrowserWindowTitleLabel.Size = new System.Drawing.Size(56, 15);
+            BrowserWindowTitleLabel.Size = new Size(56, 15);
             BrowserWindowTitleLabel.TabIndex = 5;
             BrowserWindowTitleLabel.Text = "loading...";
             // 
             // favoriteBtn
             // 
-            favoriteBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            favoriteBtn.BackColor = System.Drawing.Color.Transparent;
-            favoriteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            favoriteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            favoriteBtn.Image = (System.Drawing.Image)resources.GetObject("favoriteBtn.Image");
-            favoriteBtn.Location = new System.Drawing.Point(816, 0);
-            favoriteBtn.Margin = new System.Windows.Forms.Padding(4);
+            favoriteBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            favoriteBtn.BackColor = Color.Transparent;
+            favoriteBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            favoriteBtn.Cursor = Cursors.Hand;
+            favoriteBtn.Image = (Image)resources.GetObject("favoriteBtn.Image");
+            favoriteBtn.Location = new Point(816, 0);
+            favoriteBtn.Margin = new Padding(4);
             favoriteBtn.Name = "favoriteBtn";
-            favoriteBtn.Size = new System.Drawing.Size(18, 20);
-            favoriteBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            favoriteBtn.Size = new Size(18, 20);
+            favoriteBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             favoriteBtn.TabIndex = 4;
             favoriteBtn.TabStop = false;
             favoriteBtn.Click += FavoriteBtn_Click;
@@ -131,94 +129,93 @@
             // titleLabel
             // 
             titleLabel.AutoSize = true;
-            titleLabel.BackColor = System.Drawing.Color.Transparent;
-            titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(4, 4);
-            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            titleLabel.BackColor = Color.Transparent;
+            titleLabel.ForeColor = Color.White;
+            titleLabel.Location = new Point(4, 4);
+            titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(0, 15);
+            titleLabel.Size = new Size(0, 15);
             titleLabel.TabIndex = 3;
-            titleLabel.MouseMove += titleLabel_MouseMove;
+            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
             // miniBtn
             // 
-            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            miniBtn.BackColor = SystemColors.Control;
             miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
-            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(839, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4);
+            miniBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            miniBtn.FlatStyle = FlatStyle.Flat;
+            miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = Color.Black;
+            miniBtn.Location = new Point(839, 1);
+            miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
-            miniBtn.Click += miniBtn_Click;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // maxBtn
             // 
-            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            maxBtn.BackColor = SystemColors.Control;
             maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
-            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(860, 1);
-            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            maxBtn.FlatStyle = FlatStyle.Flat;
+            maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = Color.Black;
+            maxBtn.Location = new Point(860, 1);
+            maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
-            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.RightToLeft = RightToLeft.No;
+            maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += maxBtn_Click;
+            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
-            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closeBtn.BackColor = SystemColors.Control;
             closeBtn.BackgroundImage = Properties.Resources.close_btn;
-            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(883, 1);
-            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            closeBtn.FlatStyle = FlatStyle.Flat;
+            closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = Color.Black;
+            closeBtn.Location = new Point(883, 1);
+            closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
-            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.RightToLeft = RightToLeft.No;
+            closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // BrowserForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            ClientSize = new System.Drawing.Size(910, 522);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(910, 522);
             Controls.Add(panel1);
             Controls.Add(toolStripContainer1);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Location = new System.Drawing.Point(5, 210);
-            Margin = new System.Windows.Forms.Padding(4);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Location = new Point(5, 210);
+            Margin = new Padding(4);
             Name = "BrowserForm";
             ShowIcon = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            StartPosition = FormStartPosition.Manual;
             Text = "browser";
-            Load += BrowserForm_Load;
             Shown += BrowserForm_Shown;
             LocationChanged += BrowserForm_LocationChanged;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)WebView).EndInit();
+            ((ISupportInitialize)WebView).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)favoriteBtn).EndInit();
+            ((ISupportInitialize)favoriteBtn).EndInit();
             ResumeLayout(false);
         }
 

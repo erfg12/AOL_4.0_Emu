@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-public class userAPI
+﻿public class UserAPI
 {
     public Account? account { get; set; }
     public List<Buddies>? buddies { get; set; }

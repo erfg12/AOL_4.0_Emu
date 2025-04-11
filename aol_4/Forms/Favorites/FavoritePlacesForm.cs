@@ -13,20 +13,20 @@ public partial class FavoritePlacesForm : _Win95Theme
 
     private void MaxBtn_Click(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
     private void FpTreeView_DoubleClick(object sender, EventArgs e)
     {
-        goToURL();
+        GoToURL();
     }
 
     private void GoBtn_Click(object sender, EventArgs e)
     {
-        goToURL();
+        GoToURL();
     }
 
-    private void goToURL()
+    private void GoToURL()
     {
         if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
@@ -44,7 +44,7 @@ public partial class FavoritePlacesForm : _Win95Theme
         if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
-        SqliteAccountsService.deleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
+        SqliteAccountsService.DeleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
         fpTreeView.SelectedNode.Remove();
     }
 
@@ -61,22 +61,22 @@ public partial class FavoritePlacesForm : _Win95Theme
         while (true)
         {
             // check for new favorite items
-            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.getFavoritesList())
+            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.GetFavoritesList())
             {
                 if (!fpTreeView.Nodes[0].Nodes.ContainsKey(t.Key))
-                    reloadFavorites();
+                    ReloadFavorites();
             }
             Thread.Sleep(1000);
         }
     }
 
-    private void reloadFavorites()
+    private void ReloadFavorites()
     {
         fpTreeView.Invoke(new MethodInvoker(async () =>
         {
             fpTreeView.Nodes[0].Nodes.Clear();
 
-            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.getFavoritesList())
+            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.GetFavoritesList())
             {
                 TreeNode ntn = new TreeNode();
                 ntn.Text = t.Value;
@@ -90,7 +90,7 @@ public partial class FavoritePlacesForm : _Win95Theme
 
     private void Favorite_places_Shown(object sender, EventArgs e)
     {
-        reloadFavorites();
+        ReloadFavorites();
         if (!backgroundWorker1.IsBusy)
             backgroundWorker1.RunWorkerAsync();
     }
@@ -100,7 +100,7 @@ public partial class FavoritePlacesForm : _Win95Theme
         InitializeComponent();
     }
 
-    private void Panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }

@@ -1,7 +1,7 @@
 ﻿namespace aol.Forms;
 public partial class KeywordForm : _Win95Theme
 {
-    private void Panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }

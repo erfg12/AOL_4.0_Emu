@@ -11,7 +11,7 @@ public partial class MailboxForm : _Win95Theme
 
     private void GetEmail()
     {
-        MailService.getEmail();
+        MailService.GetEmail();
         foreach (KeyValuePair<string, string> entry in MailService.emailsNew)
         {
             ListViewItem lIt = new ListViewItem();
@@ -56,12 +56,12 @@ public partial class MailboxForm : _Win95Theme
         }
     }
 
-    void moveToOld()
+    void MoveToOld()
     {
         if (newListView.SelectedItems.Count <= 0)
             return;
 
-        MailService.markAsSeen(newListView.SelectedItems[0].Tag.ToString());
+        MailService.MarkAsSeen(newListView.SelectedItems[0].Tag.ToString());
         ListViewItem lIt = new ListViewItem();
         lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
         lIt.Text = newListView.SelectedItems[0].Text;
@@ -71,17 +71,17 @@ public partial class MailboxForm : _Win95Theme
             MailService.youGotMail = false;
     }
 
-    private void openReadEmail(string subject, string emailID)
+    private void OpenReadEmail(string subject, string emailID)
     {
         MDIHelper.OpenForm(() => new MailReadForm(subject, emailID), MdiParent);
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -90,27 +90,22 @@ public partial class MailboxForm : _Win95Theme
         }
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
     }
 
-    private void panel1_DoubleClick(object sender, EventArgs e)
+    private void TitleBar_DoubleClick(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
+    private void MaxBtn_Click(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void mailbox_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void deleteBtn_Click(object sender, EventArgs e)
+    private void DeleteBtn_Click(object sender, EventArgs e)
     {
         if (newListView.Visible)
         {
@@ -120,7 +115,7 @@ public partial class MailboxForm : _Win95Theme
                 return;
             }
 
-            MailService.deleteEmail(newListView.SelectedItems[0].Tag.ToString());
+            MailService.DeleteEmail(newListView.SelectedItems[0].Tag.ToString());
             newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
             Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + MailService.youGotMail);
             if (newListView.Items.Count == 0)
@@ -134,7 +129,7 @@ public partial class MailboxForm : _Win95Theme
                 return;
             }
 
-            MailService.deleteEmail(oldListView.SelectedItems[0].Tag.ToString());
+            MailService.DeleteEmail(oldListView.SelectedItems[0].Tag.ToString());
             oldListView.Items.RemoveAt(oldListView.SelectedItems[0].Index);
         }
         else if (sentListView.Visible)
@@ -145,13 +140,13 @@ public partial class MailboxForm : _Win95Theme
                 return;
             }
 
-            MailService.deleteEmail(sentListView.SelectedItems[0].Tag.ToString());
+            MailService.DeleteEmail(sentListView.SelectedItems[0].Tag.ToString());
             sentListView.Items.RemoveAt(sentListView.SelectedItems[0].Index);
         }
         MessageBox.Show("Email has been deleted.");
     }
 
-    private void keepBtn_Click(object sender, EventArgs e)
+    private void KeepBtn_Click(object sender, EventArgs e)
     {
         if (oldListView.SelectedItems.Count <= 0)
         {
@@ -161,7 +156,7 @@ public partial class MailboxForm : _Win95Theme
 
         if (oldListView.Visible) // only works on old emails
         {
-            MailService.markAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
+            MailService.MarkAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = oldListView.SelectedItems[0].Tag.ToString();
             lIt.Text = oldListView.SelectedItems[0].Text;
@@ -170,12 +165,12 @@ public partial class MailboxForm : _Win95Theme
         }
     }
 
-    private void readBtn_Click(object sender, EventArgs e)
+    private void ReadBtn_Click(object sender, EventArgs e)
     {
         if (newListView.Visible && newListView.SelectedItems.Count > 0)
         {
-            openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
-            moveToOld();
+            OpenReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
+            MoveToOld();
         }
         else if (newListView.Visible && newListView.SelectedItems.Count <= 0)
         {
@@ -184,7 +179,7 @@ public partial class MailboxForm : _Win95Theme
         }
 
         if (oldListView.Visible && oldListView.SelectedItems.Count > 0)
-            openReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
+            OpenReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
         else if (oldListView.Visible && oldListView.SelectedItems.Count <= 0)
         {
             OpenMsgBox("ERROR", "Select an email first.");
@@ -192,7 +187,7 @@ public partial class MailboxForm : _Win95Theme
         }
 
         if (sentListView.Visible && sentListView.SelectedItems.Count > 0)
-            openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
+            OpenReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
         else if (sentListView.Visible && sentListView.SelectedItems.Count <= 0)
         {
             OpenMsgBox("ERROR", "Select an email first.");
@@ -200,7 +195,7 @@ public partial class MailboxForm : _Win95Theme
         }
     }
 
-    private void mailbox_Shown(object sender, EventArgs e)
+    private void Mailbox_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this, 0, 55);
         Thread thread = new Thread(new ThreadStart(GetEmail));
@@ -209,17 +204,7 @@ public partial class MailboxForm : _Win95Theme
         mainTitle.Text = $"{Account.tmpUsername}'s Online Mailbox";
     }
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void newListview_DoubleClick(object sender, EventArgs e)
+    private void NewListview_DoubleClick(object sender, EventArgs e)
     {
         if (newListView.SelectedItems.Count <= 0)
         {
@@ -227,11 +212,11 @@ public partial class MailboxForm : _Win95Theme
             return;
         }
 
-        openReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
-        moveToOld();
+        OpenReadEmail(newListView.SelectedItems[0].Text, newListView.SelectedItems[0].Tag.ToString());
+        MoveToOld();
     }
 
-    private void oldListView_DoubleClick(object sender, EventArgs e)
+    private void OldListView_DoubleClick(object sender, EventArgs e)
     {
         if (oldListView.SelectedItems.Count <= 0)
         {
@@ -239,10 +224,10 @@ public partial class MailboxForm : _Win95Theme
             return;
         }
 
-        openReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
+        OpenReadEmail(oldListView.SelectedItems[0].Text, oldListView.SelectedItems[0].Tag.ToString());
     }
 
-    private void sentListView_DoubleClick(object sender, EventArgs e)
+    private void SentListView_DoubleClick(object sender, EventArgs e)
     {
         if (sentListView.SelectedItems.Count <= 0)
         {
@@ -250,7 +235,7 @@ public partial class MailboxForm : _Win95Theme
             return;
         }
 
-        openReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
+        OpenReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
     }
 
     private void MailboxForm_LocationChanged(object sender, EventArgs e)

@@ -121,7 +121,7 @@
   <data name="sendButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAYAAADFniADAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA+ESURBVFhH
+        DQAACw0B7QfALAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA+ESURBVFhH
         nZhpdJXluYaf7HlnD0l2kr0zkYSEEAhjKCJCioCQEgYJISFkzh4yD8zzIFMgISEJGclABkCxitZSqdqj
         VIv2FKRoa1XEI2BBpUg9iroUbL26vh271vmBP05/POv51rfe9a573c/43qI3+yO+oYg5FjHHI77xiD4a
         0Ucg+kjE8IMZ//0dg/jGDZ0zxSCmaMQ3+v/vjTGIPnboPlM4EhiBqEw4bCGIGM3ELKtg4qZuAgrrCMyv
@@ -194,7 +194,7 @@
   <data name="sendLaterButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA+ESURBVFhH
+        DQAACw0B7QfALAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA+ESURBVFhH
         bZgHdFR1vsf/yWQmUzPJTDppEIqKCLKCoQRBFAhgpCWkziSZTEkmEINBQoIRREoIaUAC6Q0UGy5vAUHF
         FeyUAGLZp+uu+857bz3rkyKQkMbnnXsH2Hf2vP853zO3/Ofcz/9X7/0Lb60eoTYi1CMQxlEI3wCESo9Q
         Ge7K6JFSkgGh1Hvkc/f3nqS5vgaETntXeoTOiDCYEfpghC4YoQlGaEcglGaE1oTQ+CE0eoTGH4MuDF/h
@@ -267,7 +267,7 @@
   <data name="addressBookButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA8NSURBVFhH
+        DQAACw0B7QfALAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA8NSURBVFhH
         RZgJWJTl2sfvYZgFBhgWEZAdQUzUzLSTaVpmntLE3FJMGLZh19Q0zXJXUFCUTUBQ3DUtT5Zfi21Xtn6l
         9fWd/MqjVu7bUbZhHWZ+53rfob6Z67ne7Xnv5//c9///f54ZEY0B8YtBPKIQU3/EZwBijEB8YhFTPOIR
         j5gGIh5xiD4C0Sv9HkA8HkA8E1znXvGIVxziHYN4RyDeYYhXKGIKRTxCEWOYK6YxBjH2d8X0VOIq78Qh
@@ -338,7 +338,7 @@
   <data name="mailExtrasButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA0SSURBVFhH
+        DQAACw0B7QfALAAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAA0SSURBVFhH
         zZh5VFRXnsfvOUln0pOOaZUdRGUroFgUBNmCCsiOiAuigixV1F6vVqpAlojbkJiYyXSWkzGCsogUsogG
         JBri0ibpTqazdBaTjh0TxySTzpzTnekzy5k585lTRac7VIhzTpI/+vPPr+rd33u/7/29e+/v3if4K0d4
         X/iuFOoqOHf9ArnK9d5N34sfRGD6zlyG3ppkjamI6U+vUKAu93b5zvwgAt1kGcsYvnWBRFU2525cpVy9

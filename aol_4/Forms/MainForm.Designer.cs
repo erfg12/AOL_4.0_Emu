@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
             panel2 = new Panel();
             findBtn = new Button();
             mie_badge = new PictureBox();
@@ -241,31 +241,31 @@
             closeBtn = new Button();
             addrBarBG = new PictureBox();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)mie_badge).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)homeBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)reloadBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)stopBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)forwardBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)backBtn).BeginInit();
+            ((ISupportInitialize)mie_badge).BeginInit();
+            ((ISupportInitialize)homeBtn).BeginInit();
+            ((ISupportInitialize)reloadBtn).BeginInit();
+            ((ISupportInitialize)stopBtn).BeginInit();
+            ((ISupportInitialize)forwardBtn).BeginInit();
+            ((ISupportInitialize)backBtn).BeginInit();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             toolStrip1.SuspendLayout();
             fileContextMenuStrip.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)my_files_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)mail_center_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)write_mail_button).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)read_mail_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)print_page_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)my_aol_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)favorites_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)internet_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)channels_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)people_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)quotes_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)perks_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)weather_btn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)loadingIcon).BeginInit();
+            ((ISupportInitialize)my_files_btn).BeginInit();
+            ((ISupportInitialize)mail_center_btn).BeginInit();
+            ((ISupportInitialize)write_mail_button).BeginInit();
+            ((ISupportInitialize)read_mail_btn).BeginInit();
+            ((ISupportInitialize)print_page_btn).BeginInit();
+            ((ISupportInitialize)my_aol_btn).BeginInit();
+            ((ISupportInitialize)favorites_btn).BeginInit();
+            ((ISupportInitialize)internet_btn).BeginInit();
+            ((ISupportInitialize)channels_btn).BeginInit();
+            ((ISupportInitialize)people_btn).BeginInit();
+            ((ISupportInitialize)quotes_btn).BeginInit();
+            ((ISupportInitialize)perks_btn).BeginInit();
+            ((ISupportInitialize)weather_btn).BeginInit();
+            ((ISupportInitialize)loadingIcon).BeginInit();
             channelsContextMenuStrip.SuspendLayout();
             editContextMenuStrip.SuspendLayout();
             windowContextMenuStrip.SuspendLayout();
@@ -278,8 +278,8 @@
             peopleMenuStrip.SuspendLayout();
             findMenuStrip.SuspendLayout();
             TopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)addrBarBG).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)addrBarBG).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -339,7 +339,7 @@
             homeBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             homeBtn.TabIndex = 14;
             homeBtn.TabStop = false;
-            homeBtn.Click += homeBtn_Click;
+            homeBtn.Click += HomeBtn_Click;
             // 
             // reloadBtn
             // 
@@ -352,7 +352,7 @@
             reloadBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             reloadBtn.TabIndex = 13;
             reloadBtn.TabStop = false;
-            reloadBtn.Click += reloadBtn_Click_1;
+            reloadBtn.Click += ReloadBtn_Click;
             // 
             // stopBtn
             // 
@@ -366,7 +366,7 @@
             stopBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             stopBtn.TabIndex = 12;
             stopBtn.TabStop = false;
-            stopBtn.Click += stopBtn_Click;
+            stopBtn.Click += StopBtn_Click;
             // 
             // forwardBtn
             // 
@@ -379,7 +379,7 @@
             forwardBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             forwardBtn.TabIndex = 11;
             forwardBtn.TabStop = false;
-            forwardBtn.Click += forwardBtn_Click_1;
+            forwardBtn.Click += ForwardBtn_Click;
             // 
             // backBtn
             // 
@@ -392,7 +392,7 @@
             backBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             backBtn.TabIndex = 10;
             backBtn.TabStop = false;
-            backBtn.Click += backBtn_Click_1;
+            backBtn.Click += BackBtn_Click;
             // 
             // addrBox
             // 
@@ -406,9 +406,8 @@
             addrBox.Size = new Size(516, 23);
             addrBox.TabIndex = 9;
             addrBox.Text = "Type Keyword or Web Address here and click Go";
-            addrBox.KeyDown += addrBox_KeyDown_1;
-            addrBox.KeyUp += addrBox_KeyUp_1;
-            addrBox.MouseClick += addrBox_MouseClick;
+            addrBox.KeyDown += AddrBox_KeyDown;
+            addrBox.MouseClick += AddrBox_MouseClick;
             // 
             // keywordBtn
             // 
@@ -438,7 +437,7 @@
             goBtn.TabIndex = 7;
             goBtn.Text = "Go";
             goBtn.UseVisualStyleBackColor = true;
-            goBtn.Click += goBtn_Click;
+            goBtn.Click += GoBtn_Click;
             // 
             // toolStripContainer1
             // 
@@ -483,35 +482,35 @@
             fileBtn.Name = "fileBtn";
             fileBtn.Size = new Size(25, 22);
             fileBtn.Text = "File";
-            fileBtn.Click += fileBtn_Click;
+            fileBtn.Click += FileBtn_Click;
             // 
             // editBtn
             // 
             editBtn.Name = "editBtn";
             editBtn.Size = new Size(27, 22);
             editBtn.Text = "Edit";
-            editBtn.Click += editBtn_Click;
+            editBtn.Click += EditBtn_Click;
             // 
             // windowBtn
             // 
             windowBtn.Name = "windowBtn";
             windowBtn.Size = new Size(51, 22);
             windowBtn.Text = "Window";
-            windowBtn.Click += windowBtn_Click;
+            windowBtn.Click += WindowBtn_Click;
             // 
             // signOffBtn
             // 
             signOffBtn.Name = "signOffBtn";
             signOffBtn.Size = new Size(49, 22);
             signOffBtn.Text = "Sign On";
-            signOffBtn.Click += signOffBtn_Click;
+            signOffBtn.Click += SignOffBtn_Click;
             // 
             // helpBtn
             // 
             helpBtn.Name = "helpBtn";
             helpBtn.Size = new Size(32, 22);
             helpBtn.Text = "Help";
-            helpBtn.Click += helpBtn_Click;
+            helpBtn.Click += HelpBtn_Click;
             // 
             // fileContextMenuStrip
             // 
@@ -595,12 +594,12 @@
             closeForm.Name = "closeForm";
             closeForm.Size = new Size(238, 22);
             closeForm.Text = "Exit";
-            closeForm.Click += closeForm_Click;
+            closeForm.Click += CloseForm_Click;
             // 
             // getMdiChildURL
             // 
             getMdiChildURL.Enabled = true;
-            getMdiChildURL.Tick += getMdiChildURL_Tick;
+            getMdiChildURL.Tick += GetMdiChildURL_Tick;
             // 
             // tableLayoutPanel1
             // 
@@ -646,8 +645,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(923, 44);
             tableLayoutPanel1.TabIndex = 12;
-            tableLayoutPanel1.CellPaint += tableLayoutPanel1_CellPaint;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            tableLayoutPanel1.CellPaint += TableLayoutPanel1_CellPaint;
             // 
             // my_files_btn
             // 
@@ -660,7 +658,7 @@
             my_files_btn.SizeMode = PictureBoxSizeMode.StretchImage;
             my_files_btn.TabIndex = 4;
             my_files_btn.TabStop = false;
-            my_files_btn.Click += my_files_btn_Click;
+            my_files_btn.Click += MyFilesBtn_Click;
             // 
             // mail_center_btn
             // 
@@ -673,7 +671,7 @@
             mail_center_btn.SizeMode = PictureBoxSizeMode.StretchImage;
             mail_center_btn.TabIndex = 2;
             mail_center_btn.TabStop = false;
-            mail_center_btn.Click += mail_center_btn_Click;
+            mail_center_btn.Click += MailCenterBtn_Click;
             // 
             // write_mail_button
             // 
@@ -687,7 +685,7 @@
             write_mail_button.SizeMode = PictureBoxSizeMode.StretchImage;
             write_mail_button.TabIndex = 1;
             write_mail_button.TabStop = false;
-            write_mail_button.Click += write_mail_button_Click;
+            write_mail_button.Click += WriteMailBtn_Click;
             // 
             // read_mail_btn
             // 
@@ -702,7 +700,7 @@
             read_mail_btn.SizeMode = PictureBoxSizeMode.StretchImage;
             read_mail_btn.TabIndex = 0;
             read_mail_btn.TabStop = false;
-            read_mail_btn.Click += read_mail_btn_Click;
+            read_mail_btn.Click += ReadMailBtn_Click;
             // 
             // print_page_btn
             // 
@@ -728,7 +726,7 @@
             my_aol_btn.SizeMode = PictureBoxSizeMode.StretchImage;
             my_aol_btn.TabIndex = 5;
             my_aol_btn.TabStop = false;
-            my_aol_btn.Click += my_aol_btn_Click;
+            my_aol_btn.Click += MyAolBtn_Click;
             // 
             // favorites_btn
             // 
@@ -741,7 +739,7 @@
             favorites_btn.SizeMode = PictureBoxSizeMode.StretchImage;
             favorites_btn.TabIndex = 6;
             favorites_btn.TabStop = false;
-            favorites_btn.Click += Favorites_btn_Click;
+            favorites_btn.Click += FavoritesBtn_Click;
             // 
             // internet_btn
             // 
@@ -767,7 +765,7 @@
             channels_btn.SizeMode = PictureBoxSizeMode.StretchImage;
             channels_btn.TabIndex = 8;
             channels_btn.TabStop = false;
-            channels_btn.Click += pictureBox10_Click;
+            channels_btn.Click += ChannelsBtn_Click;
             // 
             // people_btn
             // 
@@ -848,7 +846,7 @@
             aOLTodayToolStripMenuItem.Name = "aOLTodayToolStripMenuItem";
             aOLTodayToolStripMenuItem.Size = new Size(166, 22);
             aOLTodayToolStripMenuItem.Text = "AOL Today";
-            aOLTodayToolStripMenuItem.Click += aOLTodayToolStripMenuItem_Click;
+            aOLTodayToolStripMenuItem.Click += AOLTodayToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
@@ -1213,7 +1211,7 @@
             mailCenterToolStripMenuItem.Name = "mailCenterToolStripMenuItem";
             mailCenterToolStripMenuItem.Size = new Size(289, 22);
             mailCenterToolStripMenuItem.Text = "Mail Center";
-            mailCenterToolStripMenuItem.Click += mailCenterToolStripMenuItem_Click;
+            mailCenterToolStripMenuItem.Click += MailCenterToolStripMenuItem_Click;
             // 
             // toolStripSeparator17
             // 
@@ -1225,28 +1223,28 @@
             readMailToolStripMenuItem.Name = "readMailToolStripMenuItem";
             readMailToolStripMenuItem.Size = new Size(289, 22);
             readMailToolStripMenuItem.Text = "Read Mail";
-            readMailToolStripMenuItem.Click += readMailToolStripMenuItem_Click;
+            readMailToolStripMenuItem.Click += ReadMailToolStripMenuItem_Click;
             // 
             // writeMailToolStripMenuItem
             // 
             writeMailToolStripMenuItem.Name = "writeMailToolStripMenuItem";
             writeMailToolStripMenuItem.Size = new Size(289, 22);
             writeMailToolStripMenuItem.Text = "Write Mail";
-            writeMailToolStripMenuItem.Click += writeMailToolStripMenuItem_Click;
+            writeMailToolStripMenuItem.Click += WriteMailToolStripMenuItem_Click;
             // 
             // oldMailToolStripMenuItem
             // 
             oldMailToolStripMenuItem.Name = "oldMailToolStripMenuItem";
             oldMailToolStripMenuItem.Size = new Size(289, 22);
             oldMailToolStripMenuItem.Text = "Old Mail";
-            oldMailToolStripMenuItem.Click += oldMailToolStripMenuItem_Click;
+            oldMailToolStripMenuItem.Click += OldMailToolStripMenuItem_Click;
             // 
             // sentMailToolStripMenuItem
             // 
             sentMailToolStripMenuItem.Name = "sentMailToolStripMenuItem";
             sentMailToolStripMenuItem.Size = new Size(289, 22);
             sentMailToolStripMenuItem.Text = "Sent Mail";
-            sentMailToolStripMenuItem.Click += sentMailToolStripMenuItem_Click;
+            sentMailToolStripMenuItem.Click += SentMailToolStripMenuItem_Click;
             // 
             // toolStripSeparator19
             // 
@@ -1264,7 +1262,7 @@
             mailPreferencesToolStripMenuItem.Name = "mailPreferencesToolStripMenuItem";
             mailPreferencesToolStripMenuItem.Size = new Size(289, 22);
             mailPreferencesToolStripMenuItem.Text = "Mail Preferences";
-            mailPreferencesToolStripMenuItem.Click += mailPreferencesToolStripMenuItem_Click;
+            mailPreferencesToolStripMenuItem.Click += MailPreferencesToolStripMenuItem_Click;
             // 
             // mailControlsToolStripMenuItem
             // 
@@ -1341,7 +1339,7 @@
             downloadManagerToolStripMenuItem.Name = "downloadManagerToolStripMenuItem";
             downloadManagerToolStripMenuItem.Size = new Size(238, 22);
             downloadManagerToolStripMenuItem.Text = "Download Manager";
-            downloadManagerToolStripMenuItem.Click += downloadManagerToolStripMenuItem_Click;
+            downloadManagerToolStripMenuItem.Click += DownloadManagerToolStripMenuItem_Click;
             // 
             // myWebPageToolStripMenuItem
             // 
@@ -1395,7 +1393,7 @@
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             preferencesToolStripMenuItem.Size = new Size(176, 22);
             preferencesToolStripMenuItem.Text = "Preferences";
-            preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
+            preferencesToolStripMenuItem.Click += PreferencesToolStripMenuItem_Click;
             // 
             // toolStripSeparator24
             // 
@@ -1442,7 +1440,7 @@
             buddyListToolStripMenuItem.Name = "buddyListToolStripMenuItem";
             buddyListToolStripMenuItem.Size = new Size(176, 22);
             buddyListToolStripMenuItem.Text = "Buddy List";
-            buddyListToolStripMenuItem.Click += buddyListToolStripMenuItem_Click;
+            buddyListToolStripMenuItem.Click += BuddyListToolStripMenuItem_Click;
             // 
             // personalPublisherToolStripMenuItem
             // 
@@ -1472,12 +1470,12 @@
             // 
             cursorTimer.Enabled = true;
             cursorTimer.Interval = 10;
-            cursorTimer.Tick += timer1_Tick;
+            cursorTimer.Tick += Timer1_Tick;
             // 
             // checkMail
             // 
             checkMail.Interval = 2500;
-            checkMail.Tick += checkMail_Tick;
+            checkMail.Tick += CheckMail_Tick;
             // 
             // myFavoritesContextMenuStrip
             // 
@@ -1562,7 +1560,7 @@
             searchTheWebMenuItem.Name = "searchTheWebMenuItem";
             searchTheWebMenuItem.Size = new Size(180, 22);
             searchTheWebMenuItem.Text = "Search the Web";
-            searchTheWebMenuItem.Click += searchTheWebMenuItem_Click;
+            searchTheWebMenuItem.Click += SearchTheWebMenuItem_Click;
             // 
             // toolStripSeparator30
             // 
@@ -1710,7 +1708,7 @@
             findonTheWebMenuItem.Name = "findonTheWebMenuItem";
             findonTheWebMenuItem.Size = new Size(188, 22);
             findonTheWebMenuItem.Text = "Find it on the Web";
-            findonTheWebMenuItem.Click += findonTheWebMenuItem_Click;
+            findonTheWebMenuItem.Click += FindonTheWebMenuItem_Click;
             // 
             // aolChanMenuItem
             // 
@@ -1776,8 +1774,8 @@
             TopPanel.Name = "TopPanel";
             TopPanel.Size = new Size(930, 21);
             TopPanel.TabIndex = 1;
-            TopPanel.MouseDoubleClick += panel1_MouseDoubleClick;
-            TopPanel.MouseMove += panel1_MouseMove;
+            TopPanel.MouseDoubleClick += TitleBar_MouseDoubleClick;
+            TopPanel.MouseMove += TitleBar_MouseMove;
             // 
             // mainTitle
             // 
@@ -1790,7 +1788,7 @@
             mainTitle.Size = new Size(89, 15);
             mainTitle.TabIndex = 8;
             mainTitle.Text = "America Online";
-            mainTitle.MouseMove += mainTitle_MouseMove;
+            mainTitle.MouseMove += MainTitle_MouseMove;
             // 
             // pictureBox1
             // 
@@ -1821,7 +1819,7 @@
             miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
-            miniBtn.Click += miniBtn_Click;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // maxBtn
             // 
@@ -1839,7 +1837,7 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += maxBtn_Click;
+            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -1857,7 +1855,7 @@
             closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // addrBarBG
             // 
@@ -1895,12 +1893,12 @@
             SizeChanged += MainForm_SizeChanged;
             MouseMove += MainForm_MouseMove;
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)mie_badge).EndInit();
-            ((System.ComponentModel.ISupportInitialize)homeBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)reloadBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)stopBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)forwardBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)backBtn).EndInit();
+            ((ISupportInitialize)mie_badge).EndInit();
+            ((ISupportInitialize)homeBtn).EndInit();
+            ((ISupportInitialize)reloadBtn).EndInit();
+            ((ISupportInitialize)stopBtn).EndInit();
+            ((ISupportInitialize)forwardBtn).EndInit();
+            ((ISupportInitialize)backBtn).EndInit();
             toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
@@ -1908,20 +1906,20 @@
             toolStrip1.PerformLayout();
             fileContextMenuStrip.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)my_files_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)mail_center_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)write_mail_button).EndInit();
-            ((System.ComponentModel.ISupportInitialize)read_mail_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)print_page_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)my_aol_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)favorites_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)internet_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)channels_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)people_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)quotes_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)perks_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)weather_btn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)loadingIcon).EndInit();
+            ((ISupportInitialize)my_files_btn).EndInit();
+            ((ISupportInitialize)mail_center_btn).EndInit();
+            ((ISupportInitialize)write_mail_button).EndInit();
+            ((ISupportInitialize)read_mail_btn).EndInit();
+            ((ISupportInitialize)print_page_btn).EndInit();
+            ((ISupportInitialize)my_aol_btn).EndInit();
+            ((ISupportInitialize)favorites_btn).EndInit();
+            ((ISupportInitialize)internet_btn).EndInit();
+            ((ISupportInitialize)channels_btn).EndInit();
+            ((ISupportInitialize)people_btn).EndInit();
+            ((ISupportInitialize)quotes_btn).EndInit();
+            ((ISupportInitialize)perks_btn).EndInit();
+            ((ISupportInitialize)weather_btn).EndInit();
+            ((ISupportInitialize)loadingIcon).EndInit();
             channelsContextMenuStrip.ResumeLayout(false);
             editContextMenuStrip.ResumeLayout(false);
             windowContextMenuStrip.ResumeLayout(false);
@@ -1935,8 +1933,8 @@
             findMenuStrip.ResumeLayout(false);
             TopPanel.ResumeLayout(false);
             TopPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)addrBarBG).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)addrBarBG).EndInit();
             ResumeLayout(false);
         }
 

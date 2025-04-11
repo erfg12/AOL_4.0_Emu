@@ -1,27 +1,27 @@
 ﻿namespace aol.Forms;
 public partial class accForm : _Win95Theme
 {
-    ConcurrentBag<string> theAccs = SqliteAccountsService.listAccounts();
+    ConcurrentBag<string> theAccs = SqliteAccountsService.ListAccounts();
 
     public accForm()
     {
         InitializeComponent();
     }
 
-    private void accForm_Load(object sender, EventArgs e)
+    private void AccForm_Load(object sender, EventArgs e)
     {
-        foreach (string entry in SqliteAccountsService.listAccounts())
+        foreach (string entry in SqliteAccountsService.ListAccounts())
         {
             screenName.Items.Add(entry);
         }
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e);
     }
 
-    private void accForm_Shown(object sender, EventArgs e)
+    private void AccForm_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
         if (screenName.Items.Contains(Properties.Settings.Default.lastAcc))
@@ -33,7 +33,7 @@ public partial class accForm : _Win95Theme
             this.ActiveControl = passBox;
     }
 
-    private async void signOnBtn_Click(object sender, EventArgs e)
+    private async void SignOnBtn_Click(object sender, EventArgs e)
     {
         Cursor.Current = Cursors.WaitCursor;
         Account.tmpLocation = selectLocation.Text;
@@ -53,7 +53,7 @@ public partial class accForm : _Win95Theme
         }
         else
         {
-            if (await RestAPIService.loginAccount(screenName.Text, passBox.Text))
+            if (await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
             {
                 Cursor.Current = Cursors.Default;
                 Close();
@@ -61,12 +61,12 @@ public partial class accForm : _Win95Theme
         }
     }
 
-    private void setupBtn_Click(object sender, EventArgs e)
+    private void SetupBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<SignupForm>(MdiParent);
     }
 
-    private void screenName_SelectedIndexChanged(object sender, EventArgs e)
+    private void ScreenName_SelectedIndexChanged(object sender, EventArgs e)
     {
         Properties.Settings.Default.lastAcc = screenName.Text;
         Properties.Settings.Default.Save();
@@ -89,22 +89,22 @@ public partial class accForm : _Win95Theme
         }
     }
 
-    private void passBox_KeyDown(object sender, KeyEventArgs e)
+    private void PassBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
             signOnBtn.PerformClick();
     }
 
-    private void accCheck_Tick(object sender, EventArgs e)
+    private void AccCheck_Tick(object sender, EventArgs e)
     {
-        ConcurrentBag<string> accsCheck = SqliteAccountsService.listAccounts();
+        ConcurrentBag<string> accsCheck = SqliteAccountsService.ListAccounts();
         if (accsCheck.Count() != theAccs.Count())
         {
             screenName.Items.Clear();
             screenName.Items.Add("Guest");
             screenName.Items.Add("Existing Member");
             screenName.Items.Add("New User");
-            foreach (string entry in SqliteAccountsService.listAccounts())
+            foreach (string entry in SqliteAccountsService.ListAccounts())
             {
                 screenName.Items.Add(entry);
             }
@@ -112,12 +112,12 @@ public partial class accForm : _Win95Theme
         }
     }
 
-    private void accForm_FormClosing(object sender, FormClosingEventArgs e)
+    private void AccForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         MDIHelper.OpenForm<DialUpForm>(MdiParent);
     }
 
-    private void screenName_KeyPress(object sender, KeyPressEventArgs e)
+    private void ScreenName_KeyPress(object sender, KeyPressEventArgs e)
     {
         if (!char.IsLetterOrDigit(e.KeyChar) &&
         e.KeyChar != '_' &&
@@ -128,7 +128,7 @@ public partial class accForm : _Win95Theme
         }
     }
 
-    private void accForm_LocationChanged(object sender, EventArgs e)
+    private void AccForm_LocationChanged(object sender, EventArgs e)
     {
         OnLocationChanged(sender, e);
     }

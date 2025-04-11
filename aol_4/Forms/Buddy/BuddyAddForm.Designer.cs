@@ -71,7 +71,7 @@
             this.sendBtn.TabIndex = 8;
             this.sendBtn.Text = "ADD";
             this.sendBtn.UseVisualStyleBackColor = false;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
+            this.sendBtn.Click += new System.EventHandler(this.SendBtn_Click);
             // 
             // panel1
             // 
@@ -90,7 +90,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(480, 35);
             this.panel1.TabIndex = 5;
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TitleBar_MouseMove);
             // 
             // mainTitle
             // 
@@ -173,7 +173,7 @@
             this.closeBtn.Size = new System.Drawing.Size(33, 31);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // add_buddy
             // 
@@ -190,7 +190,7 @@
             this.Name = "add_buddy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Budy";
-            this.Shown += new System.EventHandler(this.add_buddy_Shown);
+            this.Shown += new System.EventHandler(this.AddBuddy_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

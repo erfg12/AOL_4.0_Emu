@@ -60,7 +60,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(403, 21);
             panel1.TabIndex = 3;
-            panel1.MouseMove += Panel1_MouseMove;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox1
             // 
@@ -228,7 +228,7 @@
             MinimumSize = new System.Drawing.Size(409, 181);
             Name = "FavoritesAddForm";
             Text = "Add Favorite Place";
-            Shown += Add_favorite_Shown;
+            Shown += AddFavorite_Shown;
             LocationChanged += FavoritesAddForm_LocationChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

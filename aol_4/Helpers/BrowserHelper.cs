@@ -5,14 +5,14 @@ class BrowserHelper
     {
         string url = "https://www.google.com";
         if (!urlArg.Contains("."))
-            url = searchProvider(urlArg);
+            url = SearchProvider(urlArg);
         else
             url = urlArg.StartsWith("http") ? urlArg : urlArg = "https://" + urlArg;
 
         return url;
     }
 
-    public static string searchProvider(string query)
+    public static string SearchProvider(string query)
     {
         switch (Properties.Settings.Default.searchProvider)
         {

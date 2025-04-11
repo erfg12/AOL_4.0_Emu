@@ -16,7 +16,7 @@ class MailService
     private static int imapPort = 993;
     private static int smtpPort = 465;
 
-    public static bool checkNewEmail()
+    public static bool CheckNewEmail()
     {
         if (youGotMail)
             return true;
@@ -44,7 +44,7 @@ class MailService
         return false;
     }
 
-    public static void getEmail()
+    public static void GetEmail()
     {
         if (!Account.SignedIn())
             return;
@@ -105,7 +105,7 @@ class MailService
         client.Disconnect(true);
     }
 
-    public static void deleteEmail(string id)
+    public static void DeleteEmail(string id)
     {
         using var client = ImapAuthenticateClient(new ImapClient());
 
@@ -130,7 +130,7 @@ class MailService
 
     }
 
-    public static void markAsSeen(string id)
+    public static void MarkAsSeen(string id)
     {
         using var client = ImapAuthenticateClient(new ImapClient());
 
@@ -144,7 +144,7 @@ class MailService
         inbox.AddFlags(uids.First(), MessageFlags.Seen, true);
     }
 
-    public static void markAsUnseen(string id)
+    public static void MarkAsUnseen(string id)
     {
         using var client = ImapAuthenticateClient(new ImapClient());
 
@@ -159,10 +159,10 @@ class MailService
 
     }
 
-    public static void sendEmail(string toName, string toAddress, string subject, string body)
+    public static void SendEmail(string toName, string toAddress, string subject, string body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(SqliteAccountsService.getFullName(), Account.tmpUsername + "@aolemu.com"));
+        message.From.Add(new MailboxAddress(SqliteAccountsService.GetFullName(), Account.tmpUsername + "@aolemu.com"));
         message.To.Add(new MailboxAddress(toName, toAddress));
         message.Subject = subject;
 
@@ -194,7 +194,7 @@ class MailService
 
     }
 
-    public static string readEmail(string id)
+    public static string ReadEmail(string id)
     {
         string body = "";
         TextPart rawBody = null;

@@ -58,53 +58,43 @@ public partial class MailWriteForm : _Win95Theme
         subjectBox.Text = subject;
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
+    private void MaxBtn_Click(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void sendButton_Click(object sender, EventArgs e)
+    private void SendButton_Click(object sender, EventArgs e)
     {
         // parse <name> "address"; format
         foreach (KeyValuePair<string, string> entry in parseSendTo(sendToBox.Text))
         {
-            MailService.sendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
+            MailService.SendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
         }
         OpenMsgBox("INFO", "Your email has been sent!");
         Close();
     }
 
-    private void panel1_DoubleClick(object sender, EventArgs e)
+    private void TitleBar_DoubleClick(object sender, EventArgs e)
     {
-        maxiMini(maxBtn);
+        MaxiMini(maxBtn);
     }
 
-    private void write_mail_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void write_mail_Shown(object sender, EventArgs e)
+    private void WriteMail_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this, 0, 55);
     }

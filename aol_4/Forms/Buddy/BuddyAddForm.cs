@@ -15,7 +15,7 @@ public partial class BuddyAddForm : _Win95Theme
         }
     }
 
-    private void add_buddy_Shown(object sender, EventArgs e)
+    private void AddBuddy_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
     }
@@ -25,12 +25,12 @@ public partial class BuddyAddForm : _Win95Theme
         InitializeComponent();
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void Panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -39,9 +39,9 @@ public partial class BuddyAddForm : _Win95Theme
         }
     }
 
-    private async void sendBtn_Click(object sender, EventArgs e)
+    private async void SendBtn_Click(object sender, EventArgs e)
     {
-        if (await RestAPIService.addBuddy(nameTextBox.Text))
+        if (await RestAPIService.AddBuddy(nameTextBox.Text))
             OpenMsgBox("INFO", "Buddy Added!");
         else
             OpenMsgBox("ERROR", "There was a problem adding buddy.");

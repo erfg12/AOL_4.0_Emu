@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 namespace aol.Services;
 class SqliteAccountsService
 {
-    public static SqliteConnection openDB()
+    public static SqliteConnection OpenDB()
     {
         var pathDB = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "accounts.db");
         //try {
@@ -32,7 +32,7 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="url">Address bar URL</param>
     /// <returns></returns>
-    public static int addHistory(string url)
+    public static int AddHistory(string url)
     {
         int code = 0;
 
@@ -43,11 +43,11 @@ class SqliteAccountsService
         if (url.EndsWith("/"))
             url = url.Remove(url.Length - 1);
 
-        if (findHisory(url) > 0)
+        if (FindHisory(url) > 0)
             return 999;
 
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
         long timeStamp = DateTime.Now.ToFileTime();
         string sql = "INSERT INTO history (userid, url, date) VALUES ('" + Account.accountInfo.account.id + "', '" + url + "', '" + timeStamp + "')";
@@ -66,12 +66,12 @@ class SqliteAccountsService
         return code;
     }
 
-    public static int addFavorite(string url, string URLname)
+    public static int AddFavorite(string url, string URLname)
     {
         int code = 0;
 
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + Account.accountInfo.account.id + "', '" + url + "', @URLname)";
@@ -102,12 +102,12 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="url">URL to delete from favorite</param>
     /// <returns></returns>
-    public static int deleteFavorite(string url)
+    public static int DeleteFavorite(string url)
     {
         int code = 0;
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
         ConcurrentBag<string> history = new ConcurrentBag<string>();
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -131,10 +131,10 @@ class SqliteAccountsService
         return code;
     }
 
-    public static int updateFavorite(string url, string name)
+    public static int UpdateFavorite(string url, string name)
     {
         int code = 0;
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -162,11 +162,11 @@ class SqliteAccountsService
     /// Key = URL, Value = Name
     /// </summary>
     /// <returns></returns>
-    public static async Task<ConcurrentDictionary<string, string>> getFavoritesList()
+    public static async Task<ConcurrentDictionary<string, string>> GetFavoritesList()
     {
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
         ConcurrentDictionary<string, string> favorites = new ConcurrentDictionary<string, string>();
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -203,14 +203,14 @@ class SqliteAccountsService
     /// Get history to add to address bar drop down list
     /// </summary>
     /// <returns></returns>
-    public static List<string> getHistory()
+    public static List<string> GetHistory()
     {
         //var accInfo = await RestAPI.getAccInfo();
         if (Account.accountInfo == null)
             return new List<string> { null }; // error, account not found. Prevent crash.
 
         List<string> history = new List<string>();
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -250,11 +250,11 @@ class SqliteAccountsService
         return history;
     }
 
-    public static int deleteHistory(string url)
+    public static int DeleteHistory(string url)
     {
         int code = 0;
         int userID = Account.accountInfo.account.id;
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -284,14 +284,14 @@ class SqliteAccountsService
     /// <param name="user"></param>
     /// <param name="pass">encrypted</param>
     /// <returns></returns>
-    public static int createAcc(string user, int userId, string fullname)
+    public static int CreateAcc(string user, int userId, string fullname)
     {
         int code = 0;
 
-        if (findAcc(user) > 0)
+        if (FindAcc(user) > 0)
             return 999;
 
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
         string sql = "INSERT INTO aol_accounts (userid, username, fullname) VALUES ('" + userId + "', '" + user + "', @fullname)";
 
@@ -316,11 +316,11 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="url">URL</param>
     /// <returns></returns>
-    public static int findHisory(string url)
+    public static int FindHisory(string url)
     {
         int foundHistory = 0;
         int userID = Account.accountInfo.account.id;
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         string sql = "SELECT * FROM history WHERE userid = '" + userID + "' AND url = '" + url + "'";
@@ -340,10 +340,10 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="user">username</param>
     /// <returns></returns>
-    public static int findAcc(string user)
+    public static int FindAcc(string user)
     {
         int foundAcc = 0;
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         string sql = "SELECT userid FROM aol_accounts WHERE username = '" + user + "'";
@@ -359,14 +359,14 @@ class SqliteAccountsService
         return foundAcc;
     }
 
-    public static bool addBuddy(int buddyId, string user)
+    public static bool AddBuddy(int buddyId, string user)
     {
         if (user == null)
             return false;
 
         bool good = false;
         int userID = Account.accountInfo.account.id;
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -405,11 +405,11 @@ class SqliteAccountsService
         return good;
     }
 
-    public static bool removeBuddy(int buddyId, string user)
+    public static bool RemoveBuddy(int buddyId, string user)
     {
         bool good = false;
         int userID = Account.accountInfo.account.id;
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         string sql = $"DELETE FROM buddy_list WHERE id = '{buddyId}' AND userid = '{userID}'";
@@ -430,12 +430,12 @@ class SqliteAccountsService
         return good;
     }
 
-    public static List<userAPI.Buddies> getBuddyList(string user = "", string pass = "")
+    public static List<UserAPI.Buddies> GetBuddyList(string user = "", string pass = "")
     {
         //var accInfo = await RestAPI.getAccInfo();
         int userID = Account.accountInfo.account.id;
-        List<userAPI.Buddies> buddies = new();
-        SqliteConnection m_dbConnection = openDB();
+        List<UserAPI.Buddies> buddies = new();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -451,7 +451,7 @@ class SqliteAccountsService
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    var buddy = new userAPI.Buddies() { id = Convert.ToInt32(reader["id"]), userid = Convert.ToInt32(reader["userid"]), username = (string)reader["buddy_name"] };
+                    var buddy = new UserAPI.Buddies() { id = Convert.ToInt32(reader["id"]), userid = Convert.ToInt32(reader["userid"]), username = (string)reader["buddy_name"] };
                     buddies.Add(buddy);
                 }
             }
@@ -515,12 +515,12 @@ class SqliteAccountsService
         return info;
     }*/
 
-    public static async Task<int> emailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
+    public static async Task<int> EmailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
     {
         int code = 0;
         int userID = Account.accountInfo.account.id;
         Debug.WriteLine("userID:" + userID);
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
@@ -552,10 +552,10 @@ class SqliteAccountsService
         return code;
     }
 
-    public static string getFullName()
+    public static string GetFullName()
     {
         string foundFN = "";
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + Account.tmpUsername + "'";
@@ -570,9 +570,9 @@ class SqliteAccountsService
         return foundFN;
     }
 
-    public static void updateFullName(string fullname)
+    public static void UpdateFullName(string fullname)
     {
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
         string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + Account.tmpUsername + "'";
 
@@ -589,10 +589,10 @@ class SqliteAccountsService
         m_dbConnection.Close();
     }
 
-    public static ConcurrentBag<string> listAccounts()
+    public static ConcurrentBag<string> ListAccounts()
     {
         ConcurrentBag<string> accs = new ConcurrentBag<string>();
-        SqliteConnection m_dbConnection = openDB();
+        SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         string sql = "SELECT username FROM aol_accounts";

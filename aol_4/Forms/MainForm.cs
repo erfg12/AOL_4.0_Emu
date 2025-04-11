@@ -22,7 +22,7 @@ public partial class MainForm : _Win95Theme
 
     private void CheckEmail()
     {
-        if (MailService.checkNewEmail() && !MailService.youGotMail)
+        if (MailService.CheckNewEmail() && !MailService.youGotMail)
         {
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.Stream = Properties.Resources.youGotmail;
@@ -33,13 +33,13 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void faveBtn_Click(object sender, EventArgs e)
+    private void FaveBtn_Click(object sender, EventArgs e)
     {
         var btn = sender as Button; // TEST
         MessageBox.Show(btn.Tag.ToString());
     }
 
-    public static void goToChannel(string channel, Form owner, Form mdiParent, int width = 736, int height = 422)
+    public static void GoToChannel(string channel, Form owner, Form mdiParent, int width = 736, int height = 422)
     {
         string title = $"{channel.ToTitleCase()} Channel";
         string path = $"{Directory.GetCurrentDirectory()}\\Channels\\{channel}\\index.html";
@@ -51,7 +51,7 @@ public partial class MainForm : _Win95Theme
         BrowseWnd.Show();
     }
 
-    public void startProgram()
+    public void StartProgram()
     {
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
@@ -64,16 +64,16 @@ public partial class MainForm : _Win95Theme
         weather_btn.Image = Properties.Resources.weather_icon_enabled;
         preferencesToolStripMenuItem.Enabled = true; // settings holds email info
 
-        ChatService.startConnection();
+        ChatService.StartConnection();
     }
 
-    public void reloadAddressBarHistory()
+    public void ReloadAddressBarHistory()
     {
         try
         {
             addrBox.Items.Clear();
             tmpHistory.Clear();
-            foreach (string i in SqliteAccountsService.getHistory())
+            foreach (string i in SqliteAccountsService.GetHistory())
             {
                 if (string.IsNullOrEmpty(i))
                     continue;
@@ -95,18 +95,18 @@ public partial class MainForm : _Win95Theme
         if (!newWindow)
         {
             if (ActiveMdiChild is BrowserForm)
-                ((BrowserForm)ActiveMdiChild).goToUrl(addrBox.Text);
+                ((BrowserForm)ActiveMdiChild).GoToUrl(addrBox.Text);
             else // we don't have a browser window selected, open a new one anyways
             {
-                openBrowser(addrBox.Text);
+                OpenBrowser(addrBox.Text);
                 newWindow = false;
             }
         }
         else
         {
-            openBrowser(addrBox.Text);
+            OpenBrowser(addrBox.Text);
             if (Account.SignedIn() && addrBox.Text.Contains("."))
-                SqliteAccountsService.addHistory(addrBox.Text);
+                SqliteAccountsService.AddHistory(addrBox.Text);
             if (!addrBox.Items.Contains(addrBox.Text))
             {
                 addrBox.Items.Add(addrBox.Text);
@@ -116,7 +116,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    public void openBrowser(string url = "")
+    public void OpenBrowser(string url = "")
     {
         MDIHelper.OpenForm(() => new BrowserForm(url), this);
     }
@@ -134,7 +134,7 @@ public partial class MainForm : _Win95Theme
 
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
+    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -143,17 +143,17 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void maxBtn_Click(object sender, EventArgs e)
+    private void MaxBtn_Click(object sender, EventArgs e)
     {
         miniMax(maxBtn);
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
@@ -165,12 +165,12 @@ public partial class MainForm : _Win95Theme
         if (Properties.Settings.Default.fullScreen)
             WindowState = FormWindowState.Maximized;
 
-        ChatService.irc.IrcClient.OnDebugMessage += ChatService.debugOutputCallback;
-        ChatService.irc.IrcClient.OnMessageReceived += ChatService.chatOutputCallback;
-        ChatService.irc.IrcClient.OnRawMessageReceived += ChatService.rawOutputCallback;
-        ChatService.irc.IrcClient.OnUserListReceived += ChatService.userListCallback;
+        ChatService.irc.IrcClient.OnDebugMessage += ChatService.DebugOutputCallback;
+        ChatService.irc.IrcClient.OnMessageReceived += ChatService.ChatOutputCallback;
+        ChatService.irc.IrcClient.OnRawMessageReceived += ChatService.RawOutputCallback;
+        ChatService.irc.IrcClient.OnUserListReceived += ChatService.UserListCallback;
         //chat.irc.DccClient.OnDccDebugMessage += chat.dccDebugCallback;
-        ChatService.irc.DccClient.OnDccEvent += ChatService.downloadStatusChanged;
+        ChatService.irc.DccClient.OnDccEvent += ChatService.DownloadStatusChanged;
 
         preferencesToolStripMenuItem.Enabled = false;
 
@@ -189,12 +189,12 @@ public partial class MainForm : _Win95Theme
         MDIHelper.OpenForm<accForm>(this);
     }
 
-    private void fileBtn_Click(object sender, EventArgs e)
+    private void FileBtn_Click(object sender, EventArgs e)
     {
         fileContextMenuStrip.Show(this.Location.X, Location.Y + topMenuPadding);
     }
 
-    private void closeForm_Click(object sender, EventArgs e)
+    private void CloseForm_Click(object sender, EventArgs e)
     {
         Close();
     }
@@ -211,7 +211,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void getMdiChildURL_Tick(object sender, EventArgs e)
+    private void GetMdiChildURL_Tick(object sender, EventArgs e)
     {
         try
         {
@@ -251,7 +251,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void addrBox_KeyDown_1(object sender, KeyEventArgs e)
+    private void AddrBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (!Account.SignedIn())
             return;
@@ -267,7 +267,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void goBtn_Click(object sender, EventArgs e)
+    private void GoBtn_Click(object sender, EventArgs e)
     {
         if (!Account.SignedIn())
             return;
@@ -275,7 +275,7 @@ public partial class MainForm : _Win95Theme
         GoToURL();
     }
 
-    private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+    private void TableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
     {
         if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
         SolidBrush brush1 = new SolidBrush(Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(102))))));
@@ -283,60 +283,50 @@ public partial class MainForm : _Win95Theme
             e.Graphics.FillRectangle(brush1, e.CellBounds);
     }
 
-    private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void addrBox_KeyUp_1(object sender, KeyEventArgs e)
-    {
-
-    }
-
-    private void backBtn_Click_1(object sender, EventArgs e)
+    private void BackBtn_Click(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
             ((BrowserForm)ActiveMdiChild).WebView.GoBack();
     }
 
-    private void forwardBtn_Click_1(object sender, EventArgs e)
+    private void ForwardBtn_Click(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
             ((BrowserForm)ActiveMdiChild).WebView.GoForward();
     }
 
-    private void stopBtn_Click(object sender, EventArgs e)
+    private void StopBtn_Click(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
             ((BrowserForm)ActiveMdiChild).WebView.Stop();
     }
 
-    private void reloadBtn_Click_1(object sender, EventArgs e)
+    private void ReloadBtn_Click(object sender, EventArgs e)
     {
         if (ActiveMdiChild is BrowserForm)
             ((BrowserForm)ActiveMdiChild).WebView.Reload();
     }
 
-    private void homeBtn_Click(object sender, EventArgs e)
+    private void HomeBtn_Click(object sender, EventArgs e)
     {
         try
         {
             if (ActiveMdiChild is BrowserForm)
-                ((BrowserForm)this.ActiveMdiChild).goToUrl(Properties.Settings.Default.homeSite);
+                ((BrowserForm)this.ActiveMdiChild).GoToUrl(Properties.Settings.Default.homeSite);
             else // we don't have a browser window selected, open a new one anyways
             {
-                openBrowser(Properties.Settings.Default.homeSite);
+                OpenBrowser(Properties.Settings.Default.homeSite);
                 newWindow = false;
             }
         }
         catch
         { // something in the settings was messed up, load a default
-            openBrowser("https://google.com");
+            OpenBrowser("https://google.com");
             newWindow = false;
         }
     }
 
-    private void addrBox_MouseClick(object sender, MouseEventArgs e)
+    private void AddrBox_MouseClick(object sender, MouseEventArgs e)
     {
         if (addrBox.Text == "Type Keyword or Web Address here and click Go")
             addrBox.Text = "";
@@ -347,8 +337,7 @@ public partial class MainForm : _Win95Theme
         SignOff();
     }
 
-    // channels button
-    private void pictureBox10_Click(object sender, EventArgs e)
+    private void ChannelsBtn_Click(object sender, EventArgs e)
     {
         if (!Account.SignedIn())
             return;
@@ -362,7 +351,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void mainTitle_MouseMove(object sender, MouseEventArgs e)
+    private void MainTitle_MouseMove(object sender, MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -371,27 +360,27 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void aOLTodayToolStripMenuItem_Click(object sender, EventArgs e)
+    private void AOLTodayToolStripMenuItem_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<HomeMenuForm>(this);
     }
 
-    private void editBtn_Click(object sender, EventArgs e)
+    private void EditBtn_Click(object sender, EventArgs e)
     {
         editContextMenuStrip.Show(this.Location.X + 28, this.Location.Y + topMenuPadding);
     }
 
-    private void windowBtn_Click(object sender, EventArgs e)
+    private void WindowBtn_Click(object sender, EventArgs e)
     {
         windowContextMenuStrip.Show(this.Location.X + 54, this.Location.Y + topMenuPadding);
     }
 
-    private void helpBtn_Click(object sender, EventArgs e)
+    private void HelpBtn_Click(object sender, EventArgs e)
     {
         helpContextMenuStrip.Show(this.Location.X + 155, this.Location.Y + topMenuPadding);
     }
 
-    private void mail_center_btn_Click(object sender, EventArgs e)
+    private void MailCenterBtn_Click(object sender, EventArgs e)
     {
         if (!mailCenterContextMenuStrip.Visible)
         {
@@ -402,7 +391,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void my_files_btn_Click(object sender, EventArgs e)
+    private void MyFilesBtn_Click(object sender, EventArgs e)
     {
         if (!myFilesContextMenuStrip.Visible)
         {
@@ -473,7 +462,7 @@ public partial class MainForm : _Win95Theme
         signOffBtn.Text = "Sign On";
     }
 
-    private void signOffBtn_Click(object sender, EventArgs e)
+    private void SignOffBtn_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
         {
@@ -482,37 +471,37 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void readMailToolStripMenuItem_Click(object sender, EventArgs e)
+    private void ReadMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm<MailboxForm>(this);
     }
 
-    private void read_mail_btn_Click(object sender, EventArgs e)
+    private void ReadMailBtn_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm<MailboxForm>(this);
     }
 
-    private void write_mail_button_Click(object sender, EventArgs e)
+    private void WriteMailBtn_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm(() => new MailWriteForm(), this);
     }
 
-    private void mailCenterToolStripMenuItem_Click(object sender, EventArgs e)
+    private void MailCenterToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm<MailboxForm>(this);
     }
 
-    private void writeMailToolStripMenuItem_Click(object sender, EventArgs e)
+    private void WriteMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm(() => new MailWriteForm(), this);
     }
 
-    private void Favorites_btn_Click(object sender, EventArgs e)
+    private void FavoritesBtn_Click(object sender, EventArgs e)
     {
         if (!myFavoritesContextMenuStrip.Visible)
         {
@@ -610,38 +599,38 @@ public partial class MainForm : _Win95Theme
 
     private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        goToChannel("kids", this, this);
+        GoToChannel("kids", this, this);
     }
 
-    private void buddyListToolStripMenuItem_Click(object sender, EventArgs e)
+    private void BuddyListToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm<BuddyListForm>(this);
     }
 
-    private void searchTheWebMenuItem_Click(object sender, EventArgs e)
+    private void SearchTheWebMenuItem_Click(object sender, EventArgs e)
     {
         GoToURL();
     }
 
-    private void findonTheWebMenuItem_Click(object sender, EventArgs e)
+    private void FindonTheWebMenuItem_Click(object sender, EventArgs e)
     {
         GoToURL();
     }
 
-    private void oldMailToolStripMenuItem_Click(object sender, EventArgs e)
+    private void OldMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm<MailboxForm>(this);
     }
 
-    private void sentMailToolStripMenuItem_Click(object sender, EventArgs e)
+    private void SentMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (Account.SignedIn())
             MDIHelper.OpenForm<MailboxForm>(this);
     }
 
-    private void checkMail_Tick(object sender, EventArgs e)
+    private void CheckMail_Tick(object sender, EventArgs e)
     {
         if (Account.SignedIn())
         {
@@ -652,7 +641,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void mailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
+    private void MailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
         SettingsForm sf = new SettingsForm()
         {
@@ -662,7 +651,7 @@ public partial class MainForm : _Win95Theme
         sf.Show();
     }
 
-    private void timer1_Tick(object sender, EventArgs e)
+    private void Timer1_Tick(object sender, EventArgs e)
     {
         if (WindowState == FormWindowState.Maximized)
             return;
@@ -706,7 +695,7 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void my_aol_btn_Click(object sender, EventArgs e)
+    private void MyAolBtn_Click(object sender, EventArgs e)
     {
         if (!myAOLContextMenuStrip.Visible)
         {
@@ -717,17 +706,17 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+    private void PreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<PreferencesForm>(this);
     }
 
-    private void downloadManagerToolStripMenuItem_Click(object sender, EventArgs e)
+    private void DownloadManagerToolStripMenuItem_Click(object sender, EventArgs e)
     {
         Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.Personal));
     }
 
-    private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
     {
         miniMax(maxBtn);
     }

@@ -11,23 +11,23 @@ public partial class HomeMenuForm : _Win95Theme
         MoveWindow(sender, e, maxBtn);
     }
 
-    private void closeBtn_Click(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
     }
 
-    private void miniBtn_Click(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
     }
 
-    private void home_menu_ShownAsync(object sender, EventArgs e)
+    private void HomeMenu_ShownAsync(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
 
         todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
         TitleBar_TitleLabel.Text = $"Welcome, {Account.tmpUsername}";
-        temperatureLabel.Text = LocationService.getCurrentWeather();
+        temperatureLabel.Text = LocationService.GetCurrentWeather();
     }
 
     public HomeMenuForm()
@@ -35,7 +35,7 @@ public partial class HomeMenuForm : _Win95Theme
         InitializeComponent();
     }
 
-    private void mailCenterBtn_Click(object sender, EventArgs e)
+    private void MailCenterBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<MailboxForm>(MdiParent);
     }
@@ -45,12 +45,12 @@ public partial class HomeMenuForm : _Win95Theme
         MDIHelper.OpenForm<PicturesForm>(MdiParent);
     }
 
-    private void aolChannelsBtn_Click(object sender, EventArgs e)
+    private void AolChannelsBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<ChannelsListForm>(MdiParent);
     }
 
-    private void chatBtn_Click(object sender, EventArgs e)
+    private void ChatBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<ChatroomListForm>(MdiParent);
     }

@@ -142,8 +142,8 @@
             buddyTreeView.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode2 });
             buddyTreeView.Size = new Size(155, 186);
             buddyTreeView.TabIndex = 15;
-            buddyTreeView.MouseDoubleClick += buddyTreeView_MouseDoubleClick;
-            buddyTreeView.MouseUp += buddyTreeView_MouseUp;
+            buddyTreeView.MouseDoubleClick += BuddyTreeView_MouseDoubleClick;
+            buddyTreeView.MouseUp += BuddyTreeView_MouseUp;
             // 
             // pictureBox4
             // 
@@ -169,7 +169,7 @@
             setupBtn.SizeMode = PictureBoxSizeMode.StretchImage;
             setupBtn.TabIndex = 6;
             setupBtn.TabStop = false;
-            setupBtn.Click += setupBtn_Click;
+            setupBtn.Click += SetupBtn_Click;
             // 
             // IMBtn
             // 
@@ -212,8 +212,8 @@
             TopPanel.Name = "TopPanel";
             TopPanel.Size = new Size(165, 21);
             TopPanel.TabIndex = 2;
-            TopPanel.MouseDoubleClick += panel1_MouseDoubleClick;
-            TopPanel.MouseMove += panel1_MouseMove;
+            TopPanel.MouseDoubleClick += TitleBar_MouseDoubleClick;
+            TopPanel.MouseMove += TitleBar_MouseMove;
             // 
             // closeBtn
             // 
@@ -231,7 +231,7 @@
             closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            closeBtn.Click += CloseBtn_Click;
             // 
             // maxBtn
             // 
@@ -265,7 +265,7 @@
             miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
-            miniBtn.Click += miniBtn_Click;
+            miniBtn.Click += MiniBtn_Click;
             // 
             // titleLabel
             // 
@@ -278,7 +278,7 @@
             titleLabel.Size = new Size(109, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "Buddy List Window";
-            titleLabel.MouseMove += titleLabel_MouseMove;
+            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
             // UpdateTimer
             // 
@@ -297,7 +297,7 @@
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(107, 22);
             deleteToolStripMenuItem.Text = "Delete";
-            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
             // 
             // BuddyListForm
             // 
@@ -326,7 +326,7 @@
             StartPosition = FormStartPosition.Manual;
             Text = "Buddy List Window";
             FormClosing += Buddies_online_FormClosing;
-            Shown += buddies_online_Shown;
+            Shown += BuddiesOnline_Shown;
             LocationChanged += BuddyListForm_LocationChanged;
             ((ISupportInitialize)pictureBox4).EndInit();
             ((ISupportInitialize)setupBtn).EndInit();

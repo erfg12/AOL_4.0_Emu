@@ -101,7 +101,7 @@
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(515, 21);
             panel1.TabIndex = 4;
-            panel1.MouseMove += Panel1_MouseMove;
+            panel1.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox22
             // 
@@ -128,7 +128,7 @@
             titleLabel.Size = new System.Drawing.Size(68, 15);
             titleLabel.TabIndex = 3;
             titleLabel.Text = "Preferences";
-            titleLabel.MouseMove += Panel1_MouseMove;
+            titleLabel.MouseMove += TitleBar_MouseMove;
             // 
             // miniBtn
             // 

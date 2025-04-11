@@ -8,7 +8,7 @@ class Account
     public static string tmpLocation { get; set; }
     public static string tmpPassword { get; set; }
     public static string tmpUsername { get; set; }
-    public static userAPI accountInfo { get; set; }
+    public static UserAPI accountInfo { get; set; }
 
     public static bool SignedIn()
     {
