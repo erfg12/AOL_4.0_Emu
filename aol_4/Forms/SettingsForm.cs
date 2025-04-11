@@ -28,6 +28,8 @@ public partial class SettingsForm : _Win95Theme
 
         searchProvider.Text = Properties.Settings.Default.searchProvider;
 
+        UIScaleBox.Text = Properties.Settings.Default.uiScale ?? "1.0";
+
         ReloadBrowseHistory();
     }
 
@@ -110,5 +112,11 @@ public partial class SettingsForm : _Win95Theme
     private void SettingsForm_LocationChanged(object sender, EventArgs e)
     {
         OnLocationChanged(sender, e);
+    }
+
+    private void UIScaleBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Properties.Settings.Default.uiScale = UIScaleBox.Text;
+        Properties.Settings.Default.Save();
     }
 }

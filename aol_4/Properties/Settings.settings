@@ -29,5 +29,8 @@
     <Setting Name="country" Type="System.String" Scope="User">
       <Value Profile="(Default)">US</Value>
     </Setting>
+    <Setting Name="uiScale" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

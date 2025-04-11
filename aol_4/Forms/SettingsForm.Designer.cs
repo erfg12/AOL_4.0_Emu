@@ -51,6 +51,8 @@
             cityBox = new TextBox();
             label5 = new Label();
             countryBox = new TextBox();
+            UIScaleBox = new ComboBox();
+            UIScaleLabel = new Label();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -345,12 +347,34 @@
             countryBox.Size = new Size(274, 23);
             countryBox.TabIndex = 29;
             // 
+            // UIScaleBox
+            // 
+            UIScaleBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            UIScaleBox.FormattingEnabled = true;
+            UIScaleBox.Items.AddRange(new object[] { "1.20", "1.15", "1.10", "1.05", "1.0", "0.95", "0.90", "0.85", "0.80" });
+            UIScaleBox.Location = new Point(309, 41);
+            UIScaleBox.Name = "UIScaleBox";
+            UIScaleBox.Size = new Size(59, 23);
+            UIScaleBox.TabIndex = 31;
+            UIScaleBox.SelectedIndexChanged += UIScaleBox_SelectedIndexChanged;
+            // 
+            // UIScaleLabel
+            // 
+            UIScaleLabel.AutoSize = true;
+            UIScaleLabel.Location = new Point(257, 44);
+            UIScaleLabel.Name = "UIScaleLabel";
+            UIScaleLabel.Size = new Size(48, 15);
+            UIScaleLabel.TabIndex = 32;
+            UIScaleLabel.Text = "UI Scale";
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(379, 531);
+            Controls.Add(UIScaleLabel);
+            Controls.Add(UIScaleBox);
             Controls.Add(label5);
             Controls.Add(countryBox);
             Controls.Add(label4);
@@ -411,5 +435,7 @@
         private System.Windows.Forms.TextBox cityBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox countryBox;
+        private ComboBox UIScaleBox;
+        private Label UIScaleLabel;
     }
 }

@@ -22,10 +22,7 @@ public partial class PreferencesForm : _Win95Theme
 
     private void GeneralBtn_Click(object sender, EventArgs e)
     {
-        SettingsForm sf = new SettingsForm();
-        sf.Owner = (Form)this;
-        sf.MdiParent = MdiParent;
-        sf.Show();
+        MDIHelper.OpenForm<SettingsForm>(MdiParent);
     }
 
     public PreferencesForm()

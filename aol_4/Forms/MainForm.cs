@@ -124,9 +124,23 @@ public partial class MainForm : _Win95Theme
     public MainForm()
     {
         InitializeComponent();
+        this.AutoScaleMode = AutoScaleMode.None;
+        string uiScale = Properties.Settings.Default.uiScale ?? "1.0";
+        this.Scale(new SizeF(float.Parse(uiScale), float.Parse(uiScale)));
+        ScaleFonts(this.Controls, float.Parse(uiScale));
         DoubleBuffered = true;
         SetStyle(ControlStyles.ResizeRedraw, true);
         ConfigurationManager.AppSettings.Set("APIKey", "d8f6deea88bb177513cc8a14cf629020"); // for WeatherNet
+    }
+
+    private void ScaleFonts(Control.ControlCollection controls, float scale)
+    {
+        foreach (Control ctrl in controls)
+        {
+            ctrl.Font = new Font(ctrl.Font.FontFamily, ctrl.Font.Size * scale, ctrl.Font.Style);
+            if (ctrl.HasChildren)
+                ScaleFonts(ctrl.Controls, scale);
+        }
     }
 
     private void MainForm_Load(object sender, EventArgs e)
@@ -162,6 +176,7 @@ public partial class MainForm : _Win95Theme
     {
         Debug.WriteLine("ClientSize Width:" + ClientSize.Width);
         Debug.WriteLine("ClientSize Height:" + ClientSize.Height);
+
         if (Properties.Settings.Default.fullScreen)
             WindowState = FormWindowState.Maximized;
 
