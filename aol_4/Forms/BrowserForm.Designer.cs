@@ -53,12 +53,12 @@
             // 
             toolStripContainer1.ContentPanel.Controls.Add(WebView);
             toolStripContainer1.ContentPanel.Margin = new Padding(4);
-            toolStripContainer1.ContentPanel.Size = new Size(906, 469);
+            toolStripContainer1.ContentPanel.Size = new Size(876, 469);
             toolStripContainer1.ContentPanel.UseWaitCursor = true;
             toolStripContainer1.Location = new Point(3, 25);
             toolStripContainer1.Margin = new Padding(4);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new Size(906, 494);
+            toolStripContainer1.Size = new Size(876, 494);
             toolStripContainer1.TabIndex = 0;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -71,7 +71,7 @@
             WebView.Location = new Point(0, 0);
             WebView.Margin = new Padding(2);
             WebView.Name = "WebView";
-            WebView.Size = new Size(904, 469);
+            WebView.Size = new Size(874, 469);
             WebView.Source = new Uri("https://google.com", UriKind.Absolute);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
@@ -80,6 +80,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
@@ -93,7 +94,7 @@
             panel1.Location = new Point(3, 2);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(906, 21);
+            panel1.Size = new Size(876, 24);
             panel1.TabIndex = 1;
             panel1.MouseDoubleClick += TitleBar_MouseDoubleClick;
             panel1.MouseMove += TitleBar_MouseMove;
@@ -119,7 +120,7 @@
             favoriteBtn.BackgroundImageLayout = ImageLayout.Stretch;
             favoriteBtn.Cursor = Cursors.Hand;
             favoriteBtn.Image = (Image)resources.GetObject("favoriteBtn.Image");
-            favoriteBtn.Location = new Point(816, 0);
+            favoriteBtn.Location = new Point(786, 0);
             favoriteBtn.Margin = new Padding(4);
             favoriteBtn.Name = "favoriteBtn";
             favoriteBtn.Size = new Size(18, 20);
@@ -149,7 +150,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(839, 1);
+            miniBtn.Location = new Point(809, 1);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -166,7 +167,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(860, 1);
+            maxBtn.Location = new Point(830, 1);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -184,7 +185,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(883, 1);
+            closeBtn.Location = new Point(853, 1);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -198,7 +199,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(910, 522);
+            ClientSize = new Size(880, 522);
             Controls.Add(panel1);
             Controls.Add(toolStripContainer1);
             FormBorderStyle = FormBorderStyle.None;
@@ -220,6 +221,7 @@
             panel1.PerformLayout();
             ((ISupportInitialize)favoriteBtn).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

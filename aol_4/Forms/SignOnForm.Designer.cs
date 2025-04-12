@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accForm));
-            label1 = new System.Windows.Forms.Label();
-            screenName = new System.Windows.Forms.ComboBox();
-            label2 = new System.Windows.Forms.Label();
-            selectLocation = new System.Windows.Forms.ComboBox();
-            signOnBtn = new System.Windows.Forms.Button();
-            helpBtn = new System.Windows.Forms.Button();
-            setupBtn = new System.Windows.Forms.Button();
-            passBox = new System.Windows.Forms.TextBox();
-            passLabel = new System.Windows.Forms.Label();
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(accForm));
+            label1 = new Label();
+            screenName = new ComboBox();
+            label2 = new Label();
+            selectLocation = new ComboBox();
+            signOnBtn = new Button();
+            helpBtn = new Button();
+            setupBtn = new Button();
+            passBox = new TextBox();
+            passLabel = new Label();
             accCheck = new System.Windows.Forms.Timer(components);
-            leftBanner = new System.Windows.Forms.PictureBox();
-            panel1 = new System.Windows.Forms.Panel();
-            mainTitle = new System.Windows.Forms.Label();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            closeBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)leftBanner).BeginInit();
+            leftBanner = new PictureBox();
+            panel1 = new Panel();
+            mainTitle = new Label();
+            pictureBox1 = new PictureBox();
+            closeBtn = new Button();
+            ((ISupportInitialize)leftBanner).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            label1.Location = new System.Drawing.Point(165, 129);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Font = new Font("Arial", 9F, FontStyle.Bold);
+            label1.Location = new Point(165, 129);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(126, 15);
+            label1.Size = new Size(126, 15);
             label1.TabIndex = 6;
             label1.Text = "Select Screen Name:";
             // 
             // screenName
             // 
-            screenName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            screenName.DropDownStyle = ComboBoxStyle.DropDownList;
             screenName.FormattingEnabled = true;
             screenName.Items.AddRange(new object[] { "New User", "Existing Member", "Guest" });
-            screenName.Location = new System.Drawing.Point(169, 154);
-            screenName.Margin = new System.Windows.Forms.Padding(4);
+            screenName.Location = new Point(169, 154);
+            screenName.Margin = new Padding(4);
             screenName.MaxLength = 30;
             screenName.Name = "screenName";
-            screenName.Size = new System.Drawing.Size(215, 23);
+            screenName.Size = new Size(215, 23);
             screenName.TabIndex = 0;
             screenName.SelectedIndexChanged += ScreenName_SelectedIndexChanged;
             screenName.KeyPress += ScreenName_KeyPress;
@@ -78,36 +78,36 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            label2.Location = new System.Drawing.Point(165, 247);
-            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Font = new Font("Arial", 9F, FontStyle.Bold);
+            label2.Location = new Point(165, 247);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(98, 15);
+            label2.Size = new Size(98, 15);
             label2.TabIndex = 8;
             label2.Text = "Select Location:";
             // 
             // selectLocation
             // 
-            selectLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            selectLocation.DropDownStyle = ComboBoxStyle.DropDownList;
             selectLocation.FormattingEnabled = true;
             selectLocation.Items.AddRange(new object[] { "ISP/LAN Connection", "Dial-Up" });
-            selectLocation.Location = new System.Drawing.Point(169, 271);
-            selectLocation.Margin = new System.Windows.Forms.Padding(4);
+            selectLocation.Location = new Point(169, 271);
+            selectLocation.Margin = new Padding(4);
             selectLocation.Name = "selectLocation";
-            selectLocation.Size = new System.Drawing.Size(215, 23);
+            selectLocation.Size = new Size(215, 23);
             selectLocation.TabIndex = 2;
             // 
             // signOnBtn
             // 
-            signOnBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
-            signOnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            signOnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            signOnBtn.Font = new System.Drawing.Font("Arial", 8.25F);
-            signOnBtn.ForeColor = System.Drawing.SystemColors.Control;
-            signOnBtn.Location = new System.Drawing.Point(339, 316);
-            signOnBtn.Margin = new System.Windows.Forms.Padding(4);
+            signOnBtn.BackColor = Color.FromArgb(0, 109, 170);
+            signOnBtn.Cursor = Cursors.Hand;
+            signOnBtn.FlatStyle = FlatStyle.Flat;
+            signOnBtn.Font = new Font("Arial", 8.25F);
+            signOnBtn.ForeColor = SystemColors.Control;
+            signOnBtn.Location = new Point(339, 316);
+            signOnBtn.Margin = new Padding(4);
             signOnBtn.Name = "signOnBtn";
-            signOnBtn.Size = new System.Drawing.Size(77, 26);
+            signOnBtn.Size = new Size(77, 26);
             signOnBtn.TabIndex = 5;
             signOnBtn.Text = "SIGN ON";
             signOnBtn.UseVisualStyleBackColor = false;
@@ -115,30 +115,30 @@
             // 
             // helpBtn
             // 
-            helpBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
-            helpBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            helpBtn.Font = new System.Drawing.Font("Arial", 8.25F);
-            helpBtn.ForeColor = System.Drawing.SystemColors.Control;
-            helpBtn.Location = new System.Drawing.Point(237, 316);
-            helpBtn.Margin = new System.Windows.Forms.Padding(4);
+            helpBtn.BackColor = Color.FromArgb(0, 109, 170);
+            helpBtn.Cursor = Cursors.Hand;
+            helpBtn.FlatStyle = FlatStyle.Flat;
+            helpBtn.Font = new Font("Arial", 8.25F);
+            helpBtn.ForeColor = SystemColors.Control;
+            helpBtn.Location = new Point(237, 316);
+            helpBtn.Margin = new Padding(4);
             helpBtn.Name = "helpBtn";
-            helpBtn.Size = new System.Drawing.Size(77, 26);
+            helpBtn.Size = new Size(77, 26);
             helpBtn.TabIndex = 4;
             helpBtn.Text = "HELP";
             helpBtn.UseVisualStyleBackColor = false;
             // 
             // setupBtn
             // 
-            setupBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
-            setupBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            setupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            setupBtn.Font = new System.Drawing.Font("Arial", 8.25F);
-            setupBtn.ForeColor = System.Drawing.SystemColors.Control;
-            setupBtn.Location = new System.Drawing.Point(133, 316);
-            setupBtn.Margin = new System.Windows.Forms.Padding(4);
+            setupBtn.BackColor = Color.FromArgb(0, 109, 170);
+            setupBtn.Cursor = Cursors.Hand;
+            setupBtn.FlatStyle = FlatStyle.Flat;
+            setupBtn.Font = new Font("Arial", 8.25F);
+            setupBtn.ForeColor = SystemColors.Control;
+            setupBtn.Location = new Point(133, 316);
+            setupBtn.Margin = new Padding(4);
             setupBtn.Name = "setupBtn";
-            setupBtn.Size = new System.Drawing.Size(77, 26);
+            setupBtn.Size = new Size(77, 26);
             setupBtn.TabIndex = 3;
             setupBtn.Text = "SETUP";
             setupBtn.UseVisualStyleBackColor = false;
@@ -146,23 +146,23 @@
             // 
             // passBox
             // 
-            passBox.Location = new System.Drawing.Point(169, 211);
-            passBox.Margin = new System.Windows.Forms.Padding(4);
+            passBox.Location = new Point(169, 211);
+            passBox.Margin = new Padding(4);
             passBox.MaxLength = 30;
             passBox.Name = "passBox";
             passBox.PasswordChar = '*';
-            passBox.Size = new System.Drawing.Size(215, 23);
+            passBox.Size = new Size(215, 23);
             passBox.TabIndex = 1;
             passBox.KeyDown += PassBox_KeyDown;
             // 
             // passLabel
             // 
             passLabel.AutoSize = true;
-            passLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            passLabel.Location = new System.Drawing.Point(165, 189);
-            passLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passLabel.Font = new Font("Arial", 9F, FontStyle.Bold);
+            passLabel.Location = new Point(165, 189);
+            passLabel.Margin = new Padding(4, 0, 4, 0);
             passLabel.Name = "passLabel";
-            passLabel.Size = new System.Drawing.Size(101, 15);
+            passLabel.Size = new Size(101, 15);
             passLabel.TabIndex = 14;
             passLabel.Text = "Enter Password:";
             // 
@@ -174,81 +174,83 @@
             // 
             // leftBanner
             // 
-            leftBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            leftBanner.Image = (System.Drawing.Image)resources.GetObject("leftBanner.Image");
-            leftBanner.Location = new System.Drawing.Point(1, 22);
-            leftBanner.Margin = new System.Windows.Forms.Padding(4);
+            leftBanner.BackgroundImageLayout = ImageLayout.Stretch;
+            leftBanner.Image = (Image)resources.GetObject("leftBanner.Image");
+            leftBanner.Location = new Point(1, 22);
+            leftBanner.Margin = new Padding(4);
             leftBanner.Name = "leftBanner";
-            leftBanner.Size = new System.Drawing.Size(123, 348);
-            leftBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            leftBanner.Size = new Size(123, 348);
+            leftBanner.SizeMode = PictureBoxSizeMode.StretchImage;
             leftBanner.TabIndex = 5;
             leftBanner.TabStop = false;
             // 
             // panel1
             // 
-            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panel1.BackColor = System.Drawing.Color.White;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(mainTitle);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(closeBtn);
-            panel1.Location = new System.Drawing.Point(1, 1);
-            panel1.Margin = new System.Windows.Forms.Padding(4);
+            panel1.Location = new Point(1, 1);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(443, 21);
+            panel1.Size = new Size(443, 24);
             panel1.TabIndex = 4;
             panel1.MouseMove += TitleBar_MouseMove;
             // 
             // mainTitle
             // 
             mainTitle.AutoSize = true;
-            mainTitle.BackColor = System.Drawing.Color.Transparent;
-            mainTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            mainTitle.Location = new System.Drawing.Point(31, 2);
-            mainTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            mainTitle.BackColor = Color.Transparent;
+            mainTitle.ForeColor = Color.WhiteSmoke;
+            mainTitle.Location = new Point(31, 2);
+            mainTitle.Margin = new Padding(4, 0, 4, 0);
             mainTitle.Name = "mainTitle";
-            mainTitle.Size = new System.Drawing.Size(49, 15);
+            mainTitle.Size = new Size(49, 15);
             mainTitle.TabIndex = 10;
             mainTitle.Text = "Sign On";
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.aol_icon_4;
-            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Image = Properties.Resources.aol_icon_4;
             pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
-            pictureBox1.Location = new System.Drawing.Point(4, -1);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            pictureBox1.Location = new Point(4, -1);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(21, 21);
+            pictureBox1.Size = new Size(21, 21);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
             // closeBtn
             // 
-            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closeBtn.BackColor = SystemColors.Control;
             closeBtn.BackgroundImage = Properties.Resources.close_btn;
-            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(421, 1);
-            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            closeBtn.FlatStyle = FlatStyle.Flat;
+            closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = Color.Black;
+            closeBtn.Location = new Point(421, 1);
+            closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
-            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.RightToLeft = RightToLeft.No;
+            closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             // 
             // accForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(255, 251, 240);
-            ClientSize = new System.Drawing.Size(445, 371);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 251, 240);
+            ClientSize = new Size(445, 371);
             Controls.Add(passLabel);
             Controls.Add(passBox);
             Controls.Add(setupBtn);
@@ -260,21 +262,21 @@
             Controls.Add(label1);
             Controls.Add(leftBanner);
             Controls.Add(panel1);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Location = new System.Drawing.Point(375, 250);
-            Margin = new System.Windows.Forms.Padding(4);
+            FormBorderStyle = FormBorderStyle.None;
+            Location = new Point(375, 250);
+            Margin = new Padding(4);
             Name = "accForm";
             ShowIcon = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            StartPosition = FormStartPosition.Manual;
             Text = "accForm";
             FormClosing += AccForm_FormClosing;
             Load += AccForm_Load;
             Shown += AccForm_Shown;
             LocationChanged += AccForm_LocationChanged;
-            ((System.ComponentModel.ISupportInitialize)leftBanner).EndInit();
+            ((ISupportInitialize)leftBanner).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
 

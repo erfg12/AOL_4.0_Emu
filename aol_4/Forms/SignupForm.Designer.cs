@@ -75,6 +75,8 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
@@ -86,7 +88,7 @@
             panel1.Location = new Point(3, 2);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(665, 21);
+            panel1.Size = new Size(665, 24);
             panel1.TabIndex = 5;
             panel1.MouseMove += TitleBar_MouseMove;
             // 
@@ -238,7 +240,7 @@
             leftBanner.Location = new Point(3, 21);
             leftBanner.Margin = new Padding(4);
             leftBanner.Name = "leftBanner";
-            leftBanner.Size = new Size(119, 346);
+            leftBanner.Size = new Size(118, 346);
             leftBanner.SizeMode = PictureBoxSizeMode.StretchImage;
             leftBanner.TabIndex = 11;
             leftBanner.TabStop = false;
@@ -512,6 +514,7 @@
             ((ISupportInitialize)backBtn).EndInit();
             ((ISupportInitialize)registerBtn).EndInit();
             ResumeLayout(false);
+            PerformLayout();
 
         }
 

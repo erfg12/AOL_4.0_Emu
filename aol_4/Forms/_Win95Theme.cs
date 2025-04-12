@@ -222,6 +222,34 @@
             InitializeComponent();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            //UIScaling(); // this works, but breaks picture boxes
+            base.OnLoad(e);
+            //this.PerformAutoScale();
+        }
+
+        /// <summary>
+        /// Set the UI scaling for all forms
+        /// </summary>
+        public void UIScaling()
+        {
+            this.AutoScaleMode = AutoScaleMode.None;
+            string uiScale = Properties.Settings.Default.uiScale ?? "1.0";
+            this.Scale(new SizeF(float.Parse(uiScale), float.Parse(uiScale)));
+            ScaleFonts(this.Controls, float.Parse(uiScale));
+        }
+
+        private void ScaleFonts(Control.ControlCollection controls, float scale)
+        {
+            foreach (Control ctrl in controls)
+            {
+                ctrl.Font = new Font(ctrl.Font.FontFamily, ctrl.Font.Size * scale, ctrl.Font.Style);
+                if (ctrl.HasChildren)
+                    ScaleFonts(ctrl.Controls, scale);
+            }
+        }
+
         /// <summary>
         /// Get top bar padding based on display scale factor
         /// </summary>

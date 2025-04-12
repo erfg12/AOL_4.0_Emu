@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeMenuForm));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(HomeMenuForm));
             todayLabel = new Label();
             RightPictureBox = new PictureBox();
             TitleBar = new Panel();
@@ -43,14 +43,14 @@
             YouveGotPicturesBtn = new PictureBox();
             aolChannelsBtn = new PictureBox();
             chatBtn = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)RightPictureBox).BeginInit();
+            ((ISupportInitialize)RightPictureBox).BeginInit();
             TitleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)AOLLogoPictureBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)mailCenterBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)YouveGotPicturesBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)aolChannelsBtn).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chatBtn).BeginInit();
+            ((ISupportInitialize)pictureBox2).BeginInit();
+            ((ISupportInitialize)AOLLogoPictureBox).BeginInit();
+            ((ISupportInitialize)mailCenterBtn).BeginInit();
+            ((ISupportInitialize)YouveGotPicturesBtn).BeginInit();
+            ((ISupportInitialize)aolChannelsBtn).BeginInit();
+            ((ISupportInitialize)chatBtn).BeginInit();
             SuspendLayout();
             // 
             // todayLabel
@@ -81,6 +81,8 @@
             // TitleBar
             // 
             TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             TitleBar.BackColor = Color.White;
             TitleBar.BackgroundImage = Properties.Resources.top_bar;
             TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
@@ -92,7 +94,7 @@
             TitleBar.Location = new Point(2, 2);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(568, 21);
+            TitleBar.Size = new Size(568, 25);
             TitleBar.TabIndex = 2;
             TitleBar.MouseMove += TitleBar_MouseMove;
             // 
@@ -277,15 +279,15 @@
             Text = "Welcome Home Window";
             Shown += HomeMenu_ShownAsync;
             LocationChanged += HomeMenuForm_LocationChanged;
-            ((System.ComponentModel.ISupportInitialize)RightPictureBox).EndInit();
+            ((ISupportInitialize)RightPictureBox).EndInit();
             TitleBar.ResumeLayout(false);
             TitleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)AOLLogoPictureBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)mailCenterBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)YouveGotPicturesBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)aolChannelsBtn).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chatBtn).EndInit();
+            ((ISupportInitialize)pictureBox2).EndInit();
+            ((ISupportInitialize)AOLLogoPictureBox).EndInit();
+            ((ISupportInitialize)mailCenterBtn).EndInit();
+            ((ISupportInitialize)YouveGotPicturesBtn).EndInit();
+            ((ISupportInitialize)aolChannelsBtn).EndInit();
+            ((ISupportInitialize)chatBtn).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

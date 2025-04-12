@@ -72,6 +72,9 @@ public partial class FavoritePlacesForm : _Win95Theme
 
     private void ReloadFavorites()
     {
+        if (!IsHandleCreated)
+            return;
+
         fpTreeView.Invoke(new MethodInvoker(async () =>
         {
             fpTreeView.Nodes[0].Nodes.Clear();

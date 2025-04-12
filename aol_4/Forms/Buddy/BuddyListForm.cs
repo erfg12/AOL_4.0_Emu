@@ -197,7 +197,14 @@ public partial class BuddyListForm : _Win95Theme
                 buddyTreeView.SelectedNode = node;
                 buddyContextMenuStrip.Show(buddyTreeView, e.Location);
 
-                selectedBuddy = SqliteAccountsService.GetBuddyList().Where(x => x.username.Equals(node.Text)).First();
+                var buddyList = SqliteAccountsService.GetBuddyList();
+                if (buddyList == null || buddyList.Count() <= 0)
+                    return;
+
+                selectedBuddy = buddyList.Where(x => x.username.Equals(node.Text)).First();
+                if (selectedBuddy == null)
+                    return;
+
                 selectedNode = node;
                 Debug.WriteLine($"Right-clicked buddy {selectedBuddy.username} with ID: {selectedBuddy.id}");
             }
