@@ -27,14 +27,33 @@
         int wndWidth = 0;
         int wndHeight = 0;
         public bool maximized = false;
-        int paddingTop_100 = 117;
-        int paddingTop_125 = 157;
-        int paddingTop_150 = 195;
-        int paddingTop_175 = 234;
-        int paddingTop_200 = 250;
-        int paddingTop_225 = 290;
-        int paddingTop_250 = 320;
-        int paddingTop_300 = 375;
+
+        Dictionary<double, int> paddingTop = new()
+        {
+            {1.00, 117},
+            {1.25, 157},
+            {1.50, 195},
+            {1.75, 234},
+            {2.00, 250},
+            {2.25, 290},
+            {2.50, 320},
+            {3.00, 375}
+        };
+
+        Dictionary<double, int> paddingTopv2 = new()
+        {
+            {0.70, 77},
+            {0.75, 84},
+            {0.80, 91},
+            {0.85, 96},
+            {0.90, 103},
+            {0.95, 110},
+            {1.00, 117},
+            {1.05, 120},
+            {1.10, 128},
+            {1.15, 136},
+            {1.20, 140}
+        };
 
         private const int
             HTLEFT = 10,
@@ -122,7 +141,7 @@
                 if (resize)
                 {
                     this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                    this.ActiveMdiChild.Height = this.Height - GetTopPadding() - 5;
+                    this.ActiveMdiChild.Height = this.Height - GetTopPaddingv2() - 5;
                 }
             }
         }
@@ -166,7 +185,7 @@
                 this.Location = new Point(0, 116);
                 var t = GetDisplayScaleFactor(this.Handle);
                 this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                this.Height = Parent.Height - GetTopPadding() - 5;
+                this.Height = Parent.Height - GetTopPaddingv2() - 5;
                 maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
         }
@@ -210,15 +229,23 @@
         private int GetTopPadding()
         {
             var t = GetDisplayScaleFactor(this.Handle);
-            int ret = paddingTop_100;
-            if (t <= 1.00) ret = paddingTop_100;
-            else if (t <= 1.25) ret = paddingTop_125;
-            else if (t <= 1.50) ret = paddingTop_150;
-            else if (t <= 1.75) ret = paddingTop_175;
-            else if (t <= 2.00) ret = paddingTop_200;
-            else if (t <= 2.25) ret = paddingTop_225;
-            else if (t <= 2.50) ret = paddingTop_250;
-            else if (t <= 3.00) ret = paddingTop_300;
+            var ret = paddingTop[1.00];
+            if (t > 1.00 && t <= 3.00) 
+                ret = paddingTop[t];
+            return Convert.ToInt32(ret);
+        }
+
+        /// <summary>
+        /// Get top bar padding based on UI scale factor
+        /// </summary>
+        /// <returns>padding amount</returns>
+        private int GetTopPaddingv2()
+        {
+            dynamic t = Properties.Settings.Default.uiScale ?? "0.1";
+            t = double.Parse(t);
+            var ret = paddingTopv2[1.00];
+            if (t >= 0.70 && t <= 1.25)
+                ret = paddingTopv2[t];
             return Convert.ToInt32(ret);
         }
 
@@ -231,7 +258,7 @@
         {
             if (this.Name != "main" && MdiParent != null)
             {
-                int paddingTopCalc = GetTopPadding();
+                int paddingTopCalc = GetTopPaddingv2();
                 if (this.Location.Y < paddingTopCalc)
                 {
                     int LocX = this.Location.X;

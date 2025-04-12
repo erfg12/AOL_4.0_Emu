@@ -260,15 +260,12 @@ public partial class MainForm : _Win95Theme
         }
         catch
         {
-            MessageBox.Show("getMdiChildURL_Tick() function crashed!");
+            MessageBox.Show("getMdiChildURL_Tick() crashed!");
         }
     }
 
     private void AddrBox_KeyDown(object sender, KeyEventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
         if (addrBox.Text.Length <= 3)
             newWindow = true;
 
@@ -282,16 +279,15 @@ public partial class MainForm : _Win95Theme
 
     private void GoBtn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
-            return;
-
         GoToURL();
     }
 
     private void TableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
     {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
-        SolidBrush brush1 = new SolidBrush(Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(102))))));
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) 
+            return;
+
+        SolidBrush brush1 = new SolidBrush(Color.FromArgb(102, 51, 102));
         if (e.Column == 13)
             e.Graphics.FillRectangle(brush1, e.CellBounds);
     }

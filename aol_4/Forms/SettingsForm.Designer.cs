@@ -351,7 +351,7 @@
             // 
             UIScaleBox.DropDownStyle = ComboBoxStyle.DropDownList;
             UIScaleBox.FormattingEnabled = true;
-            UIScaleBox.Items.AddRange(new object[] { "1.20", "1.15", "1.10", "1.05", "1.0", "0.95", "0.90", "0.85", "0.80" });
+            UIScaleBox.Items.AddRange(new object[] { "1.20", "1.15", "1.10", "1.05", "1.0", "0.95", "0.90", "0.85", "0.80", "0.75", "0.70" });
             UIScaleBox.Location = new Point(309, 41);
             UIScaleBox.Name = "UIScaleBox";
             UIScaleBox.Size = new Size(59, 23);
