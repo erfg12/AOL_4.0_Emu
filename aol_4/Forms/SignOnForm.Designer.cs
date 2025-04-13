@@ -1,6 +1,6 @@
 ﻿namespace aol.Forms
 {
-    partial class accForm
+    partial class SignOnForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new Container();
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(accForm));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(SignOnForm));
             label1 = new Label();
             screenName = new ComboBox();
             label2 = new Label();
@@ -245,7 +245,7 @@
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             // 
-            // accForm
+            // SignOnForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -265,10 +265,10 @@
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(375, 250);
             Margin = new Padding(4);
-            Name = "accForm";
+            Name = "SignOnForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.Manual;
-            Text = "accForm";
+            Text = "SignOnForm";
             FormClosing += AccForm_FormClosing;
             Load += AccForm_Load;
             Shown += AccForm_Shown;

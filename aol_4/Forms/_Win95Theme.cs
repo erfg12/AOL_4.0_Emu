@@ -224,9 +224,9 @@
 
         protected override void OnLoad(EventArgs e)
         {
-            //UIScaling(); // this works, but breaks picture boxes
+            UIScaling(); // this works, but breaks picture boxes
             base.OnLoad(e);
-            //this.PerformAutoScale();
+            this.PerformAutoScale();
         }
 
         /// <summary>
@@ -236,8 +236,27 @@
         {
             this.AutoScaleMode = AutoScaleMode.None;
             string uiScale = Properties.Settings.Default.uiScale ?? "1.0";
-            this.Scale(new SizeF(float.Parse(uiScale), float.Parse(uiScale)));
-            ScaleFonts(this.Controls, float.Parse(uiScale));
+
+            var uiScaleF = float.Parse(uiScale);
+
+            List<string> scaledForms = new List<string>
+            {
+                "MainForm",
+                "MsgBoxForm",
+                "BrowserForm",
+                "SignOnForm",
+                "SignupForm",
+                "HomeMenuForm",
+                "DialUpForm",
+                "BuddyListForm",
+            };
+
+            if (scaledForms.Contains(this.Name))
+            {
+                this.Scale(new SizeF(uiScaleF, uiScaleF));
+                ScaleFonts(this.Controls, uiScaleF);
+            }
+            
         }
 
         private void ScaleFonts(Control.ControlCollection controls, float scale)

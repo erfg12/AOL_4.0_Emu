@@ -67,7 +67,6 @@
             // 
             // RightPictureBox
             // 
-            RightPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             RightPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
             RightPictureBox.Image = (Image)resources.GetObject("RightPictureBox.Image");
             RightPictureBox.Location = new Point(129, 23);
@@ -208,7 +207,7 @@
             mailCenterBtn.BackgroundImage = (Image)resources.GetObject("mailCenterBtn.BackgroundImage");
             mailCenterBtn.BackgroundImageLayout = ImageLayout.Stretch;
             mailCenterBtn.Cursor = Cursors.Hand;
-            mailCenterBtn.Location = new Point(2, 114);
+            mailCenterBtn.Location = new Point(2, 115);
             mailCenterBtn.Margin = new Padding(2);
             mailCenterBtn.Name = "mailCenterBtn";
             mailCenterBtn.Size = new Size(126, 53);

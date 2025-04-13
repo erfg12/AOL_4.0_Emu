@@ -1,9 +1,9 @@
 ﻿namespace aol.Forms;
-public partial class accForm : _Win95Theme
+public partial class SignOnForm : _Win95Theme
 {
     ConcurrentBag<string> theAccs = SqliteAccountsService.ListAccounts();
 
-    public accForm()
+    public SignOnForm()
     {
         InitializeComponent();
     }

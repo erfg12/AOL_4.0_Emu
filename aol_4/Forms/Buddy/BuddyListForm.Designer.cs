@@ -117,7 +117,6 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
             label1.Location = new Point(4, 304);
@@ -200,6 +199,8 @@
             // TopPanel
             // 
             TopPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TopPanel.AutoSize = true;
+            TopPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             TopPanel.BackColor = Color.White;
             TopPanel.BackgroundImage = Properties.Resources.top_bar;
             TopPanel.BackgroundImageLayout = ImageLayout.Stretch;
@@ -210,7 +211,7 @@
             TopPanel.Location = new Point(2, 2);
             TopPanel.Margin = new Padding(4);
             TopPanel.Name = "TopPanel";
-            TopPanel.Size = new Size(165, 21);
+            TopPanel.Size = new Size(165, 24);
             TopPanel.TabIndex = 2;
             TopPanel.MouseDoubleClick += TitleBar_MouseDoubleClick;
             TopPanel.MouseMove += TitleBar_MouseMove;

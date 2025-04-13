@@ -298,6 +298,8 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
@@ -309,7 +311,7 @@
             panel1.Location = new Point(1, 1);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(822, 21);
+            panel1.Size = new Size(822, 24);
             panel1.TabIndex = 2;
             panel1.DoubleClick += TitleBar_DoubleClick;
             panel1.MouseMove += TitleBar_MouseMove;

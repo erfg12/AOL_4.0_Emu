@@ -234,7 +234,6 @@
             // 
             // leftBanner
             // 
-            leftBanner.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             leftBanner.BackgroundImageLayout = ImageLayout.Stretch;
             leftBanner.Image = (Image)resources.GetObject("leftBanner.Image");
             leftBanner.Location = new Point(3, 21);

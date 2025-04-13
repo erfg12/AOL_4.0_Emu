@@ -188,7 +188,7 @@ public partial class MainForm : _Win95Theme
         toolTip1.SetToolTip(favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
         // open account form window
-        MDIHelper.OpenForm<accForm>(this);
+        MDIHelper.OpenForm<SignOnForm>(this);
     }
 
     private void FileBtn_Click(object sender, EventArgs e)
@@ -463,7 +463,7 @@ public partial class MainForm : _Win95Theme
         if (Account.SignedIn())
         {
             SignOff();
-            MDIHelper.OpenForm<accForm>(this);
+            MDIHelper.OpenForm<SignOnForm>(this);
         }
     }
 
