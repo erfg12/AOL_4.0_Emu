@@ -10,8 +10,6 @@ public partial class InstantMessageForm : _Win95Theme
         LocationService.PositionWindow(this);
         Text = user + " Instant Message";
         mainTitle.Text = user + " Instant Message";
-        if (!backgroundWorker1.IsBusy)
-            backgroundWorker1.RunWorkerAsync();
     }
 
     private void sendBtn_Click(object sender, EventArgs e)
@@ -199,8 +197,6 @@ public partial class InstantMessageForm : _Win95Theme
         string lastLine = "";
         try
         {
-            messagesBox.Invoke(new MethodInvoker(delegate
-        {
             using FileStream file = new FileStream(privateLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using StreamReader sr = new StreamReader(file);
 
@@ -235,7 +231,6 @@ public partial class InstantMessageForm : _Win95Theme
                 }
             }
             messagesBox.ScrollToCaret();
-        }));
         }
         catch
         {
@@ -266,13 +261,6 @@ public partial class InstantMessageForm : _Win95Theme
         }
     }
 
-    private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-    {
-        Thread.Sleep(1000);
-        WriteFileToBox(true);
-        KeepReading();
-    }
-
     private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
@@ -286,5 +274,14 @@ public partial class InstantMessageForm : _Win95Theme
     private void InstantMessageForm_LocationChanged(object sender, EventArgs e)
     {
         OnLocationChanged(sender, e);
+    }
+
+    /// <summary>
+    /// Update messages received. To-Do: Make this event driven.
+    /// </summary>
+    private void UpdateMessagesTimer_Tick(object sender, EventArgs e)
+    {
+        WriteFileToBox(true);
+        KeepReading();
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new Container();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(ChatroomForm));
             messageTextBox = new TextBox();
             chatRoomTextBox = new RichTextBox();
@@ -40,10 +41,10 @@
             closeBtn = new Button();
             usersListView = new ListView();
             users = new ColumnHeader();
-            backgroundWorker1 = new BackgroundWorker();
             BackgroundPictureBox = new PictureBox();
             pplQty = new Label();
             chatSendBtn = new PictureBox();
+            UpdateUsersTimer = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)BackgroundPictureBox).BeginInit();
@@ -203,10 +204,6 @@
             users.Text = "users";
             users.Width = 170;
             // 
-            // backgroundWorker1
-            // 
-            backgroundWorker1.DoWork += BackgroundWorker_DoWork;
-            // 
             // BackgroundPictureBox
             // 
             BackgroundPictureBox.BackgroundImage = (Image)resources.GetObject("BackgroundPictureBox.BackgroundImage");
@@ -241,6 +238,12 @@
             chatSendBtn.TabIndex = 10;
             chatSendBtn.TabStop = false;
             chatSendBtn.Click += ChatSendBtn_Click;
+            // 
+            // UpdateUsersTimer
+            // 
+            UpdateUsersTimer.Enabled = true;
+            UpdateUsersTimer.Interval = 1000;
+            UpdateUsersTimer.Tick += UpdateUsersTimer_Tick;
             // 
             // ChatroomForm
             // 
@@ -284,10 +287,10 @@
         private System.Windows.Forms.ListView usersListView;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ColumnHeader users;
         private System.Windows.Forms.PictureBox BackgroundPictureBox;
         private System.Windows.Forms.Label pplQty;
         private System.Windows.Forms.PictureBox chatSendBtn;
+        private System.Windows.Forms.Timer UpdateUsersTimer;
     }
 }

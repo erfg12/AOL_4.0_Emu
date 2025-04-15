@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new Container();
             messagesBox = new RichTextBox();
             myMessageBox = new RichTextBox();
             sendBtn = new Button();
-            backgroundWorker1 = new BackgroundWorker();
             panel2 = new Panel();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -69,6 +69,7 @@
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
+            UpdateMessagesTimer = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -111,10 +112,6 @@
             sendBtn.Text = "SEND";
             sendBtn.UseVisualStyleBackColor = false;
             sendBtn.Click += sendBtn_Click;
-            // 
-            // backgroundWorker1
-            // 
-            backgroundWorker1.DoWork += BackgroundWorker_DoWork;
             // 
             // panel2
             // 
@@ -456,6 +453,12 @@
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += CloseBtn_Click;
             // 
+            // UpdateMessagesTimer
+            // 
+            UpdateMessagesTimer.Enabled = true;
+            UpdateMessagesTimer.Interval = 1000;
+            UpdateMessagesTimer.Tick += UpdateMessagesTimer_Tick;
+            // 
             // InstantMessageForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -494,7 +497,6 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.RichTextBox myMessageBox;
         private System.Windows.Forms.Button sendBtn;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox messagesBox;
@@ -528,5 +530,6 @@
         private System.Windows.Forms.ToolStripMenuItem cryingCtrlShift6ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xLipsaresealedCtrlShift7ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dLaughingCtrlShift8ToolStripMenuItem;
+        private System.Windows.Forms.Timer UpdateMessagesTimer;
     }
 }

@@ -48,9 +48,6 @@ public partial class ChatroomForm : _Win95Theme
         mainTitle.Text = pChat + " Chatroom";
 
         WriteFileToBox(true);
-
-        if (!backgroundWorker1.IsBusy)
-            backgroundWorker1.RunWorkerAsync();
     }
 
     private void WriteFileToBox(bool init = false)
@@ -73,7 +70,8 @@ public partial class ChatroomForm : _Win95Theme
             if (!init)
                 chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
             chatRoomTextBox.ScrollToCaret();
-        } catch { }
+        }
+        catch { }
     }
 
     public void OnChanged(object source, FileSystemEventArgs e)
@@ -94,68 +92,6 @@ public partial class ChatroomForm : _Win95Theme
         watch.Changed += new FileSystemEventHandler(OnChanged);
         watch.EnableRaisingEvents = true;
         Debug.WriteLine($"watching {chatlog} for changes");
-    }
-
-    private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-    {
-        // keep users list up to date
-        while (true)
-        {
-            if (!IsHandleCreated || !Account.SignedIn())
-                continue;
-
-            if (formClosing || !ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
-            {
-                Debug.WriteLine("Client is not connected, breaking BGWorker");
-                break;
-            }
-
-            usersListView.Invoke(new MethodInvoker(delegate
-            {
-                if (!ChatService.irc.IsClientRunning())
-                {
-                    MessageBox.Show("ERROR: IRC client not connected");
-                    return;
-                }
-                if (!ChatService.users.ContainsKey(roomname))
-                {
-                    Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
-                    ChatService.irc.GetUsersInDifferentChannel("#" + roomname);
-                    //System.Threading.Thread.Sleep(2000);
-                    return;
-                }
-                // remove offline users
-                foreach (ListViewItem item in usersListView.Items)
-                {
-                    if (!ChatService.users[roomname].Contains(item.Text))
-                    {
-                        usersListView.Items.Remove(item);
-                        pplCount--;
-                    }
-                }
-                // add online users
-                List<string> usersList = ChatService.users[roomname]; // gotta declare it, so we can use it
-                for (int i = 0; i < usersList.Count; i++)
-                {
-                    if (usersList[i] == "")
-                        continue;
-                    if (!usersListView.Items.ContainsKey(usersList[i]))
-                    {
-                        ListViewItem lvi = new ListViewItem();
-                        lvi.Text = usersList[i];
-                        lvi.Tag = usersList[i];
-                        lvi.Name = usersList[i];
-                        usersListView.Items.Add(lvi);
-                        pplCount++;
-                    }
-                }
-            }));
-            pplQty.Invoke(new MethodInvoker(delegate
-            {
-                pplQty.Text = pplCount.ToString();
-            }));
-            Thread.Sleep(2000);
-        }
     }
 
     private void UsersListView_DoubleClick(object sender, EventArgs e)
@@ -236,5 +172,55 @@ public partial class ChatroomForm : _Win95Theme
     private void ChatroomForm_LocationChanged(object sender, EventArgs e)
     {
         OnLocationChanged(sender, e);
+    }
+
+    /// <summary>
+    /// Update users list per second. To-Do: think about changing this to an event driven system
+    /// </summary>
+    private void UpdateUsersTimer_Tick(object sender, EventArgs e)
+    {
+        if (!IsHandleCreated || !Account.SignedIn())
+            return;
+
+        if (formClosing || !ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
+        {
+            Debug.WriteLine("Client is not connected.");
+            return;
+        }
+
+        if (!ChatService.users.ContainsKey(roomname))
+        {
+            Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
+            ChatService.irc.GetUsersInDifferentChannel("#" + roomname);
+            return;
+        }
+
+        // remove offline users
+        foreach (ListViewItem item in usersListView.Items)
+        {
+            if (!ChatService.users[roomname].Contains(item.Text))
+            {
+                usersListView.Items.Remove(item);
+                pplCount--;
+            }
+        }
+
+        // add online users
+        List<string> usersList = ChatService.users[roomname]; // gotta declare it, so we can use it
+        for (int i = 0; i < usersList.Count; i++)
+        {
+            if (usersList[i] == "")
+                continue;
+            if (!usersListView.Items.ContainsKey(usersList[i]))
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = usersList[i];
+                lvi.Tag = usersList[i];
+                lvi.Name = usersList[i];
+                usersListView.Items.Add(lvi);
+                pplCount++;
+            }
+        }
+        pplQty.Text = pplCount.ToString();
     }
 }

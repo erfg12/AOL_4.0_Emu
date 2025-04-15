@@ -56,46 +56,27 @@ public partial class FavoritePlacesForm : _Win95Theme
         MDIHelper.OpenForm(() => new FavoritesAddForm(fpTreeView.SelectedNode.Tag.ToString(), fpTreeView.SelectedNode.Text, true), MdiParent);
     }
 
-    private async void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-    {
-        while (true)
-        {
-            // check for new favorite items
-            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.GetFavoritesList())
-            {
-                if (!fpTreeView.Nodes[0].Nodes.ContainsKey(t.Key))
-                    ReloadFavorites();
-            }
-            Thread.Sleep(1000);
-        }
-    }
-
-    private void ReloadFavorites()
+    private async Task ReloadFavorites()
     {
         if (!IsHandleCreated)
             return;
 
-        fpTreeView.Invoke(new MethodInvoker(async () =>
-        {
-            fpTreeView.Nodes[0].Nodes.Clear();
+        fpTreeView.Nodes[0].Nodes.Clear();
 
-            foreach (KeyValuePair<string, string> t in await SqliteAccountsService.GetFavoritesList())
-            {
-                TreeNode ntn = new TreeNode();
-                ntn.Text = t.Value;
-                ntn.Name = t.Key;
-                ntn.Tag = t.Key;
-                fpTreeView.Nodes[0].Nodes.Add(ntn);
-                fpTreeView.Nodes[0].Expand();
-            }
-        }));
+        foreach (KeyValuePair<string, string> t in await SqliteAccountsService.GetFavoritesList())
+        {
+            TreeNode ntn = new TreeNode();
+            ntn.Text = t.Value;
+            ntn.Name = t.Key;
+            ntn.Tag = t.Key;
+            fpTreeView.Nodes[0].Nodes.Add(ntn);
+            fpTreeView.Nodes[0].Expand();
+        }
     }
 
-    private void Favorite_places_Shown(object sender, EventArgs e)
+    private async void Favorite_places_Shown(object sender, EventArgs e)
     {
-        ReloadFavorites();
-        if (!backgroundWorker1.IsBusy)
-            backgroundWorker1.RunWorkerAsync();
+        await ReloadFavorites();
     }
 
     public FavoritePlacesForm()
