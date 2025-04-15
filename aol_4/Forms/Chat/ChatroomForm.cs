@@ -1,27 +1,26 @@
 ﻿namespace aol.Forms;
 public partial class ChatroomForm : _Win95Theme
 {
-    string chatlog = "";
-    string roomname = "";
-    string pChat = "";
+    private readonly string chatlog;
+    private readonly string roomname;
+
     int pplCount = 0;
     FileSystemWatcher watch = null;
     bool formClosing = false;
 
     public ChatroomForm(string channel)
     {
-        pChat = channel;
         roomname = channel;
-        string logpath = Application.StartupPath + @"\chatlogs";
-        chatlog = logpath + @"\" + channel + ".txt";
+        var chatLogDir = $"{Application.StartupPath}\\chatlogs";
+        chatlog = $"{chatLogDir}\\{channel}\\.txt";
 
-        if (!Directory.Exists(logpath))
-            Directory.CreateDirectory(logpath);
+        if(!Directory.Exists(chatLogDir))
+            Directory.CreateDirectory(chatLogDir);
         if (!File.Exists(chatlog))
             File.Create(chatlog).Dispose();
 
         int c = 0;
-        while (!ChatService.irc.IsClientRunning())
+        while (!formClosing && !ChatService.irc.IsClientRunning())
         {
             Debug.WriteLine("not connected yet");
             Thread.Sleep(500); // wait 1/2 sec
@@ -44,8 +43,8 @@ public partial class ChatroomForm : _Win95Theme
     {
         LocationService.PositionWindow(this);
         //chat.users.Clear();
-        Text = pChat + " Chatroom";
-        mainTitle.Text = pChat + " Chatroom";
+        Text = roomname + " Chatroom";
+        mainTitle.Text = roomname + " Chatroom";
 
         WriteFileToBox(true);
     }
@@ -106,7 +105,7 @@ public partial class ChatroomForm : _Win95Theme
     private void Chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
-        ChatService.irc.SendRawMessage("part #" + pChat);
+        ChatService.irc.SendRawMessage("part #" + roomname);
     }
 
     private void MessageTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -133,14 +132,14 @@ public partial class ChatroomForm : _Win95Theme
         if (!ChatService.irc.IsClientRunning())
             MessageBox.Show("ERROR: IRC client is not running");
 
-        if (!ChatService.irc.SendMessageToChannel(messageTextBox.Text, "#" + pChat))
+        if (!ChatService.irc.SendMessageToChannel(messageTextBox.Text, "#" + roomname))
         {
             MessageBox.Show("ERROR: Failed to send message!");
             return;
         }
         // write to file
         string logpath = Application.StartupPath + @"\chatlogs";
-        string privateLog = logpath + @"\" + pChat + ".txt";
+        string privateLog = logpath + @"\" + roomname + ".txt";
         File.AppendAllText(privateLog, Account.tmpUsername + ": " + messageTextBox.Text + '\n');
         messageTextBox.Clear();
     }
@@ -182,7 +181,7 @@ public partial class ChatroomForm : _Win95Theme
         if (!IsHandleCreated || !Account.SignedIn())
             return;
 
-        if (formClosing || !ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
+        if (!ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
         {
             Debug.WriteLine("Client is not connected.");
             return;

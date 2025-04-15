@@ -1,8 +1,9 @@
 ﻿namespace aol.Forms;
 public partial class InstantMessageForm : _Win95Theme
 {
-    string privateLog = "";
-    string user = "";
+    private readonly string privateLog;
+    private readonly string user;
+
     FileSystemWatcher watch = null;
 
     private void instant_message_Shown(object sender, EventArgs e)
@@ -16,9 +17,7 @@ public partial class InstantMessageForm : _Win95Theme
     {
         // send to server
         ChatService.irc.SendMessageToChannel(myMessageBox.Text, user);
-        // write to file
-        string logpath = Application.StartupPath + @"\chatlogs";
-        string privateLog = logpath + @"\PM_" + user + ".txt";
+
         try
         {
             File.AppendAllText(privateLog, Account.tmpUsername + ": " + myMessageBox.Text + '\n');
@@ -39,29 +38,21 @@ public partial class InstantMessageForm : _Win95Theme
 
     public InstantMessageForm(string u)
     {
-        string logpath = Application.StartupPath + @"\chatlogs";
-        privateLog = logpath + @"\PM_" + u + ".txt";
         user = u;
+
+        string logpath = Application.StartupPath + @"\chatlogs";
+        privateLog = $"{logpath}\\PM_{user}.txt";
 
         try
         {
             if (!Directory.Exists(logpath))
                 Directory.CreateDirectory(logpath);
-        }
-        catch
-        {
-            OpenMsgBox("ERROR", "There was an issue creating log directory: " + logpath);
-
-        }
-
-        try
-        {
             if (!File.Exists(privateLog))
                 File.Create(privateLog).Dispose();
         }
         catch
         {
-            OpenMsgBox("ERROR", "There was an issue creating log file: " + privateLog);
+            OpenMsgBox("ERROR", $"There was an issue creating log file {privateLog}. Does the app have permission?");
         }
 
         InitializeComponent();
@@ -93,7 +84,9 @@ public partial class InstantMessageForm : _Win95Theme
 
     private void ReceivedMsgSound()
     {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) 
+            return;
+
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         player.Stream = Properties.Resources.imrcv;
         player.Play();
@@ -116,7 +109,9 @@ public partial class InstantMessageForm : _Win95Theme
 
     private void SendMsgSound()
     {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) return;
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) 
+            return;
+
         System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         player.Stream = Properties.Resources.imsend;
         player.Play();
