@@ -10,11 +10,13 @@ public partial class ChatroomForm : _Win95Theme
 
     public ChatroomForm(string channel)
     {
+        InitializeComponent();
+
         roomname = channel;
         var chatLogDir = $"{Application.StartupPath}\\chatlogs";
-        chatlog = $"{chatLogDir}\\{channel}\\.txt";
+        chatlog = $"{chatLogDir}\\{channel}.txt";
 
-        if(!Directory.Exists(chatLogDir))
+        if (!Directory.Exists(chatLogDir))
             Directory.CreateDirectory(chatLogDir);
         if (!File.Exists(chatlog))
             File.Create(chatlog).Dispose();
@@ -35,8 +37,6 @@ public partial class ChatroomForm : _Win95Theme
         ChatService.irc.SendRawMessage("join #" + channel);
 
         KeepReading();
-
-        InitializeComponent();
     }
 
     private void Chatroom_Shown(object sender, EventArgs e)
@@ -61,14 +61,27 @@ public partial class ChatroomForm : _Win95Theme
             while (!sr.EndOfStream)
             {
                 if (init)
-                    chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                {
+                    chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                    {
+                        chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                    }));
+                }
                 else
                     lastLine = sr.ReadLine();
             }
 
             if (!init)
-                chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
-            chatRoomTextBox.ScrollToCaret();
+            {
+                chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                {
+                    chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
+                }));
+            }
+            chatRoomTextBox.Invoke(new MethodInvoker(delegate
+            {
+                chatRoomTextBox.ScrollToCaret();
+            }));
         }
         catch { }
     }

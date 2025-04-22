@@ -11,6 +11,8 @@ public partial class InstantMessageForm : _Win95Theme
         LocationService.PositionWindow(this);
         Text = user + " Instant Message";
         mainTitle.Text = user + " Instant Message";
+        WriteFileToBox(true);
+        KeepReading();
     }
 
     private void sendBtn_Click(object sender, EventArgs e)
@@ -201,7 +203,10 @@ public partial class InstantMessageForm : _Win95Theme
                 {
                     try
                     {
-                        messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                        messagesBox.Invoke(new MethodInvoker(delegate
+                        {
+                            messagesBox.AppendText(sr.ReadLine() + Environment.NewLine);
+                        }));
                         ReceivedMsgSound();
                     }
                     catch
@@ -217,7 +222,10 @@ public partial class InstantMessageForm : _Win95Theme
             {
                 try
                 {
-                    messagesBox.AppendText(lastLine + Environment.NewLine);
+                    messagesBox.Invoke(new MethodInvoker(delegate
+                    {
+                        messagesBox.AppendText(lastLine + Environment.NewLine);
+                    }));
                     ReceivedMsgSound();
                 }
                 catch
@@ -225,7 +233,10 @@ public partial class InstantMessageForm : _Win95Theme
                     Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[2].");
                 }
             }
-            messagesBox.ScrollToCaret();
+            messagesBox.Invoke(new MethodInvoker(delegate
+            {
+                messagesBox.ScrollToCaret();
+            }));
         }
         catch
         {
@@ -276,7 +287,6 @@ public partial class InstantMessageForm : _Win95Theme
     /// </summary>
     private void UpdateMessagesTimer_Tick(object sender, EventArgs e)
     {
-        WriteFileToBox(true);
-        KeepReading();
+        
     }
 }

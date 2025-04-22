@@ -652,29 +652,6 @@ public partial class MainForm : _Win95Theme
         if (WindowState == FormWindowState.Maximized)
             return;
 
-        if (RectangleToScreen(FormRight).Contains(MousePosition) && !resizeB && !resizeD)
-        {
-            Cursor = Cursors.SizeWE;
-            if (MouseButtons == MouseButtons.Left) resizeR = true;
-        }
-        else if (RectangleToScreen(FormBottom).Contains(MousePosition) && !resizeR && !resizeD)
-        {
-            Cursor = Cursors.SizeNS;
-            if (MouseButtons == MouseButtons.Left) resizeB = true;
-        }
-        else if (RectangleToScreen(BottomRight).Contains(MousePosition) && !resizeB && !resizeR)
-        {
-            Cursor = Cursors.SizeNWSE;
-            if (MouseButtons == MouseButtons.Left) resizeD = true;
-        }
-        else
-        {
-            if (Cursor == Cursors.SizeNWSE || Cursor == Cursors.SizeNESW || Cursor == Cursors.SizeNS || Cursor == Cursors.SizeWE)
-            {
-                Cursor = Cursors.Default;
-            }
-        }
-
         if (MouseButtons != MouseButtons.Left)
         {
             resizeD = false; resizeR = false; resizeB = false;

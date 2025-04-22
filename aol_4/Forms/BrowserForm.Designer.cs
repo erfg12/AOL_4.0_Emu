@@ -80,7 +80,6 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
             panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.White;
             panel1.BackgroundImage = Properties.Resources.top_bar;
@@ -120,7 +119,7 @@
             favoriteBtn.BackgroundImageLayout = ImageLayout.Stretch;
             favoriteBtn.Cursor = Cursors.Hand;
             favoriteBtn.Image = (Image)resources.GetObject("favoriteBtn.Image");
-            favoriteBtn.Location = new Point(786, 0);
+            favoriteBtn.Location = new Point(786, 1);
             favoriteBtn.Margin = new Padding(4);
             favoriteBtn.Name = "favoriteBtn";
             favoriteBtn.Size = new Size(18, 20);
@@ -150,7 +149,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(809, 1);
+            miniBtn.Location = new Point(809, 2);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -167,7 +166,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(830, 1);
+            maxBtn.Location = new Point(830, 2);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -185,7 +184,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(853, 1);
+            closeBtn.Location = new Point(853, 2);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -221,7 +220,6 @@
             panel1.PerformLayout();
             ((ISupportInitialize)favoriteBtn).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

@@ -55,11 +55,11 @@
             // 
             messageTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             messageTextBox.BorderStyle = BorderStyle.None;
-            messageTextBox.Font = new Font("Microsoft Sans Serif", 14F);
+            messageTextBox.Font = new Font("Microsoft Sans Serif", 12F);
             messageTextBox.Location = new Point(20, 482);
             messageTextBox.Margin = new Padding(4);
             messageTextBox.Name = "messageTextBox";
-            messageTextBox.Size = new Size(468, 22);
+            messageTextBox.Size = new Size(468, 19);
             messageTextBox.TabIndex = 3;
             messageTextBox.KeyDown += MessageTextBox_KeyDown;
             // 

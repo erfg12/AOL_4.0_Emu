@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new Container();
             messagesBox = new RichTextBox();
             myMessageBox = new RichTextBox();
             sendBtn = new Button();
             panel2 = new Panel();
-            menuStrip1 = new MenuStrip();
+            MenuStrip = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             insertToolStripMenuItem = new ToolStripMenuItem();
@@ -69,9 +68,8 @@
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
-            UpdateMessagesTimer = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
-            menuStrip1.SuspendLayout();
+            MenuStrip.SuspendLayout();
             panel1.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -79,18 +77,18 @@
             // messagesBox
             // 
             messagesBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            messagesBox.Location = new Point(7, 58);
+            messagesBox.Location = new Point(7, 54);
             messagesBox.Margin = new Padding(4);
             messagesBox.Name = "messagesBox";
             messagesBox.ReadOnly = true;
-            messagesBox.Size = new Size(609, 227);
+            messagesBox.Size = new Size(609, 229);
             messagesBox.TabIndex = 4;
             messagesBox.Text = "";
             // 
             // myMessageBox
             // 
             myMessageBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            myMessageBox.Location = new Point(7, 292);
+            myMessageBox.Location = new Point(7, 291);
             myMessageBox.Margin = new Padding(4);
             myMessageBox.Name = "myMessageBox";
             myMessageBox.Size = new Size(609, 66);
@@ -104,7 +102,7 @@
             sendBtn.BackColor = Color.FromArgb(0, 109, 170);
             sendBtn.FlatStyle = FlatStyle.Flat;
             sendBtn.ForeColor = SystemColors.Control;
-            sendBtn.Location = new Point(550, 364);
+            sendBtn.Location = new Point(550, 363);
             sendBtn.Margin = new Padding(4);
             sendBtn.Name = "sendBtn";
             sendBtn.Size = new Size(66, 58);
@@ -116,24 +114,24 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.Controls.Add(menuStrip1);
+            panel2.Controls.Add(MenuStrip);
             panel2.Location = new Point(3, 26);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new Size(616, 26);
             panel2.TabIndex = 8;
             // 
-            // menuStrip1
+            // MenuStrip
             // 
-            menuStrip1.Dock = DockStyle.None;
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, insertToolStripMenuItem, peopleToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(188, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            MenuStrip.Dock = DockStyle.None;
+            MenuStrip.ImageScalingSize = new Size(24, 24);
+            MenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, insertToolStripMenuItem, peopleToolStripMenuItem });
+            MenuStrip.Location = new Point(0, 0);
+            MenuStrip.Name = "MenuStrip";
+            MenuStrip.Padding = new Padding(7, 2, 0, 2);
+            MenuStrip.Size = new Size(308, 24);
+            MenuStrip.TabIndex = 0;
+            MenuStrip.Text = "MenuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -453,17 +451,11 @@
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += CloseBtn_Click;
             // 
-            // UpdateMessagesTimer
-            // 
-            UpdateMessagesTimer.Enabled = true;
-            UpdateMessagesTimer.Interval = 1000;
-            UpdateMessagesTimer.Tick += UpdateMessagesTimer_Tick;
-            // 
             // InstantMessageForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(622, 437);
+            ClientSize = new Size(622, 425);
             Controls.Add(panel2);
             Controls.Add(sendBtn);
             Controls.Add(myMessageBox);
@@ -471,7 +463,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(5, 120);
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = MenuStrip;
             Margin = new Padding(4);
             Name = "InstantMessageForm";
             StartPosition = FormStartPosition.Manual;
@@ -480,8 +472,8 @@
             LocationChanged += InstantMessageForm_LocationChanged;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            MenuStrip.ResumeLayout(false);
+            MenuStrip.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
@@ -501,7 +493,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox messagesBox;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
@@ -530,6 +522,5 @@
         private System.Windows.Forms.ToolStripMenuItem cryingCtrlShift6ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xLipsaresealedCtrlShift7ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dLaughingCtrlShift8ToolStripMenuItem;
-        private System.Windows.Forms.Timer UpdateMessagesTimer;
     }
 }

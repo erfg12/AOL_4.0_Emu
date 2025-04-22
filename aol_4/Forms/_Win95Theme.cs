@@ -85,6 +85,8 @@
 
         protected override void WndProc(ref Message message)
         {
+            base.WndProc(ref message);
+
             if (!DesignMode)
             {
                 if (message.Msg == 0x84)
@@ -102,7 +104,7 @@
                     else if (Bottom.Contains(cursor)) message.Result = (IntPtr)HTBOTTOM;
                 }
             }
-            base.WndProc(ref message);
+            
         }
 
         /// <summary>
@@ -224,9 +226,10 @@
 
         protected override void OnLoad(EventArgs e)
         {
-            UIScaling(); // this works, but breaks picture boxes
+            if (!Properties.Settings.Default.uiScale.Equals("1.0"))
+                UIScaling(); // this works, but breaks picture boxes
             base.OnLoad(e);
-            this.PerformAutoScale();
+            //this.PerformAutoScale();
         }
 
         /// <summary>
