@@ -85,7 +85,7 @@ namespace aol.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Dogpile")]
+        [global::System.Configuration.DefaultSettingValueAttribute("AOL")]
         public string searchProvider {
             get {
                 return ((string)(this["searchProvider"]));

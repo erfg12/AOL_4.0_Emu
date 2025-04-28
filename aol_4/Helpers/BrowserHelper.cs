@@ -3,7 +3,7 @@ class BrowserHelper
 {
     public static string GenerateURLFromString(string urlArg)
     {
-        string url = "https://www.google.com";
+        string url = Account.homePageUrl;
         if (!urlArg.Contains("."))
             url = SearchProvider(urlArg);
         else
@@ -24,6 +24,10 @@ class BrowserHelper
                 return $"https://www.google.com/search?q={query}";
             case "Yahoo":
                 return $"https://search.yahoo.com/search?p={query}";
+            case "Dogpile":
+                return $"https://www.dogpile.com/serp?q={query}";
+            case "AOL":
+                return $"https://search.aol.com/aol/search?q={query}";
             default:
                 return "";
         }

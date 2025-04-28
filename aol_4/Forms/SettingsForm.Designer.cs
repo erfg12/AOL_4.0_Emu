@@ -237,7 +237,7 @@
             searchProvider.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             searchProvider.DropDownStyle = ComboBoxStyle.DropDownList;
             searchProvider.FormattingEnabled = true;
-            searchProvider.Items.AddRange(new object[] { "Dogpile", "Google", "Yahoo", "Bing" });
+            searchProvider.Items.AddRange(new object[] { "AOL", "Google", "Yahoo", "Bing", "Dogpile" });
             searchProvider.Location = new Point(94, 137);
             searchProvider.Margin = new Padding(4);
             searchProvider.Name = "searchProvider";

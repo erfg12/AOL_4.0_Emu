@@ -18,7 +18,7 @@
       <Value Profile="(Default)">ISP/LAN Connection</Value>
     </Setting>
     <Setting Name="searchProvider" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Dogpile</Value>
+      <Value Profile="(Default)">AOL</Value>
     </Setting>
     <Setting Name="APIKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">d8f6deea88bb177513cc8a14cf629020</Value>

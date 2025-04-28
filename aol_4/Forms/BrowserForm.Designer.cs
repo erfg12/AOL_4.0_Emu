@@ -72,7 +72,7 @@
             WebView.Margin = new Padding(2);
             WebView.Name = "WebView";
             WebView.Size = new Size(874, 469);
-            WebView.Source = new Uri("https://google.com", UriKind.Absolute);
+            WebView.Source = new Uri(Account.homePageUrl, UriKind.Absolute);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
             WebView.ZoomFactor = 1D;

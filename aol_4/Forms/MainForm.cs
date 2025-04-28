@@ -317,7 +317,7 @@ public partial class MainForm : _Win95Theme
         }
         catch
         { // something in the settings was messed up, load a default
-            OpenBrowser("https://google.com");
+            OpenBrowser(Account.homePageUrl);
             newWindow = false;
         }
     }

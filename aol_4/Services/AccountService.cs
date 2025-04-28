@@ -10,6 +10,8 @@ class Account
     public static string tmpUsername { get; set; }
     public static UserAPI accountInfo { get; set; }
 
+    public static string homePageUrl = "https://www.aol.com";
+
     public static bool SignedIn()
     {
         if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
