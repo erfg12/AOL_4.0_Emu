@@ -201,12 +201,11 @@ public partial class BuddyListForm : _Win95Theme
                 if (buddyList == null || buddyList.Count() <= 0)
                     return;
 
-                selectedBuddy = buddyList.Where(x => x.username.Equals(node.Text)).First();
-                if (selectedBuddy == null)
-                    return;
+                selectedBuddy = buddyList.Where(x => x.username.Equals(node.Text)).FirstOrDefault();
+                if (selectedBuddy != null)
+                    selectedNode = node;
 
-                selectedNode = node;
-                Debug.WriteLine($"Right-clicked buddy {selectedBuddy.username} with ID: {selectedBuddy.id}");
+                Debug.WriteLine($"Right-clicked buddy {selectedBuddy?.username} with ID: {selectedBuddy?.id}");
             }
         }
     }

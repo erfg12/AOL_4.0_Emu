@@ -1,4 +1,6 @@
-﻿namespace aol.Forms
+﻿using System.Globalization;
+
+namespace aol.Forms
 {
     public partial class _Win95Theme: Form
     {
@@ -240,7 +242,8 @@
             this.AutoScaleMode = AutoScaleMode.None;
             string uiScale = Properties.Settings.Default.uiScale ?? "1.0";
 
-            var uiScaleF = float.Parse(uiScale);
+            if (!float.TryParse(uiScale, CultureInfo.InvariantCulture, out float uiScaleF))
+                uiScaleF = 1.0f;
 
             List<string> scaledForms = new List<string>
             {

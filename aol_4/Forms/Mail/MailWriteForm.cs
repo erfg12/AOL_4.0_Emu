@@ -81,7 +81,14 @@ public partial class MailWriteForm : _Win95Theme
     private void SendButton_Click(object sender, EventArgs e)
     {
         // parse <name> "address"; format
-        foreach (KeyValuePair<string, string> entry in parseSendTo(sendToBox.Text))
+        var entries = parseSendTo(sendToBox.Text); // name, address
+        if (entries.Count == 0 || !entries.Values.Any(x => x.Contains("@") && x.Contains(".")))
+        {
+            OpenMsgBox("ERROR", "Please enter at least one valid email address.");
+            return;
+        }
+
+        foreach (KeyValuePair<string, string> entry in entries)
         {
             MailService.SendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
         }
