@@ -31,7 +31,7 @@
             ComponentResourceManager resources = new ComponentResourceManager(typeof(PicturesForm));
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             pictureBox3 = new PictureBox();
             closeBtn = new Button();
             maxBtn = new Button();
@@ -47,7 +47,7 @@
             label2 = new Label();
             ((ISupportInitialize)pictureBox2).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox3).BeginInit();
             ((ISupportInitialize)pictureBox4).BeginInit();
             ((ISupportInitialize)pictureBox5).BeginInit();
@@ -77,23 +77,22 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(closeBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(titleLabel);
-            panel1.Location = new Point(1, 1);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(731, 24);
-            panel1.TabIndex = 3;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(pictureBox3);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Location = new Point(1, 1);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "panel1";
+            TitleBar.Size = new Size(731, 24);
+            TitleBar.TabIndex = 3;
             // 
             // pictureBox3
             // 
@@ -172,7 +171,6 @@
             titleLabel.Size = new Size(178, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "You've Got Pictures - Quick Start";
-            titleLabel.MouseMove += TitleLabel_MouseMove;
             // 
             // label1
             // 
@@ -289,7 +287,7 @@
             Controls.Add(textBox1);
             Controls.Add(goToPics);
             Controls.Add(label1);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -298,11 +296,10 @@
             Name = "PicturesForm";
             Text = "pictures";
             Load += Pictures_Load;
-            LocationChanged += PicturesForm_LocationChanged;
             ((ISupportInitialize)pictureBox2).EndInit();
             ((ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox3).EndInit();
             ((ISupportInitialize)pictureBox4).EndInit();
             ((ISupportInitialize)pictureBox5).EndInit();
@@ -315,7 +312,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button miniBtn;

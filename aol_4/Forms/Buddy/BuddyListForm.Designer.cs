@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new Container();
-            TreeNode treeNode1 = new TreeNode("Buddies 0/0");
-            TreeNode treeNode2 = new TreeNode("Offline 0/0");
+            TreeNode treeNode5 = new TreeNode("Buddies 0/0");
+            TreeNode treeNode6 = new TreeNode("Offline 0/0");
             buddiesLabel = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -42,7 +42,7 @@
             setupBtn = new PictureBox();
             IMBtn = new PictureBox();
             pictureBox1 = new PictureBox();
-            TopPanel = new Panel();
+            TitleBar = new Panel();
             closeBtn = new Button();
             maxBtn = new Button();
             miniBtn = new Button();
@@ -54,7 +54,7 @@
             ((ISupportInitialize)setupBtn).BeginInit();
             ((ISupportInitialize)IMBtn).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
-            TopPanel.SuspendLayout();
+            TitleBar.SuspendLayout();
             buddyContextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -132,13 +132,13 @@
             buddyTreeView.Location = new Point(7, 47);
             buddyTreeView.Margin = new Padding(4);
             buddyTreeView.Name = "buddyTreeView";
-            treeNode1.Checked = true;
-            treeNode1.Name = "onlineBuddies";
-            treeNode1.Text = "Buddies 0/0";
-            treeNode2.Checked = true;
-            treeNode2.Name = "offlineBuddies";
-            treeNode2.Text = "Offline 0/0";
-            buddyTreeView.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode2 });
+            treeNode5.Checked = true;
+            treeNode5.Name = "onlineBuddies";
+            treeNode5.Text = "Buddies 0/0";
+            treeNode6.Checked = true;
+            treeNode6.Name = "offlineBuddies";
+            treeNode6.Text = "Offline 0/0";
+            buddyTreeView.Nodes.AddRange(new TreeNode[] { treeNode5, treeNode6 });
             buddyTreeView.Size = new Size(155, 186);
             buddyTreeView.TabIndex = 15;
             buddyTreeView.MouseDoubleClick += BuddyTreeView_MouseDoubleClick;
@@ -196,25 +196,23 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // TopPanel
+            // TitleBar
             // 
-            TopPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TopPanel.AutoSize = true;
-            TopPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            TopPanel.BackColor = Color.White;
-            TopPanel.BackgroundImage = Properties.Resources.top_bar;
-            TopPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            TopPanel.Controls.Add(closeBtn);
-            TopPanel.Controls.Add(maxBtn);
-            TopPanel.Controls.Add(miniBtn);
-            TopPanel.Controls.Add(titleLabel);
-            TopPanel.Location = new Point(2, 2);
-            TopPanel.Margin = new Padding(4);
-            TopPanel.Name = "TopPanel";
-            TopPanel.Size = new Size(165, 24);
-            TopPanel.TabIndex = 2;
-            TopPanel.MouseDoubleClick += TitleBar_MouseDoubleClick;
-            TopPanel.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Location = new Point(2, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(165, 24);
+            TitleBar.TabIndex = 2;
             // 
             // closeBtn
             // 
@@ -279,7 +277,6 @@
             titleLabel.Size = new Size(109, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "Buddy List Window";
-            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
             // UpdateTimer
             // 
@@ -317,7 +314,7 @@
             Controls.Add(setupBtn);
             Controls.Add(IMBtn);
             Controls.Add(pictureBox1);
-            Controls.Add(TopPanel);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(1157, 220);
             Margin = new Padding(4);
@@ -328,13 +325,12 @@
             Text = "Buddy List Window";
             FormClosing += Buddies_online_FormClosing;
             Shown += BuddiesOnline_Shown;
-            LocationChanged += BuddyListForm_LocationChanged;
             ((ISupportInitialize)pictureBox4).EndInit();
             ((ISupportInitialize)setupBtn).EndInit();
             ((ISupportInitialize)IMBtn).EndInit();
             ((ISupportInitialize)pictureBox1).EndInit();
-            TopPanel.ResumeLayout(false);
-            TopPanel.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             buddyContextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -342,7 +338,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel TopPanel;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;

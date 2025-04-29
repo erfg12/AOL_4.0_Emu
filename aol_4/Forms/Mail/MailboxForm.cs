@@ -7,6 +7,13 @@ public partial class MailboxForm : _Win95Theme
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
         this.Dock = DockStyle.Fill;
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        mainTitle.MouseMove += MoveWindow;
+        mainTitle.DoubleClick += TitleBar_DoubleClick;
+        TitleBar.DoubleClick += TitleBar_DoubleClick;
+        maxBtn.Click += MaxRestoreButton_Click;
     }
 
     private void GetEmail()
@@ -81,28 +88,9 @@ public partial class MailboxForm : _Win95Theme
         Close();
     }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
     private void MiniBtn_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
-    }
-
-    private void TitleBar_DoubleClick(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
     }
 
     private void DeleteBtn_Click(object sender, EventArgs e)
@@ -236,10 +224,5 @@ public partial class MailboxForm : _Win95Theme
         }
 
         OpenReadEmail(sentListView.SelectedItems[0].Text, sentListView.SelectedItems[0].Tag.ToString());
-    }
-
-    private void MailboxForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

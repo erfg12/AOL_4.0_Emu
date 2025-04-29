@@ -4,6 +4,10 @@ public partial class SignupForm : _Win95Theme
     public SignupForm()
     {
         InitializeComponent();
+
+        TitleBar.MouseMove += MoveWindow;
+        mainTitle.MouseMove += MoveWindow;
+        this.LocationChanged += OnLocationChanged;
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -14,11 +18,6 @@ public partial class SignupForm : _Win95Theme
     private void CancelBtn_Click(object sender, EventArgs e)
     {
         Close();
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
     }
 
     private void BackBtn_Click(object sender, EventArgs e)
@@ -105,10 +104,5 @@ public partial class SignupForm : _Win95Theme
         {
             e.Handled = true;
         }
-    }
-
-    private void SignupForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

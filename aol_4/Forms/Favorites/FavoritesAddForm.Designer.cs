@@ -28,102 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new System.Windows.Forms.Panel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            closeBtn = new System.Windows.Forms.Button();
-            maxBtn = new System.Windows.Forms.Button();
-            miniBtn = new System.Windows.Forms.Button();
-            titleLabel = new System.Windows.Forms.Label();
-            placeDescBox = new System.Windows.Forms.TextBox();
-            internetAddrBox = new System.Windows.Forms.TextBox();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            okBtn = new System.Windows.Forms.Button();
-            cancelBtn = new System.Windows.Forms.Button();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            TitleBar = new Panel();
+            pictureBox1 = new PictureBox();
+            closeBtn = new Button();
+            maxBtn = new Button();
+            miniBtn = new Button();
+            titleLabel = new Label();
+            placeDescBox = new TextBox();
+            internetAddrBox = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            okBtn = new Button();
+            cancelBtn = new Button();
+            TitleBar.SuspendLayout();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panel1.BackColor = System.Drawing.Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(closeBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(titleLabel);
-            panel1.Location = new System.Drawing.Point(3, 2);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(403, 21);
-            panel1.TabIndex = 3;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(403, 21);
+            TitleBar.TabIndex = 3;
+            TitleBar.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.aol_icon_4;
-            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Image = Properties.Resources.aol_icon_4;
             pictureBox1.InitialImage = Properties.Resources.aol_icon_4;
-            pictureBox1.Location = new System.Drawing.Point(1, -1);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            pictureBox1.Location = new Point(1, -1);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(21, 21);
+            pictureBox1.Size = new Size(21, 21);
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
             // closeBtn
             // 
-            closeBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            closeBtn.BackColor = System.Drawing.SystemColors.Control;
+            closeBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closeBtn.BackColor = SystemColors.Control;
             closeBtn.BackgroundImage = Properties.Resources.close_btn;
-            closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            closeBtn.ForeColor = System.Drawing.Color.Black;
-            closeBtn.Location = new System.Drawing.Point(382, 1);
-            closeBtn.Margin = new System.Windows.Forms.Padding(0);
+            closeBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            closeBtn.FlatStyle = FlatStyle.Flat;
+            closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            closeBtn.ForeColor = Color.Black;
+            closeBtn.Location = new Point(382, 1);
+            closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
-            closeBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            closeBtn.Size = new System.Drawing.Size(21, 19);
+            closeBtn.RightToLeft = RightToLeft.No;
+            closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += CloseBtn_Click;
             // 
             // maxBtn
             // 
-            maxBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            maxBtn.BackColor = System.Drawing.SystemColors.Control;
+            maxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            maxBtn.BackColor = SystemColors.Control;
             maxBtn.BackgroundImage = Properties.Resources.maximize_disabled_btn;
-            maxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            maxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            maxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            maxBtn.ForeColor = System.Drawing.Color.Black;
-            maxBtn.Location = new System.Drawing.Point(358, 1);
-            maxBtn.Margin = new System.Windows.Forms.Padding(0);
+            maxBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            maxBtn.FlatStyle = FlatStyle.Flat;
+            maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            maxBtn.ForeColor = Color.Black;
+            maxBtn.Location = new Point(358, 1);
+            maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
-            maxBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            maxBtn.Size = new System.Drawing.Size(21, 19);
+            maxBtn.RightToLeft = RightToLeft.No;
+            maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
             // 
             // miniBtn
             // 
-            miniBtn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            miniBtn.BackColor = System.Drawing.SystemColors.Control;
+            miniBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            miniBtn.BackColor = SystemColors.Control;
             miniBtn.BackgroundImage = Properties.Resources.minimize_btn;
-            miniBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            miniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            miniBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
-            miniBtn.ForeColor = System.Drawing.Color.Black;
-            miniBtn.Location = new System.Drawing.Point(337, 1);
-            miniBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            miniBtn.BackgroundImageLayout = ImageLayout.Stretch;
+            miniBtn.FlatStyle = FlatStyle.Flat;
+            miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
+            miniBtn.ForeColor = Color.Black;
+            miniBtn.Location = new Point(337, 1);
+            miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new System.Drawing.Size(21, 19);
+            miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += MiniBtn_Click;
@@ -131,64 +131,63 @@
             // titleLabel
             // 
             titleLabel.AutoSize = true;
-            titleLabel.BackColor = System.Drawing.Color.Transparent;
-            titleLabel.ForeColor = System.Drawing.Color.White;
-            titleLabel.Location = new System.Drawing.Point(24, 2);
-            titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            titleLabel.BackColor = Color.Transparent;
+            titleLabel.ForeColor = Color.White;
+            titleLabel.Location = new Point(24, 2);
+            titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(105, 15);
+            titleLabel.Size = new Size(105, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "Add Favorite Place";
-            titleLabel.MouseMove += TitleLabel_MouseMove;
             // 
             // placeDescBox
             // 
-            placeDescBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            placeDescBox.Location = new System.Drawing.Point(14, 55);
-            placeDescBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            placeDescBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            placeDescBox.Location = new Point(14, 55);
+            placeDescBox.Margin = new Padding(4);
             placeDescBox.Name = "placeDescBox";
-            placeDescBox.Size = new System.Drawing.Size(378, 23);
+            placeDescBox.Size = new Size(378, 23);
             placeDescBox.TabIndex = 4;
             // 
             // internetAddrBox
             // 
-            internetAddrBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            internetAddrBox.Location = new System.Drawing.Point(14, 106);
-            internetAddrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            internetAddrBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            internetAddrBox.Location = new Point(14, 106);
+            internetAddrBox.Margin = new Padding(4);
             internetAddrBox.Name = "internetAddrBox";
-            internetAddrBox.Size = new System.Drawing.Size(378, 23);
+            internetAddrBox.Size = new Size(378, 23);
             internetAddrBox.TabIndex = 5;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(15, 84);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Location = new Point(15, 84);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(143, 15);
+            label1.Size = new Size(143, 15);
             label1.TabIndex = 6;
             label1.Text = "Enter the Internet Address";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(15, 37);
-            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Location = new Point(15, 37);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(156, 15);
+            label2.Size = new Size(156, 15);
             label2.TabIndex = 7;
             label2.Text = "Enter the Place's Description";
             // 
             // okBtn
             // 
-            okBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
-            okBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            okBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            okBtn.ForeColor = System.Drawing.SystemColors.Control;
-            okBtn.Location = new System.Drawing.Point(133, 141);
-            okBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            okBtn.BackColor = Color.FromArgb(0, 109, 170);
+            okBtn.Cursor = Cursors.Hand;
+            okBtn.FlatStyle = FlatStyle.Flat;
+            okBtn.ForeColor = SystemColors.Control;
+            okBtn.Location = new Point(133, 141);
+            okBtn.Margin = new Padding(4);
             okBtn.Name = "okBtn";
-            okBtn.Size = new System.Drawing.Size(56, 26);
+            okBtn.Size = new Size(56, 26);
             okBtn.TabIndex = 8;
             okBtn.Text = "OK";
             okBtn.UseVisualStyleBackColor = false;
@@ -196,14 +195,14 @@
             // 
             // cancelBtn
             // 
-            cancelBtn.BackColor = System.Drawing.Color.FromArgb(0, 109, 170);
-            cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cancelBtn.ForeColor = System.Drawing.SystemColors.Control;
-            cancelBtn.Location = new System.Drawing.Point(214, 141);
-            cancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            cancelBtn.BackColor = Color.FromArgb(0, 109, 170);
+            cancelBtn.Cursor = Cursors.Hand;
+            cancelBtn.FlatStyle = FlatStyle.Flat;
+            cancelBtn.ForeColor = SystemColors.Control;
+            cancelBtn.Location = new Point(214, 141);
+            cancelBtn.Margin = new Padding(4);
             cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new System.Drawing.Size(67, 26);
+            cancelBtn.Size = new Size(67, 26);
             cancelBtn.TabIndex = 9;
             cancelBtn.Text = "Cancel";
             cancelBtn.UseVisualStyleBackColor = false;
@@ -211,28 +210,27 @@
             // 
             // FavoritesAddForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.Ivory;
-            ClientSize = new System.Drawing.Size(409, 181);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Ivory;
+            ClientSize = new Size(409, 181);
             Controls.Add(cancelBtn);
             Controls.Add(okBtn);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(internetAddrBox);
             Controls.Add(placeDescBox);
-            Controls.Add(panel1);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            MaximumSize = new System.Drawing.Size(816, 181);
-            MinimumSize = new System.Drawing.Size(409, 181);
+            Controls.Add(TitleBar);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
+            MaximumSize = new Size(816, 181);
+            MinimumSize = new Size(409, 181);
             Name = "FavoritesAddForm";
             Text = "Add Favorite Place";
             Shown += AddFavorite_Shown;
-            LocationChanged += FavoritesAddForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
+            ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -240,7 +238,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button miniBtn;

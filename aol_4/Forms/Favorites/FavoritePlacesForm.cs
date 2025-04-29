@@ -11,11 +11,6 @@ public partial class FavoritePlacesForm : _Win95Theme
         Close();
     }
 
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
     private void FpTreeView_DoubleClick(object sender, EventArgs e)
     {
         GoToURL();
@@ -82,20 +77,12 @@ public partial class FavoritePlacesForm : _Win95Theme
     public FavoritePlacesForm()
     {
         InitializeComponent();
-    }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-    private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-    private void FavoritePlacesForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
+        TitleBar.MouseMove += MoveWindow;
+        TitleBar.DoubleClick += TitleBar_DoubleClick;
+        titleLabel.MouseMove += MoveWindow;
+        titleLabel.DoubleClick += TitleBar_DoubleClick;
+        this.LocationChanged += OnLocationChanged;
+        maxBtn.Click += MaxRestoreButton_Click;
     }
 }

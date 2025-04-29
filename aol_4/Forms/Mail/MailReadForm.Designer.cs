@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(MailReadForm));
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             miniBtn = new Button();
             maxBtn = new Button();
@@ -51,7 +51,7 @@
             label4 = new Label();
             label5 = new Label();
             panel2 = new Panel();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)pictureBox2).BeginInit();
             ((ISupportInitialize)replyButton).BeginInit();
@@ -61,23 +61,21 @@
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(1, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(676, 21);
-            panel1.TabIndex = 4;
-            panel1.DoubleClick += TitleBar_DoubleClick;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(1, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(676, 21);
+            TitleBar.TabIndex = 4;
             // 
             // mainTitle
             // 
@@ -90,7 +88,6 @@
             mainTitle.Size = new Size(46, 15);
             mainTitle.TabIndex = 8;
             mainTitle.Text = "Subject";
-            mainTitle.MouseMove += TitleBar_MouseMove;
             // 
             // miniBtn
             // 
@@ -125,7 +122,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -368,16 +364,15 @@
             Controls.Add(helpBtn);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(15, 220);
             Margin = new Padding(4);
             Name = "MailReadForm";
             StartPosition = FormStartPosition.Manual;
             Text = "Read Mail";
-            LocationChanged += MailReadForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)pictureBox2).EndInit();
             ((ISupportInitialize)replyButton).EndInit();
@@ -391,7 +386,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;

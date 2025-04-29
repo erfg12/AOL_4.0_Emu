@@ -32,7 +32,7 @@
             ComponentResourceManager resources = new ComponentResourceManager(typeof(ChatroomForm));
             messageTextBox = new TextBox();
             chatRoomTextBox = new RichTextBox();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             pictureBox1 = new PictureBox();
             titleLabel = new Label();
@@ -45,7 +45,7 @@
             pplQty = new Label();
             chatSendBtn = new PictureBox();
             UpdateUsersTimer = new System.Windows.Forms.Timer(components);
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)BackgroundPictureBox).BeginInit();
             ((ISupportInitialize)chatSendBtn).BeginInit();
@@ -76,24 +76,23 @@
             chatRoomTextBox.TabIndex = 6;
             chatRoomTextBox.Text = "";
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(788, 21);
-            panel1.TabIndex = 2;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(788, 21);
+            TitleBar.TabIndex = 2;
             // 
             // mainTitle
             // 
@@ -106,7 +105,6 @@
             mainTitle.Size = new Size(61, 15);
             mainTitle.TabIndex = 10;
             mainTitle.Text = "Chatroom";
-            mainTitle.MouseMove += MainTitle_MouseMove;
             // 
             // pictureBox1
             // 
@@ -154,7 +152,7 @@
             // 
             maxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             maxBtn.BackColor = SystemColors.Control;
-            maxBtn.BackgroundImage = Properties.Resources.maximize_disabled_btn;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
             maxBtn.BackgroundImageLayout = ImageLayout.Stretch;
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
@@ -255,7 +253,7 @@
             Controls.Add(usersListView);
             Controls.Add(chatRoomTextBox);
             Controls.Add(messageTextBox);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             Controls.Add(BackgroundPictureBox);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(5, 245);
@@ -265,9 +263,8 @@
             Text = "chatroom";
             FormClosing += Chatroom_FormClosing;
             Shown += Chatroom_Shown;
-            LocationChanged += ChatroomForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)BackgroundPictureBox).EndInit();
             ((ISupportInitialize)chatSendBtn).EndInit();
@@ -277,7 +274,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;

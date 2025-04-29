@@ -37,6 +37,13 @@ public partial class ChatroomForm : _Win95Theme
         ChatService.irc.SendRawMessage("join #" + channel);
 
         KeepReading();
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        //TitleBar.DoubleClick += TitleBar_DoubleClick;
+        mainTitle.MouseMove += MoveWindow;
+        //mainTitle.DoubleClick += TitleBar_DoubleClick;
+        //maxBtn.Click += MaxRestoreButton_Click;
     }
 
     private void Chatroom_Shown(object sender, EventArgs e)
@@ -131,15 +138,6 @@ public partial class ChatroomForm : _Win95Theme
         }
     }
 
-    private void MainTitle_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
     private void SendMsg()
     {
         if (!ChatService.irc.IsClientRunning())
@@ -170,20 +168,6 @@ public partial class ChatroomForm : _Win95Theme
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
-    private void ChatroomForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 
     /// <summary>

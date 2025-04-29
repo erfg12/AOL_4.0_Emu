@@ -11,15 +11,6 @@ public partial class PreferencesForm : _Win95Theme
         Close();
     }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
     private void GeneralBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<SettingsForm>(MdiParent);
@@ -28,10 +19,9 @@ public partial class PreferencesForm : _Win95Theme
     public PreferencesForm()
     {
         InitializeComponent();
-    }
 
-    private void PreferencesForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
+        TitleBar.MouseMove += MoveWindow;
+        titleLabel.MouseMove += MoveWindow;
+        this.LocationChanged += OnLocationChanged;
     }
 }

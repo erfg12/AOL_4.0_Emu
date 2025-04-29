@@ -31,7 +31,7 @@
             ComponentResourceManager resources = new ComponentResourceManager(typeof(ChannelViewForm));
             toolStripContainer1 = new ToolStripContainer();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            panel1 = new Panel();
+            TitlePanel = new Panel();
             labelTitle = new Label();
             pictureBox22 = new PictureBox();
             favoriteBtn = new PictureBox();
@@ -42,7 +42,7 @@
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             ((ISupportInitialize)WebView).BeginInit();
-            panel1.SuspendLayout();
+            TitlePanel.SuspendLayout();
             ((ISupportInitialize)pictureBox22).BeginInit();
             ((ISupportInitialize)favoriteBtn).BeginInit();
             SuspendLayout();
@@ -78,26 +78,24 @@
             WebView.UseWaitCursor = true;
             WebView.ZoomFactor = 1D;
             // 
-            // panel1
+            // TitlePanel
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(labelTitle);
-            panel1.Controls.Add(pictureBox22);
-            panel1.Controls.Add(favoriteBtn);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(906, 21);
-            panel1.TabIndex = 1;
-            panel1.MouseDoubleClick += TitleBar_MouseDoubleClick;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitlePanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitlePanel.BackColor = Color.White;
+            TitlePanel.BackgroundImage = Properties.Resources.top_bar;
+            TitlePanel.BackgroundImageLayout = ImageLayout.Stretch;
+            TitlePanel.Controls.Add(labelTitle);
+            TitlePanel.Controls.Add(pictureBox22);
+            TitlePanel.Controls.Add(favoriteBtn);
+            TitlePanel.Controls.Add(titleLabel);
+            TitlePanel.Controls.Add(miniBtn);
+            TitlePanel.Controls.Add(maxBtn);
+            TitlePanel.Controls.Add(closeBtn);
+            TitlePanel.Location = new Point(3, 2);
+            TitlePanel.Margin = new Padding(4);
+            TitlePanel.Name = "TitlePanel";
+            TitlePanel.Size = new Size(906, 21);
+            TitlePanel.TabIndex = 1;
             // 
             // labelTitle
             // 
@@ -150,7 +148,6 @@
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(0, 15);
             titleLabel.TabIndex = 3;
-            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
             // miniBtn
             // 
@@ -209,7 +206,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 554);
-            Controls.Add(panel1);
+            Controls.Add(TitlePanel);
             Controls.Add(toolStripContainer1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -220,13 +217,12 @@
             StartPosition = FormStartPosition.Manual;
             Text = "browser";
             Shown += ChannelView_Shown;
-            LocationChanged += ChannelViewForm_LocationChanged;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
             ((ISupportInitialize)WebView).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitlePanel.ResumeLayout(false);
+            TitlePanel.PerformLayout();
             ((ISupportInitialize)pictureBox22).EndInit();
             ((ISupportInitialize)favoriteBtn).EndInit();
             ResumeLayout(false);
@@ -235,7 +231,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitlePanel;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button miniBtn;

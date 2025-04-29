@@ -6,25 +6,20 @@ public partial class ChannelViewForm : _Win95Theme
         InitializeComponent();
         this.Text = title;
         labelTitle.Text = title;
-        this.FormBorderStyle = FormBorderStyle.None;
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
         WebView.Source = new Uri(url);
-    }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
+        TitlePanel.DoubleClick += MaxRestoreButton_Click;
+        labelTitle.DoubleClick += MaxRestoreButton_Click;
+        TitlePanel.MouseMove += MoveWindow;
+        labelTitle.MouseMove += MoveWindow;
+        this.LocationChanged += OnLocationChanged;
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
-    }
-
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
     }
 
     private void MiniBtn_Click(object sender, EventArgs e)
@@ -39,20 +34,5 @@ public partial class ChannelViewForm : _Win95Theme
         toolTip1.SetToolTip(this.closeBtn, "Close Window");
         toolTip1.SetToolTip(this.maxBtn, "Maximize Window");
         toolTip1.SetToolTip(this.miniBtn, "Minimize Window");
-    }
-
-    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
-    private void ChannelViewForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

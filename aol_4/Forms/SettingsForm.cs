@@ -4,6 +4,11 @@ public partial class SettingsForm : _Win95Theme
     public SettingsForm()
     {
         InitializeComponent();
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        mainTitle.MouseMove += MoveWindow;
+        
     }
 
     private void fullscreenCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -44,15 +49,6 @@ public partial class SettingsForm : _Win95Theme
         foreach (string l in tmpHistory)
         {
             browseHistoryList.Items.Add(l);
-        }
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
     }
 
@@ -107,11 +103,6 @@ public partial class SettingsForm : _Win95Theme
             SqliteAccountsService.DeleteHistory(i.Text);
         }
         ReloadBrowseHistory();
-    }
-
-    private void SettingsForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 
     private void UIScaleBox_SelectedIndexChanged(object sender, EventArgs e)

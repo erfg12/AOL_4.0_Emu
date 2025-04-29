@@ -1,11 +1,6 @@
 ﻿namespace aol.Forms;
 public partial class KeywordForm : _Win95Theme
 {
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
@@ -19,10 +14,9 @@ public partial class KeywordForm : _Win95Theme
     public KeywordForm()
     {
         InitializeComponent();
-    }
 
-    private void KeywordForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
+        TitleBar.MouseMove += MoveWindow;
+        titleLabel.MouseMove += MoveWindow;
+        this.LocationChanged += OnLocationChanged;
     }
 }

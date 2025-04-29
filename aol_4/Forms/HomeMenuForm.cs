@@ -1,16 +1,6 @@
 ﻿namespace aol.Forms;
 public partial class HomeMenuForm : _Win95Theme
 {
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
@@ -26,13 +16,18 @@ public partial class HomeMenuForm : _Win95Theme
         LocationService.PositionWindow(this);
 
         todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
-        TitleBar_TitleLabel.Text = $"Welcome, {Account.tmpUsername}";
+        TitleLabel.Text = $"Welcome, {Account.tmpUsername}";
+        this.Text = TitleLabel.Text;
         temperatureLabel.Text = LocationService.GetCurrentWeather();
     }
 
     public HomeMenuForm()
     {
         InitializeComponent();
+
+        TitleBar.MouseMove += MoveWindow;
+        TitleLabel.MouseMove += MoveWindow;
+        this.LocationChanged += OnLocationChanged;
     }
 
     private void MailCenterBtn_Click(object sender, EventArgs e)
@@ -53,10 +48,5 @@ public partial class HomeMenuForm : _Win95Theme
     private void ChatBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<ChatroomListForm>(MdiParent);
-    }
-
-    private void HomeMenuForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

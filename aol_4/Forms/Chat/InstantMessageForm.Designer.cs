@@ -61,7 +61,7 @@
             dLaughingCtrlShift8ToolStripMenuItem = new ToolStripMenuItem();
             textFromFileToolStripMenuItem = new ToolStripMenuItem();
             peopleToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             pictureBox1 = new PictureBox();
             titleLabel = new Label();
@@ -70,7 +70,7 @@
             closeBtn = new Button();
             panel2.SuspendLayout();
             MenuStrip.SuspendLayout();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -129,7 +129,7 @@
             MenuStrip.Location = new Point(0, 0);
             MenuStrip.Name = "MenuStrip";
             MenuStrip.Padding = new Padding(7, 2, 0, 2);
-            MenuStrip.Size = new Size(308, 24);
+            MenuStrip.Size = new Size(188, 24);
             MenuStrip.TabIndex = 0;
             MenuStrip.Text = "MenuStrip";
             // 
@@ -341,25 +341,23 @@
             peopleToolStripMenuItem.Size = new Size(55, 20);
             peopleToolStripMenuItem.Text = "People";
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(617, 21);
-            panel1.TabIndex = 3;
-            panel1.DoubleClick += TitleBar_DoubleClick;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(617, 21);
+            TitleBar.TabIndex = 3;
             // 
             // mainTitle
             // 
@@ -431,7 +429,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -460,7 +457,7 @@
             Controls.Add(sendBtn);
             Controls.Add(myMessageBox);
             Controls.Add(messagesBox);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(5, 120);
             MainMenuStrip = MenuStrip;
@@ -469,20 +466,19 @@
             StartPosition = FormStartPosition.Manual;
             Text = "instant_message";
             Shown += instant_message_Shown;
-            LocationChanged += InstantMessageForm_LocationChanged;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             MenuStrip.ResumeLayout(false);
             MenuStrip.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;

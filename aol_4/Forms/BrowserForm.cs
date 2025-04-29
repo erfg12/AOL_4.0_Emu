@@ -19,9 +19,15 @@ public partial class BrowserForm : _Win95Theme
         InitializeComponent();
         InitializeAsync();
 
-        this.FormBorderStyle = FormBorderStyle.None;
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
+
+        this.LocationChanged += OnLocationChanged;
+        maxBtn.Click += MaxRestoreButton_Click;
+        TitleBar.MouseMove += MoveWindow;
+        titleLabel.MouseMove += MoveWindow;
+        TitleBar.DoubleClick += TitleBar_DoubleClick;
+        titleLabel.DoubleClick += TitleBar_DoubleClick;
 
         GoToUrl(urlArg);
     }
@@ -41,11 +47,6 @@ public partial class BrowserForm : _Win95Theme
             OpenMsgBox("ERROR", "Error initializing WebView2! Is the WebView2 runtime installed? Download and install it at http://tiny.cc/lk6g001");
             Debug.WriteLine(ex.ToString());
         }
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
     }
 
     void UpdateAddressBar(object sender, CoreWebView2SourceChangedEventArgs e)
@@ -92,11 +93,6 @@ public partial class BrowserForm : _Win95Theme
         Close();
     }
 
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
     private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
@@ -118,16 +114,6 @@ public partial class BrowserForm : _Win95Theme
             ReleaseCapture();
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
-    }
-
-    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
-    private void BrowserForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 
     private void BrowserForm_Enter(object sender, EventArgs e)

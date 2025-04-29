@@ -8,15 +8,9 @@ public partial class BuddyListForm : _Win95Theme
     public BuddyListForm()
     {
         InitializeComponent();
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        titleLabel.MouseMove += MoveWindow;
     }
 
     private void BuddyListView_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -29,15 +23,6 @@ public partial class BuddyListForm : _Win95Theme
     private void SetupBtn_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<BuddyAddForm>(MdiParent);
-    }
-
-    private void TitleBar_TitleLabel_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
     }
 
     private void BuddyTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -82,11 +67,6 @@ public partial class BuddyListForm : _Win95Theme
             bool MyOut;
             ChatService.buddyStatus.TryRemove(entry.Key, out MyOut);
         }
-    }
-
-    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        MaxiMini(maxBtn);
     }
 
     private void MiniBtn_Click(object sender, EventArgs e)
@@ -229,10 +209,5 @@ public partial class BuddyListForm : _Win95Theme
             else
                 MessageBox.Show($"Buddy {selectedBuddy.username} was not removed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-    }
-
-    private void BuddyListForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

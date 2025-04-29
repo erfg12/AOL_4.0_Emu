@@ -41,12 +41,12 @@
             passLabel = new Label();
             accCheck = new System.Windows.Forms.Timer(components);
             leftBanner = new PictureBox();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             pictureBox1 = new PictureBox();
             closeBtn = new Button();
             ((ISupportInitialize)leftBanner).BeginInit();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -186,21 +186,20 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(1, 1);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(443, 24);
-            panel1.TabIndex = 4;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(1, 1);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "panel1";
+            TitleBar.Size = new Size(443, 24);
+            TitleBar.TabIndex = 4;
             // 
             // mainTitle
             // 
@@ -261,7 +260,7 @@
             Controls.Add(screenName);
             Controls.Add(label1);
             Controls.Add(leftBanner);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(375, 250);
             Margin = new Padding(4);
@@ -272,10 +271,9 @@
             FormClosing += AccForm_FormClosing;
             Load += AccForm_Load;
             Shown += AccForm_Shown;
-            LocationChanged += AccForm_LocationChanged;
             ((ISupportInitialize)leftBanner).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -284,7 +282,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.PictureBox leftBanner;
         private System.Windows.Forms.Label mainTitle;

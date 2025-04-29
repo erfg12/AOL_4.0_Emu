@@ -11,29 +11,17 @@ public partial class PicturesForm : _Win95Theme
         WindowState = FormWindowState.Minimized;
     }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-    private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-
     public PicturesForm()
     {
         InitializeComponent();
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        titleLabel.MouseMove += MoveWindow;
     }
 
     private void Pictures_Load(object sender, EventArgs e)
     {
 
-    }
-
-    private void PicturesForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(MailWriteForm));
-            panel1 = new Panel();
+            TitleBar = new Panel();
             pictureBox1 = new PictureBox();
-            mainTitle = new Label();
+            TitleLabel = new Label();
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
@@ -56,7 +56,7 @@
             label9 = new Label();
             mailExtrasButton = new PictureBox();
             label10 = new Label();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)sendButton).BeginInit();
             ((ISupportInitialize)sendLaterButton).BeginInit();
@@ -64,24 +64,22 @@
             ((ISupportInitialize)mailExtrasButton).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(780, 21);
-            panel1.TabIndex = 5;
-            panel1.DoubleClick += TitleBar_DoubleClick;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(TitleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(780, 21);
+            TitleBar.TabIndex = 5;
             // 
             // pictureBox1
             // 
@@ -99,15 +97,15 @@
             // 
             // mainTitle
             // 
-            mainTitle.AutoSize = true;
-            mainTitle.BackColor = Color.Transparent;
-            mainTitle.ForeColor = Color.WhiteSmoke;
-            mainTitle.Location = new Point(27, 4);
-            mainTitle.Margin = new Padding(4, 0, 4, 0);
-            mainTitle.Name = "mainTitle";
-            mainTitle.Size = new Size(61, 15);
-            mainTitle.TabIndex = 8;
-            mainTitle.Text = "Write Mail";
+            TitleLabel.AutoSize = true;
+            TitleLabel.BackColor = Color.Transparent;
+            TitleLabel.ForeColor = Color.WhiteSmoke;
+            TitleLabel.Location = new Point(27, 4);
+            TitleLabel.Margin = new Padding(4, 0, 4, 0);
+            TitleLabel.Name = "mainTitle";
+            TitleLabel.Size = new Size(61, 15);
+            TitleLabel.TabIndex = 8;
+            TitleLabel.Text = "Write Mail";
             // 
             // miniBtn
             // 
@@ -142,7 +140,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -160,7 +157,7 @@
             closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += CloseBtn_Click;
+            closeBtn.Click += closeBtn_Click;
             // 
             // label1
             // 
@@ -429,7 +426,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(15, 220);
             Margin = new Padding(4);
@@ -437,9 +434,8 @@
             StartPosition = FormStartPosition.Manual;
             Text = "Write Mail";
             Shown += WriteMail_Shown;
-            LocationChanged += MailWriteForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)sendButton).EndInit();
             ((ISupportInitialize)sendLaterButton).EndInit();
@@ -451,8 +447,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label mainTitle;
+        private System.Windows.Forms.Panel TitleBar;
+        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;

@@ -48,7 +48,7 @@
             label2 = new Label();
             pictureBox3 = new PictureBox();
             mailboxAdBanner = new PictureBox();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             pictureBox1 = new PictureBox();
             miniBtn = new Button();
@@ -60,7 +60,7 @@
             tabPage3.SuspendLayout();
             ((ISupportInitialize)pictureBox3).BeginInit();
             ((ISupportInitialize)mailboxAdBanner).BeginInit();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -297,23 +297,21 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(1, 1);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(822, 24);
-            panel1.TabIndex = 2;
-            panel1.DoubleClick += TitleBar_DoubleClick;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(1, 1);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "panel1";
+            TitleBar.Size = new Size(822, 24);
+            TitleBar.TabIndex = 2;
             // 
             // mainTitle
             // 
@@ -326,7 +324,6 @@
             mainTitle.Size = new Size(130, 15);
             mainTitle.TabIndex = 8;
             mainTitle.Text = "Name's Online Mailbox";
-            mainTitle.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox1
             // 
@@ -375,7 +372,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -411,7 +407,7 @@
             Controls.Add(statusBtn);
             Controls.Add(readBtn);
             Controls.Add(tabControl1);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(25, 220);
             Margin = new Padding(4);
@@ -419,15 +415,14 @@
             StartPosition = FormStartPosition.Manual;
             Text = "mailbox";
             Shown += Mailbox_Shown;
-            LocationChanged += MailboxForm_LocationChanged;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             ((ISupportInitialize)pictureBox3).EndInit();
             ((ISupportInitialize)mailboxAdBanner).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -436,7 +431,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button miniBtn;

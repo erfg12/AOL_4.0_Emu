@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(SignupForm));
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             miniBtn = new Button();
             pictureBox1 = new PictureBox();
@@ -62,7 +62,7 @@
             username = new TextBox();
             backBtn = new PictureBox();
             registerBtn = new PictureBox();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)nextBtn).BeginInit();
             ((ISupportInitialize)leftBanner).BeginInit();
@@ -74,23 +74,22 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(665, 24);
-            panel1.TabIndex = 5;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "panel1";
+            TitleBar.Size = new Size(665, 24);
+            TitleBar.TabIndex = 5;
             // 
             // mainTitle
             // 
@@ -490,7 +489,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(669, 369);
             Controls.Add(leftBanner);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             Controls.Add(panel2);
             Controls.Add(panel3);
             FormBorderStyle = FormBorderStyle.None;
@@ -500,9 +499,8 @@
             StartPosition = FormStartPosition.Manual;
             Text = "signup_form";
             Shown += SignupForm_Shown;
-            LocationChanged += SignupForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)nextBtn).EndInit();
             ((ISupportInitialize)leftBanner).EndInit();
@@ -519,7 +517,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.PictureBox pictureBox1;

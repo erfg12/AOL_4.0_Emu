@@ -40,6 +40,8 @@ public partial class InstantMessageForm : _Win95Theme
 
     public InstantMessageForm(string u)
     {
+        InitializeComponent();
+
         user = u;
 
         string logpath = Application.StartupPath + @"\chatlogs";
@@ -57,12 +59,12 @@ public partial class InstantMessageForm : _Win95Theme
             OpenMsgBox("ERROR", $"There was an issue creating log file {privateLog}. Does the app have permission?");
         }
 
-        InitializeComponent();
-    }
-
-    private void TitleBar_DoubleClick(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
+        TitleBar.MouseMove += MoveWindow;
+        TitleBar.DoubleClick += TitleBar_DoubleClick;
+        mainTitle.MouseMove += MoveWindow;
+        mainTitle.DoubleClick += TitleBar_DoubleClick;
+        maxBtn.Click += MaxRestoreButton_Click;
+        this.LocationChanged += OnLocationChanged;
     }
 
     private void MyMessageBox_KeyDown(object sender, KeyEventArgs e)
@@ -184,11 +186,6 @@ public partial class InstantMessageForm : _Win95Theme
         myMessageBox.Text += ":-D";
     }
 
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
     private void WriteFileToBox(bool init = false) // THIS CRASHES ON PRIV MSG 2
     {
         string lastLine = "";
@@ -275,11 +272,6 @@ public partial class InstantMessageForm : _Win95Theme
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
-    }
-
-    private void InstantMessageForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 
     /// <summary>

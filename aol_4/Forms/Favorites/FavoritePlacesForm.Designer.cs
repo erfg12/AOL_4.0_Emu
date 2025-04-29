@@ -30,7 +30,7 @@
         {
             TreeNode treeNode1 = new TreeNode("Favorite Places");
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FavoritePlacesForm));
-            panel1 = new Panel();
+            TitleBar = new Panel();
             pictureBox1 = new PictureBox();
             closeBtn = new Button();
             maxBtn = new Button();
@@ -48,7 +48,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)goBtn).BeginInit();
             ((ISupportInitialize)newBtn).BeginInit();
@@ -57,23 +57,22 @@
             ((ISupportInitialize)saveRplcBtn).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(closeBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(titleLabel);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(224, 21);
-            panel1.TabIndex = 4;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(224, 21);
+            TitleBar.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -123,7 +122,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // miniBtn
             // 
@@ -153,7 +151,6 @@
             titleLabel.Size = new Size(85, 15);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "Favorite Places";
-            titleLabel.MouseMove += TitleLabel_MouseMove;
             // 
             // fpTreeView
             // 
@@ -328,7 +325,7 @@
             Controls.Add(newBtn);
             Controls.Add(goBtn);
             Controls.Add(fpTreeView);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(15, 150);
             Margin = new Padding(4);
@@ -337,9 +334,8 @@
             StartPosition = FormStartPosition.Manual;
             Text = "favorite_places";
             Shown += Favorite_places_Shown;
-            LocationChanged += FavoritePlacesForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)goBtn).EndInit();
             ((ISupportInitialize)newBtn).EndInit();
@@ -353,7 +349,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button maxBtn;

@@ -1,19 +1,14 @@
 ﻿namespace aol.Forms;
 public partial class WeatherForm : _Win95Theme
 {
-    private void MiniBtn_Click_1(object sender, EventArgs e)
+    private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
     }
 
-    private void CloseBtn_Click_1(object sender, EventArgs e)
+    private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
-    }
-
-    private void TitleLabel_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
     }
 
     private void Weather_Shown(object sender, EventArgs e)
@@ -24,24 +19,17 @@ public partial class WeatherForm : _Win95Theme
         //location.getForecastWeather(); // test
     }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-
     public WeatherForm()
     {
         InitializeComponent();
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        titleLabel.MouseMove += MoveWindow;
     }
 
     private void Weather_Load(object sender, EventArgs e)
     {
 
-    }
-
-    private void WeatherForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

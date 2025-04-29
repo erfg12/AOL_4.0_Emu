@@ -6,6 +6,10 @@ public partial class SignOnForm : _Win95Theme
     public SignOnForm()
     {
         InitializeComponent();
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        mainTitle.MouseMove += MoveWindow;
     }
 
     private void AccForm_Load(object sender, EventArgs e)
@@ -14,11 +18,6 @@ public partial class SignOnForm : _Win95Theme
         {
             screenName.Items.Add(entry);
         }
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e);
     }
 
     private void AccForm_Shown(object sender, EventArgs e)
@@ -126,10 +125,5 @@ public partial class SignOnForm : _Win95Theme
         {
             e.Handled = true;
         }
-    }
-
-    private void AccForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

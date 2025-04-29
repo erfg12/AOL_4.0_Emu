@@ -49,9 +49,9 @@
             aolTodayBtn = new PictureBox();
             searchBtn = new PictureBox();
             pictureBox1 = new PictureBox();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             pictureBox22 = new PictureBox();
-            titleLabel = new Label();
+            TitleLabel = new Label();
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
@@ -76,7 +76,7 @@
             ((ISupportInitialize)aolTodayBtn).BeginInit();
             ((ISupportInitialize)searchBtn).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox22).BeginInit();
             SuspendLayout();
             // 
@@ -353,25 +353,24 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(pictureBox22);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(619, 25);
-            panel1.TabIndex = 3;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(pictureBox22);
+            TitleBar.Controls.Add(TitleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(619, 25);
+            TitleBar.TabIndex = 3;
             // 
             // pictureBox22
             // 
@@ -389,16 +388,15 @@
             // 
             // titleLabel
             // 
-            titleLabel.AutoSize = true;
-            titleLabel.BackColor = Color.Transparent;
-            titleLabel.ForeColor = Color.White;
-            titleLabel.Location = new Point(27, 4);
-            titleLabel.Margin = new Padding(4, 0, 4, 0);
-            titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(56, 15);
-            titleLabel.TabIndex = 3;
-            titleLabel.Text = "Channels";
-            titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
+            TitleLabel.AutoSize = true;
+            TitleLabel.BackColor = Color.Transparent;
+            TitleLabel.ForeColor = Color.White;
+            TitleLabel.Location = new Point(27, 4);
+            TitleLabel.Margin = new Padding(4, 0, 4, 0);
+            TitleLabel.Name = "titleLabel";
+            TitleLabel.Size = new Size(56, 15);
+            TitleLabel.TabIndex = 3;
+            TitleLabel.Text = "Channels";
             // 
             // miniBtn
             // 
@@ -421,7 +419,7 @@
             // 
             maxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             maxBtn.BackColor = SystemColors.Control;
-            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_disabled_btn;
             maxBtn.BackgroundImageLayout = ImageLayout.Stretch;
             maxBtn.Enabled = false;
             maxBtn.FlatStyle = FlatStyle.Flat;
@@ -434,7 +432,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -480,16 +477,14 @@
             Controls.Add(aolTodayBtn);
             Controls.Add(searchBtn);
             Controls.Add(pictureBox1);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(50, 220);
             Margin = new Padding(4);
             Name = "ChannelsListForm";
             StartPosition = FormStartPosition.Manual;
             Text = "channels";
-            Load += Channels_Load;
             Shown += Channels_Shown;
-            LocationChanged += ChannelsListForm_LocationChanged;
             ((ISupportInitialize)localBtn).EndInit();
             ((ISupportInitialize)kidsOnlyBtn).EndInit();
             ((ISupportInitialize)familiesBtn).EndInit();
@@ -511,8 +506,8 @@
             ((ISupportInitialize)aolTodayBtn).EndInit();
             ((ISupportInitialize)searchBtn).EndInit();
             ((ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox22).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -521,8 +516,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Panel TitleBar;
+        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;

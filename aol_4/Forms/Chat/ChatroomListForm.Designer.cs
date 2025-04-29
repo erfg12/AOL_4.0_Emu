@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(ChatroomListForm));
-            panel1 = new Panel();
+            TitleBar = new Panel();
             mainTitle = new Label();
             pictureBox1 = new PictureBox();
             titleLabel = new Label();
@@ -45,33 +45,32 @@
             roomsIn = new Label();
             goChatBtn = new PictureBox();
             searchBtn = new PictureBox();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)pictureBox2).BeginInit();
             ((ISupportInitialize)goChatBtn).BeginInit();
             ((ISupportInitialize)searchBtn).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(mainTitle);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(704, 25);
-            panel1.TabIndex = 2;
-            panel1.MouseMove += panel1_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(mainTitle);
+            TitleBar.Controls.Add(pictureBox1);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(704, 25);
+            TitleBar.TabIndex = 2;
             // 
             // mainTitle
             // 
@@ -84,7 +83,6 @@
             mainTitle.Size = new Size(82, 15);
             mainTitle.TabIndex = 10;
             mainTitle.Text = "Chatroom List";
-            mainTitle.MouseMove += mainTitle_MouseMove;
             // 
             // pictureBox1
             // 
@@ -132,7 +130,7 @@
             // 
             maxBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             maxBtn.BackColor = SystemColors.Control;
-            maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            maxBtn.BackgroundImage = Properties.Resources.maximize_disabled_btn;
             maxBtn.BackgroundImageLayout = ImageLayout.Stretch;
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
@@ -274,19 +272,18 @@
             Controls.Add(chanListView);
             Controls.Add(catListView);
             Controls.Add(searchTextBox);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(10, 245);
             Margin = new Padding(4);
             Name = "ChatroomListForm";
             StartPosition = FormStartPosition.Manual;
-            Text = "chat_list";
+            Text = "Chatroom List";
             Load += chat_list_Load;
             Shown += chat_list_Shown;
-            LocationChanged += ChatroomListForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)pictureBox2).EndInit();
             ((ISupportInitialize)goChatBtn).EndInit();
@@ -297,7 +294,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;

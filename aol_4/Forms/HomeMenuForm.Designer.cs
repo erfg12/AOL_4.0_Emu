@@ -33,7 +33,7 @@
             RightPictureBox = new PictureBox();
             TitleBar = new Panel();
             pictureBox2 = new PictureBox();
-            TitleBar_TitleLabel = new Label();
+            TitleLabel = new Label();
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
@@ -86,7 +86,7 @@
             TitleBar.BackgroundImage = Properties.Resources.top_bar;
             TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
             TitleBar.Controls.Add(pictureBox2);
-            TitleBar.Controls.Add(TitleBar_TitleLabel);
+            TitleBar.Controls.Add(TitleLabel);
             TitleBar.Controls.Add(miniBtn);
             TitleBar.Controls.Add(maxBtn);
             TitleBar.Controls.Add(closeBtn);
@@ -95,7 +95,6 @@
             TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(568, 25);
             TitleBar.TabIndex = 2;
-            TitleBar.MouseMove += TitleBar_MouseMove;
             // 
             // pictureBox2
             // 
@@ -111,18 +110,17 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
-            // TitleBar_TitleLabel
+            // TitleLabel
             // 
-            TitleBar_TitleLabel.AutoSize = true;
-            TitleBar_TitleLabel.BackColor = Color.Transparent;
-            TitleBar_TitleLabel.ForeColor = Color.White;
-            TitleBar_TitleLabel.Location = new Point(28, 2);
-            TitleBar_TitleLabel.Margin = new Padding(4, 0, 4, 0);
-            TitleBar_TitleLabel.Name = "TitleBar_TitleLabel";
-            TitleBar_TitleLabel.Size = new Size(98, 15);
-            TitleBar_TitleLabel.TabIndex = 3;
-            TitleBar_TitleLabel.Text = "Welcome, Name!";
-            TitleBar_TitleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
+            TitleLabel.AutoSize = true;
+            TitleLabel.BackColor = Color.Transparent;
+            TitleLabel.ForeColor = Color.White;
+            TitleLabel.Location = new Point(28, 2);
+            TitleLabel.Margin = new Padding(4, 0, 4, 0);
+            TitleLabel.Name = "TitleLabel";
+            TitleLabel.Size = new Size(98, 15);
+            TitleLabel.TabIndex = 3;
+            TitleLabel.Text = "Welcome, Name!";
             // 
             // miniBtn
             // 
@@ -277,7 +275,6 @@
             StartPosition = FormStartPosition.Manual;
             Text = "Welcome Home Window";
             Shown += HomeMenu_ShownAsync;
-            LocationChanged += HomeMenuForm_LocationChanged;
             ((ISupportInitialize)RightPictureBox).EndInit();
             TitleBar.ResumeLayout(false);
             TitleBar.PerformLayout();
@@ -294,7 +291,7 @@
         #endregion
 
         private System.Windows.Forms.Panel TitleBar;
-        private System.Windows.Forms.Label TitleBar_TitleLabel;
+        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button miniBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;

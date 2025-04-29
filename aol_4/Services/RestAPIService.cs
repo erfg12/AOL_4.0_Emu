@@ -25,7 +25,6 @@ class RestAPIService
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Server Error");
             ex.Data.Add("errorMsg", "Server Error");
             ex.Data.Add("url", $"/{request}?{queryParams}");
             SentrySdk.CaptureException(ex);

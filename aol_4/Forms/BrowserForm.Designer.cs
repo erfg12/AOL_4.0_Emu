@@ -31,7 +31,7 @@
             ComponentResourceManager resources = new ComponentResourceManager(typeof(BrowserForm));
             toolStripContainer1 = new ToolStripContainer();
             WebView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            panel1 = new Panel();
+            TitleBar = new Panel();
             BrowserWindowTitleLabel = new Label();
             favoriteBtn = new PictureBox();
             titleLabel = new Label();
@@ -41,7 +41,7 @@
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             ((ISupportInitialize)WebView).BeginInit();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)favoriteBtn).BeginInit();
             SuspendLayout();
             // 
@@ -72,31 +72,29 @@
             WebView.Margin = new Padding(2);
             WebView.Name = "WebView";
             WebView.Size = new Size(874, 469);
-            WebView.Source = new Uri(Account.homePageUrl, UriKind.Absolute);
+            WebView.Source = new Uri("https://www.aol.com", UriKind.Absolute);
             WebView.TabIndex = 0;
             WebView.UseWaitCursor = true;
             WebView.ZoomFactor = 1D;
             // 
-            // panel1
+            // TitleBar
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(BrowserWindowTitleLabel);
-            panel1.Controls.Add(favoriteBtn);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(876, 24);
-            panel1.TabIndex = 1;
-            panel1.MouseDoubleClick += TitleBar_MouseDoubleClick;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(BrowserWindowTitleLabel);
+            TitleBar.Controls.Add(favoriteBtn);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(876, 24);
+            TitleBar.TabIndex = 1;
             // 
             // BrowserWindowTitleLabel
             // 
@@ -109,8 +107,6 @@
             BrowserWindowTitleLabel.Size = new Size(56, 15);
             BrowserWindowTitleLabel.TabIndex = 5;
             BrowserWindowTitleLabel.Text = "loading...";
-            BrowserWindowTitleLabel.MouseDoubleClick += TitleBar_MouseDoubleClick;
-            BrowserWindowTitleLabel.MouseMove += TitleBar_MouseMove;
             // 
             // favoriteBtn
             // 
@@ -173,7 +169,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -199,7 +194,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(880, 522);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             Controls.Add(toolStripContainer1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -210,14 +205,13 @@
             StartPosition = FormStartPosition.Manual;
             Text = "browser";
             Shown += BrowserForm_Shown;
-            LocationChanged += BrowserForm_LocationChanged;
             Enter += BrowserForm_Enter;
             toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.ResumeLayout(false);
             toolStripContainer1.PerformLayout();
             ((ISupportInitialize)WebView).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)favoriteBtn).EndInit();
             ResumeLayout(false);
         }
@@ -225,7 +219,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button miniBtn;

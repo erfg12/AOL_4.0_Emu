@@ -47,6 +47,10 @@ public partial class ChatroomListForm : _Win95Theme
     public ChatroomListForm()
     {
         InitializeComponent();
+
+        this.LocationChanged += OnLocationChanged;
+        TitleBar.MouseMove += MoveWindow;
+        mainTitle.MouseMove += MoveWindow;
     }
 
     private void chanListView_DoubleClick(object sender, EventArgs e)
@@ -74,11 +78,6 @@ public partial class ChatroomListForm : _Win95Theme
             roomsIn.Text = "'" + catListView.SelectedItems[0].Text + "'";
     }
 
-    private void mainTitle_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
     private void catListView_MouseClick(object sender, MouseEventArgs e)
     {
         chanListView.Items.Clear();
@@ -102,11 +101,6 @@ public partial class ChatroomListForm : _Win95Theme
         Close();
     }
 
-    private void panel1_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
     private void chat_list_Load(object sender, EventArgs e)
     {
         Thread thread = new Thread(new ThreadStart(getChannels));
@@ -126,10 +120,5 @@ public partial class ChatroomListForm : _Win95Theme
     private void searchBtn_Click(object sender, EventArgs e)
     {
 
-    }
-
-    private void ChatroomListForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

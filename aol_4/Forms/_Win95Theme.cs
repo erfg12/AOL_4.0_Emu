@@ -166,10 +166,41 @@ namespace aol.Forms
         }
 
         /// <summary>
-        /// Maximize or restore button
+        /// Maximize or restore button click
         /// </summary>
         /// <param name="maxBtn">button to swap images on</param>
-        public void MaxiMini(Button maxBtn)
+        public void MaxRestoreButton_Click(object sender, EventArgs e)
+        {
+            Button maxBtn = sender as Button;
+            if (maximized)
+                maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+            else
+                maxBtn.BackgroundImage = Properties.Resources.restore_btn;
+
+            MaximizeRestoreWindow();
+        }
+
+        /// <summary>
+        /// Double-click the title bar to maximize or restore the window
+        /// This has to find the maximize button by the name "maxBtn" because the sender is the title bar panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void TitleBar_DoubleClick(object sender, EventArgs e)
+        {
+            Button maxBtn = this.Controls.Find("maxBtn", true).FirstOrDefault() as Button;
+            if (maxBtn != null)
+            {
+                if (maximized)
+                    maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
+                else
+                    maxBtn.BackgroundImage = Properties.Resources.restore_btn;
+            }
+
+            MaximizeRestoreWindow();
+        }
+
+        private void MaximizeRestoreWindow()
         {
             if (maximized)
             {
@@ -177,7 +208,6 @@ namespace aol.Forms
                 this.Width = wndWidth;
                 this.Height = wndHeight;
                 maximized = false;
-                maxBtn.BackgroundImage = Properties.Resources.maximize_btn;
             }
             else
             {
@@ -190,7 +220,6 @@ namespace aol.Forms
                 var t = GetDisplayScaleFactor(this.Handle);
                 this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
                 this.Height = Parent.Height - GetTopPaddingv2() - 5;
-                maxBtn.BackgroundImage = Properties.Resources.restore_btn;
             }
         }
 
@@ -323,15 +352,10 @@ namespace aol.Forms
         /// <summary>
         /// Move the window when the title bar is clicked and dragged
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <param name="maxBtn"></param>
-        public void MoveWindow(object sender, MouseEventArgs e, Button maxBtn = null)
+        public void MoveWindow(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && !maximized)
             {
-                if (maximized && maxBtn != null)
-                    MaxiMini(maxBtn);
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }

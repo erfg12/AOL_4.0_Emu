@@ -1,7 +1,7 @@
 ﻿namespace aol.Forms;
 public partial class MailReadForm : _Win95Theme
 {
-    string EmailID = "";
+    readonly string EmailID;
 
     public MailReadForm(string subject, string emailID)
     {
@@ -20,6 +20,13 @@ public partial class MailReadForm : _Win95Theme
             Debug.WriteLine("Found NickServ code for IRC chatrooms.");
             RegisterNickserv(tmpString);
         }
+
+        this.LocationChanged += OnLocationChanged;
+        maxBtn.Click += MaxRestoreButton_Click;
+        TitleBar.DoubleClick += TitleBar_DoubleClick;
+        TitleBar.MouseMove += MoveWindow;
+        mainTitle.DoubleClick += TitleBar_DoubleClick;
+        mainTitle.MouseMove += MoveWindow;
     }
 
     public void RegisterNickserv(string m)
@@ -41,28 +48,8 @@ public partial class MailReadForm : _Win95Theme
         Close();
     }
 
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
     private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
-    }
-
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        MoveWindow(sender, e, maxBtn);
-    }
-
-    private void TitleBar_DoubleClick(object sender, EventArgs e)
-    {
-        MaxiMini(maxBtn);
-    }
-
-    private void MailReadForm_LocationChanged(object sender, EventArgs e)
-    {
-        OnLocationChanged(sender, e);
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(PreferencesForm));
-            panel1 = new Panel();
+            TitleBar = new Panel();
             pictureBox22 = new PictureBox();
             titleLabel = new Label();
             miniBtn = new Button();
@@ -67,7 +67,7 @@
             label14 = new Label();
             label15 = new Label();
             label16 = new Label();
-            panel1.SuspendLayout();
+            TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox22).BeginInit();
             ((ISupportInitialize)generalBtn).BeginInit();
             ((ISupportInitialize)toolbarBtn).BeginInit();
@@ -87,23 +87,22 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel1.BackColor = Color.White;
-            panel1.BackgroundImage = Properties.Resources.top_bar;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(pictureBox22);
-            panel1.Controls.Add(titleLabel);
-            panel1.Controls.Add(miniBtn);
-            panel1.Controls.Add(maxBtn);
-            panel1.Controls.Add(closeBtn);
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(515, 25);
-            panel1.TabIndex = 4;
-            panel1.MouseMove += TitleBar_MouseMove;
+            TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TitleBar.AutoSize = true;
+            TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TitleBar.BackColor = Color.White;
+            TitleBar.BackgroundImage = Properties.Resources.top_bar;
+            TitleBar.BackgroundImageLayout = ImageLayout.Stretch;
+            TitleBar.Controls.Add(pictureBox22);
+            TitleBar.Controls.Add(titleLabel);
+            TitleBar.Controls.Add(miniBtn);
+            TitleBar.Controls.Add(maxBtn);
+            TitleBar.Controls.Add(closeBtn);
+            TitleBar.Location = new Point(3, 2);
+            TitleBar.Margin = new Padding(4);
+            TitleBar.Name = "panel1";
+            TitleBar.Size = new Size(515, 25);
+            TitleBar.TabIndex = 4;
             // 
             // pictureBox22
             // 
@@ -130,7 +129,6 @@
             titleLabel.Size = new Size(68, 15);
             titleLabel.TabIndex = 3;
             titleLabel.Text = "Preferences";
-            titleLabel.MouseMove += TitleBar_MouseMove;
             // 
             // miniBtn
             // 
@@ -582,7 +580,7 @@
             Controls.Add(helpBtn);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            Controls.Add(panel1);
+            Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(100, 180);
             Margin = new Padding(4);
@@ -590,9 +588,8 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.Manual;
             Text = "Preferences";
-            LocationChanged += PreferencesForm_LocationChanged;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            TitleBar.ResumeLayout(false);
+            TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox22).EndInit();
             ((ISupportInitialize)generalBtn).EndInit();
             ((ISupportInitialize)toolbarBtn).EndInit();
@@ -615,7 +612,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TitleBar;
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button miniBtn;
