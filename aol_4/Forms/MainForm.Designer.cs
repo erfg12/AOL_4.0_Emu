@@ -1774,8 +1774,6 @@
             TopPanel.Name = "TopPanel";
             TopPanel.Size = new Size(930, 21);
             TopPanel.TabIndex = 1;
-            TopPanel.MouseDoubleClick += TitleBar_MouseDoubleClick;
-            TopPanel.MouseMove += TitleBar_MouseMove;
             // 
             // mainTitle
             // 
@@ -1788,7 +1786,6 @@
             mainTitle.Size = new Size(89, 15);
             mainTitle.TabIndex = 8;
             mainTitle.Text = "America Online";
-            mainTitle.MouseMove += MainTitle_MouseMove;
             // 
             // pictureBox1
             // 
@@ -1837,7 +1834,6 @@
             maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
-            maxBtn.Click += MaxBtn_Click;
             // 
             // closeBtn
             // 
@@ -1891,7 +1887,6 @@
             MdiChildActivate += MainForm_MdiChildActivate;
             Shown += MainForm_Shown;
             SizeChanged += MainForm_SizeChanged;
-            MouseMove += MainForm_MouseMove;
             panel2.ResumeLayout(false);
             ((ISupportInitialize)mie_badge).EndInit();
             ((ISupportInitialize)homeBtn).EndInit();

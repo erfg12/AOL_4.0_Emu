@@ -199,7 +199,8 @@ public partial class BuddyListForm : _Win95Theme
 
         if (result == DialogResult.Yes)
         {
-            if (await RestAPIService.RemoveBuddy(selectedBuddy.id, selectedBuddy.username))
+            var removeBuddy = await RestAPIService.RemoveBuddy(selectedBuddy.id, selectedBuddy.username);
+            if (removeBuddy.Item1)
             {
                 selectedNode.Remove();
                 MessageBox.Show($"Buddy {selectedBuddy.username} has been removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,7 +208,7 @@ public partial class BuddyListForm : _Win95Theme
                 selectedNode = null;
             }
             else
-                MessageBox.Show($"Buddy {selectedBuddy.username} was not removed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Buddy {selectedBuddy.username} was not removed! {removeBuddy.Item2}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

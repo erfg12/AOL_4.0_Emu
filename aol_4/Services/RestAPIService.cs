@@ -16,10 +16,9 @@ class RestAPIService
             Debug.WriteLine($"Calling METHOD:{method} URL:{url}");
             var requestMsg = new HttpRequestMessage(method, url) { };
             var httpResponse = await client.SendAsync(requestMsg);
-            httpResponse.EnsureSuccessStatusCode();
             response = httpResponse;
-
             content = await response.Content.ReadAsStringAsync();
+            
             if (string.IsNullOrEmpty(content) || !content.Trim().StartsWith("{") || !content.Trim().EndsWith("}"))
                 throw new Exception($"Bad Json Data");
         }
@@ -181,20 +180,25 @@ class RestAPIService
     /// </summary>
     /// <param name="username">Buddy's username</param>
     /// <returns></returns>
-    public static async Task<bool> AddBuddy(string username)
+    public static async Task<(bool, string)> AddBuddy(string username)
     {
         if (!Account.SignedIn())
-            return false;
+            return (false, "sign in first");
 
         var data = await GetData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
         var buddyData = data.ToObject<UserAPI.Buddies>();
         if (buddyData?.id != null && buddyData.id > 0) // message = error msg
         {
             SqliteAccountsService.AddBuddy(buddyData.id, buddyData.username);
-            return true;
+            return (true, null);
+        } 
+        else
+        {
+            if (data.ContainsKey("message"))
+                return (false, data["message"].ToString());
         }
 
-        return false;
+        return (false, "unknown error");
     }
 
     /// <summary>
@@ -202,18 +206,24 @@ class RestAPIService
     /// </summary>
     /// <param name="buddyid"></param>
     /// <returns></returns>
-    public static async Task<bool> RemoveBuddy(int buddyid, string buddyName)
+    public static async Task<(bool, string)> RemoveBuddy(int buddyid, string buddyName)
     {
         if (!Account.SignedIn())
-            return false;
+            return (false, "sign in first");
 
         var data = await GetData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {
             SqliteAccountsService.RemoveBuddy(buddyid, buddyName);
-            return true;
+            return (true, null);
         }
-        return false;
+        else
+        {
+            if (data.ContainsKey("message"))
+                return (false, data["message"].ToString());
+        }
+
+        return (false, "unknown error");
     }
 }

@@ -124,6 +124,12 @@ public partial class MainForm : _Win95Theme
     public MainForm()
     {
         InitializeComponent();
+
+        TopPanel.MouseMove += MoveWindow;
+        mainTitle.MouseMove += MoveWindow;
+        TopPanel.DoubleClick += TitleBar_DoubleClick;
+        mainTitle.DoubleClick += TitleBar_DoubleClick;
+        maxBtn.Click += MaxRestoreButton_Click;
         
         DoubleBuffered = true;
         SetStyle(ControlStyles.ResizeRedraw, true);
@@ -135,23 +141,9 @@ public partial class MainForm : _Win95Theme
 
     }
 
-    private void TitleBar_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
-    }
-
-    private void MaxBtn_Click(object sender, EventArgs e)
-    {
-        MiniMax(maxBtn);
     }
 
     private void MiniBtn_Click(object sender, EventArgs e)
@@ -347,15 +339,6 @@ public partial class MainForm : _Win95Theme
         }
     }
 
-    private void MainTitle_MouseMove(object sender, MouseEventArgs e)
-    {
-        if (e.Button == MouseButtons.Left)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
     private void AOLTodayToolStripMenuItem_Click(object sender, EventArgs e)
     {
         MDIHelper.OpenForm<HomeMenuForm>(this);
@@ -401,11 +384,6 @@ public partial class MainForm : _Win95Theme
     private void MainForm_SizeChanged(object sender, EventArgs e)
     {
         ResizeMaximizedChildren();
-    }
-
-    private void MainForm_MouseMove(object sender, MouseEventArgs e)
-    {
-        // doesnt trigger
     }
 
     private bool resizeR, resizeD, resizeB = false;
@@ -687,10 +665,5 @@ public partial class MainForm : _Win95Theme
     private void DownloadManagerToolStripMenuItem_Click(object sender, EventArgs e)
     {
         Process.Start("explorer.exe", Environment.GetFolderPath(Environment.SpecialFolder.Personal));
-    }
-
-    private void TitleBar_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        MiniMax(maxBtn);
     }
 }

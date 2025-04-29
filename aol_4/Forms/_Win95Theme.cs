@@ -204,22 +204,40 @@ namespace aol.Forms
         {
             if (maximized)
             {
-                this.Location = new Point(wndX, wndY);
-                this.Width = wndWidth;
-                this.Height = wndHeight;
                 maximized = false;
+
+                if (this.Name != "MainForm" && MdiParent != null)
+                {
+                    this.Location = new Point(wndX, wndY);
+                    this.Width = wndWidth;
+                    this.Height = wndHeight;
+                } 
+                else
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
             }
             else
             {
-                wndX = this.Location.X;
-                wndY = this.Location.Y;
-                wndWidth = this.Width;
-                wndHeight = this.Height;
                 maximized = true;
-                this.Location = new Point(0, 116);
-                var t = GetDisplayScaleFactor(this.Handle);
-                this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                this.Height = Parent.Height - GetTopPaddingv2() - 5;
+
+                if (this.Name != "MainForm" && MdiParent != null)
+                {
+                    wndX = this.Location.X;
+                    wndY = this.Location.Y;
+                    wndWidth = this.Width;
+                    wndHeight = this.Height;
+
+                    this.Location = new Point(0, 116);
+                    var t = GetDisplayScaleFactor(this.Handle);
+                
+                    this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
+                    this.Height = Parent.Height - GetTopPaddingv2() - 5;
+                } 
+                else
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                }
             }
         }
 
@@ -338,7 +356,7 @@ namespace aol.Forms
         /// <param name="e"></param>
         public void OnLocationChanged(object sender,  EventArgs e)
         {
-            if (this.Name != "main" && MdiParent != null)
+            if (this.Name != "MainForm" && MdiParent != null)
             {
                 int paddingTopCalc = GetTopPaddingv2();
                 if (this.Location.Y < paddingTopCalc)
