@@ -28,20 +28,26 @@ public partial class SignupForm : _Win95Theme
 
     private async void RegisterBtn_Click(object sender, EventArgs e)
     {
-        if (username.Text == "Guest")
+        if (username.Text.ToLower() == "Guest")
         {
             OpenMsgBox("ERROR", "You cannot use the username Guest.");
             return;
         }
 
+        this.Cursor = Cursors.WaitCursor;
+        LoadingLabel.Text = "Creating account, please wait...";
+
         if (await RestAPIService.CreateAccount(username.Text, password.Text, fullname.Text))
         {
+            this.Cursor = Cursors.Default;
             OpenMsgBox("SUCCESS", "Account has been created. Welcome!");
             Close();
         }
         else
         {
+            this.Cursor = Cursors.Default;
             OpenMsgBox("ERROR", "Account creation has failed. Please email support@aolemu.com");
+            Close();
         }
     }
 

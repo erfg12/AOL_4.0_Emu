@@ -55,7 +55,7 @@ public partial class ChatroomListForm : _Win95Theme
 
     private void chanListView_DoubleClick(object sender, EventArgs e)
     {
-        if (!ChatService.irc.IsClientRunning())
+        if (!MainForm.chat.irc.IsClientRunning())
         {
             OpenMsgBox("ERROR", "IRC client not running.");
             return;

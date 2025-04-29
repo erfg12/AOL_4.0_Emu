@@ -1,40 +1,21 @@
 ﻿namespace aol.Services;
-class ChatService
+public class ChatService
 {
-    private static int port = 6697;
-    private static string server = "irc.snoonet.org";
-    public static SimpleIRC irc = new();
-    public static ConcurrentDictionary<string, List<string>> users = new(); // key: channel, value: users
-    public static string newPM = "";
+    private readonly int port = 6697;
+    private readonly string server = "irc.snoonet.org";
+    public SimpleIRC irc = new();
+    public ConcurrentDictionary<string, List<string>> users = new(); // key: channel, value: users
+    public string newPM = "";
     public static ConcurrentDictionary<string, bool> buddyStatus = new(); // key: name, value: online status
 
-    public static void DownloadStatusChanged(object source, DCCEventArgs args)
+    public void DownloadStatusChanged(object source, DCCEventArgs args)
     {
         Debug.WriteLine("DOWNLOAD STATUS: " + args.Status);
         Debug.WriteLine("DOWNLOAD FILENAME: " + args.FileName);
         Debug.WriteLine("DOWNLOAD PROGRESS: " + args.Progress + "%");
     }
 
-    public static async Task<bool> CheckIRCRunning()
-    {
-        int c = 0;
-        if (!ChatService.irc.IsClientRunning())
-        {
-            Debug.WriteLine("IRC buddy list not connected yet...");
-            c++;
-            if (c > 50)
-            {
-                Debug.WriteLine("IRC reconnecting");
-                ChatService.StartConnection();
-                c = 0;
-            }
-            await Task.Delay(5000);
-            return false;
-        }
-        return true;
-    }
-
-    public static void ChatOutputCallback(object source, IrcReceivedEventArgs args)
+    public void ChatOutputCallback(object source, IrcReceivedEventArgs args)
     {
         string msg = args.User + ": " + args.Message;
         Debug.WriteLine("[CO]:" + msg);
@@ -92,7 +73,7 @@ class ChatService
         }
     }
 
-    public static void RawOutputCallback(object source, IrcRawReceivedEventArgs args)
+    public void RawOutputCallback(object source, IrcRawReceivedEventArgs args)
     {
         if (Account.tmpUsername == "Guest" || Account.tmpUsername == "" || args.Message == null) // prevents crash if signing off
             return;
@@ -159,7 +140,7 @@ class ChatService
         }
     }
 
-    public static void DebugOutputCallback(object source, IrcDebugMessageEventArgs args)
+    public void DebugOutputCallback(object source, IrcDebugMessageEventArgs args)
     {
         Debug.WriteLine(args.Type + " | " + args.Message);
         if (args.Message == "STARTING LISTENER!")
@@ -168,7 +149,7 @@ class ChatService
         }
     }
 
-    public static void UserListCallback(object source, IrcUserListReceivedEventArgs args)
+    public void UserListCallback(object source, IrcUserListReceivedEventArgs args)
     {
         if (args.UsersPerChannel.Count <= 0)
             return;
@@ -205,26 +186,22 @@ class ChatService
         }
     }
 
-    public static void StartConnection()
+    public void StartConnection()
     {
         if (!Account.SignedIn() || irc.IsClientRunning())
             return;
 
-        Thread thr = new Thread(StartupIRC);
-        thr.Start();
+        StartupIRC();
     }
 
-    public static void StartupIRC()
+    public void StartupIRC()
     {
         irc.SetupIrc(server, Account.tmpUsername, "", port, "", 3000, true);
 
         if (!irc.IsClientRunning())
-            irc.StartClient();
-
-        while (!irc.IsClientRunning())
         {
-            Debug.WriteLine("not connected yet");
-            Thread.Sleep(250); // wait
+            Debug.WriteLine($"Connecting to IRC server {server}:{port}...");
+            Task.Run(() => irc.StartClient());
         }
     }
 }

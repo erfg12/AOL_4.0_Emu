@@ -54,6 +54,7 @@
             label10 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            LoadingLabel = new Label();
             label13 = new Label();
             label12 = new Label();
             label11 = new Label();
@@ -72,7 +73,7 @@
             ((ISupportInitialize)registerBtn).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
             TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TitleBar.AutoSize = true;
@@ -87,7 +88,7 @@
             TitleBar.Controls.Add(closeBtn);
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
-            TitleBar.Name = "panel1";
+            TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(665, 24);
             TitleBar.TabIndex = 5;
             // 
@@ -391,6 +392,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(LoadingLabel);
             panel3.Controls.Add(label13);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(label11);
@@ -404,6 +406,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(549, 341);
             panel3.TabIndex = 23;
+            // 
+            // LoadingLabel
+            // 
+            LoadingLabel.AutoSize = true;
+            LoadingLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            LoadingLabel.ForeColor = SystemColors.Highlight;
+            LoadingLabel.Location = new Point(168, 238);
+            LoadingLabel.Name = "LoadingLabel";
+            LoadingLabel.Size = new Size(0, 19);
+            LoadingLabel.TabIndex = 8;
             // 
             // label13
             // 
@@ -473,6 +485,7 @@
             // 
             // registerBtn
             // 
+            registerBtn.Cursor = Cursors.Hand;
             registerBtn.Image = (Image)resources.GetObject("registerBtn.Image");
             registerBtn.Location = new Point(486, 307);
             registerBtn.Margin = new Padding(4);
@@ -550,5 +563,6 @@
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.PictureBox backBtn;
         private System.Windows.Forms.PictureBox registerBtn;
+        private Label LoadingLabel;
     }
 }

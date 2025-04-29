@@ -18,7 +18,7 @@ public partial class InstantMessageForm : _Win95Theme
     private void sendBtn_Click(object sender, EventArgs e)
     {
         // send to server
-        ChatService.irc.SendMessageToChannel(myMessageBox.Text, user);
+        MainForm.chat.irc.SendMessageToChannel(myMessageBox.Text, user);
 
         try
         {

@@ -34,7 +34,7 @@ public partial class SignOnForm : _Win95Theme
 
     private async void SignOnBtn_Click(object sender, EventArgs e)
     {
-        Cursor.Current = Cursors.WaitCursor;
+        Cursor = Cursors.WaitCursor;
         Account.tmpLocation = selectLocation.Text;
 
         Properties.Settings.Default.connType = Account.tmpLocation;
@@ -47,14 +47,14 @@ public partial class SignOnForm : _Win95Theme
         else if (screenName.Text == "Guest")
         {
             Account.tmpUsername = "Guest";
-            Cursor.Current = Cursors.Default;
+            Cursor = Cursors.Default;
             Close();
         }
         else
         {
             if (await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
             {
-                Cursor.Current = Cursors.Default;
+                Cursor = Cursors.Default;
                 Close();
             }
         }

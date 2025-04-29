@@ -21,20 +21,13 @@ public partial class ChatroomForm : _Win95Theme
         if (!File.Exists(chatlog))
             File.Create(chatlog).Dispose();
 
-        int c = 0;
-        while (!formClosing && !ChatService.irc.IsClientRunning())
+        if (!MainForm.chat.irc.IsClientRunning())
         {
-            Debug.WriteLine("not connected yet");
-            Thread.Sleep(500); // wait 1/2 sec
-            c++;
-            if (c > 20)
-            {
-                ChatService.StartConnection();
-                Debug.WriteLine("ERROR: Trying connection again.");
-                c = 0;
-            }
+            OpenMsgBox("ERROR", "Chat server not connected!");
+            Close();
         }
-        ChatService.irc.SendRawMessage("join #" + channel);
+
+        MainForm.chat.irc.SendRawMessage("join #" + channel);
 
         KeepReading();
 
@@ -125,7 +118,7 @@ public partial class ChatroomForm : _Win95Theme
     private void Chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
-        ChatService.irc.SendRawMessage("part #" + roomname);
+        MainForm.chat.irc.SendRawMessage("part #" + roomname);
     }
 
     private void MessageTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -140,10 +133,10 @@ public partial class ChatroomForm : _Win95Theme
 
     private void SendMsg()
     {
-        if (!ChatService.irc.IsClientRunning())
+        if (!MainForm.chat.irc.IsClientRunning())
             MessageBox.Show("ERROR: IRC client is not running");
 
-        if (!ChatService.irc.SendMessageToChannel(messageTextBox.Text, "#" + roomname))
+        if (!MainForm.chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + roomname))
         {
             MessageBox.Show("ERROR: Failed to send message!");
             return;
@@ -178,23 +171,23 @@ public partial class ChatroomForm : _Win95Theme
         if (!IsHandleCreated || !Account.SignedIn())
             return;
 
-        if (!ChatService.irc.IrcClient.IsConnectionEstablished() || !ChatService.irc.IsClientRunning())
+        if (!MainForm.chat.irc.IrcClient.IsConnectionEstablished() || !MainForm.chat.irc.IsClientRunning())
         {
             Debug.WriteLine("Client is not connected.");
             return;
         }
 
-        if (!ChatService.users.ContainsKey(roomname))
+        if (!MainForm.chat.users.ContainsKey(roomname))
         {
             Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
-            ChatService.irc.GetUsersInDifferentChannel("#" + roomname);
+            MainForm.chat.irc.GetUsersInDifferentChannel("#" + roomname);
             return;
         }
 
         // remove offline users
         foreach (ListViewItem item in usersListView.Items)
         {
-            if (!ChatService.users[roomname].Contains(item.Text))
+            if (!MainForm.chat.users[roomname].Contains(item.Text))
             {
                 usersListView.Items.Remove(item);
                 pplCount--;
@@ -202,7 +195,7 @@ public partial class ChatroomForm : _Win95Theme
         }
 
         // add online users
-        List<string> usersList = ChatService.users[roomname]; // gotta declare it, so we can use it
+        List<string> usersList = MainForm.chat.users[roomname]; // gotta declare it, so we can use it
         for (int i = 0; i < usersList.Count; i++)
         {
             if (usersList[i] == "")

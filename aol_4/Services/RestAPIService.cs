@@ -5,7 +5,7 @@ class RestAPIService
     {
         var client = new HttpClient();
         HttpResponseMessage response;
-        string content;
+        string content = null;
 
         try
         {
@@ -24,8 +24,10 @@ class RestAPIService
         }
         catch (Exception ex)
         {
-            ex.Data.Add("errorMsg", "Server Error");
+            ex.Data.Add("content", content ?? "No Content");
             ex.Data.Add("url", $"/{request}?{queryParams}");
+            ex.Data.Add("method", method.ToString());
+
             SentrySdk.CaptureException(ex);
             return JObject.Parse("{\"message\": \"Server Error\" }");
         }

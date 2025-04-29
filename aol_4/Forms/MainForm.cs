@@ -6,6 +6,8 @@ public partial class MainForm : _Win95Theme
     public List<string> tmpHistory = new();
     int topMenuPadding = 42;
 
+    public static ChatService chat = new ChatService();
+
     public static int GetSoundLength(string fileName)
     {
         StringBuilder lengthBuf = new StringBuilder(32);
@@ -64,7 +66,7 @@ public partial class MainForm : _Win95Theme
         weather_btn.Image = Properties.Resources.weather_icon_enabled;
         preferencesToolStripMenuItem.Enabled = true; // settings holds email info
 
-        ChatService.StartConnection();
+        chat.StartConnection();
     }
 
     public void ReloadAddressBarHistory()
@@ -159,12 +161,12 @@ public partial class MainForm : _Win95Theme
         if (Properties.Settings.Default.fullScreen)
             WindowState = FormWindowState.Maximized;
 
-        ChatService.irc.IrcClient.OnDebugMessage += ChatService.DebugOutputCallback;
-        ChatService.irc.IrcClient.OnMessageReceived += ChatService.ChatOutputCallback;
-        ChatService.irc.IrcClient.OnRawMessageReceived += ChatService.RawOutputCallback;
-        ChatService.irc.IrcClient.OnUserListReceived += ChatService.UserListCallback;
+        chat.irc.IrcClient.OnDebugMessage += chat.DebugOutputCallback;
+        chat.irc.IrcClient.OnMessageReceived += chat.ChatOutputCallback;
+        chat.irc.IrcClient.OnRawMessageReceived += chat.RawOutputCallback;
+        chat.irc.IrcClient.OnUserListReceived += chat.UserListCallback;
         //chat.irc.DccClient.OnDccDebugMessage += chat.dccDebugCallback;
-        ChatService.irc.DccClient.OnDccEvent += ChatService.DownloadStatusChanged;
+        chat.irc.DccClient.OnDccEvent += chat.DownloadStatusChanged;
 
         preferencesToolStripMenuItem.Enabled = false;
 
@@ -413,8 +415,8 @@ public partial class MainForm : _Win95Theme
         Account.tmpPassword = "";
         Account.tmpLocation = "";
 
-        if (ChatService.irc.IsClientRunning())
-            ChatService.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
+        if (chat.irc.IsClientRunning())
+            chat.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {

@@ -34,7 +34,7 @@ public partial class MailReadForm : _Win95Theme
         var match = Regex.Match(m, "NickServ CONFIRM (.*?) \"", RegexOptions.Singleline);
         string register = match.Groups[1].Value;
         Debug.WriteLine("nickserv code = \"" + register + "\"");
-        ChatService.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
+        MainForm.chat.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
         OpenMsgBox("INFO", "Your username has been registered successfully! You can now access restricted chatrooms!");
     }
 

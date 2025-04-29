@@ -103,15 +103,18 @@ public partial class BuddyListForm : _Win95Theme
         int online = 0;
         int offline = 0;
 
-        if (!Account.SignedIn() || !await ChatService.CheckIRCRunning())
+        if (!Account.SignedIn() || !MainForm.chat.irc.IsClientRunning())
+        {
+            Debug.WriteLine($"ERROR - SignedIn:{Account.SignedIn()}, IRCRunning:{MainForm.chat.irc.IsClientRunning()}");
             return;
+        }
 
         foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())
         {
             if (string.IsNullOrEmpty(kvp.Key))
                 continue;
 
-            ChatService.irc.SendRawMessage($"whois {kvp.Key}"); // send whois command, this will populate the buddyStatus dictionary
+            MainForm.chat.irc.SendRawMessage($"whois {kvp.Key}"); // send whois command, this will populate the buddyStatus dictionary
 
             if (kvp.Value == true) // remove from offline, add to online
             {
