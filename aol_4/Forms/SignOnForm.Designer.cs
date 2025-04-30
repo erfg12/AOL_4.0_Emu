@@ -96,6 +96,7 @@
             selectLocation.Name = "selectLocation";
             selectLocation.Size = new Size(215, 23);
             selectLocation.TabIndex = 2;
+            selectLocation.SelectedIndexChanged += selectLocation_SelectedIndexChanged;
             // 
             // signOnBtn
             // 
@@ -184,7 +185,7 @@
             leftBanner.TabIndex = 5;
             leftBanner.TabStop = false;
             // 
-            // panel1
+            // TitleBar
             // 
             TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TitleBar.AutoSize = true;
@@ -197,7 +198,7 @@
             TitleBar.Controls.Add(closeBtn);
             TitleBar.Location = new Point(1, 1);
             TitleBar.Margin = new Padding(4);
-            TitleBar.Name = "panel1";
+            TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(443, 24);
             TitleBar.TabIndex = 4;
             // 

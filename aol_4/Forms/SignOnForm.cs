@@ -22,12 +22,15 @@ public partial class SignOnForm : _Win95Theme
 
     private void AccForm_Shown(object sender, EventArgs e)
     {
+        if (Properties.Settings.Default.connType != null)
+            selectLocation.Text = Properties.Settings.Default.connType;
+
         LocationService.PositionWindow(this);
         if (screenName.Items.Contains(Properties.Settings.Default.lastAcc))
             screenName.Text = Properties.Settings.Default.lastAcc;
         else
             screenName.SelectedIndex = 0;
-        selectLocation.Text = Properties.Settings.Default.connType;
+        
         if (passBox.Visible)
             this.ActiveControl = passBox;
     }
@@ -35,10 +38,6 @@ public partial class SignOnForm : _Win95Theme
     private async void SignOnBtn_Click(object sender, EventArgs e)
     {
         Cursor = Cursors.WaitCursor;
-        Account.tmpLocation = selectLocation.Text;
-
-        Properties.Settings.Default.connType = Account.tmpLocation;
-        Properties.Settings.Default.Save();
 
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
         {
@@ -125,5 +124,12 @@ public partial class SignOnForm : _Win95Theme
         {
             e.Handled = true;
         }
+    }
+
+    private void selectLocation_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Account.tmpLocation = selectLocation.Text;
+        Properties.Settings.Default.connType = selectLocation.Text;
+        Properties.Settings.Default.Save();
     }
 }

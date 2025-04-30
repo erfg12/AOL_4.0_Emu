@@ -413,7 +413,6 @@ public partial class MainForm : _Win95Theme
 
         Account.tmpUsername = "";
         Account.tmpPassword = "";
-        Account.tmpLocation = "";
 
         if (chat.irc.IsClientRunning())
             chat.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
