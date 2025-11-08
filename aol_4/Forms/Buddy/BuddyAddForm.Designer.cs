@@ -44,7 +44,7 @@
             // nameTextBox
             // 
             nameTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            nameTextBox.Location = new Point(22, 90);
+            nameTextBox.Location = new Point(22, 75);
             nameTextBox.Margin = new Padding(6);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.Size = new Size(334, 23);
@@ -53,10 +53,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 60);
+            label1.Location = new Point(22, 51);
             label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(130, 25);
+            label1.Size = new Size(86, 15);
             label1.TabIndex = 7;
             label1.Text = "AOL Username";
             // 
@@ -66,10 +66,10 @@
             sendBtn.FlatStyle = FlatStyle.Flat;
             sendBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             sendBtn.ForeColor = SystemColors.Control;
-            sendBtn.Location = new Point(370, 88);
+            sendBtn.Location = new Point(370, 74);
             sendBtn.Margin = new Padding(6);
             sendBtn.Name = "sendBtn";
-            sendBtn.Size = new Size(104, 44);
+            sendBtn.Size = new Size(67, 25);
             sendBtn.TabIndex = 8;
             sendBtn.Text = "ADD";
             sendBtn.UseVisualStyleBackColor = false;
@@ -89,7 +89,7 @@
             panel1.Location = new Point(4, 4);
             panel1.Margin = new Padding(6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(480, 35);
+            panel1.Size = new Size(440, 23);
             panel1.TabIndex = 5;
             panel1.MouseMove += TitleBar_MouseMove;
             // 
@@ -99,7 +99,7 @@
             mainTitle.BackColor = Color.Transparent;
             mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
-            mainTitle.Location = new Point(48, 4);
+            mainTitle.Location = new Point(31, 4);
             mainTitle.Margin = new Padding(6, 0, 6, 0);
             mainTitle.Name = "mainTitle";
             mainTitle.Size = new Size(66, 15);
@@ -116,10 +116,10 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(376, 2);
+            miniBtn.Location = new Point(372, 2);
             miniBtn.Margin = new Padding(6);
             miniBtn.Name = "miniBtn";
-            miniBtn.Size = new Size(33, 31);
+            miniBtn.Size = new Size(21, 19);
             miniBtn.TabIndex = 2;
             miniBtn.UseVisualStyleBackColor = false;
             miniBtn.Click += MiniBtn_Click;
@@ -134,7 +134,7 @@
             pictureBox1.Location = new Point(7, -2);
             pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(33, 35);
+            pictureBox1.Size = new Size(21, 21);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
@@ -148,11 +148,11 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(409, 2);
+            maxBtn.Location = new Point(393, 2);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
-            maxBtn.Size = new Size(33, 31);
+            maxBtn.Size = new Size(21, 19);
             maxBtn.TabIndex = 1;
             maxBtn.UseVisualStyleBackColor = false;
             // 
@@ -165,11 +165,11 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(446, 2);
+            closeBtn.Location = new Point(416, 2);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
-            closeBtn.Size = new Size(33, 31);
+            closeBtn.Size = new Size(21, 19);
             closeBtn.TabIndex = 0;
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += CloseBtn_Click;
@@ -178,7 +178,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Ivory;
-            ClientSize = new Size(488, 160);
+            ClientSize = new Size(448, 126);
             Controls.Add(sendBtn);
             Controls.Add(label1);
             Controls.Add(nameTextBox);
