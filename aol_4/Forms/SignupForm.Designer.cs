@@ -96,6 +96,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(31, 2);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -173,11 +174,11 @@
             // newAOL
             // 
             newAOL.AutoSize = true;
-            newAOL.Font = new Font("Arial", 8.25F, FontStyle.Bold);
+            newAOL.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             newAOL.Location = new Point(28, 80);
             newAOL.Margin = new Padding(4);
             newAOL.Name = "newAOL";
-            newAOL.Size = new Size(370, 18);
+            newAOL.Size = new Size(390, 20);
             newAOL.TabIndex = 6;
             newAOL.Text = "Yes, I would like a NEW AOL e-email address and Screen Name!";
             newAOL.UseVisualStyleBackColor = true;
@@ -186,11 +187,11 @@
             // 
             oldAOL.AutoSize = true;
             oldAOL.Checked = true;
-            oldAOL.Font = new Font("Arial", 8.25F, FontStyle.Bold);
+            oldAOL.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             oldAOL.Location = new Point(28, 127);
             oldAOL.Margin = new Padding(4);
             oldAOL.Name = "oldAOL";
-            oldAOL.Size = new Size(418, 18);
+            oldAOL.Size = new Size(441, 20);
             oldAOL.TabIndex = 7;
             oldAOL.TabStop = true;
             oldAOL.Text = "No, I already have an AOL account or e-email address and Screen Name.";
@@ -199,22 +200,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 16F);
+            label1.Font = new Font("Arial", 19F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(10, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(307, 25);
+            label1.Size = new Size(266, 22);
             label1.TabIndex = 8;
             label1.Text = "Create Your AOL Account Now";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 8.25F, FontStyle.Bold);
+            label2.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             label2.Location = new Point(15, 49);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(316, 14);
+            label2.Size = new Size(321, 15);
             label2.TabIndex = 9;
             label2.Text = "Select which of the following statements applies to you:";
             // 
@@ -247,11 +248,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial", 8.25F);
+            label3.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(24, 103);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(416, 14);
+            label3.Size = new Size(462, 15);
             label3.TabIndex = 12;
             label3.Text = "Click this button if you do not have an AOL Screen Name or an existing AOL account.";
             // 
@@ -259,7 +260,7 @@
             // 
             cancelBtn.FlatAppearance.BorderSize = 0;
             cancelBtn.FlatStyle = FlatStyle.Flat;
-            cancelBtn.Font = new Font("Microsoft Sans Serif", 9F);
+            cancelBtn.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             cancelBtn.ForeColor = SystemColors.ActiveCaptionText;
             cancelBtn.Location = new Point(24, 307);
             cancelBtn.Margin = new Padding(4);
@@ -273,16 +274,17 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial", 8.25F);
+            label4.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(24, 151);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(378, 14);
+            label4.Size = new Size(426, 15);
             label4.TabIndex = 14;
             label4.Text = "Click this button if you are already an AOL member and have a Screen Name.";
             // 
             // recoverUser
             // 
+            recoverUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             recoverUser.Location = new Point(312, 173);
             recoverUser.Margin = new Padding(4);
             recoverUser.MaxLength = 30;
@@ -293,6 +295,7 @@
             // 
             // recoverPass
             // 
+            recoverPass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             recoverPass.Location = new Point(312, 199);
             recoverPass.Margin = new Padding(4);
             recoverPass.MaxLength = 30;
@@ -303,66 +306,66 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial", 8.25F, FontStyle.Bold);
+            label5.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             label5.Location = new Point(92, 176);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(182, 14);
+            label5.Size = new Size(186, 15);
             label5.TabIndex = 17;
             label5.Text = "Type your Screen Name in here:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Arial", 8.25F, FontStyle.Bold);
+            label6.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             label6.Location = new Point(109, 202);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(167, 14);
+            label6.Size = new Size(171, 15);
             label6.TabIndex = 18;
             label6.Text = "Please enter your Password:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Arial", 8.25F);
+            label7.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label7.Location = new Point(24, 225);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(397, 14);
+            label7.Size = new Size(433, 15);
             label7.TabIndex = 19;
             label7.Text = "Tip: You can have up to seven active screen names on your AOL account. If you";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Arial", 8.25F);
+            label8.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label8.Location = new Point(24, 240);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(376, 14);
+            label8.Size = new Size(424, 15);
             label8.TabIndex = 20;
             label8.Text = "would like to add a screen name, sign in with your existing screen name and";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Arial", 8.25F);
+            label9.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label9.Location = new Point(24, 255);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(204, 14);
+            label9.Size = new Size(228, 15);
             label9.TabIndex = 21;
             label9.Text = "password and go to myaccount.aol.com.";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Arial", 8.25F);
+            label10.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label10.Location = new Point(24, 278);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(113, 14);
+            label10.Size = new Size(127, 15);
             label10.TabIndex = 22;
             label10.Text = "Click Next to continue.";
             // 
@@ -414,7 +417,7 @@
             LoadingLabel.ForeColor = SystemColors.Highlight;
             LoadingLabel.Location = new Point(168, 238);
             LoadingLabel.Name = "LoadingLabel";
-            LoadingLabel.Size = new Size(0, 19);
+            LoadingLabel.Size = new Size(0, 28);
             LoadingLabel.TabIndex = 8;
             // 
             // label13
@@ -423,7 +426,7 @@
             label13.Location = new Point(165, 181);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(60, 15);
+            label13.Size = new Size(91, 25);
             label13.TabIndex = 7;
             label13.Text = "Password:";
             // 
@@ -433,7 +436,7 @@
             label12.Location = new Point(164, 121);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(64, 15);
+            label12.Size = new Size(95, 25);
             label12.TabIndex = 6;
             label12.Text = "Full Name:";
             // 
@@ -443,7 +446,7 @@
             label11.Location = new Point(164, 64);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(63, 15);
+            label11.Size = new Size(95, 25);
             label11.TabIndex = 5;
             label11.Text = "Username:";
             // 
@@ -452,7 +455,7 @@
             password.Location = new Point(168, 200);
             password.Margin = new Padding(4);
             password.Name = "password";
-            password.Size = new Size(213, 23);
+            password.Size = new Size(213, 31);
             password.TabIndex = 4;
             // 
             // fullname
@@ -460,7 +463,7 @@
             fullname.Location = new Point(168, 141);
             fullname.Margin = new Padding(4);
             fullname.Name = "fullname";
-            fullname.Size = new Size(213, 23);
+            fullname.Size = new Size(213, 31);
             fullname.TabIndex = 3;
             // 
             // username
@@ -468,7 +471,7 @@
             username.Location = new Point(168, 82);
             username.Margin = new Padding(4);
             username.Name = "username";
-            username.Size = new Size(213, 23);
+            username.Size = new Size(213, 31);
             username.TabIndex = 2;
             // 
             // backBtn
@@ -498,7 +501,7 @@
             // 
             // SignupForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(669, 369);
             Controls.Add(leftBanner);

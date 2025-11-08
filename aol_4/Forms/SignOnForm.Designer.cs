@@ -53,7 +53,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 9F, FontStyle.Bold);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             label1.Location = new Point(165, 129);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -64,6 +64,7 @@
             // screenName
             // 
             screenName.DropDownStyle = ComboBoxStyle.DropDownList;
+            screenName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             screenName.FormattingEnabled = true;
             screenName.Items.AddRange(new object[] { "New User", "Existing Member", "Guest" });
             screenName.Location = new Point(169, 154);
@@ -78,7 +79,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial", 9F, FontStyle.Bold);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             label2.Location = new Point(165, 247);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -89,6 +90,7 @@
             // selectLocation
             // 
             selectLocation.DropDownStyle = ComboBoxStyle.DropDownList;
+            selectLocation.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             selectLocation.FormattingEnabled = true;
             selectLocation.Items.AddRange(new object[] { "ISP/LAN Connection", "Dial-Up" });
             selectLocation.Location = new Point(169, 271);
@@ -103,7 +105,7 @@
             signOnBtn.BackColor = Color.FromArgb(0, 109, 170);
             signOnBtn.Cursor = Cursors.Hand;
             signOnBtn.FlatStyle = FlatStyle.Flat;
-            signOnBtn.Font = new Font("Arial", 8.25F);
+            signOnBtn.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             signOnBtn.ForeColor = SystemColors.Control;
             signOnBtn.Location = new Point(339, 316);
             signOnBtn.Margin = new Padding(4);
@@ -119,7 +121,7 @@
             helpBtn.BackColor = Color.FromArgb(0, 109, 170);
             helpBtn.Cursor = Cursors.Hand;
             helpBtn.FlatStyle = FlatStyle.Flat;
-            helpBtn.Font = new Font("Arial", 8.25F);
+            helpBtn.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             helpBtn.ForeColor = SystemColors.Control;
             helpBtn.Location = new Point(237, 316);
             helpBtn.Margin = new Padding(4);
@@ -134,7 +136,7 @@
             setupBtn.BackColor = Color.FromArgb(0, 109, 170);
             setupBtn.Cursor = Cursors.Hand;
             setupBtn.FlatStyle = FlatStyle.Flat;
-            setupBtn.Font = new Font("Arial", 8.25F);
+            setupBtn.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             setupBtn.ForeColor = SystemColors.Control;
             setupBtn.Location = new Point(133, 316);
             setupBtn.Margin = new Padding(4);
@@ -147,6 +149,7 @@
             // 
             // passBox
             // 
+            passBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             passBox.Location = new Point(169, 211);
             passBox.Margin = new Padding(4);
             passBox.MaxLength = 30;
@@ -159,7 +162,7 @@
             // passLabel
             // 
             passLabel.AutoSize = true;
-            passLabel.Font = new Font("Arial", 9F, FontStyle.Bold);
+            passLabel.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             passLabel.Location = new Point(165, 189);
             passLabel.Margin = new Padding(4, 0, 4, 0);
             passLabel.Name = "passLabel";
@@ -206,6 +209,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(31, 2);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -247,8 +251,7 @@
             // 
             // SignOnForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(445, 371);
             Controls.Add(passLabel);

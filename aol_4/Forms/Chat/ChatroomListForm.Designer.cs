@@ -69,13 +69,14 @@
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(704, 25);
+            TitleBar.Size = new Size(704, 29);
             TitleBar.TabIndex = 2;
             // 
             // mainTitle
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(29, 4);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -106,7 +107,7 @@
             titleLabel.Location = new Point(4, 4);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(0, 15);
+            titleLabel.Size = new Size(0, 25);
             titleLabel.TabIndex = 3;
             // 
             // miniBtn
@@ -164,7 +165,7 @@
             // searchTextBox
             // 
             searchTextBox.BorderStyle = BorderStyle.None;
-            searchTextBox.Font = new Font("Segoe UI", 8F);
+            searchTextBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             searchTextBox.Location = new Point(18, 128);
             searchTextBox.Margin = new Padding(4);
             searchTextBox.Name = "searchTextBox";
@@ -175,6 +176,7 @@
             // 
             catListView.BorderStyle = BorderStyle.None;
             catListView.Columns.AddRange(new ColumnHeader[] { category_column });
+            catListView.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             catListView.FullRowSelect = true;
             catListView.HeaderStyle = ColumnHeaderStyle.None;
             catListView.Location = new Point(21, 258);
@@ -197,6 +199,7 @@
             // 
             chanListView.BorderStyle = BorderStyle.None;
             chanListView.Columns.AddRange(new ColumnHeader[] { channels });
+            chanListView.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             chanListView.HeaderStyle = ColumnHeaderStyle.None;
             chanListView.Location = new Point(201, 258);
             chanListView.Margin = new Padding(4);
@@ -227,6 +230,7 @@
             // 
             roomsIn.AutoSize = true;
             roomsIn.BackColor = Color.FromArgb(201, 229, 248);
+            roomsIn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             roomsIn.ForeColor = Color.DarkSlateGray;
             roomsIn.Location = new Point(312, 238);
             roomsIn.Margin = new Padding(4, 0, 4, 0);
@@ -263,7 +267,7 @@
             // 
             // ChatroomListForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(710, 506);
             Controls.Add(searchBtn);

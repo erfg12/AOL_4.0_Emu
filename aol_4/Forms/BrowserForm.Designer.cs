@@ -100,6 +100,7 @@
             // 
             BrowserWindowTitleLabel.AutoSize = true;
             BrowserWindowTitleLabel.BackColor = Color.Transparent;
+            BrowserWindowTitleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             BrowserWindowTitleLabel.ForeColor = SystemColors.Window;
             BrowserWindowTitleLabel.Location = new Point(0, 2);
             BrowserWindowTitleLabel.Margin = new Padding(2, 0, 2, 0);
@@ -132,7 +133,7 @@
             titleLabel.Location = new Point(4, 4);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(0, 15);
+            titleLabel.Size = new Size(0, 25);
             titleLabel.TabIndex = 3;
             titleLabel.MouseMove += TitleBar_TitleLabel_MouseMove;
             // 
@@ -190,7 +191,7 @@
             // 
             // BrowserForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(880, 522);

@@ -29,7 +29,7 @@ namespace aol.Forms
                 };
 
                 Application.EnableVisualStyles();
-                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 // Configure DI

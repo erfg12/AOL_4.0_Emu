@@ -132,6 +132,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(24, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -143,6 +144,7 @@
             // placeDescBox
             // 
             placeDescBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            placeDescBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             placeDescBox.Location = new Point(14, 55);
             placeDescBox.Margin = new Padding(4);
             placeDescBox.Name = "placeDescBox";
@@ -152,6 +154,7 @@
             // internetAddrBox
             // 
             internetAddrBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            internetAddrBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             internetAddrBox.Location = new Point(14, 106);
             internetAddrBox.Margin = new Padding(4);
             internetAddrBox.Name = "internetAddrBox";
@@ -161,7 +164,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 84);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label1.Location = new Point(15, 85);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(143, 15);
@@ -171,6 +175,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(15, 37);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -183,6 +188,7 @@
             okBtn.BackColor = Color.FromArgb(0, 109, 170);
             okBtn.Cursor = Cursors.Hand;
             okBtn.FlatStyle = FlatStyle.Flat;
+            okBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             okBtn.ForeColor = SystemColors.Control;
             okBtn.Location = new Point(133, 141);
             okBtn.Margin = new Padding(4);
@@ -198,6 +204,7 @@
             cancelBtn.BackColor = Color.FromArgb(0, 109, 170);
             cancelBtn.Cursor = Cursors.Hand;
             cancelBtn.FlatStyle = FlatStyle.Flat;
+            cancelBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             cancelBtn.ForeColor = SystemColors.Control;
             cancelBtn.Location = new Point(214, 141);
             cancelBtn.Margin = new Padding(4);
@@ -210,7 +217,7 @@
             // 
             // FavoritesAddForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(409, 181);

@@ -53,9 +53,9 @@
             sendLaterButton = new PictureBox();
             label8 = new Label();
             addressBookButton = new PictureBox();
-            label9 = new Label();
             mailExtrasButton = new PictureBox();
             label10 = new Label();
+            label9 = new Label();
             TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)sendButton).BeginInit();
@@ -95,14 +95,15 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
-            // mainTitle
+            // TitleLabel
             // 
             TitleLabel.AutoSize = true;
             TitleLabel.BackColor = Color.Transparent;
+            TitleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             TitleLabel.ForeColor = Color.WhiteSmoke;
             TitleLabel.Location = new Point(27, 4);
             TitleLabel.Margin = new Padding(4, 0, 4, 0);
-            TitleLabel.Name = "mainTitle";
+            TitleLabel.Name = "TitleLabel";
             TitleLabel.Size = new Size(61, 15);
             TitleLabel.TabIndex = 8;
             TitleLabel.Text = "Write Mail";
@@ -162,44 +163,44 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10F);
+            label1.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(10, 31);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(41, 17);
+            label1.Size = new Size(39, 16);
             label1.TabIndex = 6;
             label1.Text = "Send";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10F);
+            label2.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(368, 31);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(40, 17);
+            label2.Size = new Size(39, 16);
             label2.TabIndex = 7;
             label2.Text = "Copy";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10F);
+            label3.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(24, 52);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(25, 17);
+            label3.Size = new Size(24, 16);
             label3.TabIndex = 8;
             label3.Text = "To";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10F);
+            label4.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(379, 53);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(25, 17);
+            label4.Size = new Size(24, 16);
             label4.TabIndex = 9;
             label4.Text = "To";
             // 
@@ -225,20 +226,20 @@
             // 
             // subjectBox
             // 
-            subjectBox.Location = new Point(81, 145);
+            subjectBox.Location = new Point(57, 145);
             subjectBox.Margin = new Padding(4);
             subjectBox.Name = "subjectBox";
-            subjectBox.Size = new Size(616, 23);
+            subjectBox.Size = new Size(640, 31);
             subjectBox.TabIndex = 12;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10F);
-            label5.Location = new Point(13, 145);
+            label5.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label5.Location = new Point(3, 147);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(55, 17);
+            label5.Size = new Size(52, 16);
             label5.TabIndex = 13;
             label5.Text = "Subject";
             // 
@@ -258,6 +259,7 @@
             helpBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             helpBtn.BackColor = Color.FromArgb(0, 109, 170);
             helpBtn.FlatStyle = FlatStyle.Flat;
+            helpBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             helpBtn.ForeColor = SystemColors.Control;
             helpBtn.Location = new Point(707, 421);
             helpBtn.Margin = new Padding(4);
@@ -272,6 +274,7 @@
             attachmentsButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             attachmentsButton.BackColor = Color.FromArgb(0, 109, 170);
             attachmentsButton.FlatStyle = FlatStyle.Flat;
+            attachmentsButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             attachmentsButton.ForeColor = SystemColors.Control;
             attachmentsButton.Location = new Point(17, 421);
             attachmentsButton.Margin = new Padding(4);
@@ -285,10 +288,11 @@
             // 
             requestReceiptCheckbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             requestReceiptCheckbox.AutoSize = true;
-            requestReceiptCheckbox.Location = new Point(438, 422);
+            requestReceiptCheckbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            requestReceiptCheckbox.Location = new Point(431, 420);
             requestReceiptCheckbox.Margin = new Padding(4);
             requestReceiptCheckbox.Name = "requestReceiptCheckbox";
-            requestReceiptCheckbox.Size = new Size(266, 19);
+            requestReceiptCheckbox.Size = new Size(273, 21);
             requestReceiptCheckbox.TabIndex = 17;
             requestReceiptCheckbox.Text = "Request \"Return Receipt\" from AOL members";
             requestReceiptCheckbox.UseVisualStyleBackColor = true;
@@ -312,6 +316,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label6.Location = new Point(706, 79);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
@@ -323,6 +328,7 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label7.Location = new Point(704, 152);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
@@ -346,6 +352,7 @@
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label8.Location = new Point(710, 225);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
@@ -365,17 +372,6 @@
             addressBookButton.TabIndex = 22;
             addressBookButton.TabStop = false;
             // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label9.AutoSize = true;
-            label9.Location = new Point(718, 241);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(34, 15);
-            label9.TabIndex = 24;
-            label9.Text = "Book";
-            // 
             // mailExtrasButton
             // 
             mailExtrasButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -392,6 +388,7 @@
             // 
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label10.Location = new Point(704, 314);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
@@ -399,9 +396,21 @@
             label10.TabIndex = 26;
             label10.Text = "Mail Extras";
             // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label9.Location = new Point(710, 241);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(34, 15);
+            label9.TabIndex = 24;
+            label9.Text = "Book";
+            // 
             // MailWriteForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 253, 241);
             ClientSize = new Size(785, 461);
@@ -471,8 +480,8 @@
         private System.Windows.Forms.PictureBox sendLaterButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox addressBookButton;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox mailExtrasButton;
         private System.Windows.Forms.Label label10;
+        private Label label9;
     }
 }

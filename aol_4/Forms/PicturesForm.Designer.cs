@@ -75,7 +75,7 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panel1
+            // TitleBar
             // 
             TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TitleBar.AutoSize = true;
@@ -90,7 +90,7 @@
             TitleBar.Controls.Add(titleLabel);
             TitleBar.Location = new Point(1, 1);
             TitleBar.Margin = new Padding(4);
-            TitleBar.Name = "panel1";
+            TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(731, 24);
             TitleBar.TabIndex = 3;
             // 
@@ -164,6 +164,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(27, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -175,19 +176,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Underline);
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Underline, GraphicsUnit.Pixel);
             label1.ForeColor = SystemColors.HotTrack;
             label1.Location = new Point(4, 110);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(29, 13);
+            label1.Size = new Size(33, 15);
             label1.TabIndex = 4;
             label1.Text = "Help";
             // 
             // goToPics
             // 
             goToPics.FlatStyle = FlatStyle.System;
-            goToPics.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            goToPics.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold, GraphicsUnit.Pixel);
             goToPics.Location = new Point(181, 403);
             goToPics.Margin = new Padding(4);
             goToPics.Name = "goToPics";
@@ -201,6 +202,7 @@
             // 
             textBox1.BackColor = Color.Ivory;
             textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBox1.Location = new Point(14, 242);
             textBox1.Margin = new Padding(4);
             textBox1.Multiline = true;
@@ -215,6 +217,7 @@
             // 
             textBox2.BackColor = Color.Ivory;
             textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBox2.Location = new Point(563, 139);
             textBox2.Margin = new Padding(4);
             textBox2.Multiline = true;
@@ -229,6 +232,7 @@
             // 
             textBox3.BackColor = Color.Ivory;
             textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBox3.Location = new Point(561, 230);
             textBox3.Margin = new Padding(4);
             textBox3.Multiline = true;
@@ -265,17 +269,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             label2.Location = new Point(601, 424);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(109, 13);
+            label2.Size = new Size(121, 15);
             label2.TabIndex = 11;
             label2.Text = "Keyword: Pictures";
             // 
             // PicturesForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(734, 449);

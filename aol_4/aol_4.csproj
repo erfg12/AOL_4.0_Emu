@@ -53,6 +53,9 @@
     <WarningLevel>1</WarningLevel>
     <NoWarn>1701;1702;ca1416</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Remove="app.manifest" />
+  </ItemGroup>
 	<ItemGroup>
 		<SupportedPlatform Include="Windows" />
 	</ItemGroup>

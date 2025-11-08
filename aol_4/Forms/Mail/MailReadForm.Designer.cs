@@ -81,6 +81,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(4, 2);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -181,6 +182,7 @@
             helpBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             helpBtn.BackColor = Color.FromArgb(0, 109, 170);
             helpBtn.FlatStyle = FlatStyle.Flat;
+            helpBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             helpBtn.ForeColor = SystemColors.Control;
             helpBtn.Location = new Point(601, 435);
             helpBtn.Margin = new Padding(4);
@@ -195,6 +197,7 @@
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.BackColor = Color.FromArgb(0, 109, 170);
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             button1.ForeColor = SystemColors.Control;
             button1.Location = new Point(307, 434);
             button1.Margin = new Padding(4);
@@ -211,7 +214,7 @@
             curID.Location = new Point(458, 440);
             curID.Margin = new Padding(4, 0, 4, 0);
             curID.Name = "curID";
-            curID.Size = new Size(13, 15);
+            curID.Size = new Size(22, 25);
             curID.TabIndex = 11;
             curID.Text = "1";
             // 
@@ -222,7 +225,7 @@
             label1.Location = new Point(473, 440);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(29, 25);
             label1.TabIndex = 12;
             label1.Text = "of";
             // 
@@ -233,7 +236,7 @@
             totalQty.Location = new Point(491, 440);
             totalQty.Margin = new Padding(4, 0, 4, 0);
             totalQty.Name = "totalQty";
-            totalQty.Size = new Size(13, 15);
+            totalQty.Size = new Size(22, 25);
             totalQty.TabIndex = 13;
             totalQty.Text = "1";
             // 
@@ -291,7 +294,8 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(612, 83);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label2.Location = new Point(595, 83);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(36, 15);
@@ -302,6 +306,7 @@
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(606, 156);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
@@ -313,6 +318,7 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(605, 229);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -324,6 +330,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label5.Location = new Point(592, 310);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
@@ -344,7 +351,7 @@
             // 
             // MailReadForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 253, 241);
             ClientSize = new Size(679, 474);

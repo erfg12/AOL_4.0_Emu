@@ -386,14 +386,15 @@
             pictureBox22.TabIndex = 9;
             pictureBox22.TabStop = false;
             // 
-            // titleLabel
+            // TitleLabel
             // 
             TitleLabel.AutoSize = true;
             TitleLabel.BackColor = Color.Transparent;
+            TitleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             TitleLabel.ForeColor = Color.White;
             TitleLabel.Location = new Point(27, 4);
             TitleLabel.Margin = new Padding(4, 0, 4, 0);
-            TitleLabel.Name = "titleLabel";
+            TitleLabel.Name = "TitleLabel";
             TitleLabel.Size = new Size(56, 15);
             TitleLabel.TabIndex = 3;
             TitleLabel.Text = "Channels";
@@ -453,7 +454,7 @@
             // 
             // ChannelsListForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(623, 433);
             Controls.Add(localBtn);

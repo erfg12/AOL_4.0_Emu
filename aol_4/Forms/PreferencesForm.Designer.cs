@@ -85,7 +85,7 @@
             ((ISupportInitialize)languageBtn).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // TitleBar
             // 
             TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TitleBar.AutoSize = true;
@@ -100,7 +100,7 @@
             TitleBar.Controls.Add(closeBtn);
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
-            TitleBar.Name = "panel1";
+            TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(515, 25);
             TitleBar.TabIndex = 4;
             // 
@@ -122,6 +122,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(27, 4);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -186,11 +187,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 16F);
+            label1.Font = new Font("Microsoft Sans Serif", 19F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(6, 29);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(129, 26);
+            label1.Size = new Size(112, 24);
             label1.TabIndex = 5;
             label1.Text = "Preferences";
             // 
@@ -198,7 +199,7 @@
             // 
             textBox1.BackColor = Color.FromArgb(255, 251, 240);
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Microsoft Sans Serif", 8.25F);
+            textBox1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBox1.Location = new Point(13, 58);
             textBox1.Margin = new Padding(4);
             textBox1.Multiline = true;
@@ -214,6 +215,7 @@
             helpBtn.BackColor = Color.FromArgb(0, 109, 170);
             helpBtn.Cursor = Cursors.Hand;
             helpBtn.FlatStyle = FlatStyle.Flat;
+            helpBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             helpBtn.ForeColor = SystemColors.Control;
             helpBtn.Location = new Point(434, 341);
             helpBtn.Margin = new Padding(4);
@@ -395,6 +397,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(29, 173);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -405,6 +408,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(111, 173);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
@@ -415,6 +419,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(204, 173);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -425,6 +430,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label5.Location = new Point(276, 173);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
@@ -435,6 +441,7 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label6.Location = new Point(365, 173);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
@@ -445,6 +452,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label7.Location = new Point(431, 173);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
@@ -455,6 +463,7 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label8.Location = new Point(25, 260);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
@@ -465,6 +474,7 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label9.Location = new Point(104, 260);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
@@ -475,6 +485,7 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label10.Location = new Point(188, 260);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
@@ -485,6 +496,7 @@
             // label11
             // 
             label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label11.Location = new Point(272, 260);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
@@ -495,6 +507,7 @@
             // label12
             // 
             label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label12.Location = new Point(260, 277);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
@@ -505,6 +518,7 @@
             // label13
             // 
             label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label13.Location = new Point(356, 260);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
@@ -515,6 +529,7 @@
             // label14
             // 
             label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label14.Location = new Point(448, 260);
             label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
@@ -525,6 +540,7 @@
             // label15
             // 
             label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label15.Location = new Point(24, 343);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
@@ -535,6 +551,7 @@
             // label16
             // 
             label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label16.Location = new Point(105, 343);
             label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
@@ -544,7 +561,7 @@
             // 
             // PreferencesForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(521, 385);

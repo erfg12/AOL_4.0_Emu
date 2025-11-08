@@ -101,6 +101,7 @@
             // 
             labelTitle.AutoSize = true;
             labelTitle.BackColor = Color.Transparent;
+            labelTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(32, 3);
             labelTitle.Margin = new Padding(2, 0, 2, 0);
@@ -146,7 +147,7 @@
             titleLabel.Location = new Point(24, 4);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(0, 15);
+            titleLabel.Size = new Size(0, 25);
             titleLabel.TabIndex = 3;
             // 
             // miniBtn
@@ -203,7 +204,7 @@
             // 
             // ChannelViewForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 554);
             Controls.Add(TitlePanel);

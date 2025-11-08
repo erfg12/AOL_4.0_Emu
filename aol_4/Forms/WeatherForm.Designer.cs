@@ -144,6 +144,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(27, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -157,21 +158,21 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 25F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(4, 30);
+            label1.Location = new Point(4, 26);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(152, 39);
+            label1.Size = new Size(222, 58);
             label1.TabIndex = 5;
             label1.Text = "Weather";
             // 
             // cityStateLabel
             // 
             cityStateLabel.AutoSize = true;
-            cityStateLabel.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            cityStateLabel.Location = new Point(174, 44);
+            cityStateLabel.Font = new Font("Microsoft Sans Serif", 19F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cityStateLabel.Location = new Point(222, 35);
             cityStateLabel.Margin = new Padding(4, 0, 4, 0);
             cityStateLabel.Name = "cityStateLabel";
-            cityStateLabel.Size = new Size(124, 26);
+            cityStateLabel.Size = new Size(102, 24);
             cityStateLabel.TabIndex = 6;
             cityStateLabel.Text = "City, State";
             // 
@@ -179,22 +180,22 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            label2.Location = new Point(501, 481);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
+            label2.Location = new Point(501, 472);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(111, 13);
+            label2.Size = new Size(122, 15);
             label2.TabIndex = 7;
             label2.Text = "Keyword: Weather";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 8.25F);
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(11, 75);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(241, 13);
+            label3.Size = new Size(273, 15);
             label3.TabIndex = 8;
             label3.Text = "Weather reports are updated throughout the day. ";
             // 
@@ -229,7 +230,7 @@
             label4.Location = new Point(332, 130);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(153, 17);
+            label4.Size = new Size(207, 25);
             label4.TabIndex = 11;
             label4.Text = "Seven-day Forecast";
             // 
@@ -241,7 +242,7 @@
             label5.Location = new Point(17, 130);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(143, 17);
+            label5.Size = new Size(193, 25);
             label5.TabIndex = 12;
             label5.Text = "Current Conditions";
             // 
@@ -253,7 +254,7 @@
             label6.Location = new Point(17, 161);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(93, 15);
+            label6.Size = new Size(130, 22);
             label6.TabIndex = 13;
             label6.Text = "Temperature:";
             // 
@@ -265,7 +266,7 @@
             label7.Location = new Point(17, 201);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(79, 15);
+            label7.Size = new Size(111, 22);
             label7.TabIndex = 14;
             label7.Text = "Conditions:";
             // 
@@ -277,7 +278,7 @@
             label8.Location = new Point(17, 242);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(50, 15);
+            label8.Size = new Size(71, 22);
             label8.TabIndex = 15;
             label8.Text = "Winds:";
             // 
@@ -289,7 +290,7 @@
             label9.Location = new Point(18, 285);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(123, 15);
+            label9.Size = new Size(172, 22);
             label9.TabIndex = 16;
             label9.Text = "Relative Humidity:";
             // 
@@ -301,7 +302,7 @@
             label10.Location = new Point(17, 329);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(78, 15);
+            label10.Size = new Size(108, 22);
             label10.TabIndex = 17;
             label10.Text = "Barometer:";
             // 
@@ -313,7 +314,7 @@
             label11.Location = new Point(11, 386);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(100, 13);
+            label11.Size = new Size(150, 20);
             label11.TabIndex = 18;
             label11.Text = "Message Boards";
             // 
@@ -325,7 +326,7 @@
             label12.Location = new Point(11, 405);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(81, 13);
+            label12.Size = new Size(116, 20);
             label12.TabIndex = 19;
             label12.Text = "Weather Info";
             // 
@@ -337,13 +338,13 @@
             label13.Location = new Point(11, 422);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(33, 13);
+            label13.Size = new Size(48, 20);
             label13.TabIndex = 20;
             label13.Text = "Chat";
             // 
             // WeatherForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(645, 506);

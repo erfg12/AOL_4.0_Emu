@@ -70,6 +70,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             tabControl1.Location = new Point(14, 97);
             tabControl1.Margin = new Padding(4);
             tabControl1.Name = "tabControl1";
@@ -149,10 +150,10 @@
             // 
             tabPage3.BackColor = Color.FromArgb(0, 109, 170);
             tabPage3.Controls.Add(sentListView);
-            tabPage3.Location = new Point(4, 24);
+            tabPage3.Location = new Point(4, 34);
             tabPage3.Margin = new Padding(4);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(790, 370);
+            tabPage3.Size = new Size(790, 360);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Sent Mail";
             // 
@@ -183,6 +184,7 @@
             readBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             readBtn.BackColor = Color.FromArgb(0, 109, 170);
             readBtn.FlatStyle = FlatStyle.Flat;
+            readBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             readBtn.ForeColor = SystemColors.Control;
             readBtn.Location = new Point(14, 502);
             readBtn.Margin = new Padding(4);
@@ -198,6 +200,7 @@
             statusBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             statusBtn.BackColor = Color.FromArgb(0, 109, 170);
             statusBtn.FlatStyle = FlatStyle.Flat;
+            statusBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             statusBtn.ForeColor = SystemColors.Control;
             statusBtn.Location = new Point(88, 502);
             statusBtn.Margin = new Padding(4);
@@ -212,6 +215,7 @@
             keepBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             keepBtn.BackColor = Color.FromArgb(0, 109, 170);
             keepBtn.FlatStyle = FlatStyle.Flat;
+            keepBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             keepBtn.ForeColor = SystemColors.Control;
             keepBtn.Location = new Point(252, 502);
             keepBtn.Margin = new Padding(4);
@@ -227,6 +231,7 @@
             deleteBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             deleteBtn.BackColor = Color.FromArgb(0, 109, 170);
             deleteBtn.FlatStyle = FlatStyle.Flat;
+            deleteBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             deleteBtn.ForeColor = SystemColors.Control;
             deleteBtn.Location = new Point(370, 502);
             deleteBtn.Margin = new Padding(4);
@@ -242,6 +247,7 @@
             helpBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             helpBtn.BackColor = Color.FromArgb(0, 109, 170);
             helpBtn.FlatStyle = FlatStyle.Flat;
+            helpBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             helpBtn.ForeColor = SystemColors.Control;
             helpBtn.Location = new Point(743, 502);
             helpBtn.Margin = new Padding(4);
@@ -254,6 +260,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(270, 46);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -264,6 +271,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(270, 62);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -295,7 +303,7 @@
             mailboxAdBanner.TabIndex = 9;
             mailboxAdBanner.TabStop = false;
             // 
-            // panel1
+            // TitleBar
             // 
             TitleBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TitleBar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -309,7 +317,7 @@
             TitleBar.Controls.Add(closeBtn);
             TitleBar.Location = new Point(1, 1);
             TitleBar.Margin = new Padding(4);
-            TitleBar.Name = "panel1";
+            TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(822, 24);
             TitleBar.TabIndex = 2;
             // 
@@ -317,6 +325,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(27, 2);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -393,7 +402,7 @@
             // 
             // MailboxForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(826, 540);

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new Container();
-            TreeNode treeNode5 = new TreeNode("Buddies 0/0");
-            TreeNode treeNode6 = new TreeNode("Offline 0/0");
+            TreeNode treeNode1 = new TreeNode("Buddies 0/0");
+            TreeNode treeNode2 = new TreeNode("Offline 0/0");
             buddiesLabel = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -61,7 +61,7 @@
             // buddiesLabel
             // 
             buddiesLabel.AutoSize = true;
-            buddiesLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            buddiesLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             buddiesLabel.Location = new Point(4, 26);
             buddiesLabel.Margin = new Padding(4, 0, 4, 0);
             buddiesLabel.Name = "buddiesLabel";
@@ -73,72 +73,73 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(4, 269);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(33, 12);
+            label2.Size = new Size(39, 13);
             label2.TabIndex = 9;
             label2.Text = "Locate";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(52, 269);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(17, 12);
+            label3.Size = new Size(19, 13);
             label3.TabIndex = 10;
             label3.Text = "IM";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(88, 269);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(29, 12);
+            label4.Size = new Size(35, 13);
             label4.TabIndex = 11;
             label4.Text = "Setup";
             // 
             // label5
             // 
             label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Microsoft Sans Serif", 6.75F);
+            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Pixel);
             label5.Location = new Point(130, 269);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.MinimumSize = new Size(35, 0);
             label5.Name = "label5";
-            label5.Size = new Size(36, 35);
+            label5.Size = new Size(37, 35);
             label5.TabIndex = 12;
             label5.Text = "Buddy Chat";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Pixel);
             label1.Location = new Point(4, 304);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(125, 13);
+            label1.Size = new Size(138, 15);
             label1.TabIndex = 13;
             label1.Text = "Keyword: BuddyView";
             // 
             // buddyTreeView
             // 
             buddyTreeView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            buddyTreeView.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             buddyTreeView.Location = new Point(7, 47);
             buddyTreeView.Margin = new Padding(4);
             buddyTreeView.Name = "buddyTreeView";
-            treeNode5.Checked = true;
-            treeNode5.Name = "onlineBuddies";
-            treeNode5.Text = "Buddies 0/0";
-            treeNode6.Checked = true;
-            treeNode6.Name = "offlineBuddies";
-            treeNode6.Text = "Offline 0/0";
-            buddyTreeView.Nodes.AddRange(new TreeNode[] { treeNode5, treeNode6 });
+            treeNode1.Checked = true;
+            treeNode1.Name = "onlineBuddies";
+            treeNode1.Text = "Buddies 0/0";
+            treeNode2.Checked = true;
+            treeNode2.Name = "offlineBuddies";
+            treeNode2.Text = "Offline 0/0";
+            buddyTreeView.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode2 });
             buddyTreeView.Size = new Size(155, 186);
             buddyTreeView.TabIndex = 15;
             buddyTreeView.MouseDoubleClick += BuddyTreeView_MouseDoubleClick;
@@ -270,6 +271,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(0, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -286,20 +288,21 @@
             // 
             // buddyContextMenuStrip
             // 
+            buddyContextMenuStrip.ImageScalingSize = new Size(24, 24);
             buddyContextMenuStrip.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem });
             buddyContextMenuStrip.Name = "buddyContextMenuStrip";
-            buddyContextMenuStrip.Size = new Size(108, 26);
+            buddyContextMenuStrip.Size = new Size(135, 36);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(107, 22);
+            deleteToolStripMenuItem.Size = new Size(134, 32);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
             // 
             // BuddyListForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(169, 323);

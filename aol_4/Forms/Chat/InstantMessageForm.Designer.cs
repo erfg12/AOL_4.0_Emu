@@ -101,6 +101,7 @@
             // 
             messagesBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             messagesBox.BackColor = SystemColors.Window;
+            messagesBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             messagesBox.Location = new Point(7, 52);
             messagesBox.Margin = new Padding(4);
             messagesBox.Name = "messagesBox";
@@ -124,7 +125,6 @@
             // topMenuPanel
             // 
             topMenuPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            topMenuPanel.Controls.Add(label3);
             topMenuPanel.Controls.Add(MenuStrip);
             topMenuPanel.Location = new Point(3, 21);
             topMenuPanel.Margin = new Padding(4);
@@ -136,7 +136,7 @@
             // 
             label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label3.BackColor = SystemColors.ButtonShadow;
-            label3.Location = new Point(-11, 24);
+            label3.Location = new Point(-10, 48);
             label3.Name = "label3";
             label3.Size = new Size(350, 1);
             label3.TabIndex = 20;
@@ -151,52 +151,55 @@
             MenuStrip.Name = "MenuStrip";
             MenuStrip.Padding = new Padding(0);
             MenuStrip.RenderMode = ToolStripRenderMode.System;
-            MenuStrip.Size = new Size(181, 24);
+            MenuStrip.Size = new Size(197, 24);
             MenuStrip.TabIndex = 0;
             MenuStrip.Text = "MenuStrip";
             // 
             // fileToolStripMenuItem
             // 
+            fileToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 24);
+            fileToolStripMenuItem.Size = new Size(41, 24);
             fileToolStripMenuItem.Text = "&File";
             // 
             // editToolStripMenuItem
             // 
+            editToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(39, 24);
+            editToolStripMenuItem.Size = new Size(43, 24);
             editToolStripMenuItem.Text = "&Edit";
             // 
             // insertToolStripMenuItem
             // 
             insertToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { imageOrSoundFileToolStripMenuItem, recordSoundToolStripMenuItem, hyperlinkToolStripMenuItem, smileyToolStripMenuItem, textFromFileToolStripMenuItem });
+            insertToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            insertToolStripMenuItem.Size = new Size(48, 24);
+            insertToolStripMenuItem.Size = new Size(52, 24);
             insertToolStripMenuItem.Text = "&Insert";
             // 
             // imageOrSoundFileToolStripMenuItem
             // 
             imageOrSoundFileToolStripMenuItem.Name = "imageOrSoundFileToolStripMenuItem";
-            imageOrSoundFileToolStripMenuItem.Size = new Size(188, 22);
+            imageOrSoundFileToolStripMenuItem.Size = new Size(218, 34);
             imageOrSoundFileToolStripMenuItem.Text = "Image or Sound File...";
             // 
             // recordSoundToolStripMenuItem
             // 
             recordSoundToolStripMenuItem.Name = "recordSoundToolStripMenuItem";
-            recordSoundToolStripMenuItem.Size = new Size(188, 22);
+            recordSoundToolStripMenuItem.Size = new Size(218, 34);
             recordSoundToolStripMenuItem.Text = "Record Sound...";
             // 
             // hyperlinkToolStripMenuItem
             // 
             hyperlinkToolStripMenuItem.Name = "hyperlinkToolStripMenuItem";
-            hyperlinkToolStripMenuItem.Size = new Size(188, 22);
+            hyperlinkToolStripMenuItem.Size = new Size(218, 34);
             hyperlinkToolStripMenuItem.Text = "Hyperlink...";
             // 
             // smileyToolStripMenuItem
             // 
             smileyToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SmiliesToolStripMenuItem, frowningCtrl2ToolStripMenuItem, winkingCtrl3ToolStripMenuItem, pStickingouttongueCtrl4ToolStripMenuItem, toolStripSeparator1, oSurprisedCtrl5ToolStripMenuItem, kissingCtrl6ToolStripMenuItem, oYellingCtrl7ToolStripMenuItem, coolCtrl8ToolStripMenuItem, toolStripSeparator2, moneymouthCtrlShift1ToolStripMenuItem, footinmouthCtrlShift2ToolStripMenuItem, embarrassedCtrlShift3ToolStripMenuItem, oInnocentCtrlShift4ToolStripMenuItem, toolStripSeparator3, undecidedCtrlShift5ToolStripMenuItem, cryingCtrlShift6ToolStripMenuItem, xLipsaresealedCtrlShift7ToolStripMenuItem, dLaughingCtrlShift8ToolStripMenuItem });
             smileyToolStripMenuItem.Name = "smileyToolStripMenuItem";
-            smileyToolStripMenuItem.Size = new Size(188, 22);
+            smileyToolStripMenuItem.Size = new Size(218, 34);
             smileyToolStripMenuItem.Text = "Smiley";
             // 
             // SmiliesToolStripMenuItem
@@ -204,7 +207,7 @@
             SmiliesToolStripMenuItem.Image = Properties.Resources.Smiling;
             SmiliesToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             SmiliesToolStripMenuItem.Name = "SmiliesToolStripMenuItem";
-            SmiliesToolStripMenuItem.Size = new Size(311, 22);
+            SmiliesToolStripMenuItem.Size = new Size(341, 34);
             SmiliesToolStripMenuItem.Text = ":-)          Smiling                             Ctrl+1";
             SmiliesToolStripMenuItem.Click += SmiliesToolStripMenuItem_Click;
             // 
@@ -213,7 +216,7 @@
             frowningCtrl2ToolStripMenuItem.Image = Properties.Resources.Frowning;
             frowningCtrl2ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             frowningCtrl2ToolStripMenuItem.Name = "frowningCtrl2ToolStripMenuItem";
-            frowningCtrl2ToolStripMenuItem.Size = new Size(311, 22);
+            frowningCtrl2ToolStripMenuItem.Size = new Size(341, 34);
             frowningCtrl2ToolStripMenuItem.Text = ":-(          Frowning                          Ctrl+2";
             frowningCtrl2ToolStripMenuItem.Click += FrowningCtrl2ToolStripMenuItem_Click;
             // 
@@ -222,7 +225,7 @@
             winkingCtrl3ToolStripMenuItem.Image = Properties.Resources.Winking;
             winkingCtrl3ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             winkingCtrl3ToolStripMenuItem.Name = "winkingCtrl3ToolStripMenuItem";
-            winkingCtrl3ToolStripMenuItem.Size = new Size(311, 22);
+            winkingCtrl3ToolStripMenuItem.Size = new Size(341, 34);
             winkingCtrl3ToolStripMenuItem.Text = ";-)          Winking                            Ctrl+3";
             winkingCtrl3ToolStripMenuItem.Click += WinkingCtrl3ToolStripMenuItem_Click;
             // 
@@ -230,21 +233,21 @@
             // 
             pStickingouttongueCtrl4ToolStripMenuItem.Image = Properties.Resources.Sticking_out_tongue;
             pStickingouttongueCtrl4ToolStripMenuItem.Name = "pStickingouttongueCtrl4ToolStripMenuItem";
-            pStickingouttongueCtrl4ToolStripMenuItem.Size = new Size(311, 22);
+            pStickingouttongueCtrl4ToolStripMenuItem.Size = new Size(341, 34);
             pStickingouttongueCtrl4ToolStripMenuItem.Text = ":-P         Sticking-out-tongue       Ctrl+4";
             pStickingouttongueCtrl4ToolStripMenuItem.Click += PStickingouttongueCtrl4ToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(308, 6);
+            toolStripSeparator1.Size = new Size(338, 6);
             // 
             // oSurprisedCtrl5ToolStripMenuItem
             // 
             oSurprisedCtrl5ToolStripMenuItem.Image = Properties.Resources.Surprised;
             oSurprisedCtrl5ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             oSurprisedCtrl5ToolStripMenuItem.Name = "oSurprisedCtrl5ToolStripMenuItem";
-            oSurprisedCtrl5ToolStripMenuItem.Size = new Size(311, 22);
+            oSurprisedCtrl5ToolStripMenuItem.Size = new Size(341, 34);
             oSurprisedCtrl5ToolStripMenuItem.Text = "=-O       Surprised                          Ctrl+5";
             oSurprisedCtrl5ToolStripMenuItem.Click += OSurprisedCtrl5ToolStripMenuItem_Click;
             // 
@@ -253,7 +256,7 @@
             kissingCtrl6ToolStripMenuItem.Image = Properties.Resources.Kissing;
             kissingCtrl6ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             kissingCtrl6ToolStripMenuItem.Name = "kissingCtrl6ToolStripMenuItem";
-            kissingCtrl6ToolStripMenuItem.Size = new Size(311, 22);
+            kissingCtrl6ToolStripMenuItem.Size = new Size(341, 34);
             kissingCtrl6ToolStripMenuItem.Text = ":-*          Kissing                              Ctrl+6";
             kissingCtrl6ToolStripMenuItem.Click += KissingCtrl6ToolStripMenuItem_Click;
             // 
@@ -262,7 +265,7 @@
             oYellingCtrl7ToolStripMenuItem.Image = Properties.Resources.Yelling;
             oYellingCtrl7ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             oYellingCtrl7ToolStripMenuItem.Name = "oYellingCtrl7ToolStripMenuItem";
-            oYellingCtrl7ToolStripMenuItem.Size = new Size(311, 22);
+            oYellingCtrl7ToolStripMenuItem.Size = new Size(341, 34);
             oYellingCtrl7ToolStripMenuItem.Text = ">:o        Yelling                               Ctrl+7";
             oYellingCtrl7ToolStripMenuItem.Click += OYellingCtrl7ToolStripMenuItem_Click;
             // 
@@ -271,21 +274,21 @@
             coolCtrl8ToolStripMenuItem.Image = Properties.Resources.Cool;
             coolCtrl8ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             coolCtrl8ToolStripMenuItem.Name = "coolCtrl8ToolStripMenuItem";
-            coolCtrl8ToolStripMenuItem.Size = new Size(311, 22);
+            coolCtrl8ToolStripMenuItem.Size = new Size(341, 34);
             coolCtrl8ToolStripMenuItem.Text = "8-)         Cool                                  Ctrl+8";
             coolCtrl8ToolStripMenuItem.Click += CoolCtrl8ToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(308, 6);
+            toolStripSeparator2.Size = new Size(338, 6);
             // 
             // moneymouthCtrlShift1ToolStripMenuItem
             // 
             moneymouthCtrlShift1ToolStripMenuItem.Image = Properties.Resources.Money_mouth;
             moneymouthCtrlShift1ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             moneymouthCtrlShift1ToolStripMenuItem.Name = "moneymouthCtrlShift1ToolStripMenuItem";
-            moneymouthCtrlShift1ToolStripMenuItem.Size = new Size(311, 22);
+            moneymouthCtrlShift1ToolStripMenuItem.Size = new Size(341, 34);
             moneymouthCtrlShift1ToolStripMenuItem.Text = ":-$         Money-mouth                 Ctrl+Shift+1";
             moneymouthCtrlShift1ToolStripMenuItem.Click += MoneymouthCtrlShift1ToolStripMenuItem_Click;
             // 
@@ -294,7 +297,7 @@
             footinmouthCtrlShift2ToolStripMenuItem.Image = Properties.Resources.Foot_in_mouth;
             footinmouthCtrlShift2ToolStripMenuItem.ImageAlign = ContentAlignment.MiddleLeft;
             footinmouthCtrlShift2ToolStripMenuItem.Name = "footinmouthCtrlShift2ToolStripMenuItem";
-            footinmouthCtrlShift2ToolStripMenuItem.Size = new Size(311, 22);
+            footinmouthCtrlShift2ToolStripMenuItem.Size = new Size(341, 34);
             footinmouthCtrlShift2ToolStripMenuItem.Text = ":-!          Foot-in-mouth                Ctrl+Shift+2";
             footinmouthCtrlShift2ToolStripMenuItem.Click += FootinmouthCtrlShift2ToolStripMenuItem_Click;
             // 
@@ -302,7 +305,7 @@
             // 
             embarrassedCtrlShift3ToolStripMenuItem.Image = Properties.Resources.Embarrassed;
             embarrassedCtrlShift3ToolStripMenuItem.Name = "embarrassedCtrlShift3ToolStripMenuItem";
-            embarrassedCtrlShift3ToolStripMenuItem.Size = new Size(311, 22);
+            embarrassedCtrlShift3ToolStripMenuItem.Size = new Size(341, 34);
             embarrassedCtrlShift3ToolStripMenuItem.Text = ":-[          Embarrassed                    Ctrl+Shift+3";
             embarrassedCtrlShift3ToolStripMenuItem.Click += EmbarrassedCtrlShift3ToolStripMenuItem_Click;
             // 
@@ -310,20 +313,20 @@
             // 
             oInnocentCtrlShift4ToolStripMenuItem.Image = Properties.Resources.Innocent;
             oInnocentCtrlShift4ToolStripMenuItem.Name = "oInnocentCtrlShift4ToolStripMenuItem";
-            oInnocentCtrlShift4ToolStripMenuItem.Size = new Size(311, 22);
+            oInnocentCtrlShift4ToolStripMenuItem.Size = new Size(341, 34);
             oInnocentCtrlShift4ToolStripMenuItem.Text = "O:-)       Innocent                           Ctrl+Shift+4";
             oInnocentCtrlShift4ToolStripMenuItem.Click += OInnocentCtrlShift4ToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(308, 6);
+            toolStripSeparator3.Size = new Size(338, 6);
             // 
             // undecidedCtrlShift5ToolStripMenuItem
             // 
             undecidedCtrlShift5ToolStripMenuItem.Image = Properties.Resources.Undecided;
             undecidedCtrlShift5ToolStripMenuItem.Name = "undecidedCtrlShift5ToolStripMenuItem";
-            undecidedCtrlShift5ToolStripMenuItem.Size = new Size(311, 22);
+            undecidedCtrlShift5ToolStripMenuItem.Size = new Size(341, 34);
             undecidedCtrlShift5ToolStripMenuItem.Text = ":-\\          Undecided                        Ctrl+Shift+5";
             undecidedCtrlShift5ToolStripMenuItem.Click += UndecidedCtrlShift5ToolStripMenuItem_Click;
             // 
@@ -331,7 +334,7 @@
             // 
             cryingCtrlShift6ToolStripMenuItem.Image = Properties.Resources.Crying;
             cryingCtrlShift6ToolStripMenuItem.Name = "cryingCtrlShift6ToolStripMenuItem";
-            cryingCtrlShift6ToolStripMenuItem.Size = new Size(311, 22);
+            cryingCtrlShift6ToolStripMenuItem.Size = new Size(341, 34);
             cryingCtrlShift6ToolStripMenuItem.Text = ":'(           Crying                               Ctrl+Shift+6";
             cryingCtrlShift6ToolStripMenuItem.Click += CryingCtrlShift6ToolStripMenuItem_Click;
             // 
@@ -339,7 +342,7 @@
             // 
             xLipsaresealedCtrlShift7ToolStripMenuItem.Image = Properties.Resources.Lips_are_sealed;
             xLipsaresealedCtrlShift7ToolStripMenuItem.Name = "xLipsaresealedCtrlShift7ToolStripMenuItem";
-            xLipsaresealedCtrlShift7ToolStripMenuItem.Size = new Size(311, 22);
+            xLipsaresealedCtrlShift7ToolStripMenuItem.Size = new Size(341, 34);
             xLipsaresealedCtrlShift7ToolStripMenuItem.Text = ":-X         Lips-are-sealed                Ctrl+Shift+7";
             xLipsaresealedCtrlShift7ToolStripMenuItem.Click += XLipsaresealedCtrlShift7ToolStripMenuItem_Click;
             // 
@@ -347,20 +350,21 @@
             // 
             dLaughingCtrlShift8ToolStripMenuItem.Image = Properties.Resources.Laughing;
             dLaughingCtrlShift8ToolStripMenuItem.Name = "dLaughingCtrlShift8ToolStripMenuItem";
-            dLaughingCtrlShift8ToolStripMenuItem.Size = new Size(311, 22);
+            dLaughingCtrlShift8ToolStripMenuItem.Size = new Size(341, 34);
             dLaughingCtrlShift8ToolStripMenuItem.Text = ":-D         Laughing                          Ctrl+Shift+8";
             dLaughingCtrlShift8ToolStripMenuItem.Click += DLaughingCtrlShift8ToolStripMenuItem_Click;
             // 
             // textFromFileToolStripMenuItem
             // 
             textFromFileToolStripMenuItem.Name = "textFromFileToolStripMenuItem";
-            textFromFileToolStripMenuItem.Size = new Size(188, 22);
+            textFromFileToolStripMenuItem.Size = new Size(218, 34);
             textFromFileToolStripMenuItem.Text = "Text from File...";
             // 
             // peopleToolStripMenuItem
             // 
+            peopleToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            peopleToolStripMenuItem.Size = new Size(55, 24);
+            peopleToolStripMenuItem.Size = new Size(59, 24);
             peopleToolStripMenuItem.Text = "&People";
             // 
             // TitleBar
@@ -385,6 +389,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(28, 4);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -415,7 +420,7 @@
             titleLabel.Location = new Point(4, 4);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(0, 15);
+            titleLabel.Size = new Size(0, 25);
             titleLabel.TabIndex = 3;
             // 
             // miniBtn
@@ -572,7 +577,7 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.BackColor = SystemColors.ButtonShadow;
-            label2.Location = new Point(70, 2);
+            label2.Location = new Point(70, -55);
             label2.Name = "label2";
             label2.Size = new Size(1, 50);
             label2.TabIndex = 13;
@@ -582,7 +587,7 @@
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.BackColor = SystemColors.ButtonShadow;
-            label1.Location = new Point(258, 2);
+            label1.Location = new Point(258, -55);
             label1.Name = "label1";
             label1.Size = new Size(1, 50);
             label1.TabIndex = 7;
@@ -600,9 +605,10 @@
             // 
             // InstantMessageForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(322, 352);
+            Controls.Add(label3);
             Controls.Add(audioBar);
             Controls.Add(panel3);
             Controls.Add(panel1);

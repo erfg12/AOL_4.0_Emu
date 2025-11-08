@@ -55,11 +55,11 @@
             // 
             messageTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             messageTextBox.BorderStyle = BorderStyle.None;
-            messageTextBox.Font = new Font("Microsoft Sans Serif", 12F);
+            messageTextBox.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Pixel);
             messageTextBox.Location = new Point(20, 482);
             messageTextBox.Margin = new Padding(4);
             messageTextBox.Name = "messageTextBox";
-            messageTextBox.Size = new Size(468, 19);
+            messageTextBox.Size = new Size(468, 17);
             messageTextBox.TabIndex = 3;
             messageTextBox.KeyDown += MessageTextBox_KeyDown;
             // 
@@ -68,6 +68,7 @@
             chatRoomTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             chatRoomTextBox.BackColor = Color.White;
             chatRoomTextBox.BorderStyle = BorderStyle.None;
+            chatRoomTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             chatRoomTextBox.Location = new Point(20, 30);
             chatRoomTextBox.Margin = new Padding(4);
             chatRoomTextBox.Name = "chatRoomTextBox";
@@ -98,6 +99,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(25, 2);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -128,7 +130,7 @@
             titleLabel.Location = new Point(4, 4);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(0, 15);
+            titleLabel.Size = new Size(0, 25);
             titleLabel.TabIndex = 3;
             // 
             // miniBtn
@@ -187,6 +189,7 @@
             // 
             usersListView.BorderStyle = BorderStyle.None;
             usersListView.Columns.AddRange(new ColumnHeader[] { users });
+            usersListView.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             usersListView.HeaderStyle = ColumnHeaderStyle.None;
             usersListView.Location = new Point(570, 119);
             usersListView.Margin = new Padding(4);
@@ -217,6 +220,7 @@
             // 
             pplQty.AutoSize = true;
             pplQty.BackColor = Color.FromArgb(209, 229, 243);
+            pplQty.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             pplQty.Location = new Point(668, 62);
             pplQty.Margin = new Padding(4, 0, 4, 0);
             pplQty.Name = "pplQty";
@@ -245,7 +249,7 @@
             // 
             // ChatroomForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 518);
             Controls.Add(chatSendBtn);

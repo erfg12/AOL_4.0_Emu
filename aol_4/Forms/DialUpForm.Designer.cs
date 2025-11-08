@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            statusLabel = new System.Windows.Forms.Label();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
-            pictureBox3 = new System.Windows.Forms.PictureBox();
+            components = new Container();
+            statusLabel = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)pictureBox2).BeginInit();
+            ((ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // statusLabel
             // 
-            statusLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            statusLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             statusLabel.AutoSize = true;
-            statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            statusLabel.Location = new System.Drawing.Point(133, 214);
-            statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            statusLabel.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Pixel);
+            statusLabel.Location = new Point(133, 214);
+            statusLabel.Margin = new Padding(4, 0, 4, 0);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new System.Drawing.Size(255, 18);
+            statusLabel.Size = new Size(255, 18);
             statusLabel.TabIndex = 0;
             statusLabel.Text = "Step 1: Looking for AOL via TCP/IP ...";
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.dialup_pic1;
-            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox1.Location = new System.Drawing.Point(64, 110);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(64, 110);
+            pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(141, 95);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(141, 95);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.Visible = false;
@@ -67,12 +67,12 @@
             // pictureBox2
             // 
             pictureBox2.BackgroundImage = Properties.Resources.dialup_pic2;
-            pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox2.Location = new System.Drawing.Point(223, 110);
-            pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Location = new Point(223, 110);
+            pictureBox2.Margin = new Padding(0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(139, 95);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox2.Size = new Size(139, 95);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             pictureBox2.Visible = false;
@@ -80,11 +80,11 @@
             // pictureBox3
             // 
             pictureBox3.BackgroundImage = Properties.Resources.dialup_pic3;
-            pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            pictureBox3.Location = new System.Drawing.Point(382, 110);
-            pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(382, 110);
+            pictureBox3.Margin = new Padding(0);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(139, 95);
+            pictureBox3.Size = new Size(139, 95);
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
             pictureBox3.Visible = false;
@@ -96,28 +96,28 @@
             // 
             // DialUpForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FloralWhite;
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FloralWhite;
             BackgroundImage = Properties.Resources.dial_up1;
-            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            ClientSize = new System.Drawing.Size(578, 299);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(578, 299);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(statusLabel);
             DoubleBuffered = true;
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "DialUpForm";
             ShowIcon = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "dial_up";
             TopMost = true;
             FormClosing += DialUpForm_FormClosing;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox2).EndInit();
+            ((ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
 

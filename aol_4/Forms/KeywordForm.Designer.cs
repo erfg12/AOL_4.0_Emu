@@ -133,6 +133,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(24, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -144,6 +145,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(53, 58);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -153,6 +155,7 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBox1.Location = new Point(57, 80);
             textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
@@ -162,6 +165,7 @@
             // goBtn
             // 
             goBtn.FlatStyle = FlatStyle.Popup;
+            goBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             goBtn.Location = new Point(329, 80);
             goBtn.Margin = new Padding(4);
             goBtn.Name = "goBtn";
@@ -173,36 +177,36 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Underline);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Underline, GraphicsUnit.Pixel);
             label2.ForeColor = SystemColors.MenuHighlight;
-            label2.Location = new Point(56, 106);
+            label2.Location = new Point(56, 112);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(67, 13);
+            label2.Size = new Size(76, 15);
             label2.TabIndex = 7;
             label2.Text = "Keyword List";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Underline);
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Underline, GraphicsUnit.Pixel);
             label3.ForeColor = SystemColors.MenuHighlight;
-            label3.Location = new Point(143, 106);
+            label3.Location = new Point(147, 112);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(65, 13);
+            label3.Size = new Size(72, 15);
             label3.TabIndex = 8;
             label3.Text = "AOL Search";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Underline);
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Underline, GraphicsUnit.Pixel);
             label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(227, 106);
+            label4.Location = new Point(231, 112);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(29, 13);
+            label4.Size = new Size(33, 15);
             label4.TabIndex = 9;
             label4.Text = "Help";
             // 
@@ -212,7 +216,7 @@
             label5.Location = new Point(133, 106);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(10, 15);
+            label5.Size = new Size(16, 25);
             label5.TabIndex = 10;
             label5.Text = "|";
             // 
@@ -222,13 +226,13 @@
             label6.Location = new Point(217, 106);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(10, 15);
+            label6.Size = new Size(16, 25);
             label6.TabIndex = 11;
             label6.Text = "|";
             // 
             // KeywordForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(437, 161);

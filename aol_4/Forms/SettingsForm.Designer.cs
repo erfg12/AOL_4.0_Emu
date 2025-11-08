@@ -60,10 +60,11 @@
             // fullscreenCheckbox
             // 
             fullscreenCheckbox.AutoSize = true;
+            fullscreenCheckbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             fullscreenCheckbox.Location = new Point(10, 41);
             fullscreenCheckbox.Margin = new Padding(4);
             fullscreenCheckbox.Name = "fullscreenCheckbox";
-            fullscreenCheckbox.Size = new Size(110, 19);
+            fullscreenCheckbox.Size = new Size(117, 21);
             fullscreenCheckbox.TabIndex = 0;
             fullscreenCheckbox.Text = "Start Full Screen";
             fullscreenCheckbox.UseVisualStyleBackColor = true;
@@ -90,6 +91,7 @@
             // 
             mainTitle.AutoSize = true;
             mainTitle.BackColor = Color.Transparent;
+            mainTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             mainTitle.ForeColor = Color.WhiteSmoke;
             mainTitle.Location = new Point(4, 2);
             mainTitle.Margin = new Padding(4, 0, 4, 0);
@@ -156,6 +158,7 @@
             CloseBlueBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             CloseBlueBtn.BackColor = Color.FromArgb(0, 109, 170);
             CloseBlueBtn.FlatStyle = FlatStyle.Flat;
+            CloseBlueBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             CloseBlueBtn.ForeColor = SystemColors.Control;
             CloseBlueBtn.Location = new Point(300, 491);
             CloseBlueBtn.Margin = new Padding(4);
@@ -169,6 +172,7 @@
             // homePageBox
             // 
             homePageBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            homePageBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             homePageBox.Location = new Point(94, 77);
             homePageBox.Margin = new Padding(4);
             homePageBox.Name = "homePageBox";
@@ -178,6 +182,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(10, 81);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -188,6 +193,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(21, 111);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -198,6 +204,7 @@
             // fullnameBox
             // 
             fullnameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            fullnameBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             fullnameBox.Location = new Point(94, 107);
             fullnameBox.Margin = new Padding(4);
             fullnameBox.Name = "fullnameBox";
@@ -209,6 +216,7 @@
             updateFNBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             updateFNBtn.BackColor = Color.FromArgb(0, 109, 170);
             updateFNBtn.FlatStyle = FlatStyle.Flat;
+            updateFNBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             updateFNBtn.ForeColor = SystemColors.Control;
             updateFNBtn.Location = new Point(304, 106);
             updateFNBtn.Margin = new Padding(4);
@@ -223,7 +231,8 @@
             // 
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
-            label9.Location = new Point(14, 501);
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label9.Location = new Point(14, 494);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(176, 15);
@@ -234,6 +243,7 @@
             // 
             searchProvider.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             searchProvider.DropDownStyle = ComboBoxStyle.DropDownList;
+            searchProvider.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             searchProvider.FormattingEnabled = true;
             searchProvider.Items.AddRange(new object[] { "AOL", "Google", "Yahoo", "Bing", "Dogpile" });
             searchProvider.Location = new Point(94, 137);
@@ -245,6 +255,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(36, 141);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
@@ -270,6 +281,7 @@
             groupBox1.Controls.Add(DeleteAllBrowsingHistory);
             groupBox1.Controls.Add(deleteBrowserHistoryBtn);
             groupBox1.Controls.Add(browseHistoryList);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             groupBox1.Location = new Point(10, 235);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
@@ -312,6 +324,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(51, 171);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -322,6 +335,7 @@
             // cityBox
             // 
             cityBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cityBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             cityBox.Location = new Point(94, 168);
             cityBox.Margin = new Padding(4);
             cityBox.Name = "cityBox";
@@ -331,6 +345,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             label5.Location = new Point(32, 202);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
@@ -344,12 +359,13 @@
             countryBox.Location = new Point(94, 199);
             countryBox.Margin = new Padding(4);
             countryBox.Name = "countryBox";
-            countryBox.Size = new Size(274, 23);
+            countryBox.Size = new Size(274, 31);
             countryBox.TabIndex = 29;
             // 
             // UIScaleBox
             // 
             UIScaleBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            UIScaleBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             UIScaleBox.FormattingEnabled = true;
             UIScaleBox.Items.AddRange(new object[] { "1.20", "1.15", "1.10", "1.05", "1.0", "0.95", "0.90", "0.85", "0.80", "0.75", "0.70" });
             UIScaleBox.Location = new Point(309, 41);
@@ -361,7 +377,8 @@
             // UIScaleLabel
             // 
             UIScaleLabel.AutoSize = true;
-            UIScaleLabel.Location = new Point(257, 44);
+            UIScaleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            UIScaleLabel.Location = new Point(257, 47);
             UIScaleLabel.Name = "UIScaleLabel";
             UIScaleLabel.Size = new Size(48, 15);
             UIScaleLabel.TabIndex = 32;
@@ -369,7 +386,7 @@
             // 
             // SettingsForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(379, 531);

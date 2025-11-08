@@ -57,11 +57,11 @@
             // 
             todayLabel.AutoSize = true;
             todayLabel.BackColor = Color.LemonChiffon;
-            todayLabel.Font = new Font("Microsoft Sans Serif", 6.75F);
+            todayLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Pixel);
             todayLabel.Location = new Point(295, 54);
             todayLabel.Margin = new Padding(4, 0, 4, 0);
             todayLabel.Name = "todayLabel";
-            todayLabel.Size = new Size(28, 12);
+            todayLabel.Size = new Size(33, 13);
             todayLabel.TabIndex = 4;
             todayLabel.Text = "today";
             // 
@@ -69,7 +69,7 @@
             // 
             RightPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
             RightPictureBox.Image = (Image)resources.GetObject("RightPictureBox.Image");
-            RightPictureBox.Location = new Point(129, 23);
+            RightPictureBox.Location = new Point(128, 23);
             RightPictureBox.Margin = new Padding(4);
             RightPictureBox.Name = "RightPictureBox";
             RightPictureBox.Size = new Size(441, 312);
@@ -114,6 +114,7 @@
             // 
             TitleLabel.AutoSize = true;
             TitleLabel.BackColor = Color.Transparent;
+            TitleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             TitleLabel.ForeColor = Color.White;
             TitleLabel.Location = new Point(28, 2);
             TitleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -179,6 +180,7 @@
             // 
             temperatureLabel.BackColor = Color.Snow;
             temperatureLabel.BorderStyle = BorderStyle.None;
+            temperatureLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             temperatureLabel.HideSelection = false;
             temperatureLabel.Location = new Point(192, 151);
             temperatureLabel.Margin = new Padding(4);
@@ -193,7 +195,7 @@
             // 
             AOLLogoPictureBox.BackgroundImage = (Image)resources.GetObject("AOLLogoPictureBox.BackgroundImage");
             AOLLogoPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
-            AOLLogoPictureBox.Location = new Point(2, 23);
+            AOLLogoPictureBox.Location = new Point(2, 24);
             AOLLogoPictureBox.Margin = new Padding(2);
             AOLLogoPictureBox.Name = "AOLLogoPictureBox";
             AOLLogoPictureBox.Size = new Size(126, 92);
@@ -254,8 +256,7 @@
             // 
             // HomeMenuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(247, 247, 197);
             ClientSize = new Size(573, 337);
             Controls.Add(chatBtn);

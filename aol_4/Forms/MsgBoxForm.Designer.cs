@@ -74,6 +74,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(2, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -87,6 +88,7 @@
             richTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richTextBox.BackColor = Color.FromArgb(255, 251, 240);
             richTextBox.BorderStyle = BorderStyle.None;
+            richTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             richTextBox.Location = new Point(4, 25);
             richTextBox.Name = "richTextBox";
             richTextBox.ReadOnly = true;
@@ -101,7 +103,7 @@
             okBtn.BackColor = Color.FromArgb(0, 109, 170);
             okBtn.Cursor = Cursors.Hand;
             okBtn.FlatStyle = FlatStyle.Flat;
-            okBtn.Font = new Font("Arial", 8.25F);
+            okBtn.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Pixel);
             okBtn.ForeColor = SystemColors.Control;
             okBtn.Location = new Point(213, 119);
             okBtn.Margin = new Padding(4);
@@ -114,7 +116,7 @@
             // 
             // MsgBoxForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(294, 149);

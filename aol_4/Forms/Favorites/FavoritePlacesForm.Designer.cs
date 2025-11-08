@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode1 = new TreeNode("Favorite Places");
+            TreeNode treeNode2 = new TreeNode("Favorite Places");
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FavoritePlacesForm));
             TitleBar = new Panel();
             pictureBox1 = new PictureBox();
@@ -144,6 +144,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             titleLabel.ForeColor = Color.White;
             titleLabel.Location = new Point(24, 2);
             titleLabel.Margin = new Padding(4, 0, 4, 0);
@@ -155,12 +156,13 @@
             // fpTreeView
             // 
             fpTreeView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            fpTreeView.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             fpTreeView.Location = new Point(10, 31);
             fpTreeView.Margin = new Padding(4);
             fpTreeView.Name = "fpTreeView";
-            treeNode1.Name = "favorite_places";
-            treeNode1.Text = "Favorite Places";
-            fpTreeView.Nodes.AddRange(new TreeNode[] { treeNode1 });
+            treeNode2.Name = "favorite_places";
+            treeNode2.Text = "Favorite Places";
+            fpTreeView.Nodes.AddRange(new TreeNode[] { treeNode2 });
             fpTreeView.Size = new Size(208, 330);
             fpTreeView.TabIndex = 5;
             fpTreeView.DoubleClick += FpTreeView_DoubleClick;
@@ -239,7 +241,7 @@
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 7F);
+            label1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
             label1.Location = new Point(10, 396);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -251,7 +253,7 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 7F);
+            label2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
             label2.Location = new Point(52, 397);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -263,7 +265,7 @@
             // 
             label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 7F);
+            label3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
             label3.Location = new Point(97, 397);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
@@ -275,7 +277,7 @@
             // 
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 7F);
+            label4.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
             label4.Location = new Point(136, 397);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -287,7 +289,7 @@
             // 
             label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 7F);
+            label5.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
             label5.Location = new Point(186, 397);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
@@ -299,17 +301,17 @@
             // 
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 6.5F);
-            label6.Location = new Point(181, 412);
+            label6.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label6.Location = new Point(181, 409);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(39, 12);
+            label6.Size = new Size(45, 13);
             label6.TabIndex = 16;
             label6.Text = "Replace";
             // 
             // FavoritePlacesForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(228, 429);
