@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(InstantMessageForm));
             messagesBox = new RichTextBox();
             myMessageBox = new RichTextBox();
-            sendBtn = new Button();
-            panel2 = new Panel();
+            topMenuPanel = new Panel();
+            label3 = new Label();
             MenuStrip = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
@@ -68,58 +69,78 @@
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
-            panel2.SuspendLayout();
+            panel1 = new Panel();
+            pictureBox2 = new PictureBox();
+            panel3 = new Panel();
+            pictureBox7 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            sendBtn = new PictureBox();
+            label2 = new Label();
+            label1 = new Label();
+            audioBar = new PictureBox();
+            topMenuPanel.SuspendLayout();
             MenuStrip.SuspendLayout();
             TitleBar.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            ((ISupportInitialize)pictureBox2).BeginInit();
+            panel3.SuspendLayout();
+            ((ISupportInitialize)pictureBox7).BeginInit();
+            ((ISupportInitialize)pictureBox6).BeginInit();
+            ((ISupportInitialize)pictureBox5).BeginInit();
+            ((ISupportInitialize)pictureBox4).BeginInit();
+            ((ISupportInitialize)pictureBox3).BeginInit();
+            ((ISupportInitialize)sendBtn).BeginInit();
+            ((ISupportInitialize)audioBar).BeginInit();
             SuspendLayout();
             // 
             // messagesBox
             // 
             messagesBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            messagesBox.Location = new Point(7, 54);
+            messagesBox.BackColor = SystemColors.Window;
+            messagesBox.Location = new Point(7, 52);
             messagesBox.Margin = new Padding(4);
             messagesBox.Name = "messagesBox";
             messagesBox.ReadOnly = true;
-            messagesBox.Size = new Size(609, 229);
+            messagesBox.Size = new Size(309, 145);
             messagesBox.TabIndex = 4;
             messagesBox.Text = "";
             // 
             // myMessageBox
             // 
             myMessageBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            myMessageBox.Location = new Point(7, 291);
+            myMessageBox.Location = new Point(6, 226);
             myMessageBox.Margin = new Padding(4);
             myMessageBox.Name = "myMessageBox";
-            myMessageBox.Size = new Size(609, 66);
+            myMessageBox.Size = new Size(309, 66);
             myMessageBox.TabIndex = 5;
             myMessageBox.Text = "";
+            myMessageBox.TextChanged += myMessageBox_TextChanged;
             myMessageBox.KeyDown += MyMessageBox_KeyDown;
             // 
-            // sendBtn
+            // topMenuPanel
             // 
-            sendBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            sendBtn.BackColor = Color.FromArgb(0, 109, 170);
-            sendBtn.FlatStyle = FlatStyle.Flat;
-            sendBtn.ForeColor = SystemColors.Control;
-            sendBtn.Location = new Point(550, 363);
-            sendBtn.Margin = new Padding(4);
-            sendBtn.Name = "sendBtn";
-            sendBtn.Size = new Size(66, 58);
-            sendBtn.TabIndex = 6;
-            sendBtn.Text = "SEND";
-            sendBtn.UseVisualStyleBackColor = false;
-            sendBtn.Click += sendBtn_Click;
+            topMenuPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            topMenuPanel.Controls.Add(label3);
+            topMenuPanel.Controls.Add(MenuStrip);
+            topMenuPanel.Location = new Point(3, 21);
+            topMenuPanel.Margin = new Padding(4);
+            topMenuPanel.Name = "topMenuPanel";
+            topMenuPanel.Size = new Size(316, 26);
+            topMenuPanel.TabIndex = 8;
             // 
-            // panel2
+            // label3
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.Controls.Add(MenuStrip);
-            panel2.Location = new Point(3, 26);
-            panel2.Margin = new Padding(4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(616, 26);
-            panel2.TabIndex = 8;
+            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label3.BackColor = SystemColors.ButtonShadow;
+            label3.Location = new Point(-11, 24);
+            label3.Name = "label3";
+            label3.Size = new Size(350, 1);
+            label3.TabIndex = 20;
+            label3.Text = "label3";
             // 
             // MenuStrip
             // 
@@ -128,29 +149,30 @@
             MenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, insertToolStripMenuItem, peopleToolStripMenuItem });
             MenuStrip.Location = new Point(0, 0);
             MenuStrip.Name = "MenuStrip";
-            MenuStrip.Padding = new Padding(7, 2, 0, 2);
-            MenuStrip.Size = new Size(188, 24);
+            MenuStrip.Padding = new Padding(0);
+            MenuStrip.RenderMode = ToolStripRenderMode.System;
+            MenuStrip.Size = new Size(181, 24);
             MenuStrip.TabIndex = 0;
             MenuStrip.Text = "MenuStrip";
             // 
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.Size = new Size(37, 24);
+            fileToolStripMenuItem.Text = "&File";
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(39, 20);
-            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Size = new Size(39, 24);
+            editToolStripMenuItem.Text = "&Edit";
             // 
             // insertToolStripMenuItem
             // 
             insertToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { imageOrSoundFileToolStripMenuItem, recordSoundToolStripMenuItem, hyperlinkToolStripMenuItem, smileyToolStripMenuItem, textFromFileToolStripMenuItem });
             insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            insertToolStripMenuItem.Size = new Size(48, 20);
-            insertToolStripMenuItem.Text = "Insert";
+            insertToolStripMenuItem.Size = new Size(48, 24);
+            insertToolStripMenuItem.Text = "&Insert";
             // 
             // imageOrSoundFileToolStripMenuItem
             // 
@@ -338,8 +360,8 @@
             // peopleToolStripMenuItem
             // 
             peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            peopleToolStripMenuItem.Size = new Size(55, 20);
-            peopleToolStripMenuItem.Text = "People";
+            peopleToolStripMenuItem.Size = new Size(55, 24);
+            peopleToolStripMenuItem.Text = "&People";
             // 
             // TitleBar
             // 
@@ -356,7 +378,7 @@
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(617, 21);
+            TitleBar.Size = new Size(317, 21);
             TitleBar.TabIndex = 3;
             // 
             // mainTitle
@@ -405,7 +427,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(550, 2);
+            miniBtn.Location = new Point(250, 2);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -422,7 +444,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(571, 2);
+            maxBtn.Location = new Point(271, 2);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -439,7 +461,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(595, 2);
+            closeBtn.Location = new Point(295, 2);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -448,13 +470,143 @@
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += CloseBtn_Click;
             // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox2);
+            panel1.Location = new Point(6, 201);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(310, 23);
+            panel1.TabIndex = 9;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(3, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(600, 15);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
+            // panel3
+            // 
+            panel3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(pictureBox7);
+            panel3.Controls.Add(pictureBox6);
+            panel3.Controls.Add(pictureBox5);
+            panel3.Controls.Add(pictureBox4);
+            panel3.Controls.Add(pictureBox3);
+            panel3.Controls.Add(sendBtn);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label1);
+            panel3.Location = new Point(7, 293);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(309, 45);
+            panel3.TabIndex = 11;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Cursor = Cursors.Hand;
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(37, 2);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(30, 39);
+            pictureBox7.TabIndex = 19;
+            pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Cursor = Cursors.Hand;
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(3, 2);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(30, 39);
+            pictureBox6.TabIndex = 18;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Cursor = Cursors.Hand;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(92, 2);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(53, 39);
+            pictureBox5.TabIndex = 17;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Cursor = Cursors.Hand;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(165, 2);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(30, 39);
+            pictureBox4.TabIndex = 16;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(216, 2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(36, 39);
+            pictureBox3.TabIndex = 15;
+            pictureBox3.TabStop = false;
+            // 
+            // sendBtn
+            // 
+            sendBtn.Cursor = Cursors.Hand;
+            sendBtn.Enabled = false;
+            sendBtn.Image = Properties.Resources.im_send_disabled;
+            sendBtn.Location = new Point(267, 2);
+            sendBtn.Name = "sendBtn";
+            sendBtn.Size = new Size(36, 39);
+            sendBtn.TabIndex = 14;
+            sendBtn.TabStop = false;
+            sendBtn.Click += sendBtn_Click_1;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.BackColor = SystemColors.ButtonShadow;
+            label2.Location = new Point(70, 2);
+            label2.Name = "label2";
+            label2.Size = new Size(1, 50);
+            label2.TabIndex = 13;
+            label2.Text = "label2";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label1.BackColor = SystemColors.ButtonShadow;
+            label1.Location = new Point(258, 2);
+            label1.Name = "label1";
+            label1.Size = new Size(1, 50);
+            label1.TabIndex = 7;
+            label1.Text = "label1";
+            // 
+            // audioBar
+            // 
+            audioBar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            audioBar.Image = (Image)resources.GetObject("audioBar.Image");
+            audioBar.Location = new Point(269, 341);
+            audioBar.Name = "audioBar";
+            audioBar.Size = new Size(48, 7);
+            audioBar.TabIndex = 12;
+            audioBar.TabStop = false;
+            // 
             // InstantMessageForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(622, 425);
-            Controls.Add(panel2);
-            Controls.Add(sendBtn);
+            ClientSize = new Size(322, 352);
+            Controls.Add(audioBar);
+            Controls.Add(panel3);
+            Controls.Add(panel1);
+            Controls.Add(topMenuPanel);
             Controls.Add(myMessageBox);
             Controls.Add(messagesBox);
             Controls.Add(TitleBar);
@@ -466,13 +618,23 @@
             StartPosition = FormStartPosition.Manual;
             Text = "instant_message";
             Shown += instant_message_Shown;
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            topMenuPanel.ResumeLayout(false);
+            topMenuPanel.PerformLayout();
             MenuStrip.ResumeLayout(false);
             MenuStrip.PerformLayout();
             TitleBar.ResumeLayout(false);
             TitleBar.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            ((ISupportInitialize)pictureBox2).EndInit();
+            panel3.ResumeLayout(false);
+            ((ISupportInitialize)pictureBox7).EndInit();
+            ((ISupportInitialize)pictureBox6).EndInit();
+            ((ISupportInitialize)pictureBox5).EndInit();
+            ((ISupportInitialize)pictureBox4).EndInit();
+            ((ISupportInitialize)pictureBox3).EndInit();
+            ((ISupportInitialize)sendBtn).EndInit();
+            ((ISupportInitialize)audioBar).EndInit();
             ResumeLayout(false);
         }
 
@@ -484,11 +646,10 @@
         private System.Windows.Forms.Button maxBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.RichTextBox myMessageBox;
-        private System.Windows.Forms.Button sendBtn;
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox messagesBox;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel topMenuPanel;
         private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -518,5 +679,18 @@
         private System.Windows.Forms.ToolStripMenuItem cryingCtrlShift6ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xLipsaresealedCtrlShift7ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dLaughingCtrlShift8ToolStripMenuItem;
+        private Panel panel1;
+        private PictureBox pictureBox2;
+        private Panel panel3;
+        private Label label1;
+        private Label label2;
+        private PictureBox sendBtn;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox audioBar;
+        private Label label3;
     }
 }

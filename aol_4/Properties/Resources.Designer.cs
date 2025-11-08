@@ -19,10 +19,10 @@ namespace aol.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace aol.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("aol.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace aol.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _200px_America_Online_logo_svg {
+        public static System.Drawing.Bitmap _200px_America_Online_logo_svg {
             get {
                 object obj = ResourceManager.GetObject("200px-America_Online_logo.svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap aol_icon_4 {
+        public static System.Drawing.Bitmap aol_icon_4 {
             get {
                 object obj = ResourceManager.GetObject("aol-icon-4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap aol_loading_image {
+        public static System.Drawing.Bitmap aol_loading_image {
             get {
                 object obj = ResourceManager.GetObject("aol_loading_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap back_btn {
+        public static System.Drawing.Bitmap back_btn {
             get {
                 object obj = ResourceManager.GetObject("back_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap back_btn_enabled {
+        public static System.Drawing.Bitmap back_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("back_btn_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap back_btn1 {
+        public static System.Drawing.Bitmap back_btn1 {
             get {
                 object obj = ResourceManager.GetObject("back_btn1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap buddiesonline_buddychat_btn {
+        public static System.Drawing.Bitmap buddiesonline_buddychat_btn {
             get {
                 object obj = ResourceManager.GetObject("buddiesonline_buddychat_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap buddiesonline_IM_btn {
+        public static System.Drawing.Bitmap buddiesonline_IM_btn {
             get {
                 object obj = ResourceManager.GetObject("buddiesonline_IM_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap buddiesonline_locate_btn {
+        public static System.Drawing.Bitmap buddiesonline_locate_btn {
             get {
                 object obj = ResourceManager.GetObject("buddiesonline_locate_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap buddiesonline_setup_btn {
+        public static System.Drawing.Bitmap buddiesonline_setup_btn {
             get {
                 object obj = ResourceManager.GetObject("buddiesonline_setup_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_aol_today_btn {
+        public static System.Drawing.Bitmap channels_aol_today_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_aol_today_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_background {
+        public static System.Drawing.Bitmap channels_background {
             get {
                 object obj = ResourceManager.GetObject("channels_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_computing_btn {
+        public static System.Drawing.Bitmap channels_computing_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_computing_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_entertainment_btn {
+        public static System.Drawing.Bitmap channels_entertainment_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_entertainment_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_families_btn {
+        public static System.Drawing.Bitmap channels_families_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_families_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_games_btn {
+        public static System.Drawing.Bitmap channels_games_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_games_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_health_btn {
+        public static System.Drawing.Bitmap channels_health_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_health_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_icon {
+        public static System.Drawing.Bitmap channels_icon {
             get {
                 object obj = ResourceManager.GetObject("channels_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_icon_enabled {
+        public static System.Drawing.Bitmap channels_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("channels_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +253,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_influence_btn {
+        public static System.Drawing.Bitmap channels_influence_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_influence_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +263,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_interests_btn {
+        public static System.Drawing.Bitmap channels_interests_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_interests_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +273,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_international_btn {
+        public static System.Drawing.Bitmap channels_international_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_international_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +283,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_kids_only_btn {
+        public static System.Drawing.Bitmap channels_kids_only_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_kids_only_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +293,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_lifestyles_btn {
+        public static System.Drawing.Bitmap channels_lifestyles_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_lifestyles_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +303,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_local_btn {
+        public static System.Drawing.Bitmap channels_local_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_local_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +313,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_news_btn {
+        public static System.Drawing.Bitmap channels_news_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_news_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +323,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_personal_finance_btn {
+        public static System.Drawing.Bitmap channels_personal_finance_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_personal_finance_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +333,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_research_and_learn_btn {
+        public static System.Drawing.Bitmap channels_research_and_learn_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_research_and_learn_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +343,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_search {
+        public static System.Drawing.Bitmap channels_search {
             get {
                 object obj = ResourceManager.GetObject("channels_search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +353,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_shopping_btn {
+        public static System.Drawing.Bitmap channels_shopping_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_shopping_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +363,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_sports_btn {
+        public static System.Drawing.Bitmap channels_sports_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_sports_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +373,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_travel_btn {
+        public static System.Drawing.Bitmap channels_travel_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_travel_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +383,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap channels_workplace_btn {
+        public static System.Drawing.Bitmap channels_workplace_btn {
             get {
                 object obj = ResourceManager.GetObject("channels_workplace_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,7 +393,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_btn {
+        public static System.Drawing.Bitmap close_btn {
             get {
                 object obj = ResourceManager.GetObject("close_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -403,7 +403,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cool {
+        public static System.Drawing.Bitmap Cool {
             get {
                 object obj = ResourceManager.GetObject("Cool", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +413,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Crying {
+        public static System.Drawing.Bitmap Crying {
             get {
                 object obj = ResourceManager.GetObject("Crying", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +423,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream dial_up_modem {
+        public static System.IO.UnmanagedMemoryStream dial_up_modem {
             get {
                 return ResourceManager.GetStream("dial_up_modem", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dial_up1 {
+        public static System.Drawing.Bitmap dial_up1 {
             get {
                 object obj = ResourceManager.GetObject("dial_up1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -442,7 +442,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dialup_pic1 {
+        public static System.Drawing.Bitmap dialup_pic1 {
             get {
                 object obj = ResourceManager.GetObject("dialup_pic1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -452,7 +452,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dialup_pic2 {
+        public static System.Drawing.Bitmap dialup_pic2 {
             get {
                 object obj = ResourceManager.GetObject("dialup_pic2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -462,7 +462,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dialup_pic3 {
+        public static System.Drawing.Bitmap dialup_pic3 {
             get {
                 object obj = ResourceManager.GetObject("dialup_pic3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -472,7 +472,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream dooropen {
+        public static System.IO.UnmanagedMemoryStream dooropen {
             get {
                 return ResourceManager.GetStream("dooropen", resourceCulture);
             }
@@ -481,7 +481,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream doorslam {
+        public static System.IO.UnmanagedMemoryStream doorslam {
             get {
                 return ResourceManager.GetStream("doorslam", resourceCulture);
             }
@@ -490,7 +490,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Embarrassed {
+        public static System.Drawing.Bitmap Embarrassed {
             get {
                 object obj = ResourceManager.GetObject("Embarrassed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -500,7 +500,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favorite_btn {
+        public static System.Drawing.Bitmap favorite_btn {
             get {
                 object obj = ResourceManager.GetObject("favorite_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -510,7 +510,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favorites_icon {
+        public static System.Drawing.Bitmap favorites_icon {
             get {
                 object obj = ResourceManager.GetObject("favorites_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -520,7 +520,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Foot_in_mouth {
+        public static System.Drawing.Bitmap Foot_in_mouth {
             get {
                 object obj = ResourceManager.GetObject("Foot-in-mouth", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -530,7 +530,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap forward_btn {
+        public static System.Drawing.Bitmap forward_btn {
             get {
                 object obj = ResourceManager.GetObject("forward_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -540,7 +540,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap forward_btn_enabled {
+        public static System.Drawing.Bitmap forward_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("forward_btn_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -550,7 +550,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap forward_btn1 {
+        public static System.Drawing.Bitmap forward_btn1 {
             get {
                 object obj = ResourceManager.GetObject("forward_btn1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -560,7 +560,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Frowning {
+        public static System.Drawing.Bitmap Frowning {
             get {
                 object obj = ResourceManager.GetObject("Frowning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -570,7 +570,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Goodbye {
+        public static System.IO.UnmanagedMemoryStream Goodbye {
             get {
                 return ResourceManager.GetStream("Goodbye", resourceCulture);
             }
@@ -579,7 +579,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_btn {
+        public static System.Drawing.Bitmap home_btn {
             get {
                 object obj = ResourceManager.GetObject("home_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -589,7 +589,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_btn_enabled {
+        public static System.Drawing.Bitmap home_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("home_btn_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -599,7 +599,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_menu {
+        public static System.Drawing.Bitmap home_menu {
             get {
                 object obj = ResourceManager.GetObject("home_menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -607,9 +607,29 @@ namespace aol.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap im_send_disabled {
+            get {
+                object obj = ResourceManager.GetObject("im_send_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap im_send_enabled {
+            get {
+                object obj = ResourceManager.GetObject("im_send_enabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream imrcv {
+        public static System.IO.UnmanagedMemoryStream imrcv {
             get {
                 return ResourceManager.GetStream("imrcv", resourceCulture);
             }
@@ -618,7 +638,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream imsend {
+        public static System.IO.UnmanagedMemoryStream imsend {
             get {
                 return ResourceManager.GetStream("imsend", resourceCulture);
             }
@@ -627,7 +647,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Innocent {
+        public static System.Drawing.Bitmap Innocent {
             get {
                 object obj = ResourceManager.GetObject("Innocent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -637,7 +657,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap internet_icon {
+        public static System.Drawing.Bitmap internet_icon {
             get {
                 object obj = ResourceManager.GetObject("internet_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -647,7 +667,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap internet_icon_enabled {
+        public static System.Drawing.Bitmap internet_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("internet_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -657,7 +677,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Kissing {
+        public static System.Drawing.Bitmap Kissing {
             get {
                 object obj = ResourceManager.GetObject("Kissing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -667,7 +687,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Laughing {
+        public static System.Drawing.Bitmap Laughing {
             get {
                 object obj = ResourceManager.GetObject("Laughing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -677,7 +697,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Lips_are_sealed {
+        public static System.Drawing.Bitmap Lips_are_sealed {
             get {
                 object obj = ResourceManager.GetObject("Lips-are-sealed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -687,7 +707,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mail_center_icon {
+        public static System.Drawing.Bitmap mail_center_icon {
             get {
                 object obj = ResourceManager.GetObject("mail_center_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -697,7 +717,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap maximize_btn {
+        public static System.Drawing.Bitmap maximize_btn {
             get {
                 object obj = ResourceManager.GetObject("maximize_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -707,7 +727,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap maximize_disabled_btn {
+        public static System.Drawing.Bitmap maximize_disabled_btn {
             get {
                 object obj = ResourceManager.GetObject("maximize_disabled_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -717,7 +737,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mie_badge {
+        public static System.Drawing.Bitmap mie_badge {
             get {
                 object obj = ResourceManager.GetObject("mie_badge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -727,7 +747,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minimize_btn {
+        public static System.Drawing.Bitmap minimize_btn {
             get {
                 object obj = ResourceManager.GetObject("minimize_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -737,7 +757,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Money_mouth {
+        public static System.Drawing.Bitmap Money_mouth {
             get {
                 object obj = ResourceManager.GetObject("Money-mouth", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -747,7 +767,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap my_aol_icon {
+        public static System.Drawing.Bitmap my_aol_icon {
             get {
                 object obj = ResourceManager.GetObject("my_aol_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -757,7 +777,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap my_files_icon {
+        public static System.Drawing.Bitmap my_files_icon {
             get {
                 object obj = ResourceManager.GetObject("my_files_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -767,7 +787,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap nomail_icon {
+        public static System.Drawing.Bitmap nomail_icon {
             get {
                 object obj = ResourceManager.GetObject("nomail_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -777,7 +797,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap people_icon {
+        public static System.Drawing.Bitmap people_icon {
             get {
                 object obj = ResourceManager.GetObject("people_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -787,7 +807,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap people_icon_enabled {
+        public static System.Drawing.Bitmap people_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("people_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -797,7 +817,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap perks_icon {
+        public static System.Drawing.Bitmap perks_icon {
             get {
                 object obj = ResourceManager.GetObject("perks_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -807,7 +827,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap perks_icon_enabled {
+        public static System.Drawing.Bitmap perks_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("perks_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -817,7 +837,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap print_icon {
+        public static System.Drawing.Bitmap print_icon {
             get {
                 object obj = ResourceManager.GetObject("print_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -827,7 +847,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap quotes_icon {
+        public static System.Drawing.Bitmap quotes_icon {
             get {
                 object obj = ResourceManager.GetObject("quotes_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -837,7 +857,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap quotes_icon_enabled {
+        public static System.Drawing.Bitmap quotes_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("quotes_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -847,7 +867,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload_btn {
+        public static System.Drawing.Bitmap reload_btn {
             get {
                 object obj = ResourceManager.GetObject("reload_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -857,7 +877,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload_btn_enabled {
+        public static System.Drawing.Bitmap reload_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("reload_btn_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -867,7 +887,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap restore_btn {
+        public static System.Drawing.Bitmap restore_btn {
             get {
                 object obj = ResourceManager.GetObject("restore_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -877,7 +897,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap right_icon {
+        public static System.Drawing.Bitmap right_icon {
             get {
                 object obj = ResourceManager.GetObject("right_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -887,7 +907,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Smiling {
+        public static System.Drawing.Bitmap Smiling {
             get {
                 object obj = ResourceManager.GetObject("Smiling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -897,7 +917,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Sticking_out_tongue {
+        public static System.Drawing.Bitmap Sticking_out_tongue {
             get {
                 object obj = ResourceManager.GetObject("Sticking-out-tongue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -907,7 +927,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stop_btn {
+        public static System.Drawing.Bitmap stop_btn {
             get {
                 object obj = ResourceManager.GetObject("stop_btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -917,7 +937,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stop_btn_enabled {
+        public static System.Drawing.Bitmap stop_btn_enabled {
             get {
                 object obj = ResourceManager.GetObject("stop_btn_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -927,7 +947,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stop_btn1 {
+        public static System.Drawing.Bitmap stop_btn1 {
             get {
                 object obj = ResourceManager.GetObject("stop_btn1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -937,7 +957,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Surprised {
+        public static System.Drawing.Bitmap Surprised {
             get {
                 object obj = ResourceManager.GetObject("Surprised", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -947,7 +967,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap top_bar {
+        public static System.Drawing.Bitmap top_bar {
             get {
                 object obj = ResourceManager.GetObject("top_bar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -957,7 +977,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Undecided {
+        public static System.Drawing.Bitmap Undecided {
             get {
                 object obj = ResourceManager.GetObject("Undecided", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -967,7 +987,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap weather_icon {
+        public static System.Drawing.Bitmap weather_icon {
             get {
                 object obj = ResourceManager.GetObject("weather_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -977,7 +997,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap weather_icon_enabled {
+        public static System.Drawing.Bitmap weather_icon_enabled {
             get {
                 object obj = ResourceManager.GetObject("weather_icon_enabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -987,7 +1007,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Welcome {
+        public static System.IO.UnmanagedMemoryStream Welcome {
             get {
                 return ResourceManager.GetStream("Welcome", resourceCulture);
             }
@@ -996,7 +1016,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Winking {
+        public static System.Drawing.Bitmap Winking {
             get {
                 object obj = ResourceManager.GetObject("Winking", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1006,7 +1026,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap write_icon {
+        public static System.Drawing.Bitmap write_icon {
             get {
                 object obj = ResourceManager.GetObject("write_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1016,7 +1036,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Yelling {
+        public static System.Drawing.Bitmap Yelling {
             get {
                 object obj = ResourceManager.GetObject("Yelling", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -1026,7 +1046,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream youGotmail {
+        public static System.IO.UnmanagedMemoryStream youGotmail {
             get {
                 return ResourceManager.GetStream("youGotmail", resourceCulture);
             }
@@ -1035,7 +1055,7 @@ namespace aol.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap youve_got_mail_icon {
+        public static System.Drawing.Bitmap youve_got_mail_icon {
             get {
                 object obj = ResourceManager.GetObject("youve_got_mail_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
