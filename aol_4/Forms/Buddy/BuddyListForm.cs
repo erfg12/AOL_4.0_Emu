@@ -4,6 +4,8 @@ public partial class BuddyListForm : _Win95Theme
     int total = 0;
     UserAPI.Buddies selectedBuddy;
     TreeNode selectedNode;
+    int online = 0;
+    int offline = 0;
 
     public BuddyListForm()
     {
@@ -100,9 +102,6 @@ public partial class BuddyListForm : _Win95Theme
 
     private async void UpdateTimer_Tick(object sender, EventArgs e)
     {
-        int online = 0;
-        int offline = 0;
-
         if (!Account.SignedIn() || !MainForm.chat.irc.IsClientRunning())
         {
             Debug.WriteLine($"ERROR - SignedIn:{Account.SignedIn()}, IRCRunning:{MainForm.chat.irc.IsClientRunning()}");
