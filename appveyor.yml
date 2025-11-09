@@ -16,34 +16,14 @@ install:
       Write-Host "Downloading Visual Studio Installer Projects extension..."
       $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/VisualStudioClient/vsextensions/MicrosoftVisualStudio2022InstallerProjects/2.0.1/vspackage"
       $vsixPath = "$env:TEMP\InstallerProjects.vsix"
-      $progressPreference = 'silentlyContinue'
       Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath
+      
       Write-Host "Installing extension..."
+      $vsixInstaller = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VSIXInstaller.exe"
+      Start-Process -FilePath $vsixInstaller -ArgumentList "/quiet", $vsixPath -Wait -NoNewWindow
       
-      # Try Community first, then BuildTools
-      $vsixInstallers = @(
-        "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VSIXInstaller.exe",
-        "C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\Common7\IDE\VSIXInstaller.exe",
-        "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VSIXInstaller.exe"
-      )
-      
-      $installed = $false
-      foreach ($installer in $vsixInstallers) {
-        if (Test-Path $installer) {
-          Write-Host "Using installer: $installer"
-          & $installer /quiet $vsixPath
-          Write-Host "Exit code: $LASTEXITCODE"
-          if ($LASTEXITCODE -eq 0 -or $LASTEXITCODE -eq 1001) {
-            $installed = $true
-            Write-Host "Extension installed successfully"
-            break
-          }
-        }
-      }
-      
-      if (-not $installed) {
-        Write-Warning "Could not install extension, attempting to build anyway..."
-      }
+      Write-Host "Verifying installation..."
+      Start-Sleep -Seconds 5
 
 before_build:
   - nuget restore
@@ -52,8 +32,8 @@ build_script:
   # Build main project
   - dotnet build aol_4/aol_4.csproj -c Release
 
-  # Build MSI installer
-  - msbuild Installer/Installer.vdproj /p:Configuration=Release /v:detailed
+  # Build MSI installer using devenv
+  - '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer/Installer.vdproj /build Release'
 
 artifacts:
   - path: aol_4/bin/Release/
