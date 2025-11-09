@@ -32,8 +32,16 @@ build_script:
   # Build main project
   - dotnet build aol_4/aol_4.csproj -c Release
 
-  # Build MSI installer directly (not through solution to avoid skip)
-  - '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer\Installer.vdproj /build Release'
+  # Build MSI installer - try rebuilding to force it
+  - '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer\Installer.vdproj /rebuild Release'
+
+after_build:
+  # Show what files exist in Installer directory
+  - ps: |
+      Write-Host "=== Contents of Installer directory ==="
+      Get-ChildItem -Path "Installer" -Recurse -File | Select-Object FullName
+      Write-Host "=== Looking for MSI files ==="
+      Get-ChildItem -Path "Installer" -Recurse -Filter "*.msi" -ErrorAction SilentlyContinue | Select-Object FullName
 
 artifacts:
   - path: aol_4\bin\windows\Release\net8.0-windows10.0.22621.0
