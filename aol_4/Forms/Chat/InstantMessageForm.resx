@@ -120,6 +120,9 @@
   <metadata name="MenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>18, 17</value>
   </metadata>
+  <metadata name="MenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>18, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -158,6 +161,20 @@
         2QkZWOcHrmyISN+4XdfuuVZ21noPvOmBT/ULRkTUcZje+sYAoD4kbX3n9tFLV7Uo6AG3cGWsgLUP2h/D
         W4RmQfv+Mfw2tNWncN22D+PeVf+fve93bTr94rGcS7drh3zMt/obfwN2yWBEQvR++wAAAABJRU5ErkJg
         gg==
+</value>
+  </data>
+  <data name="audioBar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAICAMAAACI9Yx1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABU1BMVEX///8AAAAAeNcYg9f/AADMzMwz
+        mf8AmQD/Zmb/MzP/mZn//wDMmZn/zMxeqOP6+PfMZmbL4PEODg7/c0j/j2vv7+9KSkr/VyU9PT1ycnIy
+        MjJ+fn69vb22trY/Pz9QUFA4ODgPDw+ZMzNdXV3/mTOMjIxzc3PIyMjMzJlmAACNjY1KRThRTD5ERERG
+        RkbFxcWKioqEhITBwcFOTk4WFhYeHh6qqqp2dnZWVlZwcHAQEBAgICCfgCBwWhfMzGaysrL/mWbPz88a
+        GhqnhiJgYGCfn59gTRRAMw1gTRO/mSZaWloQDQMwMDC/v7/fsy3PpimAZhrvvzD/zDMwJgpNTU1AQECZ
+        ZmYzAACmpqZmMzOZmTMNDQ3//8wzMwBmZjOJiYmvr6+cnJyZZjPMmWb/zGbCwsIA/wBmZmYzMzOZmZnA
+        wMCAgIAAAP/y8vJkZGSgoKDw8PB4JuMlAAAACXBIWXMAAAsMAAALDAE/QCLIAAAAB3RJTUUH6QsICyoe
+        1srnvgAAAClJREFUKFNjyCcNMDDkM5IEQBpYWECIm5sxLQ2K2NlxokGqgSTAQDIAAJi6I7gfcphFAAAA
+        AElFTkSuQmCC
 </value>
   </data>
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -225,20 +242,6 @@
         mYwcvQAAAIRJREFUOE/FklEKwCAMQ9Mb9/5fI25oqlbcEBZk1D5qUx18JfSJoGPUKE1ECsA0c45SKXVQ
         upe4lKae2Tbvy6Y5dSwpz/6B3p514mHeUP2CPprT+xH0HaLnXnu0jTGbqFoxn/Q10HLxLeVKARJ+GQw0
         rG+UfSNlUFe1vXcbqvZXz2jTml47O39ClG4rRAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="audioBar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAICAMAAACI9Yx1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABU1BMVEX///8AAAAAeNcYg9f/AADMzMwz
-        mf8AmQD/Zmb/MzP/mZn//wDMmZn/zMxeqOP6+PfMZmbL4PEODg7/c0j/j2vv7+9KSkr/VyU9PT1ycnIy
-        MjJ+fn69vb22trY/Pz9QUFA4ODgPDw+ZMzNdXV3/mTOMjIxzc3PIyMjMzJlmAACNjY1KRThRTD5ERERG
-        RkbFxcWKioqEhITBwcFOTk4WFhYeHh6qqqp2dnZWVlZwcHAQEBAgICCfgCBwWhfMzGaysrL/mWbPz88a
-        GhqnhiJgYGCfn59gTRRAMw1gTRO/mSZaWloQDQMwMDC/v7/fsy3PpimAZhrvvzD/zDMwJgpNTU1AQECZ
-        ZmYzAACmpqZmMzOZmTMNDQ3//8wzMwBmZjOJiYmvr6+cnJyZZjPMmWb/zGbCwsIA/wBmZmYzMzOZmZnA
-        wMCAgIAAAP/y8vJkZGSgoKDw8PB4JuMlAAAACXBIWXMAAAsMAAALDAE/QCLIAAAAB3RJTUUH6QsICyoe
-        1srnvgAAAClJREFUKFNjyCcNMDDkM5IEQBpYWECIm5sxLQ2K2NlxokGqgSTAQDIAAJi6I7gfcphFAAAA
-        AElFTkSuQmCC
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
