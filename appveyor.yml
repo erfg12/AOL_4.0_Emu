@@ -10,25 +10,37 @@ branches:
 skip_commits:
   message: /\[skip ci\]|\[ci skip\]/
 
+install:
+  # Ensure Installer Projects extension is available
+  - choco install microsoft-visualstudio-installer-projects -y
+
 before_build:
   - nuget restore
 
 build_script:
-  - dotnet publish aol_4/aol_4.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true
+  # Build main project
+  - dotnet build aol_4/aol_4.csproj -c Release
 
-after_build: 7z a AOL_4.0_Build.zip %APPVEYOR_BUILD_FOLDER%\aol_4\bin\windows\Release\net*\win-x64\publish\aol.exe
+  # Build MSI installer
+  - '"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Installer/Installer.vdproj /p:Configuration=Release'
 
 artifacts:
-  path: AOL_4.0_Build.zip
-  name: Latest
+  # Upload full bin/Release folder
+  - path: aol_4/bin/Release/
+    name: Latest
+  # Upload MSI
+  - path: Installer/Release/*.msi
+    name: Installer
 
 deploy:
   - provider: GitHub
     tag: $(APPVEYOR_BUILD_ID)
     release: Build $(APPVEYOR_REPO_COMMIT_TIMESTAMP)
-    description: | 
+    description: |
       Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
       %APPVEYOR_REPO_COMMIT_MESSAGE%
     auth_token:
       secure: EuR30pU45tPVaOpNF9ov5buzWmQTfdgDQT69pSfz4+lh+m5K5+7eJMtz2TjTbC36
-    artifact: AOL_4.0_Build.zip
+    artifact:
+      - Latest
+      - Installer
