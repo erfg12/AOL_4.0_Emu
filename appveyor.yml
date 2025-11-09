@@ -11,12 +11,17 @@ skip_commits:
   message: /\[skip ci\]|\[ci skip\]/
 
 install:
-  # Install Visual Studio Installer Projects extension
+  # Download and install the Installer Projects extension from Marketplace
   - ps: |
-      $installerUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/VisualStudioClient/vsextensions/MSBuildProjectTypeDefinitions/17.0.0/vspackage"
-      $installerPath = "$env:TEMP\InstallerProjects.vsix"
-      Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-      Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VSIXInstaller.exe" -ArgumentList "/quiet /admin $installerPath" -Wait
+      Write-Host "Downloading Visual Studio Installer Projects extension..."
+      $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/VisualStudioClient/vsextensions/MicrosoftVisualStudio2022InstallerProjects/2.0.1/vspackage"
+      $vsixPath = "$env:TEMP\InstallerProjects.vsix"
+      $progressPreference = 'silentlyContinue'
+      Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath
+      Write-Host "Installing extension..."
+      & "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VSIXInstaller.exe" /quiet /admin $vsixPath
+      if ($LASTEXITCODE -ne 0) { throw "VSIX installation failed" }
+      Write-Host "Extension installed successfully"
 
 before_build:
   - nuget restore
@@ -26,7 +31,7 @@ build_script:
   - dotnet build aol_4/aol_4.csproj -c Release
 
   # Build MSI installer
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Installer/Installer.vdproj /p:Configuration=Release'
+  - msbuild Installer/Installer.vdproj /p:Configuration=Release
 
 artifacts:
   - path: aol_4/bin/Release/
