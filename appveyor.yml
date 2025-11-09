@@ -25,10 +25,8 @@ build_script:
   - '"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Installer/Installer.vdproj /p:Configuration=Release'
 
 artifacts:
-  # Upload full bin/Release folder
   - path: aol_4/bin/Release/
     name: Latest
-  # Upload MSI
   - path: Installer/Release/*.msi
     name: Installer
 
