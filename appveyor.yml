@@ -37,7 +37,8 @@ deploy:
     description: |
       Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
       %APPVEYOR_REPO_COMMIT_MESSAGE%
-    auth_token: $(GH_TOKEN)
+    auth_token:
+      secure: fGvksY5wIwuWGimQncSWs2w1d7KrrErQ05CCNYnd/Q5i8zxiczeIwvhA8gDjWGy+
     artifact:
       - Latest
       - Installer
