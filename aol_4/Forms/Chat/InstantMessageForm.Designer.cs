@@ -102,11 +102,11 @@
             messagesBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             messagesBox.BackColor = SystemColors.Window;
             messagesBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            messagesBox.Location = new Point(7, 52);
+            messagesBox.Location = new Point(7, 55);
             messagesBox.Margin = new Padding(4);
             messagesBox.Name = "messagesBox";
             messagesBox.ReadOnly = true;
-            messagesBox.Size = new Size(309, 145);
+            messagesBox.Size = new Size(309, 142);
             messagesBox.TabIndex = 4;
             messagesBox.Text = "";
             // 
@@ -126,10 +126,10 @@
             // 
             topMenuPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             topMenuPanel.Controls.Add(MenuStrip);
-            topMenuPanel.Location = new Point(3, 21);
+            topMenuPanel.Location = new Point(3, 23);
             topMenuPanel.Margin = new Padding(4);
             topMenuPanel.Name = "topMenuPanel";
-            topMenuPanel.Size = new Size(316, 26);
+            topMenuPanel.Size = new Size(316, 23);
             topMenuPanel.TabIndex = 8;
             // 
             // MenuStrip
@@ -361,7 +361,7 @@
             // 
             label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label3.BackColor = SystemColors.ButtonShadow;
-            label3.Location = new Point(-10, 48);
+            label3.Location = new Point(-10, 50);
             label3.Name = "label3";
             label3.Size = new Size(350, 1);
             label3.TabIndex = 20;
@@ -382,7 +382,7 @@
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(317, 21);
+            TitleBar.Size = new Size(317, 24);
             TitleBar.TabIndex = 3;
             // 
             // mainTitle
@@ -432,7 +432,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(250, 2);
+            miniBtn.Location = new Point(250, 1);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -449,7 +449,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(271, 2);
+            maxBtn.Location = new Point(271, 1);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -466,7 +466,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(295, 2);
+            closeBtn.Location = new Point(295, 1);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;

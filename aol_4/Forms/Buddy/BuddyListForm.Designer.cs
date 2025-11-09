@@ -291,18 +291,18 @@
             buddyContextMenuStrip.ImageScalingSize = new Size(24, 24);
             buddyContextMenuStrip.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem });
             buddyContextMenuStrip.Name = "buddyContextMenuStrip";
-            buddyContextMenuStrip.Size = new Size(135, 36);
+            buddyContextMenuStrip.Size = new Size(108, 26);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(134, 32);
+            deleteToolStripMenuItem.Size = new Size(107, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
             // 
             // BuddyListForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
             ClientSize = new Size(169, 323);

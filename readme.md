@@ -24,6 +24,12 @@ Visit https://github.com/erfg12/AOL_4.0_Emu/releases and download the latest zip
 
 ## SAMPLE SCREENSHOTS
 
+Instant messaging
+
+![instant messaging](screenshots/instant_messaging.png)
+
+Welcome screen
+
 ![welcome screen](screenshots/Capture.PNG)
 
 Here's a compressed animated gif of the dial up, loading animation and MIE badge:
