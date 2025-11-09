@@ -32,11 +32,11 @@ build_script:
   # Build main project
   - dotnet build aol_4/aol_4.csproj -c Release
 
-  # Build MSI installer
-  - '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer/Installer.vdproj /build Release'
+  # Build MSI installer directly (not through solution to avoid skip)
+  - '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer\Installer.vdproj /build Release'
 
 artifacts:
-  - path: aol_4\bin\Release
+  - path: aol_4\bin\windows\Release\net8.0-windows10.0.22621.0
     name: Latest
   - path: Installer\Release\*.msi
     name: Installer
