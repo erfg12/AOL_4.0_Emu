@@ -32,16 +32,27 @@ build_script:
   # Build main project
   - dotnet build aol_4/aol_4.csproj -c Release
 
-  # Build MSI installer - try rebuilding to force it
-  - '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer\Installer.vdproj /rebuild Release'
+  # Try using disableOutOfProcBuild to force the extension to load
+  - ps: |
+      Write-Host "Building installer with devenv..."
+      & "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer\Installer.vdproj /ProjectConfig "Release" /Build
+      
+      Write-Host "Checking for MSI after build..."
+      Get-ChildItem -Path "Installer" -Recurse -Filter "*.msi" -ErrorAction SilentlyContinue | Select-Object FullName
+      
+      if (-not (Test-Path "Installer\Release\*.msi")) {
+        Write-Host "MSI not found, trying direct MSBuild approach..."
+        $env:DISABLEOUTOFPROCBUILD = 1
+        & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" Installer\Installer.vdproj /p:Configuration=Release
+      }
 
 after_build:
-  # Show what files exist in Installer directory
+  # Show what files exist
   - ps: |
-      Write-Host "=== Contents of Installer directory ==="
-      Get-ChildItem -Path "Installer" -Recurse -File | Select-Object FullName
-      Write-Host "=== Looking for MSI files ==="
+      Write-Host "=== Final check for MSI files ==="
       Get-ChildItem -Path "Installer" -Recurse -Filter "*.msi" -ErrorAction SilentlyContinue | Select-Object FullName
+      Write-Host "=== All Installer directory contents ==="
+      Get-ChildItem -Path "Installer" -Recurse | Select-Object FullName
 
 artifacts:
   - path: aol_4\bin\windows\Release\net8.0-windows10.0.22621.0
