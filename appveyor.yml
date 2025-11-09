@@ -11,8 +11,12 @@ skip_commits:
   message: /\[skip ci\]|\[ci skip\]/
 
 install:
-  # Ensure Installer Projects extension is available
-  - choco install microsoft-visualstudio-installer-projects -y
+  # Install Visual Studio Installer Projects extension
+  - ps: |
+      $installerUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/VisualStudioClient/vsextensions/MSBuildProjectTypeDefinitions/17.0.0/vspackage"
+      $installerPath = "$env:TEMP\InstallerProjects.vsix"
+      Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+      Start-Process -FilePath "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VSIXInstaller.exe" -ArgumentList "/quiet /admin $installerPath" -Wait
 
 before_build:
   - nuget restore
