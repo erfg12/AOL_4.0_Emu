@@ -39,6 +39,4 @@ deploy:
       %APPVEYOR_REPO_COMMIT_MESSAGE%
     auth_token:
       secure: fGvksY5wIwuWGimQncSWs2w1d7KrrErQ05CCNYnd/Q5i8zxiczeIwvhA8gDjWGy+
-    artifact:
-      - Latest
-      - Installer
+    artifact: Latest, Installer
