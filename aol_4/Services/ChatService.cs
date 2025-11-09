@@ -81,7 +81,7 @@ public class ChatService
         Debug.WriteLine("[RO]:" + args.Message);
         string[] info = args.Message.Split(' ');
         // buddy is offline ([RO]::veronica.snoonet.org 401 erfg12 NeWaGe :No such nick/channel)
-        if (args.Message.Contains("No such nick/channel")) // say this when disconnecting from server too
+        if (args.Message.Contains("No such nick")) // say this when disconnecting from server too
         {
             //Debug.WriteLine("user is dead");
             if (buddyStatus.ContainsKey(info[3].ToLower()))
