@@ -18,7 +18,6 @@ artifacts:
   - path: Installer/bin/Release/net8.0-windows/win-x64/publish/AOL 4.0 Emu Setup.exe
     name: Installer
 
-artifacts:
   # Upload the aol_4 EXE as "Latest"
   - path: aol_4/bin\windows\Release\net8.0-windows*\*
     name: Latest
