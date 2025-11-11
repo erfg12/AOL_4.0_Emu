@@ -1,10 +1,3 @@
-using Microsoft.Win32;
-using SharpCompress.Archives;
-using SharpCompress.Archives.Zip;
-using SharpCompress.Common;
-using System.Reflection;
-using System.Security.Policy;
-
 namespace Installer;
 public partial class InstallForm : Form
 {
@@ -19,40 +12,9 @@ public partial class InstallForm : Form
 
     private void installBtn_Click(object sender, EventArgs e)
     {
-        //var names = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-        //foreach (var n in names) richTextBox1.AppendText(n + Environment.NewLine);
+        InstallHelper.StartInstallation(installPath.Text);
 
-        var assembly = Assembly.GetExecutingAssembly();
-        using var stream = assembly.GetManifestResourceStream("Setup.assets.pak");
-
-        Directory.CreateDirectory(installPath.Text);
-
-        using var archive = ZipArchive.Open(stream);
-        foreach (var entry in archive.Entries.Where(e => !e.IsDirectory))
-        {
-            entry.WriteToDirectory(installPath.Text, new ExtractionOptions()
-            {
-                ExtractFullPath = true,   // preserves folder structure
-                Overwrite = true           // overwrite existing files
-            });
-        }
-
-        // Key path for your app
-        string uninstallKeyPath = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\aol_4";
-
-        // Open or create the key under CurrentUser
-        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(uninstallKeyPath))
-        {
-            key.SetValue("DisplayName", "AOL 4.0 Emu");
-            key.SetValue("InstallPath", installPath.Text);
-            key.SetValue("Version", "1.0.0");
-            key.SetValue("Publisher", "Jacob Fliss");
-            key.SetValue("LastInstalled", DateTime.Now.ToString());
-            key.SetValue("UninstallString", Path.Combine(installPath.Text, "Uninstall.exe"));
-            key.SetValue("DisplayIcon", Path.Combine(installPath.Text, "aol_icon.ico"));
-        }
-
-        CreateShortcut();
+        InstallHelper.CreateShortcut(installPath.Text);
 
         installBtn.Enabled = false;
         MessageBox.Show("AOL 4.0 Emu has been installed.", "Installation Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -81,17 +43,5 @@ public partial class InstallForm : Form
             UseShellExecute = true
         };
         System.Diagnostics.Process.Start(psi);
-    }
-
-    private void CreateShortcut()
-    {
-        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string shortcut = Path.Combine(desktop, "AOL 4.0.url");
-
-        File.WriteAllText(shortcut,
-$@"[InternetShortcut]
-URL=file:///{Path.Combine(installPath.Text, "aol.exe")}
-IconIndex=0
-IconFile={Path.Combine(installPath.Text, "aol.exe")}");
     }
 }

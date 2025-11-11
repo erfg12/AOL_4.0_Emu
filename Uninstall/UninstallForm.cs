@@ -109,7 +109,7 @@ public partial class UninstallForm : Form
     private void DeleteDesktopShortcut()
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string shortcut = Path.Combine(desktop, "AOL 4.0.lnk"); // or .url if you used that
+        string shortcut = Path.Combine(desktop, "AOL 4.0.url");
 
         if (System.IO.File.Exists(shortcut))
         {
