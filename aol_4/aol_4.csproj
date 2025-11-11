@@ -27,6 +27,7 @@
     <CefSharpBuildAction>Content</CefSharpBuildAction>
     <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <NeutralLanguage>en</NeutralLanguage>
 	<EnableWindowsFormsHighDpiAutoResizing>false</EnableWindowsFormsHighDpiAutoResizing>
   </PropertyGroup>
   <PropertyGroup> 

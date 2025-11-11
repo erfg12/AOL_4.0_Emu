@@ -1,0 +1,35 @@
+@echo off
+setlocal
+
+REM Paths
+set UNINSTALL_PROJ=..\Uninstall\Uninstall.csproj
+set MAIN_PROJ=..\aol_4\aol_4.csproj
+set MAIN_OUTPUT_BASE=..\aol_4\bin\windows\Release
+set UNINSTALL_PUBLISH=..\Uninstall\bin\Release\net8.0-windows\win-x64\publish\Uninstall.exe
+set ICON=..\aol_4\Resources\aol_icon.ico
+set ZIP_OUTPUT=assets.zip
+set PAK_OUTPUT=assets.pak
+
+REM Publish Uninstall.exe as single-file self-contained EXE
+"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%UNINSTALL_PROJ%" /t:Publish /p:Configuration=Release /p:PublishSingleFile=true /p:SelfContained=true /p:RuntimeIdentifier=win-x64
+
+REM Build main project
+"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%MAIN_PROJ%" /p:Configuration=Release
+
+for /d %%F in ("%MAIN_OUTPUT_BASE%\net8.0-windows*") do set MAIN_OUTPUT=%%F
+
+REM Remove old ZIP if exists
+if exist "%ZIP_OUTPUT%" del /F "%ZIP_OUTPUT%"
+
+REM Zip main project output
+powershell -Command "Compress-Archive -Path '%MAIN_OUTPUT%\*' -DestinationPath '%ZIP_OUTPUT%' -Force"
+
+REM Add the Uninstall.exe to the ZIP
+powershell -Command "Compress-Archive -Path '%UNINSTALL_PUBLISH%' -Update -DestinationPath '%ZIP_OUTPUT%'"
+
+powershell -Command "Compress-Archive -Path '%ICON%' -Update -DestinationPath '%ZIP_OUTPUT%'"
+
+REM Rename to .pak
+move /Y "%ZIP_OUTPUT%" "%PAK_OUTPUT%"
+
+endlocal

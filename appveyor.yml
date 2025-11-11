@@ -1,64 +1,27 @@
 image: Visual Studio 2022
 skip_tags: true
-platform: Any CPU
+platform: x64
 configuration: Release
 
 branches:
   only:
     - master
 
-skip_commits:
-  message: /\[skip ci\]|\[ci skip\]/
-
 install:
-  # Download and install the Installer Projects extension
-  - ps: |
-      Write-Host "Downloading Visual Studio Installer Projects extension..."
-      $vsixUrl = "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/VisualStudioClient/vsextensions/MicrosoftVisualStudio2022InstallerProjects/2.0.1/vspackage"
-      $vsixPath = "$env:TEMP\InstallerProjects.vsix"
-      Invoke-WebRequest -Uri $vsixUrl -OutFile $vsixPath
-      
-      Write-Host "Installing extension..."
-      $vsixInstaller = "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VSIXInstaller.exe"
-      Start-Process -FilePath $vsixInstaller -ArgumentList "/quiet", $vsixPath -Wait -NoNewWindow
-      
-      Write-Host "Verifying installation..."
-      Start-Sleep -Seconds 5
-
-before_build:
   - nuget restore
 
 build_script:
-  # Build main project
-  - dotnet build aol_4/aol_4.csproj -c Release
-
-  # Try using disableOutOfProcBuild to force the extension to load
-  - ps: |
-      Write-Host "Building installer with devenv..."
-      & "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.com" Installer\Installer.vdproj /ProjectConfig "Release" /Build
-      
-      Write-Host "Checking for MSI after build..."
-      Get-ChildItem -Path "Installer" -Recurse -Filter "*.msi" -ErrorAction SilentlyContinue | Select-Object FullName
-      
-      if (-not (Test-Path "Installer\Release\*.msi")) {
-        Write-Host "MSI not found, trying direct MSBuild approach..."
-        $env:DISABLEOUTOFPROCBUILD = 1
-        & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" Installer\Installer.vdproj /p:Configuration=Release
-      }
-
-after_build:
-  # Show what files exist
-  - ps: |
-      Write-Host "=== Final check for MSI files ==="
-      Get-ChildItem -Path "Installer" -Recurse -Filter "*.msi" -ErrorAction SilentlyContinue | Select-Object FullName
-      Write-Host "=== All Installer directory contents ==="
-      Get-ChildItem -Path "Installer" -Recurse | Select-Object FullName
+  - dotnet publish Installer/Setup.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true
 
 artifacts:
-  - path: aol_4\bin\windows\Release\net8.0-windows10.0.22621.0
-    name: Latest
-  - path: Installer\Release\*.msi
+  # Installer EXE
+  - path: Installer/bin/Release/net8.0-windows/win-x64/publish/AOL 4.0 Emu Setup.exe
     name: Installer
+
+artifacts:
+  # Upload the aol_4 EXE as "Latest"
+  - path: aol_4/bin\windows\Release\net8.0-windows*\*
+    name: Latest
 
 deploy:
   - provider: GitHub
