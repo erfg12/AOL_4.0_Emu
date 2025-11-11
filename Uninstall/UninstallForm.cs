@@ -56,6 +56,8 @@ public partial class UninstallForm : Form
             @"Software\Microsoft\Windows\CurrentVersion\Uninstall\aol_4", false
         );
 
+        DeleteDesktopShortcut();
+
         MessageBox.Show("AOL 4.0 Emu has been uninstalled.", "Uninstallation Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         Application.Exit();
@@ -102,5 +104,17 @@ public partial class UninstallForm : Form
         }
 
         return true;
+    }
+
+    private void DeleteDesktopShortcut()
+    {
+        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string shortcut = Path.Combine(desktop, "AOL 4.0.lnk"); // or .url if you used that
+
+        if (System.IO.File.Exists(shortcut))
+        {
+            System.IO.File.Delete(shortcut);
+        }
+
     }
 }

@@ -52,6 +52,8 @@ public partial class InstallForm : Form
             key.SetValue("DisplayIcon", Path.Combine(installPath.Text, "aol_icon.ico"));
         }
 
+        CreateShortcut();
+
         installBtn.Enabled = false;
         MessageBox.Show("AOL 4.0 Emu has been installed.", "Installation Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
@@ -79,5 +81,17 @@ public partial class InstallForm : Form
             UseShellExecute = true
         };
         System.Diagnostics.Process.Start(psi);
+    }
+
+    private void CreateShortcut()
+    {
+        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string shortcut = Path.Combine(desktop, "AOL 4.0.url");
+
+        File.WriteAllText(shortcut,
+$@"[InternetShortcut]
+URL=file:///{Path.Combine(installPath.Text, "aol.exe")}
+IconIndex=0
+IconFile={Path.Combine(installPath.Text, "aol.exe")}");
     }
 }
