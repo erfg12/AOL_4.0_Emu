@@ -4,7 +4,7 @@ setlocal
 REM Paths
 set UNINSTALL_PROJ=..\Uninstall\Uninstall.csproj
 set MAIN_PROJ=..\aol_4\aol_4.csproj
-set MAIN_OUTPUT_BASE=..\aol_4\bin\windows\Release
+set MAIN_OUTPUT=..\aol_4\bin\windows\Release\net8.0-Windows
 set UNINSTALL_PUBLISH=..\Uninstall\bin\x64\Release\net8.0-windows\win-x64\publish\Uninstall.exe
 set ICON=..\aol_4\Resources\aol_icon.ico
 set ZIP_OUTPUT=assets.zip
@@ -15,8 +15,6 @@ REM Publish Uninstall.exe as single-file self-contained EXE
 
 REM Build main project
 "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%MAIN_PROJ%" /p:Configuration=Release
-
-for /d %%F in ("%MAIN_OUTPUT_BASE%\net8.0-windows*") do set MAIN_OUTPUT=%%F
 
 REM Remove old ZIP if exists
 if exist "%ZIP_OUTPUT%" del /F "%ZIP_OUTPUT%"

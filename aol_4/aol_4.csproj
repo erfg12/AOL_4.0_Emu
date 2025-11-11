@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <PlatformName>windows</PlatformName>
     <OutputType>WinExe</OutputType>
     <RootNamespace>aol</RootNamespace>
@@ -41,19 +41,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <StartupObject>aol.Forms.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>full</DebugType>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>1701;1702;ca1416</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugType>full</DebugType>
-    <WarningLevel>1</WarningLevel>
-    <NoWarn>1701;1702;ca1416</NoWarn>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+  <OutputPath>bin\Release\</OutputPath>
+</PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Remove="app.manifest" />
   </ItemGroup>
