@@ -12,7 +12,7 @@ install:
 
 build_script:
   - dotnet publish Installer/Setup.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true
-  - powershell -Command "Compress-Archive -Path 'aol_4/bin/windows/Release/net8.0-windows*/publish/*' -DestinationPath 'aol_4/bin/windows/Release/Latest.zip' -Force"
+  - powershell -Command "$publishFolder = Get-ChildItem 'aol_4/bin/windows/Release/' -Directory | Where-Object { $_.Name -like 'net8.0-windows*' } | Select-Object -First 1; Compress-Archive -Path \"$publishFolder/publish/*\" -DestinationPath \"aol_4/bin/windows/Release/Latest.zip\" -Force"
 
 artifacts:
   # Installer EXE
