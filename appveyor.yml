@@ -12,6 +12,7 @@ install:
 
 build_script:
   - dotnet publish Installer/Setup.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true
+  - powershell -Command "Compress-Archive -Path 'aol_4/bin/windows/Release/net8.0-windows*/publish/*' -DestinationPath 'aol_4/bin/windows/Release/Latest.zip' -Force"
 
 artifacts:
   # Installer EXE
@@ -19,7 +20,7 @@ artifacts:
     name: Installer
 
   # Upload the aol_4 EXE as "Latest"
-  - path: aol_4/bin\windows\Release\net8.0-windows*\*
+  - path: aol_4/bin/windows/Release/Latest.zip
     name: Latest
 
 deploy:
