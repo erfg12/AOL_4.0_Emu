@@ -12,16 +12,11 @@ install:
 
 build_script:
   - dotnet publish Installer/Setup.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true
-  - powershell -Command "$publishFolder = Get-ChildItem 'aol_4/bin/windows/Release/' -Directory | Where-Object { $_.Name -like 'net8.0-windows*' } | Select-Object -First 1; Compress-Archive -Path (Join-Path $publishFolder.FullName 'publish\*') -DestinationPath 'aol_4/bin/windows/Release/Latest.zip' -Force"
 
 artifacts:
   # Installer EXE
   - path: Installer/bin/x64/Release/net8.0-windows/win-x64/publish/AOL 4.0 Emu Setup.exe
     name: Installer
-
-  # Upload the aol_4 EXE as "Latest"
-  - path: aol_4/bin/windows/Release/Latest.zip
-    name: Latest
 
 deploy:
   - provider: GitHub
@@ -32,4 +27,4 @@ deploy:
       %APPVEYOR_REPO_COMMIT_MESSAGE%
     auth_token:
       secure: fGvksY5wIwuWGimQncSWs2w1d7KrrErQ05CCNYnd/Q5i8zxiczeIwvhA8gDjWGy+
-    artifact: Latest, Installer
+    artifact: Installer
