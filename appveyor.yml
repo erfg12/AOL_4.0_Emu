@@ -15,7 +15,7 @@ build_script:
 
 artifacts:
   # Installer EXE
-  - path: Installer/bin/Release/net8.0-windows/win-x64/publish/AOL 4.0 Emu Setup.exe
+  - path: Installer/bin/x64/Release/net8.0-windows/win-x64/publish/AOL 4.0 Emu Setup.exe
     name: Installer
 
   # Upload the aol_4 EXE as "Latest"

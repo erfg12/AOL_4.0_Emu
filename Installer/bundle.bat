@@ -5,7 +5,7 @@ REM Paths
 set UNINSTALL_PROJ=..\Uninstall\Uninstall.csproj
 set MAIN_PROJ=..\aol_4\aol_4.csproj
 set MAIN_OUTPUT_BASE=..\aol_4\bin\windows\Release
-set UNINSTALL_PUBLISH=..\Uninstall\bin\Release\net8.0-windows\win-x64\publish\Uninstall.exe
+set UNINSTALL_PUBLISH=..\Uninstall\bin\x64\Release\net8.0-windows\win-x64\publish\Uninstall.exe
 set ICON=..\aol_4\Resources\aol_icon.ico
 set ZIP_OUTPUT=assets.zip
 set PAK_OUTPUT=assets.pak
