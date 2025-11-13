@@ -4,8 +4,12 @@ setlocal
 REM Paths
 set UNINSTALL_PROJ=..\Uninstall\Uninstall.csproj
 set MAIN_PROJ=..\aol_4\aol_4.csproj
-set MAIN_OUTPUT=..\aol_4\bin\windows\Release\net8.0-Windows
-set UNINSTALL_PUBLISH=..\Uninstall\bin\x64\Release\net8.0-windows\win-x64\publish\Uninstall.exe
+set MAIN_OUTPUT=..\aol_4\bin\Release\net8.0-Windows
+if defined APPVEYOR {
+    set UNINSTALL_PUBLISH=..\Uninstall\bin\x64\Release\net8.0-windows\win-x64\publish\Uninstall.exe
+} else {
+    set UNINSTALL_PUBLISH=..\Uninstall\bin\Release\net8.0-windows\win-x64\publish\Uninstall.exe
+}
 set ICON=..\aol_4\Resources\aol_icon.ico
 set ZIP_OUTPUT=assets.zip
 set PAK_OUTPUT=assets.pak
