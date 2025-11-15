@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace aol.Forms;
+﻿namespace aol.Forms;
 public partial class InstantMessageForm : _Win95Theme
 {
     private readonly string privateLog;
@@ -34,7 +32,7 @@ public partial class InstantMessageForm : _Win95Theme
 
         user = u;
 
-        string logpath = Application.StartupPath + @"\chatlogs";
+        string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
         privateLog = $"{logpath}\\PM_{user}.txt";
 
         try

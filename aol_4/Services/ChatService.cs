@@ -25,7 +25,7 @@ public class ChatService
         {
             Debug.WriteLine("RECEIVED PRIVATE MESSAGE FROM " + args.User);
             newPM = args.User;
-            string logpath = Application.StartupPath + @"\chatlogs";
+            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
             string privateLog = logpath + @"\PM_" + args.User + ".txt";
 
             if (!Directory.Exists(logpath))
@@ -61,7 +61,7 @@ public class ChatService
         }
         else
         {
-            string logpath = Application.StartupPath + @"\chatlogs";
+            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
             string chatlog = logpath + @"\" + cleanChannel + ".txt";
             
             if (!Directory.Exists(logpath))
@@ -107,7 +107,7 @@ public class ChatService
         else if (args.Message.Contains(" PART #"))
         {
             string chan = args.Message.Substring(args.Message.IndexOf(" PART :") + " PART :".Length);
-            string logpath = Application.StartupPath + @"\chatlogs";
+            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
             //string privateLog = logpath + @"\" + pChat + ".txt";
             string[] getUN = args.Message.Split('!');
             //File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
@@ -117,7 +117,7 @@ public class ChatService
         {
             // users needs to register
             Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
-            string logpath = Application.StartupPath + @"\chatlogs";
+            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
             //string privateLog = logpath + @"\" + pChat + ".txt";
             //File.AppendAllText(privateLog, "IMPORTANT NOTICE: This is a registered users only chatroom. We will send an authentication request to the NickServ. Open an email with the subject \"Nickname registration for " + Account.tmpUsername + "\" please." + '\n');
             //irc.SendMessageToChannel("REGISTER " + Account.tmpPassword + " " + Account.tmpUsername + "@aolemu.com", "NickServ");

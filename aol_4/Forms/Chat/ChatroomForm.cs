@@ -13,7 +13,7 @@ public partial class ChatroomForm : _Win95Theme
         InitializeComponent();
 
         roomname = channel;
-        var chatLogDir = $"{Application.StartupPath}\\chatlogs";
+        var chatLogDir = Path.Combine(ChatHelper.ChatPath, "chatlogs");
         chatlog = $"{chatLogDir}\\{channel}.txt";
 
         if (!Directory.Exists(chatLogDir))
@@ -142,7 +142,7 @@ public partial class ChatroomForm : _Win95Theme
             return;
         }
         // write to file
-        string logpath = Application.StartupPath + @"\chatlogs";
+        string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
         string privateLog = logpath + @"\" + roomname + ".txt";
         File.AppendAllText(privateLog, Account.tmpUsername + ": " + messageTextBox.Text + '\n');
         messageTextBox.Clear();
