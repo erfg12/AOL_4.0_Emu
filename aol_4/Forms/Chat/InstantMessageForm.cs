@@ -32,20 +32,7 @@ public partial class InstantMessageForm : _Win95Theme
 
         user = u;
 
-        string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
-        privateLog = $"{logpath}\\PM_{user}.txt";
-
-        try
-        {
-            if (!Directory.Exists(logpath))
-                Directory.CreateDirectory(logpath);
-            if (!File.Exists(privateLog))
-                File.Create(privateLog).Dispose();
-        }
-        catch
-        {
-            OpenMsgBox("ERROR", $"There was an issue creating log file {privateLog}. Does the app have permission?");
-        }
+        privateLog = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
 
         TitleBar.MouseMove += MoveWindow;
         TitleBar.DoubleClick += TitleBar_DoubleClick;

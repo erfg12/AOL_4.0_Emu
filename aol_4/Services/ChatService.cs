@@ -1,4 +1,6 @@
-﻿namespace aol.Services;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+
+namespace aol.Services;
 public class ChatService
 {
     private readonly int port = 6697;
@@ -21,56 +23,41 @@ public class ChatService
         Debug.WriteLine("[CO]:" + msg);
         string cleanChannel = args.Channel.Replace("#", "");
 
+        string chatFile = string.Empty;
+
         if (args.Channel == Account.tmpUsername) // PRIVMSG
         {
             Debug.WriteLine("RECEIVED PRIVATE MESSAGE FROM " + args.User);
             newPM = args.User;
-            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
-            string privateLog = logpath + @"\PM_" + args.User + ".txt";
+            chatFile = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{args.User}");
 
-            if (!Directory.Exists(logpath))
-                Directory.CreateDirectory(logpath);
-            if (!File.Exists(privateLog))
-                File.Create(privateLog).Dispose();
-
-            File.AppendAllText(privateLog, msg + '\n');
-
+            // open IM form if needed
             bool foundFrm = false;
-            Debug.WriteLine("Checking for open form with username tag");
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.Tag == null)
-                    continue;
-
-                if (frm.Tag.ToString() == newPM)
+                if (frm.Tag?.ToString() == newPM)
                     foundFrm = true;
-            } 
-
+            }
             if (!foundFrm)
             {
-                Debug.WriteLine("Opening IM for user " + newPM);
-                Application.OpenForms[0].Invoke(new MethodInvoker(delegate
+                Application.OpenForms[0].Invoke(() =>
                 {
-                    InstantMessageForm im = new InstantMessageForm(newPM);
-                    im.Owner = Application.OpenForms[0];
-                    im.MdiParent = Application.OpenForms[0];
-                    im.Tag = newPM;
+                    InstantMessageForm im = new InstantMessageForm(newPM)
+                    {
+                        Owner = Application.OpenForms[0],
+                        MdiParent = Application.OpenForms[0],
+                        Tag = newPM
+                    };
                     im.Show();
-                }));
+                });
             }
         }
         else
         {
-            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
-            string chatlog = logpath + @"\" + cleanChannel + ".txt";
-            
-            if (!Directory.Exists(logpath))
-                Directory.CreateDirectory(logpath);
-            if (!File.Exists(chatlog))
-                File.Create(chatlog).Dispose();
-
-            File.AppendAllText(chatlog, msg + '\n');
+            chatFile = ChatHelper.GetChatPath(Account.tmpUsername, cleanChannel);
         }
+
+        File.AppendAllText(chatFile, msg + '\n');
     }
 
     public void RawOutputCallback(object source, IrcRawReceivedEventArgs args)
@@ -90,7 +77,6 @@ public class ChatService
         // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
         else if (args.Message.Contains(" 311 " + Account.tmpUsername))
         {
-            //Debug.WriteLine("user is alive!!");
             buddyStatus[info[3].ToLower()] = true;
         }
         else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.tmpUsername + " :       Registered"))
@@ -104,21 +90,16 @@ public class ChatService
             //irc.GetUsersInCurrentChannel();
             irc.GetUsersInDifferentChannel(chan);
         }
-        else if (args.Message.Contains(" PART #"))
+        // [RO]::testaccount3!Jake@Snoonet-ksn.e7k.pkq6pe.IP PART #PlayStation :Leaving
+        else if (args.Message.Contains(" :Leaving"))
         {
-            string chan = args.Message.Substring(args.Message.IndexOf(" PART :") + " PART :".Length);
-            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
-            //string privateLog = logpath + @"\" + pChat + ".txt";
-            string[] getUN = args.Message.Split('!');
-            //File.AppendAllText(privateLog, getUN[0] + " has left." + '\n');
-            irc.GetUsersInDifferentChannel(chan); // GetUsersInDifferentChannel("#chanName");
+            string chan = args.Message.Split(' ').FirstOrDefault(part => part.StartsWith("#"));
+            irc.GetUsersInDifferentChannel(chan);
         }
         else if(args.Message.Contains(":You need to be identified to a registered account to join this channel"))
         {
             // users needs to register
             Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
-            string logpath = Path.Combine(ChatHelper.ChatPath, "chatlogs");
-            //string privateLog = logpath + @"\" + pChat + ".txt";
             //File.AppendAllText(privateLog, "IMPORTANT NOTICE: This is a registered users only chatroom. We will send an authentication request to the NickServ. Open an email with the subject \"Nickname registration for " + Account.tmpUsername + "\" please." + '\n');
             //irc.SendMessageToChannel("REGISTER " + Account.tmpPassword + " " + Account.tmpUsername + "@aolemu.com", "NickServ");
         }
