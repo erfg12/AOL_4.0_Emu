@@ -178,7 +178,7 @@
             newAOL.Location = new Point(28, 80);
             newAOL.Margin = new Padding(4);
             newAOL.Name = "newAOL";
-            newAOL.Size = new Size(390, 20);
+            newAOL.Size = new Size(383, 19);
             newAOL.TabIndex = 6;
             newAOL.Text = "Yes, I would like a NEW AOL e-email address and Screen Name!";
             newAOL.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
             oldAOL.Location = new Point(28, 127);
             oldAOL.Margin = new Padding(4);
             oldAOL.Name = "oldAOL";
-            oldAOL.Size = new Size(441, 20);
+            oldAOL.Size = new Size(434, 19);
             oldAOL.TabIndex = 7;
             oldAOL.TabStop = true;
             oldAOL.Text = "No, I already have an AOL account or e-email address and Screen Name.";
@@ -417,7 +417,7 @@
             LoadingLabel.ForeColor = SystemColors.Highlight;
             LoadingLabel.Location = new Point(168, 238);
             LoadingLabel.Name = "LoadingLabel";
-            LoadingLabel.Size = new Size(0, 28);
+            LoadingLabel.Size = new Size(0, 19);
             LoadingLabel.TabIndex = 8;
             // 
             // label13
@@ -426,7 +426,7 @@
             label13.Location = new Point(165, 181);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(91, 25);
+            label13.Size = new Size(60, 15);
             label13.TabIndex = 7;
             label13.Text = "Password:";
             // 
@@ -436,7 +436,7 @@
             label12.Location = new Point(164, 121);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(95, 25);
+            label12.Size = new Size(64, 15);
             label12.TabIndex = 6;
             label12.Text = "Full Name:";
             // 
@@ -446,7 +446,7 @@
             label11.Location = new Point(164, 64);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(95, 25);
+            label11.Size = new Size(63, 15);
             label11.TabIndex = 5;
             label11.Text = "Username:";
             // 
@@ -455,7 +455,7 @@
             password.Location = new Point(168, 200);
             password.Margin = new Padding(4);
             password.Name = "password";
-            password.Size = new Size(213, 31);
+            password.Size = new Size(213, 23);
             password.TabIndex = 4;
             // 
             // fullname
@@ -463,7 +463,7 @@
             fullname.Location = new Point(168, 141);
             fullname.Margin = new Padding(4);
             fullname.Name = "fullname";
-            fullname.Size = new Size(213, 31);
+            fullname.Size = new Size(213, 23);
             fullname.TabIndex = 3;
             // 
             // username
@@ -471,7 +471,7 @@
             username.Location = new Point(168, 82);
             username.Margin = new Padding(4);
             username.Name = "username";
-            username.Size = new Size(213, 31);
+            username.Size = new Size(213, 23);
             username.TabIndex = 2;
             // 
             // backBtn
@@ -501,7 +501,7 @@
             // 
             // SignupForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(669, 369);
             Controls.Add(leftBanner);
@@ -514,6 +514,7 @@
             Name = "SignupForm";
             StartPosition = FormStartPosition.Manual;
             Text = "signup_form";
+            FormClosing += SignupForm_FormClosing;
             Shown += SignupForm_Shown;
             TitleBar.ResumeLayout(false);
             TitleBar.PerformLayout();

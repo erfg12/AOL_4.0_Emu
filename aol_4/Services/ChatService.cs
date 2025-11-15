@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-
-namespace aol.Services;
+﻿namespace aol.Services;
 public class ChatService
 {
     private readonly int port = 6697;
@@ -96,12 +94,11 @@ public class ChatService
             string chan = args.Message.Split(' ').FirstOrDefault(part => part.StartsWith("#"));
             irc.GetUsersInDifferentChannel(chan);
         }
-        else if(args.Message.Contains(":You need to be identified to a registered account to join this channel"))
+        else if(args.Message.Contains(" isn't registered."))
         {
             // users needs to register
             Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
-            //File.AppendAllText(privateLog, "IMPORTANT NOTICE: This is a registered users only chatroom. We will send an authentication request to the NickServ. Open an email with the subject \"Nickname registration for " + Account.tmpUsername + "\" please." + '\n');
-            //irc.SendMessageToChannel("REGISTER " + Account.tmpPassword + " " + Account.tmpUsername + "@aolemu.com", "NickServ");
+            irc.SendMessageToChannel($"REGISTER {Account.tmpPassword} {Account.tmpUsername}@aolemu.com", "NickServ");
         }
         else if (args.Message.Contains("This nickname is registered and protected."))
         {

@@ -574,6 +574,7 @@
             // 
             // sendBtn
             // 
+            sendBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             sendBtn.Cursor = Cursors.Hand;
             sendBtn.Enabled = false;
             sendBtn.Image = Properties.Resources.im_send_disabled;
@@ -586,7 +587,7 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label2.BackColor = SystemColors.ButtonShadow;
             label2.Location = new Point(73, 2);
             label2.Name = "label2";

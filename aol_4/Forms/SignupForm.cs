@@ -111,4 +111,9 @@ public partial class SignupForm : _Win95Theme
             e.Handled = true;
         }
     }
+
+    private void SignupForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        this.Cursor = Cursors.Default;
+    }
 }
