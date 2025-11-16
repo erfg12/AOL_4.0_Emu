@@ -144,8 +144,8 @@ namespace aol.Forms
 
                 if (resize)
                 {
-                    this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                    this.ActiveMdiChild.Height = this.Height - GetTopPaddingv2() - 5;
+                    this.ActiveMdiChild.Width = this.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 9;
+                    this.ActiveMdiChild.Height = this.Height - GetTopPaddingv2() - 10;
                 }
             }
         }
@@ -228,11 +228,11 @@ namespace aol.Forms
                     wndWidth = this.Width;
                     wndHeight = this.Height;
 
-                    this.Location = new Point(0, 116);
+                    this.Location = new Point(0, 0);
                     var t = GetDisplayScaleFactor(this.Handle);
                 
-                    this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 2;
-                    this.Height = Parent.Height - GetTopPaddingv2() - 5;
+                    this.Width = Parent.Width - Convert.ToInt32(GetDisplayScaleFactor(this.Handle) * 3) - 3;
+                    this.Height = Parent.Height - 5;
                 } 
                 else
                 {
