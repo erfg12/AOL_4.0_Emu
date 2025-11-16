@@ -122,13 +122,14 @@ class LocationService
     /// <param name="position">0 = center, 1 = right, 2 = bottom</param>
     public static void PositionWindow(Form f, int position = 0, int topPadding = 0)
     {
+        int topBarHeight = 115;
         Form ParentForm = f.MdiParent;
         if (ParentForm != null)
         {
             switch (position)
             {
                 case 0:
-                    f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height / 2) - (f.Height / 2) + topPadding);
+                    f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height / 2) - (f.Height / 2) + topPadding - topBarHeight);
                     break;
                 case 1:
                     f.Location = new Point((ParentForm.Width) - (f.Width + 10), (ParentForm.Height / 2) - (f.Height / 2) + topPadding);

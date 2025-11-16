@@ -266,12 +266,12 @@
             Controls.Add(leftBanner);
             Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
-            Location = new Point(375, 250);
             Margin = new Padding(4);
             Name = "SignOnForm";
             ShowIcon = false;
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "SignOnForm";
+            TopMost = true;
             FormClosing += AccForm_FormClosing;
             Load += AccForm_Load;
             Shown += AccForm_Shown;

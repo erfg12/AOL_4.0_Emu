@@ -330,7 +330,7 @@ namespace aol.Forms
         {
             var t = GetDisplayScaleFactor(this.Handle);
             var ret = paddingTop[1.00];
-            if (t > 1.00 && t <= 3.00) 
+            if (t > 1.00 && t <= 3.00)
                 ret = paddingTop[t];
             return Convert.ToInt32(ret);
         }
@@ -356,15 +356,7 @@ namespace aol.Forms
         /// <param name="e"></param>
         public void OnLocationChanged(object sender,  EventArgs e)
         {
-            if (this.Name != "MainForm" && MdiParent != null)
-            {
-                int paddingTopCalc = GetTopPaddingv2();
-                if (this.Location.Y < paddingTopCalc)
-                {
-                    int LocX = this.Location.X;
-                    this.Location = new Point(LocX, paddingTopCalc);
-                }
-            }
+            // not needed anymore
         }
 
         /// <summary>

@@ -239,7 +239,7 @@
             miniBtn = new Button();
             maxBtn = new Button();
             closeBtn = new Button();
-            addrBarBG = new PictureBox();
+            TopMainPanel = new Panel();
             panel2.SuspendLayout();
             ((ISupportInitialize)mie_badge).BeginInit();
             ((ISupportInitialize)homeBtn).BeginInit();
@@ -279,7 +279,7 @@
             findMenuStrip.SuspendLayout();
             TopPanel.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
-            ((ISupportInitialize)addrBarBG).BeginInit();
+            TopMainPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -297,10 +297,10 @@
             panel2.Controls.Add(addrBox);
             panel2.Controls.Add(keywordBtn);
             panel2.Controls.Add(goBtn);
-            panel2.Location = new Point(6, 91);
+            panel2.Location = new Point(1, 88);
             panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(925, 25);
+            panel2.Size = new Size(924, 25);
             panel2.TabIndex = 8;
             // 
             // findBtn
@@ -320,7 +320,7 @@
             // mie_badge
             // 
             mie_badge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            mie_badge.Location = new Point(857, 2);
+            mie_badge.Location = new Point(856, 2);
             mie_badge.Margin = new Padding(0);
             mie_badge.Name = "mie_badge";
             mie_badge.Size = new Size(66, 20);
@@ -404,7 +404,7 @@
             addrBox.Location = new Point(224, 1);
             addrBox.Margin = new Padding(4);
             addrBox.Name = "addrBox";
-            addrBox.Size = new Size(516, 23);
+            addrBox.Size = new Size(515, 23);
             addrBox.TabIndex = 9;
             addrBox.Text = "Type Keyword or Web Address here and click Go";
             addrBox.KeyDown += AddrBox_KeyDown;
@@ -416,7 +416,7 @@
             keywordBtn.Cursor = Cursors.Hand;
             keywordBtn.FlatStyle = FlatStyle.Popup;
             keywordBtn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
-            keywordBtn.Location = new Point(788, 2);
+            keywordBtn.Location = new Point(787, 2);
             keywordBtn.Margin = new Padding(4);
             keywordBtn.Name = "keywordBtn";
             keywordBtn.Size = new Size(66, 20);
@@ -431,7 +431,7 @@
             goBtn.Cursor = Cursors.Hand;
             goBtn.FlatStyle = FlatStyle.Popup;
             goBtn.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
-            goBtn.Location = new Point(746, 2);
+            goBtn.Location = new Point(745, 2);
             goBtn.Margin = new Padding(4);
             goBtn.Name = "goBtn";
             goBtn.Size = new Size(38, 20);
@@ -448,11 +448,11 @@
             // 
             toolStripContainer1.ContentPanel.BackColor = Color.Transparent;
             toolStripContainer1.ContentPanel.Margin = new Padding(4);
-            toolStripContainer1.ContentPanel.Size = new Size(931, 0);
-            toolStripContainer1.Location = new Point(3, 23);
+            toolStripContainer1.ContentPanel.Size = new Size(930, 0);
+            toolStripContainer1.Location = new Point(2, 22);
             toolStripContainer1.Margin = new Padding(4);
             toolStripContainer1.Name = "toolStripContainer1";
-            toolStripContainer1.Size = new Size(931, 19);
+            toolStripContainer1.Size = new Size(930, 19);
             toolStripContainer1.TabIndex = 10;
             toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -474,7 +474,7 @@
             toolStrip1.Margin = new Padding(20, 0, 0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RenderMode = ToolStripRenderMode.System;
-            toolStrip1.Size = new Size(931, 25);
+            toolStrip1.Size = new Size(930, 25);
             toolStrip1.Stretch = true;
             toolStrip1.TabIndex = 0;
             // 
@@ -644,12 +644,12 @@
             tableLayoutPanel1.Controls.Add(loadingIcon, 14, 0);
             tableLayoutPanel1.ForeColor = SystemColors.ActiveCaption;
             tableLayoutPanel1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            tableLayoutPanel1.Location = new Point(6, 44);
+            tableLayoutPanel1.Location = new Point(3, 43);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(923, 44);
+            tableLayoutPanel1.Size = new Size(922, 44);
             tableLayoutPanel1.TabIndex = 12;
             tableLayoutPanel1.CellPaint += TableLayoutPanel1_CellPaint;
             // 
@@ -832,7 +832,7 @@
             loadingIcon.BackgroundImageLayout = ImageLayout.Stretch;
             loadingIcon.Enabled = false;
             loadingIcon.Image = Properties.Resources.aol_loading_image;
-            loadingIcon.Location = new Point(870, 0);
+            loadingIcon.Location = new Point(869, 0);
             loadingIcon.Margin = new Padding(0);
             loadingIcon.Name = "loadingIcon";
             loadingIcon.Size = new Size(53, 44);
@@ -1775,10 +1775,10 @@
             TopPanel.Controls.Add(miniBtn);
             TopPanel.Controls.Add(maxBtn);
             TopPanel.Controls.Add(closeBtn);
-            TopPanel.Location = new Point(2, 2);
+            TopPanel.Location = new Point(-1, 1);
             TopPanel.Margin = new Padding(4);
             TopPanel.Name = "TopPanel";
-            TopPanel.Size = new Size(930, 21);
+            TopPanel.Size = new Size(927, 21);
             TopPanel.TabIndex = 1;
             // 
             // mainTitle
@@ -1817,7 +1817,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(864, 1);
+            miniBtn.Location = new Point(861, 1);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -1834,7 +1834,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(886, 1);
+            maxBtn.Location = new Point(883, 1);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -1851,7 +1851,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(909, 1);
+            closeBtn.Location = new Point(906, 1);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -1860,16 +1860,17 @@
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += CloseBtn_Click;
             // 
-            // addrBarBG
+            // TopMainPanel
             // 
-            addrBarBG.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            addrBarBG.BackgroundImage = (Image)resources.GetObject("addrBarBG.BackgroundImage");
-            addrBarBG.Location = new Point(2, 35);
-            addrBarBG.Margin = new Padding(4);
-            addrBarBG.Name = "addrBarBG";
-            addrBarBG.Size = new Size(931, 84);
-            addrBarBG.TabIndex = 15;
-            addrBarBG.TabStop = false;
+            TopMainPanel.Controls.Add(TopPanel);
+            TopMainPanel.Controls.Add(tableLayoutPanel1);
+            TopMainPanel.Controls.Add(panel2);
+            TopMainPanel.Controls.Add(toolStripContainer1);
+            TopMainPanel.Dock = DockStyle.Top;
+            TopMainPanel.Location = new Point(3, 3);
+            TopMainPanel.Name = "TopMainPanel";
+            TopMainPanel.Size = new Size(928, 115);
+            TopMainPanel.TabIndex = 17;
             // 
             // MainForm
             // 
@@ -1877,17 +1878,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(934, 660);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(toolStripContainer1);
-            Controls.Add(panel2);
-            Controls.Add(TopPanel);
-            Controls.Add(addrBarBG);
+            Controls.Add(TopMainPanel);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Margin = new Padding(4);
             MinimumSize = new Size(934, 618);
             Name = "MainForm";
+            Padding = new Padding(3);
             Text = "America Online";
             FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
@@ -1936,7 +1934,7 @@
             TopPanel.ResumeLayout(false);
             TopPanel.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
-            ((ISupportInitialize)addrBarBG).EndInit();
+            TopMainPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -2146,11 +2144,11 @@
         private System.Windows.Forms.ToolStripMenuItem aolAccessNumsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aolHelpMenuItem;
         private System.Windows.Forms.Button findBtn;
-        private System.Windows.Forms.PictureBox addrBarBG;
         public System.Windows.Forms.Timer checkMail;
         public System.Windows.Forms.ToolStripLabel signOffBtn;
         public ComboBox addrBox;
         public PictureBox mie_badge;
+        private Panel TopMainPanel;
     }
 }
 
