@@ -132,10 +132,10 @@ class LocationService
                     f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height / 2) - (f.Height / 2) + topPadding - topBarHeight);
                     break;
                 case 1:
-                    f.Location = new Point((ParentForm.Width) - (f.Width + 10), (ParentForm.Height / 2) - (f.Height / 2) + topPadding);
+                    f.Location = new Point((ParentForm.Width) - (f.Width + 10), (ParentForm.Height / 2) - (f.Height / 2) + topPadding - topBarHeight);
                     break;
                 case 2:
-                    f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height) - (f.Height + 10));
+                    f.Location = new Point((ParentForm.Width / 2) - (f.Width / 2), (ParentForm.Height) - (f.Height + 10) - topBarHeight);
                     break;
                 default:
                     break;

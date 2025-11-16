@@ -319,7 +319,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(TitleBar);
             FormBorderStyle = FormBorderStyle.None;
-            Location = new Point(1157, 220);
+            Location = new Point(1157, 120);
             Margin = new Padding(4);
             MinimumSize = new Size(169, 323);
             Name = "BuddyListForm";

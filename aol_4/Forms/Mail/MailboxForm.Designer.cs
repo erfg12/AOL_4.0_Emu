@@ -75,7 +75,7 @@
             tabControl1.Margin = new Padding(4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(798, 398);
+            tabControl1.Size = new Size(779, 337);
             tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -86,7 +86,7 @@
             tabPage1.Margin = new Padding(4);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(4);
-            tabPage1.Size = new Size(790, 370);
+            tabPage1.Size = new Size(771, 309);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "New Mail";
             // 
@@ -101,7 +101,7 @@
             newListView.Margin = new Padding(4);
             newListView.MultiSelect = false;
             newListView.Name = "newListView";
-            newListView.Size = new Size(768, 353);
+            newListView.Size = new Size(749, 292);
             newListView.TabIndex = 0;
             newListView.UseCompatibleStateImageBehavior = false;
             newListView.View = View.Details;
@@ -150,10 +150,10 @@
             // 
             tabPage3.BackColor = Color.FromArgb(0, 109, 170);
             tabPage3.Controls.Add(sentListView);
-            tabPage3.Location = new Point(4, 34);
+            tabPage3.Location = new Point(4, 24);
             tabPage3.Margin = new Padding(4);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(790, 360);
+            tabPage3.Size = new Size(790, 370);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Sent Mail";
             // 
@@ -186,7 +186,7 @@
             readBtn.FlatStyle = FlatStyle.Flat;
             readBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             readBtn.ForeColor = SystemColors.Control;
-            readBtn.Location = new Point(14, 502);
+            readBtn.Location = new Point(14, 441);
             readBtn.Margin = new Padding(4);
             readBtn.Name = "readBtn";
             readBtn.Size = new Size(66, 26);
@@ -202,7 +202,7 @@
             statusBtn.FlatStyle = FlatStyle.Flat;
             statusBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             statusBtn.ForeColor = SystemColors.Control;
-            statusBtn.Location = new Point(88, 502);
+            statusBtn.Location = new Point(88, 441);
             statusBtn.Margin = new Padding(4);
             statusBtn.Name = "statusBtn";
             statusBtn.Size = new Size(64, 26);
@@ -217,7 +217,7 @@
             keepBtn.FlatStyle = FlatStyle.Flat;
             keepBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             keepBtn.ForeColor = SystemColors.Control;
-            keepBtn.Location = new Point(252, 502);
+            keepBtn.Location = new Point(252, 441);
             keepBtn.Margin = new Padding(4);
             keepBtn.Name = "keepBtn";
             keepBtn.Size = new Size(111, 26);
@@ -233,7 +233,7 @@
             deleteBtn.FlatStyle = FlatStyle.Flat;
             deleteBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             deleteBtn.ForeColor = SystemColors.Control;
-            deleteBtn.Location = new Point(370, 502);
+            deleteBtn.Location = new Point(370, 441);
             deleteBtn.Margin = new Padding(4);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(64, 26);
@@ -249,7 +249,7 @@
             helpBtn.FlatStyle = FlatStyle.Flat;
             helpBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             helpBtn.ForeColor = SystemColors.Control;
-            helpBtn.Location = new Point(743, 502);
+            helpBtn.Location = new Point(724, 441);
             helpBtn.Margin = new Padding(4);
             helpBtn.Name = "helpBtn";
             helpBtn.Size = new Size(64, 26);
@@ -295,7 +295,7 @@
             // 
             mailboxAdBanner.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             mailboxAdBanner.Image = (Image)resources.GetObject("mailboxAdBanner.Image");
-            mailboxAdBanner.Location = new Point(524, 36);
+            mailboxAdBanner.Location = new Point(505, 36);
             mailboxAdBanner.Margin = new Padding(4);
             mailboxAdBanner.Name = "mailboxAdBanner";
             mailboxAdBanner.Size = new Size(243, 61);
@@ -318,7 +318,7 @@
             TitleBar.Location = new Point(1, 1);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(822, 24);
+            TitleBar.Size = new Size(803, 24);
             TitleBar.TabIndex = 2;
             // 
             // mainTitle
@@ -357,7 +357,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(757, 1);
+            miniBtn.Location = new Point(738, 1);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -374,7 +374,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(778, 1);
+            maxBtn.Location = new Point(759, 1);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -391,7 +391,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(801, 1);
+            closeBtn.Location = new Point(782, 1);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -402,10 +402,10 @@
             // 
             // MailboxForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
-            ClientSize = new Size(826, 540);
+            ClientSize = new Size(807, 479);
             Controls.Add(pictureBox3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -420,6 +420,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(25, 220);
             Margin = new Padding(4);
+            MinimumSize = new Size(807, 479);
             Name = "MailboxForm";
             StartPosition = FormStartPosition.Manual;
             Text = "mailbox";

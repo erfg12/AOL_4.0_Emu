@@ -610,7 +610,7 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.BackColor = Color.MidnightBlue;
+            tableLayoutPanel1.BackColor = Color.RoyalBlue;
             tableLayoutPanel1.BackgroundImageLayout = ImageLayout.None;
             tableLayoutPanel1.ColumnCount = 15;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 48F));
@@ -682,6 +682,7 @@
             // write_mail_button
             // 
             write_mail_button.BackColor = Color.Transparent;
+            write_mail_button.BackgroundImageLayout = ImageLayout.Stretch;
             write_mail_button.Cursor = Cursors.Hand;
             write_mail_button.Image = Properties.Resources.write_icon;
             write_mail_button.Location = new Point(48, 0);
@@ -696,6 +697,7 @@
             // read_mail_btn
             // 
             read_mail_btn.BackColor = Color.Transparent;
+            read_mail_btn.BackgroundImageLayout = ImageLayout.Stretch;
             read_mail_btn.Cursor = Cursors.Hand;
             read_mail_btn.Image = Properties.Resources.nomail_icon;
             read_mail_btn.InitialImage = Properties.Resources.nomail_icon;
@@ -1877,7 +1879,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(934, 660);
+            ClientSize = new Size(934, 750);
             Controls.Add(TopMainPanel);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
