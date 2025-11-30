@@ -32,7 +32,7 @@ public partial class InstantMessageForm : _Win95Theme
 
         user = u;
 
-        privateLog = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
+        privateLog = ChatHelper.GetChatPath(Account.Info.password, $"PM_{user}");
 
         TitleBar.MouseMove += MoveWindow;
         TitleBar.DoubleClick += TitleBar_DoubleClick;
@@ -70,7 +70,7 @@ public partial class InstantMessageForm : _Win95Theme
 
         try
         {
-            File.AppendAllText(privateLog, Account.tmpUsername + ": " + myMessageBox.Text + '\n');
+            File.AppendAllText(privateLog, Account.Info.password + ": " + myMessageBox.Text + '\n');
             SendMsgSound();
         }
         catch
@@ -213,7 +213,7 @@ public partial class InstantMessageForm : _Win95Theme
                                 string[] parts = msg.Split(new char[] { ':' }, 2);
                                 string name = parts[0];
                                 string message = parts.Length > 1 ? parts[1].Trim() : "";
-                                AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                                AppendMessage(messagesBox, name, name.Equals(Account.Info.password) ? Color.Blue : Color.Red, message);
                             } else // not a user message
                                 messagesBox.AppendText(msg);
                         }));
@@ -241,7 +241,7 @@ public partial class InstantMessageForm : _Win95Theme
                             string[] parts = msg.Split(new char[] { ':' }, 2);
                             string name = parts[0];
                             string message = parts.Length > 1 ? parts[1].Trim() : "";
-                            AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            AppendMessage(messagesBox, name, name.Equals(Account.Info.password) ? Color.Blue : Color.Red, message);
                         }
                         else // not a user message
                             messagesBox.AppendText(msg);

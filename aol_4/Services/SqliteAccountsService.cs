@@ -50,7 +50,7 @@ class SqliteAccountsService
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
         long timeStamp = DateTime.Now.ToFileTime();
-        string sql = "INSERT INTO history (userid, url, date) VALUES ('" + Account.accountInfo.account.id + "', '" + url + "', '" + timeStamp + "')";
+        string sql = "INSERT INTO history (userid, url, date) VALUES ('" + Account.Info.userid + "', '" + url + "', '" + timeStamp + "')";
 
         try
         {
@@ -74,7 +74,7 @@ class SqliteAccountsService
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
-        string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + Account.accountInfo.account.id + "', '" + url + "', @URLname)";
+        string sql = "INSERT INTO favorites (userid, url, name) VALUES ('" + Account.Info.userid + "', '" + url + "', @URLname)";
 
         try
         {
@@ -114,11 +114,11 @@ class SqliteAccountsService
         {
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
             //Debug.WriteLine("getting email info with id:" + userID);
-            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "' AND url = '" + url + "'";
+            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + Account.Info.userid + "' AND url = '" + url + "'";
             int count = Convert.ToInt32(command.ExecuteScalar());
             if (count > 0)
             {
-                command.CommandText = "DELETE FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "' AND url = '" + url + "'";
+                command.CommandText = "DELETE FROM favorites WHERE userid = '" + Account.Info.userid + "' AND url = '" + url + "'";
                 SqliteDataReader reader = command.ExecuteReader();
             }
         }
@@ -172,11 +172,11 @@ class SqliteAccountsService
         try
         {
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
-            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "'";
+            command.CommandText = "SELECT count(*) FROM favorites WHERE userid = '" + Account.Info.userid + "'";
             int count = Convert.ToInt32(command.ExecuteScalar());
             if (count > 0)
             {
-                command.CommandText = "SELECT * FROM favorites WHERE userid = '" + Account.accountInfo.account.id + "'";
+                command.CommandText = "SELECT * FROM favorites WHERE userid = '" + Account.Info.userid + "'";
 
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -206,7 +206,7 @@ class SqliteAccountsService
     public static List<string> GetHistory()
     {
         //var accInfo = await RestAPI.getAccInfo();
-        if (Account.accountInfo == null)
+        if (Account.Info == null)
             return new List<string> { null }; // error, account not found. Prevent crash.
 
         List<string> history = new List<string>();
@@ -215,7 +215,7 @@ class SqliteAccountsService
 
         try
         {
-            int userID = Account.accountInfo.account.id;
+            int userID = Account.Info.userid;
 
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
             //Debug.WriteLine("getting email info with id:" + userID);
@@ -253,7 +253,7 @@ class SqliteAccountsService
     public static int DeleteHistory(string url)
     {
         int code = 0;
-        int userID = Account.accountInfo.account.id;
+        int userID = Account.Info.userid;
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
@@ -320,7 +320,7 @@ class SqliteAccountsService
     public static int FindHisory(string url)
     {
         int foundHistory = 0;
-        int userID = Account.accountInfo.account.id;
+        int userID = Account.Info.userid;
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
@@ -385,13 +385,44 @@ class SqliteAccountsService
         return foundAcc;
     }
 
+    public static Models.Email GetEmail(int userId)
+    {
+        Models.Email foundAcc = new ();
+        SqliteConnection m_dbConnection = OpenDB();
+        m_dbConnection.Open();
+
+        string sql = $"SELECT * FROM email_accounts WHERE user_id = {userId}";
+        SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+        SqliteDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            if (reader.GetInt32(0) > 0)
+            {
+                foundAcc = new Models.Email
+                {
+                    id = reader.GetInt32(reader.GetOrdinal("id")),
+                    host = reader.GetString(reader.GetOrdinal("host")),
+                    address = reader.GetString(reader.GetOrdinal("address")),
+                    username = reader.GetString(reader.GetOrdinal("username")),
+                    password = reader.GetString(reader.GetOrdinal("password")),
+                    imapPort = reader.GetInt32(reader.GetOrdinal("imap_port")),
+                    smtpPort = reader.GetInt32(reader.GetOrdinal("smtp_port"))
+                    // Map other columns as needed
+                };
+            }
+        }
+
+        m_dbConnection.Close();
+        return foundAcc;
+    }
+
     public static bool AddBuddy(string user)
     {
         if (user == null)
             return false;
 
         bool good = false;
-        int userID = Account.accountInfo.account.id;
+        int userID = Account.Info.userid;
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
@@ -434,7 +465,7 @@ class SqliteAccountsService
     public static bool RemoveBuddy(int buddyId, string user)
     {
         bool good = false;
-        int userID = Account.accountInfo.account.id;
+        int userID = Account.Info.userid;
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
@@ -456,11 +487,11 @@ class SqliteAccountsService
         return good;
     }
 
-    public static List<UserAPI.Buddies> GetBuddyList(string user = "", string pass = "")
+    public static List<Models.Buddies> GetBuddyList(string user = "", string pass = "")
     {
         //var accInfo = await RestAPI.getAccInfo();
-        int userID = Account.accountInfo.account.id;
-        List<UserAPI.Buddies> buddies = new();
+        int userID = Account.Info.userid;
+        List<Models.Buddies> buddies = new();
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
@@ -477,7 +508,7 @@ class SqliteAccountsService
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    var buddy = new UserAPI.Buddies() { id = Convert.ToInt32(reader["id"]), userid = Convert.ToInt32(reader["userid"]), username = (string)reader["buddy_name"] };
+                    var buddy = new Models.Buddies() { id = Convert.ToInt32(reader["id"]), userid = Convert.ToInt32(reader["userid"]), buddy_name = (string)reader["buddy_name"] };
                     buddies.Add(buddy);
                 }
             }
@@ -541,10 +572,10 @@ class SqliteAccountsService
         return info;
     }*/
 
-    public static async Task<int> EmailAcc(string address, string pass, string imap, int imapPort, string smtp, int smtpPort, int ssl)
+    public static int GetSetEmailAccount(string address, string username, string password, string imapHost, int imapPort, string smtpHost, int smtpPort, int ssl = 1)
     {
         int code = 0;
-        int userID = Account.accountInfo.account.id;
+        int userID = Account.Info.userid;
         Debug.WriteLine("userID:" + userID);
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
@@ -558,15 +589,15 @@ class SqliteAccountsService
             if (count == 0)
             {
                 Debug.WriteLine("Email acc doesnt exists, inserting...");
-                command.CommandText = "INSERT INTO email_accounts (user_id, address, password, imap, imap_port, smtp, smtp_port, ssl) VALUES ('" + userID + "', '" + address + "', @encPass, '" + imap + "', '" + imapPort + "', '" + smtp + "', '" + smtpPort + "', '" + ssl + "')";
+                command.CommandText = "INSERT INTO email_accounts (user_id, address, password, imap_host, imap_port, smtp_host, smtp_port, ssl) VALUES ('" + userID + "', '" + address + "', '" + username + "', @encPass, '" + imapHost + "', '" + imapPort + "', '" + smtpHost + "', '" + smtpPort + "', '" + ssl + "')";
             }
             else
             {
                 Debug.WriteLine("Email acc exists, updating...");
-                command.CommandText = "UPDATE email_accounts SET address = '" + address + "', password = @encPass, imap = '" + imap + "', imap_port = '" + imapPort + "', smtp = '" + smtp + "', smtp_port = '" + smtpPort + "', ssl = '" + ssl + "' WHERE user_id = '" + userID + "'";
+                command.CommandText = "UPDATE email_accounts SET address = '" + address + "', password = @encPass, imap_host = '" + imapHost + "', imap_port = '" + imapPort + "', smtp_host = '" + smtpHost + "', smtp_port = '" + smtpPort + "', ssl = '" + ssl + "' WHERE user_id = '" + userID + "'";
             }
             //command.Parameters.AddWithValue("encPass", encryptedPass); // encrypt this or something in the future
-            command.Parameters.AddWithValue("encPass", pass);
+            command.Parameters.AddWithValue("encPass", password);
             command.ExecuteNonQuery();
         }
         catch (SqliteException ex)
@@ -584,7 +615,7 @@ class SqliteAccountsService
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
-        string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + Account.tmpUsername + "'";
+        string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + Account.Info.password + "'";
         SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
         SqliteDataReader reader = command.ExecuteReader();
         while (reader.Read())
@@ -600,7 +631,7 @@ class SqliteAccountsService
     {
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
-        string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + Account.tmpUsername + "'";
+        string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + Account.Info.password + "'";
 
         try
         {

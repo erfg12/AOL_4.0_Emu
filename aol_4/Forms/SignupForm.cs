@@ -50,7 +50,7 @@ public partial class SignupForm : _Win95Theme
         else
         {
             this.Cursor = Cursors.Default;
-            OpenMsgBox("ERROR", "Account creation has failed. Please email support@aolemu.com");
+            OpenMsgBox("ERROR", "Account creation has failed.");
 
             Close();
         }

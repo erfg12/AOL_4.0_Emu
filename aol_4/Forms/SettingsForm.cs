@@ -64,7 +64,7 @@ public partial class SettingsForm : _Win95Theme
 
     private void Settings_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (Account.tmpUsername != "Guest" && Account.tmpUsername != "")
+        if (Account.Info.password != "Guest" && Account.Info.password != "")
         {
             if (homePageBox.Text.Length > 4) // make sure it's not blank
                 Properties.Settings.Default.homeSite = homePageBox.Text;

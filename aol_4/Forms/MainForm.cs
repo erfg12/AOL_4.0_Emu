@@ -411,7 +411,7 @@ public partial class MainForm : _Win95Theme
 
         DisposeAllButThis();
 
-        Account.tmpUsername = "";
+        Account.Info.password = "";
         Account.tmpPassword = "";
 
         if (chat.irc.IsClientRunning())

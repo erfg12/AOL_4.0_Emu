@@ -12,9 +12,6 @@ class MailService
     public static ConcurrentDictionary<string, string> emailsSent = new();
     public static string reply = "";
     public static bool youGotMail = false;
-    private static string host = "mail.aolemu.com";
-    private static int imapPort = 993;
-    private static int smtpPort = 465;
 
     public static bool CheckNewEmail()
     {
@@ -158,7 +155,7 @@ class MailService
     public static void SendEmail(string toName, string toAddress, string subject, string body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(SqliteAccountsService.GetFullName(), Account.tmpUsername + "@aolemu.com"));
+        message.From.Add(new MailboxAddress(SqliteAccountsService.GetFullName(), Account.Email.address));
         message.To.Add(new MailboxAddress(toName, toAddress));
         message.Subject = subject;
 
@@ -170,8 +167,8 @@ class MailService
         using (var client = new SmtpClient())
         {
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            client.Connect(host, smtpPort, true);
-            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword.Length > 30 ? Account.tmpPassword.Substring(0, 30) : Account.tmpPassword);
+            client.Connect(Account.Email.host, Account.Email.smtpPort, true);
+            client.Authenticate(Account.Email.address, Account.Info.password.Length > 30 ? Account.Info.password.Substring(0, 30) : Account.Info.password);
 
             client.Send(message);
             client.Disconnect(true);
@@ -239,7 +236,7 @@ class MailService
 
         try
         {
-            client.Connect(host, imapPort, true);
+            client.Connect(Account.Email.host, Account.Email.imapPort, true);
         }
         catch
         {
@@ -248,7 +245,7 @@ class MailService
 
         try
         {
-            client.Authenticate($"{Account.tmpUsername}@aolemu.com", Account.tmpPassword.Length > 30 ? Account.tmpPassword.Substring(0, 30) : Account.tmpPassword);
+            client.Authenticate(Account.Email.address, Account.Info.password.Length > 30 ? Account.Info.password.Substring(0, 30) : Account.Info.password);
         }
         catch
         {

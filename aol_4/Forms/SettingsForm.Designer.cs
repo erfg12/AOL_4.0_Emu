@@ -53,8 +53,24 @@
             countryBox = new TextBox();
             UIScaleBox = new ComboBox();
             UIScaleLabel = new Label();
+            groupBox2 = new GroupBox();
+            addressLabel = new Label();
+            emailAddressBox = new TextBox();
+            label7 = new Label();
+            emailSmtpPortBox = new TextBox();
+            label10 = new Label();
+            label8 = new Label();
+            emailPasswordBox = new TextBox();
+            emailPortBox = new Label();
+            label6 = new Label();
+            emailImapPortBox = new TextBox();
+            emailUsernameBox = new TextBox();
+            emailImapHost = new TextBox();
+            label11 = new Label();
+            emailSmtpHostBox = new TextBox();
             TitleBar.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // fullscreenCheckbox
@@ -64,7 +80,7 @@
             fullscreenCheckbox.Location = new Point(10, 41);
             fullscreenCheckbox.Margin = new Padding(4);
             fullscreenCheckbox.Name = "fullscreenCheckbox";
-            fullscreenCheckbox.Size = new Size(117, 21);
+            fullscreenCheckbox.Size = new Size(110, 19);
             fullscreenCheckbox.TabIndex = 0;
             fullscreenCheckbox.Text = "Start Full Screen";
             fullscreenCheckbox.UseVisualStyleBackColor = true;
@@ -84,7 +100,7 @@
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(374, 24);
+            TitleBar.Size = new Size(411, 24);
             TitleBar.TabIndex = 3;
             // 
             // mainTitle
@@ -109,7 +125,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(308, 1);
+            miniBtn.Location = new Point(345, 1);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -127,7 +143,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(329, 1);
+            maxBtn.Location = new Point(366, 1);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -144,7 +160,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(353, 1);
+            closeBtn.Location = new Point(390, 1);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -160,7 +176,7 @@
             CloseBlueBtn.FlatStyle = FlatStyle.Flat;
             CloseBlueBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             CloseBlueBtn.ForeColor = SystemColors.Control;
-            CloseBlueBtn.Location = new Point(300, 491);
+            CloseBlueBtn.Location = new Point(337, 592);
             CloseBlueBtn.Margin = new Padding(4);
             CloseBlueBtn.Name = "CloseBlueBtn";
             CloseBlueBtn.Size = new Size(66, 26);
@@ -176,7 +192,7 @@
             homePageBox.Location = new Point(94, 77);
             homePageBox.Margin = new Padding(4);
             homePageBox.Name = "homePageBox";
-            homePageBox.Size = new Size(274, 23);
+            homePageBox.Size = new Size(311, 23);
             homePageBox.TabIndex = 1;
             // 
             // label1
@@ -208,7 +224,7 @@
             fullnameBox.Location = new Point(94, 107);
             fullnameBox.Margin = new Padding(4);
             fullnameBox.Name = "fullnameBox";
-            fullnameBox.Size = new Size(201, 23);
+            fullnameBox.Size = new Size(238, 23);
             fullnameBox.TabIndex = 2;
             // 
             // updateFNBtn
@@ -218,7 +234,7 @@
             updateFNBtn.FlatStyle = FlatStyle.Flat;
             updateFNBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             updateFNBtn.ForeColor = SystemColors.Control;
-            updateFNBtn.Location = new Point(304, 106);
+            updateFNBtn.Location = new Point(341, 106);
             updateFNBtn.Margin = new Padding(4);
             updateFNBtn.Name = "updateFNBtn";
             updateFNBtn.Size = new Size(66, 25);
@@ -232,7 +248,7 @@
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            label9.Location = new Point(14, 494);
+            label9.Location = new Point(14, 595);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(176, 15);
@@ -249,7 +265,7 @@
             searchProvider.Location = new Point(94, 137);
             searchProvider.Margin = new Padding(4);
             searchProvider.Name = "searchProvider";
-            searchProvider.Size = new Size(274, 23);
+            searchProvider.Size = new Size(311, 23);
             searchProvider.TabIndex = 23;
             // 
             // label3
@@ -270,7 +286,7 @@
             browseHistoryList.Location = new Point(8, 19);
             browseHistoryList.Margin = new Padding(4);
             browseHistoryList.Name = "browseHistoryList";
-            browseHistoryList.Size = new Size(344, 192);
+            browseHistoryList.Size = new Size(381, 148);
             browseHistoryList.TabIndex = 25;
             browseHistoryList.UseCompatibleStateImageBehavior = false;
             browseHistoryList.View = View.List;
@@ -282,11 +298,11 @@
             groupBox1.Controls.Add(deleteBrowserHistoryBtn);
             groupBox1.Controls.Add(browseHistoryList);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            groupBox1.Location = new Point(10, 235);
+            groupBox1.Location = new Point(10, 380);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(360, 249);
+            groupBox1.Size = new Size(397, 205);
             groupBox1.TabIndex = 26;
             groupBox1.TabStop = false;
             groupBox1.Text = "Browse History";
@@ -297,7 +313,7 @@
             DeleteAllBrowsingHistory.BackColor = Color.FromArgb(0, 109, 170);
             DeleteAllBrowsingHistory.FlatStyle = FlatStyle.Flat;
             DeleteAllBrowsingHistory.ForeColor = SystemColors.Control;
-            DeleteAllBrowsingHistory.Location = new Point(8, 218);
+            DeleteAllBrowsingHistory.Location = new Point(45, 174);
             DeleteAllBrowsingHistory.Margin = new Padding(4);
             DeleteAllBrowsingHistory.Name = "DeleteAllBrowsingHistory";
             DeleteAllBrowsingHistory.Size = new Size(88, 26);
@@ -312,7 +328,7 @@
             deleteBrowserHistoryBtn.BackColor = Color.FromArgb(0, 109, 170);
             deleteBrowserHistoryBtn.FlatStyle = FlatStyle.Flat;
             deleteBrowserHistoryBtn.ForeColor = SystemColors.Control;
-            deleteBrowserHistoryBtn.Location = new Point(290, 216);
+            deleteBrowserHistoryBtn.Location = new Point(327, 172);
             deleteBrowserHistoryBtn.Margin = new Padding(4);
             deleteBrowserHistoryBtn.Name = "deleteBrowserHistoryBtn";
             deleteBrowserHistoryBtn.Size = new Size(63, 26);
@@ -339,7 +355,7 @@
             cityBox.Location = new Point(94, 168);
             cityBox.Margin = new Padding(4);
             cityBox.Name = "cityBox";
-            cityBox.Size = new Size(274, 23);
+            cityBox.Size = new Size(311, 23);
             cityBox.TabIndex = 27;
             // 
             // label5
@@ -359,7 +375,7 @@
             countryBox.Location = new Point(94, 199);
             countryBox.Margin = new Padding(4);
             countryBox.Name = "countryBox";
-            countryBox.Size = new Size(274, 31);
+            countryBox.Size = new Size(311, 23);
             countryBox.TabIndex = 29;
             // 
             // UIScaleBox
@@ -384,12 +400,164 @@
             UIScaleLabel.TabIndex = 32;
             UIScaleLabel.Text = "UI Scale";
             // 
+            // groupBox2
+            // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(label11);
+            groupBox2.Controls.Add(emailSmtpHostBox);
+            groupBox2.Controls.Add(addressLabel);
+            groupBox2.Controls.Add(emailAddressBox);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(emailSmtpPortBox);
+            groupBox2.Controls.Add(label10);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(emailPasswordBox);
+            groupBox2.Controls.Add(emailPortBox);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(emailImapPortBox);
+            groupBox2.Controls.Add(emailUsernameBox);
+            groupBox2.Controls.Add(emailImapHost);
+            groupBox2.Location = new Point(10, 229);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(397, 144);
+            groupBox2.TabIndex = 33;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Email";
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            addressLabel.Location = new Point(21, 21);
+            addressLabel.Margin = new Padding(4, 0, 4, 0);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new Size(52, 15);
+            addressLabel.TabIndex = 42;
+            addressLabel.Text = "Address:";
+            // 
+            // emailAddressBox
+            // 
+            emailAddressBox.Location = new Point(80, 18);
+            emailAddressBox.Name = "emailAddressBox";
+            emailAddressBox.Size = new Size(309, 23);
+            emailAddressBox.TabIndex = 41;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label7.Location = new Point(196, 79);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(66, 15);
+            label7.TabIndex = 40;
+            label7.Text = "SMTP Port:";
+            // 
+            // emailSmtpPortBox
+            // 
+            emailSmtpPortBox.Location = new Point(263, 76);
+            emailSmtpPortBox.Name = "emailSmtpPortBox";
+            emailSmtpPortBox.Size = new Size(59, 23);
+            emailSmtpPortBox.TabIndex = 39;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label10.Location = new Point(199, 109);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(60, 15);
+            label10.TabIndex = 38;
+            label10.Text = "Password:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label8.Location = new Point(10, 109);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(63, 15);
+            label8.TabIndex = 37;
+            label8.Text = "Username:";
+            // 
+            // emailPasswordBox
+            // 
+            emailPasswordBox.Location = new Point(261, 105);
+            emailPasswordBox.Name = "emailPasswordBox";
+            emailPasswordBox.PasswordChar = '*';
+            emailPasswordBox.Size = new Size(128, 23);
+            emailPasswordBox.TabIndex = 36;
+            // 
+            // emailPortBox
+            // 
+            emailPortBox.AutoSize = true;
+            emailPortBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            emailPortBox.Location = new Point(198, 50);
+            emailPortBox.Margin = new Padding(4, 0, 4, 0);
+            emailPortBox.Name = "emailPortBox";
+            emailPortBox.Size = new Size(64, 15);
+            emailPortBox.TabIndex = 35;
+            emailPortBox.Text = "IMAP Port:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label6.Location = new Point(8, 50);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(67, 15);
+            label6.TabIndex = 34;
+            label6.Text = "IMAP Host:";
+            // 
+            // emailImapPortBox
+            // 
+            emailImapPortBox.Location = new Point(263, 47);
+            emailImapPortBox.Name = "emailImapPortBox";
+            emailImapPortBox.Size = new Size(59, 23);
+            emailImapPortBox.TabIndex = 2;
+            // 
+            // emailUsernameBox
+            // 
+            emailUsernameBox.Location = new Point(80, 105);
+            emailUsernameBox.Name = "emailUsernameBox";
+            emailUsernameBox.Size = new Size(114, 23);
+            emailUsernameBox.TabIndex = 1;
+            // 
+            // emailImapHost
+            // 
+            emailImapHost.Location = new Point(80, 47);
+            emailImapHost.Name = "emailImapHost";
+            emailImapHost.Size = new Size(114, 23);
+            emailImapHost.TabIndex = 0;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label11.Location = new Point(8, 79);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(69, 15);
+            label11.TabIndex = 44;
+            label11.Text = "SMTP Host:";
+            // 
+            // emailSmtpHostBox
+            // 
+            emailSmtpHostBox.Location = new Point(80, 76);
+            emailSmtpHostBox.Name = "emailSmtpHostBox";
+            emailSmtpHostBox.Size = new Size(114, 23);
+            emailSmtpHostBox.TabIndex = 43;
+            // 
             // SettingsForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
-            ClientSize = new Size(379, 531);
+            ClientSize = new Size(416, 625);
+            Controls.Add(groupBox2);
             Controls.Add(UIScaleLabel);
             Controls.Add(UIScaleBox);
             Controls.Add(label5);
@@ -421,6 +589,8 @@
             TitleBar.ResumeLayout(false);
             TitleBar.PerformLayout();
             groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
@@ -453,5 +623,20 @@
         private System.Windows.Forms.TextBox countryBox;
         private ComboBox UIScaleBox;
         private Label UIScaleLabel;
+        private GroupBox groupBox2;
+        private TextBox emailPasswordBox;
+        private Label emailPortBox;
+        private Label label6;
+        private TextBox emailImapPortBox;
+        private TextBox emailUsernameBox;
+        private TextBox emailImapHost;
+        private Label label10;
+        private Label label8;
+        private Label label7;
+        private TextBox emailSmtpPortBox;
+        private Label addressLabel;
+        private TextBox emailAddressBox;
+        private Label label11;
+        private TextBox emailSmtpHostBox;
     }
 }
