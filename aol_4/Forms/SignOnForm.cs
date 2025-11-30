@@ -51,7 +51,7 @@ public partial class SignOnForm : _Win95Theme
         }
         else
         {
-            if (await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
+            if (SqliteAccountsService.LoginAccount(screenName.Text, passBox.Text) > -1)
             {
                 Cursor = Cursors.Default;
                 Close();

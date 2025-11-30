@@ -283,17 +283,18 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="user"></param>
     /// <param name="pass">encrypted</param>
-    /// <returns></returns>
-    public static int CreateAcc(string user, int userId, string fullname)
+    /// <param name="fullname"></param>
+    /// <returns>0 on success, otherwise an error number</returns>
+    public static int CreateAccount(string user, string pass, string fullname)
     {
         int code = 0;
 
-        if (FindAcc(user) > 0)
+        if (FindAccount(user) > 0)
             return 999;
 
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
-        string sql = "INSERT INTO aol_accounts (userid, username, fullname) VALUES ('" + userId + "', '" + user + "', @fullname)";
+        string sql = "INSERT INTO aol_accounts (username, password, fullname) VALUES ('" + user + "', '" + pass + "', @fullname)";
 
         try
         {
@@ -340,7 +341,7 @@ class SqliteAccountsService
     /// </summary>
     /// <param name="user">username</param>
     /// <returns></returns>
-    public static int FindAcc(string user)
+    public static int FindAccount(string user)
     {
         int foundAcc = 0;
         SqliteConnection m_dbConnection = OpenDB();
@@ -359,7 +360,32 @@ class SqliteAccountsService
         return foundAcc;
     }
 
-    public static bool AddBuddy(int buddyId, string user)
+    /// <summary>
+    /// Check if account exists, return user ID. -1 if user account doesnt exist
+    /// </summary>
+    /// <param name="user">username</param>
+    /// <param name="pass">password</param>
+    /// <returns>-1 if account not found, otherwise user id</returns>
+    public static int LoginAccount(string user, string pass)
+    {
+        int foundAcc = -1;
+        SqliteConnection m_dbConnection = OpenDB();
+        m_dbConnection.Open();
+
+        string sql = "SELECT userid FROM aol_accounts WHERE username = '" + user + "' AND password = '" + pass + "'";
+        SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
+        SqliteDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            if (reader.GetInt32(0) > 0)
+                foundAcc = reader.GetInt32(0);
+        }
+
+        m_dbConnection.Close();
+        return foundAcc;
+    }
+
+    public static bool AddBuddy(string user)
     {
         if (user == null)
             return false;
@@ -387,7 +413,7 @@ class SqliteAccountsService
             }
         }
 
-        string sql = "INSERT INTO buddy_list (id, userid, buddy_name) VALUES ('" + buddyId + "', '" + userID + "', '" + user + "')";
+        string sql = "INSERT INTO buddy_list (id, userid, buddy_name) VALUES ('" + userID + "', '" + user + "')";
 
         try
         {
