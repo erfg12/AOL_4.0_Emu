@@ -30,7 +30,7 @@ public static class ChatHelper
     public static byte[] DecryptBytes(byte[] cipherBytes)
     {
         using var aes = Aes.Create();
-        using var derive = new Rfc2898DeriveBytes(Account.tmpPassword, salt, 100_000, HashAlgorithmName.SHA256);
+        using var derive = new Rfc2898DeriveBytes(Account.Info.password, salt, 100_000, HashAlgorithmName.SHA256);
 
         aes.Key = derive.GetBytes(32);
         aes.IV = derive.GetBytes(16);
@@ -44,7 +44,7 @@ public static class ChatHelper
     public static byte[] EncryptBytes(byte[] plainBytes)
     {
         using var aes = Aes.Create();
-        using var derive = new Rfc2898DeriveBytes(Account.tmpPassword, salt, 100_000, HashAlgorithmName.SHA256);
+        using var derive = new Rfc2898DeriveBytes(Account.Info.password, salt, 100_000, HashAlgorithmName.SHA256);
 
         aes.Key = derive.GetBytes(32);
         aes.IV = derive.GetBytes(16);

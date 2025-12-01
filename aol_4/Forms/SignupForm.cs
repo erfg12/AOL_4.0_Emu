@@ -70,16 +70,15 @@ public partial class SignupForm : _Win95Theme
             string pass = recoverPass.Text;
             //if (await RestAPIService.LoginAccount(user, pass))
             //{
-                var userApi = Account.accountInfo;
-                int code = SqliteAccountsService.CreateAccount(userApi.account.username, userApi.account.password, userApi.account.fullname);
-                List<UserAPI.Buddies> tmpBuddies = SqliteAccountsService.GetBuddyList(userApi.account.username, pass);
+                int code = SqliteAccountsService.CreateAccount(Account.Info.username, Account.Info.password, Account.Info.fullname);
+                List<Models.Buddies> tmpBuddies = SqliteAccountsService.GetBuddyList(Account.Info.username, pass);
 
                 if (code == 0)
                 {
-                    foreach (var t in Account.accountInfo.buddies)
+                    foreach (var t in Account.Buddies)
                     {
                         //if (!tmpBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            SqliteAccountsService.AddBuddy(t.username);
+                            SqliteAccountsService.AddBuddy(t.buddy_name);
                     }
                     OpenMsgBox("SUCCESS", "Account has been added. Welcome back!");
                     this.Cursor = Cursors.Default;
