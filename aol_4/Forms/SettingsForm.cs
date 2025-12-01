@@ -75,6 +75,13 @@ public partial class SettingsForm : _Win95Theme
 
             Properties.Settings.Default.searchProvider = searchProvider.Text;
 
+            if (!emailAddressBox.Text.IsNullOrEmpty() && !emailUsernameBox.Text.IsNullOrEmpty() &&
+                !emailPasswordBox.Text.IsNullOrEmpty() && !emailImapHost.Text.IsNullOrEmpty() && !emailImapPortBox.Text.IsNullOrEmpty() &&
+                !emailSmtpHostBox.Text.IsNullOrEmpty() && !emailSmtpPortBox.Text.IsNullOrEmpty())
+            SqliteAccountsService.GetSetEmailAccount(emailAddressBox.Text, emailUsernameBox.Text, 
+                emailPasswordBox.Text, emailImapHost.Text, Convert.ToInt32(emailImapPortBox.Text),
+                emailSmtpHostBox.Text, Convert.ToInt32(emailSmtpPortBox.Text), 1);
+
             Properties.Settings.Default.Save();
 
             //int ssl = useSSL.Checked ? 1 : 0;
