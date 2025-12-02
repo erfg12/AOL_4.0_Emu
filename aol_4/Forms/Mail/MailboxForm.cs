@@ -185,6 +185,12 @@ public partial class MailboxForm : _Win95Theme
 
     private void Mailbox_Shown(object sender, EventArgs e)
     {
+        if(Account.Email.address.IsNullOrEmpty())
+        {
+            OpenMsgBox("ERROR", "No email address found for this account.\n Open My AOL > Preferences > Mail.");
+            Close();
+            return;
+        }
         LocationService.PositionWindow(this, 0, 55);
         Thread thread = new Thread(new ThreadStart(GetEmail));
         thread.Start();

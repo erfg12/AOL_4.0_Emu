@@ -385,13 +385,13 @@ class SqliteAccountsService
         return foundAcc;
     }
 
-    public static Models.Email GetEmail(int userId)
+    public static Models.Email GetEmail()
     {
         Models.Email foundAcc = new ();
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
-        string sql = $"SELECT * FROM email_accounts WHERE user_id = {userId}";
+        string sql = $"SELECT * FROM email_accounts WHERE user_id = {Account.Info.userid}";
         SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
         SqliteDataReader reader = command.ExecuteReader();
         while (reader.Read())
@@ -528,52 +528,7 @@ class SqliteAccountsService
         return buddies;
     }
 
-    /*public static string[] getEmailInfo()
-    {
-        int userID = Convert.ToInt32(RestAPI.getAccInfo("id"));
-        //Debug.WriteLine("tmpUsername:" + tmpUsername + " tmpPassword:" + tmpPassword + " userID:" + userID);
-        string[] info = new string[7];
-        SqliteConnection m_dbConnection = openDB();
-        m_dbConnection.Open();
-
-        try
-        {
-            SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
-            //Debug.WriteLine("getting email info with id:" + userID);
-            command.CommandText = "SELECT count(*) FROM email_accounts WHERE user_id = '" + userID + "'";
-            int count = Convert.ToInt32(command.ExecuteScalar());
-            if (count > 0)
-            {
-                command.CommandText = "SELECT * FROM email_accounts WHERE user_id = '" + userID + "'";
-
-                SqliteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    info[0] = reader["address"].ToString();
-                    info[1] = reader["password"].ToString();
-                    info[2] = reader["imap"].ToString();
-                    info[3] = reader["imap_port"].ToString();
-                    info[4] = reader["smtp"].ToString();
-                    info[5] = reader["smtp_port"].ToString();
-                    info[6] = reader["ssl"].ToString();
-                }
-            }
-            else
-            {
-                Debug.WriteLine("No email acc created yet.");
-                info = new string[] { "", "", "", "993", "", "465", "1" };
-            }
-        }
-        catch (SqliteException ex)
-        {
-            Debug.WriteLine("Sqlite err " + ex.ErrorCode);
-        }
-
-        m_dbConnection.Close();
-        return info;
-    }*/
-
-    public static int GetSetEmailAccount(string address, string username, string password, string imapHost, int imapPort, string smtpHost, int smtpPort, int ssl = 1)
+    public static int SetEmailAccount(string address, string username, string password, string imapHost, int imapPort, string smtpHost, int smtpPort, int ssl = 1)
     {
         int code = 0;
         int userID = Account.Info.userid;

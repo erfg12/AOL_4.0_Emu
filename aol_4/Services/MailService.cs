@@ -167,8 +167,8 @@ class MailService
         using (var client = new SmtpClient())
         {
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            client.Connect(Account.Email.host, Account.Email.smtpPort, true);
-            client.Authenticate(Account.Email.address, Account.Info.password.Length > 30 ? Account.Info.password.Substring(0, 30) : Account.Info.password);
+            client.Connect(Account.Email.host, Account.Email.smtpPort, Account.Email.useSSL == 1);
+            client.Authenticate(Account.Email.username, Account.Info.password);
 
             client.Send(message);
             client.Disconnect(true);
@@ -236,7 +236,7 @@ class MailService
 
         try
         {
-            client.Connect(Account.Email.host, Account.Email.imapPort, true);
+            client.Connect(Account.Email.host, Account.Email.imapPort, Account.Email.useSSL == 1);
         }
         catch
         {
@@ -245,7 +245,7 @@ class MailService
 
         try
         {
-            client.Authenticate(Account.Email.address, Account.Info.password.Length > 30 ? Account.Info.password.Substring(0, 30) : Account.Info.password);
+            client.Authenticate(Account.Email.username, Account.Info.password);
         }
         catch
         {

@@ -56,7 +56,7 @@ public partial class SignOnForm : _Win95Theme
                 Account.Info.username = screenName.Text;
                 Account.Info.password = passBox.Text;
                 Account.Info.userid = userId;
-                Account.Email = SqliteAccountsService.GetEmail(userId);
+                Account.Email = SqliteAccountsService.GetEmail();
                 Close();
             }
         }

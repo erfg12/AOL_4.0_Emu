@@ -13,7 +13,7 @@ public partial class PreferencesForm : _Win95Theme
 
     private void GeneralBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<SettingsForm>(MdiParent);
+        MDIHelper.OpenForm<SettingsGeneralForm>(MdiParent);
     }
 
     public PreferencesForm()
@@ -23,5 +23,10 @@ public partial class PreferencesForm : _Win95Theme
         TitleBar.MouseMove += MoveWindow;
         titleLabel.MouseMove += MoveWindow;
         this.LocationChanged += OnLocationChanged;
+    }
+
+    private void mailBtn_Click(object sender, EventArgs e)
+    {
+        MDIHelper.OpenForm<SettingsMailForm>(MdiParent);
     }
 }

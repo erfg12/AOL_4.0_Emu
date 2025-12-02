@@ -617,7 +617,7 @@ public partial class MainForm : _Win95Theme
 
     private void MailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        SettingsForm sf = new SettingsForm()
+        SettingsGeneralForm sf = new SettingsGeneralForm()
         {
             Owner = (Form)this,
             MdiParent = this
