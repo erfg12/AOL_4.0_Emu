@@ -168,7 +168,7 @@ class MailService
         {
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
             client.Connect(Account.Email.host, Account.Email.smtpPort, Account.Email.useSSL == 1);
-            client.Authenticate(Account.Email.username, Account.Info.password);
+            client.Authenticate(Account.Email.username, Account.Email.password);
 
             client.Send(message);
             client.Disconnect(true);

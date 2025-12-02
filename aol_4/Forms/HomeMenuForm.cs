@@ -16,7 +16,7 @@ public partial class HomeMenuForm : _Win95Theme
         LocationService.PositionWindow(this);
 
         todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
-        TitleLabel.Text = $"Welcome, {Account.Info.password}";
+        TitleLabel.Text = $"Welcome, {Account.Info.username}";
         this.Text = TitleLabel.Text;
         temperatureLabel.Text = LocationService.GetCurrentWeather();
     }

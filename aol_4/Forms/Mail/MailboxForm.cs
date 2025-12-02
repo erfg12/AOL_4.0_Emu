@@ -187,7 +187,7 @@ public partial class MailboxForm : _Win95Theme
     {
         if(Account.Email.address.IsNullOrEmpty())
         {
-            OpenMsgBox("ERROR", "No email address found for this account.\n Open My AOL > Preferences > Mail.");
+            OpenMsgBox("ERROR", "No email address found for this account.\nOpen My AOL > Preferences > Mail.");
             Close();
             return;
         }

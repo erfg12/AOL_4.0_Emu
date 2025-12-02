@@ -13,7 +13,7 @@ public partial class ChatroomForm : _Win95Theme
         InitializeComponent();
 
         roomname = channel;
-        chatlog = ChatHelper.GetChatPath(Account.Info.password, channel);
+        chatlog = ChatHelper.GetChatPath(Account.Info.username, channel);
 
         if (!MainForm.chat.irc.IsClientRunning())
         {
@@ -136,8 +136,8 @@ public partial class ChatroomForm : _Win95Theme
             return;
         }
         // write to file
-        string privateLog = ChatHelper.GetChatPath(Account.Info.password, roomname);
-        File.AppendAllText(privateLog, Account.Info.password + ": " + messageTextBox.Text + '\n');
+        string privateLog = ChatHelper.GetChatPath(Account.Info.username, roomname);
+        File.AppendAllText(privateLog, Account.Info.username + ": " + messageTextBox.Text + '\n');
         messageTextBox.Clear();
     }
 

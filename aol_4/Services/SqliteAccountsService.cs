@@ -571,7 +571,7 @@ class SqliteAccountsService
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
-        string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + Account.Info.password + "'";
+        string sql = "SELECT fullname FROM aol_accounts WHERE username = '" + Account.Info.username + "'";
         SqliteCommand command = new SqliteCommand(sql, m_dbConnection);
         SqliteDataReader reader = command.ExecuteReader();
         while (reader.Read())
@@ -587,7 +587,7 @@ class SqliteAccountsService
     {
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
-        string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + Account.Info.password + "'";
+        string sql = "UPDATE aol_accounts SET fullname = '" + fullname + "' WHERE username = '" + Account.Info.username + "'";
 
         try
         {

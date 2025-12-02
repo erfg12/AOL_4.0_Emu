@@ -23,11 +23,11 @@ public class ChatService
 
         string chatFile = string.Empty;
 
-        if (args.Channel == Account.Info.password) // PRIVMSG
+        if (args.Channel == Account.Info.username) // PRIVMSG
         {
             Debug.WriteLine("RECEIVED PRIVATE MESSAGE FROM " + args.User);
             newPM = args.User;
-            chatFile = ChatHelper.GetChatPath(Account.Info.password, $"PM_{args.User}");
+            chatFile = ChatHelper.GetChatPath(Account.Info.username, $"PM_{args.User}");
 
             // open IM form if needed
             bool foundFrm = false;
@@ -52,7 +52,7 @@ public class ChatService
         }
         else
         {
-            chatFile = ChatHelper.GetChatPath(Account.Info.password, cleanChannel);
+            chatFile = ChatHelper.GetChatPath(Account.Info.username, cleanChannel);
         }
 
         File.AppendAllText(chatFile, msg + '\n');
@@ -60,7 +60,7 @@ public class ChatService
 
     public void RawOutputCallback(object source, IrcRawReceivedEventArgs args)
     {
-        if (Account.Info.password == "Guest" || Account.Info.password == "" || args.Message == null) // prevents crash if signing off
+        if (Account.Info.username == "Guest" || Account.Info.username.IsNullOrEmpty() || args.Message == null) // prevents crash if signing off
             return;
 
         Debug.WriteLine("[RO]:" + args.Message);
@@ -73,13 +73,13 @@ public class ChatService
                 buddyStatus[info[3].ToLower()] = false;
         }
         // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
-        else if (args.Message.Contains(" 311 " + Account.Info.password))
+        else if (args.Message.Contains(" 311 " + Account.Info.username))
         {
             buddyStatus[info[3].ToLower()] = true;
         }
-        else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.Info.password + " :       Registered"))
+        else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.Info.username + " :       Registered"))
         {
-            irc.SendMessageToChannel("IDENTIFY " + Account.Info.password, "NickServ");
+            irc.SendMessageToChannel("IDENTIFY " + Account.Info.username, "NickServ");
         }
         else if (args.Message.Contains(" JOIN :#"))
         {
@@ -124,7 +124,7 @@ public class ChatService
         Debug.WriteLine(args.Type + " | " + args.Message);
         if (args.Message == "STARTING LISTENER!")
         {
-            irc.SendMessageToChannel("INFO " + Account.Info.password, "NickServ"); // send a request to see if our username is registered
+            irc.SendMessageToChannel("INFO " + Account.Info.username, "NickServ"); // send a request to see if our username is registered
         }
     }
 
@@ -175,7 +175,7 @@ public class ChatService
 
     public void StartupIRC()
     {
-        irc.SetupIrc(server, Account.Info.password, "", port, "", 3000, true);
+        irc.SetupIrc(server, Account.Info.username, "", port, "", 3000, true);
 
         if (!irc.IsClientRunning())
         {

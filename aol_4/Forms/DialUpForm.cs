@@ -71,7 +71,7 @@ public partial class DialUpForm : _Win95Theme
         };
         hm.Show();
 
-        if (Account.Info.password != "Guest")
+        if (Account.Info.username != "Guest")
         {
             mainForm.checkMail.Enabled = true;
             mainForm.checkMail.Start();

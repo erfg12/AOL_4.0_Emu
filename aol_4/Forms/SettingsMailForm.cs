@@ -37,7 +37,7 @@ public partial class SettingsMailForm : _Win95Theme
 
     private void Settings_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (Account.Info.password != "Guest" && Account.Info.password != "")
+        if (!Account.Info.username.IsNullOrEmpty() && Account.Info.username != "Guest")
         {
             if (!emailAddressBox.Text.IsNullOrEmpty() && !emailUsernameBox.Text.IsNullOrEmpty() &&
                 !emailPasswordBox.Text.IsNullOrEmpty() && !emailImapHost.Text.IsNullOrEmpty() && !emailImapPortBox.Text.IsNullOrEmpty() &&
