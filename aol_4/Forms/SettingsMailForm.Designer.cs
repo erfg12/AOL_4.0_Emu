@@ -199,7 +199,7 @@
             sslCheckbox.Location = new Point(345, 49);
             sslCheckbox.Name = "sslCheckbox";
             sslCheckbox.Size = new Size(44, 19);
-            sslCheckbox.TabIndex = 45;
+            sslCheckbox.TabIndex = 3;
             sslCheckbox.Text = "SSL";
             sslCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -219,7 +219,7 @@
             emailSmtpHostBox.Location = new Point(80, 76);
             emailSmtpHostBox.Name = "emailSmtpHostBox";
             emailSmtpHostBox.Size = new Size(114, 23);
-            emailSmtpHostBox.TabIndex = 43;
+            emailSmtpHostBox.TabIndex = 4;
             // 
             // addressLabel
             // 
@@ -237,7 +237,7 @@
             emailAddressBox.Location = new Point(80, 18);
             emailAddressBox.Name = "emailAddressBox";
             emailAddressBox.Size = new Size(309, 23);
-            emailAddressBox.TabIndex = 41;
+            emailAddressBox.TabIndex = 0;
             // 
             // label7
             // 
@@ -255,7 +255,7 @@
             emailSmtpPortBox.Location = new Point(263, 76);
             emailSmtpPortBox.Name = "emailSmtpPortBox";
             emailSmtpPortBox.Size = new Size(59, 23);
-            emailSmtpPortBox.TabIndex = 39;
+            emailSmtpPortBox.TabIndex = 5;
             // 
             // label10
             // 
@@ -285,7 +285,8 @@
             emailPasswordBox.Name = "emailPasswordBox";
             emailPasswordBox.PasswordChar = '*';
             emailPasswordBox.Size = new Size(128, 23);
-            emailPasswordBox.TabIndex = 36;
+            emailPasswordBox.TabIndex = 7;
+            emailPasswordBox.UseSystemPasswordChar = true;
             // 
             // emailPortBox
             // 
@@ -321,14 +322,14 @@
             emailUsernameBox.Location = new Point(80, 105);
             emailUsernameBox.Name = "emailUsernameBox";
             emailUsernameBox.Size = new Size(114, 23);
-            emailUsernameBox.TabIndex = 1;
+            emailUsernameBox.TabIndex = 6;
             // 
             // emailImapHost
             // 
             emailImapHost.Location = new Point(80, 47);
             emailImapHost.Name = "emailImapHost";
             emailImapHost.Size = new Size(114, 23);
-            emailImapHost.TabIndex = 0;
+            emailImapHost.TabIndex = 1;
             // 
             // SettingsMailForm
             // 

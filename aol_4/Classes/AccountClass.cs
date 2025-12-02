@@ -17,7 +17,7 @@
         public string password { get; set; }
         public int imapPort { get; set; }
         public int smtpPort { get; set; }
-        public int useSSL { get; set; }
+        public int? useSSL { get; set; }
     }
 
     public class Buddies

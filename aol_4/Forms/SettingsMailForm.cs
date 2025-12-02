@@ -18,16 +18,17 @@ public partial class SettingsMailForm : _Win95Theme
     private void Settings_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this, 0, 50);
-        SqliteAccountsService.GetEmail();
 
         emailAddressBox.Text = Account.Email.address;
         emailUsernameBox.Text = Account.Email.username;
         emailPasswordBox.Text = Account.Email.password;
         emailImapHost.Text = Account.Email.host;
-        emailImapPortBox.Text = Account.Email.imapPort.ToString();
+        emailImapPortBox.Text = Account.Email.imapPort == 0 ? 993.ToString() : Account.Email.imapPort.ToString();
         emailSmtpHostBox.Text = Account.Email.host;
-        emailSmtpPortBox.Text = Account.Email.smtpPort.ToString();
-        sslCheckbox.Checked = Account.Email.useSSL == 1;
+        emailSmtpPortBox.Text = Account.Email.smtpPort == 0 ? 465.ToString() : Account.Email.smtpPort.ToString();
+        sslCheckbox.Checked = Account.Email.useSSL == null ? true : Account.Email.useSSL == 1;
+
+        emailAddressBox.Focus();
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -43,8 +44,8 @@ public partial class SettingsMailForm : _Win95Theme
                 !emailPasswordBox.Text.IsNullOrEmpty() && !emailImapHost.Text.IsNullOrEmpty() && !emailImapPortBox.Text.IsNullOrEmpty() &&
                 !emailSmtpHostBox.Text.IsNullOrEmpty() && !emailSmtpPortBox.Text.IsNullOrEmpty())
             SqliteAccountsService.SetEmailAccount(emailAddressBox.Text, emailUsernameBox.Text, 
-                emailPasswordBox.Text, emailImapHost.Text, Convert.ToInt32(emailImapPortBox.Text, sslCheckbox.Checked ? 1 : 0),
-                emailSmtpHostBox.Text, Convert.ToInt32(emailSmtpPortBox.Text), 1);
+                emailPasswordBox.Text, emailImapHost.Text, Convert.ToInt32(emailImapPortBox.Text),
+                emailSmtpHostBox.Text, Convert.ToInt32(emailSmtpPortBox.Text), sslCheckbox.Checked ? 1 : 0);
 
             Properties.Settings.Default.Save();
 
