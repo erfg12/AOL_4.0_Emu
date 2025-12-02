@@ -406,7 +406,8 @@ class SqliteAccountsService
                     username = reader.GetString(reader.GetOrdinal("username")),
                     password = reader.GetString(reader.GetOrdinal("password")),
                     imapPort = reader.GetInt32(reader.GetOrdinal("imap_port")),
-                    smtpPort = reader.GetInt32(reader.GetOrdinal("smtp_port"))
+                    smtpPort = reader.GetInt32(reader.GetOrdinal("smtp_port")),
+                    useSSL = reader.GetInt32(reader.GetOrdinal("ssl"))
                     // Map other columns as needed
                 };
             }

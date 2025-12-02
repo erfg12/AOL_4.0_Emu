@@ -98,7 +98,8 @@ public class ChatService
         {
             // users needs to register
             Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
-            irc.SendMessageToChannel($"REGISTER {Account.Info.password} {Account.Email.address}", "NickServ");
+            if (!Account.Email.address.IsNullOrEmpty())
+                irc.SendMessageToChannel($"REGISTER {Account.Info.password} {Account.Email.address}", "NickServ");
         }
         else if (args.Message.Contains("This nickname is registered and protected."))
         {

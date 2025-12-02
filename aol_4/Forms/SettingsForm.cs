@@ -79,7 +79,7 @@ public partial class SettingsForm : _Win95Theme
                 !emailPasswordBox.Text.IsNullOrEmpty() && !emailImapHost.Text.IsNullOrEmpty() && !emailImapPortBox.Text.IsNullOrEmpty() &&
                 !emailSmtpHostBox.Text.IsNullOrEmpty() && !emailSmtpPortBox.Text.IsNullOrEmpty())
             SqliteAccountsService.GetSetEmailAccount(emailAddressBox.Text, emailUsernameBox.Text, 
-                emailPasswordBox.Text, emailImapHost.Text, Convert.ToInt32(emailImapPortBox.Text),
+                emailPasswordBox.Text, emailImapHost.Text, Convert.ToInt32(emailImapPortBox.Text, sslCheckbox.Checked ? 1 : 0),
                 emailSmtpHostBox.Text, Convert.ToInt32(emailSmtpPortBox.Text), 1);
 
             Properties.Settings.Default.Save();

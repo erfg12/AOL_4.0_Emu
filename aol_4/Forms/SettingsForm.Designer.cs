@@ -54,6 +54,9 @@
             UIScaleBox = new ComboBox();
             UIScaleLabel = new Label();
             groupBox2 = new GroupBox();
+            sslCheckbox = new CheckBox();
+            label11 = new Label();
+            emailSmtpHostBox = new TextBox();
             addressLabel = new Label();
             emailAddressBox = new TextBox();
             label7 = new Label();
@@ -66,8 +69,6 @@
             emailImapPortBox = new TextBox();
             emailUsernameBox = new TextBox();
             emailImapHost = new TextBox();
-            label11 = new Label();
-            emailSmtpHostBox = new TextBox();
             TitleBar.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -402,7 +403,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(sslCheckbox);
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(emailSmtpHostBox);
             groupBox2.Controls.Add(addressLabel);
@@ -423,6 +425,36 @@
             groupBox2.TabIndex = 33;
             groupBox2.TabStop = false;
             groupBox2.Text = "Email";
+            // 
+            // sslCheckbox
+            // 
+            sslCheckbox.AutoSize = true;
+            sslCheckbox.Checked = true;
+            sslCheckbox.CheckState = CheckState.Checked;
+            sslCheckbox.Location = new Point(345, 49);
+            sslCheckbox.Name = "sslCheckbox";
+            sslCheckbox.Size = new Size(44, 19);
+            sslCheckbox.TabIndex = 45;
+            sslCheckbox.Text = "SSL";
+            sslCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label11.Location = new Point(8, 79);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(69, 15);
+            label11.TabIndex = 44;
+            label11.Text = "SMTP Host:";
+            // 
+            // emailSmtpHostBox
+            // 
+            emailSmtpHostBox.Location = new Point(80, 76);
+            emailSmtpHostBox.Name = "emailSmtpHostBox";
+            emailSmtpHostBox.Size = new Size(114, 23);
+            emailSmtpHostBox.TabIndex = 43;
             // 
             // addressLabel
             // 
@@ -533,24 +565,6 @@
             emailImapHost.Size = new Size(114, 23);
             emailImapHost.TabIndex = 0;
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            label11.Location = new Point(8, 79);
-            label11.Margin = new Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(69, 15);
-            label11.TabIndex = 44;
-            label11.Text = "SMTP Host:";
-            // 
-            // emailSmtpHostBox
-            // 
-            emailSmtpHostBox.Location = new Point(80, 76);
-            emailSmtpHostBox.Name = "emailSmtpHostBox";
-            emailSmtpHostBox.Size = new Size(114, 23);
-            emailSmtpHostBox.TabIndex = 43;
-            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -638,5 +652,6 @@
         private TextBox emailAddressBox;
         private Label label11;
         private TextBox emailSmtpHostBox;
+        private CheckBox sslCheckbox;
     }
 }
