@@ -44,7 +44,7 @@ public partial class SignOnForm : _Win95Theme
         }
         else if (screenName.Text == "Guest")
         {
-            Account.Info.password = "Guest";
+            Account.Info.username = "Guest";
             Cursor = Cursors.Default;
             Close();
         }
