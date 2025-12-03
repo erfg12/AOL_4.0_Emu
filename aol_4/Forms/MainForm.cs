@@ -606,7 +606,7 @@ public partial class MainForm : _Win95Theme
 
     private void CheckMail_Tick(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
+        if (Account.SignedIn() && MailService.CheckEmailSetup())
         {
             if (!MailService.youGotMail)
                 read_mail_btn.Image = Properties.Resources.nomail_icon;

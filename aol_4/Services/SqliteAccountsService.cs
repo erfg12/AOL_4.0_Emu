@@ -401,7 +401,8 @@ class SqliteAccountsService
                 foundAcc = new Models.Email
                 {
                     id = reader.GetInt32(reader.GetOrdinal("id")),
-                    host = reader.GetString(reader.GetOrdinal("host")),
+                    imapHost = reader.GetString(reader.GetOrdinal("imap_host")),
+                    smtpHost = reader.GetString(reader.GetOrdinal("smtp_host")),
                     address = reader.GetString(reader.GetOrdinal("address")),
                     username = reader.GetString(reader.GetOrdinal("username")),
                     password = reader.GetString(reader.GetOrdinal("password")),
@@ -545,16 +546,26 @@ class SqliteAccountsService
             if (count == 0)
             {
                 Debug.WriteLine("Email acc doesnt exists, inserting...");
-                command.CommandText = "INSERT INTO email_accounts (user_id, address, password, imap_host, imap_port, smtp_host, smtp_port, ssl) VALUES ('" + userID + "', '" + address + "', '" + username + "', @encPass, '" + imapHost + "', '" + imapPort + "', '" + smtpHost + "', '" + smtpPort + "', '" + ssl + "')";
+                command.CommandText = "INSERT INTO email_accounts (user_id, address, username, password, imap_host, imap_port, smtp_host, smtp_port, ssl) VALUES ('" + userID + "', '" + address + "', '" + username + "', @encPass, '" + imapHost + "', '" + imapPort + "', '" + smtpHost + "', '" + smtpPort + "', '" + ssl + "')";
             }
             else
             {
                 Debug.WriteLine("Email acc exists, updating...");
-                command.CommandText = "UPDATE email_accounts SET address = '" + address + "', password = @encPass, imap_host = '" + imapHost + "', imap_port = '" + imapPort + "', smtp_host = '" + smtpHost + "', smtp_port = '" + smtpPort + "', ssl = '" + ssl + "' WHERE user_id = '" + userID + "'";
+                command.CommandText = "UPDATE email_accounts SET address = '" + address + "', password = @encPass, username = '" + username + "' imap_host = '" + imapHost + "', imap_port = '" + imapPort + "', smtp_host = '" + smtpHost + "', smtp_port = '" + smtpPort + "', ssl = '" + ssl + "' WHERE user_id = '" + userID + "'";
             }
             //command.Parameters.AddWithValue("encPass", encryptedPass); // encrypt this or something in the future
             command.Parameters.AddWithValue("encPass", password);
             command.ExecuteNonQuery();
+
+            Account.Email.address = address;
+            Account.Email.username = username;
+            Account.Email.password = password;
+            Account.Email.imapPort = imapPort;
+            Account.Email.imapHost = imapHost;
+            Account.Email.smtpPort = smtpPort;
+            Account.Email.smtpHost = smtpHost;
+            Account.Email.useSSL = ssl;
+
         }
         catch (SqliteException ex)
         {

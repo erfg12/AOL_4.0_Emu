@@ -22,9 +22,9 @@ public partial class SettingsMailForm : _Win95Theme
         emailAddressBox.Text = Account.Email.address;
         emailUsernameBox.Text = Account.Email.username;
         emailPasswordBox.Text = Account.Email.password;
-        emailImapHost.Text = Account.Email.host;
+        emailImapHost.Text = Account.Email.imapHost;
         emailImapPortBox.Text = Account.Email.imapPort == 0 ? 993.ToString() : Account.Email.imapPort.ToString();
-        emailSmtpHostBox.Text = Account.Email.host;
+        emailSmtpHostBox.Text = Account.Email.smtpHost;
         emailSmtpPortBox.Text = Account.Email.smtpPort == 0 ? 465.ToString() : Account.Email.smtpPort.ToString();
         sslCheckbox.Checked = Account.Email.useSSL == null ? true : Account.Email.useSSL == 1;
 

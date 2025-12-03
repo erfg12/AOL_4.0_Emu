@@ -47,7 +47,7 @@ public partial class MailWriteForm : _Win95Theme
     {
         LocationService.PositionWindow(this, 0, 55);
 
-        if (Account.Email.address.IsNullOrEmpty())
+        if (!MailService.CheckEmailSetup())
         {
             OpenMsgBox("ERROR", "No email address found for this account.\nOpen My AOL > Preferences > Mail.");
             Close();

@@ -3,6 +3,7 @@ using MailKit;
 using MimeKit;
 using MailKit.Search;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 
 namespace aol.Services;
 class MailService
@@ -98,6 +99,17 @@ class MailService
         client.Disconnect(true);
     }
 
+    public static bool CheckEmailSetup()
+    {
+        return !Account.Email.address.IsNullOrEmpty() &&
+            !Account.Email.username.IsNullOrEmpty() &&
+            !Account.Email.password.IsNullOrEmpty() &&
+            !Account.Email.imapHost.IsNullOrEmpty() &&
+            Account.Email.imapPort != 0 &&
+            !Account.Email.smtpHost.IsNullOrEmpty() &&
+            Account.Email.smtpPort != 0;
+    }
+
     public static void DeleteEmail(string id)
     {
         using var client = ImapAuthenticateClient(new ImapClient());
@@ -167,7 +179,7 @@ class MailService
         using (var client = new SmtpClient())
         {
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            client.Connect(Account.Email.host, Account.Email.smtpPort, Account.Email.useSSL == 1);
+            client.Connect(Account.Email.smtpHost, Account.Email.smtpPort, Account.Email.useSSL == 1);
             client.Authenticate(Account.Email.username, Account.Email.password);
 
             client.Send(message);
@@ -234,23 +246,23 @@ class MailService
     {
         client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-        try
-        {
-            client.Connect(Account.Email.host, Account.Email.imapPort, Account.Email.useSSL == 1);
-        }
-        catch
-        {
-            return null;
-        }
+        //try
+        //{
+            client.Connect(Account.Email.imapHost, Account.Email.imapPort, Account.Email.useSSL == 1);
+        //}
+        //catch
+        //{
+        //    return null;
+        //}
 
-        try
-        {
-            client.Authenticate(Account.Email.username, Account.Info.password);
-        }
-        catch
-        {
-            return null;
-        }
+        //try
+        //{
+            client.Authenticate(Account.Email.username, Account.Email.password);
+        //}
+        //catch (AuthenticationException ex)
+        //{
+        //    return null;
+        //}
 
         return client;
     }
