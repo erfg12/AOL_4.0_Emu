@@ -185,11 +185,17 @@ public partial class MailboxForm : _Win95Theme
 
     private void Mailbox_Shown(object sender, EventArgs e)
     {
+        if(!MailService.CheckEmailSetup())
+        {
+            OpenMsgBox("ERROR", "No email address found for this account.\nOpen My AOL > Preferences > Mail.");
+            Close();
+            return;
+        }
         LocationService.PositionWindow(this, 0, 55);
         Thread thread = new Thread(new ThreadStart(GetEmail));
         thread.Start();
-        Text = $"{Account.tmpUsername}'s Online Mailbox";
-        mainTitle.Text = $"{Account.tmpUsername}'s Online Mailbox";
+        Text = $"{Account.Info.username}'s Online Mailbox";
+        mainTitle.Text = $"{Account.Info.username}'s Online Mailbox";
     }
 
     private void NewListview_DoubleClick(object sender, EventArgs e)

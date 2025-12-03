@@ -46,6 +46,13 @@ public partial class MailWriteForm : _Win95Theme
     private void WriteMail_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this, 0, 55);
+
+        if (!MailService.CheckEmailSetup())
+        {
+            OpenMsgBox("ERROR", "No email address found for this account.\nOpen My AOL > Preferences > Mail.");
+            Close();
+            return;
+        }
     }
 
     private void closeBtn_Click(object sender, EventArgs e)

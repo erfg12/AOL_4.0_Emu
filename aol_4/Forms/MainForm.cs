@@ -411,8 +411,7 @@ public partial class MainForm : _Win95Theme
 
         DisposeAllButThis();
 
-        Account.tmpUsername = "";
-        Account.tmpPassword = "";
+        Account.Info.username = "";
 
         if (chat.irc.IsClientRunning())
             chat.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
@@ -607,7 +606,7 @@ public partial class MainForm : _Win95Theme
 
     private void CheckMail_Tick(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
+        if (Account.SignedIn() && MailService.CheckEmailSetup())
         {
             if (!MailService.youGotMail)
                 read_mail_btn.Image = Properties.Resources.nomail_icon;
@@ -618,7 +617,7 @@ public partial class MainForm : _Win95Theme
 
     private void MailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        SettingsForm sf = new SettingsForm()
+        SettingsGeneralForm sf = new SettingsGeneralForm()
         {
             Owner = (Form)this,
             MdiParent = this

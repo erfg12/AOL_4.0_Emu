@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Sentry;
+using System;
+using System.Windows.Forms;
 
 namespace aol.Forms
 {
@@ -34,6 +34,7 @@ namespace aol.Forms
 
                 // Configure DI
                 var services = new ServiceCollection();
+
                 ConfigureServices(services);
                 ServiceProvider = services.BuildServiceProvider();
 

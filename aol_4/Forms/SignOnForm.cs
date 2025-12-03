@@ -37,23 +37,26 @@ public partial class SignOnForm : _Win95Theme
 
     private async void SignOnBtn_Click(object sender, EventArgs e)
     {
-        Cursor = Cursors.WaitCursor;
-
+        Account.Info = new ();
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
         {
             MDIHelper.OpenForm<SignupForm>(MdiParent);
         }
         else if (screenName.Text == "Guest")
         {
-            Account.tmpUsername = "Guest";
+            Account.Info.username = "Guest";
             Cursor = Cursors.Default;
             Close();
         }
         else
         {
-            if (await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
+            int userId = SqliteAccountsService.LoginAccount(screenName.Text, passBox.Text);
+            if (userId > -1)
             {
-                Cursor = Cursors.Default;
+                Account.Info.username = screenName.Text;
+                Account.Info.password = passBox.Text;
+                Account.Info.userid = userId;
+                Account.Email = SqliteAccountsService.GetEmail();
                 Close();
             }
         }
