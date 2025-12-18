@@ -15,6 +15,108 @@ public class ChatService
         Debug.WriteLine("DOWNLOAD PROGRESS: " + args.Progress + "%");
     }
 
+    public static Dictionary<string, Image> emojis = new()
+    {
+        { ":-)", Properties.Resources.Smiling },
+        { ":-(", Properties.Resources.Frowning },
+        { ";-)", Properties.Resources.Winking },
+        { ":-P", Properties.Resources.Sticking_out_tongue },
+        { "=-O", Properties.Resources.Surprised },
+        { ":-*", Properties.Resources.Kissing },
+        { ">:o", Properties.Resources.Yelling },
+        { "8-)", Properties.Resources.Cool },
+        { ":-$", Properties.Resources.Money_mouth },
+        { ":-!", Properties.Resources.Foot_in_mouth },
+        { ":-[", Properties.Resources.Embarrassed },
+        { "O:-)", Properties.Resources.Innocent },
+        { ":-\\", Properties.Resources.Undecided },
+        { ":'(", Properties.Resources.Crying },
+        { ":-X", Properties.Resources.Lips_are_sealed },
+        { ":-D", Properties.Resources.Laughing }
+    };
+
+    public static void ReplaceEmojisWithImage(RichTextBox rtb, string text)
+    {
+        int startIndex = rtb.TextLength;
+        rtb.AppendText(" " + text);
+
+        bool wasReadOnly = rtb.ReadOnly;
+        rtb.ReadOnly = false;
+
+        foreach (var emoji in emojis.OrderByDescending(e => e.Key.Length))
+        {
+            if (!text.Contains(emoji.Key))
+                continue;
+
+            string imageRtf;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                emoji.Value.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                string hex = BitConverter.ToString(ms.ToArray()).Replace("-", "");
+                imageRtf = @"{\rtf1{\pict\pngblip\picw" + (emoji.Value.Width * 26) +
+                          @"\pich" + (emoji.Value.Height * 26) +
+                          @"\picwgoal" + (emoji.Value.Width * 15) +
+                          @"\pichgoal" + (emoji.Value.Height * 15) +
+                          " " + hex + "}}";
+            }
+
+            int index = startIndex;
+            while (index < rtb.TextLength)
+            {
+                index = rtb.Find(emoji.Key, index, RichTextBoxFinds.None);
+                if (index == -1)
+                    break;
+
+                rtb.Select(index, emoji.Key.Length);
+
+                // Retry logic for clipboard operations
+                bool success = false;
+                for (int retry = 0; retry < 3 && !success; retry++)
+                {
+                    try
+                    {
+                        IDataObject backup = null;
+                        try
+                        {
+                            backup = Clipboard.GetDataObject();
+                        }
+                        catch { }
+
+                        DataObject dataObj = new DataObject();
+                        dataObj.SetData(DataFormats.Rtf, imageRtf);
+                        Clipboard.SetDataObject(dataObj, true);
+
+                        System.Threading.Thread.Sleep(10); // Small delay
+
+                        rtb.Paste();
+
+                        if (backup != null)
+                        {
+                            try
+                            {
+                                Clipboard.SetDataObject(backup, true);
+                            }
+                            catch { }
+                        }
+
+                        success = true;
+                    }
+                    catch (System.Runtime.InteropServices.ExternalException)
+                    {
+                        if (retry < 2)
+                            System.Threading.Thread.Sleep(50); // Wait before retry
+                        else
+                            Console.WriteLine($"Failed to insert emoji after 3 attempts");
+                    }
+                }
+
+                index++;
+            }
+        }
+
+        rtb.ReadOnly = wasReadOnly;
+    }
+
     public void ChatOutputCallback(object source, IrcReceivedEventArgs args)
     {
         string msg = args.User + ": " + args.Message;

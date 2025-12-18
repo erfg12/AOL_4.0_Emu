@@ -54,13 +54,26 @@ public partial class InstantMessageForm : _Win95Theme
 
     void AppendMessage(RichTextBox box, string name, Color nameColor, string message)
     {
+        int start = box.TextLength;
         box.SelectionColor = nameColor;
         box.SelectionFont = new Font(box.Font, FontStyle.Bold);
         box.AppendText(name + ":");
-
         box.SelectionColor = Color.Black;
         box.SelectionFont = new Font(box.Font, FontStyle.Regular);
-        box.AppendText(" " + message + "\n");
+
+        // Check if message contains emojis
+        bool hasEmoji = ChatService.emojis.Keys.Any(key => message.Contains(key));
+
+        if (hasEmoji)
+        {
+            ChatService.ReplaceEmojisWithImage(box, message);
+        }
+        else
+        {
+            box.AppendText(" " + message);
+        }
+
+        box.AppendText("\n");
     }
 
     private void SendMessage()
