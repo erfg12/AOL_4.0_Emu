@@ -35,6 +35,8 @@ public class ChatService
         { ":-D", Properties.Resources.Laughing }
     };
 
+    private static Dictionary<string, string> emojiRtfCache = new Dictionary<string, string>();
+
     public static void ReplaceEmojisWithImage(RichTextBox rtb, string text)
     {
         int startIndex = rtb.TextLength;
@@ -43,76 +45,86 @@ public class ChatService
         bool wasReadOnly = rtb.ReadOnly;
         rtb.ReadOnly = false;
 
+        // Build the RTF cache if needed
+        if (emojiRtfCache.Count == 0)
+        {
+            foreach (var emoji in emojis)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    emoji.Value.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    string hex = BitConverter.ToString(ms.ToArray()).Replace("-", "");
+                    string imageRtf = @"{\rtf1{\pict\pngblip\picw" + (emoji.Value.Width * 26) +
+                              @"\pich" + (emoji.Value.Height * 26) +
+                              @"\picwgoal" + (emoji.Value.Width * 15) +
+                              @"\pichgoal" + (emoji.Value.Height * 15) +
+                              " " + hex + "}}";
+                    emojiRtfCache[emoji.Key] = imageRtf;
+                }
+            }
+        }
+
+        // Collect all replacements first
+        List<(int index, int length, string rtf)> replacements = new List<(int, int, string)>();
+
         foreach (var emoji in emojis.OrderByDescending(e => e.Key.Length))
         {
             if (!text.Contains(emoji.Key))
                 continue;
 
-            string imageRtf;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                emoji.Value.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                string hex = BitConverter.ToString(ms.ToArray()).Replace("-", "");
-                imageRtf = @"{\rtf1{\pict\pngblip\picw" + (emoji.Value.Width * 26) +
-                          @"\pich" + (emoji.Value.Height * 26) +
-                          @"\picwgoal" + (emoji.Value.Width * 15) +
-                          @"\pichgoal" + (emoji.Value.Height * 15) +
-                          " " + hex + "}}";
-            }
-
+            string imageRtf = emojiRtfCache[emoji.Key];
             int index = startIndex;
+
             while (index < rtb.TextLength)
             {
                 index = rtb.Find(emoji.Key, index, RichTextBoxFinds.None);
                 if (index == -1)
                     break;
 
-                rtb.Select(index, emoji.Key.Length);
-
-                // Retry logic for clipboard operations
-                bool success = false;
-                for (int retry = 0; retry < 3 && !success; retry++)
-                {
-                    try
-                    {
-                        IDataObject backup = null;
-                        try
-                        {
-                            backup = Clipboard.GetDataObject();
-                        }
-                        catch { }
-
-                        DataObject dataObj = new DataObject();
-                        dataObj.SetData(DataFormats.Rtf, imageRtf);
-                        Clipboard.SetDataObject(dataObj, true);
-
-                        System.Threading.Thread.Sleep(10); // Small delay
-
-                        rtb.Paste();
-
-                        if (backup != null)
-                        {
-                            try
-                            {
-                                Clipboard.SetDataObject(backup, true);
-                            }
-                            catch { }
-                        }
-
-                        success = true;
-                    }
-                    catch (System.Runtime.InteropServices.ExternalException)
-                    {
-                        if (retry < 2)
-                            System.Threading.Thread.Sleep(50); // Wait before retry
-                        else
-                            Console.WriteLine($"Failed to insert emoji after 3 attempts");
-                    }
-                }
-
-                index++;
+                replacements.Add((index, emoji.Key.Length, imageRtf));
+                index += emoji.Key.Length;
             }
         }
+
+        // Sort by index descending so we replace from end to start (preserves indices)
+        replacements = replacements.OrderByDescending(r => r.index).ToList();
+
+        // Backup clipboard once
+        IDataObject clipboardBackup = null;
+        try
+        {
+            clipboardBackup = Clipboard.GetDataObject();
+        }
+        catch { }
+
+        // Do all replacements
+        foreach (var replacement in replacements)
+        {
+            rtb.Select(replacement.index, replacement.length);
+
+            for (int retry = 0; retry < 3; retry++)
+            {
+                try
+                {
+                    Clipboard.SetText(replacement.rtf, TextDataFormat.Rtf);
+                    rtb.Paste();
+                    break;
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    if (retry < 2)
+                        System.Threading.Thread.Sleep(50);
+                }
+            }
+        }
+
+        // Restore clipboard once
+        try
+        {
+            if (clipboardBackup != null)
+                Clipboard.SetDataObject(clipboardBackup, false);
+        }
+        catch { }
 
         rtb.ReadOnly = wasReadOnly;
     }
