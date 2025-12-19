@@ -15,6 +15,120 @@ public class ChatService
         Debug.WriteLine("DOWNLOAD PROGRESS: " + args.Progress + "%");
     }
 
+    public static Dictionary<string, Image> emojis = new()
+    {
+        { ":-)", Properties.Resources.Smiling },
+        { ":-(", Properties.Resources.Frowning },
+        { ";-)", Properties.Resources.Winking },
+        { ":-P", Properties.Resources.Sticking_out_tongue },
+        { "=-O", Properties.Resources.Surprised },
+        { ":-*", Properties.Resources.Kissing },
+        { ">:o", Properties.Resources.Yelling },
+        { "8-)", Properties.Resources.Cool },
+        { ":-$", Properties.Resources.Money_mouth },
+        { ":-!", Properties.Resources.Foot_in_mouth },
+        { ":-[", Properties.Resources.Embarrassed },
+        { "O:-)", Properties.Resources.Innocent },
+        { ":-\\", Properties.Resources.Undecided },
+        { ":'(", Properties.Resources.Crying },
+        { ":-X", Properties.Resources.Lips_are_sealed },
+        { ":-D", Properties.Resources.Laughing }
+    };
+
+    private static Dictionary<string, string> emojiRtfCache = new Dictionary<string, string>();
+
+    public static void ReplaceEmojisWithImage(RichTextBox rtb, string text)
+    {
+        int startIndex = rtb.TextLength;
+        rtb.AppendText(" " + text);
+
+        bool wasReadOnly = rtb.ReadOnly;
+        rtb.ReadOnly = false;
+
+        // Build the RTF cache if needed
+        if (emojiRtfCache.Count == 0)
+        {
+            foreach (var emoji in emojis)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    emoji.Value.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    string hex = BitConverter.ToString(ms.ToArray()).Replace("-", "");
+                    string imageRtf = @"{\rtf1{\pict\pngblip\picw" + (emoji.Value.Width * 26) +
+                              @"\pich" + (emoji.Value.Height * 26) +
+                              @"\picwgoal" + (emoji.Value.Width * 15) +
+                              @"\pichgoal" + (emoji.Value.Height * 15) +
+                              " " + hex + "}}";
+                    emojiRtfCache[emoji.Key] = imageRtf;
+                }
+            }
+        }
+
+        // Collect all replacements first
+        List<(int index, int length, string rtf)> replacements = new List<(int, int, string)>();
+
+        foreach (var emoji in emojis.OrderByDescending(e => e.Key.Length))
+        {
+            if (!text.Contains(emoji.Key))
+                continue;
+
+            string imageRtf = emojiRtfCache[emoji.Key];
+            int index = startIndex;
+
+            while (index < rtb.TextLength)
+            {
+                index = rtb.Find(emoji.Key, index, RichTextBoxFinds.None);
+                if (index == -1)
+                    break;
+
+                replacements.Add((index, emoji.Key.Length, imageRtf));
+                index += emoji.Key.Length;
+            }
+        }
+
+        // Sort by index descending so we replace from end to start (preserves indices)
+        replacements = replacements.OrderByDescending(r => r.index).ToList();
+
+        // Backup clipboard once
+        IDataObject clipboardBackup = null;
+        try
+        {
+            clipboardBackup = Clipboard.GetDataObject();
+        }
+        catch { }
+
+        // Do all replacements
+        foreach (var replacement in replacements)
+        {
+            rtb.Select(replacement.index, replacement.length);
+
+            for (int retry = 0; retry < 3; retry++)
+            {
+                try
+                {
+                    Clipboard.SetText(replacement.rtf, TextDataFormat.Rtf);
+                    rtb.Paste();
+                    break;
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    if (retry < 2)
+                        System.Threading.Thread.Sleep(50);
+                }
+            }
+        }
+
+        // Restore clipboard once
+        try
+        {
+            if (clipboardBackup != null)
+                Clipboard.SetDataObject(clipboardBackup, false);
+        }
+        catch { }
+
+        rtb.ReadOnly = wasReadOnly;
+    }
+
     public void ChatOutputCallback(object source, IrcReceivedEventArgs args)
     {
         string msg = args.User + ": " + args.Message;

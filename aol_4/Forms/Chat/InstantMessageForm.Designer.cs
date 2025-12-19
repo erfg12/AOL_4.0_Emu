@@ -101,6 +101,7 @@
             // 
             messagesBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             messagesBox.BackColor = SystemColors.Window;
+            messagesBox.EnableAutoDragDrop = true;
             messagesBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             messagesBox.Location = new Point(7, 55);
             messagesBox.Margin = new Padding(4);
