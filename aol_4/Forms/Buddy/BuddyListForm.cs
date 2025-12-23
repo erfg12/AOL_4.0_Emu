@@ -62,7 +62,7 @@ public partial class BuddyListForm : _Win95Theme
         ConcurrentDictionary<string, bool> tmpList = new ConcurrentDictionary<string, bool>();
         foreach (KeyValuePair<string, bool> entry in ChatService.buddyStatus)
         {
-            tmpList.TryAdd(entry.Key.ToLower(), entry.Value);
+            tmpList.TryAdd(entry.Key, entry.Value);
         }
         foreach (KeyValuePair<string, bool> entry in tmpList)
         {
@@ -95,8 +95,8 @@ public partial class BuddyListForm : _Win95Theme
     {
         foreach (var b in SqliteAccountsService.GetBuddyList())
         {
-            if (!ChatService.buddyStatus.ContainsKey(b.username.ToLower()))
-                ChatService.buddyStatus.TryAdd(b.username.ToLower(), false); // offline by default
+            if (!ChatService.buddyStatus.ContainsKey(b.username))
+                ChatService.buddyStatus.TryAdd(b.username, false); // offline by default
         }
     }
 

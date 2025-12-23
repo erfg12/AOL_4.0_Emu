@@ -114,6 +114,7 @@
             // myMessageBox
             // 
             myMessageBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            myMessageBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             myMessageBox.Location = new Point(6, 226);
             myMessageBox.Margin = new Padding(4);
             myMessageBox.Name = "myMessageBox";

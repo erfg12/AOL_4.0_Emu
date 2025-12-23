@@ -45,6 +45,9 @@ public class ChatService
         bool wasReadOnly = rtb.ReadOnly;
         rtb.ReadOnly = false;
 
+        float dpiScale = rtb.DeviceDpi / 96f;
+        int fontPx = rtb.Font.Height;
+
         // Build the RTF cache if needed
         if (emojiRtfCache.Count == 0)
         {
@@ -54,25 +57,30 @@ public class ChatService
                 {
                     emoji.Value.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                     string hex = BitConverter.ToString(ms.ToArray()).Replace("-", "");
-                    string imageRtf = @"{\rtf1{\pict\pngblip\picw" + (emoji.Value.Width * 26) +
-                              @"\pich" + (emoji.Value.Height * 26) +
-                              @"\picwgoal" + (emoji.Value.Width * 15) +
-                              @"\pichgoal" + (emoji.Value.Height * 15) +
-                              " " + hex + "}}";
+
+                    // size emoji to match text height, DPI-aware
+                    int goal = (int)(fontPx * 15 / dpiScale);
+
+                    string imageRtf =
+                        @"{\rtf1{\pict\pngblip" +
+                        @"\picw" + (emoji.Value.Width * 26) +
+                        @"\pich" + (emoji.Value.Height * 26) +
+                        @"\picwgoal" + goal +
+                        @"\pichgoal" + goal +
+                        " " + hex + "}}";
+
                     emojiRtfCache[emoji.Key] = imageRtf;
                 }
             }
         }
 
-        // Collect all replacements first
-        List<(int index, int length, string rtf)> replacements = new List<(int, int, string)>();
+        List<(int index, int length, string rtf)> replacements = new();
 
         foreach (var emoji in emojis.OrderByDescending(e => e.Key.Length))
         {
             if (!text.Contains(emoji.Key))
                 continue;
 
-            string imageRtf = emojiRtfCache[emoji.Key];
             int index = startIndex;
 
             while (index < rtb.TextLength)
@@ -81,23 +89,16 @@ public class ChatService
                 if (index == -1)
                     break;
 
-                replacements.Add((index, emoji.Key.Length, imageRtf));
+                replacements.Add((index, emoji.Key.Length, emojiRtfCache[emoji.Key]));
                 index += emoji.Key.Length;
             }
         }
 
-        // Sort by index descending so we replace from end to start (preserves indices)
         replacements = replacements.OrderByDescending(r => r.index).ToList();
 
-        // Backup clipboard once
         IDataObject clipboardBackup = null;
-        try
-        {
-            clipboardBackup = Clipboard.GetDataObject();
-        }
-        catch { }
+        try { clipboardBackup = Clipboard.GetDataObject(); } catch { }
 
-        // Do all replacements
         foreach (var replacement in replacements)
         {
             rtb.Select(replacement.index, replacement.length);
@@ -118,7 +119,6 @@ public class ChatService
             }
         }
 
-        // Restore clipboard once
         try
         {
             if (clipboardBackup != null)
@@ -128,6 +128,7 @@ public class ChatService
 
         rtb.ReadOnly = wasReadOnly;
     }
+
 
     public void ChatOutputCallback(object source, IrcReceivedEventArgs args)
     {
@@ -183,13 +184,13 @@ public class ChatService
         if (args.Message.Contains("No such nick")) // say this when disconnecting from server too
         {
             //Debug.WriteLine("user is dead");
-            if (buddyStatus.ContainsKey(info[3].ToLower()))
-                buddyStatus[info[3].ToLower()] = false;
+            if (buddyStatus.ContainsKey(info[3]))
+                buddyStatus[info[3]] = false;
         }
         // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
         else if (args.Message.Contains(" 311 " + Account.tmpUsername))
         {
-            buddyStatus[info[3].ToLower()] = true;
+            buddyStatus[info[3]] = true;
         }
         else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.tmpUsername + " :       Registered"))
         {
@@ -251,7 +252,7 @@ public class ChatService
 
         foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
         {
-            string channel = usersPerChannel.Key.ToLower();
+            string channel = usersPerChannel.Key;
             channel = channel.Replace("#", "");
             if (!users.ContainsKey(channel)) // sometimes skipped?!
             {
