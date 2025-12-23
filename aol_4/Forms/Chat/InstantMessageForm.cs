@@ -13,6 +13,7 @@ public partial class InstantMessageForm : _Win95Theme
         LocationService.PositionWindow(this);
         Text = user + " Instant Message";
         mainTitle.Text = user + " Instant Message";
+        Tag = user.ToLower();
 
         TitleBar.BringToFront();
         topMenuPanel.SendToBack();

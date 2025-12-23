@@ -147,7 +147,7 @@ public class ChatService
             bool foundFrm = false;
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.Tag?.ToString() == newPM)
+                if (frm.Tag?.ToString().ToLower() == newPM.ToLower())
                     foundFrm = true;
             }
             if (!foundFrm)
