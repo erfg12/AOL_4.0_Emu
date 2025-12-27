@@ -129,45 +129,34 @@ public class ChatService
         rtb.ReadOnly = wasReadOnly;
     }
 
-
-    public void ChatOutputCallback(object source, IrcReceivedEventArgs args)
+    public void PrivateMessageReceived(string user, string message)
     {
-        string msg = args.User + ": " + args.Message;
-        Debug.WriteLine("[CO]:" + msg);
-        string cleanChannel = args.Channel.Replace("#", "");
+        string msg = $"{user}: {message}";
 
         string chatFile = string.Empty;
 
-        if (args.Channel == Account.tmpUsername) // PRIVMSG
-        {
-            Debug.WriteLine("RECEIVED PRIVATE MESSAGE FROM " + args.User);
-            newPM = args.User;
-            chatFile = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{args.User}");
+        newPM = user;
+        chatFile = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
 
-            // open IM form if needed
-            bool foundFrm = false;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.Tag?.ToString().ToLower() == newPM.ToLower())
-                    foundFrm = true;
-            }
-            if (!foundFrm)
-            {
-                Application.OpenForms[0].Invoke(() =>
-                {
-                    InstantMessageForm im = new InstantMessageForm(newPM)
-                    {
-                        Owner = Application.OpenForms[0],
-                        MdiParent = Application.OpenForms[0],
-                        Tag = newPM
-                    };
-                    im.Show();
-                });
-            }
-        }
-        else
+        // open IM form if needed
+        bool foundFrm = false;
+        foreach (Form frm in Application.OpenForms)
         {
-            chatFile = ChatHelper.GetChatPath(Account.tmpUsername, cleanChannel);
+            if (frm.Tag?.ToString().ToLower() == newPM.ToLower())
+                foundFrm = true;
+        }
+        if (!foundFrm)
+        {
+            Application.OpenForms[0].Invoke(() =>
+            {
+                InstantMessageForm im = new InstantMessageForm(newPM)
+                {
+                    Owner = Application.OpenForms[0],
+                    MdiParent = Application.OpenForms[0],
+                    Tag = newPM
+                };
+                im.Show();
+            });
         }
 
         File.AppendAllText(chatFile, msg + '\n');
@@ -199,6 +188,7 @@ public class ChatService
         else if (args.Message.Contains(" JOIN :#"))
         {
             string chan = args.Message.Substring(args.Message.IndexOf(" JOIN :") + " JOIN :".Length);
+            chan = chan.ToLower();
             Debug.WriteLine("Getting users list from IRC server: " + chan);
             //irc.GetUsersInCurrentChannel();
             irc.GetUsersInDifferentChannel(chan);
@@ -207,6 +197,7 @@ public class ChatService
         else if (args.Message.Contains(" :Leaving"))
         {
             string chan = args.Message.Split(' ').FirstOrDefault(part => part.StartsWith("#"));
+            chan = chan.ToLower();
             irc.GetUsersInDifferentChannel(chan);
         }
         else if(args.Message.Contains(" isn't registered."))
@@ -231,6 +222,16 @@ public class ChatService
             if (chanClean[0] != "")
                 Debug.WriteLine(chanClean[0] + " channel is available");
         }
+        else if (args.Message.Contains("PRIVMSG"))
+        {
+            // Split prefix, command, target, message
+            // :prefix PRIVMSG target :message
+            var msg = args.Message.Split($"PRIVMSG {Account.tmpUsername} :");
+            var senderNick = args.Message.Split('!')[0].TrimStart(':');
+
+            Debug.WriteLine($"Private message from {senderNick}: {msg.LastOrDefault()}");
+            PrivateMessageReceived(senderNick, msg.LastOrDefault());
+        }
     }
 
     public void DebugOutputCallback(object source, IrcDebugMessageEventArgs args)
@@ -252,14 +253,13 @@ public class ChatService
 
         foreach (KeyValuePair<string, List<string>> usersPerChannel in args.UsersPerChannel)
         {
-            string channel = usersPerChannel.Key;
+            string channel = usersPerChannel.Key.ToLower();
             channel = channel.Replace("#", "");
             if (!users.ContainsKey(channel)) // sometimes skipped?!
             {
                 Debug.WriteLine("Creating users key " + channel);
                 if (args.UsersPerChannel.ContainsKey(usersPerChannel.Key))
                     users.TryAdd(channel, args.UsersPerChannel[usersPerChannel.Key]);
-                continue;
             }
             // check if offline user is still in list
             for (int i = 0; i < users[channel].Count; i++)

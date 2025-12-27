@@ -283,7 +283,7 @@
             // UpdateTimer
             // 
             UpdateTimer.Enabled = true;
-            UpdateTimer.Interval = 2000;
+            UpdateTimer.Interval = 5000;
             UpdateTimer.Tick += UpdateTimer_Tick;
             // 
             // buddyContextMenuStrip

@@ -174,7 +174,7 @@ public partial class ChatroomForm : _Win95Theme
     private void Chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
-        MainForm.chat.irc.SendRawMessage("part #" + roomname);
+        MainForm.chat.irc.SendRawMessage($"PART #{roomname} :bye everyone");
 
         watch.EnableRaisingEvents = false;
         watch.Changed -= OnChanged;
