@@ -175,6 +175,12 @@ public partial class ChatroomForm : _Win95Theme
     {
         formClosing = true;
         MainForm.chat.irc.SendRawMessage("part #" + roomname);
+
+        watch.EnableRaisingEvents = false;
+        watch.Changed -= OnChanged;
+        watch.Dispose();
+
+        chatRoomTextBox?.Dispose();
     }
 
     private void MessageTextBox_KeyDown(object sender, KeyEventArgs e)

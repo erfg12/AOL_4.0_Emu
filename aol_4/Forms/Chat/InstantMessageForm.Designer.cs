@@ -626,6 +626,7 @@
             Name = "InstantMessageForm";
             StartPosition = FormStartPosition.Manual;
             Text = "instant_message";
+            FormClosing += InstantMessageForm_FormClosing;
             Shown += instant_message_Shown;
             topMenuPanel.ResumeLayout(false);
             topMenuPanel.PerformLayout();

@@ -228,7 +228,8 @@ public partial class InstantMessageForm : _Win95Theme
                                 string name = parts[0];
                                 string message = parts.Length > 1 ? parts[1].Trim() : "";
                                 AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
-                            } else // not a user message
+                            }
+                            else // not a user message
                                 messagesBox.AppendText(msg);
                         }));
                         ReceivedMsgSound();
@@ -336,5 +337,14 @@ public partial class InstantMessageForm : _Win95Theme
             sendBtn.Image = Properties.Resources.im_send_disabled;
             sendBtn.Enabled = false;
         }
+    }
+
+    private void InstantMessageForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        watch.EnableRaisingEvents = false;
+        watch.Changed -= OnChanged;
+        watch.Dispose();
+
+        messagesBox?.Dispose();
     }
 }
