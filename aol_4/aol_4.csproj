@@ -304,6 +304,9 @@
     <PackageReference Include="WeatherNet.Netstandard" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\SettingsMailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

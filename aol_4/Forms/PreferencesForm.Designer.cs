@@ -273,6 +273,7 @@
             mailBtn.Size = new Size(52, 51);
             mailBtn.TabIndex = 10;
             mailBtn.TabStop = false;
+            mailBtn.Click += mailBtn_Click;
             // 
             // downloadBtn
             // 
@@ -561,7 +562,7 @@
             // 
             // PreferencesForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(521, 385);

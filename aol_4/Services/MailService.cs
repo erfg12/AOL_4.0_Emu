@@ -3,6 +3,7 @@ using MailKit;
 using MimeKit;
 using MailKit.Search;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 
 namespace aol.Services;
 class MailService
@@ -12,9 +13,6 @@ class MailService
     public static ConcurrentDictionary<string, string> emailsSent = new();
     public static string reply = "";
     public static bool youGotMail = false;
-    private static string host = "mail.aolemu.com";
-    private static int imapPort = 993;
-    private static int smtpPort = 465;
 
     public static bool CheckNewEmail()
     {
@@ -101,6 +99,17 @@ class MailService
         client.Disconnect(true);
     }
 
+    public static bool CheckEmailSetup()
+    {
+        return !Account.Email.address.IsNullOrEmpty() &&
+            !Account.Email.username.IsNullOrEmpty() &&
+            !Account.Email.password.IsNullOrEmpty() &&
+            !Account.Email.imapHost.IsNullOrEmpty() &&
+            Account.Email.imapPort != 0 &&
+            !Account.Email.smtpHost.IsNullOrEmpty() &&
+            Account.Email.smtpPort != 0;
+    }
+
     public static void DeleteEmail(string id)
     {
         using var client = ImapAuthenticateClient(new ImapClient());
@@ -158,7 +167,7 @@ class MailService
     public static void SendEmail(string toName, string toAddress, string subject, string body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(SqliteAccountsService.GetFullName(), Account.tmpUsername + "@aolemu.com"));
+        message.From.Add(new MailboxAddress(SqliteAccountsService.GetFullName(), Account.Email.address));
         message.To.Add(new MailboxAddress(toName, toAddress));
         message.Subject = subject;
 
@@ -170,8 +179,8 @@ class MailService
         using (var client = new SmtpClient())
         {
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            client.Connect(host, smtpPort, true);
-            client.Authenticate(Account.tmpUsername + "@aolemu.com", Account.tmpPassword.Length > 30 ? Account.tmpPassword.Substring(0, 30) : Account.tmpPassword);
+            client.Connect(Account.Email.smtpHost, Account.Email.smtpPort, Account.Email.useSSL == 1);
+            client.Authenticate(Account.Email.username, Account.Email.password);
 
             client.Send(message);
             client.Disconnect(true);
@@ -237,23 +246,23 @@ class MailService
     {
         client.ServerCertificateValidationCallback = (s, c, h, e) => true;
 
-        try
-        {
-            client.Connect(host, imapPort, true);
-        }
-        catch
-        {
-            return null;
-        }
+        //try
+        //{
+            client.Connect(Account.Email.imapHost, Account.Email.imapPort, Account.Email.useSSL == 1);
+        //}
+        //catch
+        //{
+        //    return null;
+        //}
 
-        try
-        {
-            client.Authenticate($"{Account.tmpUsername}@aolemu.com", Account.tmpPassword.Length > 30 ? Account.tmpPassword.Substring(0, 30) : Account.tmpPassword);
-        }
-        catch
-        {
-            return null;
-        }
+        //try
+        //{
+            client.Authenticate(Account.Email.username, Account.Email.password);
+        //}
+        //catch (AuthenticationException ex)
+        //{
+        //    return null;
+        //}
 
         return client;
     }

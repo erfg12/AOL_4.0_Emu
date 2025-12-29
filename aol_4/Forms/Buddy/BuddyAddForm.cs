@@ -41,12 +41,12 @@ public partial class BuddyAddForm : _Win95Theme
 
     private async void SendBtn_Click(object sender, EventArgs e)
     {
-        var addBuddy = await RestAPIService.AddBuddy(nameTextBox.Text);
+        var addBuddy = SqliteAccountsService.AddBuddy(nameTextBox.Text);
 
-        if (addBuddy.Item1)
+        if (addBuddy)
             OpenMsgBox("INFO", "Buddy Added!");
         else
-            OpenMsgBox("ERROR", addBuddy.Item2);
+            OpenMsgBox("ERROR", "Error adding buddy");
         Close();
     }
 }
