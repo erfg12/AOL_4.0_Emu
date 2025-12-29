@@ -162,7 +162,7 @@ public partial class MainForm : _Win95Theme
             WindowState = FormWindowState.Maximized;
 
         chat.irc.IrcClient.OnDebugMessage += chat.DebugOutputCallback;
-        chat.irc.IrcClient.OnMessageReceived += chat.ChatOutputCallback;
+        //chat.irc.IrcClient.OnMessageReceived += chat.ChatOutputCallback; // this causes issues as it sometimes truncates the msg and parses out special chars
         chat.irc.IrcClient.OnRawMessageReceived += chat.RawOutputCallback;
         chat.irc.IrcClient.OnUserListReceived += chat.UserListCallback;
         //chat.irc.DccClient.OnDccDebugMessage += chat.dccDebugCallback;

@@ -101,6 +101,7 @@
             // 
             messagesBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             messagesBox.BackColor = SystemColors.Window;
+            messagesBox.EnableAutoDragDrop = true;
             messagesBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             messagesBox.Location = new Point(7, 55);
             messagesBox.Margin = new Padding(4);
@@ -113,6 +114,7 @@
             // myMessageBox
             // 
             myMessageBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            myMessageBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             myMessageBox.Location = new Point(6, 226);
             myMessageBox.Margin = new Padding(4);
             myMessageBox.Name = "myMessageBox";
@@ -624,6 +626,7 @@
             Name = "InstantMessageForm";
             StartPosition = FormStartPosition.Manual;
             Text = "instant_message";
+            FormClosing += InstantMessageForm_FormClosing;
             Shown += instant_message_Shown;
             topMenuPanel.ResumeLayout(false);
             topMenuPanel.PerformLayout();

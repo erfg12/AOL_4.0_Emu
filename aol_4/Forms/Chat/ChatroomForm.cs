@@ -1,4 +1,6 @@
-﻿namespace aol.Forms;
+﻿using System.Windows.Forms;
+
+namespace aol.Forms;
 public partial class ChatroomForm : _Win95Theme
 {
     private readonly string chatlog;
@@ -47,19 +49,33 @@ public partial class ChatroomForm : _Win95Theme
     {
         string lastLine = "";
 
-        using FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-        using StreamReader sr = new StreamReader(file);
-
         try
         {
+            using FileStream file = new FileStream(chatlog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using StreamReader sr = new StreamReader(file);
+
             while (!sr.EndOfStream)
             {
                 if (init)
                 {
-                    chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                    try
                     {
-                        chatRoomTextBox.AppendText(sr.ReadLine() + Environment.NewLine);
-                    }));
+                        var msg = sr.ReadLine() + Environment.NewLine;
+                        if (msg.Contains(":"))
+                        {
+                            // color the usernames
+                            string[] parts = msg.Split(new char[] { ':' }, 2);
+                            string name = parts[0];
+                            string message = parts.Length > 1 ? parts[1].Trim() : "";
+                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                        }
+                        else // not a user message
+                            chatRoomTextBox.AppendText(msg);
+                    }
+                    catch
+                    {
+                        Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[1].");
+                    }
                 }
                 else
                     lastLine = sr.ReadLine();
@@ -67,17 +83,63 @@ public partial class ChatroomForm : _Win95Theme
 
             if (!init)
             {
-                chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                try
                 {
-                    chatRoomTextBox.AppendText(lastLine + Environment.NewLine);
-                }));
+                    var msg = lastLine + Environment.NewLine;
+                    if (msg.Contains(":"))
+                    {
+                        // color the usernames
+                        string[] parts = msg.Split(new char[] { ':' }, 2);
+                        string name = parts[0];
+                        string message = parts.Length > 1 ? parts[1].Trim() : "";
+                        chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                        {
+                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                        }));
+                    }
+                    else // not a user message
+                        chatRoomTextBox.Invoke(new MethodInvoker(delegate
+                        {
+                            chatRoomTextBox.AppendText(msg);
+                        }));
+                }
+                catch
+                {
+                    Debug.WriteLine("ERROR: writeFileToBox function crashed at AppendText[2].");
+                }
             }
             chatRoomTextBox.Invoke(new MethodInvoker(delegate
             {
                 chatRoomTextBox.ScrollToCaret();
             }));
         }
-        catch { }
+        catch {
+            Debug.WriteLine("ERROR: Msgbox wasn't ready. I prevented a crash.");
+        }
+    }
+
+    void AppendMessage(RichTextBox box, string name, Color nameColor, string message)
+    {
+        int start = box.TextLength;
+        box.SelectionColor = nameColor;
+        box.SelectionFont = new Font(box.Font, FontStyle.Bold);
+        box.AppendText(name + ":");
+        box.SelectionColor = Color.Black;
+        box.SelectionFont = new Font(box.Font, FontStyle.Regular);
+
+        // Check if message contains emojis
+        bool hasEmoji = ChatService.emojis.Keys.Any(key => message.Contains(key));
+
+        if (hasEmoji)
+        {
+            ChatService.ReplaceEmojisWithImage(box, message);
+        }
+        else
+        {
+            box.AppendText(" " + message);
+        }
+
+        box.AppendText("\n");
     }
 
     public void OnChanged(object source, FileSystemEventArgs e)
@@ -112,7 +174,13 @@ public partial class ChatroomForm : _Win95Theme
     private void Chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
-        MainForm.chat.irc.SendRawMessage("part #" + roomname);
+        MainForm.chat.irc.SendRawMessage($"PART #{roomname} :bye everyone");
+
+        watch.EnableRaisingEvents = false;
+        watch.Changed -= OnChanged;
+        watch.Dispose();
+
+        chatRoomTextBox?.Dispose();
     }
 
     private void MessageTextBox_KeyDown(object sender, KeyEventArgs e)

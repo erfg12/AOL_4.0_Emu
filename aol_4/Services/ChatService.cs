@@ -15,44 +15,148 @@ public class ChatService
         Debug.WriteLine("DOWNLOAD PROGRESS: " + args.Progress + "%");
     }
 
-    public void ChatOutputCallback(object source, IrcReceivedEventArgs args)
+    public static Dictionary<string, Image> emojis = new()
     {
-        string msg = args.User + ": " + args.Message;
-        Debug.WriteLine("[CO]:" + msg);
-        string cleanChannel = args.Channel.Replace("#", "");
+        { ":-)", Properties.Resources.Smiling },
+        { ":-(", Properties.Resources.Frowning },
+        { ";-)", Properties.Resources.Winking },
+        { ":-P", Properties.Resources.Sticking_out_tongue },
+        { "=-O", Properties.Resources.Surprised },
+        { ":-*", Properties.Resources.Kissing },
+        { ">:o", Properties.Resources.Yelling },
+        { "8-)", Properties.Resources.Cool },
+        { ":-$", Properties.Resources.Money_mouth },
+        { ":-!", Properties.Resources.Foot_in_mouth },
+        { ":-[", Properties.Resources.Embarrassed },
+        { "O:-)", Properties.Resources.Innocent },
+        { ":-\\", Properties.Resources.Undecided },
+        { ":'(", Properties.Resources.Crying },
+        { ":-X", Properties.Resources.Lips_are_sealed },
+        { ":-D", Properties.Resources.Laughing }
+    };
+
+    private static Dictionary<string, string> emojiRtfCache = new Dictionary<string, string>();
+
+    public static void ReplaceEmojisWithImage(RichTextBox rtb, string text)
+    {
+        int startIndex = rtb.TextLength;
+        rtb.AppendText(" " + text);
+
+        bool wasReadOnly = rtb.ReadOnly;
+        rtb.ReadOnly = false;
+
+        float dpiScale = rtb.DeviceDpi / 96f;
+        int fontPx = rtb.Font.Height;
+
+        // Build the RTF cache if needed
+        if (emojiRtfCache.Count == 0)
+        {
+            foreach (var emoji in emojis)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    emoji.Value.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    string hex = BitConverter.ToString(ms.ToArray()).Replace("-", "");
+
+                    // size emoji to match text height, DPI-aware
+                    int goal = (int)(fontPx * 15 / dpiScale);
+
+                    string imageRtf =
+                        @"{\rtf1{\pict\pngblip" +
+                        @"\picw" + (emoji.Value.Width * 26) +
+                        @"\pich" + (emoji.Value.Height * 26) +
+                        @"\picwgoal" + goal +
+                        @"\pichgoal" + goal +
+                        " " + hex + "}}";
+
+                    emojiRtfCache[emoji.Key] = imageRtf;
+                }
+            }
+        }
+
+        List<(int index, int length, string rtf)> replacements = new();
+
+        foreach (var emoji in emojis.OrderByDescending(e => e.Key.Length))
+        {
+            if (!text.Contains(emoji.Key))
+                continue;
+
+            int index = startIndex;
+
+            while (index < rtb.TextLength)
+            {
+                index = rtb.Find(emoji.Key, index, RichTextBoxFinds.None);
+                if (index == -1)
+                    break;
+
+                replacements.Add((index, emoji.Key.Length, emojiRtfCache[emoji.Key]));
+                index += emoji.Key.Length;
+            }
+        }
+
+        replacements = replacements.OrderByDescending(r => r.index).ToList();
+
+        IDataObject clipboardBackup = null;
+        try { clipboardBackup = Clipboard.GetDataObject(); } catch { }
+
+        foreach (var replacement in replacements)
+        {
+            rtb.Select(replacement.index, replacement.length);
+
+            for (int retry = 0; retry < 3; retry++)
+            {
+                try
+                {
+                    Clipboard.SetText(replacement.rtf, TextDataFormat.Rtf);
+                    rtb.Paste();
+                    break;
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    if (retry < 2)
+                        System.Threading.Thread.Sleep(50);
+                }
+            }
+        }
+
+        try
+        {
+            if (clipboardBackup != null)
+                Clipboard.SetDataObject(clipboardBackup, false);
+        }
+        catch { }
+
+        rtb.ReadOnly = wasReadOnly;
+    }
+
+    public void PrivateMessageReceived(string user, string message)
+    {
+        string msg = $"{user}: {message}";
 
         string chatFile = string.Empty;
 
-        if (args.Channel == Account.Info.username) // PRIVMSG
-        {
-            Debug.WriteLine("RECEIVED PRIVATE MESSAGE FROM " + args.User);
-            newPM = args.User;
-            chatFile = ChatHelper.GetChatPath(Account.Info.username, $"PM_{args.User}");
+        newPM = user;
+        chatFile = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
 
-            // open IM form if needed
-            bool foundFrm = false;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.Tag?.ToString() == newPM)
-                    foundFrm = true;
-            }
-            if (!foundFrm)
-            {
-                Application.OpenForms[0].Invoke(() =>
-                {
-                    InstantMessageForm im = new InstantMessageForm(newPM)
-                    {
-                        Owner = Application.OpenForms[0],
-                        MdiParent = Application.OpenForms[0],
-                        Tag = newPM
-                    };
-                    im.Show();
-                });
-            }
-        }
-        else
+        // open IM form if needed
+        bool foundFrm = false;
+        foreach (Form frm in Application.OpenForms)
         {
-            chatFile = ChatHelper.GetChatPath(Account.Info.username, cleanChannel);
+            if (frm.Tag?.ToString().ToLower() == newPM.ToLower())
+                foundFrm = true;
+        }
+        if (!foundFrm)
+        {
+            Application.OpenForms[0].Invoke(() =>
+            {
+                InstantMessageForm im = new InstantMessageForm(newPM)
+                {
+                    Owner = Application.OpenForms[0],
+                    MdiParent = Application.OpenForms[0],
+                    Tag = newPM
+                };
+                im.Show();
+            });
         }
 
         File.AppendAllText(chatFile, msg + '\n');
@@ -69,13 +173,13 @@ public class ChatService
         if (args.Message.Contains("No such nick")) // say this when disconnecting from server too
         {
             //Debug.WriteLine("user is dead");
-            if (buddyStatus.ContainsKey(info[3].ToLower()))
-                buddyStatus[info[3].ToLower()] = false;
+            if (buddyStatus.ContainsKey(info[3]))
+                buddyStatus[info[3]] = false;
         }
         // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
         else if (args.Message.Contains(" 311 " + Account.Info.username))
         {
-            buddyStatus[info[3].ToLower()] = true;
+            buddyStatus[info[3]] = true;
         }
         else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.Info.username + " :       Registered"))
         {
@@ -84,6 +188,7 @@ public class ChatService
         else if (args.Message.Contains(" JOIN :#"))
         {
             string chan = args.Message.Substring(args.Message.IndexOf(" JOIN :") + " JOIN :".Length);
+            chan = chan.ToLower();
             Debug.WriteLine("Getting users list from IRC server: " + chan);
             //irc.GetUsersInCurrentChannel();
             irc.GetUsersInDifferentChannel(chan);
@@ -92,6 +197,7 @@ public class ChatService
         else if (args.Message.Contains(" :Leaving"))
         {
             string chan = args.Message.Split(' ').FirstOrDefault(part => part.StartsWith("#"));
+            chan = chan.ToLower();
             irc.GetUsersInDifferentChannel(chan);
         }
         else if(args.Message.Contains(" isn't registered."))
@@ -116,6 +222,16 @@ public class ChatService
             string[] chanClean = chan[1].Split(new[] { ' ' }, 2);
             if (chanClean[0] != "")
                 Debug.WriteLine(chanClean[0] + " channel is available");
+        }
+        else if (args.Message.Contains("PRIVMSG"))
+        {
+            // Split prefix, command, target, message
+            // :prefix PRIVMSG target :message
+            var msg = args.Message.Split($"PRIVMSG {Account.tmpUsername} :");
+            var senderNick = args.Message.Split('!')[0].TrimStart(':');
+
+            Debug.WriteLine($"Private message from {senderNick}: {msg.LastOrDefault()}");
+            PrivateMessageReceived(senderNick, msg.LastOrDefault());
         }
     }
 
@@ -145,7 +261,6 @@ public class ChatService
                 Debug.WriteLine("Creating users key " + channel);
                 if (args.UsersPerChannel.ContainsKey(usersPerChannel.Key))
                     users.TryAdd(channel, args.UsersPerChannel[usersPerChannel.Key]);
-                continue;
             }
             // check if offline user is still in list
             for (int i = 0; i < users[channel].Count; i++)

@@ -37,7 +37,13 @@ public partial class SignOnForm : _Win95Theme
 
     private async void SignOnBtn_Click(object sender, EventArgs e)
     {
-        Account.Info = new ();
+        await SignIn();
+    }
+
+    private async Task SignIn()
+    {
+        Cursor = Cursors.WaitCursor;
+
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
         {
             MDIHelper.OpenForm<SignupForm>(MdiParent);
@@ -90,10 +96,13 @@ public partial class SignOnForm : _Win95Theme
         }
     }
 
-    private void PassBox_KeyDown(object sender, KeyEventArgs e)
+    private async void PassBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
-            signOnBtn.PerformClick();
+        {
+            e.SuppressKeyPress = true;
+            await SignIn();
+        }
     }
 
     private void AccCheck_Tick(object sender, EventArgs e)

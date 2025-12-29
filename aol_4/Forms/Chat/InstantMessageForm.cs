@@ -13,6 +13,7 @@ public partial class InstantMessageForm : _Win95Theme
         LocationService.PositionWindow(this);
         Text = user + " Instant Message";
         mainTitle.Text = user + " Instant Message";
+        Tag = user.ToLower();
 
         TitleBar.BringToFront();
         topMenuPanel.SendToBack();
@@ -54,13 +55,26 @@ public partial class InstantMessageForm : _Win95Theme
 
     void AppendMessage(RichTextBox box, string name, Color nameColor, string message)
     {
+        int start = box.TextLength;
         box.SelectionColor = nameColor;
         box.SelectionFont = new Font(box.Font, FontStyle.Bold);
         box.AppendText(name + ":");
-
         box.SelectionColor = Color.Black;
         box.SelectionFont = new Font(box.Font, FontStyle.Regular);
-        box.AppendText(" " + message + "\n");
+
+        // Check if message contains emojis
+        bool hasEmoji = ChatService.emojis.Keys.Any(key => message.Contains(key));
+
+        if (hasEmoji)
+        {
+            ChatService.ReplaceEmojisWithImage(box, message);
+        }
+        else
+        {
+            box.AppendText(" " + message);
+        }
+
+        box.AppendText("\n");
     }
 
     private void SendMessage()
@@ -213,8 +227,9 @@ public partial class InstantMessageForm : _Win95Theme
                                 string[] parts = msg.Split(new char[] { ':' }, 2);
                                 string name = parts[0];
                                 string message = parts.Length > 1 ? parts[1].Trim() : "";
-                                AppendMessage(messagesBox, name, name.Equals(Account.Info.username) ? Color.Blue : Color.Red, message);
-                            } else // not a user message
+                                AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            }
+                            else // not a user message
                                 messagesBox.AppendText(msg);
                         }));
                         ReceivedMsgSound();
@@ -322,5 +337,14 @@ public partial class InstantMessageForm : _Win95Theme
             sendBtn.Image = Properties.Resources.im_send_disabled;
             sendBtn.Enabled = false;
         }
+    }
+
+    private void InstantMessageForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        watch.EnableRaisingEvents = false;
+        watch.Changed -= OnChanged;
+        watch.Dispose();
+
+        messagesBox?.Dispose();
     }
 }
