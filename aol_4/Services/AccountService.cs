@@ -5,10 +5,9 @@
 /// </summary>
 class Account
 {
-    public static string tmpLocation { get; set; }
-    public static Models.Account Info { get; set; }
-    public static Models.Email Email { get; set; }
-    public static List<Models.Buddies> Buddies { get; set; }
+    public static Models.Account Info { get; set; } = new Models.Account();
+    public static Models.Email Email { get; set; } = new Models.Email();
+    public static List<Models.Buddies> Buddies { get; set; } = new List<Models.Buddies>();
 
     public static string homePageUrl = "https://www.aol.com";
 

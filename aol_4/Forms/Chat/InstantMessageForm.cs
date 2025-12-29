@@ -227,7 +227,7 @@ public partial class InstantMessageForm : _Win95Theme
                                 string[] parts = msg.Split(new char[] { ':' }, 2);
                                 string name = parts[0];
                                 string message = parts.Length > 1 ? parts[1].Trim() : "";
-                                AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                                AppendMessage(messagesBox, name, name.Equals(Account.Info.username) ? Color.Blue : Color.Red, message);
                             }
                             else // not a user message
                                 messagesBox.AppendText(msg);

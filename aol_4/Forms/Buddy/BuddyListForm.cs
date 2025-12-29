@@ -95,8 +95,8 @@ public partial class BuddyListForm : _Win95Theme
     {
         foreach (var b in SqliteAccountsService.GetBuddyList())
         {
-            if (!ChatService.buddyStatus.ContainsKey(b.username))
-                ChatService.buddyStatus.TryAdd(b.username, false); // offline by default
+            if (!ChatService.buddyStatus.ContainsKey(b.buddy_name))
+                ChatService.buddyStatus.TryAdd(b.buddy_name, false); // offline by default
         }
     }
 

@@ -136,7 +136,7 @@ public class ChatService
         string chatFile = string.Empty;
 
         newPM = user;
-        chatFile = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
+        chatFile = ChatHelper.GetChatPath(Account.Info.username, $"PM_{user}");
 
         // open IM form if needed
         bool foundFrm = false;
@@ -227,7 +227,7 @@ public class ChatService
         {
             // Split prefix, command, target, message
             // :prefix PRIVMSG target :message
-            var msg = args.Message.Split($"PRIVMSG {Account.tmpUsername} :");
+            var msg = args.Message.Split($"PRIVMSG {Account.Info.username} :");
             var senderNick = args.Message.Split('!')[0].TrimStart(':');
 
             Debug.WriteLine($"Private message from {senderNick}: {msg.LastOrDefault()}");

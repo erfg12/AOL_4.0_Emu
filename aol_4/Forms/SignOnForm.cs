@@ -140,7 +140,7 @@ public partial class SignOnForm : _Win95Theme
 
     private void selectLocation_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Account.tmpLocation = selectLocation.Text;
+        Account.Info.location = selectLocation.Text;
         Properties.Settings.Default.connType = selectLocation.Text;
         Properties.Settings.Default.Save();
     }

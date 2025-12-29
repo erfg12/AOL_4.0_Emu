@@ -9,7 +9,7 @@ public partial class DialUpForm : _Win95Theme
         InitializeComponent();
         TopLevel = true;
         Focus();
-        if (Account.tmpLocation == "Dial-Up")
+        if (Account.Info.location == "Dial-Up")
             verbage = "Dial-Up";
     }
 
@@ -37,7 +37,7 @@ public partial class DialUpForm : _Win95Theme
             case 1: // pretend to connect to server
                 pictureBox1.Visible = Visible;
                 statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
-                if (Account.tmpLocation == "Dial-Up")
+                if (Account.Info.location == "Dial-Up")
                     await DialUp();
                 break;
             case 2: // pretend to check password
