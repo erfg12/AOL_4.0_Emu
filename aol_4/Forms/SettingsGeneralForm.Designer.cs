@@ -1,6 +1,6 @@
 ﻿namespace aol.Forms
 {
-    partial class SettingsForm
+    partial class SettingsGeneralForm
     {
         /// <summary>
         /// Required designer variable.
@@ -64,7 +64,7 @@
             fullscreenCheckbox.Location = new Point(10, 41);
             fullscreenCheckbox.Margin = new Padding(4);
             fullscreenCheckbox.Name = "fullscreenCheckbox";
-            fullscreenCheckbox.Size = new Size(117, 21);
+            fullscreenCheckbox.Size = new Size(110, 19);
             fullscreenCheckbox.TabIndex = 0;
             fullscreenCheckbox.Text = "Start Full Screen";
             fullscreenCheckbox.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             TitleBar.Location = new Point(3, 2);
             TitleBar.Margin = new Padding(4);
             TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(374, 24);
+            TitleBar.Size = new Size(411, 24);
             TitleBar.TabIndex = 3;
             // 
             // mainTitle
@@ -109,7 +109,7 @@
             miniBtn.FlatStyle = FlatStyle.Flat;
             miniBtn.Font = new Font("Microsoft Sans Serif", 6F);
             miniBtn.ForeColor = Color.Black;
-            miniBtn.Location = new Point(308, 1);
+            miniBtn.Location = new Point(345, 1);
             miniBtn.Margin = new Padding(4);
             miniBtn.Name = "miniBtn";
             miniBtn.Size = new Size(21, 19);
@@ -127,7 +127,7 @@
             maxBtn.FlatStyle = FlatStyle.Flat;
             maxBtn.Font = new Font("Microsoft Sans Serif", 6F);
             maxBtn.ForeColor = Color.Black;
-            maxBtn.Location = new Point(329, 1);
+            maxBtn.Location = new Point(366, 1);
             maxBtn.Margin = new Padding(0);
             maxBtn.Name = "maxBtn";
             maxBtn.RightToLeft = RightToLeft.No;
@@ -144,7 +144,7 @@
             closeBtn.FlatStyle = FlatStyle.Flat;
             closeBtn.Font = new Font("Microsoft Sans Serif", 6F);
             closeBtn.ForeColor = Color.Black;
-            closeBtn.Location = new Point(353, 1);
+            closeBtn.Location = new Point(390, 1);
             closeBtn.Margin = new Padding(0);
             closeBtn.Name = "closeBtn";
             closeBtn.RightToLeft = RightToLeft.No;
@@ -160,7 +160,7 @@
             CloseBlueBtn.FlatStyle = FlatStyle.Flat;
             CloseBlueBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             CloseBlueBtn.ForeColor = SystemColors.Control;
-            CloseBlueBtn.Location = new Point(300, 491);
+            CloseBlueBtn.Location = new Point(337, 440);
             CloseBlueBtn.Margin = new Padding(4);
             CloseBlueBtn.Name = "CloseBlueBtn";
             CloseBlueBtn.Size = new Size(66, 26);
@@ -176,7 +176,7 @@
             homePageBox.Location = new Point(94, 77);
             homePageBox.Margin = new Padding(4);
             homePageBox.Name = "homePageBox";
-            homePageBox.Size = new Size(274, 23);
+            homePageBox.Size = new Size(311, 23);
             homePageBox.TabIndex = 1;
             // 
             // label1
@@ -208,7 +208,7 @@
             fullnameBox.Location = new Point(94, 107);
             fullnameBox.Margin = new Padding(4);
             fullnameBox.Name = "fullnameBox";
-            fullnameBox.Size = new Size(201, 23);
+            fullnameBox.Size = new Size(238, 23);
             fullnameBox.TabIndex = 2;
             // 
             // updateFNBtn
@@ -218,7 +218,7 @@
             updateFNBtn.FlatStyle = FlatStyle.Flat;
             updateFNBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             updateFNBtn.ForeColor = SystemColors.Control;
-            updateFNBtn.Location = new Point(304, 106);
+            updateFNBtn.Location = new Point(341, 106);
             updateFNBtn.Margin = new Padding(4);
             updateFNBtn.Name = "updateFNBtn";
             updateFNBtn.Size = new Size(66, 25);
@@ -232,7 +232,7 @@
             label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            label9.Location = new Point(14, 494);
+            label9.Location = new Point(14, 443);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(176, 15);
@@ -249,7 +249,7 @@
             searchProvider.Location = new Point(94, 137);
             searchProvider.Margin = new Padding(4);
             searchProvider.Name = "searchProvider";
-            searchProvider.Size = new Size(274, 23);
+            searchProvider.Size = new Size(311, 23);
             searchProvider.TabIndex = 23;
             // 
             // label3
@@ -270,7 +270,7 @@
             browseHistoryList.Location = new Point(8, 19);
             browseHistoryList.Margin = new Padding(4);
             browseHistoryList.Name = "browseHistoryList";
-            browseHistoryList.Size = new Size(344, 192);
+            browseHistoryList.Size = new Size(381, 146);
             browseHistoryList.TabIndex = 25;
             browseHistoryList.UseCompatibleStateImageBehavior = false;
             browseHistoryList.View = View.List;
@@ -282,11 +282,11 @@
             groupBox1.Controls.Add(deleteBrowserHistoryBtn);
             groupBox1.Controls.Add(browseHistoryList);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            groupBox1.Location = new Point(10, 235);
+            groupBox1.Location = new Point(10, 230);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(360, 249);
+            groupBox1.Size = new Size(397, 203);
             groupBox1.TabIndex = 26;
             groupBox1.TabStop = false;
             groupBox1.Text = "Browse History";
@@ -297,7 +297,7 @@
             DeleteAllBrowsingHistory.BackColor = Color.FromArgb(0, 109, 170);
             DeleteAllBrowsingHistory.FlatStyle = FlatStyle.Flat;
             DeleteAllBrowsingHistory.ForeColor = SystemColors.Control;
-            DeleteAllBrowsingHistory.Location = new Point(8, 218);
+            DeleteAllBrowsingHistory.Location = new Point(45, 172);
             DeleteAllBrowsingHistory.Margin = new Padding(4);
             DeleteAllBrowsingHistory.Name = "DeleteAllBrowsingHistory";
             DeleteAllBrowsingHistory.Size = new Size(88, 26);
@@ -312,7 +312,7 @@
             deleteBrowserHistoryBtn.BackColor = Color.FromArgb(0, 109, 170);
             deleteBrowserHistoryBtn.FlatStyle = FlatStyle.Flat;
             deleteBrowserHistoryBtn.ForeColor = SystemColors.Control;
-            deleteBrowserHistoryBtn.Location = new Point(290, 216);
+            deleteBrowserHistoryBtn.Location = new Point(327, 170);
             deleteBrowserHistoryBtn.Margin = new Padding(4);
             deleteBrowserHistoryBtn.Name = "deleteBrowserHistoryBtn";
             deleteBrowserHistoryBtn.Size = new Size(63, 26);
@@ -339,7 +339,7 @@
             cityBox.Location = new Point(94, 168);
             cityBox.Margin = new Padding(4);
             cityBox.Name = "cityBox";
-            cityBox.Size = new Size(274, 23);
+            cityBox.Size = new Size(311, 23);
             cityBox.TabIndex = 27;
             // 
             // label5
@@ -359,7 +359,7 @@
             countryBox.Location = new Point(94, 199);
             countryBox.Margin = new Padding(4);
             countryBox.Name = "countryBox";
-            countryBox.Size = new Size(274, 31);
+            countryBox.Size = new Size(311, 23);
             countryBox.TabIndex = 29;
             // 
             // UIScaleBox
@@ -384,12 +384,12 @@
             UIScaleLabel.TabIndex = 32;
             UIScaleLabel.Text = "UI Scale";
             // 
-            // SettingsForm
+            // SettingsGeneralForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
-            ClientSize = new Size(379, 531);
+            ClientSize = new Size(416, 473);
             Controls.Add(UIScaleLabel);
             Controls.Add(UIScaleBox);
             Controls.Add(label5);
@@ -412,7 +412,7 @@
             Location = new Point(15, 220);
             Margin = new Padding(4);
             MinimumSize = new Size(379, 473);
-            Name = "SettingsForm";
+            Name = "SettingsGeneralForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.Manual;
             Text = "General Settings";

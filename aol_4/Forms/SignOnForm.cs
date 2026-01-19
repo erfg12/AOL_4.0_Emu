@@ -50,15 +50,19 @@ public partial class SignOnForm : _Win95Theme
         }
         else if (screenName.Text == "Guest")
         {
-            Account.tmpUsername = "Guest";
+            Account.Info.username = "Guest";
             Cursor = Cursors.Default;
             Close();
         }
         else
         {
-            if (await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
+            int userId = SqliteAccountsService.LoginAccount(screenName.Text, passBox.Text);
+            if (userId > -1)
             {
-                Cursor = Cursors.Default;
+                Account.Info.username = screenName.Text;
+                Account.Info.password = passBox.Text;
+                Account.Info.userid = userId;
+                Account.Email = SqliteAccountsService.GetEmail();
                 Close();
             }
         }
@@ -136,7 +140,7 @@ public partial class SignOnForm : _Win95Theme
 
     private void selectLocation_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Account.tmpLocation = selectLocation.Text;
+        Account.Info.location = selectLocation.Text;
         Properties.Settings.Default.connType = selectLocation.Text;
         Properties.Settings.Default.Save();
     }

@@ -5,18 +5,17 @@
 /// </summary>
 class Account
 {
-    public static string tmpLocation { get; set; }
-    public static string tmpPassword { get; set; }
-    public static string tmpUsername { get; set; }
-    public static UserAPI accountInfo { get; set; }
+    public static Models.Account Info { get; set; } = new Models.Account();
+    public static Models.Email Email { get; set; } = new Models.Email();
+    public static List<Models.Buddies> Buddies { get; set; } = new List<Models.Buddies>();
 
     public static string homePageUrl = "https://www.aol.com";
 
     public static bool SignedIn()
     {
-        if (Account.tmpUsername == "" || Account.tmpUsername == "Guest")
+        if (Info.username.IsNullOrEmpty() || Info.username == "Guest")
             return false;
 
-        return accountInfo?.account != null;
+        return Info != null;
     }
 }

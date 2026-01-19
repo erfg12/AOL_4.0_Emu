@@ -15,7 +15,7 @@ public partial class ChatroomForm : _Win95Theme
         InitializeComponent();
 
         roomname = channel;
-        chatlog = ChatHelper.GetChatPath(Account.tmpUsername, channel);
+        chatlog = ChatHelper.GetChatPath(Account.Info.username, channel);
 
         if (!MainForm.chat.irc.IsClientRunning())
         {
@@ -67,7 +67,7 @@ public partial class ChatroomForm : _Win95Theme
                             string[] parts = msg.Split(new char[] { ':' }, 2);
                             string name = parts[0];
                             string message = parts.Length > 1 ? parts[1].Trim() : "";
-                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.Info.username) ? Color.Blue : Color.Red, message);
                         }
                         else // not a user message
                             chatRoomTextBox.AppendText(msg);
@@ -94,7 +94,7 @@ public partial class ChatroomForm : _Win95Theme
                         string message = parts.Length > 1 ? parts[1].Trim() : "";
                         chatRoomTextBox.Invoke(new MethodInvoker(delegate
                         {
-                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.Info.username) ? Color.Blue : Color.Red, message);
                         }));
                     }
                     else // not a user message
@@ -204,8 +204,8 @@ public partial class ChatroomForm : _Win95Theme
             return;
         }
         // write to file
-        string privateLog = ChatHelper.GetChatPath(Account.tmpUsername, roomname);
-        File.AppendAllText(privateLog, Account.tmpUsername + ": " + messageTextBox.Text + '\n');
+        string privateLog = ChatHelper.GetChatPath(Account.Info.username, roomname);
+        File.AppendAllText(privateLog, Account.Info.username + ": " + messageTextBox.Text + '\n');
         messageTextBox.Clear();
     }
 

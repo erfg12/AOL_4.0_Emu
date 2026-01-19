@@ -2,7 +2,7 @@
 public partial class BuddyListForm : _Win95Theme
 {
     int total = 0;
-    UserAPI.Buddies selectedBuddy;
+    Models.Buddies selectedBuddy;
     TreeNode selectedNode;
     int online = 0;
     int offline = 0;
@@ -95,8 +95,8 @@ public partial class BuddyListForm : _Win95Theme
     {
         foreach (var b in SqliteAccountsService.GetBuddyList())
         {
-            if (!ChatService.buddyStatus.ContainsKey(b.username))
-                ChatService.buddyStatus.TryAdd(b.username, false); // offline by default
+            if (!ChatService.buddyStatus.ContainsKey(b.buddy_name))
+                ChatService.buddyStatus.TryAdd(b.buddy_name, false); // offline by default
         }
     }
 
@@ -183,11 +183,11 @@ public partial class BuddyListForm : _Win95Theme
                 if (buddyList == null || buddyList.Count() <= 0)
                     return;
 
-                selectedBuddy = buddyList.Where(x => x.username.Equals(node.Text)).FirstOrDefault();
+                selectedBuddy = buddyList.Where(x => x.buddy_name.Equals(node.Text)).FirstOrDefault();
                 if (selectedBuddy != null)
                     selectedNode = node;
 
-                Debug.WriteLine($"Right-clicked buddy {selectedBuddy?.username} with ID: {selectedBuddy?.id}");
+                Debug.WriteLine($"Right-clicked buddy {selectedBuddy?.buddy_name} with ID: {selectedBuddy?.id}");
             }
         }
     }
@@ -197,20 +197,20 @@ public partial class BuddyListForm : _Win95Theme
         if (selectedBuddy == null || selectedNode == null)
             return;
 
-        var result = MessageBox.Show($"Are you sure you want to delete buddy {selectedBuddy.username}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        var result = MessageBox.Show($"Are you sure you want to delete buddy {selectedBuddy.buddy_name}?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
         if (result == DialogResult.Yes)
         {
-            var removeBuddy = await RestAPIService.RemoveBuddy(selectedBuddy.id, selectedBuddy.username);
-            if (removeBuddy.Item1)
+            var removeBuddy = SqliteAccountsService.RemoveBuddy(selectedBuddy.id, selectedBuddy.buddy_name);
+            if (removeBuddy)
             {
                 selectedNode.Remove();
-                MessageBox.Show($"Buddy {selectedBuddy.username} has been removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Buddy {selectedBuddy.buddy_name} has been removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 selectedBuddy = null;
                 selectedNode = null;
             }
             else
-                MessageBox.Show($"Buddy {selectedBuddy.username} was not removed! {removeBuddy.Item2}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Buddy {selectedBuddy.buddy_name} was not removed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

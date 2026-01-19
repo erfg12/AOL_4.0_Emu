@@ -1,16 +1,25 @@
-﻿public class UserAPI
+﻿public class Models
 {
-    public Account? account { get; set; }
-    public List<Buddies>? buddies { get; set; }
-    public string? message { get; set; }
-
     public class Account
     {
-        public int id { get; set; }
+        public int userid { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public string fullname { get; set; }
-        public string ipaddress { get; set; }
+        public string location { get; set; }
+    }
+
+    public class Email
+    {
+        public int id { get; set; }
+        public string address { get; set; }
+        public string imapHost { get; set; }
+        public string smtpHost { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public int imapPort { get; set; }
+        public int smtpPort { get; set; }
+        public int? useSSL { get; set; }
     }
 
     public class Buddies
@@ -22,10 +31,11 @@
         /// <summary>
         /// The username of the buddy
         /// </summary>
-        public string username { get; set; }
+        public string buddy_name { get; set; }
         /// <summary>
         /// The user who has the buddy in their list
         /// </summary>
         public int userid { get; set; }
     }
+
 }
