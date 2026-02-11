@@ -1,7 +1,15 @@
 ﻿namespace aol.Services;
 class RestAPIService
 {
-    private static async Task<JObject> GetData(string request, HttpMethod method, string queryParams)
+    /// <summary>
+    /// Fetch data from Rest API server. This is a general function that can be used for any endpoint in the API. 
+    /// Returns null if there is an error, otherwise returns the data as a JObject.
+    /// </summary>
+    /// <param name="requestPath">request path</param>
+    /// <param name="method">POST, GET, PUT, DELETE</param>
+    /// <param name="queryParams">query parameters</param>
+    /// <returns>JObject content</returns>
+    private static async Task<JObject> GetData(string requestPath, HttpMethod method, string queryParams)
     {
         var client = new HttpClient();
         HttpResponseMessage response;
@@ -12,9 +20,10 @@ class RestAPIService
             var domain = "https://api.aolemu.com";
             if (Environment.GetEnvironmentVariable("local_api") != null && Environment.GetEnvironmentVariable("local_api") == "1")
                 domain = "https://localhost:7207";
-            var url = $"{domain}/{request}?{queryParams}"; // api.aolemu.com
+            var url = $"{domain}/{requestPath}?{queryParams}"; // api.aolemu.com
             Debug.WriteLine($"Calling METHOD:{method} URL:{url}");
             var requestMsg = new HttpRequestMessage(method, url) { };
+            requestMsg.Headers.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
             var httpResponse = await client.SendAsync(requestMsg);
             response = httpResponse;
             content = await response.Content.ReadAsStringAsync();
@@ -25,12 +34,15 @@ class RestAPIService
         catch (Exception ex)
         {
             ex.Data.Add("content", content ?? "No Content");
-            ex.Data.Add("url", $"/{request}?{queryParams}");
+            ex.Data.Add("url", $"/{requestPath}?{queryParams}");
             ex.Data.Add("method", method.ToString());
 
             SentrySdk.CaptureException(ex);
-            return JObject.Parse("{\"message\": \"Server Error\" }");
+            return null;
         }
+
+        if (content == null)
+            return null;
 
         return JObject.Parse(content);
     }
@@ -94,10 +106,7 @@ class RestAPIService
         string encPass = CreateMD5(pass);
         var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
         string msg = (string)data.SelectToken("message");
-        if (!string.IsNullOrEmpty(msg)) // message = error msg
-        {
-            MessageBox.Show("Account either doesn't exist, or incorrect password.");
-        } else
+        if (string.IsNullOrEmpty(msg))
         {
             Account.tmpUsername = user;
             Account.tmpPassword = encPass;

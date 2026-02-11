@@ -41,43 +41,63 @@ public partial class SignupForm : _Win95Theme
         {
             this.Cursor = Cursors.Default;
             OpenMsgBox("SUCCESS", "Account has been created. Welcome!");
-            Close();
         }
         else
         {
             this.Cursor = Cursors.Default;
             OpenMsgBox("ERROR", "Account creation has failed. Please email support@aolemu.com");
-            Close();
         }
+
+        Close();
     }
 
     private async void NextBtn_Click(object sender, EventArgs e)
     {
-        this.Cursor = Cursors.WaitCursor;
         if (newAOL.Checked)
         {
             panel2.SendToBack();
             panel3.BringToFront();
+            if (username.Visible)
+                username.Select();
         }
         else // recover acc from DB API
         {
+            this.Cursor = Cursors.WaitCursor;
             string user = recoverUser.Text;
             string pass = recoverPass.Text;
-            if (await RestAPIService.LoginAccount(user, pass))
+            var userApi = await RestAPIService.GetAccInfo(user, pass);
+            this.Cursor = Cursors.Default;
+
+            if (userApi != null)
             {
-                var userApi = Account.accountInfo;
                 int code = SqliteAccountsService.CreateAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
-                List<UserAPI.Buddies> tmpBuddies = SqliteAccountsService.GetBuddyList(userApi.account.username, pass);
+                List<UserAPI.Buddies> dbBuddies = SqliteAccountsService.GetBuddyList(userApi.account.id);
 
                 if (code == 0)
                 {
-                    foreach (var t in Account.accountInfo.buddies)
+                    foreach (var t in userApi.buddies)
                     {
-                        if (!tmpBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            SqliteAccountsService.AddBuddy(t.id, t.username);
+                        if (!dbBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
+                            SqliteAccountsService.AddBuddy(t.id, t.username, userApi.account.id);
                     }
+
+                    // update the sign on form's dropdown with the new account, if it exists
+                    var parent = this.MdiParent;
+                    if (parent != null)
+                    {
+                        foreach (var child in parent.MdiChildren)
+                        {
+                            if (child is SignOnForm other)
+                            {
+                                other.screenName.Items.Add(userApi.account.username);
+                                other.screenName.SelectedItem = userApi.account.username;
+                                other.passBox.Select();
+                            }
+                        }
+                    }
+
+
                     OpenMsgBox("SUCCESS", "Account has been added. Welcome back!");
-                    this.Cursor = Cursors.Default;
                     Close();
                 }
                 else
@@ -89,9 +109,11 @@ public partial class SignupForm : _Win95Theme
                 }
             }
             else
+            {
+                this.Cursor = Cursors.Default;
                 OpenMsgBox("ERROR", "Account not found.");
+            }
         }
-        this.Cursor = Cursors.Default;
     }
 
     private void SignupForm_Shown(object sender, EventArgs e)
@@ -99,6 +121,7 @@ public partial class SignupForm : _Win95Theme
         LocationService.PositionWindow(this);
         panel3.SendToBack();
         panel2.BringToFront();
+        recoverUser.Select();
     }
 
     private void RecoverUser_KeyPress(object sender, KeyPressEventArgs e)

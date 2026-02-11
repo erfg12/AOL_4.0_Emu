@@ -258,6 +258,7 @@
             // 
             // cancelBtn
             // 
+            cancelBtn.Cursor = Cursors.Hand;
             cancelBtn.FlatAppearance.BorderSize = 0;
             cancelBtn.FlatStyle = FlatStyle.Flat;
             cancelBtn.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -290,7 +291,7 @@
             recoverUser.MaxLength = 30;
             recoverUser.Name = "recoverUser";
             recoverUser.Size = new Size(197, 23);
-            recoverUser.TabIndex = 15;
+            recoverUser.TabIndex = 0;
             recoverUser.KeyPress += RecoverUser_KeyPress;
             // 
             // recoverPass
@@ -301,7 +302,7 @@
             recoverPass.MaxLength = 30;
             recoverPass.Name = "recoverPass";
             recoverPass.Size = new Size(197, 23);
-            recoverPass.TabIndex = 16;
+            recoverPass.TabIndex = 1;
             // 
             // label5
             // 
@@ -476,6 +477,7 @@
             // 
             // backBtn
             // 
+            backBtn.Cursor = Cursors.Hand;
             backBtn.Image = (Image)resources.GetObject("backBtn.Image");
             backBtn.Location = new Point(14, 299);
             backBtn.Margin = new Padding(4);

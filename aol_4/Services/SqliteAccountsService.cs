@@ -359,20 +359,21 @@ class SqliteAccountsService
         return foundAcc;
     }
 
-    public static bool AddBuddy(int buddyId, string user)
+    public static bool AddBuddy(int buddyId, string user, int accountId = -1)
     {
         if (user == null)
             return false;
 
         bool good = false;
-        int userID = Account.accountInfo.account.id;
+        if (accountId == -1)
+            accountId = Account.accountInfo.account.id;
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
 
         try
         {
             SqliteCommand cmd = new SqliteCommand { Connection = m_dbConnection };
-            cmd.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "' AND buddy_name = '" + user + "'";
+            cmd.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + accountId + "' AND buddy_name = '" + user + "'";
             int count = Convert.ToInt32(cmd.ExecuteScalar());
             if (count > 0)
                 return false; // user already exists
@@ -387,7 +388,7 @@ class SqliteAccountsService
             }
         }
 
-        string sql = "INSERT INTO buddy_list (id, userid, buddy_name) VALUES ('" + buddyId + "', '" + userID + "', '" + user + "')";
+        string sql = "INSERT INTO buddy_list (id, userid, buddy_name) VALUES ('" + buddyId + "', '" + accountId + "', '" + user + "')";
 
         try
         {
@@ -430,10 +431,10 @@ class SqliteAccountsService
         return good;
     }
 
-    public static List<UserAPI.Buddies> GetBuddyList(string user = "", string pass = "")
+    public static List<UserAPI.Buddies> GetBuddyList(int userId = -1)
     {
-        //var accInfo = await RestAPI.getAccInfo();
-        int userID = Account.accountInfo.account.id;
+        if (userId == -1)
+            userId = Account.accountInfo.account.id;
         List<UserAPI.Buddies> buddies = new();
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();
@@ -442,11 +443,11 @@ class SqliteAccountsService
         {
             SqliteCommand command = new SqliteCommand { Connection = m_dbConnection };
             //Debug.WriteLine("getting email info with id:" + userID);
-            command.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userID + "'";
+            command.CommandText = "SELECT count(*) FROM buddy_list WHERE userid = '" + userId + "'";
             int count = Convert.ToInt32(command.ExecuteScalar());
             if (count > 0)
             {
-                command.CommandText = "SELECT * FROM buddy_list WHERE userid = '" + userID + "'";
+                command.CommandText = "SELECT * FROM buddy_list WHERE userid = '" + userId + "'";
 
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())

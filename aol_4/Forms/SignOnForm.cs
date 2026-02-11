@@ -1,8 +1,6 @@
 ﻿namespace aol.Forms;
 public partial class SignOnForm : _Win95Theme
 {
-    ConcurrentBag<string> theAccs = SqliteAccountsService.ListAccounts();
-
     public SignOnForm()
     {
         InitializeComponent();
@@ -42,8 +40,6 @@ public partial class SignOnForm : _Win95Theme
 
     private async Task SignIn()
     {
-        Cursor = Cursors.WaitCursor;
-
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
         {
             MDIHelper.OpenForm<SignupForm>(MdiParent);
@@ -51,12 +47,17 @@ public partial class SignOnForm : _Win95Theme
         else if (screenName.Text == "Guest")
         {
             Account.tmpUsername = "Guest";
-            Cursor = Cursors.Default;
             Close();
         }
         else
         {
-            if (await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
+            Cursor = Cursors.WaitCursor;
+            if (!await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
+            {
+                Cursor = Cursors.Default;
+                OpenMsgBox("ERROR", "Incorrect username/password or account doesn't exist.");
+            }
+            else
             {
                 Cursor = Cursors.Default;
                 Close();
@@ -71,17 +72,17 @@ public partial class SignOnForm : _Win95Theme
 
     private void ScreenName_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Properties.Settings.Default.lastAcc = screenName.Text;
-        Properties.Settings.Default.Save();
-        Debug.WriteLine("changing lastAcc to " + screenName.Text);
-        // remember password code
-        /*if (theAccs.ContainsKey(screenName.Text))
+        if (!screenName.Text.IsNullOrEmpty() &&
+            !screenName.Text.Equals("New User") &&
+            !screenName.Text.Equals("Existing Member") &&
+            !screenName.Text.Equals("Guest"))
         {
-            string accPass;
-            theAccs.TryGetValue(screenName.Text, out accPass);
-        }*/
-        if (screenName.Text != "Guest" && screenName.Text != "Existing Member" && screenName.Text != "New User")
-        {
+            if (Properties.Settings.Default.lastAcc != screenName.Text) 
+            {
+                Properties.Settings.Default.lastAcc = screenName.Text;
+                Properties.Settings.Default.Save();
+                Debug.WriteLine("changing lastAcc to " + screenName.Text);
+            }
             passLabel.Visible = true;
             passBox.Visible = true;
         }
@@ -98,23 +99,6 @@ public partial class SignOnForm : _Win95Theme
         {
             e.SuppressKeyPress = true;
             await SignIn();
-        }
-    }
-
-    private void AccCheck_Tick(object sender, EventArgs e)
-    {
-        ConcurrentBag<string> accsCheck = SqliteAccountsService.ListAccounts();
-        if (accsCheck.Count() != theAccs.Count())
-        {
-            screenName.Items.Clear();
-            screenName.Items.Add("Guest");
-            screenName.Items.Add("Existing Member");
-            screenName.Items.Add("New User");
-            foreach (string entry in SqliteAccountsService.ListAccounts())
-            {
-                screenName.Items.Add(entry);
-            }
-            theAccs = accsCheck; // update to stop refresh
         }
     }
 
@@ -136,6 +120,9 @@ public partial class SignOnForm : _Win95Theme
 
     private void selectLocation_SelectedIndexChanged(object sender, EventArgs e)
     {
+        if (selectLocation.Text.IsNullOrEmpty())
+            return;
+
         Account.tmpLocation = selectLocation.Text;
         Properties.Settings.Default.connType = selectLocation.Text;
         Properties.Settings.Default.Save();

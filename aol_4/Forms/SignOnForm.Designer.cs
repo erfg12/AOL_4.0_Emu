@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new Container();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(SignOnForm));
             label1 = new Label();
             screenName = new ComboBox();
@@ -39,7 +38,6 @@
             setupBtn = new Button();
             passBox = new TextBox();
             passLabel = new Label();
-            accCheck = new System.Windows.Forms.Timer(components);
             leftBanner = new PictureBox();
             TitleBar = new Panel();
             mainTitle = new Label();
@@ -170,12 +168,6 @@
             passLabel.TabIndex = 14;
             passLabel.Text = "Enter Password:";
             // 
-            // accCheck
-            // 
-            accCheck.Enabled = true;
-            accCheck.Interval = 1000;
-            accCheck.Tick += AccCheck_Tick;
-            // 
             // leftBanner
             // 
             leftBanner.BackgroundImageLayout = ImageLayout.Stretch;
@@ -292,14 +284,13 @@
         private System.Windows.Forms.Label mainTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox screenName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox selectLocation;
         private System.Windows.Forms.Button signOnBtn;
         private System.Windows.Forms.Button helpBtn;
         private System.Windows.Forms.Button setupBtn;
-        private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Label passLabel;
-        private System.Windows.Forms.Timer accCheck;
+        public ComboBox screenName;
+        public TextBox passBox;
     }
 }
