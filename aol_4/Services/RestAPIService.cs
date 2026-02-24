@@ -78,6 +78,7 @@ class RestAPIService
             return false;
         string encPass = CreateMD5(pass);
         var data = await GetData("Account", HttpMethod.Post, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
+        if (data == null) return false;
         var userApi = data.ToObject<UserAPI>();
         if (userApi.account != null)
         {
@@ -105,6 +106,7 @@ class RestAPIService
             return false;
         string encPass = CreateMD5(pass);
         var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
+        if (data == null) return false;
         string msg = (string)data.SelectToken("message");
         if (string.IsNullOrEmpty(msg))
         {
@@ -133,19 +135,24 @@ class RestAPIService
             pass = CreateMD5(pass);
 
         var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
+        if (data == null) return null;
         var t = data.ToObject<UserAPI>();
         return t;
     }
 
-    public static async Task<IList<UserAPI.Buddies>> GetBuddyList(string user, string pass)
+    /// <summary>
+    /// Send heartbeat so users know im online
+    /// </summary>
+    /// <returns></returns>
+    public static async Task<bool> SendHeartbeat()
     {
-        if (user == "" || pass == "")
-            return null;
+        if (!Account.SignedIn())
+            return false;
 
-        pass = CreateMD5(pass);
+        var data = await GetData("Account/heartbeat", HttpMethod.Get, "user=" + WebUtility.UrlEncode(Account.tmpUsername));
+        if (data == null) return false;
 
-        var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
-        return data.ToObject<UserAPI>().buddies;
+        return (string)data.SelectToken("content[0].msg") == "success";
     }
 
     /// <summary>
@@ -159,6 +166,7 @@ class RestAPIService
             return false;
 
         var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
+        if (data == null) return false;
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
             SqliteAccountsService.UpdateFullName(newfn);
@@ -178,12 +186,31 @@ class RestAPIService
             return false;
         newpw = Encoding.Default.GetString(SqliteAccountsService.Hash(newpw, SqliteAccountsService.passSalt));
         var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
+        if (data == null) return false;
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
             // needs SQLite cmd
             return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// Get buddy list.
+    /// </summary>
+    /// <returns></returns>
+    public static async Task<List<UserAPI.Buddies>> GetBuddyList()
+    {
+        if (!Account.SignedIn())
+            return null;
+
+        var data = await GetData("Buddy", HttpMethod.Get, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword));
+        if (data == null) return null;
+        // Assuming the JSON contains an array of buddies
+        if (data == null) return null;
+        var buddyList = data.ToObject<UserAPI>();
+
+        return buddyList.buddies;
     }
 
     /// <summary>
@@ -197,12 +224,13 @@ class RestAPIService
             return (false, "sign in first");
 
         var data = await GetData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
+        if (data == null) return (false, "no response from server");
         var buddyData = data.ToObject<UserAPI.Buddies>();
         if (buddyData?.id != null && buddyData.id > 0) // message = error msg
         {
             SqliteAccountsService.AddBuddy(buddyData.id, buddyData.username);
             return (true, null);
-        } 
+        }
         else
         {
             if (data.ContainsKey("message"))
@@ -223,6 +251,7 @@ class RestAPIService
             return (false, "sign in first");
 
         var data = await GetData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
+        if (data == null) return (false, "no response from server");
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {

@@ -11,7 +11,7 @@ install:
   - nuget restore
 
 build_script:
-  - dotnet publish Installer/Setup.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true
+  - dotnet publish Installer/Setup.csproj -c Release -r win-x64 -p:PublishSingleFile=true -p:SelfContained=true -p:Version=%APPVEYOR_BUILD_VERSION% -p:FileVersion=%APPVEYOR_BUILD_VERSION% -p:InformationalVersion=%APPVEYOR_BUILD_VERSION%
 
 artifacts:
   # Installer EXE

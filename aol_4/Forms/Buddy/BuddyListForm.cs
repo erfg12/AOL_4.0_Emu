@@ -81,7 +81,7 @@ public partial class BuddyListForm : _Win95Theme
         Close();
     }
 
-    private void BuddiesOnline_Shown(object sender, EventArgs e)
+    private async void BuddiesOnline_Shown(object sender, EventArgs e)
     {
         SetStyle(ControlStyles.ResizeRedraw, true);
         StartList(); // get buddy list
@@ -89,6 +89,8 @@ public partial class BuddyListForm : _Win95Theme
         LocationService.PositionWindow(this, 1);
         buddyTreeView.Nodes[0].Text = "Online 0/" + total.ToString();
         buddyTreeView.Nodes[1].Text = "Offline 0/" + total.ToString();
+
+        await UpdateBuddyStatus();
     }
 
     private void StartList()
@@ -102,18 +104,35 @@ public partial class BuddyListForm : _Win95Theme
 
     private async void UpdateTimer_Tick(object sender, EventArgs e)
     {
-        if (!Account.SignedIn() || !MainForm.chat.irc.IsClientRunning())
+        await UpdateBuddyStatus();
+    }
+
+    private async Task UpdateBuddyStatus()
+    {
+        if (!Account.SignedIn())// || !MainForm.chat.irc.IsClientRunning())
         {
             Debug.WriteLine($"ERROR - SignedIn:{Account.SignedIn()}, IRCRunning:{MainForm.chat.irc.IsClientRunning()}");
             return;
         }
 
+        // send heartbeat so users know im online
+        // send a /Buddy GET for buddy list including if they're online
+        await RestAPIService.SendHeartbeat();
+        var buddyList = await RestAPIService.GetBuddyList();
+
+        if (buddyList != null)
+            foreach (var buddy in buddyList)
+            {
+                if (ChatService.buddyStatus.ContainsKey(buddy.username))
+                    ChatService.buddyStatus[buddy.username] = buddy.online;
+            }
+
+        total = ChatService.buddyStatus.Count();
+
         foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())
         {
             if (string.IsNullOrEmpty(kvp.Key))
                 continue;
-
-            MainForm.chat.irc.SendRawMessage($"whois {kvp.Key}"); // send whois command, this will populate the buddyStatus dictionary
 
             if (kvp.Value == true) // remove from offline, add to online
             {
@@ -159,11 +178,7 @@ public partial class BuddyListForm : _Win95Theme
             }
             buddyTreeView.Nodes[0].Text = $"Online {online}/{total}";
             buddyTreeView.Nodes[1].Text = $"Offline {offline}/{total}";
-
         }
-
-        total = ChatService.buddyStatus.Count();
-
     }
 
     private void BuddyTreeView_MouseUp(object sender, MouseEventArgs e)

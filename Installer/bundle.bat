@@ -10,11 +10,16 @@ set ICON=..\aol_4\Resources\aol_icon.ico
 set ZIP_OUTPUT=assets.zip
 set PAK_OUTPUT=assets.pak
 
+REM Fallback for local testing if AppVeyor variable is not set
+if "%APPVEYOR_BUILD_VERSION%"=="" set APPVEYOR_BUILD_VERSION=1.0.999.0
+
+"C:\Program Files\dotnet\dotnet.exe" restore "%UNINSTALL_PROJ%" -r win-x64
+
 REM Publish Uninstall.exe as single-file self-contained EXE
-"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%UNINSTALL_PROJ%" /t:Publish /p:Configuration=Release /p:PublishSingleFile=true /p:SelfContained=true /p:RuntimeIdentifier=win-x64
+"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%UNINSTALL_PROJ%" /t:Publish /p:Configuration=Release /p:PublishSingleFile=true /p:SelfContained=true /p:RuntimeIdentifier=win-x64 /p:Version=%APPVEYOR_BUILD_VERSION% /p:FileVersion=%APPVEYOR_BUILD_VERSION% /p:InformationalVersion=%APPVEYOR_BUILD_VERSION%
 
 REM Build main project
-"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%MAIN_PROJ%" /p:Configuration=Release
+"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\msbuild" "%MAIN_PROJ%" /p:Configuration=Release /p:Version=%APPVEYOR_BUILD_VERSION% /p:FileVersion=%APPVEYOR_BUILD_VERSION% /p:InformationalVersion=%APPVEYOR_BUILD_VERSION%
 
 REM Remove old ZIP if exists
 if exist "%ZIP_OUTPUT%" del /F "%ZIP_OUTPUT%"

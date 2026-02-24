@@ -177,10 +177,10 @@ public class ChatService
                 buddyStatus[info[3]] = false;
         }
         // buddy is online ([RO]::veronica.snoonet.org 318 erfg12 NeWaGe :End of /WHOIS list.)
-        else if (args.Message.Contains(" 311 " + Account.tmpUsername))
-        {
-            buddyStatus[info[3]] = true;
-        }
+        //else if (args.Message.Contains(" 311 " + Account.tmpUsername))
+        //{
+        //    buddyStatus[info[3]] = true;
+        //}
         else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.tmpUsername + " :       Registered"))
         {
             irc.SendMessageToChannel("IDENTIFY " + Account.tmpPassword, "NickServ");

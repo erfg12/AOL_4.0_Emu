@@ -27,5 +27,6 @@
         /// The user who has the buddy in their list
         /// </summary>
         public int userid { get; set; }
+        public bool online { get; set; }
     }
 }
