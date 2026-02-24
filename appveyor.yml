@@ -20,8 +20,8 @@ artifacts:
 
 deploy:
   - provider: GitHub
-    tag: $(APPVEYOR_BUILD_ID)
-    release: Build $(APPVEYOR_REPO_COMMIT_TIMESTAMP)
+    tag: $(APPVEYOR_BUILD_VERSION)
+    release: Build v$(APPVEYOR_BUILD_VERSION)
     description: |
       Latest Compile Date %APPVEYOR_REPO_COMMIT_TIMESTAMP%
       %APPVEYOR_REPO_COMMIT_MESSAGE%
