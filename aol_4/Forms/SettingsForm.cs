@@ -8,7 +8,7 @@ public partial class SettingsForm : _Win95Theme
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
         mainTitle.MouseMove += MoveWindow;
-        
+
     }
 
     private void fullscreenCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -29,6 +29,7 @@ public partial class SettingsForm : _Win95Theme
         cityBox.Text = Properties.Settings.Default.city;
         countryBox.Text = Properties.Settings.Default.country;
         fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
+        checkForUpdates.Checked = Properties.Settings.Default.disableVersionCheck;
         fullnameBox.Text = SqliteAccountsService.GetFullName();
 
         searchProvider.Text = Properties.Settings.Default.searchProvider;
@@ -108,6 +109,12 @@ public partial class SettingsForm : _Win95Theme
     private void UIScaleBox_SelectedIndexChanged(object sender, EventArgs e)
     {
         Properties.Settings.Default.uiScale = UIScaleBox.Text;
+        Properties.Settings.Default.Save();
+    }
+
+    private void checkForUpdates_CheckedChanged(object sender, EventArgs e)
+    {
+        Properties.Settings.Default.disableVersionCheck = checkForUpdates.Checked;
         Properties.Settings.Default.Save();
     }
 }

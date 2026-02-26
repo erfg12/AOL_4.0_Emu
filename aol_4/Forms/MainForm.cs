@@ -155,9 +155,6 @@ public partial class MainForm : _Win95Theme
 
     private void MainForm_Shown(object sender, EventArgs e)
     {
-        Debug.WriteLine("ClientSize Width:" + ClientSize.Width);
-        Debug.WriteLine("ClientSize Height:" + ClientSize.Height);
-
         if (Properties.Settings.Default.fullScreen)
             WindowState = FormWindowState.Maximized;
 
@@ -183,6 +180,11 @@ public partial class MainForm : _Win95Theme
 
         // open account form window
         MDIHelper.OpenForm<SignOnForm>(this);
+
+        if (VersionHelper.CheckForUpdates() && !Properties.Settings.Default.disableVersionCheck)
+        {
+            OpenMsgBox("NEW VERSION AVAILABLE", $"Current Version: {VersionHelper.GetCurrentVersion()}" + Environment.NewLine + $"Latest Version: {VersionHelper.GetLatestVersion()}");
+        }
     }
 
     private void FileBtn_Click(object sender, EventArgs e)

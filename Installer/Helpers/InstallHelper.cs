@@ -2,6 +2,7 @@
 using SharpCompress.Archives;
 using SharpCompress.Archives.Zip;
 using SharpCompress.Common;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace Installer;
@@ -13,10 +14,10 @@ public class InstallHelper
         string shortcut = Path.Combine(desktop, "AOL 4.0.url");
 
         File.WriteAllText(shortcut,
-$@"[InternetShortcut]
-URL=file:///{Path.Combine(installPath, "aol.exe")}
-IconIndex=0
-IconFile={Path.Combine(installPath, "aol.exe")}");
+            $@"[InternetShortcut]
+            URL=file:///{Path.Combine(installPath, "aol.exe")}
+            IconIndex=0
+            IconFile={Path.Combine(installPath, "aol.exe")}");
     }
 
     public static bool StartInstallation(string installPath)
@@ -25,6 +26,9 @@ IconFile={Path.Combine(installPath, "aol.exe")}");
         using var stream = assembly.GetManifestResourceStream("Setup.assets.pak");
 
         Directory.CreateDirectory(installPath);
+
+        var exePath = Process.GetCurrentProcess().MainModule!.FileName!;
+        var info = FileVersionInfo.GetVersionInfo(exePath);
 
         using var archive = ZipArchive.Open(stream);
         foreach (var entry in archive.Entries.Where(e => !e.IsDirectory))
@@ -44,7 +48,7 @@ IconFile={Path.Combine(installPath, "aol.exe")}");
         {
             key.SetValue("DisplayName", "AOL 4.0 Emu");
             key.SetValue("InstallPath", installPath);
-            key.SetValue("Version", "1.0.0");
+            key.SetValue("DisplayVersion", info.FileVersion ?? "1.0.999.0");
             key.SetValue("Publisher", "Jacob Fliss");
             key.SetValue("LastInstalled", DateTime.Now.ToString());
             key.SetValue("UninstallString", Path.Combine(installPath, "Uninstall.exe"));

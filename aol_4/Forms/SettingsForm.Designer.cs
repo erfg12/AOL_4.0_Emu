@@ -53,6 +53,7 @@
             countryBox = new TextBox();
             UIScaleBox = new ComboBox();
             UIScaleLabel = new Label();
+            checkForUpdates = new CheckBox();
             TitleBar.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -61,10 +62,10 @@
             // 
             fullscreenCheckbox.AutoSize = true;
             fullscreenCheckbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            fullscreenCheckbox.Location = new Point(10, 41);
+            fullscreenCheckbox.Location = new Point(10, 34);
             fullscreenCheckbox.Margin = new Padding(4);
             fullscreenCheckbox.Name = "fullscreenCheckbox";
-            fullscreenCheckbox.Size = new Size(117, 21);
+            fullscreenCheckbox.Size = new Size(110, 19);
             fullscreenCheckbox.TabIndex = 0;
             fullscreenCheckbox.Text = "Start Full Screen";
             fullscreenCheckbox.UseVisualStyleBackColor = true;
@@ -359,7 +360,7 @@
             countryBox.Location = new Point(94, 199);
             countryBox.Margin = new Padding(4);
             countryBox.Name = "countryBox";
-            countryBox.Size = new Size(274, 31);
+            countryBox.Size = new Size(274, 23);
             countryBox.TabIndex = 29;
             // 
             // UIScaleBox
@@ -384,12 +385,26 @@
             UIScaleLabel.TabIndex = 32;
             UIScaleLabel.Text = "UI Scale";
             // 
+            // checkForUpdates
+            // 
+            checkForUpdates.AutoSize = true;
+            checkForUpdates.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            checkForUpdates.Location = new Point(10, 52);
+            checkForUpdates.Margin = new Padding(4);
+            checkForUpdates.Name = "checkForUpdates";
+            checkForUpdates.Size = new Size(141, 19);
+            checkForUpdates.TabIndex = 33;
+            checkForUpdates.Text = "Disable Version Check";
+            checkForUpdates.UseVisualStyleBackColor = true;
+            checkForUpdates.CheckedChanged += checkForUpdates_CheckedChanged;
+            // 
             // SettingsForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 251, 240);
             ClientSize = new Size(379, 531);
+            Controls.Add(checkForUpdates);
             Controls.Add(UIScaleLabel);
             Controls.Add(UIScaleBox);
             Controls.Add(label5);
@@ -453,5 +468,6 @@
         private System.Windows.Forms.TextBox countryBox;
         private ComboBox UIScaleBox;
         private Label UIScaleLabel;
+        private CheckBox checkForUpdates;
     }
 }
