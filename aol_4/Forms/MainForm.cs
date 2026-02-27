@@ -183,7 +183,7 @@ public partial class MainForm : _Win95Theme
 
         if (VersionHelper.CheckForUpdates() && !Properties.Settings.Default.disableVersionCheck)
         {
-            OpenMsgBox("NEW VERSION AVAILABLE", $"Current Version: {VersionHelper.GetCurrentVersion()}" + Environment.NewLine + $"Latest Version: {VersionHelper.GetLatestVersion()}");
+            OpenMsgBox("NEW VERSION AVAILABLE", $"Current Version: {VersionHelper.GetCurrentVersion()}" + Environment.NewLine + $"Latest Version: {VersionHelper.GetLatestVersion()}" + Environment.NewLine + Environment.NewLine + "https://github.com/erfg12/aol_4.0_emu/releases/latest");
         }
     }
 

@@ -42,6 +42,7 @@
     <StartupObject>aol.Forms.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <Version>1.0.999.0</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
   <OutputPath>bin\Release\</OutputPath>
