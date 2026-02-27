@@ -20,10 +20,14 @@ public class InstallHelper
             IconFile={Path.Combine(installPath, "aol.exe")}");
     }
 
-    public static bool StartInstallation(string installPath)
+    public static async Task<bool> StartInstallationAsync(
+    string installPath,
+    IProgress<int>? progress = null,
+    IProgress<string>? log = null)
     {
         var assembly = Assembly.GetExecutingAssembly();
-        using var stream = assembly.GetManifestResourceStream("Setup.assets.pak");
+        using var stream = assembly.GetManifestResourceStream("Setup.assets.pak")
+            ?? throw new InvalidOperationException("assets.pak not found");
 
         Directory.CreateDirectory(installPath);
 
@@ -31,30 +35,41 @@ public class InstallHelper
         var info = FileVersionInfo.GetVersionInfo(exePath);
 
         using var archive = ZipArchive.Open(stream);
-        foreach (var entry in archive.Entries.Where(e => !e.IsDirectory))
+        var entries = archive.Entries.Where(e => !e.IsDirectory).ToList();
+
+        long totalBytes = entries.Sum(e => e.Size);
+        long extractedBytes = 0;
+
+        await Task.Run(() =>
         {
-            entry.WriteToDirectory(installPath, new ExtractionOptions()
+            foreach (var entry in entries)
             {
-                ExtractFullPath = true,   // preserves folder structure
-                Overwrite = true           // overwrite existing files
-            });
-        }
+                entry.WriteToDirectory(installPath, new ExtractionOptions
+                {
+                    ExtractFullPath = true,
+                    Overwrite = true
+                });
 
-        // Key path for your app
-        string uninstallKeyPath = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\aol_4";
+                var fullPath = Path.Combine(installPath, entry.Key);
+                log?.Report(fullPath);
 
-        // Open or create the key under CurrentUser
-        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(uninstallKeyPath))
-        {
-            key.SetValue("DisplayName", "AOL 4.0 Emu");
-            key.SetValue("InstallPath", installPath);
-            key.SetValue("DisplayVersion", info.FileVersion ?? "1.0.999.0");
-            key.SetValue("Publisher", "Jacob Fliss");
-            key.SetValue("LastInstalled", DateTime.Now.ToString());
-            key.SetValue("UninstallString", Path.Combine(installPath, "Uninstall.exe"));
-            key.SetValue("DisplayIcon", Path.Combine(installPath, "aol_icon.ico"));
-        }
+                extractedBytes += entry.Size;
+                progress?.Report((int)(extractedBytes * 100 / totalBytes));
+            }
+        });
 
+        using var key = Registry.CurrentUser.CreateSubKey(
+            @"Software\Microsoft\Windows\CurrentVersion\Uninstall\aol_4");
+
+        key!.SetValue("DisplayName", "AOL 4.0 Emu");
+        key.SetValue("InstallPath", installPath);
+        key.SetValue("DisplayVersion", info.FileVersion ?? "1.0.999.0");
+        key.SetValue("Publisher", "Jacob Fliss");
+        key.SetValue("LastInstalled", DateTime.Now.ToString());
+        key.SetValue("UninstallString", Path.Combine(installPath, "Uninstall.exe"));
+        key.SetValue("DisplayIcon", Path.Combine(installPath, "aol_icon.ico"));
+
+        progress?.Report(100);
         return true;
     }
 }

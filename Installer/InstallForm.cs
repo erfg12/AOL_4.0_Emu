@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace Installer;
 public partial class InstallForm : Form
 {
@@ -10,14 +12,33 @@ public partial class InstallForm : Form
         installPath.Text = Path.Combine($"{appData}\\AOL 4.0 Emu");
     }
 
-    private void installBtn_Click(object sender, EventArgs e)
+    private async void installBtn_Click(object sender, EventArgs e)
     {
-        InstallHelper.StartInstallation(installPath.Text);
+        progressBar1.Minimum = 0;
+        progressBar1.Maximum = 100;
+
+        var progress = new Progress<int>(v => progressBar1.Value = v);
+        var log = new Progress<string>(path =>
+        {
+            outputBox.AppendText(path + Environment.NewLine);
+            outputBox.ScrollToCaret();
+        });
+
+        await InstallHelper.StartInstallationAsync(installPath.Text, progress, log);
 
         InstallHelper.CreateShortcut(installPath.Text);
 
         installBtn.Enabled = false;
-        MessageBox.Show("AOL 4.0 Emu has been installed.", "Installation Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        browseBtn.Enabled = false;
+        installPath.Enabled = false;
+
+        outputBox.SelectionStart = outputBox.TextLength;
+        outputBox.SelectionLength = 0;
+        outputBox.SelectionColor = Color.Green;
+        outputBox.SelectionFont = new Font(outputBox.Font, FontStyle.Bold);
+
+        outputBox.AppendText("Installation finished! Check your desktop for the app shortcut." + Environment.NewLine);
+        MessageBox.Show("AOL 4.0 Emu has been installed." + Environment.NewLine + "Check your desktop for the app shortcut.", "Installation Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void browseBtn_Click(object sender, EventArgs e)
