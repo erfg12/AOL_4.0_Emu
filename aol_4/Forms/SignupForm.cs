@@ -37,7 +37,9 @@ public partial class SignupForm : _Win95Theme
         this.Cursor = Cursors.WaitCursor;
         LoadingLabel.Text = "Creating account, please wait...";
 
-        if (await RestAPIService.CreateAccount(username.Text, password.Text, fullname.Text))
+        var createAccount = await RestAPIService.CreateAccount(username.Text, password.Text, fullname.Text);
+
+        if (createAccount.success)
         {
             this.Cursor = Cursors.Default;
             OpenMsgBox("SUCCESS", "Account has been created. Welcome!");
@@ -45,7 +47,7 @@ public partial class SignupForm : _Win95Theme
         else
         {
             this.Cursor = Cursors.Default;
-            OpenMsgBox("ERROR", "Account creation has failed. Please email support@aolemu.com");
+            OpenMsgBox("ERROR", createAccount.msg);
         }
 
         Close();

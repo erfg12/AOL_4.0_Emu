@@ -72,26 +72,28 @@ class RestAPIService
     /// <param name="pass">Unencrypted password.</param>
     /// <param name="fn">Full name of the account holder.</param>
     /// <returns></returns>
-    public static async Task<bool> CreateAccount(string user, string pass, string fn)
+    public static async Task<(bool success, string msg)> CreateAccount(string user, string pass, string fn)
     {
         if (user == "" || pass == "")
-            return false;
+            return (false, "ERROR: missing username/password");
         string encPass = CreateMD5(pass);
         var data = await GetData("Account", HttpMethod.Post, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
-        if (data == null) return false;
+        if (data == null) return (false, "ERROR: API data was null");
         var userApi = data.ToObject<UserAPI>();
         if (userApi.account != null)
         {
             int code = SqliteAccountsService.CreateAcc(user, userApi.account.id, fn);
             if (code == 0)
-                return true;
+                return (true, "Account created successfully.");
             else
-                MessageBox.Show("SQLite error code " + code.ToString());
-        } else
+            {
+                return (false, "ERROR: SQLite error code " + code.ToString());
+            }
+        } 
+        else
         {
-            MessageBox.Show("MSG: " + userApi.message);
+            return (false, userApi.message);
         }
-        return false;
     }
 
     /// <summary>
