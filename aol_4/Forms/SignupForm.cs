@@ -28,9 +28,9 @@ public partial class SignupForm : _Win95Theme
 
     private async void RegisterBtn_Click(object sender, EventArgs e)
     {
-        if (username.Text.ToLower() == "Guest")
+        if (AccountHelper.notAllowedUsernames.Contains(username.Text.ToLower()))
         {
-            OpenMsgBox("ERROR", "You cannot use the username Guest.");
+            OpenMsgBox("ERROR", "You cannot register this username.");
             return;
         }
 
@@ -43,14 +43,14 @@ public partial class SignupForm : _Win95Theme
         {
             this.Cursor = Cursors.Default;
             OpenMsgBox("SUCCESS", "Account has been created. Welcome!");
+            Close();
         }
         else
         {
             this.Cursor = Cursors.Default;
+            LoadingLabel.Text = "";
             OpenMsgBox("ERROR", createAccount.msg);
         }
-
-        Close();
     }
 
     private async void NextBtn_Click(object sender, EventArgs e)

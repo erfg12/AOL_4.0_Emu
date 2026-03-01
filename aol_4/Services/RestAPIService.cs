@@ -14,19 +14,22 @@ class RestAPIService
         var client = new HttpClient();
         HttpResponseMessage response;
         string content = null;
+        HttpResponseMessage httpResponse = null;
+        HttpRequestMessage requestMsg = null;
+
+        var domain = "https://api.aolemu.com";
+        if (Environment.GetEnvironmentVariable("local_api") != null && Environment.GetEnvironmentVariable("local_api") == "1")
+            domain = "https://localhost:7207";
+        var url = $"{domain}/{requestPath}?{queryParams}"; // api.aolemu.com
 
         try
         {
-            var domain = "https://api.aolemu.com";
-            if (Environment.GetEnvironmentVariable("local_api") != null && Environment.GetEnvironmentVariable("local_api") == "1")
-                domain = "https://localhost:7207";
-            var url = $"{domain}/{requestPath}?{queryParams}"; // api.aolemu.com
             Debug.WriteLine($"Calling METHOD:{method} URL:{url}");
-            var requestMsg = new HttpRequestMessage(method, url) { };
-            requestMsg.Headers.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
-            var httpResponse = await client.SendAsync(requestMsg);
-            response = httpResponse;
-            content = await response.Content.ReadAsStringAsync();
+            requestMsg = new HttpRequestMessage(method, url) { };
+            requestMsg.Headers.TryAddWithoutValidation("User-Agent", "AOL-Emu");
+            httpResponse = await client.SendAsync(requestMsg);
+            httpResponse.EnsureSuccessStatusCode();
+            content = await httpResponse.Content.ReadAsStringAsync();
             
             if (string.IsNullOrEmpty(content) || !content.Trim().StartsWith("{") || !content.Trim().EndsWith("}"))
                 throw new Exception($"Bad Json Data");
@@ -34,10 +37,14 @@ class RestAPIService
         catch (Exception ex)
         {
             ex.Data.Add("content", content ?? "No Content");
-            ex.Data.Add("url", $"/{requestPath}?{queryParams}");
+            ex.Data.Add("url", url);
             ex.Data.Add("method", method.ToString());
 
             SentrySdk.CaptureException(ex);
+            Debug.WriteLine($"Error calling API: {ex.Message}");
+            Debug.WriteLine($"requestMsg: {requestMsg}");
+            Debug.WriteLine($"httpresponse: {httpResponse}");
+            Debug.WriteLine($"Content: {content}");
             return null;
         }
 
@@ -84,12 +91,14 @@ class RestAPIService
         {
             int code = SqliteAccountsService.CreateAcc(user, userApi.account.id, fn);
             if (code == 0)
+            {
                 return (true, "Account created successfully.");
+            }
             else
             {
                 return (false, "ERROR: SQLite error code " + code.ToString());
             }
-        } 
+        }
         else
         {
             return (false, userApi.message);
