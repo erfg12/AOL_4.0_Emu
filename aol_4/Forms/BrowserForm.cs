@@ -5,7 +5,7 @@ public partial class BrowserForm : _Win95Theme
     public string url { get; set; }
     public string title { get; set; }
 
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
     private readonly AccountService account;
 
     public void GoToUrl(string url)
@@ -17,12 +17,12 @@ public partial class BrowserForm : _Win95Theme
         UpdateAddrBox();
     }
 
-    public BrowserForm(SqliteAccountsService sql, AccountService acc, string urlArg = "")
+    public BrowserForm(SqliteService sql, AccountService acc, string urlArg = "")
     {
         InitializeComponent();
         InitializeAsync();
 
-        sqliteAccountsService = sql;
+        sqLite = sql;
         account = acc;
 
         this.DoubleBuffered = true;
@@ -91,7 +91,7 @@ public partial class BrowserForm : _Win95Theme
 
     private void FavoriteBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm(() => new FavoritesAddForm(sqliteAccountsService, url, title), MdiParent);
+        MDIHelper.OpenForm(() => new FavoritesAddForm(sqLite, url, title), MdiParent);
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)

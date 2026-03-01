@@ -17,12 +17,12 @@ public class MailService
     private int smtpPort = 465;
 
     private readonly AccountService account;
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
 
-    public MailService(AccountService acc, SqliteAccountsService sql)
+    public MailService(AccountService acc, SqliteService sql)
     {
         account = acc;
-        sqliteAccountsService = sql;
+        sqLite = sql;
     }
 
     public bool CheckNewEmail()
@@ -167,7 +167,7 @@ public class MailService
     public void SendEmail(string toName, string toAddress, string subject, string body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(sqliteAccountsService.GetFullName(), account.tmpUsername + "@aolemu.com"));
+        message.From.Add(new MailboxAddress(sqLite.GetFullName(), account.tmpUsername + "@aolemu.com"));
         message.To.Add(new MailboxAddress(toName, toAddress));
         message.Subject = subject;
 

@@ -2,8 +2,8 @@
 public partial class SignupForm : _Win95Theme
 {
     private readonly RestAPIService restApi;
-    private readonly SqliteAccountsService sqliteAccountsService;
-    public SignupForm(RestAPIService ras, SqliteAccountsService sql)
+    private readonly SqliteService sqLite;
+    public SignupForm(RestAPIService ras, SqliteService sql)
     {
         InitializeComponent();
 
@@ -11,7 +11,7 @@ public partial class SignupForm : _Win95Theme
         mainTitle.MouseMove += MoveWindow;
         this.LocationChanged += OnLocationChanged;
         restApi = ras;
-        sqliteAccountsService = sql;
+        sqLite = sql;
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -76,15 +76,15 @@ public partial class SignupForm : _Win95Theme
 
             if (userApi != null)
             {
-                int code = sqliteAccountsService.CreateAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
-                List<UserAPI.Buddies> dbBuddies = sqliteAccountsService.GetBuddyList(userApi.account.id);
+                int code = sqLite.CreateAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
+                List<UserAPI.Buddies> dbBuddies = sqLite.GetBuddyList(userApi.account.id);
 
                 if (code == 0)
                 {
                     foreach (var t in userApi.buddies)
                     {
                         if (!dbBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            sqliteAccountsService.AddBuddy(t.id, t.username, userApi.account.id);
+                            sqLite.AddBuddy(t.id, t.username, userApi.account.id);
                     }
 
                     // update the sign on form's dropdown with the new account, if it exists
@@ -108,7 +108,7 @@ public partial class SignupForm : _Win95Theme
                 }
                 else
                 {
-                    if (code == 19)
+                    if (code == 19 || code == 1001)
                         OpenMsgBox("ERROR", "Account already exists.");
                     else
                         MessageBox.Show("SQLite error " + code.ToString() + " on account creation.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -64,7 +64,7 @@ static class Program
 
         // register services
         services.AddSingleton<AccountService>();
-        services.AddSingleton<SqliteAccountsService>();
+        services.AddSingleton<SqliteService>();
         services.AddSingleton<RestAPIService>();
         services.AddSingleton<ChatService>();
         services.AddSingleton<MailService>();

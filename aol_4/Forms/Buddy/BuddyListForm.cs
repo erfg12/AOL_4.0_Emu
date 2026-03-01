@@ -13,9 +13,9 @@ public partial class BuddyListForm : _Win95Theme
     private readonly RestAPIService restApi;
     private readonly AccountService account;
     private readonly ChatService chat;
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
 
-    public BuddyListForm(RestAPIService ras, ChatService cs, AccountService acc, SqliteAccountsService sql, IServiceProvider serviceProvider)
+    public BuddyListForm(RestAPIService ras, ChatService cs, AccountService acc, SqliteService sql, IServiceProvider serviceProvider)
     {
         InitializeComponent();
         ServiceProvider = serviceProvider;
@@ -23,7 +23,7 @@ public partial class BuddyListForm : _Win95Theme
         restApi = ras;
         account = acc;
         chat = cs;
-        sqliteAccountsService = sql;
+        sqLite = sql;
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
@@ -111,7 +111,7 @@ public partial class BuddyListForm : _Win95Theme
 
     private void StartList()
     {
-        foreach (var b in sqliteAccountsService.GetBuddyList())
+        foreach (var b in sqLite.GetBuddyList())
         {
             if (!chat.buddyStatus.ContainsKey(b.username))
                 chat.buddyStatus.TryAdd(b.username, false); // offline by default
@@ -210,7 +210,7 @@ public partial class BuddyListForm : _Win95Theme
                 buddyTreeView.SelectedNode = node;
                 buddyContextMenuStrip.Show(buddyTreeView, e.Location);
 
-                var buddyList = sqliteAccountsService.GetBuddyList();
+                var buddyList = sqLite.GetBuddyList();
                 if (buddyList == null || buddyList.Count() <= 0)
                     return;
 

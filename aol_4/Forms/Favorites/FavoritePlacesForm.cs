@@ -2,7 +2,7 @@
 public partial class FavoritePlacesForm : _Win95Theme
 {
     private readonly AccountService account;
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
 
     private void MiniBtn_Click(object sender, EventArgs e)
     {
@@ -29,12 +29,12 @@ public partial class FavoritePlacesForm : _Win95Theme
         if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
-        MDIHelper.OpenForm(() => new BrowserForm(sqliteAccountsService, account, fpTreeView.SelectedNode.Tag.ToString()), MdiParent);
+        MDIHelper.OpenForm(() => new BrowserForm(sqLite, account, fpTreeView.SelectedNode.Tag.ToString()), MdiParent);
     }
 
     private void NewBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm(() => new FavoritesAddForm(sqliteAccountsService, "",""), MdiParent);
+        MDIHelper.OpenForm(() => new FavoritesAddForm(sqLite, "",""), MdiParent);
     }
 
     private void DeleteBtn_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ public partial class FavoritePlacesForm : _Win95Theme
         if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
-        sqliteAccountsService.DeleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
+        sqLite.DeleteFavorite(fpTreeView.SelectedNode.Tag.ToString());
         fpTreeView.SelectedNode.Remove();
     }
 
@@ -51,7 +51,7 @@ public partial class FavoritePlacesForm : _Win95Theme
         if (fpTreeView.SelectedNode == null || fpTreeView.SelectedNode.Text == null || fpTreeView.SelectedNode.Tag == null)
             return;
 
-        MDIHelper.OpenForm(() => new FavoritesAddForm(sqliteAccountsService, fpTreeView.SelectedNode.Tag.ToString(), fpTreeView.SelectedNode.Text, true), MdiParent);
+        MDIHelper.OpenForm(() => new FavoritesAddForm(sqLite, fpTreeView.SelectedNode.Tag.ToString(), fpTreeView.SelectedNode.Text, true), MdiParent);
     }
 
     private async Task ReloadFavorites()
@@ -61,7 +61,7 @@ public partial class FavoritePlacesForm : _Win95Theme
 
         fpTreeView.Nodes[0].Nodes.Clear();
 
-        foreach (KeyValuePair<string, string> t in await sqliteAccountsService.GetFavoritesList())
+        foreach (KeyValuePair<string, string> t in await sqLite.GetFavoritesList())
         {
             TreeNode ntn = new TreeNode();
             ntn.Text = t.Value;
@@ -77,7 +77,7 @@ public partial class FavoritePlacesForm : _Win95Theme
         await ReloadFavorites();
     }
 
-    public FavoritePlacesForm(AccountService acc, SqliteAccountsService sql)
+    public FavoritePlacesForm(AccountService acc, SqliteService sql)
     {
         InitializeComponent();
         account = acc;
@@ -88,6 +88,6 @@ public partial class FavoritePlacesForm : _Win95Theme
         titleLabel.DoubleClick += TitleBar_DoubleClick;
         this.LocationChanged += OnLocationChanged;
         maxBtn.Click += MaxRestoreButton_Click;
-        sqliteAccountsService = sql;
+        sqLite = sql;
     }
 }

@@ -2,11 +2,11 @@
 using System.Security.Cryptography;
 
 namespace aol.Services;
-public class SqliteAccountsService
+public class SqliteService
 {
     private readonly AccountService account;
     private readonly ChatService chat;
-    public SqliteAccountsService(AccountService acc, ChatService cs)
+    public SqliteService(AccountService acc, ChatService cs)
     {
         account = acc;
         chat = cs;
@@ -52,7 +52,7 @@ public class SqliteAccountsService
             url = url.Remove(url.Length - 1);
 
         if (FindHisory(url) > 0)
-            return 999;
+            return 1001;
 
         //int userID = Convert.ToInt32((await RestAPI.getAccInfo()).account.id);
         SqliteConnection m_dbConnection = OpenDB();
@@ -297,7 +297,7 @@ public class SqliteAccountsService
         int code = 0;
 
         if (FindAcc(user) > 0)
-            return 999;
+            return 1001;
 
         SqliteConnection m_dbConnection = OpenDB();
         m_dbConnection.Open();

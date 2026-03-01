@@ -2,11 +2,11 @@
 public class RestAPIService
 {
     private readonly AccountService account;
-    private readonly SqliteAccountsService sqliteAccountsService;
-    public RestAPIService(AccountService acc, SqliteAccountsService sql)
+    private readonly SqliteService sqLite;
+    public RestAPIService(AccountService acc, SqliteService sql)
     {
         account = acc;
-        sqliteAccountsService = sql;
+        sqLite = sql;
     }
     /// <summary>
     /// Fetch data from Rest API server. This is a general function that can be used for any endpoint in the API. 
@@ -77,10 +77,14 @@ public class RestAPIService
         var userApi = data.ToObject<UserAPI>();
         if (userApi.account != null)
         {
-            int code = sqliteAccountsService.CreateAcc(user, userApi.account.id, fn);
+            int code = sqLite.CreateAcc(user, userApi.account.id, fn);
             if (code == 0)
             {
                 return (true, "Account created successfully.");
+            }
+            else if (code == 19 || code == 1001)
+            {
+                return (false, "ERROR: Account already exists.");
             }
             else
             {
@@ -168,7 +172,7 @@ public class RestAPIService
         if (data == null) return false;
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
-            sqliteAccountsService.UpdateFullName(newfn);
+            sqLite.UpdateFullName(newfn);
             return true;
         }
         return false;
@@ -183,7 +187,7 @@ public class RestAPIService
     {
         if (!account.SignedIn())
             return false;
-        newpw = Encoding.Default.GetString(SqliteAccountsService.Hash(newpw, SqliteAccountsService.passSalt));
+        newpw = Encoding.Default.GetString(SqliteService.Hash(newpw, SqliteService.passSalt));
         var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
         if (data == null) return false;
         if ((string)data.SelectToken("content[0].msg") == "success")
@@ -227,7 +231,7 @@ public class RestAPIService
         var buddyData = data.ToObject<UserAPI.Buddies>();
         if (buddyData?.id != null && buddyData.id > 0) // message = error msg
         {
-            sqliteAccountsService.AddBuddy(buddyData.id, buddyData.username);
+            sqLite.AddBuddy(buddyData.id, buddyData.username);
             return (true, null);
         }
         else
@@ -254,7 +258,7 @@ public class RestAPIService
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {
-            sqliteAccountsService.RemoveBuddy(buddyid, buddyName);
+            sqLite.RemoveBuddy(buddyid, buddyName);
             return (true, null);
         }
         else

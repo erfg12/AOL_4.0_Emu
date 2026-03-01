@@ -6,13 +6,13 @@ public partial class SignOnForm : _Win95Theme
 {
     private readonly RestAPIService restApi;
     private readonly AccountService account;
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
     public IServiceProvider ServiceProvider { get; }
 
-    public SignOnForm(RestAPIService restApi, SqliteAccountsService sql, AccountService acc, IServiceProvider serviceProvider)
+    public SignOnForm(RestAPIService restApi, SqliteService sql, AccountService acc, IServiceProvider serviceProvider)
     {
         InitializeComponent();
-        sqliteAccountsService = sql;
+        sqLite = sql;
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
@@ -24,7 +24,7 @@ public partial class SignOnForm : _Win95Theme
 
     private void AccForm_Load(object sender, EventArgs e)
     {
-        foreach (string entry in sqliteAccountsService.ListAccounts())
+        foreach (string entry in sqLite.ListAccounts())
         {
             screenName.Items.Add(entry);
         }

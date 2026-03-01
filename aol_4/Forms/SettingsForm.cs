@@ -1,12 +1,12 @@
 ﻿namespace aol.Forms;
 public partial class SettingsForm : _Win95Theme
 {
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
     private readonly AccountService account;
-    public SettingsForm(SqliteAccountsService sql, AccountService acc)
+    public SettingsForm(SqliteService sql, AccountService acc)
     {
         InitializeComponent();
-        sqliteAccountsService = sql;
+        sqLite = sql;
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
@@ -33,7 +33,7 @@ public partial class SettingsForm : _Win95Theme
         countryBox.Text = Properties.Settings.Default.country;
         fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
         checkForUpdates.Checked = Properties.Settings.Default.disableVersionCheck;
-        fullnameBox.Text = sqliteAccountsService.GetFullName();
+        fullnameBox.Text = sqLite.GetFullName();
 
         searchProvider.Text = Properties.Settings.Default.searchProvider;
 
@@ -48,7 +48,7 @@ public partial class SettingsForm : _Win95Theme
             return;
 
         browseHistoryList.Items.Clear();
-        List<string> tmpHistory = sqliteAccountsService.GetHistory();
+        List<string> tmpHistory = sqLite.GetHistory();
         tmpHistory.Sort();
         foreach (string l in tmpHistory)
         {
@@ -95,7 +95,7 @@ public partial class SettingsForm : _Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.SelectedItems)
         {
-            sqliteAccountsService.DeleteHistory(i.Text);
+            sqLite.DeleteHistory(i.Text);
         }
         ReloadBrowseHistory();
     }
@@ -104,7 +104,7 @@ public partial class SettingsForm : _Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.Items)
         {
-            sqliteAccountsService.DeleteHistory(i.Text);
+            sqLite.DeleteHistory(i.Text);
         }
         ReloadBrowseHistory();
     }

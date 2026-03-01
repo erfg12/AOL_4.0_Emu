@@ -11,7 +11,7 @@ public partial class MainForm : _Win95Theme
     public IServiceProvider ServiceProvider { get; }
     private readonly AccountService account;
     private readonly ChatService chat;
-    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly SqliteService sqLite;
     private readonly MailService mail;
 
     public static int GetSoundLength(string fileName)
@@ -81,7 +81,7 @@ public partial class MainForm : _Win95Theme
         {
             addrBox.Items.Clear();
             tmpHistory.Clear();
-            foreach (string i in sqliteAccountsService.GetHistory())
+            foreach (string i in sqLite.GetHistory())
             {
                 if (string.IsNullOrEmpty(i))
                     continue;
@@ -114,7 +114,7 @@ public partial class MainForm : _Win95Theme
         {
             OpenBrowser(addrBox.Text);
             if (account.SignedIn() && addrBox.Text.Contains("."))
-                sqliteAccountsService.AddHistory(addrBox.Text);
+                sqLite.AddHistory(addrBox.Text);
             if (!addrBox.Items.Contains(addrBox.Text))
             {
                 addrBox.Items.Add(addrBox.Text);
@@ -126,10 +126,10 @@ public partial class MainForm : _Win95Theme
 
     public void OpenBrowser(string url = "")
     {
-        MDIHelper.OpenForm(() => new BrowserForm(sqliteAccountsService, account, url), this);
+        MDIHelper.OpenForm(() => new BrowserForm(sqLite, account, url), this);
     }
 
-    public MainForm(AccountService acc, ChatService cs, SqliteAccountsService sql, MailService ms, IServiceProvider serviceProvider)
+    public MainForm(AccountService acc, ChatService cs, SqliteService sql, MailService ms, IServiceProvider serviceProvider)
     {
         InitializeComponent();
 
@@ -145,7 +145,7 @@ public partial class MainForm : _Win95Theme
         ServiceProvider = serviceProvider;
         account = acc;
         chat = cs;
-        sqliteAccountsService = sql;
+        sqLite = sql;
         mail = ms;
     }
 
@@ -655,7 +655,7 @@ public partial class MainForm : _Win95Theme
 
     private void MailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        SettingsForm sf = new SettingsForm(sqliteAccountsService, account)
+        SettingsForm sf = new SettingsForm(sqLite, account)
         {
             Owner = (Form)this,
             MdiParent = this
