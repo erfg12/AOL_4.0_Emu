@@ -24,13 +24,33 @@ public static class ChatHelper
         return fileWithPath;
     }
 
+    public static Dictionary<string, Image> emojis = new()
+    {
+        { ":-)", Properties.Resources.Smiling },
+        { ":-(", Properties.Resources.Frowning },
+        { ";-)", Properties.Resources.Winking },
+        { ":-P", Properties.Resources.Sticking_out_tongue },
+        { "=-O", Properties.Resources.Surprised },
+        { ":-*", Properties.Resources.Kissing },
+        { ">:o", Properties.Resources.Yelling },
+        { "8-)", Properties.Resources.Cool },
+        { ":-$", Properties.Resources.Money_mouth },
+        { ":-!", Properties.Resources.Foot_in_mouth },
+        { ":-[", Properties.Resources.Embarrassed },
+        { "O:-)", Properties.Resources.Innocent },
+        { ":-\\", Properties.Resources.Undecided },
+        { ":'(", Properties.Resources.Crying },
+        { ":-X", Properties.Resources.Lips_are_sealed },
+        { ":-D", Properties.Resources.Laughing }
+    };
+
     // these encrypt/decrypt methods can maybe move to their own files later.
     // atm they are only used for chat logs. not implemented yet.
 
-    public static byte[] DecryptBytes(byte[] cipherBytes)
+    public static byte[] DecryptBytes(byte[] cipherBytes, string password)
     {
         using var aes = Aes.Create();
-        using var derive = new Rfc2898DeriveBytes(Account.tmpPassword, salt, 100_000, HashAlgorithmName.SHA256);
+        using var derive = new Rfc2898DeriveBytes(password, salt, 100_000, HashAlgorithmName.SHA256);
 
         aes.Key = derive.GetBytes(32);
         aes.IV = derive.GetBytes(16);
@@ -41,10 +61,10 @@ public static class ChatHelper
         return ms.ToArray();
     }
 
-    public static byte[] EncryptBytes(byte[] plainBytes)
+    public static byte[] EncryptBytes(byte[] plainBytes, string password)
     {
         using var aes = Aes.Create();
-        using var derive = new Rfc2898DeriveBytes(Account.tmpPassword, salt, 100_000, HashAlgorithmName.SHA256);
+        using var derive = new Rfc2898DeriveBytes(password, salt, 100_000, HashAlgorithmName.SHA256);
 
         aes.Key = derive.GetBytes(32);
         aes.IV = derive.GetBytes(16);

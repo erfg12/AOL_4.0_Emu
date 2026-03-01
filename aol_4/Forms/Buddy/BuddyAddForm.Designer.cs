@@ -48,7 +48,7 @@
             nameTextBox.Margin = new Padding(6);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.Size = new Size(334, 23);
-            nameTextBox.TabIndex = 6;
+            nameTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -63,6 +63,7 @@
             // sendBtn
             // 
             sendBtn.BackColor = Color.FromArgb(0, 109, 170);
+            sendBtn.Cursor = Cursors.Hand;
             sendBtn.FlatStyle = FlatStyle.Flat;
             sendBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             sendBtn.ForeColor = SystemColors.Control;

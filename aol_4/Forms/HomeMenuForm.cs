@@ -1,6 +1,11 @@
-﻿namespace aol.Forms;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace aol.Forms;
 public partial class HomeMenuForm : _Win95Theme
 {
+    private readonly AccountService account;
+    public IServiceProvider ServiceProvider { get; }
+
     private void CloseBtn_Click(object sender, EventArgs e)
     {
         Close();
@@ -16,23 +21,26 @@ public partial class HomeMenuForm : _Win95Theme
         LocationService.PositionWindow(this);
 
         todayLabel.Text = DateTime.Now.ToString("MMMM dd, yyyy");
-        TitleLabel.Text = $"Welcome, {Account.tmpUsername}";
+        TitleLabel.Text = $"Welcome, {account.tmpUsername}";
         this.Text = TitleLabel.Text;
         temperatureLabel.Text = LocationService.GetCurrentWeather();
     }
 
-    public HomeMenuForm()
+    public HomeMenuForm(AccountService acc, IServiceProvider serviceProvider)
     {
         InitializeComponent();
+        account = acc;
 
         TitleBar.MouseMove += MoveWindow;
         TitleLabel.MouseMove += MoveWindow;
         this.LocationChanged += OnLocationChanged;
+        ServiceProvider = serviceProvider;
     }
 
     private void MailCenterBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<MailboxForm>(MdiParent);
+        var mailboxForm = this.ServiceProvider.GetRequiredService<MailboxForm>();
+        MDIHelper.OpenForm(mailboxForm, MdiParent);
     }
 
     private void YouveGotPicturesBtn_Click(object sender, EventArgs e)
@@ -47,6 +55,7 @@ public partial class HomeMenuForm : _Win95Theme
 
     private void ChatBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<ChatroomListForm>(MdiParent);
+        var chatroomListForm = this.ServiceProvider.GetRequiredService<ChatroomListForm>();
+        MDIHelper.OpenForm(chatroomListForm, MdiParent);
     }
 }

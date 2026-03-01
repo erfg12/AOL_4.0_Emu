@@ -5,19 +5,25 @@ public partial class BrowserForm : _Win95Theme
     public string url { get; set; }
     public string title { get; set; }
 
+    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly AccountService account;
+
     public void GoToUrl(string url)
     {
-        url = BrowserHelper.GenerateURLFromString(url);
+        url = BrowserHelper.GenerateURLFromString(url, account.homePageUrl);
         Uri outUri;
         if (Uri.TryCreate(url, UriKind.Absolute, out outUri) && (outUri.Scheme == Uri.UriSchemeHttp || outUri.Scheme == Uri.UriSchemeHttps))
             WebView.Source = new Uri(url);
         UpdateAddrBox();
     }
 
-    public BrowserForm(string urlArg = "")
+    public BrowserForm(SqliteAccountsService sql, AccountService acc, string urlArg = "")
     {
         InitializeComponent();
         InitializeAsync();
+
+        sqliteAccountsService = sql;
+        account = acc;
 
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
@@ -85,7 +91,7 @@ public partial class BrowserForm : _Win95Theme
 
     private void FavoriteBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm(() => new FavoritesAddForm(url, title), MdiParent);
+        MDIHelper.OpenForm(() => new FavoritesAddForm(sqliteAccountsService, url, title), MdiParent);
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)

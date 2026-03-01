@@ -19,6 +19,20 @@ class MDIHelper
     }
 
     /// <summary>
+    /// Open a form that is already constructed (supports DI)
+    /// </summary>
+    public static void OpenForm(Form form, Form parentForm, Point? position = null)
+    {
+        form.MdiParent = parentForm;
+        if (position != null)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = position.Value;
+        }
+        form.Show();
+    }
+
+    /// <summary>
     /// Open a form that has a constructor with an argument
     /// </summary>
     /// <param name="formFactory">Form class</param>

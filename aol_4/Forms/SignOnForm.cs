@@ -1,18 +1,30 @@
-﻿namespace aol.Forms;
+﻿using Microsoft.Extensions.DependencyInjection;
+using static UserAPI;
+
+namespace aol.Forms;
 public partial class SignOnForm : _Win95Theme
 {
-    public SignOnForm()
+    private readonly RestAPIService restApi;
+    private readonly AccountService account;
+    private readonly SqliteAccountsService sqliteAccountsService;
+    public IServiceProvider ServiceProvider { get; }
+
+    public SignOnForm(RestAPIService restApi, SqliteAccountsService sql, AccountService acc, IServiceProvider serviceProvider)
     {
         InitializeComponent();
+        sqliteAccountsService = sql;
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
         mainTitle.MouseMove += MoveWindow;
+        this.restApi = restApi;
+        account = acc;
+        ServiceProvider = serviceProvider;
     }
 
     private void AccForm_Load(object sender, EventArgs e)
     {
-        foreach (string entry in SqliteAccountsService.ListAccounts())
+        foreach (string entry in sqliteAccountsService.ListAccounts())
         {
             screenName.Items.Add(entry);
         }
@@ -42,17 +54,18 @@ public partial class SignOnForm : _Win95Theme
     {
         if (screenName.Text == "New User" || screenName.Text == "Existing Member")
         {
-            MDIHelper.OpenForm<SignupForm>(MdiParent);
+            var signupForm = this.ServiceProvider.GetRequiredService<SignupForm>();
+            MDIHelper.OpenForm(signupForm, MdiParent);
         }
         else if (screenName.Text == "Guest")
         {
-            Account.tmpUsername = "Guest";
+            account.tmpUsername = "Guest";
             Close();
         }
         else
         {
             Cursor = Cursors.WaitCursor;
-            if (!await RestAPIService.LoginAccount(screenName.Text, passBox.Text))
+            if (!await restApi.LoginAccount(screenName.Text, passBox.Text))
             {
                 Cursor = Cursors.Default;
                 OpenMsgBox("ERROR", "Incorrect username/password or account doesn't exist.");
@@ -67,7 +80,8 @@ public partial class SignOnForm : _Win95Theme
 
     private void SetupBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<SignupForm>(MdiParent);
+        var signupForm = this.ServiceProvider.GetRequiredService<SignupForm>();
+        MDIHelper.OpenForm(signupForm, MdiParent);
     }
 
     private void ScreenName_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,7 +118,8 @@ public partial class SignOnForm : _Win95Theme
 
     private void AccForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-        MDIHelper.OpenForm<DialUpForm>(MdiParent);
+        var dialUpForm = this.ServiceProvider.GetRequiredService<DialUpForm>();
+        MDIHelper.OpenForm(dialUpForm, MdiParent);
     }
 
     private void ScreenName_KeyPress(object sender, KeyPressEventArgs e)
@@ -123,7 +138,7 @@ public partial class SignOnForm : _Win95Theme
         if (selectLocation.Text.IsNullOrEmpty())
             return;
 
-        Account.tmpLocation = selectLocation.Text;
+        account.tmpLocation = selectLocation.Text;
         Properties.Settings.Default.connType = selectLocation.Text;
         Properties.Settings.Default.Save();
     }

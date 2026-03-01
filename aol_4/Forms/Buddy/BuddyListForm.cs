@@ -1,4 +1,6 @@
-﻿namespace aol.Forms;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace aol.Forms;
 public partial class BuddyListForm : _Win95Theme
 {
     int total = 0;
@@ -6,10 +8,23 @@ public partial class BuddyListForm : _Win95Theme
     TreeNode selectedNode;
     int online = 0;
     int offline = 0;
+    public IServiceProvider ServiceProvider { get; }
 
-    public BuddyListForm()
+    private readonly RestAPIService restApi;
+    private readonly AccountService account;
+    private readonly ChatService chat;
+    private readonly SqliteAccountsService sqliteAccountsService;
+
+    public BuddyListForm(RestAPIService ras, ChatService cs, AccountService acc, SqliteAccountsService sql, IServiceProvider serviceProvider)
     {
         InitializeComponent();
+        ServiceProvider = serviceProvider;
+
+        restApi = ras;
+        account = acc;
+        chat = cs;
+        sqliteAccountsService = sql;
+
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
         titleLabel.MouseMove += MoveWindow;
@@ -24,17 +39,18 @@ public partial class BuddyListForm : _Win95Theme
 
     private void SetupBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<BuddyAddForm>(MdiParent);
+        var addBuddyForm = this.ServiceProvider.GetRequiredService<BuddyAddForm>();
+        MDIHelper.OpenForm(addBuddyForm, MdiParent);
     }
 
     private void BuddyTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
     {
-        if (buddyTreeView.SelectedNode.Text == null || !ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
+        if (buddyTreeView.SelectedNode.Text == null || !chat.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
 
-        if (ChatService.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
+        if (chat.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
         {
-            InstantMessageForm im = new InstantMessageForm(buddyTreeView.SelectedNode.Text);
+            InstantMessageForm im = new InstantMessageForm(chat, account, buddyTreeView.SelectedNode.Text);
             im.Owner = this;
             im.MdiParent = MdiParent;
             im.Tag = buddyTreeView.SelectedNode.Text;
@@ -44,12 +60,12 @@ public partial class BuddyListForm : _Win95Theme
 
     private void IMBtn_Click(object sender, EventArgs e)
     {
-        if (buddyTreeView.SelectedNode == null || buddyTreeView.SelectedNode.Text == null || !ChatService.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
+        if (buddyTreeView.SelectedNode == null || buddyTreeView.SelectedNode.Text == null || !chat.buddyStatus.ContainsKey(buddyTreeView.SelectedNode.Text))
             return;
 
-        if (ChatService.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
+        if (chat.buddyStatus[buddyTreeView.SelectedNode.Text] == true) // have to be online to IM
         {
-            InstantMessageForm im = new InstantMessageForm(buddyTreeView.SelectedNode.Text);
+            InstantMessageForm im = new InstantMessageForm(chat, account, buddyTreeView.SelectedNode.Text);
             im.Owner = this;
             im.MdiParent = MdiParent;
             im.Tag = buddyTreeView.SelectedNode.Text;
@@ -60,14 +76,14 @@ public partial class BuddyListForm : _Win95Theme
     private void Buddies_online_FormClosing(object sender, FormClosingEventArgs e)
     {
         ConcurrentDictionary<string, bool> tmpList = new ConcurrentDictionary<string, bool>();
-        foreach (KeyValuePair<string, bool> entry in ChatService.buddyStatus)
+        foreach (KeyValuePair<string, bool> entry in chat.buddyStatus)
         {
             tmpList.TryAdd(entry.Key, entry.Value);
         }
         foreach (KeyValuePair<string, bool> entry in tmpList)
         {
             bool MyOut;
-            ChatService.buddyStatus.TryRemove(entry.Key, out MyOut);
+            chat.buddyStatus.TryRemove(entry.Key, out MyOut);
         }
     }
 
@@ -95,10 +111,10 @@ public partial class BuddyListForm : _Win95Theme
 
     private void StartList()
     {
-        foreach (var b in SqliteAccountsService.GetBuddyList())
+        foreach (var b in sqliteAccountsService.GetBuddyList())
         {
-            if (!ChatService.buddyStatus.ContainsKey(b.username))
-                ChatService.buddyStatus.TryAdd(b.username, false); // offline by default
+            if (!chat.buddyStatus.ContainsKey(b.username))
+                chat.buddyStatus.TryAdd(b.username, false); // offline by default
         }
     }
 
@@ -107,29 +123,29 @@ public partial class BuddyListForm : _Win95Theme
         await UpdateBuddyStatus();
     }
 
-    private async Task UpdateBuddyStatus()
+    public async Task UpdateBuddyStatus()
     {
-        if (!Account.SignedIn())// || !MainForm.chat.irc.IsClientRunning())
+        if (!account.SignedIn())// || !MainForm.chat.irc.IsClientRunning())
         {
-            Debug.WriteLine($"ERROR - SignedIn:{Account.SignedIn()}, IRCRunning:{MainForm.chat.irc.IsClientRunning()}");
+            Debug.WriteLine($"ERROR - SignedIn:{account.SignedIn()}, IRCRunning:{chat.irc.IsClientRunning()}");
             return;
         }
 
         // send heartbeat so users know im online
         // send a /Buddy GET for buddy list including if they're online
-        await RestAPIService.SendHeartbeat();
-        var buddyList = await RestAPIService.GetBuddyList();
+        await restApi.SendHeartbeat();
+        var buddyList = await restApi.GetBuddyList();
 
         if (buddyList != null)
             foreach (var buddy in buddyList)
             {
-                if (ChatService.buddyStatus.ContainsKey(buddy.username))
-                    ChatService.buddyStatus[buddy.username] = buddy.online;
+                if (chat.buddyStatus.ContainsKey(buddy.username))
+                    chat.buddyStatus[buddy.username] = buddy.online;
             }
 
-        total = ChatService.buddyStatus.Count();
+        total = chat.buddyStatus.Count();
 
-        foreach (KeyValuePair<string, bool> kvp in ChatService.buddyStatus.ToList())
+        foreach (KeyValuePair<string, bool> kvp in chat.buddyStatus.ToList())
         {
             if (string.IsNullOrEmpty(kvp.Key))
                 continue;
@@ -194,7 +210,7 @@ public partial class BuddyListForm : _Win95Theme
                 buddyTreeView.SelectedNode = node;
                 buddyContextMenuStrip.Show(buddyTreeView, e.Location);
 
-                var buddyList = SqliteAccountsService.GetBuddyList();
+                var buddyList = sqliteAccountsService.GetBuddyList();
                 if (buddyList == null || buddyList.Count() <= 0)
                     return;
 
@@ -216,7 +232,7 @@ public partial class BuddyListForm : _Win95Theme
 
         if (result == DialogResult.Yes)
         {
-            var removeBuddy = await RestAPIService.RemoveBuddy(selectedBuddy.id, selectedBuddy.username);
+            var removeBuddy = await restApi.RemoveBuddy(selectedBuddy.id, selectedBuddy.username);
             if (removeBuddy.Item1)
             {
                 selectedNode.Remove();

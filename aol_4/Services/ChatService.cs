@@ -6,7 +6,14 @@ public class ChatService
     public SimpleIRC irc = new();
     public ConcurrentDictionary<string, List<string>> users = new(); // key: channel, value: users
     public string newPM = "";
-    public static ConcurrentDictionary<string, bool> buddyStatus = new(); // key: name, value: online status
+    public ConcurrentDictionary<string, bool> buddyStatus = new(); // key: name, value: online status
+
+    private readonly AccountService account;
+
+    public ChatService(AccountService acc)
+    {
+        account = acc;
+    }
 
     public void DownloadStatusChanged(object source, DCCEventArgs args)
     {
@@ -15,29 +22,9 @@ public class ChatService
         Debug.WriteLine("DOWNLOAD PROGRESS: " + args.Progress + "%");
     }
 
-    public static Dictionary<string, Image> emojis = new()
-    {
-        { ":-)", Properties.Resources.Smiling },
-        { ":-(", Properties.Resources.Frowning },
-        { ";-)", Properties.Resources.Winking },
-        { ":-P", Properties.Resources.Sticking_out_tongue },
-        { "=-O", Properties.Resources.Surprised },
-        { ":-*", Properties.Resources.Kissing },
-        { ">:o", Properties.Resources.Yelling },
-        { "8-)", Properties.Resources.Cool },
-        { ":-$", Properties.Resources.Money_mouth },
-        { ":-!", Properties.Resources.Foot_in_mouth },
-        { ":-[", Properties.Resources.Embarrassed },
-        { "O:-)", Properties.Resources.Innocent },
-        { ":-\\", Properties.Resources.Undecided },
-        { ":'(", Properties.Resources.Crying },
-        { ":-X", Properties.Resources.Lips_are_sealed },
-        { ":-D", Properties.Resources.Laughing }
-    };
+    private Dictionary<string, string> emojiRtfCache = new Dictionary<string, string>();
 
-    private static Dictionary<string, string> emojiRtfCache = new Dictionary<string, string>();
-
-    public static void ReplaceEmojisWithImage(RichTextBox rtb, string text)
+    public void ReplaceEmojisWithImage(RichTextBox rtb, string text)
     {
         int startIndex = rtb.TextLength;
         rtb.AppendText(" " + text);
@@ -51,7 +38,7 @@ public class ChatService
         // Build the RTF cache if needed
         if (emojiRtfCache.Count == 0)
         {
-            foreach (var emoji in emojis)
+            foreach (var emoji in ChatHelper.emojis)
             {
                 using (MemoryStream ms = new MemoryStream())
                 {
@@ -76,7 +63,7 @@ public class ChatService
 
         List<(int index, int length, string rtf)> replacements = new();
 
-        foreach (var emoji in emojis.OrderByDescending(e => e.Key.Length))
+        foreach (var emoji in ChatHelper.emojis.OrderByDescending(e => e.Key.Length))
         {
             if (!text.Contains(emoji.Key))
                 continue;
@@ -136,7 +123,7 @@ public class ChatService
         string chatFile = string.Empty;
 
         newPM = user;
-        chatFile = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
+        chatFile = ChatHelper.GetChatPath(account.tmpUsername, $"PM_{user}");
 
         // open IM form if needed
         bool foundFrm = false;
@@ -149,7 +136,7 @@ public class ChatService
         {
             Application.OpenForms[0].Invoke(() =>
             {
-                InstantMessageForm im = new InstantMessageForm(newPM)
+                InstantMessageForm im = new InstantMessageForm(this, account, newPM)
                 {
                     Owner = Application.OpenForms[0],
                     MdiParent = Application.OpenForms[0],
@@ -164,7 +151,7 @@ public class ChatService
 
     public void RawOutputCallback(object source, IrcRawReceivedEventArgs args)
     {
-        if (Account.tmpUsername == "Guest" || Account.tmpUsername == "" || args.Message == null) // prevents crash if signing off
+        if (!account.SignedIn() || args.Message == null) // prevents crash if signing off
             return;
 
         Debug.WriteLine("[RO]:" + args.Message);
@@ -181,9 +168,9 @@ public class ChatService
         //{
         //    buddyStatus[info[3]] = true;
         //}
-        else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + Account.tmpUsername + " :       Registered"))
+        else if (args.Message.Contains("NickServ!NickServ@services NOTICE " + account.tmpUsername + " :       Registered"))
         {
-            irc.SendMessageToChannel("IDENTIFY " + Account.tmpPassword, "NickServ");
+            irc.SendMessageToChannel("IDENTIFY " + account.tmpPassword, "NickServ");
         }
         else if (args.Message.Contains(" JOIN :#"))
         {
@@ -204,12 +191,12 @@ public class ChatService
         {
             // users needs to register
             Debug.WriteLine("ERROR: IRC nickname needs to be registered.");
-            irc.SendMessageToChannel($"REGISTER {Account.tmpPassword} {Account.tmpUsername}@aolemu.com", "NickServ");
+            irc.SendMessageToChannel($"REGISTER {account.tmpPassword} {account.tmpUsername}@aolemu.com", "NickServ");
         }
         else if (args.Message.Contains("This nickname is registered and protected."))
         {
             // user needs to authenticate
-            irc.SendMessageToChannel("IDENTIFY " + Account.tmpPassword, "NickServ");
+            irc.SendMessageToChannel("IDENTIFY " + account.tmpPassword, "NickServ");
         }
         // get a channel list
         // command -> /list >200
@@ -226,7 +213,7 @@ public class ChatService
         {
             // Split prefix, command, target, message
             // :prefix PRIVMSG target :message
-            var msg = args.Message.Split($"PRIVMSG {Account.tmpUsername} :");
+            var msg = args.Message.Split($"PRIVMSG {account.tmpUsername} :");
             var senderNick = args.Message.Split('!')[0].TrimStart(':');
 
             Debug.WriteLine($"Private message from {senderNick}: {msg.LastOrDefault()}");
@@ -239,7 +226,7 @@ public class ChatService
         Debug.WriteLine(args.Type + " | " + args.Message);
         if (args.Message == "STARTING LISTENER!")
         {
-            irc.SendMessageToChannel("INFO " + Account.tmpUsername, "NickServ"); // send a request to see if our username is registered
+            irc.SendMessageToChannel("INFO " + account.tmpUsername, "NickServ"); // send a request to see if our username is registered
         }
     }
 
@@ -281,7 +268,7 @@ public class ChatService
 
     public void StartConnection()
     {
-        if (!Account.SignedIn() || irc.IsClientRunning())
+        if (!account.SignedIn() || irc.IsClientRunning())
             return;
 
         StartupIRC();
@@ -289,7 +276,7 @@ public class ChatService
 
     public void StartupIRC()
     {
-        irc.SetupIrc(server, Account.tmpUsername, "", port, "", 3000, true);
+        irc.SetupIrc(server, account.tmpUsername, "", port, "", 3000, true);
 
         if (!irc.IsClientRunning())
         {

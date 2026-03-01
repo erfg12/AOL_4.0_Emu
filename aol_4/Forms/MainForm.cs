@@ -1,12 +1,18 @@
-﻿namespace aol.Forms;
+﻿using aol.Services;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace aol.Forms;
 public partial class MainForm : _Win95Theme
 {
     bool newWindow = true;
     string old_url = "";
     public List<string> tmpHistory = new();
     int topMenuPadding = 42;
-
-    public static ChatService chat = new ChatService();
+    public IServiceProvider ServiceProvider { get; }
+    private readonly AccountService account;
+    private readonly ChatService chat;
+    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly MailService mail;
 
     public static int GetSoundLength(string fileName)
     {
@@ -24,14 +30,14 @@ public partial class MainForm : _Win95Theme
 
     private void CheckEmail()
     {
-        if (MailService.CheckNewEmail() && !MailService.youGotMail)
+        if (mail.CheckNewEmail() && !mail.youGotMail)
         {
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.Stream = Properties.Resources.youGotmail;
             player.Play();
 
             read_mail_btn.Image = Properties.Resources.youve_got_mail_icon;
-            MailService.youGotMail = true;
+            mail.youGotMail = true;
         }
     }
 
@@ -75,7 +81,7 @@ public partial class MainForm : _Win95Theme
         {
             addrBox.Items.Clear();
             tmpHistory.Clear();
-            foreach (string i in SqliteAccountsService.GetHistory())
+            foreach (string i in sqliteAccountsService.GetHistory())
             {
                 if (string.IsNullOrEmpty(i))
                     continue;
@@ -107,8 +113,8 @@ public partial class MainForm : _Win95Theme
         else
         {
             OpenBrowser(addrBox.Text);
-            if (Account.SignedIn() && addrBox.Text.Contains("."))
-                SqliteAccountsService.AddHistory(addrBox.Text);
+            if (account.SignedIn() && addrBox.Text.Contains("."))
+                sqliteAccountsService.AddHistory(addrBox.Text);
             if (!addrBox.Items.Contains(addrBox.Text))
             {
                 addrBox.Items.Add(addrBox.Text);
@@ -120,10 +126,10 @@ public partial class MainForm : _Win95Theme
 
     public void OpenBrowser(string url = "")
     {
-        MDIHelper.OpenForm(() => new BrowserForm(url), this);
+        MDIHelper.OpenForm(() => new BrowserForm(sqliteAccountsService, account, url), this);
     }
 
-    public MainForm()
+    public MainForm(AccountService acc, ChatService cs, SqliteAccountsService sql, MailService ms, IServiceProvider serviceProvider)
     {
         InitializeComponent();
 
@@ -132,10 +138,15 @@ public partial class MainForm : _Win95Theme
         TopPanel.DoubleClick += TitleBar_DoubleClick;
         mainTitle.DoubleClick += TitleBar_DoubleClick;
         maxBtn.Click += MaxRestoreButton_Click;
-        
+
         DoubleBuffered = true;
         SetStyle(ControlStyles.ResizeRedraw, true);
         ConfigurationManager.AppSettings.Set("APIKey", "d8f6deea88bb177513cc8a14cf629020"); // for WeatherNet
+        ServiceProvider = serviceProvider;
+        account = acc;
+        chat = cs;
+        sqliteAccountsService = sql;
+        mail = ms;
     }
 
     private void MainForm_Load(object sender, EventArgs e)
@@ -179,7 +190,8 @@ public partial class MainForm : _Win95Theme
         toolTip1.SetToolTip(favorites_btn, "See your favorite places.\nDrag heart icons here.");
 
         // open account form window
-        MDIHelper.OpenForm<SignOnForm>(this);
+        var signOnForm = this.ServiceProvider.GetRequiredService<SignOnForm>();
+        MDIHelper.OpenForm(signOnForm, this);
 
         if (VersionHelper.CheckForUpdates() && !Properties.Settings.Default.disableVersionCheck)
         {
@@ -313,7 +325,7 @@ public partial class MainForm : _Win95Theme
         }
         catch
         { // something in the settings was messed up, load a default
-            OpenBrowser(Account.homePageUrl);
+            OpenBrowser(account.homePageUrl);
             newWindow = false;
         }
     }
@@ -331,7 +343,7 @@ public partial class MainForm : _Win95Theme
 
     private void ChannelsBtn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return;
 
         if (!channelsContextMenuStrip.Visible)
@@ -345,7 +357,8 @@ public partial class MainForm : _Win95Theme
 
     private void AOLTodayToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<HomeMenuForm>(this);
+        var chatroomListForm = this.ServiceProvider.GetRequiredService<ChatroomListForm>();
+        MDIHelper.OpenForm(chatroomListForm, this);
     }
 
     private void EditBtn_Click(object sender, EventArgs e)
@@ -408,13 +421,13 @@ public partial class MainForm : _Win95Theme
 
     private void SignOff()
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return;
 
         DisposeAllButThis();
 
-        Account.tmpUsername = "";
-        Account.tmpPassword = "";
+        account.tmpUsername = "";
+        account.tmpPassword = "";
 
         if (chat.irc.IsClientRunning())
             chat.irc.IrcClient.WriteIrc("QUIT"); //chat.irc.StopClient(); // causes a hang on shutdown
@@ -435,47 +448,56 @@ public partial class MainForm : _Win95Theme
         perks_btn.Image = Properties.Resources.perks_icon;
         weather_btn.Image = Properties.Resources.weather_icon;
         preferencesToolStripMenuItem.Enabled = false; // settings holds email info
-        MailService.youGotMail = false;
+        mail.youGotMail = false;
         signOffBtn.Text = "Sign On";
     }
 
     private void SignOffBtn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
+        if (account.SignedIn())
         {
             SignOff();
-            MDIHelper.OpenForm<SignOnForm>(this);
+            var signOnForm = this.ServiceProvider.GetRequiredService<SignOnForm>();
+            MDIHelper.OpenForm(signOnForm, MdiParent);
         }
     }
 
     private void ReadMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<MailboxForm>(this);
+        if (account.SignedIn()) {
+            var mailboxForm = this.ServiceProvider.GetRequiredService<MailboxForm>();
+            MDIHelper.OpenForm(mailboxForm, this);
+        }
     }
 
     private void ReadMailBtn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<MailboxForm>(this);
+        if (account.SignedIn())
+        {
+            var mailboxForm = this.ServiceProvider.GetRequiredService<MailboxForm>();
+            MDIHelper.OpenForm(mailboxForm, this);
+        }
     }
 
     private void WriteMailBtn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm(() => new MailWriteForm(), this);
+        if (account.SignedIn())
+            MDIHelper.OpenForm(() => new MailWriteForm(mail), this);
     }
 
     private void MailCenterToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<MailboxForm>(this);
+        if (account.SignedIn())
+        {
+            var mailboxForm = this.ServiceProvider.GetRequiredService<MailboxForm>();
+            MDIHelper.OpenForm(mailboxForm, this);
+        }
     }
 
     private void WriteMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm(() => new MailWriteForm(), this);
+        if (account.SignedIn())
+            MDIHelper.OpenForm(() => new MailWriteForm(mail), this);
     }
 
     private void FavoritesBtn_Click(object sender, EventArgs e)
@@ -491,7 +513,7 @@ public partial class MainForm : _Win95Theme
 
     private void Internet_btn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn() && !internetMenuStrip.Visible)
+        if (account.SignedIn() && !internetMenuStrip.Visible)
         {
             PictureBox btnSender = (PictureBox)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -502,7 +524,7 @@ public partial class MainForm : _Win95Theme
 
     private void People_btn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn() && !peopleMenuStrip.Visible)
+        if (account.SignedIn() && !peopleMenuStrip.Visible)
         {
             PictureBox btnSender = (PictureBox)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -513,7 +535,7 @@ public partial class MainForm : _Win95Theme
 
     private void FindBtn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn() && !findMenuStrip.Visible)
+        if (account.SignedIn() && !findMenuStrip.Visible)
         {
             Button btnSender = (Button)sender;
             Point ptLowerLeft = new Point(0, btnSender.Height);
@@ -524,19 +546,19 @@ public partial class MainForm : _Win95Theme
 
     private void KeywordBtn_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
+        if (account.SignedIn())
             MDIHelper.OpenForm<KeywordForm>(this);
     }
 
     private void Quotes_btn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return;
     }
 
     private void Perks_btn_Click(object sender, EventArgs e)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return;
     }
 
@@ -550,7 +572,8 @@ public partial class MainForm : _Win95Theme
 
     private void ChatNowStripMenuItem_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<ChatroomListForm>(this);
+        var chatroomListForm = this.ServiceProvider.GetRequiredService<ChatroomListForm>();
+        MDIHelper.OpenForm(chatroomListForm, this);
     }
 
     private void Print_page_btn_Click(object sender, EventArgs e)
@@ -570,8 +593,11 @@ public partial class MainForm : _Win95Theme
 
     private void FavoritePlacesMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<FavoritePlacesForm>(this);
+        if (account.SignedIn())
+        {
+            var favoritePlacesForm = this.ServiceProvider.GetRequiredService<FavoritePlacesForm>();
+            MDIHelper.OpenForm(favoritePlacesForm, this);
+        }
     }
 
     private void KidsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -581,8 +607,11 @@ public partial class MainForm : _Win95Theme
 
     private void BuddyListToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<BuddyListForm>(this);
+        if (account.SignedIn())
+        {
+            var buddyListForm = this.ServiceProvider.GetRequiredService<BuddyListForm>();
+            MDIHelper.OpenForm(buddyListForm, this);
+        }
     }
 
     private void SearchTheWebMenuItem_Click(object sender, EventArgs e)
@@ -597,21 +626,27 @@ public partial class MainForm : _Win95Theme
 
     private void OldMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<MailboxForm>(this);
+        if (account.SignedIn())
+        {
+            var mailboxForm = this.ServiceProvider.GetRequiredService<MailboxForm>();
+            MDIHelper.OpenForm(mailboxForm, this);
+        }
     }
 
     private void SentMailToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
-            MDIHelper.OpenForm<MailboxForm>(this);
+        if (account.SignedIn())
+        {
+            var mailboxForm = this.ServiceProvider.GetRequiredService<MailboxForm>();
+            MDIHelper.OpenForm(mailboxForm, this);
+        }
     }
 
     private void CheckMail_Tick(object sender, EventArgs e)
     {
-        if (Account.SignedIn())
+        if (account.SignedIn())
         {
-            if (!MailService.youGotMail)
+            if (!mail.youGotMail)
                 read_mail_btn.Image = Properties.Resources.nomail_icon;
             Thread thread = new Thread(new ThreadStart(CheckEmail));
             thread.Start();
@@ -620,7 +655,7 @@ public partial class MainForm : _Win95Theme
 
     private void MailPreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        SettingsForm sf = new SettingsForm()
+        SettingsForm sf = new SettingsForm(sqliteAccountsService, account)
         {
             Owner = (Form)this,
             MdiParent = this
@@ -662,7 +697,8 @@ public partial class MainForm : _Win95Theme
 
     private void PreferencesToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<PreferencesForm>(this);
+        var preferencesForm = this.ServiceProvider.GetRequiredService<PreferencesForm>();
+        MDIHelper.OpenForm(preferencesForm, this);
     }
 
     private void DownloadManagerToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,11 +1,19 @@
-﻿namespace aol.Forms;
+﻿using System;
+
+namespace aol.Forms;
 public partial class MailReadForm : _Win95Theme
 {
     readonly string EmailID;
+    private readonly MailService mail;
+    private readonly ChatService chat;
 
-    public MailReadForm(string subject, string emailID)
+    public MailReadForm(string subject, string emailID, MailService ms, ChatService cs)
     {
         InitializeComponent();
+
+        mail = ms;
+        chat = cs;
+
         DoubleBuffered = true;
         SetStyle(ControlStyles.ResizeRedraw, true);
         Dock = DockStyle.Fill;
@@ -13,7 +21,7 @@ public partial class MailReadForm : _Win95Theme
         EmailID = emailID;
         Text = subject;
         mainTitle.Text = subject;
-        string tmpString = MailService.ReadEmail(EmailID);
+        string tmpString = mail.ReadEmail(EmailID);
         mailViewer.DocumentText = tmpString;
         if (tmpString.Contains("msg NickServ"))
         {
@@ -34,13 +42,13 @@ public partial class MailReadForm : _Win95Theme
         var match = Regex.Match(m, "NickServ CONFIRM (.*?) \"", RegexOptions.Singleline);
         string register = match.Groups[1].Value;
         Debug.WriteLine("nickserv code = \"" + register + "\"");
-        MainForm.chat.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
+        chat.irc.SendMessageToChannel("CONFIRM " + register, "NickServ");
         OpenMsgBox("INFO", "Your username has been registered successfully! You can now access restricted chatrooms!");
     }
 
     private void ReplyBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm(() => new MailWriteForm(MailService.reply, "Re:" + Text), MdiParent);
+        MDIHelper.OpenForm(() => new MailWriteForm(mail, mail.reply, "Re:" + Text), MdiParent);
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)

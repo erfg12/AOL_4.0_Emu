@@ -1,6 +1,13 @@
 ﻿namespace aol.Services;
-class RestAPIService
+public class RestAPIService
 {
+    private readonly AccountService account;
+    private readonly SqliteAccountsService sqliteAccountsService;
+    public RestAPIService(AccountService acc, SqliteAccountsService sql)
+    {
+        account = acc;
+        sqliteAccountsService = sql;
+    }
     /// <summary>
     /// Fetch data from Rest API server. This is a general function that can be used for any endpoint in the API. 
     /// Returns null if there is an error, otherwise returns the data as a JObject.
@@ -12,7 +19,6 @@ class RestAPIService
     private static async Task<JObject> GetData(string requestPath, HttpMethod method, string queryParams)
     {
         var client = new HttpClient();
-        HttpResponseMessage response;
         string content = null;
         HttpResponseMessage httpResponse = null;
         HttpRequestMessage requestMsg = null;
@@ -54,24 +60,6 @@ class RestAPIService
         return JObject.Parse(content);
     }
 
-    private static string CreateMD5(string input)
-    {
-        // Use input string to calculate MD5 hash
-        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
-        {
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-            // Convert the byte array to hexadecimal string
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hashBytes.Length; i++)
-            {
-                sb.Append(hashBytes[i].ToString("X2"));
-            }
-            return sb.ToString();
-        }
-    }
-
     /// <summary>
     /// Creates an account in the rest api DB. Will also create an account in the SQLite db.
     /// </summary>
@@ -79,17 +67,17 @@ class RestAPIService
     /// <param name="pass">Unencrypted password.</param>
     /// <param name="fn">Full name of the account holder.</param>
     /// <returns></returns>
-    public static async Task<(bool success, string msg)> CreateAccount(string user, string pass, string fn)
+    public async Task<(bool success, string msg)> CreateAccount(string user, string pass, string fn)
     {
         if (user == "" || pass == "")
             return (false, "ERROR: missing username/password");
-        string encPass = CreateMD5(pass);
+        string encPass = AccountHelper.CreateMD5(pass);
         var data = await GetData("Account", HttpMethod.Post, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass) + "&fullname=" + WebUtility.UrlEncode(fn));
         if (data == null) return (false, "ERROR: API data was null");
         var userApi = data.ToObject<UserAPI>();
         if (userApi.account != null)
         {
-            int code = SqliteAccountsService.CreateAcc(user, userApi.account.id, fn);
+            int code = sqliteAccountsService.CreateAcc(user, userApi.account.id, fn);
             if (code == 0)
             {
                 return (true, "Account created successfully.");
@@ -111,19 +99,19 @@ class RestAPIService
     /// <param name="user">Account username. Do not provide the email address.</param>
     /// <param name="pass">Unencrypted password must be provided.</param>
     /// <returns></returns>
-    public static async Task<bool> LoginAccount(string user, string pass)
+    public async Task<bool> LoginAccount(string user, string pass)
     {
         if (user == "" || pass == "")
             return false;
-        string encPass = CreateMD5(pass);
+        string encPass = AccountHelper.CreateMD5(pass);
         var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(encPass));
         if (data == null) return false;
         string msg = (string)data.SelectToken("message");
         if (string.IsNullOrEmpty(msg))
         {
-            Account.tmpUsername = user;
-            Account.tmpPassword = encPass;
-            Account.accountInfo = data.ToObject<UserAPI>(); // store account info in accForm for later use
+            account.tmpUsername = user;
+            account.tmpPassword = encPass;
+            account.accountInfo = data.ToObject<UserAPI>(); // store account info in accForm for later use
             return true;
         }
         return false;
@@ -136,14 +124,14 @@ class RestAPIService
     /// <param name="user">OPTIONAL: If using prior to login, you need to provide a username/password</param>
     /// <param name="pass">OPTIONAL: If using prior to login, you need to provide a username/password</param>
     /// <returns></returns>
-    public static async Task<UserAPI> GetAccInfo(string user = "", string pass = "")
+    public async Task<UserAPI> GetAccInfo(string user = "", string pass = "")
     {
         if (user == "")
-            user = Account.tmpUsername;
+            user = account.tmpUsername;
         if (pass == "")
-            pass = Account.tmpPassword;
+            pass = account.tmpPassword;
         else
-            pass = CreateMD5(pass);
+            pass = AccountHelper.CreateMD5(pass);
 
         var data = await GetData("Account", HttpMethod.Get, "user=" + WebUtility.UrlEncode(user) + "&pass=" + WebUtility.UrlEncode(pass));
         if (data == null) return null;
@@ -154,13 +142,13 @@ class RestAPIService
     /// <summary>
     /// Send heartbeat so users know im online
     /// </summary>
-    /// <returns></returns>
-    public static async Task<bool> SendHeartbeat()
+    /// <returns>successful</returns>
+    public async Task<bool> SendHeartbeat()
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return false;
 
-        var data = await GetData("Account/heartbeat", HttpMethod.Get, "user=" + WebUtility.UrlEncode(Account.tmpUsername));
+        var data = await GetData("Account/heartbeat", HttpMethod.Get, "user=" + WebUtility.UrlEncode(account.tmpUsername));
         if (data == null) return false;
 
         return (string)data.SelectToken("content[0].msg") == "success";
@@ -170,17 +158,17 @@ class RestAPIService
     /// Updates the full name of the account holder in the rest api db and the sqlite db. This can only be done after login.
     /// </summary>
     /// <param name="newfn">New full name for the account holder.</param>
-    /// <returns></returns>
-    public static async Task<bool> UpdateFullName(string newfn)
+    /// <returns>successful</returns>
+    public async Task<bool> UpdateFullName(string newfn)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return false;
 
-        var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
+        var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(account.tmpPassword) + "&newfn=" + WebUtility.UrlEncode(newfn));
         if (data == null) return false;
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
-            SqliteAccountsService.UpdateFullName(newfn);
+            sqliteAccountsService.UpdateFullName(newfn);
             return true;
         }
         return false;
@@ -190,13 +178,13 @@ class RestAPIService
     /// Updates the password for the account in the rest api db. This can only be done after login.
     /// </summary>
     /// <param name="newpw">New account password. Provide this unencrypted.</param>
-    /// <returns></returns>
-    public static async Task<bool> UpdatePassword(string newpw)
+    /// <returns>successful</returns>
+    public async Task<bool> UpdatePassword(string newpw)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return false;
         newpw = Encoding.Default.GetString(SqliteAccountsService.Hash(newpw, SqliteAccountsService.passSalt));
-        var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
+        var data = await GetData("Account", HttpMethod.Patch, "user=" + WebUtility.UrlEncode(account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(account.tmpPassword) + "&newpw=" + WebUtility.UrlEncode(newpw));
         if (data == null) return false;
         if ((string)data.SelectToken("content[0].msg") == "success")
         {
@@ -209,13 +197,13 @@ class RestAPIService
     /// <summary>
     /// Get buddy list.
     /// </summary>
-    /// <returns></returns>
-    public static async Task<List<UserAPI.Buddies>> GetBuddyList()
+    /// <returns>list of buddies</returns>
+    public async Task<List<UserAPI.Buddies>> GetBuddyList()
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return null;
 
-        var data = await GetData("Buddy", HttpMethod.Get, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword));
+        var data = await GetData("Buddy", HttpMethod.Get, "user=" + WebUtility.UrlEncode(account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(account.tmpPassword));
         if (data == null) return null;
         // Assuming the JSON contains an array of buddies
         if (data == null) return null;
@@ -228,18 +216,18 @@ class RestAPIService
     /// Add buddy in the rest api db. This can only be done after login.
     /// </summary>
     /// <param name="username">Buddy's username</param>
-    /// <returns></returns>
-    public static async Task<(bool, string)> AddBuddy(string username)
+    /// <returns>tuple - successful, server message</returns>
+    public async Task<(bool, string)> AddBuddy(string username)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return (false, "sign in first");
 
-        var data = await GetData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
+        var data = await GetData("Buddy", HttpMethod.Post, "user=" + WebUtility.UrlEncode(account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(account.tmpPassword) + "&buddyName=" + WebUtility.UrlEncode(username));
         if (data == null) return (false, "no response from server");
         var buddyData = data.ToObject<UserAPI.Buddies>();
         if (buddyData?.id != null && buddyData.id > 0) // message = error msg
         {
-            SqliteAccountsService.AddBuddy(buddyData.id, buddyData.username);
+            sqliteAccountsService.AddBuddy(buddyData.id, buddyData.username);
             return (true, null);
         }
         else
@@ -254,19 +242,19 @@ class RestAPIService
     /// <summary>
     /// Remove buddy from associated account in the rest api db. This can only be done after login.
     /// </summary>
-    /// <param name="buddyid"></param>
-    /// <returns></returns>
-    public static async Task<(bool, string)> RemoveBuddy(int buddyid, string buddyName)
+    /// <param name="buddyid">buddy id</param>
+    /// <returns>tuple - successful, server message</returns>
+    public async Task<(bool, string)> RemoveBuddy(int buddyid, string buddyName)
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return (false, "sign in first");
 
-        var data = await GetData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(Account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(Account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
+        var data = await GetData("Buddy", HttpMethod.Delete, "user=" + WebUtility.UrlEncode(account.tmpUsername) + "&pass=" + WebUtility.UrlEncode(account.tmpPassword) + "&buddyId=" + WebUtility.UrlEncode(buddyid.ToString()));
         if (data == null) return (false, "no response from server");
         string msg = (string)data.SelectToken("message");
         if (!string.IsNullOrEmpty(msg) && msg.Contains("buddy removed successfully"))
         {
-            SqliteAccountsService.RemoveBuddy(buddyid, buddyName);
+            sqliteAccountsService.RemoveBuddy(buddyid, buddyName);
             return (true, null);
         }
         else

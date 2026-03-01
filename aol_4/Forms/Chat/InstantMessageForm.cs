@@ -3,6 +3,8 @@ public partial class InstantMessageForm : _Win95Theme
 {
     private readonly string privateLog;
     private readonly string user;
+    private readonly ChatService chat;
+    private readonly AccountService account;
 
     FileSystemWatcher watch = null;
 
@@ -27,13 +29,13 @@ public partial class InstantMessageForm : _Win95Theme
         myMessageBox.Clear();
     }
 
-    public InstantMessageForm(string u)
+    public InstantMessageForm(ChatService cs, AccountService acc, string u)
     {
         InitializeComponent();
 
         user = u;
 
-        privateLog = ChatHelper.GetChatPath(Account.tmpUsername, $"PM_{user}");
+        privateLog = ChatHelper.GetChatPath(account.tmpUsername, $"PM_{user}");
 
         TitleBar.MouseMove += MoveWindow;
         TitleBar.DoubleClick += TitleBar_DoubleClick;
@@ -41,6 +43,8 @@ public partial class InstantMessageForm : _Win95Theme
         mainTitle.DoubleClick += TitleBar_DoubleClick;
         maxBtn.Click += MaxRestoreButton_Click;
         this.LocationChanged += OnLocationChanged;
+        chat = cs;
+        account = acc;
     }
 
     private void MyMessageBox_KeyDown(object sender, KeyEventArgs e)
@@ -63,11 +67,11 @@ public partial class InstantMessageForm : _Win95Theme
         box.SelectionFont = new Font(box.Font, FontStyle.Regular);
 
         // Check if message contains emojis
-        bool hasEmoji = ChatService.emojis.Keys.Any(key => message.Contains(key));
+        bool hasEmoji = ChatHelper.emojis.Keys.Any(key => message.Contains(key));
 
         if (hasEmoji)
         {
-            ChatService.ReplaceEmojisWithImage(box, message);
+            chat.ReplaceEmojisWithImage(box, message);
         }
         else
         {
@@ -80,11 +84,11 @@ public partial class InstantMessageForm : _Win95Theme
     private void SendMessage()
     {
         // send to server
-        MainForm.chat.irc.SendMessageToChannel(myMessageBox.Text, user);
+        chat.irc.SendMessageToChannel(myMessageBox.Text, user);
 
         try
         {
-            File.AppendAllText(privateLog, Account.tmpUsername + ": " + myMessageBox.Text + '\n');
+            File.AppendAllText(privateLog, account.tmpUsername + ": " + myMessageBox.Text + '\n');
             SendMsgSound();
         }
         catch
@@ -227,7 +231,7 @@ public partial class InstantMessageForm : _Win95Theme
                                 string[] parts = msg.Split(new char[] { ':' }, 2);
                                 string name = parts[0];
                                 string message = parts.Length > 1 ? parts[1].Trim() : "";
-                                AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                                AppendMessage(messagesBox, name, name.Equals(account.tmpUsername) ? Color.Blue : Color.Red, message);
                             }
                             else // not a user message
                                 messagesBox.AppendText(msg);
@@ -256,7 +260,7 @@ public partial class InstantMessageForm : _Win95Theme
                             string[] parts = msg.Split(new char[] { ':' }, 2);
                             string name = parts[0];
                             string message = parts.Length > 1 ? parts[1].Trim() : "";
-                            AppendMessage(messagesBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            AppendMessage(messagesBox, name, name.Equals(account.tmpUsername) ? Color.Blue : Color.Red, message);
                         }
                         else // not a user message
                             messagesBox.AppendText(msg);

@@ -1,6 +1,10 @@
-﻿namespace aol.Forms;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace aol.Forms;
 public partial class PreferencesForm : _Win95Theme
 {
+    public IServiceProvider serviceProvider { get; }
+
     private void MiniBtn_Click(object sender, EventArgs e)
     {
         this.WindowState = FormWindowState.Minimized;
@@ -13,12 +17,15 @@ public partial class PreferencesForm : _Win95Theme
 
     private void GeneralBtn_Click(object sender, EventArgs e)
     {
-        MDIHelper.OpenForm<SettingsForm>(MdiParent);
+        var settingsForm = serviceProvider.GetRequiredService<SettingsForm>();
+        MDIHelper.OpenForm(settingsForm, MdiParent);
     }
 
-    public PreferencesForm()
+    public PreferencesForm(IServiceProvider sp)
     {
         InitializeComponent();
+
+        serviceProvider = sp;
 
         TitleBar.MouseMove += MoveWindow;
         titleLabel.MouseMove += MoveWindow;

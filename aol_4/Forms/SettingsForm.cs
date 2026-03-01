@@ -1,14 +1,17 @@
 ﻿namespace aol.Forms;
 public partial class SettingsForm : _Win95Theme
 {
-    public SettingsForm()
+    private readonly SqliteAccountsService sqliteAccountsService;
+    private readonly AccountService account;
+    public SettingsForm(SqliteAccountsService sql, AccountService acc)
     {
         InitializeComponent();
+        sqliteAccountsService = sql;
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
         mainTitle.MouseMove += MoveWindow;
-
+        this.account = acc;
     }
 
     private void fullscreenCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -30,7 +33,7 @@ public partial class SettingsForm : _Win95Theme
         countryBox.Text = Properties.Settings.Default.country;
         fullscreenCheckbox.Checked = Properties.Settings.Default.fullScreen;
         checkForUpdates.Checked = Properties.Settings.Default.disableVersionCheck;
-        fullnameBox.Text = SqliteAccountsService.GetFullName();
+        fullnameBox.Text = sqliteAccountsService.GetFullName();
 
         searchProvider.Text = Properties.Settings.Default.searchProvider;
 
@@ -41,11 +44,11 @@ public partial class SettingsForm : _Win95Theme
 
     private void ReloadBrowseHistory()
     {
-        if (!Account.SignedIn())
+        if (!account.SignedIn())
             return;
 
         browseHistoryList.Items.Clear();
-        List<string> tmpHistory = SqliteAccountsService.GetHistory();
+        List<string> tmpHistory = sqliteAccountsService.GetHistory();
         tmpHistory.Sort();
         foreach (string l in tmpHistory)
         {
@@ -65,7 +68,7 @@ public partial class SettingsForm : _Win95Theme
 
     private void Settings_FormClosing(object sender, FormClosingEventArgs e)
     {
-        if (Account.tmpUsername != "Guest" && Account.tmpUsername != "")
+        if (account.tmpUsername != "Guest" && account.tmpUsername != "")
         {
             if (homePageBox.Text.Length > 4) // make sure it's not blank
                 Properties.Settings.Default.homeSite = homePageBox.Text;
@@ -92,7 +95,7 @@ public partial class SettingsForm : _Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.SelectedItems)
         {
-            SqliteAccountsService.DeleteHistory(i.Text);
+            sqliteAccountsService.DeleteHistory(i.Text);
         }
         ReloadBrowseHistory();
     }
@@ -101,7 +104,7 @@ public partial class SettingsForm : _Win95Theme
     {
         foreach (ListViewItem i in browseHistoryList.Items)
         {
-            SqliteAccountsService.DeleteHistory(i.Text);
+            sqliteAccountsService.DeleteHistory(i.Text);
         }
         ReloadBrowseHistory();
     }

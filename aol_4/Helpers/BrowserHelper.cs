@@ -1,9 +1,9 @@
 ﻿namespace aol.Helpers;
 class BrowserHelper
 {
-    public static string GenerateURLFromString(string urlArg)
+    public static string GenerateURLFromString(string urlArg, string homepage)
     {
-        string url = Account.homePageUrl;
+        string url = homepage;
         if (!urlArg.Contains("."))
             url = SearchProvider(urlArg);
         else

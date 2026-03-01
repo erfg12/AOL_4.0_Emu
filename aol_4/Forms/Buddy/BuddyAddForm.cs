@@ -1,6 +1,13 @@
 ﻿namespace aol.Forms;
 public partial class BuddyAddForm : _Win95Theme
 {
+    private readonly RestAPIService restApi;
+    public BuddyAddForm(RestAPIService ras)
+    {
+        InitializeComponent();
+        restApi = ras;
+    }
+
     private void MiniBtn_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
@@ -18,11 +25,7 @@ public partial class BuddyAddForm : _Win95Theme
     private void AddBuddy_Shown(object sender, EventArgs e)
     {
         LocationService.PositionWindow(this);
-    }
-
-    public BuddyAddForm()
-    {
-        InitializeComponent();
+        nameTextBox.Focus();
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -41,10 +44,14 @@ public partial class BuddyAddForm : _Win95Theme
 
     private async void SendBtn_Click(object sender, EventArgs e)
     {
-        var addBuddy = await RestAPIService.AddBuddy(nameTextBox.Text);
+        var addBuddy = await restApi.AddBuddy(nameTextBox.Text);
 
         if (addBuddy.Item1)
+        {
             OpenMsgBox("INFO", "Buddy Added!");
+            BuddyListForm buddyListForm = (BuddyListForm)Application.OpenForms["BuddyListForm"];
+            buddyListForm?.UpdateBuddyStatus();
+        }
         else
             OpenMsgBox("ERROR", addBuddy.Item2);
         Close();

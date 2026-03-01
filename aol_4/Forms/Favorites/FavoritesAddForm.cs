@@ -21,13 +21,16 @@ public partial class FavoritesAddForm : _Win95Theme
     string url = "";
     string name = "";
     bool edit = false;
+    private readonly SqliteAccountsService sqliteAccountsService;
 
-    public FavoritesAddForm(string url1, string name1, bool edit1 = false)
+    public FavoritesAddForm(SqliteAccountsService sql, string url1, string name1, bool edit1 = false)
     {
         InitializeComponent();
         url = url1;
         name = name1;
         edit = edit1;
+
+        sqliteAccountsService = sql;
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
@@ -37,9 +40,9 @@ public partial class FavoritesAddForm : _Win95Theme
     private void OkBtn_Click(object sender, EventArgs e)
     {
         if (!edit)
-            SqliteAccountsService.AddFavorite(internetAddrBox.Text, placeDescBox.Text);
+            sqliteAccountsService.AddFavorite(internetAddrBox.Text, placeDescBox.Text);
         else
-            SqliteAccountsService.UpdateFavorite(internetAddrBox.Text, placeDescBox.Text);
+            sqliteAccountsService.UpdateFavorite(internetAddrBox.Text, placeDescBox.Text);
         Close();
     }
 

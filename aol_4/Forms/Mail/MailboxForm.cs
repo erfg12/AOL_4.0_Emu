@@ -1,9 +1,16 @@
 ﻿namespace aol.Forms;
 public partial class MailboxForm : _Win95Theme
 {
-    public MailboxForm()
+    private readonly AccountService account;
+    private readonly MailService mail;
+    private readonly ChatService chat;
+    public MailboxForm(AccountService acc, MailService ms, ChatService cs)
     {
         InitializeComponent();
+        account = acc;
+        mail = ms;
+        chat = cs;
+
         this.DoubleBuffered = true;
         this.SetStyle(ControlStyles.ResizeRedraw, true);
         this.Dock = DockStyle.Fill;
@@ -18,8 +25,8 @@ public partial class MailboxForm : _Win95Theme
 
     private void GetEmail()
     {
-        MailService.GetEmail();
-        foreach (KeyValuePair<string, string> entry in MailService.emailsNew)
+        mail.GetEmail();
+        foreach (KeyValuePair<string, string> entry in mail.emailsNew)
         {
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = entry.Key;
@@ -34,7 +41,7 @@ public partial class MailboxForm : _Win95Theme
                 Debug.WriteLine("Prevented a crash from closing mailbox before we could load the items in.");
             }
         }
-        foreach (KeyValuePair<string, string> entry in MailService.emailsOld)
+        foreach (KeyValuePair<string, string> entry in mail.emailsOld)
         {
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = entry.Key;
@@ -49,7 +56,7 @@ public partial class MailboxForm : _Win95Theme
 
             }
         }
-        foreach (KeyValuePair<string, string> entry in MailService.emailsSent)
+        foreach (KeyValuePair<string, string> entry in mail.emailsSent)
         {
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = entry.Key;
@@ -68,19 +75,19 @@ public partial class MailboxForm : _Win95Theme
         if (newListView.SelectedItems.Count <= 0)
             return;
 
-        MailService.MarkAsSeen(newListView.SelectedItems[0].Tag.ToString());
+        mail.MarkAsSeen(newListView.SelectedItems[0].Tag.ToString());
         ListViewItem lIt = new ListViewItem();
         lIt.Tag = newListView.SelectedItems[0].Tag.ToString();
         lIt.Text = newListView.SelectedItems[0].Text;
         oldListView.Items.Add(lIt);
         newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
         if (newListView.Items.Count == 0)
-            MailService.youGotMail = false;
+            mail.youGotMail = false;
     }
 
     private void OpenReadEmail(string subject, string emailID)
     {
-        MDIHelper.OpenForm(() => new MailReadForm(subject, emailID), MdiParent);
+        MDIHelper.OpenForm(() => new MailReadForm(subject, emailID, mail, chat), MdiParent);
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -103,11 +110,11 @@ public partial class MailboxForm : _Win95Theme
                 return;
             }
 
-            MailService.DeleteEmail(newListView.SelectedItems[0].Tag.ToString());
+            mail.DeleteEmail(newListView.SelectedItems[0].Tag.ToString());
             newListView.Items.RemoveAt(newListView.SelectedItems[0].Index);
-            Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + MailService.youGotMail);
+            Debug.WriteLine("[MAIL] new mail count: " + newListView.Items.Count + " YGM flag: " + mail.youGotMail);
             if (newListView.Items.Count == 0)
-                MailService.youGotMail = false;
+                mail.youGotMail = false;
         }
         else if (oldListView.Visible)
         {
@@ -117,7 +124,7 @@ public partial class MailboxForm : _Win95Theme
                 return;
             }
 
-            MailService.DeleteEmail(oldListView.SelectedItems[0].Tag.ToString());
+            mail.DeleteEmail(oldListView.SelectedItems[0].Tag.ToString());
             oldListView.Items.RemoveAt(oldListView.SelectedItems[0].Index);
         }
         else if (sentListView.Visible)
@@ -128,7 +135,7 @@ public partial class MailboxForm : _Win95Theme
                 return;
             }
 
-            MailService.DeleteEmail(sentListView.SelectedItems[0].Tag.ToString());
+            mail.DeleteEmail(sentListView.SelectedItems[0].Tag.ToString());
             sentListView.Items.RemoveAt(sentListView.SelectedItems[0].Index);
         }
         MessageBox.Show("Email has been deleted.");
@@ -144,7 +151,7 @@ public partial class MailboxForm : _Win95Theme
 
         if (oldListView.Visible) // only works on old emails
         {
-            MailService.MarkAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
+            mail.MarkAsUnseen(oldListView.SelectedItems[0].Tag.ToString());
             ListViewItem lIt = new ListViewItem();
             lIt.Tag = oldListView.SelectedItems[0].Tag.ToString();
             lIt.Text = oldListView.SelectedItems[0].Text;
@@ -188,8 +195,8 @@ public partial class MailboxForm : _Win95Theme
         LocationService.PositionWindow(this, 0, 55);
         Thread thread = new Thread(new ThreadStart(GetEmail));
         thread.Start();
-        Text = $"{Account.tmpUsername}'s Online Mailbox";
-        mainTitle.Text = $"{Account.tmpUsername}'s Online Mailbox";
+        Text = $"{account.tmpUsername}'s Online Mailbox";
+        mainTitle.Text = $"{account.tmpUsername}'s Online Mailbox";
     }
 
     private void NewListview_DoubleClick(object sender, EventArgs e)

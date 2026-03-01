@@ -1,13 +1,17 @@
 ﻿namespace aol.Forms;
 public partial class SignupForm : _Win95Theme
 {
-    public SignupForm()
+    private readonly RestAPIService restApi;
+    private readonly SqliteAccountsService sqliteAccountsService;
+    public SignupForm(RestAPIService ras, SqliteAccountsService sql)
     {
         InitializeComponent();
 
         TitleBar.MouseMove += MoveWindow;
         mainTitle.MouseMove += MoveWindow;
         this.LocationChanged += OnLocationChanged;
+        restApi = ras;
+        sqliteAccountsService = sql;
     }
 
     private void CloseBtn_Click(object sender, EventArgs e)
@@ -37,7 +41,7 @@ public partial class SignupForm : _Win95Theme
         this.Cursor = Cursors.WaitCursor;
         LoadingLabel.Text = "Creating account, please wait...";
 
-        var createAccount = await RestAPIService.CreateAccount(username.Text, password.Text, fullname.Text);
+        var createAccount = await restApi.CreateAccount(username.Text, password.Text, fullname.Text);
 
         if (createAccount.success)
         {
@@ -67,20 +71,20 @@ public partial class SignupForm : _Win95Theme
             this.Cursor = Cursors.WaitCursor;
             string user = recoverUser.Text;
             string pass = recoverPass.Text;
-            var userApi = await RestAPIService.GetAccInfo(user, pass);
+            var userApi = await restApi.GetAccInfo(user, pass);
             this.Cursor = Cursors.Default;
 
             if (userApi != null)
             {
-                int code = SqliteAccountsService.CreateAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
-                List<UserAPI.Buddies> dbBuddies = SqliteAccountsService.GetBuddyList(userApi.account.id);
+                int code = sqliteAccountsService.CreateAcc(userApi.account.username, userApi.account.id, userApi.account.fullname);
+                List<UserAPI.Buddies> dbBuddies = sqliteAccountsService.GetBuddyList(userApi.account.id);
 
                 if (code == 0)
                 {
                     foreach (var t in userApi.buddies)
                     {
                         if (!dbBuddies.Any(x => x.id.Equals(t.id))) // if we deleted an account to re-create it, but we had our buddy list still there, prevent a crash
-                            SqliteAccountsService.AddBuddy(t.id, t.username, userApi.account.id);
+                            sqliteAccountsService.AddBuddy(t.id, t.username, userApi.account.id);
                     }
 
                     // update the sign on form's dropdown with the new account, if it exists

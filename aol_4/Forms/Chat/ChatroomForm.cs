@@ -9,21 +9,25 @@ public partial class ChatroomForm : _Win95Theme
     int pplCount = 0;
     FileSystemWatcher watch = null;
     bool formClosing = false;
+    private readonly ChatService chat;
+    private readonly AccountService account;
 
-    public ChatroomForm(string channel)
+    public ChatroomForm(ChatService cs, AccountService acc, string channel)
     {
         InitializeComponent();
+        chat = cs;
+        account = acc;
 
         roomname = channel;
-        chatlog = ChatHelper.GetChatPath(Account.tmpUsername, channel);
+        chatlog = ChatHelper.GetChatPath(account.tmpUsername, channel);
 
-        if (!MainForm.chat.irc.IsClientRunning())
+        if (!chat.irc.IsClientRunning())
         {
             OpenMsgBox("ERROR", "Chat server not connected!");
             Close();
         }
 
-        MainForm.chat.irc.SendRawMessage("join #" + channel);
+        chat.irc.SendRawMessage("join #" + channel);
 
         KeepReading();
 
@@ -67,7 +71,7 @@ public partial class ChatroomForm : _Win95Theme
                             string[] parts = msg.Split(new char[] { ':' }, 2);
                             string name = parts[0];
                             string message = parts.Length > 1 ? parts[1].Trim() : "";
-                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            AppendMessage(chatRoomTextBox, name, name.Equals(account.tmpUsername) ? Color.Blue : Color.Red, message);
                         }
                         else // not a user message
                             chatRoomTextBox.AppendText(msg);
@@ -94,7 +98,7 @@ public partial class ChatroomForm : _Win95Theme
                         string message = parts.Length > 1 ? parts[1].Trim() : "";
                         chatRoomTextBox.Invoke(new MethodInvoker(delegate
                         {
-                            AppendMessage(chatRoomTextBox, name, name.Equals(Account.tmpUsername) ? Color.Blue : Color.Red, message);
+                            AppendMessage(chatRoomTextBox, name, name.Equals(account.tmpUsername) ? Color.Blue : Color.Red, message);
                         }));
                     }
                     else // not a user message
@@ -128,11 +132,11 @@ public partial class ChatroomForm : _Win95Theme
         box.SelectionFont = new Font(box.Font, FontStyle.Regular);
 
         // Check if message contains emojis
-        bool hasEmoji = ChatService.emojis.Keys.Any(key => message.Contains(key));
+        bool hasEmoji = ChatHelper.emojis.Keys.Any(key => message.Contains(key));
 
         if (hasEmoji)
         {
-            ChatService.ReplaceEmojisWithImage(box, message);
+            chat.ReplaceEmojisWithImage(box, message);
         }
         else
         {
@@ -164,7 +168,7 @@ public partial class ChatroomForm : _Win95Theme
 
     private void UsersListView_DoubleClick(object sender, EventArgs e)
     {
-        InstantMessageForm im = new InstantMessageForm(usersListView.SelectedItems[0].Text.ToString());
+        InstantMessageForm im = new InstantMessageForm(chat, account, usersListView.SelectedItems[0].Text.ToString());
         im.Owner = this;
         im.MdiParent = MdiParent;
         im.Tag = usersListView.SelectedItems[0].Text.ToString();
@@ -174,7 +178,7 @@ public partial class ChatroomForm : _Win95Theme
     private void Chatroom_FormClosing(object sender, FormClosingEventArgs e)
     {
         formClosing = true;
-        MainForm.chat.irc.SendRawMessage($"PART #{roomname} :bye everyone");
+        chat.irc.SendRawMessage($"PART #{roomname} :bye everyone");
 
         watch.EnableRaisingEvents = false;
         watch.Changed -= OnChanged;
@@ -195,17 +199,17 @@ public partial class ChatroomForm : _Win95Theme
 
     private void SendMsg()
     {
-        if (!MainForm.chat.irc.IsClientRunning())
+        if (!chat.irc.IsClientRunning())
             MessageBox.Show("ERROR: IRC client is not running");
 
-        if (!MainForm.chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + roomname))
+        if (!chat.irc.SendMessageToChannel(messageTextBox.Text, "#" + roomname))
         {
             MessageBox.Show("ERROR: Failed to send message!");
             return;
         }
         // write to file
-        string privateLog = ChatHelper.GetChatPath(Account.tmpUsername, roomname);
-        File.AppendAllText(privateLog, Account.tmpUsername + ": " + messageTextBox.Text + '\n');
+        string privateLog = ChatHelper.GetChatPath(account.tmpUsername, roomname);
+        File.AppendAllText(privateLog, account.tmpUsername + ": " + messageTextBox.Text + '\n');
         messageTextBox.Clear();
     }
 
@@ -229,26 +233,26 @@ public partial class ChatroomForm : _Win95Theme
     /// </summary>
     private void UpdateUsersTimer_Tick(object sender, EventArgs e)
     {
-        if (!IsHandleCreated || !Account.SignedIn())
+        if (!IsHandleCreated || !account.SignedIn())
             return;
 
-        if (!MainForm.chat.irc.IrcClient.IsConnectionEstablished() || !MainForm.chat.irc.IsClientRunning())
+        if (!chat.irc.IrcClient.IsConnectionEstablished() || !chat.irc.IsClientRunning())
         {
             Debug.WriteLine("Client is not connected.");
             return;
         }
 
-        if (!MainForm.chat.users.ContainsKey(roomname))
+        if (!chat.users.ContainsKey(roomname))
         {
             Debug.WriteLine("chat.users key [" + roomname + "] doesn't exist");
-            MainForm.chat.irc.GetUsersInDifferentChannel("#" + roomname);
+            chat.irc.GetUsersInDifferentChannel("#" + roomname);
             return;
         }
 
         // remove offline users
         foreach (ListViewItem item in usersListView.Items)
         {
-            if (!MainForm.chat.users[roomname].Contains(item.Text))
+            if (!chat.users[roomname].Contains(item.Text))
             {
                 usersListView.Items.Remove(item);
                 pplCount--;
@@ -256,7 +260,7 @@ public partial class ChatroomForm : _Win95Theme
         }
 
         // add online users
-        List<string> usersList = MainForm.chat.users[roomname]; // gotta declare it, so we can use it
+        List<string> usersList = chat.users[roomname]; // gotta declare it, so we can use it
         for (int i = 0; i < usersList.Count; i++)
         {
             if (usersList[i] == "")

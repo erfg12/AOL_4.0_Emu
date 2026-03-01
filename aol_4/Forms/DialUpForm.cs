@@ -1,16 +1,27 @@
-﻿namespace aol.Forms;
+﻿using Microsoft.Extensions.DependencyInjection;
+using static UserAPI;
+
+namespace aol.Forms;
 public partial class DialUpForm : _Win95Theme
 {
     string verbage = "TCP/IP";
     int dialUpStep = 0;
+    public IServiceProvider serviceProvider { get; }
+    private readonly ChatService chat;
+    private readonly AccountService account;
 
-    public DialUpForm()
+    public DialUpForm(IServiceProvider sp, ChatService cs, AccountService acc)
     {
         InitializeComponent();
+
+        serviceProvider = sp;
+        account = acc;
+        chat = cs;
+        if (account.tmpLocation == "Dial-Up")
+            verbage = "Dial-Up";
+
         TopLevel = true;
         Focus();
-        if (Account.tmpLocation == "Dial-Up")
-            verbage = "Dial-Up";
     }
 
     async Task DialUp()
@@ -37,7 +48,7 @@ public partial class DialUpForm : _Win95Theme
             case 1: // pretend to connect to server
                 pictureBox1.Visible = Visible;
                 statusLabel.Text = "Step 2: Connecting using " + verbage + " ...";
-                if (Account.tmpLocation == "Dial-Up")
+                if (account.tmpLocation == "Dial-Up")
                     await DialUp();
                 break;
             case 2: // pretend to check password
@@ -64,24 +75,20 @@ public partial class DialUpForm : _Win95Theme
     {
         var mainForm = (MainForm)this.MdiParent;
 
-        HomeMenuForm hm = new HomeMenuForm()
+        HomeMenuForm hm = new HomeMenuForm(account, serviceProvider)
         {
             Owner = mainForm,
             MdiParent = mainForm
         };
         hm.Show();
 
-        if (Account.tmpUsername != "Guest")
+        if (account.tmpUsername != "Guest")
         {
             mainForm.checkMail.Enabled = true;
             mainForm.checkMail.Start();
 
-            BuddyListForm bo = new BuddyListForm()
-            {
-                Owner = mainForm,
-                MdiParent = mainForm
-            };
-            bo.Show();
+            var buddyListForm = this.serviceProvider.GetRequiredService<BuddyListForm>();
+            MDIHelper.OpenForm(buddyListForm, mainForm);
 
             mainForm.ReloadAddressBarHistory();
         }

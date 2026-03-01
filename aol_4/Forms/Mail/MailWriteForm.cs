@@ -1,7 +1,8 @@
 ﻿namespace aol.Forms;
 public partial class MailWriteForm : _Win95Theme
 {
-    public MailWriteForm(string sendTo = "", string subject = "")
+    private readonly MailService mail;
+    public MailWriteForm(MailService ms, string sendTo = "", string subject = "")
     {
         InitializeComponent();
         FormBorderStyle = FormBorderStyle.None;
@@ -18,6 +19,7 @@ public partial class MailWriteForm : _Win95Theme
         TitleBar.DoubleClick += TitleBar_DoubleClick;
         TitleLabel.MouseMove += MoveWindow;
         TitleLabel.DoubleClick += TitleBar_DoubleClick;
+        mail = ms;
     }
 
     private void MiniBtn_Click(object sender, EventArgs e)
@@ -37,7 +39,7 @@ public partial class MailWriteForm : _Win95Theme
 
         foreach (KeyValuePair<string, string> entry in entries)
         {
-            MailService.SendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
+            mail.SendEmail(entry.Key, entry.Value, subjectBox.Text, messageBox.Text);
         }
         OpenMsgBox("INFO", "Your email has been sent!");
         Close();

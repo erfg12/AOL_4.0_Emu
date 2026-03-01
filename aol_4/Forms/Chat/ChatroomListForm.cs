@@ -1,6 +1,9 @@
 ﻿namespace aol.Forms;
 public partial class ChatroomListForm : _Win95Theme
 {
+    AccountService account;
+    ChatService chat;
+
     private ConcurrentDictionary<string, List<string>> categories = new();
 
     public static string StripHTML(string input)
@@ -44,24 +47,26 @@ public partial class ChatroomListForm : _Win95Theme
 
     }
 
-    public ChatroomListForm()
+    public ChatroomListForm(AccountService acc, ChatService cs)
     {
         InitializeComponent();
 
         this.LocationChanged += OnLocationChanged;
         TitleBar.MouseMove += MoveWindow;
         mainTitle.MouseMove += MoveWindow;
+        account = acc;
+        chat = cs;
     }
 
     private void chanListView_DoubleClick(object sender, EventArgs e)
     {
-        if (!MainForm.chat.irc.IsClientRunning())
+        if (!chat.irc.IsClientRunning())
         {
             OpenMsgBox("ERROR", "IRC client not running.");
             return;
         }
 
-        ChatroomForm cr = new ChatroomForm(chanListView.SelectedItems[0].Text.ToLower());
+        ChatroomForm cr = new ChatroomForm(chat, account, chanListView.SelectedItems[0].Text.ToLower());
         cr.Owner = this;
         cr.MdiParent = MdiParent;
         cr.Show();
@@ -111,7 +116,7 @@ public partial class ChatroomListForm : _Win95Theme
     {
         if (chanListView.SelectedItems.Count <= 0)
             return;
-        ChatroomForm cr = new ChatroomForm(chanListView.SelectedItems[0].Text.ToLower());
+        ChatroomForm cr = new ChatroomForm(chat, account, chanListView.SelectedItems[0].Text.ToLower());
         cr.Owner = this;
         cr.MdiParent = MdiParent;
         cr.Show();
